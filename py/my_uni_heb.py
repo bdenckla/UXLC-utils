@@ -1,35 +1,16 @@
 """
 This module exports:
-    do_quick_test
-    shunna
-    accent_names
-    hechar_names
-    write_verse_un
-    comma_shunna
-    t_shunna
+    comma_shunnas
 """
 
 import unicodedata
-import my_html
-import my_tanakh_book_names as tbn
 import my_hebrew_letters as hl
 import my_hebrew_points as hpo
 import my_hebrew_accents as ha
 import my_str_defs as sd
-import my_render_wikitext as rwt
 
 
-def do_quick_test():
-    """ Do a quick test. """
-    lines1 = _get_pre_lines(' ', ' '+'אבג')
-    lines2 = _get_pre_lines(' ', 'דהו'+' ')
-    lines3 = _get_pre_lines(' ', ' '+'זחט'+' ')
-    assert lines1 == [' ', 'אבג']
-    assert lines2 == ['דהו', ' ']
-    assert lines3 == [' ', 'זחט', ' ']
-
-
-def shunna(string):
+def _shunna(string):
     """ Return a shortened name of the string,
     if we "know" a shortened name for it
     """
@@ -43,38 +24,15 @@ def shunna(string):
     return sfpp + ' ' + ' '.join(fullname_words[2:])
 
 
-def accent_names(string):
-    """ Return accent names. """
-    return filter(None, (_HE_TO_NONHE_ACC_DIC.get(c) for c in string))
-
-
-def hechar_names(string):
-    """ Return Hebrew character names. """
-    return (_HE_TO_NONHE_DIC[c] for c in string)
-
-
-def write_verse_un(out_fp, bcvt, multiverse):
-    """ Write verse in "unicode names" format """
-    bkid, chnu, vrnu = tbn.bcvt_get_bcv_triple(bcvt)
-    vtrad = tbn.bcvt_get_vtrad(bcvt)
-    out_fp.write(f'{bkid} {chnu}:{vrnu} in vtrad {vtrad}\n')
-    for rv_cant, body in multiverse.items():
-        if len(multiverse) > 1:
-            _write_segments(out_fp, body, rv_cant)
-        else:
-            _write_segments(out_fp, body, None)
-    out_fp.write('\n')
-
-
 def comma_shunnas(string):
     """ Comma-joined shortened unicode names """
-    return ','.join(t_shunnas(string))
+    return ','.join(_t_shunnas(string))
 
 
-def t_shunnas(string: str):
+def _t_shunnas(string: str):
     """ Tuple of shortened unicode names """
     assert isinstance(string, str)
-    return tuple(map(shunna, string))
+    return tuple(map(_shunna, string))
 
 
 def _mk_he_to_nonhe_dic():
@@ -87,57 +45,6 @@ def _mk_he_to_nonhe_dic():
 
 def _shorten_fullname_prefix(word1, word2):
     return _SHORTEN_DIC.get((word1, word2)) or word1 + ' ' + word2
-
-
-def _write_segments(out_fp, some_kind_of_verse, cant_dab=None, indent=''):
-    if isinstance(some_kind_of_verse, (list, tuple)):
-        html_els = some_kind_of_verse
-        _write_segments_from_html_els(
-            out_fp, html_els, cant_dab, indent)
-        return
-    if isinstance(some_kind_of_verse, rwt.VerseAndFriends):
-        veraf = some_kind_of_verse
-        for html_els in (veraf.verse, veraf.next_cp, veraf.good_ending):
-            _write_segments_from_html_els(
-                out_fp, html_els, cant_dab, indent)
-        return
-    assert False, some_kind_of_verse
-
-
-def _write_segments_from_html_els(out_fp, html_els, cant_dab=None, indent=''):
-    if cant_dab:
-        out_fp.write(f'{cant_dab}\n')
-        indent = '    '
-    for html_el in html_els:
-        if isinstance(html_el, str):
-            pre_lines = [html_el]
-            for sep in ' ', sd.NBSP:
-                list_of_lists = [_get_pre_lines(sep, pl) for pl in pre_lines]
-                pre_lines = sum(list_of_lists, [])
-            for pre_line in pre_lines:
-                line = comma_shunnas(pre_line)
-                out_fp.write(indent + line + '\n')
-            continue
-        if isinstance(html_el, dict):
-            segtag = my_html.hel_get_tag(html_el)  # e.g. 'span'
-            attr = html_el.get('attr')
-            kev_strs = _key_eq_val_strs(attr or {})
-            if contents := html_el.get('contents'):
-                out_fp.write(indent + _stasto('START', segtag, kev_strs))
-                _write_segments(out_fp, contents, None, indent)
-                out_fp.write(indent + _stasto('STOP', segtag, kev_strs))
-            else:
-                out_fp.write(indent + _stasto('START/STOP', segtag, kev_strs))
-            continue
-        assert False, 'instance of unexpected type'
-
-
-def _key_eq_val_strs(dic):
-    return tuple(f'{key}={val}' for key, val in dic.items())
-
-
-def _stasto(stasto, segtag, kev_strs):
-    return ' '.join((stasto, segtag, *kev_strs)) + '\n'
 
 
 def _get_pre_lines(sep, segment):
