@@ -1,0 +1,42 @@
+[
+  {
+    "fragile_word_u": "וַיֹּ֣אמְר֔וּ",
+    "fragile_word_n": "וַיֹּ֣אמְר֔וּ",
+    "fragile_word_u_cs": "w,_,y,·,⅃,o,α,m,:,r,ƶ,w,·",
+    "fragile_word_n_cs": "w,_,y,o,·,⅃,α,m,:,r,ƶ,w,·",
+    "fragile_word_u_with_drops": "w,_,y,⅃,o,α,m,:,r,ƶ,w",
+    "fragile_word_n_with_drops": "w,_,y,o,⅃,α,m,:,r,ƶ,w"
+  },
+  {
+    "fragile_word_u": "וַיֹּ֧סֶף",
+    "fragile_word_n": "וַיֹּ֧סֶף",
+    "fragile_word_u_cs": "w,_,y,·,(da),o,σ,∵,f.",
+    "fragile_word_n_cs": "w,_,y,o,·,(da),σ,∵,f.",
+    "fragile_word_u_with_drops": "w,_,y,(da),o,σ,∵,f.",
+    "fragile_word_n_with_drops": "w,_,y,o,(da),σ,∵,f."
+  },
+  {
+    "fragile_word_u": "וַיִּקְבְֹּ֥ר",
+    "fragile_word_n": "וַיִּקְבְֹּ֥ר",
+    "fragile_word_u_cs": "w,_,y,·,i,q,:,v,·,o,:,(me),r",
+    "fragile_word_n_cs": "w,_,y,i,·,q,:,v,:,o,·,(me),r",
+    "fragile_word_u_with_drops": "w,_,y,i,q,:,v,o,:,(me),r",
+    "fragile_word_n_with_drops": "w,_,y,i,q,:,v,:,o,(me),r"
+  },
+  {
+    "fragile_word_u": "עֲווֹ֣ן",
+    "fragile_word_n": "עֲווֹ֣ן",
+    "fragile_word_u_cs": "ʕ,:_,w,w,⅃,o,n.",
+    "fragile_word_n_cs": "ʕ,:_,w,w,o,⅃,n.",
+    "fragile_word_u_with_drops": "ʕ,:_,w,w,⅃,o,n.",
+    "fragile_word_n_with_drops": "ʕ,:_,w,w,o,⅃,n."
+  },
+  {
+    "fragile_word_u": "תַעֲשֶֽׂ֙ה־",
+    "fragile_word_n": "תַעֲשֶֽׂ֙ה־",
+    "fragile_word_u_cs": "τ,_,ʕ,:_,$,·si,∵,(p),𝓂,h,-",
+    "fragile_word_n_cs": "τ,_,ʕ,:_,$,∵,𝓂,·si,(p),h,-",
+    "fragile_word_u_with_drops": "τ,_,ʕ,:_,$,∵,(p),𝓂,h,-",
+    "fragile_word_n_with_drops": "τ,_,ʕ,:_,$,∵,𝓂,(p),h,-"
+  }
+]
