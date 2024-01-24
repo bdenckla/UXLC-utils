@@ -1,6 +1,10 @@
 """
 This module exports:
+    shunna
+    accent_names
+    hechar_names
     comma_shunnas
+    t_shunna
 """
 
 import unicodedata
@@ -10,7 +14,7 @@ import my_hebrew_accents as ha
 import my_str_defs as sd
 
 
-def _shunna(string):
+def shunna(string):
     """ Return a shortened name of the string,
     if we "know" a shortened name for it
     """
@@ -24,15 +28,25 @@ def _shunna(string):
     return sfpp + ' ' + ' '.join(fullname_words[2:])
 
 
+def accent_names(string):
+    """ Return accent names. """
+    return filter(None, (_HE_TO_NONHE_ACC_DIC.get(c) for c in string))
+
+
+def hechar_names(string):
+    """ Return Hebrew character names. """
+    return (_HE_TO_NONHE_DIC[c] for c in string)
+
+
 def comma_shunnas(string):
     """ Comma-joined shortened unicode names """
-    return ','.join(_t_shunnas(string))
+    return ','.join(t_shunnas(string))
 
 
-def _t_shunnas(string: str):
+def t_shunnas(string: str):
     """ Tuple of shortened unicode names """
     assert isinstance(string, str)
-    return tuple(map(_shunna, string))
+    return tuple(map(shunna, string))
 
 
 def _mk_he_to_nonhe_dic():
@@ -45,18 +59,6 @@ def _mk_he_to_nonhe_dic():
 
 def _shorten_fullname_prefix(word1, word2):
     return _SHORTEN_DIC.get((word1, word2)) or word1 + ' ' + word2
-
-
-def _get_pre_lines(sep, segment):
-    pre_lines = []
-    nsruns = segment.split(sep)  # nsrun: non-sep run
-    for nsrun in nsruns[:-1]:
-        if nsrun:
-            pre_lines.append(nsrun)
-        pre_lines.append(sep)
-    if nsruns[-1]:
-        pre_lines.append(nsruns[-1])
-    return pre_lines
 
 
 _SHORTEN_DIC = {
