@@ -4478,6 +4478,54 @@
             <!--...................................................-->
         </date>
         <!--===================================================-->
+        <!--===================================================-->
+        <date>
+            <date>2024.01.29</date>
+            <!--...................................................-->
+            <change>
+                <n>1</n>
+                <citation>
+                    <book>Jer</book>
+                    <c>37</c>
+                    <v>16</v>
+                    <position>8</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Positioning of etnachta under nun is uncertain. Add note 't' after nun.</description>
+                <lc>
+                    <folio>Folio_267A</folio>
+                    <column>2</column>
+                    <line>14</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הַֽחֲנֻ֑יוֹת</reftext>
+                <refuni>he     patah     meteg     het     hataf-patah     nun     qubuts     etnachta     yod     vav     holam     tav     </refuni>
+                <changetext>הַֽחֲנֻ֑יוֹת</changetext>
+                <changeuni>he     patah     meteg     het     hataf-patah     nun     qubuts     etnachta     yod     vav     holam     tav     </changeuni>
+                <notes>
+                    <note>The positioning of the etnachta under the nun is uncertain; it might belong to the yod because the etnachta is shadowed by the foot of the nun. Add note 't'. The uncertainty was noted by Daniel Holman and Avi Kadish as well as the author.</note>
+                    <note>BHL has the etnachta under the nun. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>הַֽחֲנֻ֑</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+        </date>
+        <!--===================================================-->
     </dates>
 </Changes>
 <!--===================================================-->

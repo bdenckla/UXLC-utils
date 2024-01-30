@@ -6,7 +6,7 @@
     <ref>UXLC 1.9</ref>
     <target>UXLC 2.0</target>
     <filedate>2023.10.19</filedate>
-    <type>proposed</type>
+    <type>installed</type>
     <dates>
         <!--===================================================-->
         <date>
@@ -53,7 +53,7 @@
                         <beforetext>יִקָּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -89,7 +89,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -125,7 +125,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -160,7 +160,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -195,7 +195,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -231,7 +231,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -274,7 +274,7 @@
                         <beforetext>עָ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -318,7 +318,7 @@
                         <beforetext>ט֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -361,7 +361,7 @@
                         <beforetext>מ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -406,7 +406,7 @@
                         <beforetext>אַכְזָרֽ͏ִ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -451,7 +451,7 @@
                         <beforetext>בּ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -495,7 +495,7 @@
                         <beforetext>אֹ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -530,7 +530,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -573,7 +573,7 @@
                         <beforetext>שֹׁ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -616,7 +616,7 @@
                         <beforetext>לֹֹּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -661,7 +661,7 @@
                         <beforetext>לֵ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -696,7 +696,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -730,7 +730,7 @@
                     <note>BHL has a dagesh in the kaf. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -773,7 +773,7 @@
                         <beforetext>הַ֭יַּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -816,7 +816,7 @@
                         <beforetext>תּ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -852,7 +852,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -895,7 +895,7 @@
                         <beforetext>וּ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -929,7 +929,7 @@
                     <note>BHL has no dagesh in the mem and no maqaf at the end of the word. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -963,7 +963,7 @@
                     <note>BHL has no dagesh in the first yod. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1000,7 +1000,7 @@
 						BHLA has a holam on the vav and a dagesh in the vav.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1036,7 +1036,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1072,7 +1072,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1108,7 +1108,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1148,7 +1148,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1189,7 +1189,7 @@
                         <beforetext>ט֭</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -1233,7 +1233,7 @@
                         <beforetext>גּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1269,7 +1269,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel/accent</type>
             </change>
             <!--...................................................-->
@@ -1310,7 +1310,7 @@
                         <beforetext>נִֽבֳהָ֥</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1346,7 +1346,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1382,7 +1382,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1416,7 +1416,7 @@
                     <note>BHL has a munah under the kaf. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1457,7 +1457,7 @@
                         <beforetext>וְתֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1498,7 +1498,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1534,7 +1534,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1577,7 +1577,7 @@
                         <beforetext>וְכִימֵ֖֗</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1614,7 +1614,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1657,7 +1657,7 @@
                         <beforetext>עַ֝כָּבִ֗</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -1693,7 +1693,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1736,7 +1736,7 @@
                         <beforetext>עִמּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1779,7 +1779,7 @@
                         <beforetext>כַּפָּי</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1826,7 +1826,7 @@
                         <beforetext>וּֽלְחַטָּאתִֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1862,7 +1862,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1897,7 +1897,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -1933,7 +1933,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1969,7 +1969,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel/accent</type>
             </change>
             <!--...................................................-->
@@ -2017,7 +2017,7 @@
                         <beforetext>תָּ֤שִֽׁ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2053,7 +2053,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2100,7 +2100,7 @@
                         <beforetext>וְיָלֹ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2134,7 +2134,7 @@
                     <note>BHL has a patah under the he and has no dagesh in the mem.  BHLA has a hataf patah under the he and NO dagesh in the mem.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2180,7 +2180,7 @@
                         <beforetext>א֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2216,7 +2216,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2259,7 +2259,7 @@
                         <beforetext>חֶרְפָּתִּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2295,7 +2295,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2331,7 +2331,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2374,7 +2374,7 @@
                         <beforetext>וִ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2410,7 +2410,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2456,7 +2456,7 @@
                         <beforetext>לָֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2500,7 +2500,7 @@
                         <beforetext>א֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2545,7 +2545,7 @@
                         <beforetext>אֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2588,7 +2588,7 @@
                         <beforetext>אַנְחָתִֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2631,7 +2631,7 @@
                         <beforetext>תְּכוּנָתֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2674,7 +2674,7 @@
                         <beforetext>תוֹכָחֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2710,7 +2710,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2746,7 +2746,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2782,7 +2782,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2818,7 +2818,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2861,7 +2861,7 @@
                         <beforetext>ר֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2897,7 +2897,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2933,7 +2933,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2974,7 +2974,7 @@
                         <beforetext>וַיֹּ֫אמַֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3010,7 +3010,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel/accent</type>
             </change>
             <!--...................................................-->
@@ -3046,7 +3046,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3081,7 +3081,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3117,7 +3117,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3158,7 +3158,7 @@
                         <beforetext>לֹֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel/accent</type>
             </change>
             <!--...................................................-->
@@ -3201,7 +3201,7 @@
                         <beforetext>ל֭</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3237,7 +3237,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3287,7 +3287,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3330,7 +3330,7 @@
                         <beforetext>חָ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3364,7 +3364,7 @@
                     <note>BHL has a darga under the yod.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3410,7 +3410,7 @@
                         <beforetext>יְהוָֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3457,7 +3457,7 @@
                         <beforetext>חֵֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3497,7 +3497,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3533,7 +3533,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3576,7 +3576,7 @@
                         <beforetext>אַחֲרֵי</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -3612,7 +3612,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3659,7 +3659,7 @@
                         <beforetext>אֽ͏ַחֲרֵי</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -3702,7 +3702,7 @@
                         <beforetext>וְאַחֲרֵי</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -3738,7 +3738,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3774,7 +3774,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3810,7 +3810,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3846,7 +3846,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3882,7 +3882,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3923,7 +3923,7 @@
                         <beforetext>לְמֵ֣רָח֔</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -3959,7 +3959,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3995,7 +3995,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>consonant</type>
             </change>
             <!--...................................................-->
@@ -4038,7 +4038,7 @@
                         <beforetext>לִירוּשֳׁ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4074,7 +4074,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4117,7 +4117,7 @@
                         <beforetext>תִּֽשְׁתַּחֲוּ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4153,7 +4153,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4194,7 +4194,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4228,7 +4228,7 @@
                     <note>BHL has a dagesh in the zayin. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4271,7 +4271,7 @@
                         <beforetext>מְּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -4307,7 +4307,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4341,7 +4341,7 @@
                     <note>BHL has hataf-patah under the ayin.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4384,7 +4384,7 @@
                         <beforetext>לָ֔</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -4443,7 +4443,7 @@
                         <beforetext>נּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -4479,7 +4479,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4515,7 +4515,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -4551,7 +4551,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -4594,7 +4594,7 @@
                         <beforetext>מִשֶּׁ֔</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -4630,7 +4630,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4673,7 +4673,7 @@
                         <beforetext>זֶ֥</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -4709,7 +4709,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4752,7 +4752,7 @@
                         <beforetext>עַֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -4788,7 +4788,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4822,7 +4822,7 @@
                     <note>BHL has a dagesh in the first yod.  BHLA has no entry for this word in this verse.</note>
                 </notes>
                 <analysistags/>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4858,7 +4858,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -4894,7 +4894,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4930,7 +4930,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -4966,7 +4966,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -5002,7 +5002,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5038,7 +5038,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -5081,7 +5081,7 @@
                         <beforetext>וִֽיטִּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -5124,7 +5124,7 @@
                         <beforetext>כִּ֚</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -5160,7 +5160,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5196,7 +5196,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -5232,7 +5232,7 @@
                 <analysistags>
                     <aBHLA/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -5268,7 +5268,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -5304,7 +5304,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->

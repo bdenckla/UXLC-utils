@@ -10468,5 +10468,15 @@
     "change_fline": 64,
     "guess_fline": 64.22,
     "fline_diff": 0.22
+  },
+  {
+    "change_release": "2024.04.01",
+    "change_cite": "Jer 37:16.8",
+    "change_page": "267A",
+    "change_column": 2,
+    "change_line": 14,
+    "change_fline": 41,
+    "guess_fline": 40.16,
+    "fline_diff": -0.84
   }
 ]

@@ -307,3 +307,6 @@ BHL has a dagesh in the shin. BHLA has no dagesh in the shin.
 Remove maqaf from qere word.
 This word is the first qere component of a two word qere, עַל־כֵּ֥ן. The two qere words are part of qere-without-ketiv variant, where the second qere word, כֵּ֥ן, has no matching ketiv word. The tsere, merkha pointings under the lamed belong to the second qere whose letters, כן, are shown in the left margin along with the Masoretic note: qere and no ketiv.
 BHL has a maqaf at the end of this word. BHLA has no maqaf at the end of this word.
+Positioning of etnachta under nun is uncertain. Add note 't' after nun.
+The positioning of the etnachta under the nun is uncertain; it might belong to the yod because the etnachta is shadowed by the foot of the nun. Add note 't'. The uncertainty was noted by Daniel Holman and Avi Kadish as well as the author.
+BHL has the etnachta under the nun. BHLA has no entry for this verse.
