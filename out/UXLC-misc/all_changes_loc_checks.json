@@ -10478,5 +10478,15 @@
     "change_fline": 41,
     "guess_fline": 40.16,
     "fline_diff": -0.84
+  },
+  {
+    "change_release": "2024.04.01",
+    "change_cite": "1Sam 19:18.21",
+    "change_page": "161B",
+    "change_column": 1,
+    "change_line": 16,
+    "change_fline": 16,
+    "guess_fline": 15.47,
+    "fline_diff": -0.53
   }
 ]

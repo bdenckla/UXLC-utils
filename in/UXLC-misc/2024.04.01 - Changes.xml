@@ -4524,6 +4524,49 @@
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>2</n>
+                <citation>
+                    <book>1 Sam</book>
+                    <c>19</c>
+                    <v>18</v>
+                    <position>21</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Move meteg from nun to qere yod.</description>
+                <lc>
+                    <folio>Folio_161B</folio>
+                    <column>1</column>
+                    <line>16</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>בְּנָֽיוֹת׃</reftext>
+                <refuni>bet     dagesh     sheva     nun     qamats     meteg     yod     vav     holam     tav     sof-pasuq     </refuni>
+                <changetext>בְּנָיֽוֹת׃</changetext>
+                <changeuni>bet     dagesh     sheva     nun     qamats     yod     meteg     vav     holam     tav     sof-pasuq     </changeuni>
+                <notes>
+                    <note>The letters in the LC body text shown in the image are for the ketiv; they have the vav preceding the yod. The word in question is the qere variant and its letters are shown in the margin of the LC; they're in the expected yod then vav order. In the body text image above the meteg (acting as a siluq) is clearly under the ketiv vav (the qere yod) and not the nun. Hence, in the qere the meteg belongs under the yod. Here the writer has carefully displaced the meteg away from the foot of the nun to avoid confusion.</note>
+                    <note>BHL has the meteg under the yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
         </date>
         <!--===================================================-->
     </dates>
