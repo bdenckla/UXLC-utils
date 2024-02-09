@@ -2,6 +2,7 @@
 
 import my_tanach_dot_us_url_for_wlc_bcv
 import my_wlc_a_notes
+import my_wlc_a_notes_xml
 import my_html
 import my_utils
 
@@ -42,6 +43,7 @@ def main():
     body_contents = [table]
     write_ctx = my_html.WriteCtx('WLC a-notes', 'docs/index.html')
     my_html.write_html_to_file(body_contents, write_ctx)
+    my_wlc_a_notes_xml.write_xml(my_wlc_a_notes.RECORDS)
 
 
 if __name__ == "__main__":
