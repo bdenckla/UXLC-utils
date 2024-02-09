@@ -40,6 +40,7 @@ def _add_citation(change_elem, record):
     chap_elem.text = str(chnu)
     verse_elem = ET.SubElement(citation_elem, 'v')
     verse_elem.text = str(vrnu)
+    book_elem = ET.SubElement(citation_elem, 'position')  # i.e. one-based word index
 
 
 

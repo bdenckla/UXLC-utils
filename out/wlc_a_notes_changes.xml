@@ -6,6 +6,7 @@
       <book>Gen</book>
       <c>27</c>
       <v>29</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -14,6 +15,7 @@
       <book>Gen</book>
       <c>43</c>
       <v>28</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -22,6 +24,7 @@
       <book>Ex</book>
       <c>4</c>
       <v>2</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -30,6 +33,7 @@
       <book>Josh</book>
       <c>22</c>
       <v>7</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -38,6 +42,7 @@
       <book>Josh</book>
       <c>24</c>
       <v>15</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -46,6 +51,7 @@
       <book>Judg</book>
       <c>20</c>
       <v>13</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -54,6 +60,7 @@
       <book>Judg</book>
       <c>21</c>
       <v>20</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -62,6 +69,7 @@
       <book>1Sam</book>
       <c>5</c>
       <v>6</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -70,6 +78,7 @@
       <book>1Sam</book>
       <c>5</c>
       <v>12</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -78,6 +87,7 @@
       <book>1Sam</book>
       <c>9</c>
       <v>1</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -86,6 +96,7 @@
       <book>1Sam</book>
       <c>12</c>
       <v>10</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -94,6 +105,7 @@
       <book>1Sam</book>
       <c>13</c>
       <v>19</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -102,6 +114,7 @@
       <book>1Sam</book>
       <c>17</c>
       <v>23</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -110,6 +123,7 @@
       <book>2Sam</book>
       <c>3</c>
       <v>2</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -118,6 +132,7 @@
       <book>2Sam</book>
       <c>8</c>
       <v>3</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -126,6 +141,7 @@
       <book>2Sam</book>
       <c>18</c>
       <v>20</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -134,6 +150,7 @@
       <book>2Sam</book>
       <c>21</c>
       <v>9</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -142,6 +159,7 @@
       <book>2Sam</book>
       <c>22</c>
       <v>8</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -150,6 +168,7 @@
       <book>1Kings</book>
       <c>7</c>
       <v>45</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -158,6 +177,7 @@
       <book>1Kings</book>
       <c>9</c>
       <v>9</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -166,6 +186,7 @@
       <book>1Kings</book>
       <c>12</c>
       <v>7</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -174,6 +195,7 @@
       <book>2Kings</book>
       <c>4</c>
       <v>3</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -182,6 +204,7 @@
       <book>2Kings</book>
       <c>6</c>
       <v>25</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -190,6 +213,7 @@
       <book>2Kings</book>
       <c>19</c>
       <v>31</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -198,6 +222,7 @@
       <book>2Kings</book>
       <c>19</c>
       <v>37</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -206,6 +231,7 @@
       <book>2Kings</book>
       <c>20</c>
       <v>18</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -214,6 +240,7 @@
       <book>2Kings</book>
       <c>23</c>
       <v>33</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -222,6 +249,7 @@
       <book>Isa</book>
       <c>3</c>
       <v>15</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -230,6 +258,7 @@
       <book>Jer</book>
       <c>18</c>
       <v>3</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -238,6 +267,7 @@
       <book>Jer</book>
       <c>31</c>
       <v>38</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -246,6 +276,7 @@
       <book>Jer</book>
       <c>50</c>
       <v>29</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -254,6 +285,7 @@
       <book>Ezek</book>
       <c>14</c>
       <v>14</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -262,6 +294,7 @@
       <book>Ezek</book>
       <c>14</c>
       <v>20</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -270,6 +303,7 @@
       <book>Ezek</book>
       <c>28</c>
       <v>3</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -278,6 +312,7 @@
       <book>Prov</book>
       <c>23</c>
       <v>26</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -286,6 +321,7 @@
       <book>Lam</book>
       <c>4</c>
       <v>16</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -294,6 +330,7 @@
       <book>Esth</book>
       <c>9</c>
       <v>27</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -302,6 +339,7 @@
       <book>Dan</book>
       <c>2</c>
       <v>9</v>
+      <position />
     </citation>
   </change>
   <change>
@@ -310,6 +348,7 @@
       <book>Ezra</book>
       <c>3</c>
       <v>3</v>
+      <position />
     </citation>
   </change>
 </date>
