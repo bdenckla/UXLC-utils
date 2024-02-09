@@ -31,9 +31,21 @@ def get_uxlc_bkid(wlc_bcv_str):
     return uxlc_bkid
 
 
+def get_cv_pair(wlc_bcv_str):
+    """ Return chapter & verse integer pair for WLC bcv string (bcv: book, chapter, & verse) """
+    wlc_cv_str = _get_cv_str(wlc_bcv_str)
+    c_str, v_str = wlc_cv_str.split(':')
+    return int(c_str), int(v_str)
+
+
 def get_tanach_dot_us_url(wlc_bcv_str):
     """ Return tanach.us URL for WLC bcv string (bcv: book, chapter, & verse) """
     uxlc_bkid = get_uxlc_bkid(wlc_bcv_str)
-    wlc_cv_str = wlc_bcv_str[2:]
+    wlc_cv_str = _get_cv_str(wlc_bcv_str)
     uxlc_bcv_str = uxlc_bkid + wlc_cv_str
     return f'https://tanach.us/Tanach.xml?{uxlc_bcv_str}'
+
+
+def _get_cv_str(wlc_bcv_str):
+    wlc_cv_str = wlc_bcv_str[2:]
+    return wlc_cv_str

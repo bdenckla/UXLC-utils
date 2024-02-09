@@ -29,12 +29,17 @@ def _etree_write_callback(xml_elementtree, out_fp):
 
 
 def _add_citation(change_elem, record):
+    wlc_bcv_str = record['bcv']
+    uxlc_bkid = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
+    chnu, vrnu = my_convert_citation_from_wlc_to_uxlc.get_cv_pair(wlc_bcv_str)
+    #
     citation_elem = ET.SubElement(change_elem, 'citation')
     book_elem = ET.SubElement(citation_elem, 'book')
-    wlc_bcv_str = record['bcv']
-    book_elem.text = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
+    book_elem.text = uxlc_bkid
     chap_elem = ET.SubElement(citation_elem, 'c')
+    chap_elem.text = str(chnu)
     verse_elem = ET.SubElement(citation_elem, 'v')
+    verse_elem.text = str(vrnu)
 
 
 
