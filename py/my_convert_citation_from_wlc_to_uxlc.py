@@ -1,4 +1,4 @@
-""" Exports get_it. """
+""" Exports get_tanach_dot_us_url, get_uxlc_bkid. """
 
 import my_tanakh_book_names as tbn
 import my_uxlc_book_abbreviations as u_bk_abbr
@@ -23,11 +23,17 @@ _WLC_BKID_TO_STD_BKID = {
 }
 
 
-def get_it(wlc_bcv_str):
-    """ Return tanach.us URL for WLC bcv string (bcv: book, chapter, & verse) """
+def get_uxlc_bkid(wlc_bcv_str):
+    """ Return UXLC book ID for WLC bcv string (bcv: book, chapter, & verse) """
     wlc_bkid = wlc_bcv_str[:2]
     std_bkid = _WLC_BKID_TO_STD_BKID[wlc_bkid]
     uxlc_bkid = u_bk_abbr.BKNA_MAP_STD_TO_UXLC[std_bkid]
+    return uxlc_bkid
+
+
+def get_tanach_dot_us_url(wlc_bcv_str):
+    """ Return tanach.us URL for WLC bcv string (bcv: book, chapter, & verse) """
+    uxlc_bkid = get_uxlc_bkid(wlc_bcv_str)
     wlc_cv_str = wlc_bcv_str[2:]
     uxlc_bcv_str = uxlc_bkid + wlc_cv_str
     return f'https://tanach.us/Tanach.xml?{uxlc_bcv_str}'

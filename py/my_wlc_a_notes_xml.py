@@ -2,17 +2,18 @@
 
 import xml.etree.ElementTree as ET
 import my_open
+import my_convert_citation_from_wlc_to_uxlc
 
 def write_xml(records):
     """ Write records out in UXLC change proposal format. """
     dated_change_set_elem = ET.Element('date')  # dated change set
-    date = ET.SubElement(dated_change_set_elem, 'date')  # date of this dated change set
-    date.text = '2024.02.09'
-    for i, _rec in enumerate(records):
-        change = ET.SubElement(dated_change_set_elem, 'change')
-        citation = ET.SubElement(change, 'citation')
-        one_based_index_elem = ET.SubElement(citation, 'n')
+    date_elem = ET.SubElement(dated_change_set_elem, 'date')  # date of this dated change set
+    date_elem.text = '2024.02.09'
+    for i, record in enumerate(records):
+        change_elem = ET.SubElement(dated_change_set_elem, 'change')
+        one_based_index_elem = ET.SubElement(change_elem, 'n')
         one_based_index_elem.text = str(i + 1)
+        _add_citation(change_elem, record)
     #
     dated_change_set_tree = ET.ElementTree(dated_change_set_elem)
     ET.indent(dated_change_set_tree)
@@ -25,6 +26,15 @@ def write_xml(records):
 def _etree_write_callback(xml_elementtree, out_fp):
     xml_elementtree.write(out_fp, encoding='unicode')
     out_fp.write('\n')
+
+
+def _add_citation(change_elem, record):
+    citation_elem = ET.SubElement(change_elem, 'citation')
+    book_elem = ET.SubElement(citation_elem, 'book')
+    wlc_bcv_str = record['bcv']
+    book_elem.text = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
+    chap_elem = ET.SubElement(citation_elem, 'c')
+    verse_elem = ET.SubElement(citation_elem, 'v')
 
 
 

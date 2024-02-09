@@ -1,6 +1,6 @@
 """ Exports main. """
 
-import my_tanach_dot_us_url_for_wlc_bcv
+import my_convert_citation_from_wlc_to_uxlc
 import my_wlc_a_notes
 import my_wlc_a_notes_xml
 import my_html
@@ -18,7 +18,7 @@ def _rec_kv_to_row_cell(kv_pair):
     if key in ('qere', 'MPK', 'at issue'):
         return my_html.table_datum(val, {'lang': 'hbo', 'dir': 'rtl'})
     if key == 'bcv':
-        href = my_tanach_dot_us_url_for_wlc_bcv.get_it(val)
+        href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(val)
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)
     return my_html.table_datum(val)
