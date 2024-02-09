@@ -7,28 +7,11 @@ https://tanach.us/Books/Tanach.xml.zip
 import unicodedata
 import my_uxlc
 import my_open
-import my_utils
 import my_tanakh_book_names as tbn
 import my_hebrew_letters as hl
 import my_hebrew_points as hpo
 import my_uni_norm_fragile as unf
 import my_uni_heb as uh
-
-
-def _timed_main():
-    words_all = set()
-    for book_id in tbn.ALL_BOOK_IDS:
-        for chapter in my_uxlc.read(book_id):
-            for verse in chapter:
-                words_all |= set(verse)
-    words_all = sorted(words_all)
-    words_fr0 = filter(_is_uxlc_fragile, words_all)
-    words_fr1 = sorted(words_fr0)
-    words_fr2 = tuple(map(_annotate_word, words_fr1))
-    out_path_all = 'out/uxlc-words.json'
-    out_path_fra = 'out/uxlc-words-fragile.json'
-    my_open.json_dump_to_file_path(words_all, out_path_all)
-    my_open.json_dump_to_file_path(words_fr2, out_path_fra)
 
 
 def _is_uxlc_fragile(string):
@@ -84,7 +67,19 @@ def _annotate_word(fragile_word):
 
 def main():
     """ Extracts two word list files (all, fragile) from UXLC sources. """
-    my_utils.show_time(__file__, _timed_main)
+    words_all = set()
+    for book_id in tbn.ALL_BOOK_IDS:
+        for chapter in my_uxlc.read(book_id):
+            for verse in chapter:
+                words_all |= set(verse)
+    words_all = sorted(words_all)
+    words_fr0 = filter(_is_uxlc_fragile, words_all)
+    words_fr1 = sorted(words_fr0)
+    words_fr2 = tuple(map(_annotate_word, words_fr1))
+    out_path_all = 'out/uxlc-words.json'
+    out_path_fra = 'out/uxlc-words-fragile.json'
+    my_open.json_dump_to_file_path(words_all, out_path_all)
+    my_open.json_dump_to_file_path(words_fr2, out_path_fra)
 
 
 if __name__ == "__main__":

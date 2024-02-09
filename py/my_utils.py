@@ -1,17 +1,5 @@
-"""
-    Exports
-        szip
-        show_time
-        show_progress_g
-        show_progress_cv
-        get_book39_tuple_from_args
-"""
-import time
-import datetime
+""" Exports various utilities. """
 import os
-import argparse
-
-import my_tanakh_book_names as tbn
 
 
 def init(dic, key, val):
@@ -53,9 +41,13 @@ def l_szip(*seqs):
 
 def intersperse(sep, seq):
     """ Intersperse a separator between the elements of a sequence. """
-    seps = (sep,) * len(seq)
-    tmp = sum(szip(seq, seps), tuple())
-    return tmp[:-1]  # rm final sep, e.g. final None
+    accum = []
+    for elem in seq:
+        if accum:
+            accum.append(sep)
+        accum.append(elem)
+    type_of_seq = type(seq)  # e.g. list or tuple
+    return type_of_seq(accum)
 
 
 def ll_map(fun, the_list):
@@ -104,35 +96,12 @@ def sum_of_lists(lists):
     return accum
 
 
-def show_time(uufileuu, inner_function):
-    print(os.path.basename(uufileuu))
-    start = time.process_time()
-    inner_function()
-    end = time.process_time()
-    print(datetime.timedelta(seconds=end-start))
-
-
 def show_progress_g(uufileuu, *rest):
+    """ Show a progress string. Typically called with first arg __file__. """
     # label is usually some sort of book name
     bn_uufileuu = os.path.basename(uufileuu)
     bn_and_rest = ' '.join((bn_uufileuu, *rest))
     print(bn_and_rest)
-
-
-def get_book39_tuple_from_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--book39tbn')  # e.g. 1Samuel not I Samuel
-    parser.add_argument('--section6')  # e.g. SifEm
-    args = parser.parse_args()
-    if args.book39tbn:
-        # I think there's a way to tell the argument parser that two arguments
-        # are exclusive; if so perhaps I should use that instead of the assert
-        # below.
-        assert not args.section6
-        return (args.book39tbn,)
-    if args.section6:
-        return tbn.books_of_sec(args.section6)
-    return tbn.ALL_BOOK_IDS
 
 
 def _len_for_szip(obj):

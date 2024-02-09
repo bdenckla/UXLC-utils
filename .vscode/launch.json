@@ -6,30 +6,37 @@
     "configurations": [
         {
             "name": "Python: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
         },
         {
-            "name": "UXLC estimate atom location",
-            "type": "python",
+            "name": "generate WLC a-note change proposals",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "py/main_wlc_a_notes.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "estimate atom location",
+            "type": "debugpy",
             "request": "launch",
             "program": "py/main_uxlc_estimate_atom_loc.py",
             "args": ["Genesis", "24", "24", "3"],
             "console": "integratedTerminal"
         },
         {
-            "name": "UXLC download changes",
-            "type": "python",
+            "name": "download changes",
+            "type": "debugpy",
             "request": "launch",
             "program": "py/main_uxlc_download_changes.py",
             "console": "integratedTerminal"
         },
         {
-            "name": "UXLC check changes",
-            "type": "python",
+            "name": "check changes",
+            "type": "debugpy",
             "request": "launch",
             "program": "py/main_uxlc_check_changes.py",
             "console": "integratedTerminal"

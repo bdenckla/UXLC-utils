@@ -30,17 +30,13 @@ def _filename(date, space):
     return f'{date}{space}-{space}Changes.xml'
 
 
-def _timed_main():
+def main():
+    """ Download various Changes XML file from hcanat.us """
     for filename in my_uxlc_changes.FILENAMES:
         if 'fake' in filename:
             continue
         date = filename[:10]
         _do_one_download(date)
-
-
-def main():
-    """ Download various Changes XML file from hcanat.us """
-    my_utils.show_time(__file__, _timed_main)
 
 
 if __name__ == "__main__":
