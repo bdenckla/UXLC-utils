@@ -109,10 +109,10 @@ def _write_page_break_info(pbi):
 
     xml_out_path = 'out/UXLC-misc/lci_recs.xml'
     my_open.with_tmp_openw(
-        xml_out_path, {}, _pbi_write_callback, xml_elementtree)
+        xml_out_path, {}, _etree_write_callback, xml_elementtree)
 
 
-def _pbi_write_callback(xml_elementtree, out_fp):
+def _etree_write_callback(xml_elementtree, out_fp):
     xml_elementtree.write(out_fp, encoding='unicode')
     out_fp.write('\n')
 
