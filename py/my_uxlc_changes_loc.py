@@ -1,7 +1,7 @@
 """ Exports check. """
 
 import re
-import my_uxlc_book_abbreviations as bk_abbr
+import my_uxlc_book_abbreviations as u_bk_abbr
 import my_uxlc_location
 
 
@@ -90,5 +90,5 @@ def _expand_citation(citation: str):
     book_ua, chnu_s, vrnu_s, wdnu_s = match.groups(0)
     # ua: UXLC abbreviation (for book)
     assert isinstance(book_ua, str)
-    bkid = bk_abbr.BKNA_MAP_UXLC_TO_STD[book_ua]
+    bkid = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[book_ua]
     return bkid, int(chnu_s), int(vrnu_s), int(wdnu_s)

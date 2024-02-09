@@ -2,7 +2,7 @@
 
 import re
 import my_unicode
-import my_uxlc_book_abbreviations as bk_abbr
+import my_uxlc_book_abbreviations as u_bk_abbr
 import my_uxlc_authors
 
 
@@ -62,7 +62,7 @@ def _collapse_citation(citation):
     keys = 'book', 'c', 'v', 'position'
     assert tuple(citation.keys()) == keys
     book_name = citation['book']
-    assert book_name in bk_abbr.BKNA_MAP_UXLC_TO_STD
+    assert book_name in u_bk_abbr.BKNA_MAP_UXLC_TO_STD
     book_name_normalized = _normalize_book_name(book_name)
     int_keys = 'c', 'v', 'position'
     chnu, vrnu, wpos = tuple(int(citation[k]) for k in int_keys)
@@ -70,8 +70,8 @@ def _collapse_citation(citation):
 
 
 def _normalize_book_name(book_name_uxlc):
-    book_name_std = bk_abbr.BKNA_MAP_UXLC_TO_STD[book_name_uxlc]
-    return bk_abbr.BKNA_MAP_STD_TO_UXLC[book_name_std]
+    book_name_std = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[book_name_uxlc]
+    return u_bk_abbr.BKNA_MAP_STD_TO_UXLC[book_name_std]
 
 
 def _credit_is_okay(credit):
