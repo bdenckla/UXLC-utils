@@ -3,6 +3,7 @@
 import xml.etree.ElementTree as ET
 import my_open
 import my_convert_citation_from_wlc_to_uxlc
+import my_uxlc_unicode_names
 
 def write_xml(records):
     """ Write records out in UXLC change proposal format. """
@@ -32,6 +33,8 @@ def _add_misc(change_elem, zero_based_index, record):
     _add_author(change_elem)
     _add_description(change_elem, record)
     _add_lc_page_col_line(change_elem, record)
+    _add_xtext_xuni(change_elem, record, 'reftext', 'refuni')
+    _add_xtext_xuni(change_elem, record, 'changetext', 'changeuni')
 
 
 def _add_n(change_elem, zero_based_index):
@@ -66,6 +69,12 @@ def _add_lc_page_col_line(change_elem, _record):
     ET.SubElement(lc_elem, 'column').text = 'XXX fill me in column'  # XXX
     ET.SubElement(lc_elem, 'line').text = 'XXX fill me in line'  # XXX
     ET.SubElement(lc_elem, 'credit').text = 'Credit: Sefaria.org.'
+
+
+def _add_xtext_xuni(change_elem, record, xtext, xuni):
+    xuni_str = my_uxlc_unicode_names.names(record['qere'])
+    ET.SubElement(change_elem, xtext).text = record['qere']
+    ET.SubElement(change_elem, xuni).text = xuni_str
 
 
 # <n>1</n>
@@ -107,4 +116,3 @@ def _add_lc_page_col_line(change_elem, _record):
 # </transnotes>
 # <status>Pending</status>
 # <type>NoTextChange</type>
-

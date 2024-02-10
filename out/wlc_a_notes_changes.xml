@@ -20,6 +20,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וְיִֽשְׁתַּחֲו֤וּ</reftext>
+    <refuni>vav sheva yod hiriq meteg shin shin-dot sheva tav dagesh patah het hataf-patah vav mahapakh vav dagesh</refuni>
+    <changetext>וְיִֽשְׁתַּחֲו֤וּ</changetext>
+    <changeuni>vav sheva yod hiriq meteg shin shin-dot sheva tav dagesh patah het hataf-patah vav mahapakh vav dagesh</changeuni>
   </change>
   <change>
     <n>2</n>
@@ -41,6 +45,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיִּֽשְׁתַּחֲוּֽוּ׃</reftext>
+    <refuni>vav patah yod dagesh hiriq meteg shin shin-dot sheva tav dagesh patah het hataf-patah vav dagesh meteg vav dagesh sof-pasuq</refuni>
+    <changetext>וַיִּֽשְׁתַּחֲוּֽוּ׃</changetext>
+    <changeuni>vav patah yod dagesh hiriq meteg shin shin-dot sheva tav dagesh patah het hataf-patah vav dagesh meteg vav dagesh sof-pasuq</changeuni>
   </change>
   <change>
     <n>3</n>
@@ -62,6 +70,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>מַה־זֶּ֣ה</reftext>
+    <refuni>mem patah he maqaf zayin dagesh segol munah he</refuni>
+    <changetext>מַה־זֶּ֣ה</changetext>
+    <changeuni>mem patah he maqaf zayin dagesh segol munah he</changeuni>
   </change>
   <change>
     <n>4</n>
@@ -83,6 +95,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>בְּעֵ֥בֶר</reftext>
+    <refuni>bet dagesh sheva ayin tsere merkha bet segol resh</refuni>
+    <changetext>בְּעֵ֥בֶר</changetext>
+    <changeuni>bet dagesh sheva ayin tsere merkha bet segol resh</changeuni>
   </change>
   <change>
     <n>5</n>
@@ -104,6 +120,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>מֵעֵ֣בֶר</reftext>
+    <refuni>mem tsere ayin tsere munah bet segol resh</refuni>
+    <changetext>מֵעֵ֣בֶר</changetext>
+    <changeuni>mem tsere ayin tsere munah bet segol resh</changeuni>
   </change>
   <change>
     <n>6</n>
@@ -125,6 +145,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>בְּנֵ֣י</reftext>
+    <refuni>bet dagesh sheva nun tsere munah yod</refuni>
+    <changetext>בְּנֵ֣י</changetext>
+    <changeuni>bet dagesh sheva nun tsere munah yod</changeuni>
   </change>
   <change>
     <n>7</n>
@@ -146,6 +170,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיְצַוּ֕וּ</reftext>
+    <refuni>vav patah yod sheva tsadi patah vav dagesh zaqef-gadol vav dagesh</refuni>
+    <changetext>וַיְצַוּ֕וּ</changetext>
+    <changeuni>vav patah yod sheva tsadi patah vav dagesh zaqef-gadol vav dagesh</changeuni>
   </change>
   <change>
     <n>8</n>
@@ -167,6 +195,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>בַּטְּחֹרִ֔ים</reftext>
+    <refuni>bet dagesh patah tet dagesh sheva het holam resh hiriq zaqef-qatan yod final-mem</refuni>
+    <changetext>בַּטְּחֹרִ֔ים</changetext>
+    <changeuni>bet dagesh patah tet dagesh sheva het holam resh hiriq zaqef-qatan yod final-mem</changeuni>
   </change>
   <change>
     <n>9</n>
@@ -188,6 +220,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>בַּטְּחֹרִ֑ים</reftext>
+    <refuni>bet dagesh patah tet dagesh sheva het holam resh hiriq etnahta yod final-mem</refuni>
+    <changetext>בַּטְּחֹרִ֑ים</changetext>
+    <changeuni>bet dagesh patah tet dagesh sheva het holam resh hiriq etnahta yod final-mem</changeuni>
   </change>
   <change>
     <n>10</n>
@@ -209,6 +245,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>מִבִּנְיָמִ֗ין</reftext>
+    <refuni>mem hiriq bet dagesh hiriq nun sheva yod qamats mem hiriq revia yod final-nun</refuni>
+    <changetext>מִבִּנְיָמִ֗ין</changetext>
+    <changeuni>mem hiriq bet dagesh hiriq nun sheva yod qamats mem hiriq revia yod final-nun</changeuni>
   </change>
   <change>
     <n>11</n>
@@ -230,6 +270,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיֹּאמְר֣וּ</reftext>
+    <refuni>vav patah yod dagesh holam alef mem sheva resh munah vav dagesh</refuni>
+    <changetext>וַיֹּאמְר֣וּ</changetext>
+    <changeuni>vav patah yod dagesh holam alef mem sheva resh munah vav dagesh</changeuni>
   </change>
   <change>
     <n>12</n>
@@ -251,6 +295,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>אָמְר֣וּ</reftext>
+    <refuni>alef qamats mem sheva resh munah vav dagesh</refuni>
+    <changetext>אָמְר֣וּ</changetext>
+    <changeuni>alef qamats mem sheva resh munah vav dagesh</changeuni>
   </change>
   <change>
     <n>13</n>
@@ -272,6 +320,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>מִמַּעַרְכ֣וֹת</reftext>
+    <refuni>mem hiriq mem dagesh patah ayin patah resh sheva kaf munah vav holam tav</refuni>
+    <changetext>מִמַּעַרְכ֣וֹת</changetext>
+    <changeuni>mem hiriq mem dagesh patah ayin patah resh sheva kaf munah vav holam tav</changeuni>
   </change>
   <change>
     <n>14</n>
@@ -293,6 +345,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיִּוָּלְד֧וּ</reftext>
+    <refuni>vav patah yod dagesh hiriq vav dagesh qamats lamed sheva dalet darga vav dagesh</refuni>
+    <changetext>וַיִּוָּלְד֧וּ</changetext>
+    <changeuni>vav patah yod dagesh hiriq vav dagesh qamats lamed sheva dalet darga vav dagesh</changeuni>
   </change>
   <change>
     <n>15</n>
@@ -314,6 +370,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>פְּרָֽת׃</reftext>
+    <refuni>pe dagesh sheva resh qamats meteg tav sof-pasuq</refuni>
+    <changetext>פְּרָֽת׃</changetext>
+    <changeuni>pe dagesh sheva resh qamats meteg tav sof-pasuq</changeuni>
   </change>
   <change>
     <n>16</n>
@@ -335,6 +395,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>עַל־כֵּ֥ן</reftext>
+    <refuni>ayin patah lamed maqaf kaf dagesh tsere merkha final-nun</refuni>
+    <changetext>עַל־כֵּ֥ן</changetext>
+    <changeuni>ayin patah lamed maqaf kaf dagesh tsere merkha final-nun</changeuni>
   </change>
   <change>
     <n>17</n>
@@ -356,6 +420,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>בִּתְחִלַּ֖ת</reftext>
+    <refuni>bet dagesh hiriq tav sheva het hiriq lamed dagesh patah tipeha tav</refuni>
+    <changetext>בִּתְחִלַּ֖ת</changetext>
+    <changeuni>bet dagesh hiriq tav sheva het hiriq lamed dagesh patah tipeha tav</changeuni>
   </change>
   <change>
     <n>18</n>
@@ -377,6 +445,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיִּתְגָּעַ֤שׁ</reftext>
+    <refuni>vav patah yod dagesh hiriq tav sheva gimel dagesh qamats ayin patah mahapakh shin shin-dot</refuni>
+    <changetext>וַיִּתְגָּעַ֤שׁ</changetext>
+    <changeuni>vav patah yod dagesh hiriq tav sheva gimel dagesh qamats ayin patah mahapakh shin shin-dot</changeuni>
   </change>
   <change>
     <n>19</n>
@@ -398,6 +470,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>הָאֵ֔לֶּה</reftext>
+    <refuni>he qamats alef tsere zaqef-qatan lamed dagesh segol he</refuni>
+    <changetext>הָאֵ֔לֶּה</changetext>
+    <changeuni>he qamats alef tsere zaqef-qatan lamed dagesh segol he</changeuni>
   </change>
   <change>
     <n>20</n>
@@ -419,6 +495,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיִּשְׁתַּחֲו֥וּ</reftext>
+    <refuni>vav patah yod dagesh hiriq shin shin-dot sheva tav dagesh patah het hataf-patah vav merkha vav dagesh</refuni>
+    <changetext>וַיִּשְׁתַּחֲו֥וּ</changetext>
+    <changeuni>vav patah yod dagesh hiriq shin shin-dot sheva tav dagesh patah het hataf-patah vav merkha vav dagesh</changeuni>
   </change>
   <change>
     <n>21</n>
@@ -440,6 +520,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיְדַבְּר֨וּ</reftext>
+    <refuni>vav patah yod sheva dalet patah bet dagesh sheva resh qadma vav dagesh</refuni>
+    <changetext>וַיְדַבְּר֨וּ</changetext>
+    <changeuni>vav patah yod sheva dalet patah bet dagesh sheva resh qadma vav dagesh</changeuni>
   </change>
   <change>
     <n>22</n>
@@ -461,6 +545,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>שְׁכֵנָ֑יִךְ</reftext>
+    <refuni>shin shin-dot sheva kaf tsere nun qamats etnahta yod hiriq final-kaf sheva</refuni>
+    <changetext>שְׁכֵנָ֑יִךְ</changetext>
+    <changeuni>shin shin-dot sheva kaf tsere nun qamats etnahta yod hiriq final-kaf sheva</changeuni>
   </change>
   <change>
     <n>23</n>
@@ -482,6 +570,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>דִּבְיוֹנִ֖ים</reftext>
+    <refuni>dalet dagesh hiriq bet sheva yod vav holam nun hiriq tipeha yod final-mem</refuni>
+    <changetext>דִּבְיוֹנִ֖ים</changetext>
+    <changeuni>dalet dagesh hiriq bet sheva yod vav holam nun hiriq tipeha yod final-mem</changeuni>
   </change>
   <change>
     <n>24</n>
@@ -503,6 +595,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>צְבָא֖וֹת</reftext>
+    <refuni>tsadi sheva bet qamats alef tipeha vav holam tav</refuni>
+    <changetext>צְבָא֖וֹת</changetext>
+    <changeuni>tsadi sheva bet qamats alef tipeha vav holam tav</changeuni>
   </change>
   <change>
     <n>25</n>
@@ -524,6 +620,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>בָּנָיו֙</reftext>
+    <refuni>bet dagesh qamats nun qamats yod vav pashta</refuni>
+    <changetext>בָּנָיו֙</changetext>
+    <changeuni>bet dagesh qamats nun qamats yod vav pashta</changeuni>
   </change>
   <change>
     <n>26</n>
@@ -545,6 +645,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>יִקָּ֑חוּ</reftext>
+    <refuni>yod hiriq qof dagesh qamats etnahta het vav dagesh</refuni>
+    <changetext>יִקָּ֑חוּ</changetext>
+    <changeuni>yod hiriq qof dagesh qamats etnahta het vav dagesh</changeuni>
   </change>
   <change>
     <n>27</n>
@@ -566,6 +670,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>מִמְּלֹ֖ךְ</reftext>
+    <refuni>mem hiriq mem dagesh sheva lamed holam tipeha final-kaf sheva</refuni>
+    <changetext>מִמְּלֹ֖ךְ</changetext>
+    <changeuni>mem hiriq mem dagesh sheva lamed holam tipeha final-kaf sheva</changeuni>
   </change>
   <change>
     <n>28</n>
@@ -587,6 +695,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>מַה־לָּכֶם֙</reftext>
+    <refuni>mem patah he maqaf lamed dagesh qamats kaf segol final-mem pashta</refuni>
+    <changetext>מַה־לָּכֶם֙</changetext>
+    <changeuni>mem patah he maqaf lamed dagesh qamats kaf segol final-mem pashta</changeuni>
   </change>
   <change>
     <n>29</n>
@@ -608,6 +720,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וְהִנֵּה־ה֛וּא</reftext>
+    <refuni>vav sheva he hiriq nun dagesh tsere he maqaf he tevir vav dagesh alef</refuni>
+    <changetext>וְהִנֵּה־ה֛וּא</changetext>
+    <changeuni>vav sheva he hiriq nun dagesh tsere he maqaf he tevir vav dagesh alef</changeuni>
   </change>
   <change>
     <n>30</n>
@@ -629,6 +745,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>בָּאִ֖ים</reftext>
+    <refuni>bet dagesh qamats alef hiriq tipeha yod final-mem</refuni>
+    <changetext>בָּאִ֖ים</changetext>
+    <changeuni>bet dagesh qamats alef hiriq tipeha yod final-mem</changeuni>
   </change>
   <change>
     <n>31</n>
@@ -650,6 +770,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>לָהּ֙</reftext>
+    <refuni>lamed qamats he dagesh pashta</refuni>
+    <changetext>לָהּ֙</changetext>
+    <changeuni>lamed qamats he dagesh pashta</changeuni>
   </change>
   <change>
     <n>32</n>
@@ -671,6 +795,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>דָּנִיֵּ֣אל</reftext>
+    <refuni>dalet dagesh qamats nun hiriq yod dagesh tsere munah alef lamed</refuni>
+    <changetext>דָּנִיֵּ֣אל</changetext>
+    <changeuni>dalet dagesh qamats nun hiriq yod dagesh tsere munah alef lamed</changeuni>
   </change>
   <change>
     <n>33</n>
@@ -692,6 +820,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>דָּנִיֵּ֣אל</reftext>
+    <refuni>dalet dagesh qamats nun hiriq yod dagesh tsere munah alef lamed</refuni>
+    <changetext>דָּנִיֵּ֣אל</changetext>
+    <changeuni>dalet dagesh qamats nun hiriq yod dagesh tsere munah alef lamed</changeuni>
   </change>
   <change>
     <n>34</n>
@@ -713,6 +845,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>מִדָּֽנִיֵּ֑אל</reftext>
+    <refuni>mem hiriq dalet dagesh qamats meteg nun hiriq yod dagesh tsere etnahta alef lamed</refuni>
+    <changetext>מִדָּֽנִיֵּ֑אל</changetext>
+    <changeuni>mem hiriq dalet dagesh qamats meteg nun hiriq yod dagesh tsere etnahta alef lamed</changeuni>
   </change>
   <change>
     <n>35</n>
@@ -734,6 +870,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>תִּצֹּֽרְנָה׃</reftext>
+    <refuni>tav dagesh hiriq tsadi dagesh holam meteg resh sheva nun qamats he sof-pasuq</refuni>
+    <changetext>תִּצֹּֽרְנָה׃</changetext>
+    <changeuni>tav dagesh hiriq tsadi dagesh holam meteg resh sheva nun qamats he sof-pasuq</changeuni>
   </change>
   <change>
     <n>36</n>
@@ -755,6 +895,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וּזְקֵנִ֖ים</reftext>
+    <refuni>vav dagesh zayin sheva qof tsere nun hiriq tipeha yod final-mem</refuni>
+    <changetext>וּזְקֵנִ֖ים</changetext>
+    <changeuni>vav dagesh zayin sheva qof tsere nun hiriq tipeha yod final-mem</changeuni>
   </change>
   <change>
     <n>37</n>
@@ -776,6 +920,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וְקִבְּל֣וּ</reftext>
+    <refuni>vav sheva qof hiriq bet dagesh sheva lamed munah vav dagesh</refuni>
+    <changetext>וְקִבְּל֣וּ</changetext>
+    <changeuni>vav sheva qof hiriq bet dagesh sheva lamed munah vav dagesh</changeuni>
   </change>
   <change>
     <n>38</n>
@@ -797,6 +945,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>הִזְדְּמִנְתּוּן֙</reftext>
+    <refuni>he hiriq zayin sheva dalet dagesh sheva mem hiriq nun sheva tav dagesh vav dagesh final-nun pashta</refuni>
+    <changetext>הִזְדְּמִנְתּוּן֙</changetext>
+    <changeuni>he hiriq zayin sheva dalet dagesh sheva mem hiriq nun sheva tav dagesh vav dagesh final-nun pashta</changeuni>
   </change>
   <change>
     <n>39</n>
@@ -818,5 +970,9 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
+    <reftext>וַיַּעֲל֨וּ</reftext>
+    <refuni>vav patah yod dagesh patah ayin hataf-patah lamed qadma vav dagesh</refuni>
+    <changetext>וַיַּעֲל֨וּ</changetext>
+    <changeuni>vav patah yod dagesh patah ayin hataf-patah lamed qadma vav dagesh</changeuni>
   </change>
 </date>

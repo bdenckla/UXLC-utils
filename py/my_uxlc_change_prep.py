@@ -1,7 +1,7 @@
 """ Exports date_qualify_and_reformat """
 
 import re
-import my_unicode
+import my_uxlc_unicode_names
 import my_uxlc_book_abbreviations as u_bk_abbr
 import my_uxlc_authors
 
@@ -166,29 +166,12 @@ def _uni_matches_text(change, ref_or_change):
     cp_str_ne = cp_str.replace('!', '')  # ne: no exclamation [mark]
     # Exclamation mark appears in str (but not in names) where
     # there is a pre-existing transcription note
-    cpnames_new = list(map(_uxlc_unicode_name, cp_str_ne))
+    cpnames_new = list(map(my_uxlc_unicode_names.name, cp_str_ne))
     cpnames_str = cpnames_str.replace('etnachta', 'etnahta')
     cpnames_str = cpnames_str.replace('gereshayim', 'gershayim')
     cpnames_str = cpnames_str.replace('cgj', 'combining-grapheme-joiner')
     cpnames = cpnames_str.split(' ')
     return ' '.join(cpnames_new) if cpnames_new != cpnames else None
-
-
-def _uxlc_unicode_name(string_len_1):
-    my_un = my_unicode.name(string_len_1)
-    my_un_ndb = my_un.replace('ḥ', 'h')  # ndb: no dot below [h]
-    # E.g. etnaḥta becomes just etnahta
-    my_un_ndb_fn = my_un_ndb.split('/')[0]  # first name in a slash seq
-    # E.g., meteg/siluq becomes just meteg
-    uxlc_uns = {
-        'zarqa-stress-helper': 'zarqa',
-        'segol-vowel': 'segol',
-        'holam-haser-for-vav': 'holam-haser',
-        'tsinor': 'zinor',
-        'rafeh': 'rafe',
-    }
-    uxlc_un = uxlc_uns.get(my_un_ndb_fn) or my_un_ndb_fn
-    return uxlc_un
 
 
 def _changeuni_eq_refuni_but_shouldnt(change):
