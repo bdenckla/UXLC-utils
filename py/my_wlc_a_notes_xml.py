@@ -10,9 +10,11 @@ def write(records):
     dated_change_set_elem = ET.Element('date')  # dated change set
     date_elem = ET.SubElement(dated_change_set_elem, 'date')  # date of this dated change set
     date_elem.text = '2024.02.09'
-    for i, record in enumerate(records):
-        change_elem = ET.SubElement(dated_change_set_elem, 'change')
-        _add_misc(change_elem, i, record)
+    for record in records:
+        ucp = record['uxlc-change-proposal']
+        if isinstance(ucp, int):
+            change_elem = ET.SubElement(dated_change_set_elem, 'change')
+            _add_misc(change_elem, record)
     dated_change_set_tree = ET.ElementTree(dated_change_set_elem)
     #
     ET.indent(dated_change_set_tree)
@@ -27,8 +29,8 @@ def _etree_write_callback(xml_elementtree, out_fp):
     out_fp.write('\n')
 
 
-def _add_misc(change_elem, zero_based_index, record):
-    _add_n(change_elem, zero_based_index)
+def _add_misc(change_elem, record):
+    _add_n(change_elem, record)
     _add_citation(change_elem, record)
     _add_author(change_elem)
     _add_description(change_elem, record)
@@ -42,8 +44,10 @@ def _add_misc(change_elem, zero_based_index, record):
     _add_type(change_elem, record)
 
 
-def _add_n(change_elem, zero_based_index):
-    ET.SubElement(change_elem, 'n').text = str(zero_based_index + 1)
+def _add_n(change_elem, record):
+    ucp = record['uxlc-change-proposal']
+    assert isinstance(ucp, int)
+    ET.SubElement(change_elem, 'n').text = str(ucp)
 
 def _add_citation(change_elem, record):
     citation_elem = ET.SubElement(change_elem, 'citation')

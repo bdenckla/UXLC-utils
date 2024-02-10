@@ -1,7 +1,7 @@
 <date>
   <date>2024.02.09</date>
   <change>
-    <n>1</n>
+    <n>101</n>
     <citation>
       <book>Gen</book>
       <c>27</c>
@@ -39,7 +39,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>2</n>
+    <n>102</n>
     <citation>
       <book>Gen</book>
       <c>43</c>
@@ -77,7 +77,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>3</n>
+    <n>201</n>
     <citation>
       <book>Ex</book>
       <c>4</c>
@@ -115,7 +115,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>4</n>
+    <n>301</n>
     <citation>
       <book>Josh</book>
       <c>22</c>
@@ -153,7 +153,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>5</n>
+    <n>302</n>
     <citation>
       <book>Josh</book>
       <c>24</c>
@@ -191,7 +191,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>6</n>
+    <n>401</n>
     <citation>
       <book>Judg</book>
       <c>20</c>
@@ -231,7 +231,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>7</n>
+    <n>103</n>
     <citation>
       <book>Judg</book>
       <c>21</c>
@@ -267,7 +267,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>8</n>
+    <n>501</n>
     <citation>
       <book>1Sam</book>
       <c>5</c>
@@ -306,7 +306,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>9</n>
+    <n>502</n>
     <citation>
       <book>1Sam</book>
       <c>5</c>
@@ -345,45 +345,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>10</n>
-    <citation>
-      <book>1Sam</book>
-      <c>9</c>
-      <v>1</v>
-      <position>XXX fill me in position</position>
-    </citation>
-    <author>
-      <name>Ben Denckla</name>
-      <mail>bdenckla@alum.mit.edu</mail>
-      <confirmed>true</confirmed>
-    </author>
-    <description>XXX fill me in description</description>
-    <lc>
-      <folio>XXX fill me in folio</folio>
-      <column>XXX fill me in column</column>
-      <line>XXX fill me in line</line>
-      <credit>Credit: Sefaria.org.</credit>
-    </lc>
-    <reftext>מִבִּנְיָמִ֗ין</reftext>
-    <refuni>mem hiriq bet dagesh hiriq nun sheva yod qamats mem hiriq revia yod final-nun</refuni>
-    <changetext>מִבִּנְיָמִ֗ין</changetext>
-    <changeuni>mem hiriq bet dagesh hiriq nun sheva yod qamats mem hiriq revia yod final-nun</changeuni>
-    <notes>
-      <note>The MPK's final nun of מבן does not carry a sheva for the qere's (non-final) נ, perhaps because that would be illegal. The maqaf disappears when going from the MPK to the qere. Dotan notes that strictly speaking, the implied qere is מִבִּניָמִ֗ין (no sheva under middle נ).</note>
-    </notes>
-    <analysistags />
-    <transnotes>
-      <transnote>
-        <action>Add</action>
-        <type>a</type>
-        <beforetext>XXX fill me in beforetext</beforetext>
-      </transnote>
-    </transnotes>
-    <status>Pending</status>
-    <type>NoTextChange</type>
-  </change>
-  <change>
-    <n>11</n>
+    <n>104</n>
     <citation>
       <book>1Sam</book>
       <c>12</c>
@@ -419,7 +381,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>12</n>
+    <n>105</n>
     <citation>
       <book>1Sam</book>
       <c>13</c>
@@ -457,7 +419,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>13</n>
+    <n>503</n>
     <citation>
       <book>1Sam</book>
       <c>17</c>
@@ -495,7 +457,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>14</n>
+    <n>402</n>
     <citation>
       <book>2Sam</book>
       <c>3</c>
@@ -534,7 +496,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>15</n>
+    <n>403</n>
     <citation>
       <book>2Sam</book>
       <c>8</c>
@@ -572,47 +534,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>16</n>
-    <citation>
-      <book>2Sam</book>
-      <c>18</c>
-      <v>20</v>
-      <position>XXX fill me in position</position>
-    </citation>
-    <author>
-      <name>Ben Denckla</name>
-      <mail>bdenckla@alum.mit.edu</mail>
-      <confirmed>true</confirmed>
-    </author>
-    <description>XXX fill me in description</description>
-    <lc>
-      <folio>XXX fill me in folio</folio>
-      <column>XXX fill me in column</column>
-      <line>XXX fill me in line</line>
-      <credit>Credit: Sefaria.org.</credit>
-    </lc>
-    <reftext>עַל־כֵּ֥ן</reftext>
-    <refuni>ayin patah lamed maqaf kaf dagesh tsere merkha final-nun</refuni>
-    <changetext>עַל־כֵּ֥ן</changetext>
-    <changeuni>ayin patah lamed maqaf kaf dagesh tsere merkha final-nun</changeuni>
-    <notes>
-      <note>The MPK has no letter to carry a dagesh for the qere's כ. The MPK (points on no letters!) is tsere and merkha. Well really those points are under ל not under nothing.</note>
-      <note>Why is this not considered a qere velo ketiv by WLC? I have submitted a change proposal to UXLC to make it a qere velo ketiv.</note>
-      <note>Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. I think what he finds notable here is the MPK's lack of a maqaf. I do not think he finds the MPK's lack of dagesh notable because as far as I know, such a dagesh is never present.</note>
-    </notes>
-    <analysistags />
-    <transnotes>
-      <transnote>
-        <action>Add</action>
-        <type>a</type>
-        <beforetext>XXX fill me in beforetext</beforetext>
-      </transnote>
-    </transnotes>
-    <status>Pending</status>
-    <type>NoTextChange</type>
-  </change>
-  <change>
-    <n>17</n>
+    <n>404</n>
     <citation>
       <book>2Sam</book>
       <c>21</c>
@@ -651,7 +573,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>18</n>
+    <n>405</n>
     <citation>
       <book>2Sam</book>
       <c>22</c>
@@ -691,7 +613,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>19</n>
+    <n>504</n>
     <citation>
       <book>1Kings</book>
       <c>7</c>
@@ -729,45 +651,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>20</n>
-    <citation>
-      <book>1Kings</book>
-      <c>9</c>
-      <v>9</v>
-      <position>XXX fill me in position</position>
-    </citation>
-    <author>
-      <name>Ben Denckla</name>
-      <mail>bdenckla@alum.mit.edu</mail>
-      <confirmed>true</confirmed>
-    </author>
-    <description>XXX fill me in description</description>
-    <lc>
-      <folio>XXX fill me in folio</folio>
-      <column>XXX fill me in column</column>
-      <line>XXX fill me in line</line>
-      <credit>Credit: Sefaria.org.</credit>
-    </lc>
-    <reftext>וַיִּשְׁתַּחֲו֥וּ</reftext>
-    <refuni>vav patah yod dagesh hiriq shin shin-dot sheva tav dagesh patah het hataf-patah vav merkha vav dagesh</refuni>
-    <changetext>וַיִּשְׁתַּחֲו֥וּ</changetext>
-    <changeuni>vav patah yod dagesh hiriq shin shin-dot sheva tav dagesh patah het hataf-patah vav merkha vav dagesh</changeuni>
-    <notes>
-      <note>The MPK has all the qere's marks so I don't see what the issue is. The suffix וּ֥ becomes ו֥וּ. I would have expected a qubuts in the MPK, but this notation works, too, as long as we interpret the MPK's dot in the vav to be a shuruq dot not a dagesh.</note>
-    </notes>
-    <analysistags />
-    <transnotes>
-      <transnote>
-        <action>Add</action>
-        <type>a</type>
-        <beforetext>XXX fill me in beforetext</beforetext>
-      </transnote>
-    </transnotes>
-    <status>Pending</status>
-    <type>NoTextChange</type>
-  </change>
-  <change>
-    <n>21</n>
+    <n>106</n>
     <citation>
       <book>1Kings</book>
       <c>12</c>
@@ -805,7 +689,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>22</n>
+    <n>505</n>
     <citation>
       <book>2Kings</book>
       <c>4</c>
@@ -843,7 +727,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>23</n>
+    <n>506</n>
     <citation>
       <book>2Kings</book>
       <c>6</c>
@@ -882,7 +766,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>24</n>
+    <n>470</n>
     <citation>
       <book>2Kings</book>
       <c>19</c>
@@ -906,7 +790,7 @@
     <changetext>צְבָא֖וֹת</changetext>
     <changeuni>tsadi sheva bet qamats alef tipeha vav holam tav</changeuni>
     <notes>
-      <note>The MPK (points on no letters!) is sheva, qamats, and tipeḥa.</note>
+      <note>The MPK has no letter to carry a ḥolam dot on the qere's vav. The MPK (points on no letters!) is sheva, qamats, and tipeḥa.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -920,7 +804,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>25</n>
+    <n>406</n>
     <citation>
       <book>2Kings</book>
       <c>19</c>
@@ -959,7 +843,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>26</n>
+    <n>107</n>
     <citation>
       <book>2Kings</book>
       <c>20</c>
@@ -997,7 +881,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>27</n>
+    <n>303</n>
     <citation>
       <book>2Kings</book>
       <c>23</c>
@@ -1035,7 +919,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>28</n>
+    <n>202</n>
     <citation>
       <book>Isa</book>
       <c>3</c>
@@ -1071,7 +955,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>29</n>
+    <n>203</n>
     <citation>
       <book>Jer</book>
       <c>18</c>
@@ -1107,7 +991,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>30</n>
+    <n>407</n>
     <citation>
       <book>Jer</book>
       <c>31</c>
@@ -1145,7 +1029,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>31</n>
+    <n>450</n>
     <citation>
       <book>Jer</book>
       <c>50</c>
@@ -1183,7 +1067,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>32</n>
+    <n>408</n>
     <citation>
       <book>Ezek</book>
       <c>14</c>
@@ -1221,7 +1105,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>33</n>
+    <n>409</n>
     <citation>
       <book>Ezek</book>
       <c>14</c>
@@ -1259,7 +1143,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>34</n>
+    <n>410</n>
     <citation>
       <book>Ezek</book>
       <c>28</c>
@@ -1298,7 +1182,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>35</n>
+    <n>507</n>
     <citation>
       <book>Prov</book>
       <c>23</c>
@@ -1337,7 +1221,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>36</n>
+    <n>460</n>
     <citation>
       <book>Lam</book>
       <c>4</c>
@@ -1375,7 +1259,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>37</n>
+    <n>108</n>
     <citation>
       <book>Esth</book>
       <c>9</c>
@@ -1411,7 +1295,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>38</n>
+    <n>411</n>
     <citation>
       <book>Dan</book>
       <c>2</c>
@@ -1450,7 +1334,7 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>39</n>
+    <n>109</n>
     <citation>
       <book>Ezra</book>
       <c>3</c>

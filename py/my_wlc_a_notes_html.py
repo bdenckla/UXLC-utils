@@ -8,12 +8,25 @@ import my_html
 
 def write(records):
     """ Writes WLC a-notes records to docs/index.html. """
-    rows_for_data = list(map(_rec_to_row, records))
+    records_sorted = sorted(records, key=_sort_key_for_rec)
+    rows_for_data = list(map(_rec_to_row, records_sorted))
     rows = [_row_for_header(), *rows_for_data]
     table = my_html.table(rows)
     body_contents = [table]
     write_ctx = my_html.WriteCtx('WLC a-notes', 'docs/index.html')
     my_html.write_html_to_file(body_contents, write_ctx)
+
+
+def _sort_key_for_rec(rec):
+    ucp = rec['uxlc-change-proposal']
+    if isinstance(ucp, int):
+        return 1, ucp
+    if isinstance(ucp, str):
+        return 2, ucp
+    if ucp is None:
+        return 3, None
+    assert False
+
 
 
 def _row_cell_for_hdr_str(rec, hdr_str):
