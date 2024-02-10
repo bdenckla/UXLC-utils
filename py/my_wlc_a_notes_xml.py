@@ -32,20 +32,26 @@ def _add_misc(change_elem, zero_based_index, record):
     _add_citation(change_elem, record)
     _add_author(change_elem)
     _add_description(change_elem, record)
-    _add_lc_page_col_line(change_elem, record)
+    _add_lc(change_elem, record)
     _add_xtext_xuni(change_elem, record, 'reftext', 'refuni')
     _add_xtext_xuni(change_elem, record, 'changetext', 'changeuni')
+    _add_notes(change_elem, record)
+    _add_analysistags(change_elem, record)
+    _add_transnotes(change_elem, record)
+    _add_status(change_elem, record)
+    _add_type(change_elem, record)
 
 
 def _add_n(change_elem, zero_based_index):
     ET.SubElement(change_elem, 'n').text = str(zero_based_index + 1)
 
 def _add_citation(change_elem, record):
+    citation_elem = ET.SubElement(change_elem, 'citation')
+    #
     wlc_bcv_str = record['bcv']
     uxlc_bkid = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
     chnu, vrnu = my_convert_citation_from_wlc_to_uxlc.get_cv_pair(wlc_bcv_str)
     #
-    citation_elem = ET.SubElement(change_elem, 'citation')
     ET.SubElement(citation_elem, 'book').text = uxlc_bkid
     ET.SubElement(citation_elem, 'c').text = str(chnu)
     ET.SubElement(citation_elem, 'v').text = str(vrnu)
@@ -63,7 +69,7 @@ def _add_description(change_elem, _record):
     ET.SubElement(change_elem, 'description').text = 'XXX fill me in description' # XXX
 
 
-def _add_lc_page_col_line(change_elem, _record):
+def _add_lc(change_elem, _record):
     lc_elem = ET.SubElement(change_elem, 'lc')
     ET.SubElement(lc_elem, 'folio').text = 'XXX fill me in folio'  # XXX
     ET.SubElement(lc_elem, 'column').text = 'XXX fill me in column'  # XXX
@@ -76,6 +82,31 @@ def _add_xtext_xuni(change_elem, record, xtext, xuni):
     ET.SubElement(change_elem, xtext).text = record['qere']
     ET.SubElement(change_elem, xuni).text = xuni_str
 
+
+def _add_notes(change_elem, record):
+    notes_elem = ET.SubElement(change_elem, 'notes')
+    for remark in record['remarks']:
+        ET.SubElement(notes_elem, 'note').text = remark
+
+
+def _add_analysistags(change_elem, record):
+    atags_elem = ET.SubElement(change_elem, 'analysistags')
+    # XXX fill me in
+
+
+def _add_transnotes(change_elem, record):
+    trnotes_elem = ET.SubElement(change_elem, 'transnotes')
+    trnote_elem = ET.SubElement(trnotes_elem, 'transnote')
+    ET.SubElement(trnote_elem, 'action').text = 'Add'
+    ET.SubElement(trnote_elem, 'type').text = 'a'
+    ET.SubElement(trnote_elem, 'beforetext').text = 'XXX fill me in beforetext'  # XXX
+
+
+def _add_status(change_elem, record):
+    ET.SubElement(change_elem, 'status').text = 'Pending'
+
+def _add_type(change_elem, record):
+    ET.SubElement(change_elem, 'type').text = 'NoTextChange'
 
 # <n>1</n>
 # <citation>
