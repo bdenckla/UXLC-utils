@@ -11,10 +11,7 @@ def write_xml(records):
     date_elem.text = '2024.02.09'
     for i, record in enumerate(records):
         change_elem = ET.SubElement(dated_change_set_elem, 'change')
-        one_based_index_elem = ET.SubElement(change_elem, 'n')
-        one_based_index_elem.text = str(i + 1)
-        _add_citation(change_elem, record)
-    #
+        _add_misc(change_elem, i, record)
     dated_change_set_tree = ET.ElementTree(dated_change_set_elem)
     ET.indent(dated_change_set_tree)
     #
@@ -26,6 +23,18 @@ def write_xml(records):
 def _etree_write_callback(xml_elementtree, out_fp):
     xml_elementtree.write(out_fp, encoding='unicode')
     out_fp.write('\n')
+
+
+def _add_misc(change_elem, zero_based_index, record):
+    _add_subelem_wtxt(change_elem, 'n', str(zero_based_index + 1))
+    _add_citation(change_elem, record)
+    _add_author(change_elem)
+    _add_description(change_elem, record)
+    _add_lc_page_col_line(change_elem, record)
+
+
+def _add_subelem_wtxt(parent, name, text):
+    ET.SubElement(parent, 'n').text = text
 
 
 def _add_citation(change_elem, record):
@@ -40,8 +49,34 @@ def _add_citation(change_elem, record):
     chap_elem.text = str(chnu)
     verse_elem = ET.SubElement(citation_elem, 'v')
     verse_elem.text = str(vrnu)
-    book_elem = ET.SubElement(citation_elem, 'position')  # i.e. one-based word index
+    pos_elem = ET.SubElement(citation_elem, 'position')  # i.e. one-based word index
+    pos_elem.text = 'XXX fill me in position' # XXX
 
+
+def _add_author(change_elem):
+    author_elem = ET.SubElement(change_elem, 'author')
+    book_elem = ET.SubElement(author_elem, 'name')
+    book_elem.text = 'Ben Denckla'
+    chap_elem = ET.SubElement(author_elem, 'mail')
+    chap_elem.text = 'bdenckla@alum.mit.edu'
+    verse_elem = ET.SubElement(author_elem, 'confirmed')
+    verse_elem.text = 'true'
+
+
+def _add_description(change_elem, record):
+    description_elem = ET.SubElement(change_elem, 'description')
+
+
+def _add_lc_page_col_line(change_elem, record):
+    lc_elem = ET.SubElement(change_elem, 'lc')
+    folio_elem = ET.SubElement(lc_elem, 'folio')
+    folio_elem.text = 'XXX fill me in folio'  # XXX
+    column_elem = ET.SubElement(lc_elem, 'column')
+    column_elem.text = 'XXX fill me in column'  # XXX
+    line_elem = ET.SubElement(lc_elem, 'line')
+    line_elem.text = 'XXX fill me in line'  # XXX
+    credit_elem = ET.SubElement(lc_elem, 'credit')
+    credit_elem.text = 'Credit: Sefaria.org.'
 
 
 # <n>1</n>
