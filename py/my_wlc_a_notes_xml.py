@@ -5,7 +5,7 @@ import my_open
 import my_convert_citation_from_wlc_to_uxlc
 import my_uxlc_unicode_names
 
-def write_xml(records):
+def write(records):
     """ Write records out in UXLC change proposal format. """
     dated_change_set_elem = ET.Element('date')  # dated change set
     date_elem = ET.SubElement(dated_change_set_elem, 'date')  # date of this dated change set
