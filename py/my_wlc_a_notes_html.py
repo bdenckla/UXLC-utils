@@ -16,17 +16,18 @@ def write(records):
     my_html.write_html_to_file(body_contents, write_ctx)
 
 
-def _rec_kv_to_row_cell(kv_pair):
-    key, val = kv_pair
-    if key == 'remarks':
+def _row_cell_for_hdr_str(rec, hdr_str):
+    rec_key = 'qere' if hdr_str == 'WLC qere' else hdr_str
+    val = rec[rec_key]
+    if hdr_str == 'remarks':
         assert isinstance(val, list)
         br = my_html.line_break()
         rems_with_brs = my_utils.intersperse(br, val)
         return my_html.table_datum(rems_with_brs)
     assert isinstance(val, str)
-    if key in ('qere', 'MPK', 'at issue'):
+    if hdr_str in ('WLC qere', 'MPK', 'at issue'):
         return my_html.table_datum(val, {'lang': 'hbo', 'dir': 'rtl'})
-    if key == 'bcv':
+    if hdr_str == 'bcv':
         href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(val)
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)
@@ -34,14 +35,16 @@ def _rec_kv_to_row_cell(kv_pair):
 
 
 def _rec_to_row(rec):
-    row_cells = list(map(_rec_kv_to_row_cell, rec.items()))
+    row_cells = my_utils.ll_map(
+        (_row_cell_for_hdr_str, rec),
+        strs_for_cells_for_header)
     return my_html.table_row(row_cells)
 
 
 def _row_for_header():
-    strs_for_cells_for_header = [
-        'bcv', 'Dotan', 'WLC qere', 'MPK', 'at issue', 'summary', 'remarks']
     cells_for_header = list(map(my_html.table_datum, strs_for_cells_for_header))
     return my_html.table_row(cells_for_header)
 
 
+strs_for_cells_for_header = [
+    'bcv', 'Dotan', 'WLC qere', 'MPK', 'at issue', 'summary', 'remarks']
