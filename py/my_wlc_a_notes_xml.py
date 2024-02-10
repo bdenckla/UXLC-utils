@@ -70,8 +70,10 @@ def _add_author(change_elem):
     ET.SubElement(author_elem, 'confirmed').text = 'true'
 
 
-def _add_description(change_elem, _record):
-    ET.SubElement(change_elem, 'description').text = 'XXX fill me in description' # XXX
+def _add_description(change_elem, record):
+    desc = 'Note ' + record['summary']
+    # XXX expand description (make summary more readable)
+    ET.SubElement(change_elem, 'description').text = desc
 
 
 def _add_lc(change_elem, _record):
