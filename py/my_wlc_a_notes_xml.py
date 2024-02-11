@@ -93,9 +93,49 @@ def _add_author(change_elem):
 
 
 def _add_description(change_elem, record):
-    desc = 'Note ' + record['summary']
+    summ_in = record['summary']
+    atiss_in = record['at issue']
+    summ_out = _SUMMARY_MAP[summ_in]
+    atiss_key = summ_in, atiss_in
+    atiss_out = _AT_ISSUE_MAP.get(atiss_key) or ''
+
+    desc = f'Note {summ_out}{atiss_out}'
     # XXX expand description (make summary more readable)
     ET.SubElement(change_elem, 'description').text = desc
+
+
+_AT_ISSUE_MAP = {
+    ('+dgsh', 'בּ'): ' to bet',
+    ('+dgsh', 'וָּ'): ' to vav-qamats',
+    ('+dgsh', 'פּ'): ' to pe',
+    ('+dgsh', 'יּ'): ' to yod',
+    ('+dgsh', 'דּ'): ' to dalet',
+    ('+dgsh', 'כּ'): ' to kaf',
+    ('+mapiq', 'הּ'): ' to he',
+    ('+dgsh', 'טּ'): ' to tet',
+    ('+dgsh', 'לּ'): ' to lamed',
+    ('+dgsh', 'צּ'): ' to tsadi',
+    #
+    ('+shrq dt', 'וּ…'): ' to initial vav',
+    ('+ḥlm dt', 'וֹ'): ' to vav',
+    ('+shva', 'ךְ'): ' to final form of kaf',
+    ('ḥtf ptḥ to ptḥ', 'עַ'): ' under ayin',
+    #
+    ('-dgsh', 'מ'): ' from mem',
+}
+
+
+_SUMMARY_MAP = {
+    'qbts to shrq': 'qubuts to shuruq',
+    '+mqf': 'added maqaf',
+    '+dgsh': 'added dagesh',
+    '-dgsh': 'removed dagesh',
+    '+mapiq': 'added mapiq',
+    '+shrq dt': 'added shuruq dot',
+    '+ḥlm dt': 'added ḥolam malei dot',
+    '+shva': 'added sheva',
+    'ḥtf ptḥ to ptḥ': 'ḥataf pataḥ to pataḥ'
+}
 
 
 def _add_lc(change_elem, _record):
