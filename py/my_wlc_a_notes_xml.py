@@ -160,7 +160,7 @@ def _add_notes(change_elem, record):
         fqere_note = f'The qere atom at issue is part of the qere compound {fqere}.'
         ET.SubElement(notes_elem, 'note').text = fqere_note
     mpk = record['MPK']
-    mpk_note = f'The MPK is {mpk}.'
+    mpk_note = f'The manuscript’s pointed ketiv (MPK) is {mpk}.'
     ET.SubElement(notes_elem, 'note').text = mpk_note
     for remark in record['remarks']:
         ET.SubElement(notes_elem, 'note').text = remark
