@@ -1,5 +1,16 @@
 """ Exports RECORDS. """
 
+_WLC_C_BRACKET_NOTE_DEFINITION = \
+    "We read an accent in ל differently from BHS. "+ \
+    "(This is similar to the note “]C”, "+ \
+    "but the latter refers to accent differences against BHQ.)"
+_WLC_1_BRACKET_NOTE_DEFINITION = \
+    "BHS has been faithful to ל [...] "+ \
+    "where there might be a question of the validity of the form "+ \
+    "and we keep the same form as BHS. "+ \
+    "(This is similar to the note “]U”, but the latter refers to cases where "+ \
+    "BHQ has been published and we keep the same form as both BHS and BHQ.)"
+
 RECORDS = [
     {'wlc-index': 1,
     'uxlc-change-proposal': 101,
@@ -23,7 +34,11 @@ RECORDS = [
     'summary': "qbts to shrq",
     'remarks': [
         "Side note: In WLC, this word also has a 1-note, "+
-        "presumably because of the unexpected dagesh in the qere’s penultimate vav. "+
+        "presumably because of the unexpected dagesh in the qere’s penultimate vav. ",
+        #
+        "As a reminder, a WLC 1-note (bracket-1 note) is defined as follows: "+
+        f'«{_WLC_1_BRACKET_NOTE_DEFINITION}»',
+        #
         "Although Dotan notes this word, I do not take him to have noted it for the issue at hand: "+
         "the qubuts-to-shuruq issue. "+
         "I take him to have noted this word "+
@@ -292,7 +307,10 @@ RECORDS = [
     'summary': "qbts to shrq",
     'remarks': [
         "Side note: In WLC, this word also has a c-note, "+
-        "presumably because WLC has qadma where BHS (in error) has pashta."]},
+        "presumably because WLC has qadma where BHS (in error) has pashta.",
+        #
+        "As a reminder, a WLC c-note (bracket-c note) is defined as follows: "+
+        f'«{_WLC_C_BRACKET_NOTE_DEFINITION}»']},
     {'wlc-index': 22,
     'uxlc-change-proposal': 504,
     'bcv': "2k4:3",
