@@ -164,7 +164,6 @@ RECORDS = [
     'at issue': "כּ",
     'summary': "+dgsh",
     'remarks': ["The MPK has no letter to carry a dagesh for the qere's כ. The MPK (points on no letters!) is tsere and merkha. Well really those points are under ל not under nothing.",
-        "Why is this not considered a qere velo ketiv by WLC? I have submitted a change proposal to UXLC to make it a qere velo ketiv.",
         "Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. I think what he finds notable here is the MPK's lack of a maqaf. I do not think he finds the MPK's lack of dagesh notable because as far as I know, such a dagesh is never present."]},
     {'wlc-index': 17,
     'uxlc-change-proposal': 404,
