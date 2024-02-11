@@ -6,7 +6,7 @@
       <book>Gen</book>
       <c>27</c>
       <v>29</v>
-      <position>XXX fill me in position</position>
+      <position>3</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -44,7 +44,7 @@
       <book>Gen</book>
       <c>43</c>
       <v>28</v>
-      <position>XXX fill me in position</position>
+      <position>8</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -82,7 +82,7 @@
       <book>Judg</book>
       <c>21</c>
       <v>20</v>
-      <position>XXX fill me in position</position>
+      <position>1</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -118,7 +118,7 @@
       <book>1Sam</book>
       <c>12</c>
       <v>10</v>
-      <position>XXX fill me in position</position>
+      <position>4</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -154,7 +154,7 @@
       <book>1Sam</book>
       <c>13</c>
       <v>19</v>
-      <position>XXX fill me in position</position>
+      <position>8</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -192,7 +192,7 @@
       <book>1Kings</book>
       <c>12</c>
       <v>7</v>
-      <position>XXX fill me in position</position>
+      <position>1</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -230,7 +230,7 @@
       <book>2Kings</book>
       <c>20</c>
       <v>18</v>
-      <position>XXX fill me in position</position>
+      <position>7</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -268,7 +268,7 @@
       <book>Esth</book>
       <c>9</c>
       <v>27</v>
-      <position>XXX fill me in position</position>
+      <position>2</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -304,7 +304,7 @@
       <book>Ezra</book>
       <c>3</c>
       <v>3</v>
-      <position>XXX fill me in position</position>
+      <position>10</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -340,7 +340,7 @@
       <book>Ex</book>
       <c>4</c>
       <v>2</v>
-      <position>XXX fill me in position</position>
+      <position>4</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -354,10 +354,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
-    <reftext>מַה־זֶּ֣ה</reftext>
-    <refuni>mem patah he maqaf zayin dagesh segol munah he</refuni>
-    <changetext>מַה־זֶּ֣ה</changetext>
-    <changeuni>mem patah he maqaf zayin dagesh segol munah he</changeuni>
+    <reftext>מַה־</reftext>
+    <refuni>mem patah he maqaf</refuni>
+    <changetext>מַה־</changetext>
+    <changeuni>mem patah he maqaf</changeuni>
     <notes>
       <note>Does a manuscript qere (i.e. a marginal qere) ever have a maqaf?</note>
     </notes>
@@ -378,7 +378,7 @@
       <book>Isa</book>
       <c>3</c>
       <v>15</v>
-      <position>XXX fill me in position</position>
+      <position>1</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -392,10 +392,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
-    <reftext>מַה־לָּכֶם֙</reftext>
-    <refuni>mem patah he maqaf lamed dagesh qamats kaf segol final-mem pashta</refuni>
-    <changetext>מַה־לָּכֶם֙</changetext>
-    <changeuni>mem patah he maqaf lamed dagesh qamats kaf segol final-mem pashta</changeuni>
+    <reftext>מַה־</reftext>
+    <refuni>mem patah he maqaf</refuni>
+    <changetext>מַה־</changetext>
+    <changeuni>mem patah he maqaf</changeuni>
     <notes />
     <analysistags />
     <transnotes>
@@ -414,7 +414,7 @@
       <book>Jer</book>
       <c>18</c>
       <v>3</v>
-      <position>XXX fill me in position</position>
+      <position>4</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -428,10 +428,10 @@
       <line>XXX fill me in line</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
-    <reftext>וְהִנֵּה־ה֛וּא</reftext>
-    <refuni>vav sheva he hiriq nun dagesh tsere he maqaf he tevir vav dagesh alef</refuni>
-    <changetext>וְהִנֵּה־ה֛וּא</changetext>
-    <changeuni>vav sheva he hiriq nun dagesh tsere he maqaf he tevir vav dagesh alef</changeuni>
+    <reftext>וְהִנֵּה־</reftext>
+    <refuni>vav sheva he hiriq nun dagesh tsere he maqaf</refuni>
+    <changetext>וְהִנֵּה־</changetext>
+    <changeuni>vav sheva he hiriq nun dagesh tsere he maqaf</changeuni>
     <notes />
     <analysistags />
     <transnotes>
@@ -450,7 +450,7 @@
       <book>Josh</book>
       <c>22</c>
       <v>7</v>
-      <position>XXX fill me in position</position>
+      <position>12</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -488,7 +488,7 @@
       <book>Josh</book>
       <c>24</c>
       <v>15</v>
-      <position>XXX fill me in position</position>
+      <position>20</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -526,7 +526,7 @@
       <book>2Kings</book>
       <c>23</c>
       <v>33</v>
-      <position>XXX fill me in position</position>
+      <position>7</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -564,7 +564,7 @@
       <book>Judg</book>
       <c>20</c>
       <v>13</v>
-      <position>XXX fill me in position</position>
+      <position>15</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -604,7 +604,7 @@
       <book>2Sam</book>
       <c>3</c>
       <v>2</v>
-      <position>XXX fill me in position</position>
+      <position>1</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -643,7 +643,7 @@
       <book>2Sam</book>
       <c>8</c>
       <v>3</v>
-      <position>XXX fill me in position</position>
+      <position>13</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -681,7 +681,7 @@
       <book>2Sam</book>
       <c>21</c>
       <v>9</v>
-      <position>XXX fill me in position</position>
+      <position>16</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -720,7 +720,7 @@
       <book>2Sam</book>
       <c>22</c>
       <v>8</v>
-      <position>XXX fill me in position</position>
+      <position>1</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -760,7 +760,7 @@
       <book>2Kings</book>
       <c>19</c>
       <v>37</v>
-      <position>XXX fill me in position</position>
+      <position>9</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -799,7 +799,7 @@
       <book>Jer</book>
       <c>31</c>
       <v>38</v>
-      <position>XXX fill me in position</position>
+      <position>3</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -837,7 +837,7 @@
       <book>Ezek</book>
       <c>14</c>
       <v>14</v>
-      <position>XXX fill me in position</position>
+      <position>7</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -875,7 +875,7 @@
       <book>Ezek</book>
       <c>14</c>
       <v>20</v>
-      <position>XXX fill me in position</position>
+      <position>2</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -913,7 +913,7 @@
       <book>Ezek</book>
       <c>28</c>
       <v>3</v>
-      <position>XXX fill me in position</position>
+      <position>4</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -952,7 +952,7 @@
       <book>Dan</book>
       <c>2</c>
       <v>9</v>
-      <position>XXX fill me in position</position>
+      <position>12</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -988,10 +988,50 @@
   <change>
     <n>27</n>
     <citation>
+      <book>2Sam</book>
+      <c>18</c>
+      <v>20</v>
+      <position>19</position>
+    </citation>
+    <author>
+      <name>Ben Denckla</name>
+      <mail>bdenckla@alum.mit.edu</mail>
+      <confirmed>true</confirmed>
+    </author>
+    <description>Note +dgsh</description>
+    <lc>
+      <folio>XXX fill me in folio</folio>
+      <column>XXX fill me in column</column>
+      <line>XXX fill me in line</line>
+      <credit>Credit: Sefaria.org.</credit>
+    </lc>
+    <reftext>כֵּ֥ן</reftext>
+    <refuni>kaf dagesh tsere merkha final-nun</refuni>
+    <changetext>כֵּ֥ן</changetext>
+    <changeuni>kaf dagesh tsere merkha final-nun</changeuni>
+    <notes>
+      <note>The MPK has no letter to carry a dagesh for the qere's כ. The MPK (points on no letters!) is tsere and merkha. Well really those points are under ל not under nothing.</note>
+      <note>Why is this not considered a qere velo ketiv by WLC? I have submitted a change proposal to UXLC to make it a qere velo ketiv.</note>
+      <note>Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. I think what he finds notable here is the MPK's lack of a maqaf. I do not think he finds the MPK's lack of dagesh notable because as far as I know, such a dagesh is never present.</note>
+    </notes>
+    <analysistags />
+    <transnotes>
+      <transnote>
+        <action>Add</action>
+        <type>a</type>
+        <beforetext>XXX fill me in beforetext</beforetext>
+      </transnote>
+    </transnotes>
+    <status>Pending</status>
+    <type>NoTextChange</type>
+  </change>
+  <change>
+    <n>28</n>
+    <citation>
       <book>Jer</book>
       <c>50</c>
       <v>29</v>
-      <position>XXX fill me in position</position>
+      <position>13</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1024,12 +1064,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>28</n>
+    <n>29</n>
     <citation>
       <book>Lam</book>
       <c>4</c>
       <v>16</v>
-      <position>XXX fill me in position</position>
+      <position>11</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1062,12 +1102,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>29</n>
+    <n>30</n>
     <citation>
       <book>2Kings</book>
       <c>19</c>
       <v>31</v>
-      <position>XXX fill me in position</position>
+      <position>10</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1100,12 +1140,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>30</n>
+    <n>31</n>
     <citation>
       <book>1Sam</book>
       <c>5</c>
       <v>6</v>
-      <position>XXX fill me in position</position>
+      <position>9</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1139,12 +1179,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>31</n>
+    <n>32</n>
     <citation>
       <book>1Sam</book>
       <c>5</c>
       <v>12</v>
-      <position>XXX fill me in position</position>
+      <position>6</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1178,12 +1218,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>32</n>
+    <n>33</n>
     <citation>
       <book>1Kings</book>
       <c>7</c>
       <v>45</v>
-      <position>XXX fill me in position</position>
+      <position>10</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1216,12 +1256,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>33</n>
+    <n>34</n>
     <citation>
       <book>2Kings</book>
       <c>4</c>
       <v>3</v>
-      <position>XXX fill me in position</position>
+      <position>10</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1254,12 +1294,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>34</n>
+    <n>35</n>
     <citation>
       <book>2Kings</book>
       <c>6</c>
       <v>25</v>
-      <position>XXX fill me in position</position>
+      <position>16</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1293,12 +1333,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>35</n>
+    <n>36</n>
     <citation>
       <book>Prov</book>
       <c>23</c>
       <v>26</v>
-      <position>XXX fill me in position</position>
+      <position>7</position>
     </citation>
     <author>
       <name>Ben Denckla</name>
@@ -1332,12 +1372,12 @@
     <type>NoTextChange</type>
   </change>
   <change>
-    <n>36</n>
+    <n>37</n>
     <citation>
       <book>1Sam</book>
       <c>17</c>
       <v>23</v>
-      <position>XXX fill me in position</position>
+      <position>12</position>
     </citation>
     <author>
       <name>Ben Denckla</name>

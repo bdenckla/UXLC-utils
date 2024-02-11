@@ -3,7 +3,9 @@
 import xml.etree.ElementTree as ET
 import my_open
 import my_convert_citation_from_wlc_to_uxlc
+import my_uxlc_book_abbreviations as u_bk_abbr
 import my_uxlc_unicode_names
+import my_uxlc
 
 def write(records):
     """ Write records out in UXLC change proposal format. """
@@ -11,12 +13,13 @@ def write(records):
     date_elem = ET.SubElement(dated_change_set_elem, 'date')  # date of this dated change set
     date_elem.text = '2024.02.09'
     ucp_count = 0
+    uxlc = {}
     for record in records:
         ucp = record['uxlc-change-proposal']
         if isinstance(ucp, int):
             ucp_count += 1
             change_elem = ET.SubElement(dated_change_set_elem, 'change')
-            _add_misc(change_elem, record, ucp_count)
+            _add_misc(uxlc, change_elem, record, ucp_count)
     dated_change_set_tree = ET.ElementTree(dated_change_set_elem)
     #
     ET.indent(dated_change_set_tree)
@@ -31,9 +34,9 @@ def _etree_write_callback(xml_elementtree, out_fp):
     out_fp.write('\n')
 
 
-def _add_misc(change_elem, record, ucp_count):
+def _add_misc(io_uxlc, change_elem, record, ucp_count):
     _add_n(change_elem, ucp_count)
-    _add_citation(change_elem, record)
+    _add_citation(io_uxlc, change_elem, record)
     _add_author(change_elem)
     _add_description(change_elem, record)
     _add_lc(change_elem, record)
@@ -42,25 +45,44 @@ def _add_misc(change_elem, record, ucp_count):
     _add_notes(change_elem, record)
     _add_analysistags(change_elem, record)
     _add_transnotes(change_elem, record)
-    _add_status(change_elem, record)
-    _add_type(change_elem, record)
+    _add_status(change_elem)
+    _add_type(change_elem)
 
 
 def _add_n(change_elem, ucp_count):
     assert isinstance(ucp_count, int)
     ET.SubElement(change_elem, 'n').text = str(ucp_count)
 
-def _add_citation(change_elem, record):
+def _add_citation(io_uxlc, change_elem, record):
     citation_elem = ET.SubElement(change_elem, 'citation')
     #
     wlc_bcv_str = record['bcv']
     uxlc_bkid = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
     chnu, vrnu = my_convert_citation_from_wlc_to_uxlc.get_cv_pair(wlc_bcv_str)
+    index = _index(io_uxlc, _qere_atom(record), (uxlc_bkid, chnu, vrnu))
+    position = index + 1
     #
     ET.SubElement(citation_elem, 'book').text = uxlc_bkid
     ET.SubElement(citation_elem, 'c').text = str(chnu)
     ET.SubElement(citation_elem, 'v').text = str(vrnu)
-    ET.SubElement(citation_elem, 'position').text = 'XXX fill me in position' # XXX
+    ET.SubElement(citation_elem, 'position').text = str(position)
+
+
+def _index(io_uxlc, word, bcv):
+    verse_words = _get_verse_words(io_uxlc, bcv)
+    index = verse_words.index(word)
+    assert index != -1
+    return index
+
+
+def _get_verse_words(io_uxlc, bcv):
+    uxlc_bkid, chnu, vrnu = bcv
+    if uxlc_bkid not in io_uxlc:
+        std_bkid = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[uxlc_bkid]
+        io_uxlc[uxlc_bkid] = my_uxlc.read(std_bkid)
+    chidx = chnu - 1
+    vridx = vrnu - 1
+    return io_uxlc[uxlc_bkid][chidx][vridx]
 
 
 def _add_author(change_elem):
@@ -85,8 +107,9 @@ def _add_lc(change_elem, _record):
 
 
 def _add_xtext_xuni(change_elem, record, xtext, xuni):
-    xuni_str = my_uxlc_unicode_names.names(record['qere'])
-    ET.SubElement(change_elem, xtext).text = record['qere']
+    qere_atom = _qere_atom(record)
+    xuni_str = my_uxlc_unicode_names.names(qere_atom)
+    ET.SubElement(change_elem, xtext).text = qere_atom
     ET.SubElement(change_elem, xuni).text = xuni_str
 
 
@@ -109,11 +132,15 @@ def _add_transnotes(change_elem, record):
     ET.SubElement(trnote_elem, 'beforetext').text = 'XXX fill me in beforetext'  # XXX
 
 
-def _add_status(change_elem, record):
+def _add_status(change_elem):
     ET.SubElement(change_elem, 'status').text = 'Pending'
 
-def _add_type(change_elem, record):
+def _add_type(change_elem):
     ET.SubElement(change_elem, 'type').text = 'NoTextChange'
+
+
+def _qere_atom(record):
+    return record.get('qere-atom') or record['qere']
 
 # <n>1</n>
 # <citation>
