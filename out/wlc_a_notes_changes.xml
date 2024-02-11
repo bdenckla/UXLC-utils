@@ -372,6 +372,7 @@
     <changetext>מַה־</changetext>
     <changeuni>mem patah he maqaf</changeuni>
     <notes>
+      <note>The qere atom at issue is part of the qere compound מַה־זֶּ֣ה.</note>
       <note>The MPK is מַזֶּ֣ה.</note>
       <note>Does a manuscript qere (i.e. a marginal qere) ever have a maqaf?</note>
     </notes>
@@ -411,6 +412,7 @@
     <changetext>מַה־</changetext>
     <changeuni>mem patah he maqaf</changeuni>
     <notes>
+      <note>The qere atom at issue is part of the qere compound מַה־לָּכֶם֙.</note>
       <note>The MPK is מַלָּכֶם֙.</note>
     </notes>
     <analysistags />
@@ -449,6 +451,7 @@
     <changetext>וְהִנֵּה־</changetext>
     <changeuni>vav sheva he hiriq nun dagesh tsere he maqaf</changeuni>
     <notes>
+      <note>The qere atom at issue is part of the qere compound וְהִנֵּה־ה֛וּא.</note>
       <note>The MPK is וְהִנֵּה֛וּ.</note>
     </notes>
     <analysistags />
@@ -1042,6 +1045,7 @@
     <changetext>כֵּ֥ן</changetext>
     <changeuni>kaf dagesh tsere merkha final-nun</changeuni>
     <notes>
+      <note>The qere atom at issue is part of the qere compound עַל־כֵּ֥ן.</note>
       <note>The MPK is עַלֵ֥.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's כ. The MPK (points on no letters!) is tsere and merkha. Well really those points are under ל not under nothing.</note>
       <note>Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. I think what he finds notable here is the MPK's lack of a maqaf. I do not think he finds the MPK's lack of dagesh notable because as far as I know, such a dagesh is never present.</note>

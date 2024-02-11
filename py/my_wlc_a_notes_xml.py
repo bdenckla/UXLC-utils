@@ -155,6 +155,10 @@ def _add_xtext_xuni(change_elem, record, xtext, xuni):
 
 def _add_notes(change_elem, record):
     notes_elem = ET.SubElement(change_elem, 'notes')
+    if 'qere-atom' in record:
+        fqere = record['qere']  # full qere
+        fqere_note = f'The qere atom at issue is part of the qere compound {fqere}.'
+        ET.SubElement(notes_elem, 'note').text = fqere_note
     mpk = record['MPK']
     mpk_note = f'The MPK is {mpk}.'
     ET.SubElement(notes_elem, 'note').text = mpk_note
