@@ -11,8 +11,8 @@ RECORDS = [
     'summary': "qbts to shrq",
     'remarks': [
         "Side note: Dotan notes a later instance of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. "+
-        "Presumably he notes it for the unexpected dagesh in the penultimate vav. "+
-        "It is not part of a ketiv/qere pair."]},
+        "Presumably he notes this later word for the unexpected dagesh in its penultimate vav. "+
+        "This later word is a normal (non-qere) word."]},
     {'wlc-index': 2,
     'uxlc-change-proposal': 102,
     'bcv': "gn43:28",
@@ -28,10 +28,10 @@ RECORDS = [
         "the qubuts-to-shuruq issue. "+
         "I take him to have noted this word "+
         "only for its unexpected dagesh in the qere’s penultimate vav. "+
-        "Compare to gn27:29 word 4, not noted by Dotan, "+
+        "Compare to gn27:29 word 4, וְיִֽשְׁתַּחֲו֤וּ, not noted by Dotan, "+
         "which is the qere of a ketiv/qere that is analogous to this one "+
         "except it has the expected undageshed penultimate vav. "+
-        "Also compare to gn27:29 word 10, noted by Dotan, "+
+        "Also compare to gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, noted by Dotan, "+
         "which is a normal (non-qere) word that is analogous to this qere "+
         "including its unexpected dageshed penultimate vav."
     ]},
@@ -79,7 +79,7 @@ RECORDS = [
     'summary': "+dgsh",
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s ב. "+
-        "The MPK (points on no letters!) is sheva, tsere, and munaḥ.",
+        "The MPK (points on no letters) is sheva, tsere, and munaḥ.",
         #
         "Side note: Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?",
         #
@@ -129,7 +129,7 @@ RECORDS = [
     'qere': "מִבִּנְיָמִ֗ין",
     'MPK': "מִבִּן־יָמִ֗ין",
     'at issue': "נְיָ",
-    'summary': "+shva—-mqf",
+    'summary': "+shva,-mqf",
     'remarks': [
         "The MPK’s final nun of מבן does not carry a sheva for the qere’s (non-final) נ, "+
         "perhaps because that would be illegal. "+
@@ -153,7 +153,7 @@ RECORDS = [
     'at issue': "וּ",
     'summary': "qbts to shrq",
     'remarks': [
-        "There’s a large, clear dot above the ר; I don’t know what it is supposed to mean, if anything. "+
+        "Side note: There’s a large, clear dot above the ר; I don’t know what it is supposed to mean, if anything. "+
         "Surely not a revia!"]},
     {'wlc-index': 13,
     'uxlc-change-proposal': 507,
@@ -179,7 +179,7 @@ RECORDS = [
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s vav-qamats.",
         #
-        "Side note: The ל carries the qere vav's qamats as well as its own sheva. "+
+        "Although it cannot carry the vav’s dagesh, the ל carries the vav's qamats as well as its own sheva. "+
         "Unlike the manuscript, our MPK shows that qamats on a dotted circle rather than on the ל."]},
     {'wlc-index': 15,
     'uxlc-change-proposal': 403,
@@ -191,7 +191,7 @@ RECORDS = [
     'summary': "+dgsh",
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s פ. "+
-        "The MPK (points on no letters!) is sheva, qamats, and siluq."]},
+        "The MPK (points on no letters) is sheva, qamats, and siluq."]},
     {'wlc-index': 16,
     'uxlc-change-proposal': "2024.04.01/2024.01.18-2",
     'bcv': "2s18:20",
@@ -203,7 +203,7 @@ RECORDS = [
     'summary': "+mqf",
     'remarks': [
         "The MPK lacks a trailing maqaf. "+
-        "The MPK (points on no letters!) is tsere and merkha. "+
+        "The MPK (points on no letters) is tsere and merkha. "+
         "Well really those points are under ל not under nothing.",
         #
         "Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. "+
@@ -224,7 +224,7 @@ RECORDS = [
     'summary': "+dgsh",
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s כ. "+
-        "The MPK (points on no letters!) is tsere and merkha. "+
+        "The MPK (points on no letters) is tsere and merkha. "+
         "Well really those points are under ל not under nothing.",
         #
         "Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. "+
@@ -242,8 +242,9 @@ RECORDS = [
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s ב.",
         #
-        "Side note: the ḥiriq of the implied bet is an orphan ḥiriq, "+
-        "not even really carried by the initial ת."]},
+        "Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. "+
+        "Yet, it does not: the spacing is generous, leaving the ḥiriq floating out on its own without a parent letter. "+
+        "Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than floating out on its own."]},
     {'wlc-index': 18,
     'uxlc-change-proposal': 405,
     'bcv': "2s22:8",
@@ -255,7 +256,7 @@ RECORDS = [
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s yod.",
         #
-        "Side note: The vav carries its own pataḥ as well as the qere yod's ḥiriq. "+
+        "Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod's ḥiriq. "+
         "Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than on the vav."]},
     {'wlc-index': 19,
     'uxlc-change-proposal': 503,
@@ -290,7 +291,7 @@ RECORDS = [
     'at issue': "וּ",
     'summary': "qbts to shrq",
     'remarks': [
-        "In WLC, this word also has a c-note, "+
+        "Side note: In WLC, this word also has a c-note, "+
         "presumably because WLC has qadma where BHS (in error) has pashta."]},
     {'wlc-index': 22,
     'uxlc-change-proposal': 504,
@@ -328,7 +329,7 @@ RECORDS = [
     'summary': "+ḥlm dt",
     'remarks': [
         "The MPK has no letter to carry a ḥolam dot on the qere’s vav. "+
-        "The MPK (points on no letters!) is sheva, qamats, and tipeḥa."]},
+        "The MPK (points on no letters) is sheva, qamats, and tipeḥa."]},
     {'wlc-index': 25,
     'uxlc-change-proposal': 406,
     'bcv': "2k19:37",
@@ -339,7 +340,7 @@ RECORDS = [
     'summary': "+dgsh",
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s ב. "+
-        "The MPK (points on no letters!) is two qamats marks and (what we intepret as) pashta (not qadma).",
+        "The MPK (points on no letters) is two qamats marks and (what we intepret as) pashta (not qadma).",
         #
         "Side note: There is also a dot near the pashta, which we ignore. "+
         "I.e. we assume it is not ink, or in any case not intentional."]},
@@ -395,7 +396,7 @@ RECORDS = [
     'summary': "+dgsh",
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s ב. "+
-        "The MPK (points on no letters!) is qamats, ḥiriq, and tipeḥa."]},
+        "The MPK (points on no letters) is qamats, ḥiriq, and tipeḥa."]},
     {'wlc-index': 31,
     'uxlc-change-proposal': 450,
     'bcv': "je50:29",
@@ -406,7 +407,7 @@ RECORDS = [
     'summary': "+mapiq",
     'remarks': [
         "The MPK has no letter to carry a mapiq for the qere’s ה. "+
-        "The MPK (points on no letters!) is qamats and (what we intepret as) pashta (not qadma)."]},
+        "The MPK (points on no letters) is qamats and (what we intepret as) pashta (not qadma)."]},
     {'wlc-index': 32,
     'uxlc-change-proposal': 408,
     'bcv': "ek14:14",
@@ -482,7 +483,7 @@ RECORDS = [
     'remarks': [
         "The MPK has no letter to carry a dagesh for the qere’s ד.",
         #
-        "Side note: The מ carries the ד's sheva as well as its own ḥiriq. "+
+        "Although it cannot carry the ד's dagesh, the מ carries the ד's sheva as well as its own ḥiriq. "+
         "Unlike the manuscript, our MPK shows that sheva on a dotted circle rather than on the מ."]},
     {'wlc-index': 39,
     'uxlc-change-proposal': 109,
