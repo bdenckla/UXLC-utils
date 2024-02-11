@@ -25,6 +25,7 @@
     <changetext>וְיִֽשְׁתַּחֲו֤וּ</changetext>
     <changeuni>vav sheva yod hiriq meteg shin shin-dot sheva tav dagesh patah het hataf-patah vav mahapakh vav dagesh</changeuni>
     <notes>
+      <note>The MPK is וְיִֽשְׁתַּחֲוֻ֤.</note>
       <note>Dotan notes a later instance of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. Presumably he notes it for the unexpected dagesh in the penultimate vav. It is not part of a ketiv/qere pair.</note>
     </notes>
     <analysistags />
@@ -63,6 +64,7 @@
     <changetext>וַיִּֽשְׁתַּחֲוּֽוּ׃</changetext>
     <changeuni>vav patah yod dagesh hiriq meteg shin shin-dot sheva tav dagesh patah het hataf-patah vav dagesh meteg vav dagesh sof-pasuq</changeuni>
     <notes>
+      <note>The MPK is וַיִּֽשְׁתַּחֲוֻּֽ׃.</note>
       <note>Also has a 1-note, presumably about the dagesh in the qere's penultimate vav. (Compare to gn27:29.) Presumably Dotan notes this word not because of anything about the ketiv/qere but rather for its dagesh in the qere's penultimate vav.</note>
     </notes>
     <analysistags />
@@ -100,7 +102,9 @@
     <refuni>vav patah yod sheva tsadi patah vav dagesh zaqef-gadol vav dagesh</refuni>
     <changetext>וַיְצַוּ֕וּ</changetext>
     <changeuni>vav patah yod sheva tsadi patah vav dagesh zaqef-gadol vav dagesh</changeuni>
-    <notes />
+    <notes>
+      <note>The MPK is וַיְצַוֻּ֕.</note>
+    </notes>
     <analysistags />
     <transnotes>
       <transnote>
@@ -136,7 +140,9 @@
     <refuni>vav patah yod dagesh holam alef mem sheva resh munah vav dagesh</refuni>
     <changetext>וַיֹּאמְר֣וּ</changetext>
     <changeuni>vav patah yod dagesh holam alef mem sheva resh munah vav dagesh</changeuni>
-    <notes />
+    <notes>
+      <note>The MPK is וַיֹּאמְרֻ֣.</note>
+    </notes>
     <analysistags />
     <transnotes>
       <transnote>
@@ -173,6 +179,7 @@
     <changetext>אָמְר֣וּ</changetext>
     <changeuni>alef qamats mem sheva resh munah vav dagesh</changeuni>
     <notes>
+      <note>The MPK is אָמְרֻ֣.</note>
       <note>There's a large, clear dot above the ר; I don't know what it is supposed to mean, if anything. Surely not a revia!</note>
     </notes>
     <analysistags />
@@ -211,6 +218,7 @@
     <changetext>וַיְדַבְּר֨וּ</changetext>
     <changeuni>vav patah yod sheva dalet patah bet dagesh sheva resh qadma vav dagesh</changeuni>
     <notes>
+      <note>The MPK is וַיְדַבְּרֻ֨.</note>
       <note>Also has a c-note because WLC has qadma where BHS (in error) has pashta.</note>
     </notes>
     <analysistags />
@@ -249,6 +257,7 @@
     <changetext>יִקָּ֑חוּ</changetext>
     <changeuni>yod hiriq qof dagesh qamats etnahta het vav dagesh</changeuni>
     <notes>
+      <note>The MPK is יִקָּ֑חֻ.</note>
       <note>The dagesh in the qof is way off center, but still legit IMO.</note>
     </notes>
     <analysistags />
@@ -286,7 +295,9 @@
     <refuni>vav sheva qof hiriq bet dagesh sheva lamed munah vav dagesh</refuni>
     <changetext>וְקִבְּל֣וּ</changetext>
     <changeuni>vav sheva qof hiriq bet dagesh sheva lamed munah vav dagesh</changeuni>
-    <notes />
+    <notes>
+      <note>The MPK is וְקִבְּלֻ֣.</note>
+    </notes>
     <analysistags />
     <transnotes>
       <transnote>
@@ -322,7 +333,9 @@
     <refuni>vav patah yod dagesh patah ayin hataf-patah lamed qadma vav dagesh</refuni>
     <changetext>וַיַּעֲל֨וּ</changetext>
     <changeuni>vav patah yod dagesh patah ayin hataf-patah lamed qadma vav dagesh</changeuni>
-    <notes />
+    <notes>
+      <note>The MPK is וַיַּעֲלֻ֨.</note>
+    </notes>
     <analysistags />
     <transnotes>
       <transnote>
@@ -359,6 +372,7 @@
     <changetext>מַה־</changetext>
     <changeuni>mem patah he maqaf</changeuni>
     <notes>
+      <note>The MPK is מַזֶּ֣ה.</note>
       <note>Does a manuscript qere (i.e. a marginal qere) ever have a maqaf?</note>
     </notes>
     <analysistags />
@@ -396,7 +410,9 @@
     <refuni>mem patah he maqaf</refuni>
     <changetext>מַה־</changetext>
     <changeuni>mem patah he maqaf</changeuni>
-    <notes />
+    <notes>
+      <note>The MPK is מַלָּכֶם֙.</note>
+    </notes>
     <analysistags />
     <transnotes>
       <transnote>
@@ -432,7 +448,9 @@
     <refuni>vav sheva he hiriq nun dagesh tsere he maqaf</refuni>
     <changetext>וְהִנֵּה־</changetext>
     <changeuni>vav sheva he hiriq nun dagesh tsere he maqaf</changeuni>
-    <notes />
+    <notes>
+      <note>The MPK is וְהִנֵּה֛וּ.</note>
+    </notes>
     <analysistags />
     <transnotes>
       <transnote>
@@ -469,6 +487,7 @@
     <changetext>בְּעֵ֥בֶר</changetext>
     <changeuni>bet dagesh sheva ayin tsere merkha bet segol resh</changeuni>
     <notes>
+      <note>The MPK is מְעֵ֥בֶר.</note>
       <note>The MPK's מ does not carry a dagesh for the qere's ב, for some reason. This is the dual of js24:15. Dotan notes that strictly speaking, the implied qere is בְעֵ֥בֶר (unexpectedly dagesh-free).</note>
     </notes>
     <analysistags />
@@ -507,6 +526,7 @@
     <changetext>מֵעֵ֣בֶר</changetext>
     <changeuni>mem tsere ayin tsere munah bet segol resh</changeuni>
     <notes>
+      <note>The MPK is בְּעֵ֥בֶר.</note>
       <note>The MPK's בּ seems to carry a dagesh for the qere's מ but it is rejected. This is the dual of js22:7. Dotan notes that strictly speaking, the implied qere is מֵּעֵ֣בֶר (unexpectedly dageshed).</note>
     </notes>
     <analysistags />
@@ -545,6 +565,7 @@
     <changetext>מִמְּלֹ֖ךְ</changetext>
     <changeuni>mem hiriq mem dagesh sheva lamed holam tipeha final-kaf sheva</changeuni>
     <notes>
+      <note>The MPK is בִּמְּלֹ֖ךְ.</note>
       <note>The MPK's בּ seems to carry a dagesh for the qere's מ but it is rejected. See js24:15, which is similar. Dotan does not note this case, though he does note js24:15.</note>
     </notes>
     <analysistags />
@@ -583,6 +604,7 @@
     <changetext>בְּנֵ֣י</changetext>
     <changeuni>bet dagesh sheva nun tsere munah yod</changeuni>
     <notes>
+      <note>The MPK is ◌ְ◌ֵ֣.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's ב. The MPK (points on no letters!) is sheva, tsere, and munaḥ.</note>
       <note>Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?</note>
       <note>Dotan notes that the next word unexpectedly starts with בּ not ב, i.e. בִנְיָמִ֔ן would be expected.</note>
@@ -623,8 +645,9 @@
     <changetext>וַיִּוָּלְד֧וּ</changetext>
     <changeuni>vav patah yod dagesh hiriq vav dagesh qamats lamed sheva dalet darga vav dagesh</changeuni>
     <notes>
+      <note>The MPK is וַיִּ◌ָלְד֧וּ.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's vav-qamats.</note>
-      <note>The ל carries the qere vav's qamats as well as its own sheva. In the MPK column, we diverge from the manuscript's appearance by showing that qamats on a dotted circle rather than on the ל.</note>
+      <note>The ל carries the qere vav's qamats as well as its own sheva. Unlike the manuscript, our MPK shows that qamats on a dotted circle rather than on the ל.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -662,6 +685,7 @@
     <changetext>פְּרָֽת׃</changetext>
     <changeuni>pe dagesh sheva resh qamats meteg tav sof-pasuq</changeuni>
     <notes>
+      <note>The MPK is ◌ְ◌ָֽ׃.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's פ. The MPK (points on no letters!) is sheva, qamats, and siluq.</note>
     </notes>
     <analysistags />
@@ -700,6 +724,7 @@
     <changetext>בִּתְחִלַּ֖ת</changetext>
     <changeuni>bet dagesh hiriq tav sheva het hiriq lamed dagesh patah tipeha tav</changeuni>
     <notes>
+      <note>The MPK is ◌ִתְחִלַּ֖ת.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's ב .</note>
       <note>Side note: the ḥiriq of the implied bet is an orphan ḥiriq, not even really carried by the initial ת.</note>
     </notes>
@@ -739,8 +764,9 @@
     <changetext>וַיִּתְגָּעַ֤שׁ</changetext>
     <changeuni>vav patah yod dagesh hiriq tav sheva gimel dagesh qamats ayin patah mahapakh shin shin-dot</changeuni>
     <notes>
+      <note>The MPK is וַ◌ִתְגָּעַ֤שׁ.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's yod.</note>
-      <note>The vav carries its own pataḥ as well as the qere yod's ḥiriq. In the MPK column, we diverge from the manuscript's appearance by showing that ḥiriq on a dotted circle rather than on the vav.</note>
+      <note>The vav carries its own pataḥ as well as the qere yod's ḥiriq. Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than on the vav.</note>
       <note>Also has a 1-note, about what I don't know.</note>
     </notes>
     <analysistags />
@@ -779,6 +805,7 @@
     <changetext>בָּנָיו֙</changetext>
     <changeuni>bet dagesh qamats nun qamats yod vav pashta</changeuni>
     <notes>
+      <note>The MPK is ◌ָ◌ָ◌◌֙.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's ב. The MPK (points on no letters!) is two qamats marks and (what we intepret as) pashta (not qadma).</note>
       <note>Side note: There is also a dot near the pashta, which we ignore. I.e. we assume it is not ink, or in any case not intentional.</note>
     </notes>
@@ -818,6 +845,7 @@
     <changetext>בָּאִ֖ים</changetext>
     <changeuni>bet dagesh qamats alef hiriq tipeha yod final-mem</changeuni>
     <notes>
+      <note>The MPK is ◌ָ◌ִ֖.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's ב. The MPK (points on no letters!) is qamats, ḥiriq, and tipeḥa.</note>
     </notes>
     <analysistags />
@@ -856,6 +884,7 @@
     <changetext>דָּנִיֵּ֣אל</changetext>
     <changeuni>dalet dagesh qamats nun hiriq yod dagesh tsere munah alef lamed</changeuni>
     <notes>
+      <note>The MPK is דָּנִאֵ֣ל.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's yod.</note>
     </notes>
     <analysistags />
@@ -894,6 +923,7 @@
     <changetext>דָּנִיֵּ֣אל</changetext>
     <changeuni>dalet dagesh qamats nun hiriq yod dagesh tsere munah alef lamed</changeuni>
     <notes>
+      <note>The MPK is דָּנִאֵ֣ל.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's yod.</note>
     </notes>
     <analysistags />
@@ -932,6 +962,7 @@
     <changetext>מִדָּֽנִיֵּ֑אל</changetext>
     <changeuni>mem hiriq dalet dagesh qamats meteg nun hiriq yod dagesh tsere etnahta alef lamed</changeuni>
     <notes>
+      <note>The MPK is מִדָּֽנִאֵֿ֑ל.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's yod.</note>
       <note>Note the rafeh on the א. This rafeh makes it clear that the qere's yod is a consonant not a vowel, i.e. the qere's syllables are מִ־דָּֽ־נִ־יֵּ֑אל.</note>
     </notes>
@@ -971,8 +1002,9 @@
     <changetext>הִזְדְּמִנְתּוּן֙</changetext>
     <changeuni>he hiriq zayin sheva dalet dagesh sheva mem hiriq nun sheva tav dagesh vav dagesh final-nun pashta</changeuni>
     <notes>
+      <note>The MPK is הִזְ◌ְמִנְתּוּן֙.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's ד.</note>
-      <note>The מ carries the ד's sheva as well as its own ḥiriq. In the MPK column, we diverge from the manuscript's appearance by showing that sheva on a dotted circle rather than on the מ.</note>
+      <note>The מ carries the ד's sheva as well as its own ḥiriq. Unlike the manuscript, our MPK shows that sheva on a dotted circle rather than on the מ.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -1010,6 +1042,7 @@
     <changetext>כֵּ֥ן</changetext>
     <changeuni>kaf dagesh tsere merkha final-nun</changeuni>
     <notes>
+      <note>The MPK is עַלֵ֥.</note>
       <note>The MPK has no letter to carry a dagesh for the qere's כ. The MPK (points on no letters!) is tsere and merkha. Well really those points are under ל not under nothing.</note>
       <note>Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. I think what he finds notable here is the MPK's lack of a maqaf. I do not think he finds the MPK's lack of dagesh notable because as far as I know, such a dagesh is never present.</note>
     </notes>
@@ -1049,6 +1082,7 @@
     <changetext>לָהּ֙</changetext>
     <changeuni>lamed qamats he dagesh pashta</changeuni>
     <notes>
+      <note>The MPK is ◌ָ◌֙.</note>
       <note>The MPK has no letter to carry a mapiq for the qere's ה. The MPK (points on no letters!) is qamats and (what we intepret as) pashta (not qadma).</note>
     </notes>
     <analysistags />
@@ -1087,6 +1121,7 @@
     <changetext>וּזְקֵנִ֖ים</changetext>
     <changeuni>vav dagesh zayin sheva qof tsere nun hiriq tipeha yod final-mem</changeuni>
     <notes>
+      <note>The MPK is זְקֵנִ֖ים.</note>
       <note>The MPK has no letter to carry a shuruq dot for the qere's vav.</note>
     </notes>
     <analysistags />
@@ -1125,6 +1160,7 @@
     <changetext>צְבָא֖וֹת</changetext>
     <changeuni>tsadi sheva bet qamats alef tipeha vav holam tav</changeuni>
     <notes>
+      <note>The MPK is ◌ְ◌ָ◌֖.</note>
       <note>The MPK has no letter to carry a ḥolam dot on the qere's vav. The MPK (points on no letters!) is sheva, qamats, and tipeḥa.</note>
     </notes>
     <analysistags />
@@ -1163,6 +1199,7 @@
     <changetext>בַּטְּחֹרִ֔ים</changetext>
     <changeuni>bet dagesh patah tet dagesh sheva het holam resh hiriq zaqef-qatan yod final-mem</changeuni>
     <notes>
+      <note>The MPK is בַּעְפֹלִ֔ים.</note>
       <note>The MPK's ע does not carry a dagesh for the qere's ט, perhaps because that would be illegal.</note>
       <note>Same issue, indeed same word modulo accent, six verses later, in 5:12. See «Dotan page xx» in tab called «Comments.»</note>
     </notes>
@@ -1202,6 +1239,7 @@
     <changetext>בַּטְּחֹרִ֑ים</changetext>
     <changeuni>bet dagesh patah tet dagesh sheva het holam resh hiriq etnahta yod final-mem</changeuni>
     <notes>
+      <note>The MPK is בַּעְפֹלִ֑ים.</note>
       <note>The MPK's ע does not carry a dagesh for the qere's ט, perhaps because that would be illegal.</note>
       <note>Same issue, indeed same word modulo accent, six verses before, in 5:6. See «Dotan page xx» in tab called «Comments.»</note>
     </notes>
@@ -1241,6 +1279,7 @@
     <changetext>הָאֵ֔לֶּה</changetext>
     <changeuni>he qamats alef tsere zaqef-qatan lamed dagesh segol he</changeuni>
     <notes>
+      <note>The MPK is הָאֵ֔הֶה.</note>
       <note>The MPK's ה does not carry a dagesh for the qere's ל, perhaps because that would be illegal.</note>
     </notes>
     <analysistags />
@@ -1279,6 +1318,7 @@
     <changetext>שְׁכֵנָ֑יִךְ</changetext>
     <changeuni>shin shin-dot sheva kaf tsere nun qamats etnahta yod hiriq final-kaf sheva</changeuni>
     <notes>
+      <note>The MPK is שְׁכֵנָ֑כִי.</note>
       <note>The MPK's yod does not carry a sheva for the qere's ך, perhaps because that would be illegal.</note>
     </notes>
     <analysistags />
@@ -1317,6 +1357,7 @@
     <changetext>דִּבְיוֹנִ֖ים</changetext>
     <changeuni>dalet dagesh hiriq bet sheva yod vav holam nun hiriq tipeha yod final-mem</changeuni>
     <notes>
+      <note>The MPK is חִרְייֹונִ֖ים.</note>
       <note>The MPK's ח does not carry a dagesh for the qere's ד, perhaps because that would be illegal.</note>
       <note>Side note: the ḥolam malei dot on the qere's vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! Instead of being on the yod of the MPK, why isn't this dot on the vav of the MPK?</note>
     </notes>
@@ -1356,6 +1397,7 @@
     <changetext>תִּצֹּֽרְנָה׃</changetext>
     <changeuni>tav dagesh hiriq tsadi dagesh holam meteg resh sheva nun qamats he sof-pasuq</changeuni>
     <notes>
+      <note>The MPK is תִּרֽצְֹנָהֿ׃.</note>
       <note>The MPK's ר does not carry a dagesh for the qere's צ, perhaps because that would be illegal.</note>
       <note>See Comments tab for more complete remarks.</note>
     </notes>
@@ -1395,6 +1437,7 @@
     <changetext>מִמַּעַרְכ֣וֹת</changetext>
     <changeuni>mem hiriq mem dagesh patah ayin patah resh sheva kaf munah vav holam tav</changeuni>
     <notes>
+      <note>The MPK is מִמַּעֲרְ֣וֹת.</note>
       <note>The MPK's ע does not carry a pataḥ for the qere's ע, perhaps because that would be illegal. It carries a ḥataf pataḥ. Dotan notes that strictly speaking, the implied qere is מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).</note>
     </notes>
     <analysistags />

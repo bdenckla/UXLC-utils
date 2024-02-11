@@ -155,6 +155,9 @@ def _add_xtext_xuni(change_elem, record, xtext, xuni):
 
 def _add_notes(change_elem, record):
     notes_elem = ET.SubElement(change_elem, 'notes')
+    mpk = record['MPK']
+    mpk_note = f'The MPK is {mpk}.'
+    ET.SubElement(notes_elem, 'note').text = mpk_note
     for remark in record['remarks']:
         ET.SubElement(notes_elem, 'note').text = remark
 
