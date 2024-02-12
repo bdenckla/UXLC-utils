@@ -91,7 +91,8 @@ def _add_author(change_elem):
 
 
 def _add_description(change_elem, record):
-    desc = record['uxlc-change-proposal-description']
+    reason = record['at issue English']
+    desc = f'Note {reason}'
     ET.SubElement(change_elem, 'description').text = desc
 
 

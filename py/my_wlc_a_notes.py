@@ -187,6 +187,9 @@ RECORD_10 = {
         'The MPK’s final nun of מבן does not carry a sheva for the qere’s (non-final) נ, '+
         'perhaps because that would be illegal. '+
         'The maqaf disappears when going from the MPK to the qere. ',
+        #
+        'It is unclear why the maqaf is supplied in the first place. '+
+        'Perhaps it is supplied because without it, מִבִּן would be illegal: a word without an accent.'
     ],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+

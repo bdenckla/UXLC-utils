@@ -7,25 +7,28 @@ def expand(io_records):
     """
     ucp_count = 0
     for record in io_records:
+        _add_reason(record)
         ucp = record['uxlc-change-proposal']
         if isinstance(ucp, int):
             ucp_count += 1
             record['uxlc-change-proposal-sequential'] = ucp_count
-            _add_description(record)
 
 
-def _add_description(io_record):
+def _add_reason(io_record):
     summ_in = io_record['summary']
     atiss_in = io_record['at issue']
     summ_out = _SUMMARY_MAP[summ_in]
     atiss_key = summ_in, atiss_in
-    atiss_out = _AT_ISSUE_MAP.get(atiss_key) or ''
-    #
-    desc = f'Note {summ_out}{atiss_out}'
-    io_record['uxlc-change-proposal-description'] = desc
+    atiss_out = _AT_ISSUE_MAP[atiss_key]
+    io_record['at issue English'] = f'{summ_out}{atiss_out}'
 
 
 _AT_ISSUE_MAP = {
+    ('qbts to shrq', 'וּ'): '',
+    ('+mqf', '־'): '',
+    ('+shva,-mqf', 'נְיָ'): 'added sheva to נ, removed maqaf',
+    ('?', '?'): 'unclear',
+    #
     ('+dgsh', 'בּ'): ' to bet',
     ('+dgsh', 'וָּ'): ' to vav-qamats',
     ('+dgsh', 'פּ'): ' to pe',
@@ -55,5 +58,7 @@ _SUMMARY_MAP = {
     '+shrq dt': 'added shuruq dot',
     '+ḥlm dt': 'added ḥolam malei dot',
     '+shva': 'added sheva',
-    'ḥtf ptḥ to ptḥ': 'ḥataf pataḥ to pataḥ'
+    'ḥtf ptḥ to ptḥ': 'ḥataf pataḥ to pataḥ',
+    '+shva,-mqf': '',
+    '?': '',
 }
