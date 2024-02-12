@@ -48,4 +48,4 @@ def _row_for_header():
 
 
 strs_for_cells_for_header = [
-    'bcv', 'Dotan', 'WLC qere', 'MPK', 'at issue', 'summary', 'remarks']
+    'bcv', 'MPK', 'WLC qere', 'at issue', 'summary', 'remarks']
