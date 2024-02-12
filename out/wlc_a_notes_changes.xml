@@ -612,7 +612,7 @@
     <changetext>בְּנֵ֣י</changetext>
     <changeuni>bet dagesh sheva nun tsere munah yod</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is ◌ְ◌ֵ֣.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is אְׄאֵ֣ׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s ב. The MPK (points on no letters) is sheva, tsere, and munaḥ.</note>
       <note>Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?</note>
       <note>Dotan notes that the next word unexpectedly starts with בּ not ב, i.e. בִנְיָמִ֔ן would be expected.</note>
@@ -653,7 +653,7 @@
     <changetext>פְּרָֽת׃</changetext>
     <changeuni>pe dagesh sheva resh qamats meteg tav sof-pasuq</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is ◌ְ◌ָֽ׃.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is אְׄאָֽׄ׃. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s פ. The MPK (points on no letters) is sheva, qamats, and siluq.</note>
     </notes>
     <analysistags />
@@ -692,7 +692,7 @@
     <changetext>בָּנָיו֙</changetext>
     <changeuni>bet dagesh qamats nun qamats yod vav pashta</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is ◌ָ◌ָ◌◌֙.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is אָׄאָׄאׄאׄ֙. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s ב. The MPK (points on no letters) is two qamats marks and (what we intepret as) pashta (not qadma).</note>
       <note>There is also a dot near the pashta, which we ignore. I.e. we assume it is not ink, or in any case not intentional.</note>
     </notes>
@@ -732,7 +732,7 @@
     <changetext>בָּאִ֖ים</changetext>
     <changeuni>bet dagesh qamats alef hiriq tipeha yod final-mem</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is ◌ָ◌ִ֖.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is אָׄאִ֖ׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s ב. The MPK (points on no letters) is qamats, ḥiriq, and tipeḥa.</note>
     </notes>
     <analysistags />
@@ -772,7 +772,7 @@
     <changeuni>kaf dagesh tsere merkha final-nun</changeuni>
     <notes>
       <note>The qere atom at issue is part of the qere compound עַל־כֵּ֥ן.</note>
-      <note>The manuscript’s pointed ketiv (MPK) is עַל ◌ֵ֣◌.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is עַל אֵ֣ׄאׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s כ. The MPK (points on no letters) is tsere and merkha. Well really those points are under ל not under nothing.</note>
       <note>Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. I think what he finds notable here is the MPK’s lack of a maqaf. I do not think he finds the MPK’s lack of dagesh notable because as far as I know, such a dagesh is never present.</note>
     </notes>
@@ -812,7 +812,7 @@
     <changetext>צְבָא֖וֹת</changetext>
     <changeuni>tsadi sheva bet qamats alef tipeha vav holam tav</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is ◌ְ◌ָ◌֖.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is אְׄאָׄא֖ׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a ḥolam dot on the qere’s vav. The MPK (points on no letters) is sheva, qamats, and tipeḥa.</note>
     </notes>
     <analysistags />
@@ -851,7 +851,7 @@
     <changetext>לָהּ֙</changetext>
     <changeuni>lamed qamats he dagesh pashta</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is ◌ָ◌֙.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is אָׄאׄ֙. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a mapiq for the qere’s ה. The MPK (points on no letters) is qamats and (what we intepret as) pashta (not qadma).</note>
     </notes>
     <analysistags />
@@ -890,9 +890,9 @@
     <changetext>וַיִּוָּלְד֧וּ</changetext>
     <changeuni>vav patah yod dagesh hiriq vav dagesh qamats lamed sheva dalet darga vav dagesh</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is וַיִּ◌ָלְד֧וּ.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is וַיִּאָׄלְד֧וּ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s vav-qamats.</note>
-      <note>Although it cannot carry the vav’s dagesh, the ל carries the vav’s qamats as well as its own sheva. Unlike the manuscript, our MPK shows that qamats on a dotted circle rather than on the ל.</note>
+      <note>Although it cannot carry the vav’s dagesh, the ל carries the vav’s qamats as well as its own sheva. Unlike the manuscript, our MPK shows that qamats on a אׄ (א with an extraordinary upper dot) rather than on the ל.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -930,9 +930,9 @@
     <changetext>בִּתְחִלַּ֖ת</changetext>
     <changeuni>bet dagesh hiriq tav sheva het hiriq lamed dagesh patah tipeha tav</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is ◌ִתְחִלַּ֖ת.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is אִׄתְחִלַּ֖ת. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s ב.</note>
-      <note>Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. Yet, it does not: the spacing is generous, leaving the ḥiriq floating out on its own without a parent letter. Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than floating out on its own.</note>
+      <note>Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. Yet, it does not: the spacing is generous, leaving the ḥiriq floating out on its own without a parent letter. Unlike the manuscript, our MPK shows that ḥiriq on a אׄ (א with an extraordinary upper dot) rather than floating out on its own.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -970,9 +970,9 @@
     <changetext>וַיִּתְגָּעַ֤שׁ</changetext>
     <changeuni>vav patah yod dagesh hiriq tav sheva gimel dagesh qamats ayin patah mahapakh shin shin-dot</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is וַ◌ִתְגָּעַ֤שׁ.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is וַאִׄתְגָּעַ֤שׁ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s yod.</note>
-      <note>Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than on the vav.</note>
+      <note>Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. Unlike the manuscript, our MPK shows that ḥiriq on a אׄ (א with an extraordinary upper dot) rather than on the vav.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -1167,9 +1167,9 @@
     <changetext>הִזְדְּמִנְתּוּן֙</changetext>
     <changeuni>he hiriq zayin sheva dalet dagesh sheva mem hiriq nun sheva tav dagesh vav dagesh final-nun pashta</changeuni>
     <notes>
-      <note>The manuscript’s pointed ketiv (MPK) is הִזְ◌ְמִנְתּוּן֙.</note>
+      <note>The manuscript’s pointed ketiv (MPK) is הִזְאְׄמִנְתּוּן֙. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s ד.</note>
-      <note>Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. Unlike the manuscript, our MPK shows that sheva on a dotted circle rather than on the מ.</note>
+      <note>Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. Unlike the manuscript, our MPK shows that sheva on a אׄ (א with an extraordinary upper dot) rather than on the מ.</note>
     </notes>
     <analysistags />
     <transnotes>

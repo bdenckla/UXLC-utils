@@ -119,14 +119,32 @@ def _add_notes(change_elem, record):
         fqere = record['qere']  # full qere
         fqere_note = f'The qere atom at issue is part of the qere compound {fqere}.'
         etan.sub_elem_text(notes_elem, 'note', fqere_note)
-    mpk = record['MPK']
-    mpk_note = f'The manuscript’s pointed ketiv (MPK) is {mpk}.'
+    mpk_note = _mpk_note_aued_for_dc(record['MPK'])
     etan.sub_elem_text(notes_elem, 'note', mpk_note)
     for remark in record['remarks']:
-        etan.sub_elem_text(notes_elem, 'note', remark)
+        etan.sub_elem_text(notes_elem, 'note', _aued_for_dc(remark))
     side_notes = record.get('side-notes') or []
     for side_note in side_notes:
-        etan.sub_elem_text(notes_elem, 'note', side_note)
+        etan.sub_elem_text(notes_elem, 'note', _aued_for_dc(side_note))
+
+_AUED = 'א\N{HEBREW MARK UPPER DOT}'
+_AUED_WITH_EXP = f'{_AUED} (א with an extraordinary upper dot)'
+
+
+def _mpk_note_aued_for_dc(mpk):
+    # use aued (alef with an extraordinary upper dot) instead of dc (dotted circle)
+    mpk_aued = mpk.replace('\N{DOTTED CIRCLE}', _AUED)
+    if _AUED in mpk_aued:
+        exp = (
+            f' (We use {_AUED_WITH_EXP} to stand in for a blank space.)'
+        )
+    else:
+        exp = ''
+    return f'The manuscript’s pointed ketiv (MPK) is {mpk_aued}.{exp}'
+
+
+def _aued_for_dc(string):
+    return string.replace('dotted circle', _AUED_WITH_EXP)
 
 
 def _add_analysistags(change_elem, record):
