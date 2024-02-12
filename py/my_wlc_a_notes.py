@@ -272,7 +272,7 @@ RECORD_15 = {
     ],
 }
 RECORD_16 = {
-    'wlc-index': 16,
+    'wlc-index': [16, 1],
     'uxlc-change-proposal': '2024.04.01/2024.01.18-2',
     'bcv': '2s18:20',
     'Dotan': '✓',
@@ -297,7 +297,7 @@ RECORD_16 = {
     ],
 }
 RECORD_40 = {
-    'wlc-index': 16,  # not unique! (two 16s)
+    'wlc-index': [16, 2],
     'uxlc-change-proposal': 412,
     'bcv': '2s18:20',
     'Dotan': '✓',
