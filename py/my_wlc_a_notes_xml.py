@@ -12,14 +12,12 @@ def write(records):
     dated_change_set_elem = ET.Element('date')  # dated change set
     date_elem = ET.SubElement(dated_change_set_elem, 'date')  # date of this dated change set
     date_elem.text = '2024.02.09'
-    ucp_count = 0
     uxlc = {}
     for record in records:
-        ucp = record['uxlc-change-proposal']
-        if isinstance(ucp, int):
-            ucp_count += 1
+        ucp_seq = record.get('uxlc-change-proposal-sequential')
+        if ucp_seq is not None:
             change_elem = ET.SubElement(dated_change_set_elem, 'change')
-            _add_misc(uxlc, change_elem, record, ucp_count)
+            _add_misc(uxlc, change_elem, record)
     dated_change_set_tree = ET.ElementTree(dated_change_set_elem)
     #
     ET.indent(dated_change_set_tree)
@@ -34,8 +32,8 @@ def _etree_write_callback(xml_elementtree, out_fp):
     out_fp.write('\n')
 
 
-def _add_misc(io_uxlc, change_elem, record, ucp_count):
-    _add_n(change_elem, ucp_count)
+def _add_misc(io_uxlc, change_elem, record):
+    _add_n(change_elem, record)
     _add_citation(io_uxlc, change_elem, record)
     _add_author(change_elem)
     _add_description(change_elem, record)
@@ -49,9 +47,9 @@ def _add_misc(io_uxlc, change_elem, record, ucp_count):
     _add_type(change_elem)
 
 
-def _add_n(change_elem, ucp_count):
-    assert isinstance(ucp_count, int)
-    ET.SubElement(change_elem, 'n').text = str(ucp_count)
+def _add_n(change_elem, record):
+    ucp_seq = record['uxlc-change-proposal-sequential']
+    ET.SubElement(change_elem, 'n').text = str(ucp_seq)
 
 def _add_citation(io_uxlc, change_elem, record):
     citation_elem = ET.SubElement(change_elem, 'citation')
