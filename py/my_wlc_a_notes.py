@@ -44,7 +44,7 @@ RECORD_02 = {
         'As a reminder, a WLC 1-note (bracket-1 note) is defined as follows: '+
         f'«{_WLC_1_BRACKET_NOTE_DEFINITION}»',
         #
-        'Although Dotan notes this word, '+
+        'Although Dotan has a note on his body-text word וַיִּֽשְׁתַּחֲוּֽוּ׃, '+
         'I do not take him to have noted it for the issue at hand: '+
         'the qubuts-to-shuruq issue. '+
         'I take him to have noted this word '+
@@ -276,50 +276,31 @@ RECORD_15 = {
     ],
 }
 RECORD_16 = {
-    'wlc-index': [16, 1],
-    'uxlc-change-proposal': '2024.04.01/2024.01.18-2',
-    'bcv': '2s18:20',
-    'Dotan': '✓',
-    'qere': 'עַל־כֵּ֥ן',
-    'qere-atom': 'עַל־',
-    'MPK': 'עַל '+'\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
-    'at issue': '־',
-    'summary': '+mqf',
-    'remarks': [
-        'The MPK lacks a trailing maqaf. '+
-        'The MPK (points on no letters) is tsere and merkha. '+
-        'Well really those points are under ל not under nothing.',
-    ],
-    'side-notes': [
-        'Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. '+
-        'I think what he finds notable here is the MPK’s lack of a maqaf. '+
-        'I do not think he finds the MPK’s lack of dagesh notable because as far as I know, '+
-        'such a dagesh is never present.',
-        #
-        'Why is this not considered a qere velo ketiv by WLC? '+
-        'I have submitted a change proposal to UXLC to make it a qere velo ketiv.'
-    ],
-}
-RECORD_40 = {
-    'wlc-index': [16, 2],
+    'wlc-index': 16,
     'uxlc-change-proposal': 412,
     'bcv': '2s18:20',
-    'Dotan': '✓',
+    'Dotan': '∅',
     'qere': 'עַל־כֵּ֥ן',
     'qere-atom': 'כֵּ֥ן',
-    'MPK': 'עַל '+'\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
+    'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
     'at issue': 'כּ',
     'summary': '+dgsh',
     'remarks': [
         'The MPK has no letter to carry a dagesh for the qere’s כ. '+
         'The MPK (points on no letters) is tsere and merkha. '+
-        'Well really those points are under ל not under nothing.',
+        'Well really those points are under the ל of the preceding word (עַל), not under nothing.',
     ],
     'side-notes': [
-        'Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. '+
-        'I think what he finds notable here is the MPK’s lack of a maqaf. '+
-        'I do not think he finds the MPK’s lack of dagesh notable because as far as I know, '+
-        'such a dagesh is never present.'
+        'Although Dotan has a note on his body-text compound עַל־כֵּ֥ן, '+
+        'I do not take him to have noted it for the issue at hand: '+
+        'the added dagesh. '+
+        '(Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן.) '+
+        'I take him to have noted this compound '+
+        'only because the manuscript lacks the expected trailing maqaf on עַל. '+
+        #
+        'The lack of a trailing maqaf on the preceding word (עַל) '+
+        'is the subject of a currently-pending '+
+        'change proposal, 2024.04.01/2024.01.18-2.'
     ],
 }
 RECORD_17 = {
@@ -705,5 +686,4 @@ RECORDS = [
     RECORD_37,
     RECORD_38,
     RECORD_39,
-    RECORD_40,
 ]

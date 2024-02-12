@@ -11,15 +11,8 @@ def write(records):
 
 
 def _wlc_index_str(wlc_index):
-    if isinstance(wlc_index, int):
-        return f'{wlc_index:02}'
-    assert isinstance(wlc_index, list)
-    assert len(wlc_index) == 2
-    assert isinstance(wlc_index[0], int)
-    assert isinstance(wlc_index[1], int)
-    main = wlc_index[0]
-    sub = wlc_index[1]
-    return f'{main:02}sub{sub}'
+    assert isinstance(wlc_index, int)
+    return f'{wlc_index:02}'
 
 
 def _make_key_value_row(key, value, hbo=False):
