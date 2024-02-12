@@ -142,6 +142,11 @@ def para(contents, attr=None):
     return htel_mk_nlb1('p', attr=attr, contents=contents)
 
 
+def blockquote(contents, attr=None):
+    """ Make a <blockquote> element. """
+    return htel_mk_nlb1('blockquote', attr=attr, contents=contents)
+
+
 def img(contents, attr=None):
     """ Make an <img> element. """
     return htel_mk_nlb1('img', attr=attr, contents=contents)

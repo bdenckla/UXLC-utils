@@ -20,7 +20,7 @@ RECORD_01 = {
     'MPK': 'וְיִֽשְׁתַּחֲוֻ֤',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
     'side-notes': [
         'Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. '+
         'Presumably he notes this later word for the unexpected dagesh in its penultimate vav. '+
@@ -36,7 +36,7 @@ RECORD_02 = {
     'MPK': 'וַיִּֽשְׁתַּחֲוֻּֽ׃',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
     'side-notes': [
         'In WLC, this word also has a 1-note, '+
         'presumably because of the unexpected dagesh in the qere’s penultimate vav.',
@@ -136,7 +136,7 @@ RECORD_07 = {
     'MPK': 'וַיְצַוֻּ֕',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
 }
 RECORD_08 = {
     'wlc-index': 8,
@@ -206,7 +206,7 @@ RECORD_11 = {
     'MPK': 'וַיֹּאמְרֻ֣',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
 }
 RECORD_12 = {
     'wlc-index': 12,
@@ -217,7 +217,7 @@ RECORD_12 = {
     'MPK': 'אָמְרֻ֣',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
     'side-notes': [
         'There’s a large, clear dot above the ר; '+
         'I don’t know what it is supposed to mean, if anything. '+
@@ -379,7 +379,7 @@ RECORD_21 = {
     'MPK': 'וַיְדַבְּרֻ֨',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
     'side-notes': [
         'In WLC, this word also has a c-note, '+
         'presumably because WLC has qadma where BHS (in error) has pashta.',
@@ -461,7 +461,7 @@ RECORD_26 = {
     'MPK': 'יִקָּ֑חֻ',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
     'side-notes': [
         'The dagesh in the qof is way off center, but still legit IMO.'
     ],
@@ -616,7 +616,7 @@ RECORD_37 = {
     'MPK': 'וְקִבְּלֻ֣',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
 }
 RECORD_38 = {
     'wlc-index': 38,
@@ -644,7 +644,7 @@ RECORD_39 = {
     'MPK': 'וַיַּעֲלֻ֨',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': [],
+    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
 }
 RECORDS = [
     RECORD_01,

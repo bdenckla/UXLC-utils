@@ -11,10 +11,37 @@ def write(records):
     rows_for_data = list(map(_rec_to_row, records))
     rows = [_row_for_header(), *rows_for_data]
     table = my_html.table(rows)
-    body_contents = [table]
+    body_contents = [*_INTROS, table]
     write_ctx = my_html.WriteCtx('WLC a-notes', 'docs/index.html')
     my_html.write_html_to_file(body_contents, write_ctx)
 
+
+_THIS_PAGE = (
+    'This page describes the 39 words having bracket-a notes '+
+    'in WLC. Here is how bracket-a notes are defined in '+
+    '“A Reference Guide to the Westminster Leningrad Codex” (WLCmanual420.pdf):'
+)
+_DEFINITION_OF_AN_A_NOTE = (
+    '[The a-note marks adaptations] to a Qere '+
+    'that ל and BHS, by their design, do not indicate. '+
+    'Usually this indicates the addition of a Maqqef to our Qere text '+
+    'that is not present in the margin of ל, '+
+    'or [...] the addition of a Dagesh or Mappiq to our Qere text '+
+    'that is not present in the Ketiv consonants in the main text of ל.'
+)
+_THIS_PAGE_ALSO = (
+    'This page also provides links to 37 UXLC change proposals related to these bracket-a notes. '+
+    '(There are only 37 not 39 because two of the bracket-a notes '+
+    'did not motivate a change proposal.)'
+)
+_THIS_PAGE_USES = (
+    'This page uses the initialism “MPK” to stand for “manuscript’s pointed ketiv.”'
+)
+_INTROS = [
+    my_html.para([_THIS_PAGE, my_html.blockquote(_DEFINITION_OF_AN_A_NOTE)]),
+    my_html.para([_THIS_PAGE_ALSO]),
+    my_html.para([_THIS_PAGE_USES]),
+]
 
 
 def _row_cell_for_hdr_str(rec, hdr_str):
