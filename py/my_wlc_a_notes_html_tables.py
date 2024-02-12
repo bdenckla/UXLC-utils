@@ -68,12 +68,13 @@ def _row_cell_for_hdr_str(rec, hdr_str):
 
 def _get_anchors_to_full_and_ucp(rec):
     path_to_full = rec['path-to-full']
-    anchor_to_full = my_html.anchor('full remarks', {'href': path_to_full})
+    anchor_to_full = my_html.anchor('full', {'href': path_to_full})
     path_to_ucp = rec.get('path-to-ucp')
     if path_to_ucp:
-        anchor_to_ucp = my_html.anchor('UXLC change proposal', {'href': path_to_ucp})
-        return [anchor_to_full, '; ', anchor_to_ucp]
-    return [anchor_to_full]
+        something_for_ucp = my_html.anchor('UCP', {'href': path_to_ucp})
+    else:
+        something_for_ucp = '(no UCP)'
+    return [anchor_to_full, '; ', something_for_ucp]
 
 
 def _rec_to_row(rec):

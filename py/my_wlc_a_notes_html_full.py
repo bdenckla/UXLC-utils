@@ -41,6 +41,9 @@ def _write_record(record):
         _make_key_value_row('at issue', atiss, hbo=True),
         _make_key_value_row('at issue English', reason),
     ]
+    ucp = record['uxlc-change-proposal']
+    if isinstance(ucp, str):
+        rows.append(_make_key_value_row('existing UCP', ucp))
     #
     body_contents.append(my_html.table(rows))
     #
