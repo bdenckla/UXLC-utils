@@ -47,12 +47,20 @@ def _add_misc(io_uxlc, change_elem, record):
     _add_type(change_elem)
 
 
+def _sub_elem_text(change_elem, tag, text):
+    ET.SubElement(change_elem, tag).text = text
+
+
+def _sub_elem(change_elem, tag):
+    return ET.SubElement(change_elem, tag)
+
+
 def _add_n(change_elem, record):
     ucp_seq = record['uxlc-change-proposal-sequential']
-    ET.SubElement(change_elem, 'n').text = str(ucp_seq)
+    _sub_elem_text(change_elem, 'n', str(ucp_seq))
 
 def _add_citation(io_uxlc, change_elem, record):
-    citation_elem = ET.SubElement(change_elem, 'citation')
+    citation_elem = _sub_elem(change_elem, 'citation')
     #
     wlc_bcv_str = record['bcv']
     uxlc_bkid = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
@@ -60,10 +68,10 @@ def _add_citation(io_uxlc, change_elem, record):
     index = _index(io_uxlc, _qere_atom(record), (uxlc_bkid, chnu, vrnu))
     position = index + 1
     #
-    ET.SubElement(citation_elem, 'book').text = uxlc_bkid
-    ET.SubElement(citation_elem, 'c').text = str(chnu)
-    ET.SubElement(citation_elem, 'v').text = str(vrnu)
-    ET.SubElement(citation_elem, 'position').text = str(position)
+    _sub_elem_text(citation_elem, 'book', uxlc_bkid)
+    _sub_elem_text(citation_elem, 'c', str(chnu))
+    _sub_elem_text(citation_elem, 'v', str(vrnu))
+    _sub_elem_text(citation_elem, 'position', str(position))
 
 
 def _index(io_uxlc, word, bcv):
@@ -84,24 +92,24 @@ def _get_verse_words(io_uxlc, bcv):
 
 
 def _add_author(change_elem):
-    author_elem = ET.SubElement(change_elem, 'author')
-    ET.SubElement(author_elem, 'name').text = 'Ben Denckla'
-    ET.SubElement(author_elem, 'mail').text = 'bdenckla@alum.mit.edu'
-    ET.SubElement(author_elem, 'confirmed').text = 'true'
+    author_elem = _sub_elem(change_elem, 'author')
+    _sub_elem_text(author_elem, 'name', 'Ben Denckla')
+    _sub_elem_text(author_elem, 'mail', 'bdenckla@alum.mit.edu')
+    _sub_elem_text(author_elem, 'confirmed', 'true')
 
 
 def _add_description(change_elem, record):
     reason = record['at issue English']
     desc = f'Note {reason}'
-    ET.SubElement(change_elem, 'description').text = desc
+    _sub_elem_text(change_elem, 'description', desc)
 
 
 def _add_lc(change_elem, _record):
-    lc_elem = ET.SubElement(change_elem, 'lc')
-    ET.SubElement(lc_elem, 'folio').text = 'XXX fill me in folio'  # XXX
-    ET.SubElement(lc_elem, 'column').text = 'XXX fill me in column'  # XXX
-    ET.SubElement(lc_elem, 'line').text = 'XXX fill me in line'  # XXX
-    ET.SubElement(lc_elem, 'credit').text = 'Credit: Sefaria.org.'
+    lc_elem = _sub_elem(change_elem, 'lc')
+    _sub_elem_text(lc_elem, 'folio', 'XXX fill me in folio')  # XXX
+    _sub_elem_text(lc_elem, 'column', 'XXX fill me in column')  # XXX
+    _sub_elem_text(lc_elem, 'line', 'XXX fill me in line')  # XXX
+    _sub_elem_text(lc_elem, 'credit', 'Credit: Sefaria.org.')
 
 
 def _add_xtext_xuni(change_elem, record, xtext, xuni):
@@ -112,39 +120,39 @@ def _add_xtext_xuni(change_elem, record, xtext, xuni):
 
 
 def _add_notes(change_elem, record):
-    notes_elem = ET.SubElement(change_elem, 'notes')
+    notes_elem = _sub_elem(change_elem, 'notes')
     if 'qere-atom' in record:
         fqere = record['qere']  # full qere
         fqere_note = f'The qere atom at issue is part of the qere compound {fqere}.'
-        ET.SubElement(notes_elem, 'note').text = fqere_note
+        _sub_elem_text(notes_elem, 'note', fqere_note)
     mpk = record['MPK']
     mpk_note = f'The manuscript’s pointed ketiv (MPK) is {mpk}.'
-    ET.SubElement(notes_elem, 'note').text = mpk_note
+    _sub_elem_text(notes_elem, 'note', mpk_note)
     for remark in record['remarks']:
-        ET.SubElement(notes_elem, 'note').text = remark
+        _sub_elem_text(notes_elem, 'note', remark)
     side_notes = record.get('side-notes') or []
     for side_note in side_notes:
-        ET.SubElement(notes_elem, 'note').text = side_note
+        _sub_elem_text(notes_elem, 'note', side_note)
 
 
 def _add_analysistags(change_elem, record):
-    atags_elem = ET.SubElement(change_elem, 'analysistags')
+    atags_elem = _sub_elem(change_elem, 'analysistags')
     # XXX fill me in analysistags
 
 
 def _add_transnotes(change_elem, record):
-    trnotes_elem = ET.SubElement(change_elem, 'transnotes')
-    trnote_elem = ET.SubElement(trnotes_elem, 'transnote')
-    ET.SubElement(trnote_elem, 'action').text = 'Add'
-    ET.SubElement(trnote_elem, 'type').text = 'a'
-    ET.SubElement(trnote_elem, 'beforetext').text = 'XXX fill me in beforetext'  # XXX
+    trnotes_elem = _sub_elem(change_elem, 'transnotes')
+    trnote_elem = _sub_elem(trnotes_elem, 'transnote')
+    _sub_elem_text(trnote_elem, 'action', 'Add')
+    _sub_elem_text(trnote_elem, 'type', 'a')
+    _sub_elem_text(trnote_elem, 'beforetext', 'XXX fill me in beforetext')  # XXX
 
 
 def _add_status(change_elem):
-    ET.SubElement(change_elem, 'status').text = 'Pending'
+    _sub_elem_text(change_elem, 'status', 'Pending')
 
 def _add_type(change_elem):
-    ET.SubElement(change_elem, 'type').text = 'NoTextChange'
+    _sub_elem_text(change_elem, 'type', 'NoTextChange')
 
 
 def _qere_atom(record):
