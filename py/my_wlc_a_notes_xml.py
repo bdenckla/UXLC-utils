@@ -6,6 +6,7 @@ import my_convert_citation_from_wlc_to_uxlc
 import my_uxlc_book_abbreviations as u_bk_abbr
 import my_uxlc_unicode_names
 import my_uxlc
+import my_wlc_a_notes_xml_etan as etan
 
 def write(records):
     """ Write records out in UXLC change proposal format. """
@@ -15,7 +16,7 @@ def write(records):
     for record in records:
         ucp_seq = record.get('uxlc-change-proposal-sequential')
         if ucp_seq is not None:
-            change_elem = _etan_new(dated_change_set, 'change')
+            change_elem = etan.top_elem(dated_change_set, 'change')
             _add_misc(uxlc, change_elem, record)
     dated_change_set_tree = ET.ElementTree(dated_change_set)
     #
@@ -25,12 +26,6 @@ def write(records):
     my_open.with_tmp_openw(
         xml_out_path, {}, _etree_write_callback, dated_change_set_tree)
 
-
-def _etan_new(parent, tag):  # ET [element] and native [Python data structure]
-    return {
-        'ET': ET.SubElement(parent, tag),
-        'native': {}
-    }
 
 def _etree_write_callback(xml_elementtree, out_fp):
     xml_elementtree.write(out_fp, encoding='unicode')
@@ -52,20 +47,12 @@ def _add_misc(io_uxlc, change_elem, record):
     _add_type(change_elem)
 
 
-def _sub_elem_text(elem, tag, text):
-    ET.SubElement(elem['ET'], tag).text = text
-
-
-def _sub_elem(elem, tag):
-    return _etan_new(elem['ET'], tag)
-
-
 def _add_n(change_elem, record):
     ucp_seq = record['uxlc-change-proposal-sequential']
-    _sub_elem_text(change_elem, 'n', str(ucp_seq))
+    etan.sub_elem_text(change_elem, 'n', str(ucp_seq))
 
 def _add_citation(io_uxlc, change_elem, record):
-    citation_elem = _sub_elem(change_elem, 'citation')
+    citation_elem = etan.sub_elem(change_elem, 'citation')
     #
     wlc_bcv_str = record['bcv']
     uxlc_bkid = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
@@ -73,10 +60,10 @@ def _add_citation(io_uxlc, change_elem, record):
     index = _index(io_uxlc, _qere_atom(record), (uxlc_bkid, chnu, vrnu))
     position = index + 1
     #
-    _sub_elem_text(citation_elem, 'book', uxlc_bkid)
-    _sub_elem_text(citation_elem, 'c', str(chnu))
-    _sub_elem_text(citation_elem, 'v', str(vrnu))
-    _sub_elem_text(citation_elem, 'position', str(position))
+    etan.sub_elem_text(citation_elem, 'book', uxlc_bkid)
+    etan.sub_elem_text(citation_elem, 'c', str(chnu))
+    etan.sub_elem_text(citation_elem, 'v', str(vrnu))
+    etan.sub_elem_text(citation_elem, 'position', str(position))
 
 
 def _index(io_uxlc, word, bcv):
@@ -97,67 +84,67 @@ def _get_verse_words(io_uxlc, bcv):
 
 
 def _add_author(change_elem):
-    author_elem = _sub_elem(change_elem, 'author')
-    _sub_elem_text(author_elem, 'name', 'Ben Denckla')
-    _sub_elem_text(author_elem, 'mail', 'bdenckla@alum.mit.edu')
-    _sub_elem_text(author_elem, 'confirmed', 'true')
+    author_elem = etan.sub_elem(change_elem, 'author')
+    etan.sub_elem_text(author_elem, 'name', 'Ben Denckla')
+    etan.sub_elem_text(author_elem, 'mail', 'bdenckla@alum.mit.edu')
+    etan.sub_elem_text(author_elem, 'confirmed', 'true')
 
 
 def _add_description(change_elem, record):
     reason = record['at issue English']
     desc = f'Note {reason}'
-    _sub_elem_text(change_elem, 'description', desc)
+    etan.sub_elem_text(change_elem, 'description', desc)
 
 
 def _add_lc(change_elem, _record):
-    lc_elem = _sub_elem(change_elem, 'lc')
-    _sub_elem_text(lc_elem, 'folio', 'XXX fill me in folio')  # XXX
-    _sub_elem_text(lc_elem, 'column', 'XXX fill me in column')  # XXX
-    _sub_elem_text(lc_elem, 'line', 'XXX fill me in line')  # XXX
-    _sub_elem_text(lc_elem, 'credit', 'Credit: Sefaria.org.')
+    lc_elem = etan.sub_elem(change_elem, 'lc')
+    etan.sub_elem_text(lc_elem, 'folio', 'XXX fill me in folio')  # XXX
+    etan.sub_elem_text(lc_elem, 'column', 'XXX fill me in column')  # XXX
+    etan.sub_elem_text(lc_elem, 'line', 'XXX fill me in line')  # XXX
+    etan.sub_elem_text(lc_elem, 'credit', 'Credit: Sefaria.org.')
 
 
 def _add_xtext_xuni(change_elem, record, xtext, xuni):
     qere_atom = _qere_atom(record)
     xuni_str = my_uxlc_unicode_names.names(qere_atom)
-    _sub_elem_text(change_elem, xtext, qere_atom)
-    _sub_elem_text(change_elem, xuni, xuni_str)
+    etan.sub_elem_text(change_elem, xtext, qere_atom)
+    etan.sub_elem_text(change_elem, xuni, xuni_str)
 
 
 def _add_notes(change_elem, record):
-    notes_elem = _sub_elem(change_elem, 'notes')
+    notes_elem = etan.sub_elem(change_elem, 'notes')
     if 'qere-atom' in record:
         fqere = record['qere']  # full qere
         fqere_note = f'The qere atom at issue is part of the qere compound {fqere}.'
-        _sub_elem_text(notes_elem, 'note', fqere_note)
+        etan.sub_elem_text(notes_elem, 'note', fqere_note)
     mpk = record['MPK']
     mpk_note = f'The manuscript’s pointed ketiv (MPK) is {mpk}.'
-    _sub_elem_text(notes_elem, 'note', mpk_note)
+    etan.sub_elem_text(notes_elem, 'note', mpk_note)
     for remark in record['remarks']:
-        _sub_elem_text(notes_elem, 'note', remark)
+        etan.sub_elem_text(notes_elem, 'note', remark)
     side_notes = record.get('side-notes') or []
     for side_note in side_notes:
-        _sub_elem_text(notes_elem, 'note', side_note)
+        etan.sub_elem_text(notes_elem, 'note', side_note)
 
 
 def _add_analysistags(change_elem, record):
-    atags_elem = _sub_elem(change_elem, 'analysistags')
+    atags_elem = etan.sub_elem(change_elem, 'analysistags')
     # XXX fill me in analysistags
 
 
 def _add_transnotes(change_elem, record):
-    trnotes_elem = _sub_elem(change_elem, 'transnotes')
-    trnote_elem = _sub_elem(trnotes_elem, 'transnote')
-    _sub_elem_text(trnote_elem, 'action', 'Add')
-    _sub_elem_text(trnote_elem, 'type', 'a')
-    _sub_elem_text(trnote_elem, 'beforetext', 'XXX fill me in beforetext')  # XXX
+    trnotes_elem = etan.sub_elem(change_elem, 'transnotes')
+    trnote_elem = etan.sub_elem(trnotes_elem, 'transnote')
+    etan.sub_elem_text(trnote_elem, 'action', 'Add')
+    etan.sub_elem_text(trnote_elem, 'type', 'a')
+    etan.sub_elem_text(trnote_elem, 'beforetext', 'XXX fill me in beforetext')  # XXX
 
 
 def _add_status(change_elem):
-    _sub_elem_text(change_elem, 'status', 'Pending')
+    etan.sub_elem_text(change_elem, 'status', 'Pending')
 
 def _add_type(change_elem):
-    _sub_elem_text(change_elem, 'type', 'NoTextChange')
+    etan.sub_elem_text(change_elem, 'type', 'NoTextChange')
 
 
 def _qere_atom(record):
