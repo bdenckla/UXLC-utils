@@ -22,6 +22,15 @@ def _wlc_index_str(wlc_index):
     return f'{main:02}sub{sub}'
 
 
+def _make_key_value_row(key, value, hbo=False):
+    cell_for_key = my_html.table_datum(key)
+    if hbo:
+        cell_for_value = my_html.table_datum(value, {'lang': 'hbo', 'dir': 'rtl'})
+    else:
+        cell_for_value = my_html.table_datum(value)
+    return my_html.table_row([cell_for_key, cell_for_value])
+
+
 def _write_record(record):
     body_contents = []
     wlc_index = record['wlc-index']
@@ -32,13 +41,17 @@ def _write_record(record):
     remarks = record['remarks']
     side_notes = record.get('side-notes') or []
     #
-    body_contents.append(my_html.para(qere, {'lang': 'hbo', 'dir': 'rtl'}))
-    body_contents.append(my_html.para(mpk, {'lang': 'hbo', 'dir': 'rtl'}))
-    body_contents.append(my_html.para(atiss, {'lang': 'hbo', 'dir': 'rtl'}))
-    #
     href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(bcv)
     anchor = my_html.anchor(bcv, {'href': href})
-    body_contents.append(my_html.para(anchor))
+    #
+    rows = [
+        _make_key_value_row('MPK', mpk, hbo=True),
+        _make_key_value_row('qere', qere, hbo=True),
+        _make_key_value_row('at issue', atiss, hbo=True),
+        _make_key_value_row('bcv (link to tanach.us)', anchor),
+    ]
+    #
+    body_contents.append(my_html.table(rows))
     #
     for remark in remarks:
         body_contents.append(my_html.para(remark))

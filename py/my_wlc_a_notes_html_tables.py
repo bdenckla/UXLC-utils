@@ -43,7 +43,7 @@ def _rec_to_row(rec):
 
 
 def _row_for_header():
-    cells_for_header = list(map(my_html.table_datum, strs_for_cells_for_header))
+    cells_for_header = list(map(my_html.table_header, strs_for_cells_for_header))
     return my_html.table_row(cells_for_header)
 
 

@@ -153,8 +153,13 @@ def table_row(contents):
 
 
 def table_datum(contents, attr=None):
-    """ Make a <td> (table cell) element. """
+    """ Make a <td> (table datum cell) element. """
     return htel_mk_inline('td', attr=attr, contents=contents)
+
+
+def table_header(contents, attr=None):
+    """ Make a <th> (table header cell) element. """
+    return htel_mk_inline('th', attr=attr, contents=contents)
 
 
 def div(contents, attr=None):
