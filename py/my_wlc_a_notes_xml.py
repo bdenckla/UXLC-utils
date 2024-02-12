@@ -164,6 +164,9 @@ def _add_notes(change_elem, record):
     ET.SubElement(notes_elem, 'note').text = mpk_note
     for remark in record['remarks']:
         ET.SubElement(notes_elem, 'note').text = remark
+    side_notes = record.get('side-notes') or []
+    for side_note in side_notes:
+        ET.SubElement(notes_elem, 'note').text = side_note
 
 
 def _add_analysistags(change_elem, record):
