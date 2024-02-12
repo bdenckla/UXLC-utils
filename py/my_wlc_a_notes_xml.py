@@ -9,17 +9,17 @@ import my_uxlc_book_abbreviations as u_bk_abbr
 import my_wlc_a_notes_xml_native as native
 import my_wlc_a_notes_xml_etan as etan
 
-def write(records):
+def write(io_records):
     """ Write records out in UXLC change proposal format. """
     dated_change_set = ET.Element('date')
     ET.SubElement(dated_change_set, 'date').text = '2024.02.09'
     uxlc = {}
-    for record in records:
-        ucp_seq = record.get('uxlc-change-proposal-sequential')
+    for io_record in io_records:
+        ucp_seq = io_record.get('uxlc-change-proposal-sequential')
         if ucp_seq is not None:
             change_elem = etan.top_elem(dated_change_set, 'change')
-            _add_misc(uxlc, change_elem, record)
-            native.write_to_html(change_elem['native'])
+            _add_misc(uxlc, change_elem, io_record)
+            io_record['path-to-ucp'] = native.write_to_html(change_elem['native'])
     dated_change_set_tree = ET.ElementTree(dated_change_set)
     #
     ET.indent(dated_change_set_tree)

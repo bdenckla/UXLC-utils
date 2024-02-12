@@ -23,9 +23,11 @@ def _row_cell_for_hdr_str(rec, hdr_str):
     if hdr_str == 'remarks':
         assert isinstance(val, list)
         assert len(val) in (0, 1)
-        path = rec['path-to-full']
-        anchor = my_html.anchor('full', {'href': path})
-        datum_contents = my_utils.intersperse(' ',[*val, anchor])
+        anchors = _get_anchors_to_full_and_ucp(rec)
+        if val:
+            datum_contents = [*val, ' ', *anchors]
+        else:
+            datum_contents = anchors
         return my_html.table_datum(datum_contents)
     assert isinstance(val, str)
     if hdr_str in ('WLC qere', 'MPK', 'at issue'):
@@ -35,6 +37,16 @@ def _row_cell_for_hdr_str(rec, hdr_str):
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)
     return my_html.table_datum(val)
+
+
+def _get_anchors_to_full_and_ucp(rec):
+    path_to_full = rec['path-to-full']
+    anchor_to_full = my_html.anchor('full remarks', {'href': path_to_full})
+    path_to_ucp = rec.get('path-to-ucp')
+    if path_to_ucp:
+        anchor_to_ucp = my_html.anchor('UXLC change proposal', {'href': path_to_ucp})
+        return [anchor_to_full, '; ', anchor_to_ucp]
+    return [anchor_to_full]
 
 
 def _rec_to_row(rec):
