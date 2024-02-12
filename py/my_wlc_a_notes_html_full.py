@@ -35,9 +35,10 @@ def _write_record(record):
     body_contents = []
     wlc_index = record['wlc-index']
     bcv = record['bcv']
-    qere = record['qere']
     mpk = record['MPK']
+    qere = record['qere']
     atiss = record['at issue']
+    ucp_desc = record.get('uxlc-change-proposal-description')
     remarks = record['remarks']
     side_notes = record.get('side-notes') or []
     #
@@ -45,11 +46,13 @@ def _write_record(record):
     anchor = my_html.anchor(bcv, {'href': href})
     #
     rows = [
+        _make_key_value_row('bcv (link to tanach.us)', anchor),
         _make_key_value_row('MPK', mpk, hbo=True),
         _make_key_value_row('qere', qere, hbo=True),
         _make_key_value_row('at issue', atiss, hbo=True),
-        _make_key_value_row('bcv (link to tanach.us)', anchor),
     ]
+    if ucp_desc is not None:
+        rows.append(_make_key_value_row('UCP desc', ucp_desc))
     #
     body_contents.append(my_html.table(rows))
     #
