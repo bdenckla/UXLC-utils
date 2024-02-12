@@ -33,7 +33,8 @@ def _get_unique(io_parent_etan, stack_str):
     if stack_str not in native_counts:
         native_counts[stack_str] = 1
     native_counts[stack_str] += 1
-    return f'{stack_str}:{native_counts}'
+    count = native_counts[stack_str]
+    return f'{stack_str}:{count}'
 
 
 def sub_elem(io_parent_etan, tag):

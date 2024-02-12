@@ -25,9 +25,10 @@ def _wlc_index_str(wlc_index):
 def _make_key_value_row(key, value, hbo=False):
     cell_for_key = my_html.table_datum(key)
     if hbo:
-        cell_for_value = my_html.table_datum(value, {'lang': 'hbo', 'dir': 'rtl'})
+        attr = {'lang': 'hbo', 'dir': 'rtl'}
     else:
-        cell_for_value = my_html.table_datum(value)
+        attr = None
+    cell_for_value = my_html.table_datum(value, attr)
     return my_html.table_row([cell_for_key, cell_for_value])
 
 

@@ -2,10 +2,11 @@
 
 import xml.etree.ElementTree as ET
 import my_open
+import my_uxlc
+import my_uxlc_unicode_names
 import my_convert_citation_from_wlc_to_uxlc
 import my_uxlc_book_abbreviations as u_bk_abbr
-import my_uxlc_unicode_names
-import my_uxlc
+import my_wlc_a_notes_xml_native as native
 import my_wlc_a_notes_xml_etan as etan
 
 def write(records):
@@ -18,6 +19,7 @@ def write(records):
         if ucp_seq is not None:
             change_elem = etan.top_elem(dated_change_set, 'change')
             _add_misc(uxlc, change_elem, record)
+            native.write_to_html(change_elem['native'])
     dated_change_set_tree = ET.ElementTree(dated_change_set)
     #
     ET.indent(dated_change_set_tree)
