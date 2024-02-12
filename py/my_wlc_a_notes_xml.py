@@ -9,16 +9,15 @@ import my_uxlc
 
 def write(records):
     """ Write records out in UXLC change proposal format. """
-    dated_change_set_elem = ET.Element('date')  # dated change set
-    date_elem = ET.SubElement(dated_change_set_elem, 'date')  # date of this dated change set
-    date_elem.text = '2024.02.09'
+    dated_change_set = ET.Element('date')
+    ET.SubElement(dated_change_set, 'date').text = '2024.02.09'
     uxlc = {}
     for record in records:
         ucp_seq = record.get('uxlc-change-proposal-sequential')
         if ucp_seq is not None:
-            change_elem = ET.SubElement(dated_change_set_elem, 'change')
+            change_elem = _etan_new(dated_change_set, 'change')
             _add_misc(uxlc, change_elem, record)
-    dated_change_set_tree = ET.ElementTree(dated_change_set_elem)
+    dated_change_set_tree = ET.ElementTree(dated_change_set)
     #
     ET.indent(dated_change_set_tree)
     #
@@ -26,6 +25,12 @@ def write(records):
     my_open.with_tmp_openw(
         xml_out_path, {}, _etree_write_callback, dated_change_set_tree)
 
+
+def _etan_new(parent, tag):  # ET [element] and native [Python data structure]
+    return {
+        'ET': ET.SubElement(parent, tag),
+        'native': {}
+    }
 
 def _etree_write_callback(xml_elementtree, out_fp):
     xml_elementtree.write(out_fp, encoding='unicode')
@@ -47,12 +52,12 @@ def _add_misc(io_uxlc, change_elem, record):
     _add_type(change_elem)
 
 
-def _sub_elem_text(change_elem, tag, text):
-    ET.SubElement(change_elem, tag).text = text
+def _sub_elem_text(elem, tag, text):
+    ET.SubElement(elem['ET'], tag).text = text
 
 
-def _sub_elem(change_elem, tag):
-    return ET.SubElement(change_elem, tag)
+def _sub_elem(elem, tag):
+    return _etan_new(elem['ET'], tag)
 
 
 def _add_n(change_elem, record):
@@ -115,8 +120,8 @@ def _add_lc(change_elem, _record):
 def _add_xtext_xuni(change_elem, record, xtext, xuni):
     qere_atom = _qere_atom(record)
     xuni_str = my_uxlc_unicode_names.names(qere_atom)
-    ET.SubElement(change_elem, xtext).text = qere_atom
-    ET.SubElement(change_elem, xuni).text = xuni_str
+    _sub_elem_text(change_elem, xtext, qere_atom)
+    _sub_elem_text(change_elem, xuni, xuni_str)
 
 
 def _add_notes(change_elem, record):
