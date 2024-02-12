@@ -282,7 +282,7 @@ RECORD_16 = {
     'Dotan': '✓',
     'qere': 'עַל־כֵּ֥ן',
     'qere-atom': 'עַל־',
-    'MPK': 'עַלֵ֥',
+    'MPK': 'עַל '+'\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
     'at issue': '־',
     'summary': '+mqf',
     'remarks': [
@@ -307,7 +307,7 @@ RECORD_40 = {
     'Dotan': '✓',
     'qere': 'עַל־כֵּ֥ן',
     'qere-atom': 'כֵּ֥ן',
-    'MPK': 'עַלֵ֥',
+    'MPK': 'עַל '+'\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
     'at issue': 'כּ',
     'summary': '+dgsh',
     'remarks': [
