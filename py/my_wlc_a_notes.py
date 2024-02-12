@@ -10,6 +10,25 @@ _WLC_1_BRACKET_NOTE_DEFINITION = \
     "and we keep the same form as BHS. "+ \
     "(This is similar to the note “]U”, but the latter refers to cases where "+ \
     "BHQ has been published and we keep the same form as both BHS and BHQ.)"
+_DOTAN_PAGE_XX = (
+    'Dotan remarks, in his Foreword to BHL (page xx):',
+    #
+    'Another example [of a point CEN] is '+
+    'an ʿayin of the ketiv that cannot carry a dagesh that is due in the qere, '+
+    'as in the manuscript in Deut. 28:27 '+
+    'in the [body] text וּבַעְפֹלִים and '+
+    'in the margin ק̇ ובטחרים; '+
+    'in the printed edition a dagesh was added[, yielding] וּבַטְּחֹרִים.',
+    #
+    '[The terminology CEN (created ex nihilo) is mine, not Dotan’s.]',
+    #
+    '[In this quote, Dotan omits the accent (zaqef qatan) on '+
+    'the ל of וּבַעְפֹלִים and on '+
+    'the ר of וּבַטְּחֹרִים, '+
+    'perhaps because it is not germane to the topic at hand.]',
+    #
+    '[Note that dt28:27 is not a-noted in WLC! (*W/B/(PLYM **W./BA/+.:XORI80YM)]'
+)
 
 RECORD_01 = {
     'wlc-index': 1,
@@ -152,8 +171,9 @@ RECORD_08 = {
         'perhaps because that would be illegal.',
     ],
     'side-notes': [
-        'Same issue, indeed same word modulo accent, six verses later, in 5:12. '+
-        'See «Dotan page xx» in tab called «Comments.»'
+        'Same issue, indeed same word modulo accent, six verses later, in 5:12.',
+        #
+        *_DOTAN_PAGE_XX
     ],
 }
 RECORD_09 = {
@@ -170,8 +190,9 @@ RECORD_09 = {
         'perhaps because that would be illegal.',
     ],
     'side-notes': [
-        'Same issue, indeed same word modulo accent, six verses before, in 5:6. '+
-        'See «Dotan page xx» in tab called «Comments.»'
+        'Same issue, indeed same word modulo accent, six verses before, in 5:6.',
+        #
+        *_DOTAN_PAGE_XX
     ],
 }
 RECORD_10 = {
@@ -591,7 +612,33 @@ RECORD_35 = {
         'The MPK’s ר does not carry a dagesh for the qere’s צ, perhaps because that would be illegal.',
     ],
     'side-notes': [
-        'See Comments tab for more complete remarks.'
+        'Nor does the MPK’s צ carry a dagesh for the qere’s צ.',
+        #
+        'More generally, the MPK is a mess, both in terms of neatness '+
+        'and in terms of what marks ended up on what letters.',
+        #
+        'The below-marks make sense, though one has to sort of squint to see what one expects to see. '+
+        'I.e. the below marks follow the expected order, i.e. the qere order: ḥiriq, siluq, sheva, qamats.',
+        #
+        'The above-marks is where it gets weird, since the qere צ’s ḥolam ḥaser dot '+
+        'is already present on the צ of the MPK. '+
+        'I would expect the ḥolam ḥaser dot to be on the ר of the MPK, i.e. I would expect it to be '+
+        'in its qere POSITION, not on its qere LETTER. I.e. I would expect תִּרֹֽצְנָה׃.',
+        #
+        'Avi, in the MAM documentation, reports that the MPK of א follows this pattern more completely: '+
+        'for the two letters at issue in this ketiv/qere, i.e. for the two transposed letters, '+
+        'the pointing is already present on the LETTER it will “land on” in the qere, '+
+        'not in the POSITION it will land on in the qere. '+
+        'That is to say, א-כתיב=תִּרְצֹּֽנָה׃. '+
+        'I.e. to form the pointed qere from the pointed ketiv, all that needs to be done is to '+
+        'transpose the ר and the צ ALONG with their marks!',
+        #
+        'Dotan’s Appendix A notes, as I have noted above, that the ḥolam ḥaser dot would be expected '+
+        'on (the left side of) the ר of the MPK, whereas it is on (the left side of) the צ. '+
+        'Dotan does not note anything about the creation ex nihilo of the dagesh on the qere’s צ.',
+        #
+        'A final, unimportant remark is that I’ve put a rafeh above the ה of the MPK '+
+        'but I’m not sure about this; it might belong above the נ.'
     ],
 }
 RECORD_36 = {
