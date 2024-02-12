@@ -4,15 +4,10 @@ import my_html
 import my_convert_citation_from_wlc_to_uxlc
 
 
-def write(records):
+def write(io_records):
     """ Write records out in full format. """
-    for record in records:
-        _write_record(record)
-
-
-def _wlc_index_str(wlc_index):
-    assert isinstance(wlc_index, int)
-    return f'{wlc_index:02}'
+    for io_record in io_records:
+        io_record['path-to-full'] = _write_record(io_record)
 
 
 def _make_key_value_row(key, value, hbo=False):
@@ -57,8 +52,8 @@ def _write_record(record):
         assert not side_note.endswith(' ')
         body_contents.append(my_html.para(side_note))
     #
-    wlc_index_str = _wlc_index_str(wlc_index)
-    title = f'WLC a-note {wlc_index_str}'
-    path = f'docs/wlc_a_note_{wlc_index_str}.html'
-    write_ctx = my_html.WriteCtx(title, path)
+    title = f'WLC a-note {wlc_index}'
+    path = f'wlc_a_note_{wlc_index:02}.html'
+    write_ctx = my_html.WriteCtx(title, f'docs/{path}')
     my_html.write_html_to_file(body_contents, write_ctx)
+    return path

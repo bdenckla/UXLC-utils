@@ -22,9 +22,11 @@ def _row_cell_for_hdr_str(rec, hdr_str):
     val = rec[rec_key]
     if hdr_str == 'remarks':
         assert isinstance(val, list)
-        br = my_html.line_break()
-        rems_with_brs = my_utils.intersperse(br, val)
-        return my_html.table_datum(rems_with_brs)
+        assert len(val) in (0, 1)
+        path = rec['path-to-full']
+        anchor = my_html.anchor('full', {'href': path})
+        datum_contents = my_utils.intersperse(' ',[*val, anchor])
+        return my_html.table_datum(datum_contents)
     assert isinstance(val, str)
     if hdr_str in ('WLC qere', 'MPK', 'at issue'):
         return my_html.table_datum(val, {'lang': 'hbo', 'dir': 'rtl'})

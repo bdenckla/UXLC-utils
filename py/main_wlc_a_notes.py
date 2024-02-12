@@ -11,8 +11,9 @@ def main():
     """ Writes WLC a-notes records to HTML & XML files. """
     records_s = sorted(my_wlc_a_notes.RECORDS, key=_sort_key_for_rec)
     my_wlc_a_notes_expand.expand(records_s)
+    #
+    my_wlc_a_notes_html_full.write(records_s)  # fills in path-to-full fields
     my_wlc_a_notes_html_tables.write(records_s)
-    my_wlc_a_notes_html_full.write(records_s)
     my_wlc_a_notes_xml.write(records_s)
 
 
