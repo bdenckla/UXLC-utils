@@ -6,10 +6,13 @@ def expand(io_records):
     Add fields including uxlc-change-proposal-sequential.
     """
     ucp_count = 0
+    ucp_dic = {}
     for record in io_records:
         _add_reason(record)
         ucp = record['uxlc-change-proposal']
         if isinstance(ucp, int):
+            assert ucp not in ucp_dic
+            ucp_dic[ucp] = True
             ucp_count += 1
             record['uxlc-change-proposal-sequential'] = ucp_count
 

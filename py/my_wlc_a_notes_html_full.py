@@ -57,9 +57,11 @@ def _write_record(record):
     body_contents.append(my_html.table(rows))
     #
     for remark in remarks:
+        assert not remark.endswith(' ')
         body_contents.append(my_html.para(remark))
     #
     for side_note in side_notes:
+        assert not side_note.endswith(' ')
         body_contents.append(my_html.para(side_note))
     #
     wlc_index_str = _wlc_index_str(wlc_index)

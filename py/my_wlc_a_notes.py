@@ -39,7 +39,7 @@ RECORD_02 = {
     'remarks': [],
     'side-notes': [
         'In WLC, this word also has a 1-note, '+
-        'presumably because of the unexpected dagesh in the qere’s penultimate vav. ',
+        'presumably because of the unexpected dagesh in the qere’s penultimate vav.',
         #
         'As a reminder, a WLC 1-note (bracket-1 note) is defined as follows: '+
         f'«{_WLC_1_BRACKET_NOTE_DEFINITION}»',
@@ -80,7 +80,7 @@ RECORD_04 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK’s מ does not carry a dagesh for the qere’s ב, for some reason. '+
-        'This is the dual of js24:15. ',
+        'This is the dual of js24:15.'
     ],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+
@@ -98,7 +98,7 @@ RECORD_05 = {
     'summary': '-dgsh',
     'remarks': [
         'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
-        'This is the dual of js22:7. ',
+        'This is the dual of js22:7.'
     ],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is מֵּעֵ֣בֶר (unexpectedly dageshed).'
@@ -186,12 +186,13 @@ RECORD_10 = {
     'remarks': [
         'The MPK’s final nun of מבן does not carry a sheva for the qere’s (non-final) נ, '+
         'perhaps because that would be illegal. '+
-        'The maqaf disappears when going from the MPK to the qere. ',
-        #
-        'It is unclear why the maqaf is supplied in the first place. '+
-        'Perhaps it is supplied because without it, מִבִּן would be illegal: a word without an accent.'
+        'The maqaf disappears when going from the MPK to the qere.',
     ],
     'side-notes': [
+        'It is unclear why the maqaf is supplied in the first place. '+
+        'Perhaps it is supplied because without it, מִבִּן would be illegal: '+
+        'a word without an accent.',
+        #
         'Dotan notes that strictly speaking, the implied qere is '+
         'מִבִּניָמִ֗ין (no sheva under middle נ).'
     ],
@@ -235,7 +236,7 @@ RECORD_13 = {
     'remarks': [
         'The MPK’s ע does not carry a pataḥ for the qere’s ע, '+
         'perhaps because that would be illegal. '+
-        'It carries a ḥataf pataḥ. ',
+        'It carries a ḥataf pataḥ.'
     ],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+
@@ -244,7 +245,7 @@ RECORD_13 = {
 }
 RECORD_14 = {
     'wlc-index': 14,
-    'uxlc-change-proposal': 402,
+    'uxlc-change-proposal': 452,
     'bcv': '2s3:2',
     'Dotan': '∅',
     'qere': 'וַיִּוָּלְד֧וּ',
@@ -256,7 +257,7 @@ RECORD_14 = {
     ],
     'side-notes': [
         'Although it cannot carry the vav’s dagesh, '+
-        'the ל carries the vav’s qamats as well as its own sheva. '
+        'the ל carries the vav’s qamats as well as its own sheva. '+
         'Unlike the manuscript, our MPK shows that qamats on a dotted circle rather than on the ל.'
     ],
 }
@@ -323,7 +324,7 @@ RECORD_40 = {
 }
 RECORD_17 = {
     'wlc-index': 17,
-    'uxlc-change-proposal': 404,
+    'uxlc-change-proposal': 454,
     'bcv': '2s21:9',
     'Dotan': '∅',
     'qere': 'בִּתְחִלַּ֖ת',
@@ -341,7 +342,7 @@ RECORD_17 = {
 }
 RECORD_18 = {
     'wlc-index': 18,
-    'uxlc-change-proposal': 405,
+    'uxlc-change-proposal': 455,
     'bcv': '2s22:8',
     'Dotan': '∅',
     'qere': 'וַיִּתְגָּעַ֤שׁ',
@@ -352,7 +353,7 @@ RECORD_18 = {
         'The MPK has no letter to carry a dagesh for the qere’s yod.',
     ],
     'side-notes': [
-        'Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. '
+        'Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. '+
         'Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than on the vav.'
     ],
 }
@@ -380,7 +381,9 @@ RECORD_20 = {
     'at issue': '?',
     'summary': '?',
     'remarks': [
-        'The MPK has all the qere’s marks so I don’t see what the issue is. '+
+        'The MPK has all the qere’s marks so I don’t see what the issue is.'
+    ],
+    'side-notes': [
         'The suffix וּ֥ becomes ו֥וּ. '+
         'I would have expected a qubuts in the MPK, but this notation works, too, '+
         'as long as we interpret the MPK’s dot in the vav to be a shuruq dot not a dagesh.'
@@ -438,7 +441,7 @@ RECORD_23 = {
 }
 RECORD_24 = {
     'wlc-index': 24,
-    'uxlc-change-proposal': 470,
+    'uxlc-change-proposal': 430,
     'bcv': '2k19:31',
     'Dotan': '∅',
     'qere': 'צְבָא֖וֹת',
@@ -493,7 +496,7 @@ RECORD_27 = {
     'summary': '-dgsh',
     'remarks': [
         'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
-        'See js24:15, which is similar. ',
+        'See js24:15, which is similar.'
     ],
     'side-notes': [
         'Dotan does not note this case, though he does note js24:15.'
@@ -553,7 +556,7 @@ RECORD_31 = {
 }
 RECORD_32 = {
     'wlc-index': 32,
-    'uxlc-change-proposal': 408,
+    'uxlc-change-proposal': 458,
     'bcv': 'ek14:14',
     'Dotan': '∅',
     'qere': 'דָּנִיֵּ֣אל',
@@ -566,7 +569,7 @@ RECORD_32 = {
 }
 RECORD_33 = {
     'wlc-index': 33,
-    'uxlc-change-proposal': 409,
+    'uxlc-change-proposal': 459,
     'bcv': 'ek14:20',
     'Dotan': '∅',
     'qere': 'דָּנִיֵּ֣אל',
@@ -579,7 +582,7 @@ RECORD_33 = {
 }
 RECORD_34 = {
     'wlc-index': 34,
-    'uxlc-change-proposal': 410,
+    'uxlc-change-proposal': 460,
     'bcv': 'ek28:3',
     'Dotan': '∅',
     'qere': 'מִדָּֽנִיֵּ֑אל',
@@ -612,7 +615,7 @@ RECORD_35 = {
 }
 RECORD_36 = {
     'wlc-index': 36,
-    'uxlc-change-proposal': 460,
+    'uxlc-change-proposal': 461,
     'bcv': 'lm4:16',
     'Dotan': '∅',
     'qere': 'וּזְקֵנִ֖ים',
@@ -636,7 +639,7 @@ RECORD_37 = {
 }
 RECORD_38 = {
     'wlc-index': 38,
-    'uxlc-change-proposal': 411,
+    'uxlc-change-proposal': 462,
     'bcv': 'da2:9',
     'Dotan': '∅',
     'qere': 'הִזְדְּמִנְתּוּן֙',
@@ -647,7 +650,7 @@ RECORD_38 = {
         'The MPK has no letter to carry a dagesh for the qere’s ד.',
     ],
     'side-notes': [
-        'Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. '
+        'Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. '+
         'Unlike the manuscript, our MPK shows that sheva on a dotted circle rather than on the מ.'
     ],
 }
