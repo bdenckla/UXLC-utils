@@ -80,7 +80,9 @@ RECORD_04 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK’s מ does not carry a dagesh for the qere’s ב, for some reason. '+
-        'This is the dual of js24:15. '+
+        'This is the dual of js24:15. ',
+    ],
+    'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+
         'בְעֵ֥בֶר (unexpectedly dagesh-free).'
     ],
@@ -96,7 +98,9 @@ RECORD_05 = {
     'summary': '-dgsh',
     'remarks': [
         'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
-        'This is the dual of js22:7. '+
+        'This is the dual of js22:7. ',
+    ],
+    'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is מֵּעֵ֣בֶר (unexpectedly dageshed).'
     ],
 }
@@ -182,7 +186,9 @@ RECORD_10 = {
     'remarks': [
         'The MPK’s final nun of מבן does not carry a sheva for the qere’s (non-final) נ, '+
         'perhaps because that would be illegal. '+
-        'The maqaf disappears when going from the MPK to the qere. '+
+        'The maqaf disappears when going from the MPK to the qere. ',
+    ],
+    'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+
         'מִבִּניָמִ֗ין (no sheva under middle נ).'
     ],
@@ -226,7 +232,9 @@ RECORD_13 = {
     'remarks': [
         'The MPK’s ע does not carry a pataḥ for the qere’s ע, '+
         'perhaps because that would be illegal. '+
-        'It carries a ḥataf pataḥ. '+
+        'It carries a ḥataf pataḥ. ',
+    ],
+    'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+
         'מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).'
     ],
@@ -277,13 +285,13 @@ RECORD_16 = {
         'The MPK lacks a trailing maqaf. '+
         'The MPK (points on no letters) is tsere and merkha. '+
         'Well really those points are under ל not under nothing.',
-        #
+    ],
+    'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. '+
         'I think what he finds notable here is the MPK’s lack of a maqaf. '+
         'I do not think he finds the MPK’s lack of dagesh notable because as far as I know, '+
         'such a dagesh is never present.',
-    ],
-    'side-notes': [
+        #
         'Why is this not considered a qere velo ketiv by WLC? '+
         'I have submitted a change proposal to UXLC to make it a qere velo ketiv.'
     ],
@@ -302,7 +310,8 @@ RECORD_40 = {
         'The MPK has no letter to carry a dagesh for the qere’s כ. '+
         'The MPK (points on no letters) is tsere and merkha. '+
         'Well really those points are under ל not under nothing.',
-        #
+    ],
+    'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. '+
         'I think what he finds notable here is the MPK’s lack of a maqaf. '+
         'I do not think he finds the MPK’s lack of dagesh notable because as far as I know, '+
@@ -320,7 +329,8 @@ RECORD_17 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK has no letter to carry a dagesh for the qere’s ב.',
-        #
+    ],
+    'side-notes': [
         'Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. '+
         'Yet, it does not: the spacing is generous, leaving the ḥiriq floating out on its own without a parent letter. '+
         'Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than floating out on its own.'
@@ -337,7 +347,8 @@ RECORD_18 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK has no letter to carry a dagesh for the qere’s yod.',
-        #
+    ],
+    'side-notes': [
         'Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. '
         'Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than on the vav.'
     ],
@@ -479,7 +490,9 @@ RECORD_27 = {
     'summary': '-dgsh',
     'remarks': [
         'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
-        'See js24:15, which is similar. '+
+        'See js24:15, which is similar. ',
+    ],
+    'side-notes': [
         'Dotan does not note this case, though he does note js24:15.'
     ],
 }
@@ -589,7 +602,8 @@ RECORD_35 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK’s ר does not carry a dagesh for the qere’s צ, perhaps because that would be illegal.',
-        #
+    ],
+    'side-notes': [
         'See Comments tab for more complete remarks.'
     ],
 }
@@ -628,7 +642,8 @@ RECORD_38 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK has no letter to carry a dagesh for the qere’s ד.',
-        #
+    ],
+    'side-notes': [
         'Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. '
         'Unlike the manuscript, our MPK shows that sheva on a dotted circle rather than on the מ.'
     ],
