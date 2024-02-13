@@ -702,7 +702,7 @@
     <changeuni>bet dagesh qamats nun qamats yod vav pashta</changeuni>
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is אָׄאָׄאׄאׄ֙. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
-      <note>The MPK has no letter to carry a dagesh for the qere’s ב. The MPK (points on no letters) is two qamats marks and (what we intepret as) pashta (not qadma).</note>
+      <note>The MPK has no letter to carry a dagesh for the qere’s ב. The MPK (points on no letters) is two qamats marks and pashta.</note>
       <note>There is also a dot near the pashta, which we ignore. I.e. we assume it is not ink, or in any case not intentional.</note>
     </notes>
     <analysistags />
@@ -782,7 +782,8 @@
     <notes>
       <note>The qere atom at issue is part of the qere compound עַל־כֵּ֥ן.</note>
       <note>The manuscript’s pointed ketiv (MPK) is אֵ֣ׄאׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
-      <note>The MPK has no letter to carry a dagesh for the qere’s כ. The MPK (points on no letters) is tsere and merkha. Well really those points are under the ל of the preceding word (עַל), not under nothing.</note>
+      <note>The MPK has no letter to carry a dagesh for the qere’s כ. The MPK (points on no letters) is tsere and merkha.</note>
+      <note>The points of the MPK are under the ל of the preceding word (עַל), but we don’t consider them to be carried by that ל.</note>
       <note>Although Dotan has a note on his body-text compound עַל־כֵּ֥ן, I do not take him to have noted it for the issue at hand: the added dagesh. (Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן.) I take him to have noted this compound only because the manuscript lacks the expected trailing maqaf on עַל. The lack of a trailing maqaf on the preceding word (עַל) is the subject of a currently-pending change proposal, 2024.04.01/2024.01.18-2.</note>
     </notes>
     <analysistags />
@@ -861,7 +862,7 @@
     <changeuni>lamed qamats he dagesh pashta</changeuni>
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is אָׄאׄ֙. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
-      <note>The MPK has no letter to carry a mapiq for the qere’s ה. The MPK (points on no letters) is qamats and (what we intepret as) pashta (not qadma).</note>
+      <note>The MPK has no letter to carry a mapiq for the qere’s ה. The MPK (points on no letters) is qamats and pashta.</note>
     </notes>
     <analysistags />
     <transnotes>

@@ -43,6 +43,7 @@ def _write_record(record):
     ]
     ucp = record['uxlc-change-proposal']
     if isinstance(ucp, str):
+        # XXX make this a real link
         rows.append(_make_key_value_row('existing UCP', ucp))
     #
     body_contents.append(my_html.table(rows))

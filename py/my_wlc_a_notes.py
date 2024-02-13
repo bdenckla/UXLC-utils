@@ -137,7 +137,7 @@ RECORD_06 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK has no letter to carry a dagesh for the qere’s ב. '+
-        'The MPK (points on no letters) is sheva, tsere, and munaḥ.',
+        'The MPK (points on no letters) is sheva, tsere, and munaḥ.'
     ],
     'side-notes': [
         'Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?',
@@ -168,7 +168,7 @@ RECORD_08 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK’s ע does not carry a dagesh for the qere’s ט, '+
-        'perhaps because that would be illegal.',
+        'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses later, in 5:12.',
@@ -187,7 +187,7 @@ RECORD_09 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK’s ע does not carry a dagesh for the qere’s ט, '+
-        'perhaps because that would be illegal.',
+        'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses before, in 5:6.',
@@ -205,11 +205,11 @@ RECORD_10 = {
     'at issue': 'נְיָ',
     'summary': '+shva,-mqf',
     'remarks': [
-        'The MPK’s final nun of מבן does not carry a sheva for the qere’s (non-final) נ, '+
-        'perhaps because that would be illegal. '+
-        'The maqaf disappears when going from the MPK to the qere.',
+        'The MPK’s ן in מבן does not carry a sheva for the qere’s נ, '+
+        'perhaps because that would be illegal.'
     ],
     'side-notes': [
+        'The maqaf disappears from the MPK. '+
         'It is unclear why the maqaf is supplied in the first place. '+
         'Perhaps it is supplied because without it, מִבִּן would be illegal: '+
         'a word without an accent.',
@@ -274,7 +274,7 @@ RECORD_14 = {
     'at issue': 'וָּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s vav-qamats.',
+        'The MPK has no letter to carry a dagesh for the qere’s vav-qamats.'
     ],
     'side-notes': [
         'Although it cannot carry the vav’s dagesh, '+
@@ -308,10 +308,12 @@ RECORD_16 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK has no letter to carry a dagesh for the qere’s כ. '+
-        'The MPK (points on no letters) is tsere and merkha. '+
-        'Well really those points are under the ל of the preceding word (עַל), not under nothing.',
+        'The MPK (points on no letters) is tsere and merkha.'
     ],
     'side-notes': [
+        'The points of the MPK are under the ל of the preceding word (עַל), '+
+        'but we don’t consider them to be carried by that ל.',
+        #
         'Although Dotan has a note on his body-text compound עַל־כֵּ֥ן, '+
         'I do not take him to have noted it for the issue at hand: '+
         'the added dagesh. '+
@@ -334,7 +336,7 @@ RECORD_17 = {
     'at issue': 'בּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s ב.',
+        'The MPK has no letter to carry a dagesh for the qere’s ב.'
     ],
     'side-notes': [
         'Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. '+
@@ -352,7 +354,7 @@ RECORD_18 = {
     'at issue': 'יּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s yod.',
+        'The MPK has no letter to carry a dagesh for the qere’s yod.'
     ],
     'side-notes': [
         'Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. '+
@@ -433,7 +435,7 @@ RECORD_23 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK’s ח does not carry a dagesh for the qere’s ד, '+
-        'perhaps because that would be illegal.',
+        'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'the ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! '+
@@ -466,7 +468,7 @@ RECORD_25 = {
     'summary': '+dgsh',
     'remarks': [
         'The MPK has no letter to carry a dagesh for the qere’s ב. '+
-        'The MPK (points on no letters) is two qamats marks and (what we intepret as) pashta (not qadma).',
+        'The MPK (points on no letters) is two qamats marks and pashta.'
     ],
     'side-notes': [
         'There is also a dot near the pashta, which we ignore. '+
@@ -553,7 +555,7 @@ RECORD_31 = {
     'summary': '+mapiq',
     'remarks': [
         'The MPK has no letter to carry a mapiq for the qere’s ה. '+
-        'The MPK (points on no letters) is qamats and (what we intepret as) pashta (not qadma).'
+        'The MPK (points on no letters) is qamats and pashta.'
     ],
 }
 RECORD_32 = {
@@ -592,7 +594,7 @@ RECORD_34 = {
     'at issue': 'יּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s yod.',
+        'The MPK has no letter to carry a dagesh for the qere’s yod.'
     ],
     'side-notes': [
         'The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, '+
@@ -609,7 +611,7 @@ RECORD_35 = {
     'at issue': 'צּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK’s ר does not carry a dagesh for the qere’s צ, perhaps because that would be illegal.',
+        'The MPK’s ר does not carry a dagesh for the qere’s צ, perhaps because that would be illegal.'
     ],
     'side-notes': [
         'Nor does the MPK’s צ carry a dagesh for the qere’s צ.',
@@ -675,7 +677,7 @@ RECORD_38 = {
     'at issue': 'דּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s ד.',
+        'The MPK has no letter to carry a dagesh for the qere’s ד.'
     ],
     'side-notes': [
         'Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. '+
