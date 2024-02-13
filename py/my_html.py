@@ -55,6 +55,9 @@ th, td {
 tr:nth-of-type(odd) td {
   background-color: #eee;
 }
+img {
+  max-width: 100%;
+}
 """
 
 
