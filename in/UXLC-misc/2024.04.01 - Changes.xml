@@ -3969,8 +3969,7 @@
 						Words 3, 4, 5 of the UXLC represent both the LC body text and the qere consonants; 
 						   words 3, 4 contain the ketiv variants for this image; 
 						      UXLC word 5 is the qere variant, shown in the Reference/Change above.  
-						No sheva is present under the first nun in the image, probably because of the long tail of the ketiv final nun; 
-						   hence, the qere has no sheva under the nun. 
+						No sheva is present under the first nun in the image; hence, the qere has no sheva under the nun. 
 						The usual spelling of Benjamin, בִנְיָמִן, is with a sheva under the first nun. 
 						A transcription note 'c' will be added.
 					</note>
@@ -4157,7 +4156,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change order of meteg/sheva on vav to improve robustness of display. </description>
+                <description>Change order of meteg/sheva on vav. [Display robustness]</description>
                 <lc>
                     <folio>Folio_376B</folio>
                     <column>1</column>
@@ -4197,7 +4196,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change order of meteg/sheva on vav to improve robustness of display. </description>
+                <description>Change order of meteg/sheva on vav. [Display robustness]</description>
                 <lc>
                     <folio>Folio_383A</folio>
                     <column>2</column>
@@ -4237,7 +4236,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change order of meteg/sheva on vav to improve robustness of display. </description>
+                <description>Change order of meteg/sheva on vav. [Display robustness]</description>
                 <lc>
                     <folio>Folio_387A</folio>
                     <column>1</column>
@@ -4277,7 +4276,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change order of meteg/sheva on vav to improve robustness of display. </description>
+                <description>Change order of meteg/sheva on vav. [Display robustness]</description>
                 <lc>
                     <folio>Folio_387B</folio>
                     <column>1</column>
@@ -4317,7 +4316,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change order of meteg/sheva on vav to improve robustness of display. </description>
+                <description>Change order of meteg/sheva on vav. [Display robustness]</description>
                 <lc>
                     <folio>Folio_395B</folio>
                     <column>2</column>
@@ -4357,7 +4356,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change order of meteg/sheva on vav to improve robustness of display. </description>
+                <description>Change order of meteg/sheva on vav. [Display robustness]</description>
                 <lc>
                     <folio>Folio_343B</folio>
                     <column>2</column>
