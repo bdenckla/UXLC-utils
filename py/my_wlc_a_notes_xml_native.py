@@ -1,6 +1,7 @@
 """ Exports write_native_to_html. """
 
 import my_html
+import my_wlc_a_notes_img_html as img
 
 
 def write_to_html(native, record):
@@ -8,8 +9,8 @@ def write_to_html(native, record):
     rows = list(map(_make_key_value_row, native.items()))
     #
     body_contents = []
-    if 'img' in record:
-        body_contents.append(my_html.img({'src': record['img']}))
+    if html_for_i := img.html_for_img_or_imgs(record):
+        body_contents.extend(html_for_i)
     body_contents.append(my_html.table(rows))
     ucp_n = int(native['n'])
     ucp_n_str_02 = f'{ucp_n:02d}'

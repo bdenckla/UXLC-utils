@@ -315,7 +315,11 @@ RECORD_16 = {
     'wlc-index': 16,
     'uxlc-change-proposal': 412,
     'bcv': '2s18:20',
-    'img': '16-2s18v20-L.png',
+    'imgs': {
+        'LC': '16-2s18v20-L.png',
+        'BHS': '16-2s18v20-BHS.jpg',  # JPG for some reason
+        'AC': '16-2s18v20-A.png'
+    },
     'qere': 'עַל־כֵּ֥ן',
     'qere-atom': 'כֵּ֥ן',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',

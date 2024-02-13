@@ -2,6 +2,7 @@
 
 import my_html
 import my_convert_citation_from_wlc_to_uxlc
+import my_wlc_a_notes_img_html as img
 
 
 def write(io_records):
@@ -34,8 +35,8 @@ def _write_record(record):
     anchor = my_html.anchor(bcv, {'href': href})
     #
     body_contents = []
-    if 'img' in record:
-        body_contents.append(my_html.img({'src': record['img']}))
+    if html_for_i := img.html_for_img_or_imgs(record):
+        body_contents.extend(html_for_i)
     #
     rows = [
         _make_key_value_row('bcv (link to tanach.us)', anchor),
