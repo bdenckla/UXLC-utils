@@ -21,7 +21,6 @@ def _make_key_value_row(key, value, hbo=False):
 
 
 def _write_record(record):
-    body_contents = []
     wlc_index = record['wlc-index']
     bcv = record['bcv']
     mpk = record['MPK']
@@ -33,6 +32,10 @@ def _write_record(record):
     #
     href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(bcv)
     anchor = my_html.anchor(bcv, {'href': href})
+    #
+    body_contents = []
+    if 'img' in record:
+        body_contents.append(my_html.img({'src': record['img']}))
     #
     rows = [
         _make_key_value_row('bcv (link to tanach.us)', anchor),

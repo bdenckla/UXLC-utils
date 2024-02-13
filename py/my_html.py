@@ -147,9 +147,9 @@ def blockquote(contents, attr=None):
     return htel_mk_nlb1('blockquote', attr=attr, contents=contents)
 
 
-def img(contents, attr=None):
+def img(attr=None):
     """ Make an <img> element. """
-    return htel_mk_nlb1('img', attr=attr, contents=contents)
+    return htel_mk_nlb1('img', attr=attr)
 
 
 def table_row(contents):

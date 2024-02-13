@@ -240,16 +240,19 @@ RECORD_13 = {
     'wlc-index': 13,
     'uxlc-change-proposal': 507,
     'bcv': '1s17:23',
+    'img': '13-1s17v23.png',
     'folio': 'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F159B.jpg',
+    'column': 2,
+    'line': 11,
     'Dotan': '✓',
     'qere': 'מִמַּעַרְכ֣וֹת',
     'MPK': 'מִמַּעֲרְ֣וֹת',
     'at issue': 'עַ',
     'summary': 'ḥtf ptḥ to ptḥ',
     'remarks': [
-        'The MPK’s ע does not carry a pataḥ for the qere’s ע, '+
-        'perhaps because that would be illegal. '+
-        'It carries a ḥataf pataḥ.'
+        'The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ. '+
+        'Would pataḥ be illegal on the MPK? '+
+        'Breuer notes that א and ק have the expected pataḥ.'
     ],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+

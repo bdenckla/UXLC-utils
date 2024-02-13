@@ -1461,9 +1461,9 @@
     </author>
     <description>Note ḥataf pataḥ to pataḥ under ayin</description>
     <lc>
-      <folio>XXX fill me in folio</folio>
-      <column>XXX fill me in column</column>
-      <line>XXX fill me in line</line>
+      <folio>https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F159B.jpg</folio>
+      <column>2</column>
+      <line>11</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>מִמַּעַרְכ֣וֹת</reftext>
@@ -1472,7 +1472,7 @@
     <changeuni>mem hiriq mem dagesh patah ayin patah resh sheva kaf munah vav holam tav</changeuni>
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is מִמַּעֲרְ֣וֹת.</note>
-      <note>The MPK’s ע does not carry a pataḥ for the qere’s ע, perhaps because that would be illegal. It carries a ḥataf pataḥ.</note>
+      <note>The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ. Would pataḥ be illegal on the MPK? Breuer notes that א and ק have the expected pataḥ.</note>
       <note>Dotan notes that strictly speaking, the implied qere is מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).</note>
     </notes>
     <analysistags />
