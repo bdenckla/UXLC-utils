@@ -35,7 +35,9 @@ _THIS_PAGE_ALSO = (
     'did not motivate a change proposal.)'
 )
 _THIS_PAGE_USES = (
-    'This page uses the initialism “MPK” to stand for “manuscript’s pointed ketiv.”'
+    'This page uses the following initialisms: '+
+    '“UCP” for “UXLC change proposal” and '
+    '“MPK” for “manuscript’s pointed ketiv.”'
 )
 _INTROS = [
     my_html.para([_THIS_PAGE, my_html.blockquote(_DEFINITION_OF_AN_A_NOTE)]),
