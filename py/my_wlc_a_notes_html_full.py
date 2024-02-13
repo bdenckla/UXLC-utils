@@ -22,29 +22,12 @@ def _make_key_value_row(key, value, hbo=False):
 
 
 def _write_record(record):
-    wlc_index = record['wlc-index']
-    bcv = record['bcv']
-    mpk = record['MPK']
-    qere = record['qere']
-    atiss = record['at issue']
-    reason = record.get('at issue English')
-    remarks = record['remarks']
-    side_notes = record.get('side-notes') or []
-    #
-    href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(bcv)
-    anchor = my_html.anchor(bcv, {'href': href})
     #
     body_contents = []
     if html_for_i := img.html_for_img_or_imgs(record):
         body_contents.extend(html_for_i)
     #
-    rows = [
-        _make_key_value_row('bcv (link to tanach.us)', anchor),
-        _make_key_value_row('MPK', mpk, hbo=True),
-        _make_key_value_row('qere', qere, hbo=True),
-        _make_key_value_row('at issue', atiss, hbo=True),
-        _make_key_value_row('at issue English', reason),
-    ]
+    rows = _initial_rows(record)
     ucp = record['uxlc-change-proposal']
     if isinstance(ucp, str):
         # XXX make this a real link
@@ -55,19 +38,47 @@ def _write_record(record):
     #
     body_contents.append(my_html.table(rows))
     #
-    for remark in remarks:
-        assert not remark.endswith(' ')
-        body_contents.append(my_html.para(remark))
+    _append_remarks_and_side_notes(body_contents, record)
     #
-    for side_note in side_notes:
-        assert not side_note.endswith(' ')
-        body_contents.append(my_html.para(side_note))
-    #
+    wlc_index = record['wlc-index']
     title = f'WLC a-note {wlc_index}'
     path = f'wlc_a_note_{wlc_index:02}.html'
     write_ctx = my_html.WriteCtx(title, f'docs/{path}')
     my_html.write_html_to_file(body_contents, write_ctx)
     return path
+
+
+def _append_remarks_and_side_notes(io_body_contents, record):
+    remarks = record['remarks']
+    side_notes = record.get('side-notes') or []
+    for remark in remarks:
+        assert not remark.endswith(' ')
+        io_body_contents.append(my_html.para(remark))
+    #
+    for side_note in side_notes:
+        assert not side_note.endswith(' ')
+        io_body_contents.append(my_html.para(side_note))
+
+
+def _initial_rows(record):
+    anchor = _anchor(record)
+    mpk = record['MPK']
+    qere = record['qere']
+    atiss = record['at issue']
+    reason = record.get('at issue English')
+    return [
+        _make_key_value_row('bcv (link to tanach.us)', anchor),
+        _make_key_value_row('MPK', mpk, hbo=True),
+        _make_key_value_row('qere', qere, hbo=True),
+        _make_key_value_row('at issue', atiss, hbo=True),
+        _make_key_value_row('at issue English', reason),
+    ]
+
+
+def _anchor(record):
+    bcv = record['bcv']
+    href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(bcv)
+    return my_html.anchor(bcv, {'href': href})
 
 
 def _folio_row(record):
