@@ -13,7 +13,7 @@
             "justMyCode": true
         },
         {
-            "name": "generate WLC a-note change proposals",
+            "name": "WLC a-notes",
             "type": "debugpy",
             "request": "launch",
             "program": "py/main_wlc_a_notes.py",
