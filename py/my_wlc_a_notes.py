@@ -250,11 +250,19 @@ RECORD_13 = {
     'at issue': 'עַ',
     'summary': 'ḥtf ptḥ to ptḥ',
     'remarks': [
-        'The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ. '+
-        'Would pataḥ be illegal on the MPK? '+
-        'Breuer notes that א and ק have the expected pataḥ.'
+        'The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ.'
     ],
     'side-notes': [
+        'Unexpected ḥataf vowels are a known feature (bug?) of ל. '+
+        'I.e. this is rare but hardly unique. '+
+        'This unexpected ḥataf may well be unrelated '+
+        'to the ketiv/qere differences in this word. '
+        'If it is unrelated, '
+        'this should be a bracket-1 or bracket-U note in WLC, not a bracket-a note.',
+        #
+        'Breuer notes that א and ק have the expected pataḥ. '+
+        '(א is the Aleppo Codex and ק is the Cairo Codex of The Prophets.)',
+        #
         'Dotan notes that strictly speaking, the implied qere is '+
         'מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).'
     ],
