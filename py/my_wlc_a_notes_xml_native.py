@@ -3,11 +3,13 @@
 import my_html
 
 
-def write_to_html(native):
+def write_to_html(native, record):
     """ Write XML (represented as a native Python dict) to an HTML file. """
     rows = list(map(_make_key_value_row, native.items()))
     #
     body_contents = []
+    if 'img' in record:
+        body_contents.append(my_html.img({'src': record['img']}))
     body_contents.append(my_html.table(rows))
     ucp_n = int(native['n'])
     ucp_n_str_02 = f'{ucp_n:02d}'

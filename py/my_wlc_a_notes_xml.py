@@ -19,7 +19,7 @@ def write(io_records):
         if ucp_seq is not None:
             change_elem = etan.top_elem(dated_change_set, 'change')
             _add_misc(uxlc, change_elem, io_record)
-            io_record['path-to-ucp'] = native.write_to_html(change_elem['native'])
+            io_record['path-to-ucp'] = native.write_to_html(change_elem['native'], io_record)
     dated_change_set_tree = ET.ElementTree(dated_change_set)
     #
     ET.indent(dated_change_set_tree)

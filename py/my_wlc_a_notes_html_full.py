@@ -49,6 +49,12 @@ def _write_record(record):
         # XXX make this a real link
         rows.append(_make_key_value_row('existing UCP', ucp))
     #
+    if 'folio' in record and record['folio'] != 'XXX fill me in folio':
+        # XXX make this into a link like:
+        # https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F159B.jpg
+        #
+        rows.append(_make_key_value_row('folio', record['folio']))
+    #
     body_contents.append(my_html.table(rows))
     #
     for remark in remarks:

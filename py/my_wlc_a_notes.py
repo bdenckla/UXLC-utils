@@ -238,10 +238,10 @@ RECORD_12 = {
 }
 RECORD_13 = {
     'wlc-index': 13,
-    'uxlc-change-proposal': 507,
+    'uxlc-change-proposal': 600,
     'bcv': '1s17:23',
     'img': '13-1s17v23.png',
-    'folio': 'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F159B.jpg',
+    'folio': 'Folio_159B',
     'column': 2,
     'line': 11,
     'Dotan': '✓',
