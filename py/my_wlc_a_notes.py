@@ -1,10 +1,21 @@
 """ Exports RECORDS. """
 
 
-def _does_not_carry(mpk_letter, qere_letter):
-    return f'The MPK’s {mpk_letter} does not carry a dagesh for the qere’s {qere_letter}, '
+def _does_not_carry(mpk_letter, qere_letter, mark='dagesh'):
+    return f'The MPK’s {mpk_letter} does not carry a {mark} for the qere’s {qere_letter}, '
 
 
+def _has_no_letter_to_carry(qere_letter, mark='dagesh'):
+    return f'The MPK has no letter to carry a {mark} for the qere’s {qere_letter}.'
+
+
+def _has_no_letters_at_all(qere_letter, points, mark='dagesh'):
+    return (
+        _has_no_letter_to_carry(qere_letter, mark)+' '+
+        f'The MPK (points on no letters) is {points}.')
+
+
+_QUBUTS_TO_SHURUQ_REMARK = 'The qubuts in the MPK becomes a shuruq dot in the qere.'
 _WLC_C_BRACKET_NOTE_DEFINITION = \
     "We read an accent in ל differently from BHS. "+ \
     "(This is similar to the note “]C”, "+ \
@@ -47,7 +58,7 @@ RECORD_01 = {
     'MPK': 'וְיִֽשְׁתַּחֲוֻ֤',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. '+
         'Presumably he notes this later word for the unexpected dagesh in its penultimate vav. '+
@@ -66,7 +77,7 @@ RECORD_02 = {
     'MPK': 'וַיִּֽשְׁתַּחֲוֻּֽ׃',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'In WLC, this word also has a 1-note, '+
         'presumably because of the unexpected dagesh in the qere’s penultimate vav.',
@@ -161,8 +172,7 @@ RECORD_06 = {
     'at issue': 'בּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s ב. '+
-        'The MPK (points on no letters) is sheva, tsere, and munaḥ.'
+        _has_no_letters_at_all('ב', 'sheva, tsere, and munaḥ')
     ],
     'side-notes': [
         'Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?',
@@ -183,7 +193,7 @@ RECORD_07 = {
     'MPK': 'וַיְצַוֻּ֕',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_08 = {
     'wlc-index': 8,
@@ -198,8 +208,7 @@ RECORD_08 = {
     'at issue': 'טּ',
     'summary': '+dgsh',
     'remarks': [
-        _does_not_carry('ע', 'ט')+''+
-        'perhaps because that would be illegal.'
+        _does_not_carry('ע', 'ט')+'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses later, in 5:12.',
@@ -220,8 +229,7 @@ RECORD_09 = {
     'at issue': 'טּ',
     'summary': '+dgsh',
     'remarks': [
-        _does_not_carry('ע', 'ט')+''+
-        'perhaps because that would be illegal.'
+        _does_not_carry('ע', 'ט')+'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses before, in 5:6.',
@@ -243,8 +251,7 @@ RECORD_10 = {
     'at issue': 'נְיָ',
     'summary': '+shva,-mqf',
     'remarks': [
-        'The MPK’s ן in מבן does not carry a sheva for the qere’s נ, '+
-        'perhaps because that would be illegal.'
+        _does_not_carry('ן in מבן', 'נ', 'sheva')+'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'The maqaf disappears from the MPK. '+
@@ -268,7 +275,7 @@ RECORD_11 = {
     'MPK': 'וַיֹּאמְרֻ֣',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_12 = {
     'wlc-index': 12,
@@ -282,7 +289,7 @@ RECORD_12 = {
     'MPK': 'אָמְרֻ֣',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'There’s a large, clear dot above the ר; '+
         'I don’t know what it is supposed to mean, if anything. '+
@@ -332,9 +339,7 @@ RECORD_14 = {
     'MPK': 'וַיִּ\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}לְד֧וּ',
     'at issue': 'וָּ',
     'summary': '+dgsh',
-    'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s vav-qamats.'
-    ],
+    'remarks': [_has_no_letter_to_carry('vav-qamats')],
     'side-notes': [
         'Although it cannot carry the vav’s dagesh, '+
         'the ל carries the vav’s qamats as well as its own sheva. '+
@@ -354,8 +359,7 @@ RECORD_15 = {
     'at issue': 'פּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s פ. '+
-        'The MPK (points on no letters) is sheva, qamats, and siluq.'
+        _has_no_letters_at_all('פ', 'sheva, qamats, and siluq')
     ],
 }
 RECORD_16 = {
@@ -376,8 +380,7 @@ RECORD_16 = {
     'at issue': 'כּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s כ. '+
-        'The MPK (points on no letters) is tsere and merkha.'
+        _has_no_letters_at_all('כ', 'tsere and merkha')
     ],
     'side-notes': [
         'The points of the MPK are under the ל of the preceding word (עַל), '+
@@ -403,9 +406,7 @@ RECORD_17 = {
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}תְחִלַּ֖ת',
     'at issue': 'בּ',
     'summary': '+dgsh',
-    'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s ב.'
-    ],
+    'remarks': [_has_no_letter_to_carry('ב')],
     'side-notes': [
         'Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. '+
         'Yet, it does not: the spacing is generous, leaving the ḥiriq floating out on its own without a parent letter. '+
@@ -420,9 +421,7 @@ RECORD_18 = {
     'MPK': 'וַ\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}תְגָּעַ֤שׁ',
     'at issue': 'יּ',
     'summary': '+dgsh',
-    'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s yod.'
-    ],
+    'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
         'Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. '+
         'Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than on the vav.'
@@ -437,8 +436,7 @@ RECORD_19 = {
     'at issue': 'לּ',
     'summary': '+dgsh',
     'remarks': [
-        _does_not_carry('ה', 'ל')+''+
-        'perhaps because that would be illegal.'
+        _does_not_carry('ה', 'ל')+'perhaps because that would be illegal.'
     ],
 }
 RECORD_20 = {
@@ -466,7 +464,7 @@ RECORD_21 = {
     'MPK': 'וַיְדַבְּרֻ֨',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'In WLC, this word also has a c-note, '+
         'presumably because WLC has qadma where BHS (in error) has pashta.',
@@ -483,8 +481,7 @@ RECORD_22 = {
     'at issue': 'ךְ',
     'summary': '+shva',
     'remarks': [
-        'The MPK’s yod does not carry a sheva for the qere’s ך, '+
-        'perhaps because that would be illegal.'
+        _does_not_carry('yod', 'ך', 'sheva')+'perhaps because that would be illegal.'
     ],
 }
 RECORD_23 = {
@@ -496,8 +493,7 @@ RECORD_23 = {
     'at issue': 'דּ',
     'summary': '+dgsh',
     'remarks': [
-        _does_not_carry('ח', 'ד')+''+
-        'perhaps because that would be illegal.'
+        _does_not_carry('ח', 'ד')+'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'the ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! '+
@@ -514,8 +510,7 @@ RECORD_24 = {
     'at issue': 'וֹ',
     'summary': '+ḥlm dt',
     'remarks': [
-        'The MPK has no letter to carry a ḥolam dot on the qere’s vav. '+
-        'The MPK (points on no letters) is sheva, qamats, and tipeḥa.'
+        _has_no_letters_at_all('vav', 'sheva, qamats, and tipeḥa', 'ḥolam dot')
     ],
 }
 RECORD_25 = {
@@ -527,8 +522,7 @@ RECORD_25 = {
     'at issue': 'בּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s ב. '+
-        'The MPK (points on no letters) is two qamats marks and pashta.'
+        _has_no_letters_at_all('ב', 'two qamats marks and pashta')
     ],
     'side-notes': [
         'There is also a dot near the pashta, which we ignore. '+
@@ -543,7 +537,7 @@ RECORD_26 = {
     'MPK': 'יִקָּ֑חֻ',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'The dagesh in the qof is way off center, but still legit IMO.'
     ],
@@ -595,8 +589,7 @@ RECORD_30 = {
     'at issue': 'בּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s ב. '+
-        'The MPK (points on no letters) is qamats, ḥiriq, and tipeḥa.'
+        _has_no_letters_at_all('ב', 'qamats, ḥiriq, and tipeḥa')
     ],
 }
 RECORD_31 = {
@@ -620,9 +613,7 @@ RECORD_32 = {
     'MPK': 'דָּנִאֵ֣ל',
     'at issue': 'יּ',
     'summary': '+dgsh',
-    'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s yod.'
-    ],
+    'remarks': [_has_no_letter_to_carry('yod')],
 }
 RECORD_33 = {
     'wlc-index': 33,
@@ -632,9 +623,7 @@ RECORD_33 = {
     'MPK': 'דָּנִאֵ֣ל',
     'at issue': 'יּ',
     'summary': '+dgsh',
-    'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s yod.'
-    ],
+    'remarks': [_has_no_letter_to_carry('yod')],
 }
 RECORD_34 = {
     'wlc-index': 34,
@@ -644,9 +633,7 @@ RECORD_34 = {
     'MPK': 'מִדָּֽנִאֵֿ֑ל',
     'at issue': 'יּ',
     'summary': '+dgsh',
-    'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s yod.'
-    ],
+    'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
         'The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, '+
         'i.e. the qere’s syllables are מִ־דָּֽ־נִ־יֵּ֑אל.'
@@ -713,7 +700,7 @@ RECORD_37 = {
     'MPK': 'וְקִבְּלֻ֣',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_38 = {
     'wlc-index': 38,
@@ -723,9 +710,7 @@ RECORD_38 = {
     'MPK': 'הִזְ\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}מִנְתּוּן֙',
     'at issue': 'דּ',
     'summary': '+dgsh',
-    'remarks': [
-        'The MPK has no letter to carry a dagesh for the qere’s ד.'
-    ],
+    'remarks': [_has_no_letter_to_carry('ד')],
     'side-notes': [
         'Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. '+
         'Unlike the manuscript, our MPK shows that sheva on a dotted circle rather than on the מ.'
@@ -739,7 +724,7 @@ RECORD_39 = {
     'MPK': 'וַיַּעֲלֻ֨',
     'at issue': 'וּ',
     'summary': 'qbts to shrq',
-    'remarks': ['The qubuts in the MPK becomes a shuruq dot in the qere.'],
+    'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORDS = [
     RECORD_01,
