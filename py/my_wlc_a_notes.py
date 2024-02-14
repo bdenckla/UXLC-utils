@@ -96,10 +96,10 @@ RECORD_02 = {
         'in gn27:29 words 3 and 4, וישתחו/וְיִֽשְׁתַּחֲו֤וּ. '+
         'That gn27:29 ketiv/qere is analogous to this one '+
         'except its next-to-last vav is free of a dagesh, as expected, '+
-        'and therefore Dotan finds nothing notable about it.'
+        'and therefore Dotan finds nothing notable about it. '
         'We know that Dotan finds the dagesh notable '+
         'because he notes gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, '+
-        'a normal (non-qere) word that is analogous to this qere '+
+        'a normal (non-qere) word that is analogous to this qere, '+
         'including having an unexpected dagesh in its next-to-last vav.'
     ],
 }
@@ -366,24 +366,23 @@ RECORD_16 = {
     'folio': 'Folio_',
     'column': 0,
     'line': 0,
-    'qere': 'עַל־כֵּ֥ן',
+    'qere': 'כִּֽי־עַל־כֵּ֥ן',
     'qere-atom': 'כֵּ֥ן',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
     'at issue': 'כּ',
     'summary': '+dgsh',
     'remarks': [_has_no_letters_at_all('כ', 'tsere and merkha')],
     'side-notes': [
-        'The points of the MPK are under the ל of the preceding word (עַל), '+
+        'The points of the MPK are under the ל of the preceding atom (עַל), '+
         'but we don’t consider them to be carried by that ל.',
         #
-        'Although Dotan has a note on his body-text compound עַל־כֵּ֥ן, '+
-        'I do not take him to have noted it for the issue at hand: '+
-        'the added dagesh. '+
-        '(Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן.) '+
-        'I take him to have noted this compound '+
-        'only because the manuscript is unexpectedly free of a trailing maqaf on עַל.'
+        'Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. '+
+        'I do not take him to have noted this for the issue at hand: '+
+        'the lack of a dagesh in the implied qere. '+
+        'I take him to have noted the this '+
+        'only because עַל is unexpectedly free of a trailing maqaf.',
         #
-        'The manuscript’s lack of a trailing maqaf on the preceding word (עַל) '+
+        'The manuscript’s lack of a trailing maqaf on עַל '+
         'is the subject of a currently-pending '+
         'change proposal, 2024.04.01/2024.01.18-2.'
     ],
