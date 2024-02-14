@@ -36,10 +36,10 @@ _THIS_PAGE_ALSO = (
 )
 _THIS_PAGE_USES = 'This page uses the following abbreviations:'
 _INITIALISMS = my_html.unordered_list([
-    '“UCP” for “UXLC change proposal” ',
-    '“MPK” for “manuscript’s pointed ketiv”',
-    '“AI” for part of WLC qere at issue”',
-    '“AIC” for “AI category, i.e. type of thing that is at issue in the WLC qere”',
+    'UCP for “UXLC change proposal” ',
+    'MPK for “manuscript’s pointed ketiv”',
+    'AI for “the part of the WLC qere that is at issue”',
+    'AIC for “AI category,” i.e. “the type of thing that is at issue in the WLC qere”',
 ])
 _INTROS = [
     my_html.para([_THIS_PAGE, my_html.blockquote(_DEFINITION_OF_AN_A_NOTE)]),
