@@ -63,7 +63,7 @@ RECORD_01 = {
     'qere': 'וְיִֽשְׁתַּחֲו֤וּ',
     'MPK': 'וְיִֽשְׁתַּחֲוֻ֤',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. '+
@@ -82,7 +82,7 @@ RECORD_02 = {
     'qere': 'וַיִּֽשְׁתַּחֲוּֽוּ׃',
     'MPK': 'וַיִּֽשְׁתַּחֲוֻּֽ׃',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'In WLC, this word has not only an a-note but also a 1-note, '+
@@ -202,7 +202,7 @@ RECORD_07 = {
     'qere': 'וַיְצַוּ֕וּ',
     'MPK': 'וַיְצַוֻּ֕',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_08 = {
@@ -278,7 +278,7 @@ RECORD_11 = {
     'qere': 'וַיֹּאמְר֣וּ',
     'MPK': 'וַיֹּאמְרֻ֣',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_12 = {
@@ -292,7 +292,7 @@ RECORD_12 = {
     'qere': 'אָמְר֣וּ',
     'MPK': 'אָמְרֻ֣',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'There’s a large, clear dot above the ר; '+
@@ -312,7 +312,7 @@ RECORD_13 = {
     'qere': 'מִמַּעַרְכ֣וֹת',
     'MPK': 'מִמַּעֲרְ֣וֹת',
     'at issue': 'עַ',
-    'summary': 'ḥtf ptḥ to ptḥ',
+    'summary': 'עֲ to עַ',
     'remarks': ['The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ.'],
     'side-notes': [
         'Unexpected ḥataf vowels are a known feature (bug?) of ל. '+
@@ -454,7 +454,7 @@ RECORD_21 = {
     'qere': 'וַיְדַבְּר֨וּ',
     'MPK': 'וַיְדַבְּרֻ֨',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'In WLC, this word has not only an a-note but also a c-note, '+
@@ -519,7 +519,7 @@ RECORD_26 = {
     'qere': 'יִקָּ֑חוּ',
     'MPK': 'יִקָּ֑חֻ',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'The dagesh in the qof is way off center, but still legit IMO.'
@@ -580,7 +580,7 @@ RECORD_31 = {
     'qere': 'לָהּ֙',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{HEBREW ACCENT PASHTA}',
     'at issue': 'הּ',
-    'summary': '+mapiq',
+    'summary': 'הּ',
     'remarks': [_has_no_letters_at_all('ה', 'qamats and pashta', 'mapiq')],
 }
 RECORD_32 = {
@@ -662,7 +662,7 @@ RECORD_36 = {
     'bcv': 'lm4:16',
     'qere': 'וּזְקֵנִ֖ים',
     'MPK': 'זְקֵנִ֖ים',
-    'at issue': 'וּ…',
+    'at issue': 'וּ',
     'summary': '+shrq dt',
     'remarks': [_has_no_letter_to_carry('vav', 'shuruq dot')],
 }
@@ -673,7 +673,7 @@ RECORD_37 = {
     'qere': 'וְקִבְּל֣וּ',
     'MPK': 'וְקִבְּלֻ֣',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_38 = {
@@ -697,7 +697,7 @@ RECORD_39 = {
     'qere': 'וַיַּעֲל֨וּ',
     'MPK': 'וַיַּעֲלֻ֨',
     'at issue': 'וּ',
-    'summary': 'qbts to shrq',
+    'summary': 'אֻ to אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORDS = [

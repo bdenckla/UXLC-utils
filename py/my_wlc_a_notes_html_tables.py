@@ -34,20 +34,29 @@ _THIS_PAGE_ALSO = (
     '(There are only 37 not 39 because two of the bracket-a notes '+
     'did not motivate a change proposal.)'
 )
-_THIS_PAGE_USES = (
-    'This page uses the following initialisms: '+
-    '“UCP” for “UXLC change proposal” and '
-    '“MPK” for “manuscript’s pointed ketiv.”'
-)
+_THIS_PAGE_USES = 'This page uses the following abbreviations:'
+_INITIALISMS = my_html.unordered_list([
+    '“UCP” for “UXLC change proposal” ',
+    '“MPK” for “manuscript’s pointed ketiv”',
+    '“AI” for part of WLC qere at issue”',
+    '“AIC” for “AI category, i.e. type of thing that is at issue in the WLC qere”',
+])
 _INTROS = [
     my_html.para([_THIS_PAGE, my_html.blockquote(_DEFINITION_OF_AN_A_NOTE)]),
     my_html.para([_THIS_PAGE_ALSO]),
     my_html.para([_THIS_PAGE_USES]),
+    _INITIALISMS,
 ]
+
+_REC_KEY_FROM_HDR_STR = {
+    'WLC qere': 'qere',
+    'AI': 'at issue',
+    'AIC': 'summary',
+}
 
 
 def _row_cell_for_hdr_str(rec, hdr_str):
-    rec_key = 'qere' if hdr_str == 'WLC qere' else hdr_str
+    rec_key = _REC_KEY_FROM_HDR_STR.get(hdr_str) or hdr_str
     val = rec[rec_key]
     if hdr_str == 'remarks':
         assert isinstance(val, list)
@@ -59,7 +68,7 @@ def _row_cell_for_hdr_str(rec, hdr_str):
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
     assert isinstance(val, str)
-    if hdr_str in ('WLC qere', 'MPK', 'at issue'):
+    if hdr_str in ('WLC qere', 'MPK', 'AI'):
         return my_html.table_datum(val, {'lang': 'hbo', 'dir': 'rtl'})
     if hdr_str == 'bcv':
         href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(val)
@@ -92,4 +101,4 @@ def _row_for_header():
 
 
 strs_for_cells_for_header = [
-    'bcv', 'MPK', 'WLC qere', 'at issue', 'summary', 'remarks']
+    'bcv', 'MPK', 'WLC qere', 'AI', 'AIC', 'remarks']

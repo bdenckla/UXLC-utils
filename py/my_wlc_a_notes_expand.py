@@ -27,8 +27,9 @@ def _add_reason(io_record):
 
 
 _AT_ISSUE_MAP = {
-    ('qbts to shrq', 'וּ'): '',
+    ('אֻ to אוּ', 'וּ'): '',
     ('+mqf', '־'): '',
+    ('הּ', 'הּ'): '',
     ('?', '?'): 'unclear',
     #
     ('+dgsh', 'בּ'): ' to bet',
@@ -40,28 +41,27 @@ _AT_ISSUE_MAP = {
     ('+dgsh', 'טּ'): ' to tet',
     ('+dgsh', 'לּ'): ' to lamed',
     ('+dgsh', 'צּ'): ' to tsadi',
-    ('+mapiq', 'הּ'): ' to he',
-    ('+shrq dt', 'וּ…'): ' to the initial vav',
+    ('+shrq dt', 'וּ'): ' to the initial vav',
     #
     ('+ḥlm dt', 'וֹ'): ' to vav',
     ('+shva', 'ךְ'): ' to kaf sofit',
     ('+shva', 'נְ'): ' to nun',
     #
-    ('ḥtf ptḥ to ptḥ', 'עַ'): ' under ayin',
+    ('עֲ to עַ', 'עַ'): ' under ayin',
     #
     ('-dgsh', 'מ'): ' from mem',
 }
 
 
 _SUMMARY_MAP = {
-    'qbts to shrq': 'changed a qubuts to a shuruq',
+    'אֻ to אוּ': 'changed a qubuts to a shuruq',
     '+mqf': 'added a maqaf',
     '+dgsh': 'added a dagesh',
     '-dgsh': 'removed a dagesh',
-    '+mapiq': 'added a mapiq',
+    'הּ': 'added a mapiq to he',
     '+shrq dt': 'added a shuruq dot',
     '+ḥlm dt': 'added a ḥolam malei dot',
     '+shva': 'added a sheva',
-    'ḥtf ptḥ to ptḥ': 'changed a ḥataf pataḥ to a pataḥ',
+    'עֲ to עַ': 'changed a ḥataf pataḥ to a pataḥ',
     '?': '',
 }
