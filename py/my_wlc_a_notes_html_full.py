@@ -84,11 +84,11 @@ def _anchor(record):
 def _line_str(record):
     if 'line' in record:
         return str(record['line'])
-    assert 'line-including-blanks' in record
     assert 'line-excluding-blanks' in record
-    lib = record['line-including-blanks']
+    assert 'line-including-blanks' in record
     leb = record['line-excluding-blanks']
-    return str(lib) + '/' + str(leb)
+    lib = record['line-including-blanks']
+    return str(leb) + '/' + str(lib)
 
 
 def _folio_row(record):
