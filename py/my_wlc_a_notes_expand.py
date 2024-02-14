@@ -29,7 +29,6 @@ def _add_reason(io_record):
 _AT_ISSUE_MAP = {
     ('qbts to shrq', 'וּ'): '',
     ('+mqf', '־'): '',
-    ('+shva,-mqf', 'נְיָ'): 'added a sheva to נ and removed a maqaf',
     ('?', '?'): 'unclear',
     #
     ('+dgsh', 'בּ'): ' to bet',
@@ -38,14 +37,16 @@ _AT_ISSUE_MAP = {
     ('+dgsh', 'יּ'): ' to yod',
     ('+dgsh', 'דּ'): ' to dalet',
     ('+dgsh', 'כּ'): ' to kaf',
-    ('+mapiq', 'הּ'): ' to he',
     ('+dgsh', 'טּ'): ' to tet',
     ('+dgsh', 'לּ'): ' to lamed',
     ('+dgsh', 'צּ'): ' to tsadi',
-    #
+    ('+mapiq', 'הּ'): ' to he',
     ('+shrq dt', 'וּ…'): ' to the initial vav',
+    #
     ('+ḥlm dt', 'וֹ'): ' to vav',
-    ('+shva', 'ךְ'): ' to the final form of kaf',
+    ('+shva', 'ךְ'): ' to kaf sofit',
+    ('+shva', 'נְ'): ' to nun',
+    #
     ('ḥtf ptḥ to ptḥ', 'עַ'): ' under ayin',
     #
     ('-dgsh', 'מ'): ' from mem',
@@ -62,6 +63,5 @@ _SUMMARY_MAP = {
     '+ḥlm dt': 'added a ḥolam malei dot',
     '+shva': 'added a sheva',
     'ḥtf ptḥ to ptḥ': 'changed a ḥataf pataḥ to a pataḥ',
-    '+shva,-mqf': '',
     '?': '',
 }

@@ -54,7 +54,7 @@ def _row_cell_for_hdr_str(rec, hdr_str):
         assert len(val) in (0, 1)
         anchors = _get_anchors_to_full_and_ucp(rec)
         if val:
-            datum_contents = [*val, ' ', *anchors]
+            datum_contents = [*anchors, '; ', *val]
         else:
             datum_contents = anchors
         return my_html.table_datum(datum_contents)

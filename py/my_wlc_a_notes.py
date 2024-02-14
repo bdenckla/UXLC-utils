@@ -254,11 +254,11 @@ RECORD_10 = {
     'Dotan': '✓',
     'qere': 'מִבִּנְיָמִ֗ין',
     'MPK': 'מִבִּן־יָמִ֗ין',
-    'at issue': 'נְיָ',
-    'summary': '+shva,-mqf',
+    'at issue': 'נְ',
+    'summary': '+shva',
     'remarks': [_does_not_carry('ן in מבן', 'נ', 'sheva')+'perhaps because that would be illegal.'],
     'side-notes': [
-        'The maqaf disappears from the MPK. '+
+        'Also, understandably, the maqaf disappears from the MPK when forming the implied qere. '+
         'It is unclear why the maqaf is supplied in the first place. '+
         'Perhaps it is supplied because without it, מִבִּן would be illegal: '+
         'a word without an accent.',
