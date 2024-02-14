@@ -1,5 +1,10 @@
 """ Exports RECORDS. """
 
+
+def _does_not_carry(mpk_letter, qere_letter):
+    return f'The MPK’s {mpk_letter} does not carry a dagesh for the qere’s {qere_letter}, '
+
+
 _WLC_C_BRACKET_NOTE_DEFINITION = \
     "We read an accent in ל differently from BHS. "+ \
     "(This is similar to the note “]C”, "+ \
@@ -35,6 +40,9 @@ RECORD_01 = {
     'uxlc-change-proposal': 101,
     'bcv': 'gn27:29',
     'img': '01-gn27v29.png',
+    'folio': 'Folio_016A',
+    'column': 2,
+    'line': 4,
     'qere': 'וְיִֽשְׁתַּחֲו֤וּ',
     'MPK': 'וְיִֽשְׁתַּחֲוֻ֤',
     'at issue': 'וּ',
@@ -51,6 +59,9 @@ RECORD_02 = {
     'uxlc-change-proposal': 102,
     'bcv': 'gn43:28',
     'img': '02-gn43v28.png',
+    'folio': 'Folio_027A',
+    'column': 3,
+    'line': 15,
     'qere': 'וַיִּֽשְׁתַּחֲוּֽוּ׃',
     'MPK': 'וַיִּֽשְׁתַּחֲוֻּֽ׃',
     'at issue': 'וּ',
@@ -81,6 +92,9 @@ RECORD_03 = {
     'uxlc-change-proposal': 201,
     'bcv': 'ex4:2',
     'img': '03-ex4v2.png',
+    'folio': 'Folio_033A',
+    'column': 1,
+    'line': 27,
     'qere': 'מַה־זֶּ֣ה',
     'qere-atom': 'מַה־',
     'MPK': 'מַזֶּ֣ה',
@@ -93,13 +107,16 @@ RECORD_04 = {
     'uxlc-change-proposal': 301,
     'bcv': 'js22:7',
     'img': '04-js22v7.png',
+    'folio': 'Folio_133B',
+    'column': 3,
+    'line': 10,
     'Dotan': '✓',
     'qere': 'בְּעֵ֥בֶר',
     'MPK': 'מְעֵ֥בֶר',
     'at issue': 'בּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK’s מ does not carry a dagesh for the qere’s ב, for some reason. '+
+        _does_not_carry('מ', 'ב')+'for some reason. '+
         'This is the dual of js24:15.'
     ],
     'side-notes': [
@@ -112,6 +129,9 @@ RECORD_05 = {
     'uxlc-change-proposal': 302,
     'bcv': 'js24:15',
     'img': '05-js24v15.png',
+    'folio': 'Folio_135B',
+    'column': 1,
+    'line': 2,
     'Dotan': '✓',
     'qere': 'מֵעֵ֣בֶר',
     'MPK': 'בְּעֵ֥בֶר',
@@ -130,6 +150,9 @@ RECORD_06 = {
     'uxlc-change-proposal': 401,
     'bcv': 'ju20:13',
     'img': '06-ju20v13.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'בְּנֵ֣י',
     'MPK': (
         '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}'+
@@ -153,6 +176,9 @@ RECORD_07 = {
     'uxlc-change-proposal': 103,
     'bcv': 'ju21:20',
     'img': '07-ju21v20.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'וַיְצַוּ֕וּ',
     'MPK': 'וַיְצַוֻּ֕',
     'at issue': 'וּ',
@@ -164,12 +190,15 @@ RECORD_08 = {
     'uxlc-change-proposal': 501,
     'bcv': '1s5:6',
     'img': '08-1s5v6.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'בַּטְּחֹרִ֔ים',
     'MPK': 'בַּעְפֹלִ֔ים',
     'at issue': 'טּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK’s ע does not carry a dagesh for the qere’s ט, '+
+        _does_not_carry('ע', 'ט')+''+
         'perhaps because that would be illegal.'
     ],
     'side-notes': [
@@ -183,12 +212,15 @@ RECORD_09 = {
     'uxlc-change-proposal': 502,
     'bcv': '1s5:12',
     'img': '09-1s5v12.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'בַּטְּחֹרִ֑ים',
     'MPK': 'בַּעְפֹלִ֑ים',
     'at issue': 'טּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK’s ע does not carry a dagesh for the qere’s ט, '+
+        _does_not_carry('ע', 'ט')+''+
         'perhaps because that would be illegal.'
     ],
     'side-notes': [
@@ -202,6 +234,9 @@ RECORD_10 = {
     'uxlc-change-proposal': '2024.04.01/2024.01.14-1',
     'bcv': '1s9:1',
     'img': '10-1s9v1.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'Dotan': '✓',
     'qere': 'מִבִּנְיָמִ֗ין',
     'MPK': 'מִבִּן־יָמִ֗ין',
@@ -226,6 +261,9 @@ RECORD_11 = {
     'uxlc-change-proposal': 104,
     'bcv': '1s12:10',
     'img': '11-1s12v10.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'וַיֹּאמְר֣וּ',
     'MPK': 'וַיֹּאמְרֻ֣',
     'at issue': 'וּ',
@@ -237,6 +275,9 @@ RECORD_12 = {
     'uxlc-change-proposal': 105,
     'bcv': '1s13:19',
     'img': '12-1s13v19.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'אָמְר֣וּ',
     'MPK': 'אָמְרֻ֣',
     'at issue': 'וּ',
@@ -284,6 +325,9 @@ RECORD_14 = {
     'uxlc-change-proposal': 452,
     'bcv': '2s3:2',
     'img': '14-2s3v2.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'וַיִּוָּלְד֧וּ',
     'MPK': 'וַיִּ\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}לְד֧וּ',
     'at issue': 'וָּ',
@@ -302,6 +346,9 @@ RECORD_15 = {
     'uxlc-change-proposal': 403,
     'bcv': '2s8:3',
     'img': '15-2s8v3.png',
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'פְּרָֽת׃',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{HEBREW POINT METEG}׃',
     'at issue': 'פּ',
@@ -320,6 +367,9 @@ RECORD_16 = {
         'BHS': '16-2s18v20-BHS.jpg',  # JPG for some reason
         'AC': '16-2s18v20-A.png'
     },
+    'folio': 'Folio_',
+    'column': 0,
+    'line': 0,
     'qere': 'עַל־כֵּ֥ן',
     'qere-atom': 'כֵּ֥ן',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
@@ -387,7 +437,7 @@ RECORD_19 = {
     'at issue': 'לּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK’s ה does not carry a dagesh for the qere’s ל, '+
+        _does_not_carry('ה', 'ל')+''+
         'perhaps because that would be illegal.'
     ],
 }
@@ -446,7 +496,7 @@ RECORD_23 = {
     'at issue': 'דּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK’s ח does not carry a dagesh for the qere’s ד, '+
+        _does_not_carry('ח', 'ד')+''+
         'perhaps because that would be illegal.'
     ],
     'side-notes': [
@@ -611,7 +661,7 @@ RECORD_35 = {
     'at issue': 'צּ',
     'summary': '+dgsh',
     'remarks': [
-        'The MPK’s ר does not carry a dagesh for the qere’s צ, perhaps because that would be illegal.'
+        _does_not_carry('ר', 'צ')+'perhaps because that would be illegal.'
     ],
     'side-notes': [
         'Nor does the MPK’s צ carry a dagesh for the qere’s צ.',

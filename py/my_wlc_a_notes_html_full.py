@@ -86,7 +86,10 @@ def _folio_row(record):
         # XXX make this into a link like:
         # https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F159B.jpg
         #
-        focoli_tuple = record['folio'], str(record['column']), str(record['line'])
+        prefix = 'Folio_'
+        assert record['folio'].startswith(prefix)
+        folio_short = record['folio'].removeprefix(prefix)
+        focoli_tuple = folio_short, str(record['column']), str(record['line'])
         focoli_str = ' '.join(focoli_tuple)
         return _make_key_value_row('folio col line', focoli_str)
     return None
