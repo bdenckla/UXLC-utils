@@ -904,8 +904,8 @@
     <changeuni>vav patah yod dagesh hiriq vav dagesh qamats lamed sheva dalet darga vav dagesh</changeuni>
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is וַיִּאָׄלְד֧וּ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
-      <note>The MPK has no letter to carry a dagesh for the qere’s vav-qamats.</note>
-      <note>Although it cannot carry the vav’s dagesh, the ל carries the vav’s qamats as well as its own sheva. Unlike the manuscript, our MPK shows that qamats on a אׄ (א with an extraordinary upper dot) rather than on the ל.</note>
+      <note>The MPK has no letter to carry a dagesh for the qere’s וָּ.</note>
+      <note>Unlike the dagesh, the qamats does not need a letter to carry it; it is allowed to be an orphan. It appears between the ḥiriq and the sheva (of the yod and ל respectively). Unlike the manuscript, our MPK shows that orphan qamats on a אׄ (א with an extraordinary upper dot).</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -945,7 +945,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is אִׄתְחִלַּ֖ת. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s ב.</note>
-      <note>Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. Yet, it does not: the spacing is generous, leaving the ḥiriq floating out on its own without a parent letter. Unlike the manuscript, our MPK shows that ḥiriq on a אׄ (א with an extraordinary upper dot) rather than floating out on its own.</note>
+      <note>Unlike the dagesh, the ḥiriq does not need a letter to carry it; it is allowed to be an orphan. It appears before the sheva of the initial ת. Unlike the manuscript, our MPK shows that orphan ḥiriq on a אׄ (א with an extraordinary upper dot).</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -985,7 +985,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is וַאִׄתְגָּעַ֤שׁ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s yod.</note>
-      <note>Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. Unlike the manuscript, our MPK shows that ḥiriq on a אׄ (א with an extraordinary upper dot) rather than on the vav.</note>
+      <note>Unlike the dagesh, the ḥiriq does not need a letter to carry it; it is allowed to be an orphan. It appears between the qamats and the sheva (of the vav and ת respectively). Unlike the manuscript, our MPK shows that orphan ḥiriq on a אׄ (א with an extraordinary upper dot).</note>
     </notes>
     <analysistags />
     <transnotes>

@@ -15,6 +15,12 @@ def _has_no_letters_at_all(qere_letter, points, mark='dagesh'):
         f'The MPK (points on no letters) is {points}.')
 
 
+def _unlike(mark, where):
+    return (
+        f'Unlike the dagesh, the {mark} does not need a letter to carry it; it is allowed to be an orphan. '+
+        f'It appears {where}. '+
+        f'Unlike the manuscript, our MPK shows that orphan {mark} on a dotted circle.')
+
 _QUBUTS_TO_SHURUQ_REMARK = 'The qubuts in the MPK becomes a shuruq dot in the qere.'
 _WLC_C_BRACKET_NOTE_DEFINITION = \
     "We read an accent in ל differently from BHS. "+ \
@@ -335,11 +341,9 @@ RECORD_14 = {
     'MPK': 'וַיִּ\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}לְד֧וּ',
     'at issue': 'וָּ',
     'summary': '+dgsh',
-    'remarks': [_has_no_letter_to_carry('vav-qamats')],
+    'remarks': [_has_no_letter_to_carry('וָּ')],
     'side-notes': [
-        'Although it cannot carry the vav’s dagesh, '+
-        'the ל carries the vav’s qamats as well as its own sheva. '+
-        'Unlike the manuscript, our MPK shows that qamats on a dotted circle rather than on the ל.'
+        _unlike('qamats', 'between the ḥiriq and the sheva (of the yod and ל respectively)')
     ],
 }
 RECORD_15 = {
@@ -399,9 +403,7 @@ RECORD_17 = {
     'summary': '+dgsh',
     'remarks': [_has_no_letter_to_carry('ב')],
     'side-notes': [
-        'Although it cannot carry ב’s dagesh, the initial ת could carry the ב’s ḥiriq as well as its own sheva. '+
-        'Yet, it does not: the spacing is generous, leaving the ḥiriq floating out on its own without a parent letter. '+
-        'Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than floating out on its own.'
+        _unlike('ḥiriq', 'before the sheva of the initial ת')
     ],
 }
 RECORD_18 = {
@@ -414,8 +416,7 @@ RECORD_18 = {
     'summary': '+dgsh',
     'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
-        'Although it cannot carry the yod’s dagesh, the vav carries its own pataḥ as well as the yod’s ḥiriq. '+
-        'Unlike the manuscript, our MPK shows that ḥiriq on a dotted circle rather than on the vav.'
+        _unlike('ḥiriq', 'between the qamats and the sheva (of the vav and ת respectively)')
     ],
 }
 RECORD_19 = {
