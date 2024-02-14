@@ -90,13 +90,15 @@ RECORD_02 = {
         'the qubuts-to-shuruq issue. '+
         'I take him to have noted this ketiv/qere '+
         'only for the unexpected dagesh in the last vav of the MPK. '+
-        '(This implies a dagesh in the qere’s next-to-last vav.) '+
+        '(This implies a dagesh in the qere’s next-to-last vav.)',
+        #
         'I do not think Dotan finds the qubuts-to-shuruq issue notable '
         'because he does not note the similar ketiv/qere '+
         'in gn27:29 words 3 and 4, וישתחו/וְיִֽשְׁתַּחֲו֤וּ. '+
         'That gn27:29 ketiv/qere is analogous to this one '+
-        'except its next-to-last vav is free of a dagesh, as expected, '+
-        'and therefore Dotan finds nothing notable about it. '
+        'except the next-to-last vav of its qere is free of a dagesh, as expected, '+
+        'and therefore Dotan finds nothing notable about it.',
+        #
         'We know that Dotan finds the dagesh notable '+
         'because he notes gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, '+
         'a normal (non-qere) word that is analogous to this qere, '+
