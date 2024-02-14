@@ -320,7 +320,7 @@ RECORD_13 = {
         'This unexpected ḥataf may well be unrelated '+
         'to the ketiv/qere differences in this word. '
         'If it is unrelated, '
-        'this should be a bracket-1 or bracket-U note in WLC, not a bracket-a note.',
+        'this should have been a bracket-1 or bracket-U note in WLC, not a bracket-a note.',
         #
         'Breuer notes that א and ק have the expected pataḥ under ע. '+
         '(א is the Aleppo Codex and ק is the Cairo Codex of The Prophets.)',
@@ -379,14 +379,17 @@ RECORD_16 = {
     'summary': '+dgsh',
     'remarks': [_has_no_letters_at_all('כ', 'tsere and merkha')],
     'side-notes': [
-        'The points of the MPK are under the ל of the preceding atom (עַל), '+
-        'but we don’t consider them to be carried by that ל.',
-        #
-        'Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. '+
+        'Dotan notes that strictly speaking, the implied qere and the atom preceding it '+
+        'form the phrase עַל כֵ֥ן. '+
+        '(This implies the more complete phrase כִּֽי־עַל כֵ֥ן.) '+
         'I do not take him to have noted this for the issue at hand: '+
         'the lack of a dagesh in the implied qere. '+
-        'I take him to have noted the this '+
+        'I take him to have noted this '+
         'only because עַל is unexpectedly free of a trailing maqaf.',
+        #
+        'Note that, contrary to UXLC, עַל is a normal word, i.e. it is not part of a ketiv/qere. '
+        'It is abnormal only in that it precedes a qere velo ketiv. '+
+        '(UXLC’s encoding is <k>על</k><q>עַל־</q>.)',
         #
         'The manuscript’s lack of a trailing maqaf on עַל '+
         'is the subject of a currently-pending '+

@@ -785,8 +785,8 @@
       <note>The qere atom at issue is part of the qere compound כִּֽי־עַל־כֵּ֥ן.</note>
       <note>The manuscript’s pointed ketiv (MPK) is אֵ֣ׄאׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s כ. The MPK (points on no letters) is tsere and merkha.</note>
-      <note>The points of the MPK are under the ל of the preceding atom (עַל), but we don’t consider them to be carried by that ל.</note>
-      <note>Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן. I do not take him to have noted this for the issue at hand: the lack of a dagesh in the implied qere. I take him to have noted the this only because עַל is unexpectedly free of a trailing maqaf.</note>
+      <note>Dotan notes that strictly speaking, the implied qere and the atom preceding it form the phrase עַל כֵ֥ן. (This implies the more complete phrase כִּֽי־עַל כֵ֥ן.) I do not take him to have noted this for the issue at hand: the lack of a dagesh in the implied qere. I take him to have noted this only because עַל is unexpectedly free of a trailing maqaf.</note>
+      <note>Note that, contrary to UXLC, עַל is a normal word, i.e. it is not part of a ketiv/qere. It is abnormal only in that it precedes a qere velo ketiv. (UXLC’s encoding is &lt;k&gt;על&lt;/k&gt;&lt;q&gt;עַל־&lt;/q&gt;.)</note>
       <note>The manuscript’s lack of a trailing maqaf on עַל is the subject of a currently-pending change proposal, 2024.04.01/2024.01.18-2.</note>
     </notes>
     <analysistags />
@@ -1476,7 +1476,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is מִמַּעֲרְ֣וֹת.</note>
       <note>The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ.</note>
-      <note>Unexpected ḥataf vowels are a known feature (bug?) of ל. I.e. this is rare but hardly unique. This unexpected ḥataf may well be unrelated to the ketiv/qere differences in this word. If it is unrelated, this should be a bracket-1 or bracket-U note in WLC, not a bracket-a note.</note>
+      <note>Unexpected ḥataf vowels are a known feature (bug?) of ל. I.e. this is rare but hardly unique. This unexpected ḥataf may well be unrelated to the ketiv/qere differences in this word. If it is unrelated, this should have been a bracket-1 or bracket-U note in WLC, not a bracket-a note.</note>
       <note>Breuer notes that א and ק have the expected pataḥ under ע. (א is the Aleppo Codex and ק is the Cairo Codex of The Prophets.)</note>
       <note>Dotan notes that strictly speaking, the implied qere is מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).</note>
     </notes>
