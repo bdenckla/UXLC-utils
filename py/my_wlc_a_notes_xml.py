@@ -129,7 +129,7 @@ def _add_xtext_xuni(change_elem, record, xtext, xuni):
 
 def _add_notes(change_elem, record):
     notes_elem = etan.sub_elem(change_elem, 'notes')
-    if 'qere-atom' in record:
+    if 'qere-atom-at-issue' in record:
         fqere = record['qere']  # full qere
         fqere_note = f'The qere atom at issue is part of the qere compound {fqere}.'
         etan.sub_elem_text(notes_elem, 'note', fqere_note)
@@ -182,7 +182,7 @@ def _add_type(change_elem):
 
 
 def _qere_atom(record):
-    return record.get('qere-atom') or record['qere']
+    return record.get('qere-atom-at-issue') or record['qere']
 
 # <n>1</n>
 # <citation>
