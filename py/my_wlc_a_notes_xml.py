@@ -98,11 +98,19 @@ def _add_description(change_elem, record):
     etan.sub_elem_text(change_elem, 'description', desc)
 
 
+def _line_excluding_blanks(record):
+    if 'line-excluding-blanks' in record:
+        return record['line-excluding-blanks']
+    if 'line' in record:
+        return record['line']
+    return 'XXX fill me in line'
+
+
 def _add_lc(change_elem, record):
     lc_elem = etan.sub_elem(change_elem, 'lc')
     etan.sub_elem_text(lc_elem, 'folio', _fill_me_in(record, 'folio'))
     etan.sub_elem_text(lc_elem, 'column', _fill_me_in(record, 'column'))
-    etan.sub_elem_text(lc_elem, 'line', _fill_me_in(record, 'line'))
+    etan.sub_elem_text(lc_elem, 'line', str(_line_excluding_blanks(record)))
     etan.sub_elem_text(lc_elem, 'credit', 'Credit: Sefaria.org.')
 
 

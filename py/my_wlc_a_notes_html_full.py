@@ -81,6 +81,16 @@ def _anchor(record):
     return my_html.anchor(bcv, {'href': href})
 
 
+def _line_str(record):
+    if 'line' in record:
+        return str(record['line'])
+    assert 'line-including-blanks' in record
+    assert 'line-excluding-blanks' in record
+    lib = record['line-including-blanks']
+    leb = record['line-excluding-blanks']
+    return str(lib) + '/' + str(leb)
+
+
 def _folio_row(record):
     if 'folio' in record and record['folio'] != 'XXX fill me in folio':
         # XXX make this into a link like:
@@ -89,7 +99,7 @@ def _folio_row(record):
         prefix = 'Folio_'
         assert record['folio'].startswith(prefix)
         folio_short = record['folio'].removeprefix(prefix)
-        focoli_tuple = folio_short, str(record['column']), str(record['line'])
+        focoli_tuple = folio_short, str(record['column']), _line_str(record)
         focoli_str = ' '.join(focoli_tuple)
         return _make_key_value_row('folio col line', focoli_str)
     return None
