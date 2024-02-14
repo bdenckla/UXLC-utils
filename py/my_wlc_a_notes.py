@@ -5,6 +5,10 @@ def _does_not_carry(mpk_letter, qere_letter, mark='dagesh'):
     return f'The MPK’s {mpk_letter} does not carry a {mark} for the qere’s {qere_letter}, '
 
 
+def _does_not_carry_pi(mpk_letter, qere_letter, mark='dagesh'):
+    return _does_not_carry(mpk_letter, qere_letter, mark)+'perhaps because that would be illegal.'
+
+
 def _has_no_letter_to_carry(qere_letter, mark='dagesh'):
     return f'The MPK has no letter to carry a {mark} for the qere’s {qere_letter}.'
 
@@ -222,7 +226,7 @@ RECORD_08 = {
     'MPK': 'בַּעְפֹלִ֔ים',
     'at issue': 'טּ',
     'summary': '+dgsh',
-    'remarks': [_does_not_carry('ע', 'ט')+'perhaps because that would be illegal.'],
+    'remarks': [_does_not_carry_pi('ע', 'ט')],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses later, in 5:12.',
         #
@@ -241,7 +245,7 @@ RECORD_09 = {
     'MPK': 'בַּעְפֹלִ֑ים',
     'at issue': 'טּ',
     'summary': '+dgsh',
-    'remarks': [_does_not_carry('ע', 'ט')+'perhaps because that would be illegal.'],
+    'remarks': [_does_not_carry_pi('ע', 'ט')],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses before, in 5:6.',
         #
@@ -261,7 +265,7 @@ RECORD_10 = {
     'MPK': 'מִבִּן־יָמִ֗ין',
     'at issue': 'נְ',
     'summary': '+shva',
-    'remarks': [_does_not_carry('ן in מבן', 'נ', 'sheva')+'perhaps because that would be illegal.'],
+    'remarks': [_does_not_carry_pi('ן in מבן', 'נ', 'sheva')],
     'side-notes': [
         'Also, understandably, the maqaf disappears from the MPK when forming the implied qere. '+
         'It is unclear why the maqaf is supplied in the first place. '+
@@ -435,7 +439,7 @@ RECORD_19 = {
     'MPK': 'הָאֵ֔הֶה',
     'at issue': 'לּ',
     'summary': '+dgsh',
-    'remarks': [_does_not_carry('ה', 'ל')+'perhaps because that would be illegal.'],
+    'remarks': [_does_not_carry_pi('ה', 'ל')],
 }
 RECORD_20 = {
     'wlc-index': 20,
@@ -476,7 +480,7 @@ RECORD_22 = {
     'MPK': 'שְׁכֵנָ֑כִי',
     'at issue': 'ךְ',
     'summary': '+shva',
-    'remarks': [_does_not_carry('yod', 'ך', 'sheva')+'perhaps because that would be illegal.'],
+    'remarks': [_does_not_carry_pi('yod', 'ך', 'sheva')],
 }
 RECORD_23 = {
     'wlc-index': 23,
@@ -486,7 +490,7 @@ RECORD_23 = {
     'MPK': 'חִרְייֹונִ֖ים',
     'at issue': 'דּ',
     'summary': '+dgsh',
-    'remarks': [_does_not_carry('ח', 'ד')+'perhaps because that would be illegal.'],
+    'remarks': [_does_not_carry_pi('ח', 'ד')],
     'side-notes': [
         'the ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! '+
         'Instead of being on the yod of the MPK, '+
@@ -630,7 +634,7 @@ RECORD_35 = {
     'MPK': 'תִּרֽצְֹנָהֿ׃',
     'at issue': 'צּ',
     'summary': '+dgsh',
-    'remarks': [_does_not_carry('ר', 'צ')+'perhaps because that would be illegal.'],
+    'remarks': [_does_not_carry_pi('ר', 'צ')],
     'side-notes': [
         'Nor does the MPK’s צ carry a dagesh for the qere’s צ.',
         #
