@@ -21,6 +21,11 @@ def _unlike(mark, where):
         f'It appears {where}. '+
         f'Unlike the manuscript, our MPK shows that orphan {mark} on a dotted circle.')
 
+
+def _between(mark1, mark2, lett1, lett2):
+    return f'between the {mark1} and the {mark2} (of the {lett1} and {lett2} respectively)'
+
+
 _QUBUTS_TO_SHURUQ_REMARK = 'The qubuts in the MPK becomes a shuruq dot in the qere.'
 _WLC_C_BRACKET_NOTE_DEFINITION = \
     "We read an accent in ל differently from BHS. "+ \
@@ -343,7 +348,7 @@ RECORD_14 = {
     'summary': '+dgsh',
     'remarks': [_has_no_letter_to_carry('וָּ')],
     'side-notes': [
-        _unlike('qamats', 'between the ḥiriq and the sheva (of the yod and ל respectively)')
+        _unlike('qamats', _between('ḥiriq', 'sheva', 'yod', 'ל'))
     ],
 }
 RECORD_15 = {
@@ -419,7 +424,7 @@ RECORD_18 = {
     'summary': '+dgsh',
     'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
-        _unlike('ḥiriq', 'between the qamats and the sheva (of the vav and ת respectively)')
+        _unlike('ḥiriq', _between('pataḥ', 'sheva', 'vav', 'ת'))
     ],
 }
 RECORD_19 = {
@@ -686,8 +691,7 @@ RECORD_38 = {
     'summary': '+dgsh',
     'remarks': [_has_no_letter_to_carry('ד')],
     'side-notes': [
-        'Although it cannot carry the ד’s dagesh, the מ carries the ד’s sheva as well as its own ḥiriq. '+
-        'Unlike the manuscript, our MPK shows that sheva on a dotted circle rather than on the מ.'
+        _unlike('sheva', _between('sheva', 'ḥiriq', 'ז', 'מ'))
     ],
 }
 RECORD_39 = {
