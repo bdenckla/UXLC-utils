@@ -217,9 +217,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_194A</folio>
+      <column>1</column>
+      <line>3</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>וַיְדַבְּר֨וּ</reftext>
@@ -933,9 +933,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to bet</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_181B</folio>
+      <column>1</column>
+      <line>26</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>בִּתְחִלַּ֖ת</reftext>
@@ -973,9 +973,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_182A</folio>
+      <column>1</column>
+      <line>11</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>וַיִּתְגָּעַ֤שׁ</reftext>
@@ -1300,9 +1300,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to lamed</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_189B</folio>
+      <column>3</column>
+      <line>15</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>הָאֵ֔לֶּה</reftext>
@@ -1339,9 +1339,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a sheva to kaf sofit</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_204A</folio>
+      <column>3</column>
+      <line>20</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>שְׁכֵנָ֑יִךְ</reftext>
@@ -1349,6 +1349,7 @@
     <changetext>שְׁכֵנָ֑יִךְ</changetext>
     <changeuni>shin shin-dot sheva kaf tsere nun qamats etnahta yod hiriq final-kaf sheva</changeuni>
     <notes>
+      <note>The qere atom at issue is part of the qere compound כָּל־שְׁכֵנָ֑יִךְ.</note>
       <note>The manuscript’s pointed ketiv (MPK) is שְׁכֵנָ֑כִי.</note>
       <note>The MPK’s yod does not carry a sheva for the qere’s ך, perhaps because that would be illegal.</note>
     </notes>
