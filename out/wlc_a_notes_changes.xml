@@ -13,7 +13,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>Folio_016A</folio>
       <column>2</column>
@@ -27,7 +27,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is וְיִֽשְׁתַּחֲוֻ֤.</note>
       <note>The qubuts in the MPK becomes a shuruq dot in the qere.</note>
-      <note>Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. Presumably he notes this later word for the unexpected dagesh in its penultimate vav. This later word is a normal (non-qere) word.</note>
+      <note>Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. Presumably he notes this later word for the unexpected dagesh in its next-to-last vav. This later word is a normal (non-qere) word.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -53,7 +53,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>Folio_027A</folio>
       <column>3</column>
@@ -67,9 +67,9 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is וַיִּֽשְׁתַּחֲוֻּֽ׃.</note>
       <note>The qubuts in the MPK becomes a shuruq dot in the qere.</note>
-      <note>In WLC, this word also has a 1-note, presumably because of the unexpected dagesh in the qere’s penultimate vav.</note>
+      <note>In WLC, this word has not only an a-note but also a 1-note, presumably because of the unexpected dagesh in the qere’s next-to-last vav.</note>
       <note>As a reminder, a WLC 1-note (bracket-1 note) is defined as follows: «BHS has been faithful to ל [...] where there might be a question of the validity of the form and we keep the same form as BHS. (This is similar to the note “]U”, but the latter refers to cases where BHQ has been published and we keep the same form as both BHS and BHQ.)»</note>
-      <note>Although Dotan has a note on his body-text word וַיִּֽשְׁתַּחֲוּֽוּ׃, I do not take him to have noted it for the issue at hand: the qubuts-to-shuruq issue. I take him to have noted this word only for its unexpected dagesh in the qere’s penultimate vav. Compare to gn27:29 word 4, וְיִֽשְׁתַּחֲו֤וּ, not noted by Dotan, which is the qere of a ketiv/qere that is analogous to this one except it has the expected undageshed penultimate vav. Also compare to gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, noted by Dotan, which is a normal (non-qere) word that is analogous to this qere including its unexpected dageshed penultimate vav.</note>
+      <note>Although Dotan has a note about this ketiv/qere, I do not take him to have noted it for the issue at hand: the qubuts-to-shuruq issue. I take him to have noted this ketiv/qere only for the unexpected dagesh in the last vav of the MPK. (This implies a dagesh in the qere’s next-to-last vav.) I do not think Dotan finds the qubuts-to-shuruq issue notable because he does not note the similar ketiv/qere in gn27:29 words 3 and 4, וישתחו/וְיִֽשְׁתַּחֲו֤וּ. That gn27:29 ketiv/qere is analogous to this one except its next-to-last vav is free of a dagesh, as expected, and therefore Dotan finds nothing notable about it.We know that Dotan finds the dagesh notable because he notes gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, a normal (non-qere) word that is analogous to this qere including having an unexpected dagesh in its next-to-last vav.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -95,7 +95,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -134,7 +134,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -173,7 +173,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -213,7 +213,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -227,7 +227,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is וַיְדַבְּרֻ֨.</note>
       <note>The qubuts in the MPK becomes a shuruq dot in the qere.</note>
-      <note>In WLC, this word also has a c-note, presumably because WLC has qadma where BHS (in error) has pashta.</note>
+      <note>In WLC, this word has not only an a-note but also a c-note, presumably because WLC has qadma where BHS (in error) has pashta.</note>
       <note>As a reminder, a WLC c-note (bracket-c note) is defined as follows: «We read an accent in ל differently from BHS. (This is similar to the note “]C”, but the latter refers to accent differences against BHQ.)»</note>
     </notes>
     <analysistags />
@@ -254,7 +254,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -294,7 +294,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -333,7 +333,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note qubuts to shuruq</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -372,7 +372,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added maqaf</description>
+    <description>Note that while creating the pointed qere, the transcriber added a maqaf</description>
     <lc>
       <folio>Folio_033A</folio>
       <column>1</column>
@@ -411,7 +411,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added maqaf</description>
+    <description>Note that while creating the pointed qere, the transcriber added a maqaf</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -450,7 +450,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added maqaf</description>
+    <description>Note that while creating the pointed qere, the transcriber added a maqaf</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -489,7 +489,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to bet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to bet</description>
     <lc>
       <folio>Folio_133B</folio>
       <column>3</column>
@@ -503,7 +503,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is מְעֵ֥בֶר.</note>
       <note>The MPK’s מ does not carry a dagesh for the qere’s ב, for some reason. This is the dual of js24:15.</note>
-      <note>Dotan notes that strictly speaking, the implied qere is בְעֵ֥בֶר (unexpectedly dagesh-free).</note>
+      <note>Dotan notes that strictly speaking, the implied qere is בְעֵ֥בֶר, which leaves the ב unexpectedly free of a dagesh.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -529,7 +529,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note removed dagesh from mem</description>
+    <description>Note that while creating the pointed qere, the transcriber removed a dagesh from mem</description>
     <lc>
       <folio>Folio_135B</folio>
       <column>1</column>
@@ -543,7 +543,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is בְּעֵ֥בֶר.</note>
       <note>The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. This is the dual of js22:7.</note>
-      <note>Dotan notes that strictly speaking, the implied qere is מֵּעֵ֣בֶר (unexpectedly dageshed).</note>
+      <note>Dotan notes that strictly speaking, the implied qere is מֵּעֵ֣בֶר, which gives the מ an unexpected dagesh.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -569,7 +569,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note removed dagesh from mem</description>
+    <description>Note that while creating the pointed qere, the transcriber removed a dagesh from mem</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -609,7 +609,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to bet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to bet</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -624,7 +624,7 @@
       <note>The manuscript’s pointed ketiv (MPK) is אְׄאֵ֣ׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s ב. The MPK (points on no letters) is sheva, tsere, and munaḥ.</note>
       <note>Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?</note>
-      <note>Dotan notes that the next word unexpectedly starts with בּ not ב, i.e. בִנְיָמִ֔ן would be expected.</note>
+      <note>Dotan notes that the next word has an unexpected dagesh in its ב. I.e., it unexpectedly starts with בּ not ב. i.e. בִנְיָמִ֔ן (Vinyamin) would be expected.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -650,7 +650,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to pe</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to pe</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -689,7 +689,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to bet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to bet</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -729,7 +729,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to bet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to bet</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -768,7 +768,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to kaf</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to kaf</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -784,7 +784,7 @@
       <note>The manuscript’s pointed ketiv (MPK) is אֵ֣ׄאׄ. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s כ. The MPK (points on no letters) is tsere and merkha.</note>
       <note>The points of the MPK are under the ל of the preceding word (עַל), but we don’t consider them to be carried by that ל.</note>
-      <note>Although Dotan has a note on his body-text compound עַל־כֵּ֥ן, I do not take him to have noted it for the issue at hand: the added dagesh. (Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן.) I take him to have noted this compound only because the manuscript lacks the expected trailing maqaf on עַל. The lack of a trailing maqaf on the preceding word (עַל) is the subject of a currently-pending change proposal, 2024.04.01/2024.01.18-2.</note>
+      <note>Although Dotan has a note on his body-text compound עַל־כֵּ֥ן, I do not take him to have noted it for the issue at hand: the added dagesh. (Dotan notes that strictly speaking, the implied qere is עַל כֵ֥ן.) I take him to have noted this compound only because the manuscript is unexpectedly free of a trailing maqaf on עַל.The manuscript’s lack of a trailing maqaf on the preceding word (עַל) is the subject of a currently-pending change proposal, 2024.04.01/2024.01.18-2.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -810,7 +810,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added ḥolam malei dot to vav</description>
+    <description>Note that while creating the pointed qere, the transcriber added a ḥolam malei dot to vav</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -849,7 +849,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added mapiq to he</description>
+    <description>Note that while creating the pointed qere, the transcriber added a mapiq to he</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -888,7 +888,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to vav-qamats</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to vav-qamats</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -928,7 +928,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to bet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to bet</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -968,7 +968,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to yod</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1008,7 +1008,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to yod</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1047,7 +1047,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to yod</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1086,7 +1086,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to yod</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1126,7 +1126,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added shuruq dot to initial vav</description>
+    <description>Note that while creating the pointed qere, the transcriber added a shuruq dot to the initial vav</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1165,7 +1165,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to dalet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to dalet</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1205,7 +1205,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to tet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to tet</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -1250,7 +1250,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to tet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to tet</description>
     <lc>
       <folio>Folio_</folio>
       <column>0</column>
@@ -1295,7 +1295,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to lamed</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to lamed</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1334,7 +1334,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added sheva to final form of kaf</description>
+    <description>Note that while creating the pointed qere, the transcriber added a sheva to the final form of kaf</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1373,7 +1373,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to dalet</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to dalet</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1413,7 +1413,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note added dagesh to tsadi</description>
+    <description>Note that while creating the pointed qere, the transcriber added a dagesh to tsadi</description>
     <lc>
       <folio>XXX fill me in folio</folio>
       <column>XXX fill me in column</column>
@@ -1459,7 +1459,7 @@
       <mail>bdenckla@alum.mit.edu</mail>
       <confirmed>true</confirmed>
     </author>
-    <description>Note ḥataf pataḥ to pataḥ under ayin</description>
+    <description>Note that while creating the pointed qere, the transcriber changed a ḥataf pataḥ to a pataḥ under ayin</description>
     <lc>
       <folio>Folio_159B</folio>
       <column>2</column>
@@ -1474,7 +1474,7 @@
       <note>The manuscript’s pointed ketiv (MPK) is מִמַּעֲרְ֣וֹת.</note>
       <note>The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ.</note>
       <note>Unexpected ḥataf vowels are a known feature (bug?) of ל. I.e. this is rare but hardly unique. This unexpected ḥataf may well be unrelated to the ketiv/qere differences in this word. If it is unrelated, this should be a bracket-1 or bracket-U note in WLC, not a bracket-a note.</note>
-      <note>Breuer notes that א and ק have the expected pataḥ. (א is the Aleppo Codex and ק is the Cairo Codex of The Prophets.)</note>
+      <note>Breuer notes that א and ק have the expected pataḥ under ע. (א is the Aleppo Codex and ק is the Cairo Codex of The Prophets.)</note>
       <note>Dotan notes that strictly speaking, the implied qere is מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).</note>
     </notes>
     <analysistags />

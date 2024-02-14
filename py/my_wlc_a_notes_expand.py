@@ -29,7 +29,7 @@ def _add_reason(io_record):
 _AT_ISSUE_MAP = {
     ('qbts to shrq', 'וּ'): '',
     ('+mqf', '־'): '',
-    ('+shva,-mqf', 'נְיָ'): 'added sheva to נ, removed maqaf',
+    ('+shva,-mqf', 'נְיָ'): 'added a sheva to נ and removed a maqaf',
     ('?', '?'): 'unclear',
     #
     ('+dgsh', 'בּ'): ' to bet',
@@ -43,9 +43,9 @@ _AT_ISSUE_MAP = {
     ('+dgsh', 'לּ'): ' to lamed',
     ('+dgsh', 'צּ'): ' to tsadi',
     #
-    ('+shrq dt', 'וּ…'): ' to initial vav',
+    ('+shrq dt', 'וּ…'): ' to the initial vav',
     ('+ḥlm dt', 'וֹ'): ' to vav',
-    ('+shva', 'ךְ'): ' to final form of kaf',
+    ('+shva', 'ךְ'): ' to the final form of kaf',
     ('ḥtf ptḥ to ptḥ', 'עַ'): ' under ayin',
     #
     ('-dgsh', 'מ'): ' from mem',
@@ -53,15 +53,15 @@ _AT_ISSUE_MAP = {
 
 
 _SUMMARY_MAP = {
-    'qbts to shrq': 'qubuts to shuruq',
-    '+mqf': 'added maqaf',
-    '+dgsh': 'added dagesh',
-    '-dgsh': 'removed dagesh',
-    '+mapiq': 'added mapiq',
-    '+shrq dt': 'added shuruq dot',
-    '+ḥlm dt': 'added ḥolam malei dot',
-    '+shva': 'added sheva',
-    'ḥtf ptḥ to ptḥ': 'ḥataf pataḥ to pataḥ',
+    'qbts to shrq': 'changed a qubuts to a shuruq',
+    '+mqf': 'added a maqaf',
+    '+dgsh': 'added a dagesh',
+    '-dgsh': 'removed a dagesh',
+    '+mapiq': 'added a mapiq',
+    '+shrq dt': 'added a shuruq dot',
+    '+ḥlm dt': 'added a ḥolam malei dot',
+    '+shva': 'added a sheva',
+    'ḥtf ptḥ to ptḥ': 'changed a ḥataf pataḥ to a pataḥ',
     '+shva,-mqf': '',
     '?': '',
 }

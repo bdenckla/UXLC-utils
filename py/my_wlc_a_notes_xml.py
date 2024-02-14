@@ -93,8 +93,8 @@ def _add_author(change_elem):
 
 
 def _add_description(change_elem, record):
-    reason = record['at issue English']
-    desc = f'Note {reason}'
+    atiss_eng = record['at issue English']
+    desc = f'Note that while creating the pointed qere, the transcriber {atiss_eng}'
     etan.sub_elem_text(change_elem, 'description', desc)
 
 
