@@ -133,6 +133,12 @@ def _add_notes(change_elem, record):
         fqere = record['qere']  # full qere
         fqere_note = f'The qere atom at issue is part of the qere compound {fqere}.'
         etan.sub_elem_text(notes_elem, 'note', fqere_note)
+    if 'qere-context' in record:
+        fqere = record['qere-context']  # full qere
+        fqere_note = (
+            f'The qere at issue is part of the compound {fqere}. '
+            'The other parts of this compound are not part of this qere.')
+        etan.sub_elem_text(notes_elem, 'note', fqere_note)
     mpk_note = _mpk_note_aued_for_dc(record['MPK'])
     etan.sub_elem_text(notes_elem, 'note', mpk_note)
     for remark in record['remarks']:

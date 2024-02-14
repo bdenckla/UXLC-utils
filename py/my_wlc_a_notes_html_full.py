@@ -66,13 +66,17 @@ def _initial_rows(record):
     qere = record['qere']
     atiss = record['at issue']
     reason = record.get('at issue English')
-    return [
-        _make_key_value_row('bcv (link to tanach.us)', anchor),
-        _make_key_value_row('MPK', mpk, hbo=True),
-        _make_key_value_row('qere', qere, hbo=True),
-        _make_key_value_row('at issue', atiss, hbo=True),
-        _make_key_value_row('at issue English', reason),
-    ]
+    rows = []
+    rows.append(_make_key_value_row('bcv (link to tanach.us)', anchor))
+    rows.append(_make_key_value_row('MPK', mpk, hbo=True))
+    if qere_c := record.get('qere-context'):
+        rows.append(_make_key_value_row('qere-context', qere_c, hbo=True))
+    rows.append(_make_key_value_row('qere', qere, hbo=True))
+    if qere_a := record.get('qere-atom-at-issue'):
+        rows.append(_make_key_value_row('qere-atom-at-issue', qere_a, hbo=True))
+    rows.append(_make_key_value_row('at issue', atiss, hbo=True))
+    rows.append(_make_key_value_row('at issue English', reason))
+    return rows
 
 
 def _anchor(record):
