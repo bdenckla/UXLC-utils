@@ -15,14 +15,14 @@ def _has_no_letter_to_carry(qere_letter, mark='dagesh'):
 
 def _has_no_letters_at_all(qere_letter, points, mark='dagesh'):
     return (
-        _has_no_letter_to_carry(qere_letter, mark)+' '+
+        _has_no_letter_to_carry(qere_letter, mark)+' '
         f'The MPK (points on no letters) is {points}.')
 
 
 def _unlike(mark, where):
     return (
-        f'Unlike the dagesh, the {mark} does not need a letter to carry it; it is allowed to be an orphan. '+
-        f'It appears {where}. '+
+        f'Unlike the dagesh, the {mark} does not need a letter to carry it; it is allowed to be an orphan. '
+        f'It appears {where}. '
         f'Unlike the manuscript, our MPK shows that orphan {mark} on a dotted circle.')
 
 
@@ -44,18 +44,18 @@ _WLC_1_BRACKET_NOTE_DEFINITION = \
 _DOTAN_PAGE_XX = (
     'Dotan remarks, in his Foreword to BHL (page xx):',
     #
-    'Another example [of a point CEN] is '+
-    'an ʿayin of the ketiv that cannot carry a dagesh that is due in the qere, '+
-    'as in the manuscript in Deut. 28:27 '+
-    'in the [body] text וּבַעְפֹלִים and '+
-    'in the margin ק̇ ובטחרים; '+
+    'Another example [of a point CEN] is '
+    'an ʿayin of the ketiv that cannot carry a dagesh that is due in the qere, '
+    'as in the manuscript in Deut. 28:27 '
+    'in the [body] text וּבַעְפֹלִים and '
+    'in the margin ק̇ ובטחרים; '
     'in the printed edition a dagesh was added[, yielding] וּבַטְּחֹרִים.',
     #
     '[The terminology CEN (created ex nihilo) is mine, not Dotan’s.]',
     #
-    '[In this quote, Dotan omits the accent (zaqef qatan) on '+
-    'the ל of וּבַעְפֹלִים and on '+
-    'the ר of וּבַטְּחֹרִים, '+
+    '[In this quote, Dotan omits the accent (zaqef qatan) on '
+    'the ל of וּבַעְפֹלִים and on '
+    'the ר of וּבַטְּחֹרִים, '
     'perhaps because it is not germane to the topic at hand.]',
     #
     '[Note that dt28:27 is not a-noted in WLC! (*W/B/(PLYM **W./BA/+.:XORI80YM)]'
@@ -75,8 +75,8 @@ RECORD_01 = {
     'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
-        'Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. '+
-        'Presumably he notes this later word for the unexpected dagesh in its next-to-last vav. '+
+        'Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. '
+        'Presumably he notes this later word for the unexpected dagesh in its next-to-last vav. '
         'This later word is a normal (non-qere) word.'
     ]
 }
@@ -94,29 +94,29 @@ RECORD_02 = {
     'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
-        'In WLC, this word has not only an a-note but also a 1-note, '+
+        'In WLC, this word has not only an a-note but also a 1-note, '
         'presumably because of the unexpected dagesh in the qere’s next-to-last vav.',
         #
-        'As a reminder, a WLC 1-note (bracket-1 note) is defined as follows: '+
+        'As a reminder, a WLC 1-note (bracket-1 note) is defined as follows: '
         f'«{_WLC_1_BRACKET_NOTE_DEFINITION}»',
         #
-        'Although Dotan has a note about this ketiv/qere, '+
-        'I do not take him to have noted it for the issue at hand: '+
-        'the qubuts-to-shuruq issue. '+
-        'I take him to have noted this ketiv/qere '+
-        'only for the unexpected dagesh in the last vav of the MPK. '+
+        'Although Dotan has a note about this ketiv/qere, '
+        'I do not take him to have noted it for the issue at hand: '
+        'the qubuts-to-shuruq issue. '
+        'I take him to have noted this ketiv/qere '
+        'only for the unexpected dagesh in the last vav of the MPK. '
         '(This implies a dagesh in the qere’s next-to-last vav.)',
         #
         'I do not think Dotan finds the qubuts-to-shuruq issue notable '
-        'because he does not note the similar ketiv/qere '+
-        'in gn27:29 words 3 and 4, וישתחו/וְיִֽשְׁתַּחֲו֤וּ. '+
-        'That gn27:29 ketiv/qere is analogous to this one '+
-        'except the next-to-last vav of its qere is free of a dagesh, as expected, '+
+        'because he does not note the similar ketiv/qere '
+        'in gn27:29 words 3 and 4, וישתחו/וְיִֽשְׁתַּחֲו֤וּ. '
+        'That gn27:29 ketiv/qere is analogous to this one '
+        'except the next-to-last vav of its qere is free of a dagesh, as expected, '
         'and therefore Dotan finds nothing notable about it.',
         #
-        'We know that Dotan finds the dagesh notable '+
-        'because he notes gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, '+
-        'a normal (non-qere) word that is analogous to this qere, '+
+        'We know that Dotan finds the dagesh notable '
+        'because he notes gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, '
+        'a normal (non-qere) word that is analogous to this qere, '
         'including having an unexpected dagesh in its next-to-last vav.'
     ],
 }
@@ -150,7 +150,7 @@ RECORD_04 = {
     'summary': '+dg',
     'remarks': [_does_not_carry('מ', 'ב')+'for some reason. '+'This is the dual of js24:15.'],
     'side-notes': [
-        'Dotan notes that strictly speaking, the implied qere is '+
+        'Dotan notes that strictly speaking, the implied qere is '
         'בְעֵ֥בֶר, which leaves the ב unexpectedly free of a dagesh.'
     ],
 }
@@ -168,11 +168,11 @@ RECORD_05 = {
     'at issue': 'מ',
     'summary': '-dg',
     'remarks': [
-        'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
+        'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '
         'This is the dual of js22:7.'
     ],
     'side-notes': [
-        'Dotan notes that strictly speaking, the implied qere is '+
+        'Dotan notes that strictly speaking, the implied qere is '
         'מֵּעֵ֣בֶר, which gives the מ an unexpected dagesh.'
     ],
 }
@@ -186,7 +186,7 @@ RECORD_06 = {
     'line': 8,
     'qere': 'בְּנֵ֣י',
     'MPK': (
-        '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}'+
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}'
         '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
     ),
     'at issue': 'בּ',
@@ -195,8 +195,8 @@ RECORD_06 = {
     'side-notes': [
         'Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?',
         #
-        'Dotan notes that the next word has an unexpected dagesh in its ב. '+
-        'I.e., it unexpectedly starts with בּ not ב. '+
+        'Dotan notes that the next word has an unexpected dagesh in its ב. '
+        'I.e., it unexpectedly starts with בּ not ב. '
         'i.e. בִנְיָמִ֔ן (Vinyamin) would be expected.'
     ],
 }
@@ -269,12 +269,12 @@ RECORD_10 = {
     'summary': '+shva',
     'remarks': [_does_not_carry_pi('ן in מבן', 'נ', 'sheva')],
     'side-notes': [
-        'Also, understandably, the maqaf disappears from the MPK when forming the implied qere. '+
-        'It is unclear why the maqaf is supplied in the first place. '+
-        'Perhaps it is supplied because without it, מִבִּן would be illegal: '+
+        'Also, understandably, the maqaf disappears from the MPK when forming the implied qere. '
+        'It is unclear why the maqaf is supplied in the first place. '
+        'Perhaps it is supplied because without it, מִבִּן would be illegal: '
         'a word without an accent.',
         #
-        'Dotan notes that strictly speaking, the implied qere is '+
+        'Dotan notes that strictly speaking, the implied qere is '
         'מִבִּניָמִ֗ין, which leaves the נ unexpectedly free of a sheva.'
     ],
 }
@@ -307,8 +307,8 @@ RECORD_12 = {
     'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
-        'There’s a large, clear dot above the ר; '+
-        'I don’t know what it is supposed to mean, if anything. '+
+        'There’s a large, clear dot above the ר; '
+        'I don’t know what it is supposed to mean, if anything. '
         'Surely not a revia!'
     ],
 }
@@ -327,17 +327,17 @@ RECORD_13 = {
     'summary': 'עֲ/עַ',
     'remarks': ['The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ.'],
     'side-notes': [
-        'Unexpected ḥataf vowels are a known feature (bug?) of ל. '+
-        'I.e. this is rare but hardly unique. '+
-        'This unexpected ḥataf may well be unrelated '+
+        'Unexpected ḥataf vowels are a known feature (bug?) of ל. '
+        'I.e. this is rare but hardly unique. '
+        'This unexpected ḥataf may well be unrelated '
         'to the ketiv/qere differences in this word. '
         'If it is unrelated, '
         'this should have been a bracket-1 or bracket-U note in WLC, not a bracket-a note.',
         #
-        'Breuer notes that א and ק have the expected pataḥ under ע. '+
+        'Breuer notes that א and ק have the expected pataḥ under ע. '
         '(א is the Aleppo Codex and ק is the Cairo Codex of The Prophets.)',
         #
-        'Dotan notes that strictly speaking, the implied qere is '+
+        'Dotan notes that strictly speaking, the implied qere is '
         'מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).'
     ],
 }
@@ -391,20 +391,20 @@ RECORD_16 = {
     'summary': '+dg',
     'remarks': [_has_no_letters_at_all('כ', 'tsere and merkha')],
     'side-notes': [
-        'Dotan notes that strictly speaking, the implied qere and the atom preceding it '+
-        'form the phrase עַל כֵ֥ן. '+
-        '(This implies the more complete phrase כִּֽי־עַל כֵ֥ן.) '+
-        'I do not take him to have noted this for the issue at hand: '+
-        'the lack of a dagesh in the implied qere. '+
-        'I take him to have noted this '+
+        'Dotan notes that strictly speaking, the implied qere and the atom preceding it '
+        'form the phrase עַל כֵ֥ן. '
+        '(This implies the more complete phrase כִּֽי־עַל כֵ֥ן.) '
+        'I do not take him to have noted this for the issue at hand: '
+        'the lack of a dagesh in the implied qere. '
+        'I take him to have noted this '
         'only because עַל is unexpectedly free of a trailing maqaf.',
         #
         'Note that, contrary to UXLC, עַל is a normal word, i.e. it is not part of a ketiv/qere. '
-        'It is abnormal only in that it precedes a qere velo ketiv. '+
+        'It is abnormal only in that it precedes a qere velo ketiv. '
         '(UXLC’s encoding is <k>על</k><q>עַל־</q>.)',
         #
-        'The manuscript’s lack of a trailing maqaf on עַל '+
-        'is the subject of a currently-pending '+
+        'The manuscript’s lack of a trailing maqaf on עַל '
+        'is the subject of a currently-pending '
         'change proposal, 2024.04.01/2024.01.18-2.'
     ],
 }
@@ -471,12 +471,12 @@ RECORD_20 = {
     'summary': '?',
     'remarks': ['The MPK has all the qere’s marks so I don’t see what the issue is.'],
     'side-notes': [
-        'The suffix וּ֥ becomes ו֥וּ. '+
-        'I would have expected a qubuts in the MPK, but this notation works, too, '+
+        'The suffix וּ֥ becomes ו֥וּ. '
+        'I would have expected a qubuts in the MPK, but this notation works, too, '
         'as long as we interpret the MPK’s dot in the vav to be a shuruq dot not a dagesh.',
         #
-        'BTW no shin dot is visible, although a shin dot might be hard to see here. '+
-        'The condition of the manuscript is not great here. '+
+        'BTW no shin dot is visible, although a shin dot might be hard to see here. '
+        'The condition of the manuscript is not great here. '
         'The focus of the photograph is also not great here.'
     ],
 }
@@ -494,10 +494,10 @@ RECORD_21 = {
     'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
-        'In WLC, this word has not only an a-note but also a c-note, '+
+        'In WLC, this word has not only an a-note but also a c-note, '
         'presumably because WLC has qadma where BHS (in error) has pashta.',
         #
-        'As a reminder, a WLC c-note (bracket-c note) is defined as follows: '+
+        'As a reminder, a WLC c-note (bracket-c note) is defined as follows: '
         f'«{_WLC_C_BRACKET_NOTE_DEFINITION}»'],
 }
 RECORD_22 = {
@@ -529,8 +529,8 @@ RECORD_23 = {
     'summary': '+dg',
     'remarks': [_does_not_carry_pi('ח', 'ד')],
     'side-notes': [
-        'the ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! '+
-        'Instead of being on the yod of the MPK, '+
+        'The ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! '
+        'Instead of being on the yod of the MPK, '
         'why isn’t this dot on the vav of the MPK?'
     ],
 }
@@ -562,7 +562,7 @@ RECORD_25 = {
     'summary': '+dg',
     'remarks': [_has_no_letters_at_all('ב', 'two qamats marks and pashta')],
     'side-notes': [
-        'There is also a dot near the pashta, which we ignore. '+
+        'There is also a dot near the pashta, which we ignore. '
         'I.e. we assume it is not ink, or in any case not intentional.'
     ],
 }
@@ -596,7 +596,7 @@ RECORD_27 = {
     'at issue': 'מ',
     'summary': '-dg',
     'remarks': [
-        'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
+        'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '
         'See js24:15, which is similar.'
     ],
     'side-notes': [
@@ -703,7 +703,7 @@ RECORD_34 = {
     'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
-        'The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, '+
+        'The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, '
         'i.e. the qere’s syllables are מִ־דָּֽ־נִ־יֵּ֑אל.'
     ],
 }
@@ -723,30 +723,30 @@ RECORD_35 = {
     'side-notes': [
         'Nor does the MPK’s צ carry a dagesh for the qere’s צ.',
         #
-        'More generally, the MPK is a mess, both in terms of neatness '+
+        'More generally, the MPK is a mess, both in terms of neatness '
         'and in terms of what marks ended up on what letters.',
         #
-        'The below-marks make sense, though one has to sort of squint to see what one expects to see. '+
+        'The below-marks make sense, though one has to sort of squint to see what one expects to see. '
         'I.e. the below marks follow the expected order, i.e. the qere order: ḥiriq, siluq, sheva, qamats.',
         #
-        'The above-marks is where it gets weird, since the qere צ’s ḥolam ḥaser dot '+
-        'is already present on the צ of the MPK. '+
-        'I would expect the ḥolam ḥaser dot to be on the ר of the MPK, i.e. I would expect it to be '+
+        'The above-marks is where it gets weird, since the qere צ’s ḥolam ḥaser dot '
+        'is already present on the צ of the MPK. '
+        'I would expect the ḥolam ḥaser dot to be on the ר of the MPK, i.e. I would expect it to be '
         'in its qere POSITION, not on its qere LETTER. I.e. I would expect תִּרֹֽצְנָה׃.',
         #
-        'Avi, in the MAM documentation, reports that the MPK of א follows this pattern more completely: '+
-        'for the two letters at issue in this ketiv/qere, i.e. for the two transposed letters, '+
-        'the pointing is already present on the LETTER it will “land on” in the qere, '+
-        'not in the POSITION it will land on in the qere. '+
-        'That is to say, א-כתיב=תִּרְצֹּֽנָה׃. '+
-        'I.e. to form the pointed qere from the pointed ketiv, all that needs to be done is to '+
+        'Avi, in the MAM documentation, reports that the MPK of א follows this pattern more completely: '
+        'for the two letters at issue in this ketiv/qere, i.e. for the two transposed letters, '
+        'the pointing is already present on the LETTER it will “land on” in the qere, '
+        'not in the POSITION it will land on in the qere. '
+        'That is to say, א-כתיב=תִּרְצֹּֽנָה׃. '
+        'I.e. to form the pointed qere from the pointed ketiv, all that needs to be done is to '
         'transpose the ר and the צ ALONG with their marks!',
         #
-        'Dotan’s Appendix A notes, as I have noted above, that the ḥolam ḥaser dot would be expected '+
-        'on (the left side of) the ר of the MPK, whereas it is on (the left side of) the צ. '+
+        'Dotan’s Appendix A notes, as I have noted above, that the ḥolam ḥaser dot would be expected '
+        'on (the left side of) the ר of the MPK, whereas it is on (the left side of) the צ. '
         'Dotan does not note anything about the creation ex nihilo of the dagesh on the qere’s צ.',
         #
-        'A final, unimportant remark is that I’ve put a rafeh above the ה of the MPK '+
+        'A final, unimportant remark is that I’ve put a rafeh above the ה of the MPK '
         'but I’m not sure about this; it might belong above the נ.'
     ],
 }
