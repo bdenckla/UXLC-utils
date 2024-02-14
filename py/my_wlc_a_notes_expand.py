@@ -27,41 +27,41 @@ def _add_reason(io_record):
 
 
 _AT_ISSUE_MAP = {
-    ('אֻ to אוּ', 'וּ'): '',
+    ('אֻ/אוּ', 'וּ'): '',
     ('+mqf', '־'): '',
     ('הּ', 'הּ'): '',
     ('?', '?'): 'unclear',
     #
-    ('+dgsh', 'בּ'): ' to bet',
-    ('+dgsh', 'וָּ'): ' to vav-qamats',
-    ('+dgsh', 'פּ'): ' to pe',
-    ('+dgsh', 'יּ'): ' to yod',
-    ('+dgsh', 'דּ'): ' to dalet',
-    ('+dgsh', 'כּ'): ' to kaf',
-    ('+dgsh', 'טּ'): ' to tet',
-    ('+dgsh', 'לּ'): ' to lamed',
-    ('+dgsh', 'צּ'): ' to tsadi',
+    ('+dg', 'בּ'): ' to bet',
+    ('+dg', 'וָּ'): ' to vav-qamats',
+    ('+dg', 'פּ'): ' to pe',
+    ('+dg', 'יּ'): ' to yod',
+    ('+dg', 'דּ'): ' to dalet',
+    ('+dg', 'כּ'): ' to kaf',
+    ('+dg', 'טּ'): ' to tet',
+    ('+dg', 'לּ'): ' to lamed',
+    ('+dg', 'צּ'): ' to tsadi',
     ('+shrq dt', 'וּ'): ' to the initial vav',
     #
     ('+ḥlm dt', 'וֹ'): ' to vav',
     ('+shva', 'ךְ'): ' to kaf sofit',
     ('+shva', 'נְ'): ' to nun',
     #
-    ('עֲ to עַ', 'עַ'): ' under ayin',
+    ('עֲ/עַ', 'עַ'): ' under ayin',
     #
-    ('-dgsh', 'מ'): ' from mem',
+    ('-dg', 'מ'): ' from mem',
 }
 
 
 _SUMMARY_MAP = {
-    'אֻ to אוּ': 'changed a qubuts to a shuruq',
+    'אֻ/אוּ': 'changed a qubuts to a shuruq',
     '+mqf': 'added a maqaf',
-    '+dgsh': 'added a dagesh',
-    '-dgsh': 'removed a dagesh',
+    '+dg': 'added a dagesh',
+    '-dg': 'removed a dagesh',
     'הּ': 'added a mapiq to he',
     '+shrq dt': 'added a shuruq dot',
     '+ḥlm dt': 'added a ḥolam malei dot',
     '+shva': 'added a sheva',
-    'עֲ to עַ': 'changed a ḥataf pataḥ to a pataḥ',
+    'עֲ/עַ': 'changed a ḥataf pataḥ to a pataḥ',
     '?': '',
 }

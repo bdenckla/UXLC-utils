@@ -53,12 +53,17 @@ _REC_KEY_FROM_HDR_STR = {
     'AI': 'at issue',
     'AIC': 'summary',
 }
+_HBO_VALS = {
+    'אֻ/אוּ': True,
+    'הּ': True,
+    'עֲ/עַ': True,
+}
 
 
 def _row_cell_for_hdr_str(rec, hdr_str):
     rec_key = _REC_KEY_FROM_HDR_STR.get(hdr_str) or hdr_str
     val = rec[rec_key]
-    if hdr_str == 'remarks':
+    if rec_key == 'remarks':
         assert isinstance(val, list)
         assert len(val) in (0, 1)
         anchors = _get_anchors_to_full_and_ucp(rec)
@@ -68,9 +73,9 @@ def _row_cell_for_hdr_str(rec, hdr_str):
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
     assert isinstance(val, str)
-    if hdr_str in ('WLC qere', 'MPK', 'AI'):
+    if rec_key in ('qere', 'MPK', 'at issue') or _HBO_VALS.get(val):
         return my_html.table_datum(val, {'lang': 'hbo', 'dir': 'rtl'})
-    if hdr_str == 'bcv':
+    if rec_key == 'bcv':
         href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(val)
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)

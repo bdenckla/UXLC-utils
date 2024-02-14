@@ -72,7 +72,7 @@ RECORD_01 = {
     'qere': 'וְיִֽשְׁתַּחֲו֤וּ',
     'MPK': 'וְיִֽשְׁתַּחֲוֻ֤',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. '+
@@ -91,7 +91,7 @@ RECORD_02 = {
     'qere': 'וַיִּֽשְׁתַּחֲוּֽוּ׃',
     'MPK': 'וַיִּֽשְׁתַּחֲוֻּֽ׃',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'In WLC, this word has not only an a-note but also a 1-note, '+
@@ -147,7 +147,7 @@ RECORD_04 = {
     'qere': 'בְּעֵ֥בֶר',
     'MPK': 'מְעֵ֥בֶר',
     'at issue': 'בּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_does_not_carry('מ', 'ב')+'for some reason. '+'This is the dual of js24:15.'],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '+
@@ -166,7 +166,7 @@ RECORD_05 = {
     'qere': 'מֵעֵ֣בֶר',
     'MPK': 'בְּעֵ֥בֶר',
     'at issue': 'מ',
-    'summary': '-dgsh',
+    'summary': '-dg',
     'remarks': [
         'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
         'This is the dual of js22:7.'
@@ -190,7 +190,7 @@ RECORD_06 = {
         '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
     ),
     'at issue': 'בּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letters_at_all('ב', 'sheva, tsere, and munaḥ')],
     'side-notes': [
         'Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?',
@@ -211,7 +211,7 @@ RECORD_07 = {
     'qere': 'וַיְצַוּ֕וּ',
     'MPK': 'וַיְצַוֻּ֕',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_08 = {
@@ -225,7 +225,7 @@ RECORD_08 = {
     'qere': 'בַּטְּחֹרִ֔ים',
     'MPK': 'בַּעְפֹלִ֔ים',
     'at issue': 'טּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_does_not_carry_pi('ע', 'ט')],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses later, in 5:12.',
@@ -244,7 +244,7 @@ RECORD_09 = {
     'qere': 'בַּטְּחֹרִ֑ים',
     'MPK': 'בַּעְפֹלִ֑ים',
     'at issue': 'טּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_does_not_carry_pi('ע', 'ט')],
     'side-notes': [
         'Same issue, indeed same word modulo accent, six verses before, in 5:6.',
@@ -287,7 +287,7 @@ RECORD_11 = {
     'qere': 'וַיֹּאמְר֣וּ',
     'MPK': 'וַיֹּאמְרֻ֣',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_12 = {
@@ -301,7 +301,7 @@ RECORD_12 = {
     'qere': 'אָמְר֣וּ',
     'MPK': 'אָמְרֻ֣',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'There’s a large, clear dot above the ר; '+
@@ -321,7 +321,7 @@ RECORD_13 = {
     'qere': 'מִמַּעַרְכ֣וֹת',
     'MPK': 'מִמַּעֲרְ֣וֹת',
     'at issue': 'עַ',
-    'summary': 'עֲ to עַ',
+    'summary': 'עֲ/עַ',
     'remarks': ['The MPK’s ע has a ḥataf pataḥ where the qere has a pataḥ.'],
     'side-notes': [
         'Unexpected ḥataf vowels are a known feature (bug?) of ל. '+
@@ -349,7 +349,7 @@ RECORD_14 = {
     'qere': 'וַיִּוָּלְד֧וּ',
     'MPK': 'וַיִּ\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}לְד֧וּ',
     'at issue': 'וָּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('וָּ')],
     'side-notes': [
         _unlike('qamats', _between('ḥiriq', 'sheva', 'yod', 'ל'))
@@ -366,7 +366,7 @@ RECORD_15 = {
     'qere': 'פְּרָֽת׃',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{HEBREW POINT METEG}׃',
     'at issue': 'פּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letters_at_all('פ', 'sheva, qamats, and siluq')],
 }
 RECORD_16 = {
@@ -385,7 +385,7 @@ RECORD_16 = {
     'qere-atom': 'כֵּ֥ן',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
     'at issue': 'כּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letters_at_all('כ', 'tsere and merkha')],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere and the atom preceding it '+
@@ -412,7 +412,7 @@ RECORD_17 = {
     'qere': 'בִּתְחִלַּ֖ת',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}תְחִלַּ֖ת',
     'at issue': 'בּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('ב')],
     'side-notes': [
         _unlike('ḥiriq', 'before the sheva of the initial ת')
@@ -425,7 +425,7 @@ RECORD_18 = {
     'qere': 'וַיִּתְגָּעַ֤שׁ',
     'MPK': 'וַ\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}תְגָּעַ֤שׁ',
     'at issue': 'יּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
         _unlike('ḥiriq', _between('pataḥ', 'sheva', 'vav', 'ת'))
@@ -438,7 +438,7 @@ RECORD_19 = {
     'qere': 'הָאֵ֔לֶּה',
     'MPK': 'הָאֵ֔הֶה',
     'at issue': 'לּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_does_not_carry_pi('ה', 'ל')],
 }
 RECORD_20 = {
@@ -463,7 +463,7 @@ RECORD_21 = {
     'qere': 'וַיְדַבְּר֨וּ',
     'MPK': 'וַיְדַבְּרֻ֨',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'In WLC, this word has not only an a-note but also a c-note, '+
@@ -489,7 +489,7 @@ RECORD_23 = {
     'qere': 'דִּבְיוֹנִ֖ים',
     'MPK': 'חִרְייֹונִ֖ים',
     'at issue': 'דּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_does_not_carry_pi('ח', 'ד')],
     'side-notes': [
         'the ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! '+
@@ -514,7 +514,7 @@ RECORD_25 = {
     'qere': 'בָּנָיו֙',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{DOTTED CIRCLE}\N{HEBREW ACCENT PASHTA}',
     'at issue': 'בּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letters_at_all('ב', 'two qamats marks and pashta')],
     'side-notes': [
         'There is also a dot near the pashta, which we ignore. '+
@@ -528,7 +528,7 @@ RECORD_26 = {
     'qere': 'יִקָּ֑חוּ',
     'MPK': 'יִקָּ֑חֻ',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
         'The dagesh in the qof is way off center, but still legit IMO.'
@@ -541,7 +541,7 @@ RECORD_27 = {
     'qere': 'מִמְּלֹ֖ךְ',
     'MPK': 'בִּמְּלֹ֖ךְ',
     'at issue': 'מ',
-    'summary': '-dgsh',
+    'summary': '-dg',
     'remarks': [
         'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '+
         'See js24:15, which is similar.'
@@ -579,7 +579,7 @@ RECORD_30 = {
     'qere': 'בָּאִ֖ים',
     'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}\N{HEBREW ACCENT TIPEHA}',
     'at issue': 'בּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letters_at_all('ב', 'qamats, ḥiriq, and tipeḥa')],
 }
 RECORD_31 = {
@@ -599,7 +599,7 @@ RECORD_32 = {
     'qere': 'דָּנִיֵּ֣אל',
     'MPK': 'דָּנִאֵ֣ל',
     'at issue': 'יּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('yod')],
 }
 RECORD_33 = {
@@ -609,7 +609,7 @@ RECORD_33 = {
     'qere': 'דָּנִיֵּ֣אל',
     'MPK': 'דָּנִאֵ֣ל',
     'at issue': 'יּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('yod')],
 }
 RECORD_34 = {
@@ -619,7 +619,7 @@ RECORD_34 = {
     'qere': 'מִדָּֽנִיֵּ֑אל',
     'MPK': 'מִדָּֽנִאֵֿ֑ל',
     'at issue': 'יּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
         'The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, '+
@@ -633,7 +633,7 @@ RECORD_35 = {
     'qere': 'תִּצֹּֽרְנָה׃',
     'MPK': 'תִּרֽצְֹנָהֿ׃',
     'at issue': 'צּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_does_not_carry_pi('ר', 'צ')],
     'side-notes': [
         'Nor does the MPK’s צ carry a dagesh for the qere’s צ.',
@@ -682,7 +682,7 @@ RECORD_37 = {
     'qere': 'וְקִבְּל֣וּ',
     'MPK': 'וְקִבְּלֻ֣',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORD_38 = {
@@ -692,7 +692,7 @@ RECORD_38 = {
     'qere': 'הִזְדְּמִנְתּוּן֙',
     'MPK': 'הִזְ\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}מִנְתּוּן֙',
     'at issue': 'דּ',
-    'summary': '+dgsh',
+    'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('ד')],
     'side-notes': [
         _unlike('sheva', _between('sheva', 'ḥiriq', 'ז', 'מ'))
@@ -705,7 +705,7 @@ RECORD_39 = {
     'qere': 'וַיַּעֲל֨וּ',
     'MPK': 'וַיַּעֲלֻ֨',
     'at issue': 'וּ',
-    'summary': 'אֻ to אוּ',
+    'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
 }
 RECORDS = [
