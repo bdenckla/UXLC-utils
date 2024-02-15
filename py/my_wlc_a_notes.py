@@ -520,18 +520,28 @@ RECORD_23 = {
     'uxlc-change-proposal': 505,
     'bcv': '2k6:25',
     'img': '23-2k6v25.png',
-    'folio': 'Folio_',
-    'column': 0,
-    'line': 0,
+    'folio': 'Folio_206B',
+    'column': 1,
+    'line': 11,
     'qere': 'דִּבְיוֹנִ֖ים',
     'MPK': 'חִרְייֹונִ֖ים',
     'at issue': 'דּ',
     'summary': '+dg',
     'remarks': [_does_not_carry_pi('ח', 'ד')],
     'side-notes': [
-        'The ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! '
-        'Instead of being on the yod of the MPK, '
-        'why isn’t this dot on the vav of the MPK?'
+        'The ḥolam malei dot on the qere’s vav comes from the (illegal) ḥolam (ḥaser?) dot on the second yod of the MPK!',
+        #
+        'Instead of being on the second yod of the MPK, why isn’t this dot on the vav of the MPK?',
+        #
+        'In other words, instead of חִ רְ י יֹ ו נִ֖ י ם, why isn’t the MPK חִ רְ י י וֹ נִ֖ י ם? '
+        '(I have spaced out the letters for clarity.)',
+        #
+        'More regarding the odd placement of this dot: the last five letters of ketiv and qere, יונים, '
+        'are in common between ketiv and qere. '
+        'So why not point them in the MPK as they are in the (implied) qere?',
+        #
+        'Yet another way of stating this question: I see the ketiv/qere variation as חרי/דב. '
+        'So after that variation, why should be MPK be any different than the (implied) qere?',
     ],
 }
 RECORD_24 = {

@@ -1379,9 +1379,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to dalet</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_206B</folio>
+      <column>1</column>
+      <line>11</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>דִּבְיוֹנִ֖ים</reftext>
@@ -1391,7 +1391,11 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is חִרְייֹונִ֖ים.</note>
       <note>The MPK’s ח does not carry a dagesh for the qere’s ד, perhaps because that would be illegal.</note>
-      <note>The ḥolam malei dot on the qere’s vav comes from the ḥolam (ḥaser?) dot on the yod of the MPK! Instead of being on the yod of the MPK, why isn’t this dot on the vav of the MPK?</note>
+      <note>The ḥolam malei dot on the qere’s vav comes from the (illegal) ḥolam (ḥaser?) dot on the second yod of the MPK!</note>
+      <note>Instead of being on the second yod of the MPK, why isn’t this dot on the vav of the MPK?</note>
+      <note>In other words, instead of חִ רְ י יֹ ו נִ֖ י ם, why isn’t the MPK חִ רְ י י וֹ נִ֖ י ם? (I have spaced out the letters for clarity.)</note>
+      <note>More regarding the odd placement of this dot: the last five letters of ketiv and qere, יונים, are in common between ketiv and qere. So why not point them in the MPK as they are in the (implied) qere?</note>
+      <note>Yet another way of stating this question: I see the ketiv/qere variation as חרי/דב. So after that variation, why should be MPK be any different than the (implied) qere?</note>
     </notes>
     <analysistags />
     <transnotes>
