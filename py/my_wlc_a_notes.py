@@ -540,8 +540,11 @@ RECORD_23 = {
         'are in common between ketiv and qere. '
         'So why not point them in the MPK as they are in the (implied) qere?',
         #
-        'Yet another way of stating this question: I see the ketiv/qere variation as חרי/דב. '
-        'So after that variation, why should be MPK be any different than the (implied) qere?',
+        'Yet another way of stating this question: '
+        'I see the ketiv/qere variation in this word as restricted to '
+        'the prefixes as חרי and דב respectively. '
+        'So in the common suffix יונים, i.e. after that variation, '
+        'why should the MPK be any different than the (implied) qere?',
     ],
 }
 RECORD_24 = {
