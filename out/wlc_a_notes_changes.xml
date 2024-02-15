@@ -298,9 +298,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_437B</folio>
+      <column>1</column>
+      <line>14</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>וְקִבְּל֣וּ</reftext>
@@ -338,8 +338,8 @@
     <description>Note that while creating the pointed qere, the transcriber changed a qubuts to a shuruq</description>
     <lc>
       <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <column>1</column>
+      <line>21</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>וַיַּעֲל֨וּ</reftext>
@@ -733,9 +733,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to bet</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_263A</folio>
+      <column>3</column>
+      <line>7</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>בָּאִ֖ים</reftext>
@@ -854,9 +854,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a mapiq to he</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_274A</folio>
+      <column>2</column>
+      <line>24</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>לָהּ֙</reftext>
@@ -864,6 +864,7 @@
     <changetext>לָהּ֙</changetext>
     <changeuni>lamed qamats he dagesh pashta</changeuni>
     <notes>
+      <note>The qere at issue is part of the compound אַל־יְהִי־לָהּ֙. The other parts of this compound are not part of this qere.</note>
       <note>The manuscript’s pointed ketiv (MPK) is אָׄאׄ֙. (We use אׄ (א with an extraordinary upper dot) to stand in for a blank space.)</note>
       <note>The MPK has no letter to carry a mapiq for the qere’s ה. The MPK (points on no letters) is qamats and pashta.</note>
     </notes>
@@ -1013,9 +1014,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_282B</folio>
+      <column>2</column>
+      <line>13</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>דָּנִיֵּ֣אל</reftext>
@@ -1052,9 +1053,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_282B</folio>
+      <column>3</column>
+      <line>6</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>דָּנִיֵּ֣אל</reftext>
@@ -1091,9 +1092,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to yod</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_291A</folio>
+      <column>1</column>
+      <line>11</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>מִדָּֽנִיֵּ֑אל</reftext>
@@ -1103,7 +1104,7 @@
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is מִדָּֽנִאֵֿ֑ל.</note>
       <note>The MPK has no letter to carry a dagesh for the qere’s yod.</note>
-      <note>The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, i.e. the qere’s syllables are מִ־דָּֽ־נִ־יֵּ֑אל.</note>
+      <note>The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, i.e. the qere’s syllables are מִ דָּֽ נִ יֵּ֑אל.</note>
     </notes>
     <analysistags />
     <transnotes>
@@ -1132,8 +1133,8 @@
     <description>Note that while creating the pointed qere, the transcriber added a shuruq dot to the initial vav</description>
     <lc>
       <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <column>2</column>
+      <line>13</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>וּזְקֵנִ֖ים</reftext>
@@ -1170,9 +1171,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to dalet</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_438B</folio>
+      <column>1</column>
+      <line>18</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>הִזְדְּמִנְתּוּן֙</reftext>
@@ -1423,9 +1424,9 @@
     </author>
     <description>Note that while creating the pointed qere, the transcriber added a dagesh to tsadi</description>
     <lc>
-      <folio>Folio_</folio>
-      <column>0</column>
-      <line>0</line>
+      <folio>Folio_417B</folio>
+      <column>2</column>
+      <line>9</line>
       <credit>Credit: Sefaria.org.</credit>
     </lc>
     <reftext>תִּצֹּֽרְנָה׃</reftext>
