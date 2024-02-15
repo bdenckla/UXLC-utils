@@ -551,7 +551,7 @@ RECORD_23 = {
         #
         'Yet another way of stating this question: '
         'I see the ketiv/qere variation in this word as restricted to '
-        'the prefixes as חרי and דב respectively. '
+        'the prefixes חרי and דב respectively. '
         'So in the common suffix יונים, i.e. after that variation, '
         'why should the MPK be any different than the (implied) qere?',
     ],
@@ -581,9 +581,9 @@ RECORD_25 = {
     'uxlc-change-proposal': 406,
     'bcv': '2k19:37',
     'img': '25-2k19v37.png',
-    'folio': 'Folio_',
-    'column': 0,
-    'line': 0,
+    'folio': 'Folio_216B',
+    'column': 1,
+    'line': 14,
     'qere': 'בָּנָיו֙',
     'MPK': (
         '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}'
@@ -604,9 +604,9 @@ RECORD_26 = {
     'uxlc-change-proposal': 107,
     'bcv': '2k20:18',
     'img': '26-2k20v18.png',
-    'folio': 'Folio_',
-    'column': 0,
-    'line': 0,
+    'folio': 'Folio_217A',
+    'column': 1,
+    'line': 10,
     'qere': 'יִקָּ֑חוּ',
     'MPK': 'יִקָּ֑חֻ',
     'at issue': 'וּ',
@@ -621,9 +621,9 @@ RECORD_27 = {
     'uxlc-change-proposal': 303,
     'bcv': '2k23:33',
     'img': '27-2k23v33.png',
-    'folio': 'Folio_',
-    'column': 0,
-    'line': 0,
+    'folio': 'Folio_219A',
+    'column': 2,
+    'line': 12,
     'qere': 'מִמְּלֹ֖ךְ',
     'MPK': 'בִּמְּלֹ֖ךְ',
     'at issue': 'מ',
@@ -641,9 +641,9 @@ RECORD_28 = {
     'uxlc-change-proposal': 202,
     'bcv': 'is3:15',
     'img': '28-is3v15.png',
-    'folio': 'Folio_',
-    'column': 0,
-    'line': 0,
+    'folio': 'Folio_221B',
+    'column': 2,
+    'line': 10,
     'qere': 'מַה־לָּכֶם֙',
     'qere-atom-at-issue': 'מַה־',
     'MPK': 'מַלָּכֶם֙',
@@ -657,8 +657,10 @@ RECORD_29 = {
     'bcv': 'je18:3',
     'img': '29-je18v3.png',
     'folio': 'Folio_',
-    'column': 0,
-    'line': 0,
+    'column': 3,
+    'line-excluding-blanks': 5,
+    'line-including-blanks': 6,
+    'line-remark': 'the line at issue isn’t exactly blank; it as a פ with a dot above, indicating a petuḥah division between columns',
     'qere': 'וְהִנֵּה־ה֛וּא',
     'qere-atom-at-issue': 'וְהִנֵּה־',
     'MPK': 'וְהִנֵּה֛וּ',
