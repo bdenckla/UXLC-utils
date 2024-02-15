@@ -188,6 +188,7 @@ RECORD_06 = {
     'MPK': (
         '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}'
         '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
+        '\N{DOTTED CIRCLE}'
     ),
     'at issue': 'בּ',
     'summary': '+dg',
@@ -367,7 +368,12 @@ RECORD_15 = {
     'column': 2,
     'line': 20,
     'qere': 'פְּרָֽת׃',
-    'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{HEBREW POINT METEG}׃',
+    'MPK': (
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{HEBREW POINT METEG}'
+        '\N{DOTTED CIRCLE}'
+        '׃'
+    ),
     'at issue': 'פּ',
     'summary': '+dg',
     'remarks': [_has_no_letters_at_all('פ', 'sheva, qamats, and siluq')],
@@ -386,7 +392,10 @@ RECORD_16 = {
     'line': 10,
     'qere-context': 'כִּֽי־עַל־כֵּ֥ן',
     'qere': 'כֵּ֥ן',
-    'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}\N{DOTTED CIRCLE}',
+    'MPK': (
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
+        '\N{DOTTED CIRCLE}'
+    ),
     'at issue': 'כּ',
     'summary': '+dg',
     'remarks': [_has_no_letters_at_all('כ', 'tsere and merkha')],
@@ -552,11 +561,17 @@ RECORD_24 = {
     'uxlc-change-proposal': 430,
     'bcv': '2k19:31',
     'img': '24-2k19v31.png',
-    'folio': 'Folio_',
-    'column': 0,
-    'line': 0,
+    'folio': 'Folio_216A',
+    'column': 3,
+    'line': 22,
     'qere': 'צְבָא֖וֹת',
-    'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{HEBREW ACCENT TIPEHA}',
+    'MPK': (
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}'
+        '\N{DOTTED CIRCLE}\N{HEBREW ACCENT TIPEHA}'
+        '\N{DOTTED CIRCLE}'
+        '\N{DOTTED CIRCLE}'
+    ),
     'at issue': 'וֹ',
     'summary': '+ḥlm dt',
     'remarks': [_has_no_letters_at_all('vav', 'sheva, qamats, and tipeḥa', 'ḥolam dot')],
@@ -570,7 +585,12 @@ RECORD_25 = {
     'column': 0,
     'line': 0,
     'qere': 'בָּנָיו֙',
-    'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{DOTTED CIRCLE}\N{HEBREW ACCENT PASHTA}',
+    'MPK': (
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}'
+        '\N{DOTTED CIRCLE}'
+        '\N{DOTTED CIRCLE}\N{HEBREW ACCENT PASHTA}'
+    ),
     'at issue': 'בּ',
     'summary': '+dg',
     'remarks': [_has_no_letters_at_all('ב', 'two qamats marks and pashta')],
@@ -655,7 +675,12 @@ RECORD_30 = {
     'column': 0,
     'line': 0,
     'qere': 'בָּאִ֖ים',
-    'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}\N{HEBREW ACCENT TIPEHA}',
+    'MPK': (
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}\N{HEBREW ACCENT TIPEHA}'
+        '\N{DOTTED CIRCLE}'
+        '\N{DOTTED CIRCLE}'
+    ),
     'at issue': 'בּ',
     'summary': '+dg',
     'remarks': [_has_no_letters_at_all('ב', 'qamats, ḥiriq, and tipeḥa')],
@@ -669,7 +694,10 @@ RECORD_31 = {
     'column': 0,
     'line': 0,
     'qere': 'לָהּ֙',
-    'MPK': '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}\N{DOTTED CIRCLE}\N{HEBREW ACCENT PASHTA}',
+    'MPK': (
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}'
+        '\N{DOTTED CIRCLE}\N{HEBREW ACCENT PASHTA}'
+    ),
     'at issue': 'הּ',
     'summary': 'הּ',
     'remarks': [_has_no_letters_at_all('ה', 'qamats and pashta', 'mapiq')],
