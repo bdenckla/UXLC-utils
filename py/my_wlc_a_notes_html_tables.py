@@ -9,7 +9,10 @@ import my_html
 
 def write(records):
     """ Writes WLC a-notes records to docs/index.html. """
-    _write2(records, my_wlc_a_notes_intro.INTRO, 'WLC a-notes', 'docs/index.html')
+    _write2(records, my_wlc_a_notes_intro.INTRO, 'WLC a-notes', 'docs/wlc-a-notes/index.html')
+    records_in_wlc_order = sorted(records, key=_get_wlc_index)
+    _write2(records, [], 'WLC a-notes in WLC order', 'docs/wlc-a-notes/table-in-wlc-order.html')
+
 
 
 def _write2(records, intro, title, path):
