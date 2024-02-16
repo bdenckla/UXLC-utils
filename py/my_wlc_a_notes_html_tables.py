@@ -9,10 +9,20 @@ import my_html
 
 def write(records):
     """ Writes WLC a-notes records to index.html and other HTML files. """
-    _write2(records, my_wlc_a_notes_intro.INTRO, 'WLC a-notes', 'docs/wlc-a-notes/index.html')
+    intro = [*my_wlc_a_notes_intro.INTRO, _INTRO_TO_WLC_ORDER]
+    _write2(records, intro, 'WLC a-notes', 'index.html')
     records_in_wlc_order = sorted(records, key=_get_wlc_index)
-    _write2(records, [], 'WLC a-notes in WLC order', 'docs/wlc-a-notes/table-in-wlc-order.html')
+    _write2(records_in_wlc_order, [], 'WLC a-notes in WLC order', _PATH_TO_WLC_ORDER)
 
+
+_PATH_TO_WLC_ORDER = 'table-in-wlc-order.html'
+_INTRO_TO_WLC_ORDER = my_html.para([
+    'The table below is also available ',
+    my_html.anchor('in WLC order', {'href': _PATH_TO_WLC_ORDER}),
+    '. '
+    '(The table below is ordered by UXLC change proposal number. '
+    'This UXLC change proposals are numbered thematically rather than in WLC order.)'
+])
 
 
 def _write2(records, intro, title, path):
@@ -20,7 +30,7 @@ def _write2(records, intro, title, path):
     rows = [_row_for_header(), *rows_for_data]
     table = my_html.table(rows)
     body_contents = [*intro, table]
-    write_ctx = my_html.WriteCtx(title, path)
+    write_ctx = my_html.WriteCtx(title, f'docs/wlc-a-notes/{path}')
     my_html.write_html_to_file(body_contents, write_ctx)
 
 
