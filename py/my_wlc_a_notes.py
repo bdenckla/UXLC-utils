@@ -75,7 +75,8 @@ RECORD_01 = {
     'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
-        'Dotan notes a later version of this word in this verse, @וְיִשְׁתַּחֲוּ֥וּ#. '
+        'Although Dotan does not note this word, '
+        'he notes a later version of this word in this verse, @וְיִשְׁתַּחֲוּ֥וּ#. '
         'Presumably he notes this later word for the unexpected dagesh in its next-to-last vav. '
         'This later word is a normal (non-qere) word.'
     ]
@@ -110,7 +111,7 @@ RECORD_02 = {
         'I do not think Dotan finds the qubuts-to-shuruq issue notable '
         'because he does not note the similar ketiv/qere '
         'in gn27:29 words 3 and 4, @וישתחו/וְיִֽשְׁתַּחֲו֤וּ#. '
-        'That gn27:29 ketiv/qere is analogous to this one '
+        'That gn27:29 ketiv/qere has the same qubuts-to-shuruq pattern as this one '
         'except the next-to-last vav of its qere is free of a dagesh, as expected, '
         'and therefore Dotan finds nothing notable about it.',
         #
@@ -196,7 +197,8 @@ RECORD_06 = {
     'side-notes': [
         'Why in the margin does it say not only «בני קר ולא כת» but also «בני ק»?',
         #
-        'Dotan notes that the next word has an unexpected dagesh in its ב. '
+        'Although Dotan does not note this word, '
+        'he notes that the next word has an unexpected dagesh in its ב. '
         'I.e., it unexpectedly starts with בּ not ב. '
         'i.e. @בִנְיָמִ֔ן# (Vinyamin) would be expected.'
     ],
