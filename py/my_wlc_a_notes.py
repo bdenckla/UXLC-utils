@@ -405,14 +405,14 @@ RECORD_16 = {
         'Dotan notes that strictly speaking, the implied qere and the atom preceding it '
         'form the phrase @עַל כֵ֥ן#. '
         '(This implies the more complete phrase @כִּֽי־עַל כֵ֥ן#.) '
-        'I do not take him to have noted this for the issue at hand: '
-        'the lack of a dagesh in the implied qere. '
-        'I take him to have noted this '
-        'only because @עַל# is unexpectedly free of a trailing maqaf.',
+        'I do not take him to find @עַל כֵ֥ן# notable for the issue at hand: '
+        'the lack of a dagesh in the כ of the implied qere @כֵ֥ן#. '
+        'I take him to find the phrase @עַל כֵ֥ן# notable '
+        'only because its atoms are, unexpectedly, separated merely by a space rather than a maqaf.',
         #
-        'Note that, contrary to UXLC, @עַל# is a normal word, i.e. it is not part of a ketiv/qere. '
+        'Note that, contrary to UXLC, @עַל# is a normal atom, i.e. it is not part of a ketiv/qere. '
         'It is abnormal only in that it precedes a qere velo ketiv. '
-        '(UXLC’s encoding is <k>@על#</k><q>@עַל־#</q>.)',
+        'I.e. UXLC has <k>@על#</k><q>@עַל־#</q> where I think it should merely have <w>@עַל־#</w>.',
         #
         'The manuscript’s lack of a trailing maqaf on @עַל# '
         'is the subject of a currently-pending '
