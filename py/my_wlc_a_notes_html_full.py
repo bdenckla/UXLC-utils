@@ -11,12 +11,12 @@ def write(io_records):
         io_record['path-to-full'] = _write_record(io_record)
 
 
+_HBO_RTL = {'lang': 'hbo', 'dir': 'rtl'}
+
+
 def _make_key_value_row(key, value, hbo=False):
     cell_for_key = my_html.table_datum(key)
-    if hbo:
-        attr = {'lang': 'hbo', 'dir': 'rtl'}
-    else:
-        attr = None
+    attr = _HBO_RTL if hbo else None
     cell_for_value = my_html.table_datum(value, attr)
     return my_html.table_row([cell_for_key, cell_for_value])
 
@@ -50,14 +50,32 @@ def _write_record(record):
 
 def _append_remarks_and_side_notes(io_body_contents, record):
     remarks = record['remarks']
-    side_notes = record.get('side-notes') or []
     for remark in remarks:
         assert not remark.endswith(' ')
         io_body_contents.append(my_html.para(remark))
     #
+    side_notes = record.get('side-notes') or []
     for side_note in side_notes:
         assert not side_note.endswith(' ')
-        io_body_contents.append(my_html.para(side_note))
+        hesp = _hebrew_spanify(side_note)
+        io_body_contents.append(my_html.para(hesp))
+
+
+def _hebrew_spanify(string: str):
+    pre, sep, post = string.partition('@')
+    pre_list = [pre] if pre else []
+    if not sep:
+        assert not post
+        assert pre == string
+        return pre_list
+    return pre_list + _hebrew_spanify2(post)
+
+
+def _hebrew_spanify2(string: str):
+    pre, sep, post = string.partition('#')
+    assert sep
+    assert sep == '#'
+    return [my_html.span(pre, {'lang': 'hbo'}), *_hebrew_spanify(post)]
 
 
 def _initial_rows(record):

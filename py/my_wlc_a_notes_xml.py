@@ -145,7 +145,8 @@ def _add_notes(change_elem, record):
         etan.sub_elem_text(notes_elem, 'note', _aued_for_dc(remark))
     side_notes = record.get('side-notes') or []
     for side_note in side_notes:
-        etan.sub_elem_text(notes_elem, 'note', _aued_for_dc(side_note))
+        stripped = side_note.replace('@', '').replace('#', '')
+        etan.sub_elem_text(notes_elem, 'note', _aued_for_dc(stripped))
 
 _AUED = 'א\N{HEBREW MARK UPPER DOT}'
 _AUED_WITH_EXP = f'{_AUED} (א with an extraordinary upper dot)'

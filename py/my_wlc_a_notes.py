@@ -47,15 +47,15 @@ _DOTAN_PAGE_XX = (
     'Another example [of a point CEN] is '
     'an ʿayin of the ketiv that cannot carry a dagesh that is due in the qere, '
     'as in the manuscript in Deut. 28:27 '
-    'in the [body] text וּבַעְפֹלִים and '
-    'in the margin ק̇ ובטחרים; '
-    'in the printed edition a dagesh was added[, yielding] וּבַטְּחֹרִים.',
+    'in the [body] text @וּבַעְפֹלִים# and '
+    'in the margin @ק̇ ובטחרים#; '
+    'in the printed edition a dagesh was added[, yielding] @וּבַטְּחֹרִים#.',
     #
     '[The terminology CEN (created ex nihilo) is mine, not Dotan’s.]',
     #
     '[In this quote, Dotan omits the accent (zaqef qatan) on '
-    'the ל of וּבַעְפֹלִים and on '
-    'the ר of וּבַטְּחֹרִים, '
+    'the ל of @וּבַעְפֹלִים# and on '
+    'the ר of @וּבַטְּחֹרִים#, '
     'perhaps because it is not germane to the topic at hand.]',
     #
     '[Note that dt28:27 is not a-noted in WLC! (*W/B/(PLYM **W./BA/+.:XORI80YM)]'
@@ -75,7 +75,7 @@ RECORD_01 = {
     'summary': 'אֻ/אוּ',
     'remarks': [_QUBUTS_TO_SHURUQ_REMARK],
     'side-notes': [
-        'Dotan notes a later version of this word in this verse, וְיִשְׁתַּחֲוּ֥וּ. '
+        'Dotan notes a later version of this word in this verse, @וְיִשְׁתַּחֲוּ֥וּ#. '
         'Presumably he notes this later word for the unexpected dagesh in its next-to-last vav. '
         'This later word is a normal (non-qere) word.'
     ]
@@ -109,13 +109,13 @@ RECORD_02 = {
         #
         'I do not think Dotan finds the qubuts-to-shuruq issue notable '
         'because he does not note the similar ketiv/qere '
-        'in gn27:29 words 3 and 4, וישתחו/וְיִֽשְׁתַּחֲו֤וּ. '
+        'in gn27:29 words 3 and 4, @וישתחו/וְיִֽשְׁתַּחֲו֤וּ#. '
         'That gn27:29 ketiv/qere is analogous to this one '
         'except the next-to-last vav of its qere is free of a dagesh, as expected, '
         'and therefore Dotan finds nothing notable about it.',
         #
         'We know that Dotan finds the dagesh notable '
-        'because he notes gn27:29 word 10, וְיִשְׁתַּחֲוּ֥וּ, '
+        'because he notes gn27:29 word 10, @וְיִשְׁתַּחֲוּ֥וּ#, '
         'a normal (non-qere) word that is analogous to this qere, '
         'including having an unexpected dagesh in its next-to-last vav.'
     ],
@@ -151,7 +151,7 @@ RECORD_04 = {
     'remarks': [_does_not_carry('מ', 'ב')+'for some reason. '+'This is the dual of js24:15.'],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '
-        'בְעֵ֥בֶר, which leaves the ב unexpectedly free of a dagesh.'
+        '@בְעֵ֥בֶר#, which leaves the ב unexpectedly free of a dagesh.'
     ],
 }
 RECORD_05 = {
@@ -173,7 +173,7 @@ RECORD_05 = {
     ],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere is '
-        'מֵּעֵ֣בֶר, which gives the מ an unexpected dagesh.'
+        '@מֵּעֵ֣בֶר#, which gives the מ an unexpected dagesh.'
     ],
 }
 RECORD_06 = {
@@ -198,7 +198,7 @@ RECORD_06 = {
         #
         'Dotan notes that the next word has an unexpected dagesh in its ב. '
         'I.e., it unexpectedly starts with בּ not ב. '
-        'i.e. בִנְיָמִ֔ן (Vinyamin) would be expected.'
+        'i.e. @בִנְיָמִ֔ן# (Vinyamin) would be expected.'
     ],
 }
 RECORD_07 = {
@@ -272,11 +272,11 @@ RECORD_10 = {
     'side-notes': [
         'Also, understandably, the maqaf disappears from the MPK when forming the implied qere. '
         'It is unclear why the maqaf is supplied in the first place. '
-        'Perhaps it is supplied because without it, מִבִּן would be illegal: '
+        'Perhaps it is supplied because without it, @מִבִּן# would be illegal: '
         'a word without an accent.',
         #
         'Dotan notes that strictly speaking, the implied qere is '
-        'מִבִּניָמִ֗ין, which leaves the נ unexpectedly free of a sheva.'
+        '@מִבִּניָמִ֗ין#, which leaves the נ unexpectedly free of a sheva.'
     ],
 }
 RECORD_11 = {
@@ -339,7 +339,7 @@ RECORD_13 = {
         '(א is the Aleppo Codex and ק is the Cairo Codex of The Prophets.)',
         #
         'Dotan notes that strictly speaking, the implied qere is '
-        'מִמַּעֲרְכ֣וֹת (ḥataf pataḥ under ע).'
+        '@מִמַּעֲרְכ֣וֹת# (ḥataf pataḥ under ע).'
     ],
 }
 RECORD_14 = {
@@ -401,18 +401,18 @@ RECORD_16 = {
     'remarks': [_has_no_letters_at_all('כ', 'tsere and merkha')],
     'side-notes': [
         'Dotan notes that strictly speaking, the implied qere and the atom preceding it '
-        'form the phrase עַל כֵ֥ן. '
-        '(This implies the more complete phrase כִּֽי־עַל כֵ֥ן.) '
+        'form the phrase @עַל כֵ֥ן#. '
+        '(This implies the more complete phrase @כִּֽי־עַל כֵ֥ן#.) '
         'I do not take him to have noted this for the issue at hand: '
         'the lack of a dagesh in the implied qere. '
         'I take him to have noted this '
-        'only because עַל is unexpectedly free of a trailing maqaf.',
+        'only because @עַל# is unexpectedly free of a trailing maqaf.',
         #
-        'Note that, contrary to UXLC, עַל is a normal word, i.e. it is not part of a ketiv/qere. '
+        'Note that, contrary to UXLC, @עַל# is a normal word, i.e. it is not part of a ketiv/qere. '
         'It is abnormal only in that it precedes a qere velo ketiv. '
-        '(UXLC’s encoding is <k>על</k><q>עַל־</q>.)',
+        '(UXLC’s encoding is <k>@על#</k><q>@עַל־#</q>.)',
         #
-        'The manuscript’s lack of a trailing maqaf on עַל '
+        'The manuscript’s lack of a trailing maqaf on @עַל# '
         'is the subject of a currently-pending '
         'change proposal, 2024.04.01/2024.01.18-2.'
     ],
@@ -485,10 +485,10 @@ RECORD_20 = {
         'as long as we interpret the MPK’s dot in the vav to be '
         'a shuruq dot not a dagesh.',
         #
-        'The MPK suffix וּ֥ becomes ו֥וּ in the qere. '
+        'The MPK suffix @וּ֥ #becomes @ו֥וּ# in the qere. '
         'In contrast, on closely-analogous words, gn27:29 and gn43:28 use a qubuts: '
-        'וֻ֤ becomes ו֤וּ and '
-        'וֻּֽ׃ becomes וּֽוּ׃ respectively.'
+        '@וֻ֤ #becomes @ו֤וּ# and '
+        '@וֻּֽ׃ #becomes @וּֽוּ׃# respectively.'
         '',
         #
         'BTW no shin dot is visible, although a shin dot might be hard to see here. '
@@ -549,7 +549,7 @@ RECORD_23 = {
         #
         'Instead of being on the second yod of the MPK, why isn’t this dot on the vav of the MPK?',
         #
-        'In other words, instead of חִ רְ י יֹ ו נִ֖ י ם, why isn’t the MPK חִ רְ י י וֹ נִ֖ י ם? '
+        'In other words, instead of @חִ רְ י יֹ ו נִ֖ י ם#, why isn’t the MPK @חִ רְ י י וֹ נִ֖ י ם#? '
         '(I have spaced out the letters for clarity.)',
         #
         'More regarding the odd placement of this dot: the last five letters of ketiv and qere, יונים, '
@@ -755,7 +755,7 @@ RECORD_34 = {
     'remarks': [_has_no_letter_to_carry('yod')],
     'side-notes': [
         'The rafeh on the א makes it clear that the qere’s yod functions as a consonant not a vowel, '
-        'i.e. the qere’s syllables are מִ דָּֽ נִ יֵּ֑אל.'
+        'i.e. the qere’s syllables are @מִ דָּֽ נִ יֵּ֑אל#.'
     ],
 }
 RECORD_35 = {
@@ -783,13 +783,13 @@ RECORD_35 = {
         'The above-marks is where it gets weird, since the qere צ’s ḥolam ḥaser dot '
         'is already present on the צ of the MPK. '
         'I would expect the ḥolam ḥaser dot to be on the ר of the MPK, i.e. I would expect it to be '
-        'in its qere POSITION, not on its qere LETTER. I.e. I would expect תִּרֹֽצְנָה׃.',
+        'in its qere POSITION, not on its qere LETTER. I.e. I would expect @תִּרֹֽצְנָה׃#.',
         #
         'Avi, in the MAM documentation, reports that the MPK of א follows this pattern more completely: '
         'for the two letters at issue in this ketiv/qere, i.e. for the two transposed letters, '
         'the pointing is already present on the LETTER it will “land on” in the qere, '
         'not in the POSITION it will land on in the qere. '
-        'That is to say, א-כתיב=תִּרְצֹּֽנָה׃. '
+        'That is to say, א-כתיב is @תִּרְצֹּֽנָה׃#. '
         'I.e. to form the pointed qere from the pointed ketiv, all that needs to be done is to '
         'transpose the ר and the צ ALONG with their marks!',
         #
