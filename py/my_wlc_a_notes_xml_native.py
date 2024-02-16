@@ -15,8 +15,8 @@ def write_to_html(native, record):
     ucp_n = int(native['n'])
     ucp_n_str_02 = f'{ucp_n:02d}'
     title = f'UXLC change proposal {ucp_n_str_02}'
-    path = f'uxlc_change_proposal_{ucp_n_str_02}.html'
-    write_ctx = my_html.WriteCtx(title, f'docs/{path}')
+    path = f'ucp/uxlc_change_proposal_{ucp_n_str_02}.html'
+    write_ctx = my_html.WriteCtx(title, f'docs/wlc-a-notes/{path}')
     my_html.write_html_to_file(body_contents, write_ctx)
     return path
 

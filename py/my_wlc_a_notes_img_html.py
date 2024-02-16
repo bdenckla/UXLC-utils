@@ -15,7 +15,7 @@ def html_for_img_or_imgs(record):
 
 
 def _html_for_single_img(img_path):
-    img_element = my_html.img({'src': img_path})
+    img_element = my_html.img({'src': f'img/{img_path}'})
     return my_html.para(img_element)
 
 
