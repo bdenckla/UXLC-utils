@@ -32,7 +32,10 @@ _DEFINITION_OF_AN_A_NOTE = (
 _THIS_PAGE_ALSO = (
     'This page also provides links to 37 UXLC change proposals related to these bracket-a notes. '+
     '(There are only 37 not 39 because two of the bracket-a notes '+
-    'did not motivate a change proposal.)'
+    'did not motivate a new change proposal. '
+    'One of those two, 1s9:1, already has a pending change proposal. '
+    'The other, 1k9:9, is a mystery to me: '
+    'I can’t figure out what adaptation the bracket-a note is referring to.)'
 )
 _THIS_PAGE_USES = 'This page uses the following abbreviations:'
 _INITIALISMS = my_html.unordered_list([
