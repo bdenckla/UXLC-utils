@@ -21,7 +21,7 @@ class WriteCtx:
 
 
 
-def write_html_to_file(body_contents, write_ctx: WriteCtx):
+def write_html_to_file(body_contents, write_ctx: WriteCtx, path_to_woff2=''):
     """
     Write HTML to file based on the following inputs:
         * a body contents
@@ -29,36 +29,37 @@ def write_html_to_file(body_contents, write_ctx: WriteCtx):
             * a title
             * an output path
     """
-    style = write_ctx.style or _DEFAULT_STYLES_STR
+    style = write_ctx.style or _default_styles_str(path_to_woff2)
     html_el = html_el2(
         write_ctx.title, body_contents, other={'head_style': style})
     my_open.with_tmp_openw(
         write_ctx.path, {}, _write_callback, html_el, write_ctx.add_wbr)
 
 
-_DEFAULT_STYLES_STR = """
-body { font-size: 14pt; }
-*[lang="hbo"] {
-    font-family: "Taamey D WOFF2";
-    font-size: 140%;
-    font-feature-settings: 'ss01'; /* ss01 = ḥataf qamats qatan */
-}
-@font-face {
-    font-family: "Taamey D WOFF2";
-    src: url("woff2/Taamey_D.woff2");
-}
-table.border-collapse { border-collapse: collapse; }
-th, td {
-    padding-right: 0.4em;
-    padding-left: 0.4em;
-}
-tr:nth-of-type(odd) td {
-  background-color: #eee;
-}
-img {
-  max-width: 100%;
-}
-"""
+def _default_styles_str(path_to_woff2=''):
+     return (
+        'body { font-size: 14pt; }\n'
+        '*[lang="hbo"] {\n'
+        '    font-family: "Taamey D WOFF2";\n'
+        '    font-size: 140%;\n'
+        '    font-feature-settings: \'ss01\'; /* ss01 = ḥataf qamats qatan */\n'
+        '}\n'
+        '@font-face {\n'
+        '    font-family: "Taamey D WOFF2";\n'
+        f'src: url("'+path_to_woff2+'woff2/Taamey_D.woff2");\n'
+        '}\n'
+        'table.border-collapse { border-collapse: collapse; }\n'
+        'th, td {\n'
+        '    padding-right: 0.4em;\n'
+        '    padding-left: 0.4em;\n'
+        '}\n'
+        'tr:nth-of-type(odd) td {\n'
+        '  background-color: #eee;\n'
+        '}\n'
+        'img {\n'
+        '  max-width: 100%;\n'
+        '}\n'
+)
 
 
 _SSTT = str.maketrans({  # special space translation table
