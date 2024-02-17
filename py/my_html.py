@@ -29,40 +29,9 @@ def write_html_to_file(body_contents, write_ctx: WriteCtx, path_to_woff2=''):
             * a title
             * an output path
     """
-    style = write_ctx.style or _default_styles_str(path_to_woff2)
-    html_el = html_el2(
-        write_ctx.title, body_contents, other={'head_style': style})
+    html_el = html_el2(write_ctx.title, body_contents, f'{path_to_woff2}style.css')
     my_open.with_tmp_openw(
         write_ctx.path, {}, _write_callback, html_el, write_ctx.add_wbr)
-
-
-def _default_styles_str(path_to_woff2=''):
-     return (
-        'body { font-size: 14pt; }\n'
-        '*[lang="hbo"] {\n'
-        '    font-family: "Taamey D WOFF2";\n'
-        '    font-size: 140%;\n'
-        '    font-feature-settings: \'ss01\'; /* ss01 = ḥataf qamats qatan */\n'
-        '}\n'
-        '@font-face {\n'
-        '    font-family: "Taamey D WOFF2";\n'
-        f'src: url("'+path_to_woff2+'woff2/Taamey_D.woff2");\n'
-        '}\n'
-        'p { max-width: 40em; }\n'
-        'blockquote { max-width: 40em; }\n'
-        'table.limited-width { max-width: 40em; }\n'
-        'table.border-collapse { border-collapse: collapse; }\n'
-        'th, td {\n'
-        '    padding-right: 0.4em;\n'
-        '    padding-left: 0.4em;\n'
-        '}\n'
-        'tr:nth-of-type(odd) td {\n'
-        '  background-color: #eee;\n'
-        '}\n'
-        'img {\n'
-        '  max-width: 100%;\n'
-        '}\n'
-)
 
 
 _SSTT = str.maketrans({  # special space translation table
@@ -124,24 +93,23 @@ def add_htel_to_etxml(etxml_parent, htel):
             add_htel_to_etxml(xml_elem, contents_el)
 
 
-def html_el2(title_text, body_contents, css_hrefs=(), other=None):
+def html_el2(title_text, body_contents, flex_css_hrefs):
     """ Make an <html> element. """
-    other_defaults = {'lang': 'en', 'head_style': None}
-    if other is None:
-        other = {}
-    other = {**other_defaults, **other}
     meta = htel_mk_nlb2_nc('meta', attr={'charset': 'utf-8'})
     title = htel_mk('title', flex_contents=(title_text,))
-    links_to_css = tuple(map(_link_to_css, css_hrefs))
-    if other['head_style'] is None:
-        style_els = ()
-    else:
-        style_el = htel_mk('style', flex_contents=(other['head_style'],))
-        style_els = (style_el,)
-    head_cont = (meta, title) + style_els + links_to_css
+    strict_css_hrefs = _strictify(flex_css_hrefs)
+    links_to_css = tuple(map(_link_to_css, strict_css_hrefs))
+    head_cont = meta, title, *links_to_css
     _head = htel_mk('head', flex_contents=head_cont)
     _body = htel_mk('body', flex_contents=body_contents)
-    return _html_el1({'lang': other['lang']}, (_head, _body))
+    return _html_el1({'lang': 'en'}, (_head, _body))
+
+
+def _strictify(str_or_tuple):
+    if isinstance(str_or_tuple, str):
+        return (str_or_tuple,)
+    assert isinstance(str_or_tuple, tuple)
+    return str_or_tuple
 
 
 def para(contents, attr=None):
