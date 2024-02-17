@@ -19,7 +19,7 @@ def write(records, xml_out_path):
 
 
 def _intro_to_xml_out(xml_out_path):
-    my_html.para([
+    return my_html.para([
         'Here is ',
         my_html.anchor('a single XML file', {'href': xml_out_path}),
         ' '
