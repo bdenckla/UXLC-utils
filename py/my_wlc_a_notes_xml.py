@@ -101,9 +101,7 @@ def _add_description(change_elem, record):
 def _line_excluding_blanks(record):
     if 'line-excluding-blanks' in record:
         return record['line-excluding-blanks']
-    if 'line' in record:
-        return record['line']
-    return 'XXX fill me in line'
+    return record['line']
 
 
 def _add_lc(change_elem, record):
@@ -163,7 +161,18 @@ def _aued_for_dc(string):
 
 
 def _add_analysistags(change_elem, record):
+    if dotan := record.get('Dotan'):
+        assert dotan == 'UXLC disagrees with BHL Appendix A'
+    #
+    # For all the words in the 39 records, UXLC agrees with BHL (body).
+    # Four of the 39 have entries in BHL Appendix A.
+    # UXLC disagrees with all four of them.
+    # Sadly, the "analysistags" element of a UXLC change proposal
+    # does not allow us to distinguish these two cases.
+    # So in all cases we just say "aBHL", meaning "UXLC agrees with BHL (body)".
+    #
     atags_elem = etan.sub_elem(change_elem, 'analysistags')
+    etan.sub_elem(change_elem, 'aBHL')
     # XXX fill me in analysistags
 
 
