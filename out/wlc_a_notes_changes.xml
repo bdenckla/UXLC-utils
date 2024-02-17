@@ -80,7 +80,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>וַיִּֽשְׁתַּחֲוּ</beforetext>
+        <beforetext>וַיִּֽשְׁתַּחֲוּֽ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -120,7 +120,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>וַיְצַוּ</beforetext>
+        <beforetext>וַיְצַוּ֕</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -525,7 +525,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>בּ</beforetext>
+        <beforetext>בְּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -566,7 +566,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>מ</beforetext>
+        <beforetext>מֵ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -607,7 +607,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>מ</beforetext>
+        <beforetext>מִ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -649,7 +649,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>בּ</beforetext>
+        <beforetext>בְּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -689,7 +689,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>פּ</beforetext>
+        <beforetext>פְּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -730,7 +730,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>בּ</beforetext>
+        <beforetext>בָּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -770,7 +770,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>בּ</beforetext>
+        <beforetext>בָּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -814,7 +814,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>כּ</beforetext>
+        <beforetext>כֵּ֥</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -895,7 +895,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>לָהּ</beforetext>
+        <beforetext>לָהּ֙</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -977,7 +977,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>בּ</beforetext>
+        <beforetext>בִּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1018,7 +1018,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>וַיּ</beforetext>
+        <beforetext>וַיִּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1058,7 +1058,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>דָּנִיּ</beforetext>
+        <beforetext>דָּנִיֵּ֣</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1098,7 +1098,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>דָּנִיּ</beforetext>
+        <beforetext>דָּנִיֵּ֣</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1139,7 +1139,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>מִדָּֽנִיּ</beforetext>
+        <beforetext>מִדָּֽנִיֵּ֑</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1220,7 +1220,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>הִזְדּ</beforetext>
+        <beforetext>הִזְדְּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1266,7 +1266,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>בַּטּ</beforetext>
+        <beforetext>בַּטְּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1312,7 +1312,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>בַּטּ</beforetext>
+        <beforetext>בַּטְּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1352,7 +1352,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>הָאֵ֔לּ</beforetext>
+        <beforetext>הָאֵ֔לֶּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1438,7 +1438,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>דּ</beforetext>
+        <beforetext>דִּ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
@@ -1485,7 +1485,7 @@
       <transnote>
         <action>Add</action>
         <type>a</type>
-        <beforetext>תִּצּ</beforetext>
+        <beforetext>תִּצֹּֽ</beforetext>
       </transnote>
     </transnotes>
     <status>Pending</status>
