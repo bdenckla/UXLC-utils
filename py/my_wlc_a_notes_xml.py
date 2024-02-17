@@ -173,7 +173,6 @@ def _add_analysistags(change_elem, record):
     #
     atags_elem = etan.sub_elem(change_elem, 'analysistags')
     etan.sub_elem(change_elem, 'aBHL')
-    # XXX fill me in analysistags
 
 
 def _add_transnotes(change_elem, record):
@@ -181,7 +180,19 @@ def _add_transnotes(change_elem, record):
     trnote_elem = etan.sub_elem(trnotes_elem, 'transnote')
     etan.sub_elem_text(trnote_elem, 'action', 'Add')
     etan.sub_elem_text(trnote_elem, 'type', 'a')
-    etan.sub_elem_text(trnote_elem, 'beforetext', 'XXX fill me in beforetext')  # XXX
+    btxt = _beforetext(record)
+    etan.sub_elem_text(trnote_elem, 'beforetext', btxt)
+
+
+def _beforetext(record):
+    atiss = record['at issue']
+    qere_atom = _qere_atom(record)
+    index = qere_atom.find(atiss)
+    assert index != -1
+    index2 = index + len(atiss)
+    while index2 < len(qere_atom) and qere_atom[index2] not in _LETTERS:
+        index2 += 1
+    return record['qere'][:index2]
 
 
 def _add_status(change_elem):
@@ -193,6 +204,9 @@ def _add_type(change_elem):
 
 def _qere_atom(record):
     return record.get('qere-atom-at-issue') or record['qere']
+
+
+_LETTERS = 'אבגדהוזחטיךכלמםןנסעףפץצקרשת'
 
 # <n>1</n>
 # <citation>
