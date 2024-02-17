@@ -13,8 +13,8 @@ def main():
     my_wlc_a_notes_expand.expand(records_s)
     #
     my_wlc_a_notes_html_full.write(records_s)  # fills in path-to-full fields
-    my_wlc_a_notes_xml.write(records_s)  # fills in path-to-ucp fields
-    my_wlc_a_notes_html_summary.write(records_s)
+    xml_out_path = my_wlc_a_notes_xml.write(records_s)  # fills in path-to-ucp fields
+    my_wlc_a_notes_html_summary.write(records_s, xml_out_path)
 
 
 def _sort_key_for_rec(rec):

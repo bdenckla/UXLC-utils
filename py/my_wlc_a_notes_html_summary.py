@@ -7,12 +7,24 @@ import my_html
 
 
 
-def write(records):
+def write(records, xml_out_path):
     """ Writes WLC a-notes records to index.html and other HTML files. """
-    intro = [*my_wlc_a_notes_html_intro.INTRO, _INTRO_TO_WLC_ORDER]
+    intro = [
+        *my_wlc_a_notes_html_intro.INTRO,
+        _intro_to_xml_out(xml_out_path),
+        _INTRO_TO_WLC_ORDER]
     _write2(records, intro, 'WLC a-notes', 'index.html')
     records_in_wlc_order = sorted(records, key=_get_wlc_index)
     _write2(records_in_wlc_order, [], 'WLC a-notes in WLC order', _PATH_TO_WLC_ORDER)
+
+
+def _intro_to_xml_out(xml_out_path):
+    my_html.para([
+        'Here is ',
+        my_html.anchor('a single XML file', {'href': xml_out_path}),
+        ' '
+        'that has all 37 UXLC change proposals in it.'
+    ])
 
 
 _PATH_TO_WLC_ORDER = 'table-in-wlc-order.html'
