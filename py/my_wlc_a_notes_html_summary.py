@@ -12,10 +12,14 @@ def write(records, xml_out_path):
     intro = [
         *my_wlc_a_notes_html_intro.INTRO,
         _intro_to_xml_out(xml_out_path),
-        _INTRO_TO_WLC_ORDER]
+        _INTRO_TO_WLC_ORDER,
+        _INTRO_TO_BHLA_DIS,
+    ]
     _write2(records, intro, 'WLC a-notes', 'index.html')
     records_in_wlc_order = sorted(records, key=_get_wlc_index)
     _write2(records_in_wlc_order, [], 'WLC a-notes in WLC order', _PATH_TO_WLC_ORDER)
+    records_filtered_to_bhla_dis = filter(_disagrees_with_bhla, records)
+    _write2(records_filtered_to_bhla_dis, [], 'WLC a-notes disagreeing with BHLA', _PATH_TO_BHLA_DIS)
 
 
 def _intro_to_xml_out(xml_out_path):
@@ -35,6 +39,12 @@ _INTRO_TO_WLC_ORDER = my_html.para([
     '(The table below is ordered by UXLC change proposal number. '
     'UXLC change proposals are numbered thematically rather than in WLC order.)'
 ])
+_PATH_TO_BHLA_DIS = 'table-of-BHLA-disagreements.html'
+_INTRO_TO_BHLA_DIS = my_html.para([
+    'The table below is also available ',
+    my_html.anchor('filtered down to disagreements with BHLA', {'href': _PATH_TO_BHLA_DIS}),
+    '.'
+])
 
 
 def _write2(records, intro, title, path):
@@ -46,8 +56,15 @@ def _write2(records, intro, title, path):
     my_html.write_html_to_file(body_contents, write_ctx)
 
 
-def _get_wlc_index(rec):
-    return rec['wlc-index']
+def _get_wlc_index(record):
+    return record['wlc-index']
+
+
+def _disagrees_with_bhla(record):
+    if dotan := record.get('Dotan'):
+        assert dotan == 'UXLC disagrees with BHL Appendix A'
+        return True
+    return False
 
 
 _REC_KEY_FROM_HDR_STR = {
@@ -62,13 +79,13 @@ _HBO_VALS = {
 }
 
 
-def _row_cell_for_hdr_str(rec, hdr_str):
+def _row_cell_for_hdr_str(record, hdr_str):
     rec_key = _REC_KEY_FROM_HDR_STR.get(hdr_str) or hdr_str
-    val = rec[rec_key]
+    val = record[rec_key]
     if rec_key == 'remarks':
         assert isinstance(val, list)
         assert len(val) in (0, 1)
-        anchors = _get_anchors_to_full_and_ucp(rec)
+        anchors = _get_anchors_to_full_and_ucp(record)
         if val:
             datum_contents = [*anchors, '; ', *val]
         else:
@@ -86,10 +103,10 @@ def _row_cell_for_hdr_str(rec, hdr_str):
     return my_html.table_datum(val, attr)
 
 
-def _get_anchors_to_full_and_ucp(rec):
-    path_to_full = rec['path-to-full']
+def _get_anchors_to_full_and_ucp(record):
+    path_to_full = record['path-to-full']
     anchor_to_full = my_html.anchor('full', {'href': path_to_full})
-    path_to_ucp = rec.get('path-to-ucp')
+    path_to_ucp = record.get('path-to-ucp')
     if path_to_ucp:
         something_for_ucp = my_html.anchor('UCP', {'href': path_to_ucp})
     else:
@@ -97,9 +114,9 @@ def _get_anchors_to_full_and_ucp(rec):
     return [anchor_to_full, '; ', something_for_ucp]
 
 
-def _rec_to_row(rec):
+def _rec_to_row(record):
     row_cells = my_utils.ll_map(
-        (_row_cell_for_hdr_str, rec),
+        (_row_cell_for_hdr_str, record),
         strs_for_cells_for_header)
     return my_html.table_row(row_cells)
 

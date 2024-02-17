@@ -17,8 +17,8 @@ def main():
     my_wlc_a_notes_html_summary.write(records_s, xml_out_path)
 
 
-def _sort_key_for_rec(rec):
-    ucp = rec['uxlc-change-proposal']
+def _sort_key_for_rec(record):
+    ucp = record['uxlc-change-proposal']
     if isinstance(ucp, int):
         return 1, ucp
     if isinstance(ucp, str):
