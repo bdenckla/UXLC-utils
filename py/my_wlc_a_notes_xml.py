@@ -108,16 +108,10 @@ def _line_excluding_blanks(record):
 
 def _add_lc(change_elem, record):
     lc_elem = etan.sub_elem(change_elem, 'lc')
-    etan.sub_elem_text(lc_elem, 'folio', _fill_me_in(record, 'folio'))
-    etan.sub_elem_text(lc_elem, 'column', _fill_me_in(record, 'column'))
+    etan.sub_elem_text(lc_elem, 'folio', str(record['folio']))
+    etan.sub_elem_text(lc_elem, 'column', str(record['column']))
     etan.sub_elem_text(lc_elem, 'line', str(_line_excluding_blanks(record)))
     etan.sub_elem_text(lc_elem, 'credit', 'Credit: Sefaria.org.')
-
-
-def _fill_me_in(record, key):
-    if key in record:
-        return str(record[key])
-    return f'XXX fill me in {key}'
 
 
 def _add_xtext_xuni(change_elem, record, xtext, xuni):
