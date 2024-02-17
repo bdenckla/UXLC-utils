@@ -2,7 +2,7 @@
 
 import my_wlc_a_notes
 import my_wlc_a_notes_expand
-import my_wlc_a_notes_html_tables
+import my_wlc_a_notes_html_summary
 import my_wlc_a_notes_html_full
 import my_wlc_a_notes_xml
 
@@ -14,7 +14,7 @@ def main():
     #
     my_wlc_a_notes_html_full.write(records_s)  # fills in path-to-full fields
     my_wlc_a_notes_xml.write(records_s)  # fills in path-to-ucp fields
-    my_wlc_a_notes_html_tables.write(records_s)
+    my_wlc_a_notes_html_summary.write(records_s)
 
 
 def _sort_key_for_rec(rec):

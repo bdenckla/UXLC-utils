@@ -2,7 +2,7 @@
 
 import my_html
 import my_convert_citation_from_wlc_to_uxlc
-import my_wlc_a_notes_img_html as img
+import my_wlc_a_notes_html_img as img
 
 
 def write(io_records):
@@ -114,7 +114,7 @@ def _line_str(record):
 
 
 def _folio_row(record):
-    if 'folio' in record and record['folio'] != 'XXX fill me in folio':
+    if 'folio' in record:
         # XXX make this into a link like:
         # https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F159B.jpg
         #

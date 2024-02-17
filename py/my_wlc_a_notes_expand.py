@@ -3,12 +3,12 @@
 
 def expand(io_records):
     """
-    Add fields including uxlc-change-proposal-sequential.
+    Add fields including uxlc-change-proposal-sequential and 'at issue English'.
     """
     ucp_count = 0
     ucp_dic = {}
     for record in io_records:
-        _add_reason(record)
+        _add_at_issue_english(record)
         ucp = record['uxlc-change-proposal']
         if isinstance(ucp, int):
             assert ucp not in ucp_dic
@@ -17,7 +17,7 @@ def expand(io_records):
             record['uxlc-change-proposal-sequential'] = ucp_count
 
 
-def _add_reason(io_record):
+def _add_at_issue_english(io_record):
     summ_in = io_record['summary']
     atiss_in = io_record['at issue']
     summ_out = _SUMMARY_MAP[summ_in]

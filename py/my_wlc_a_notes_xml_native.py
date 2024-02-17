@@ -1,7 +1,7 @@
 """ Exports write_native_to_html. """
 
 import my_html
-import my_wlc_a_notes_img_html as img
+import my_wlc_a_notes_html_img as img
 
 
 def write_to_html(native, record):
