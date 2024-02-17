@@ -726,8 +726,7 @@ RECORD_32 = {
     'MPK': (
         'דָּנִ'
         '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
-        'א'
-        'ל'
+        'אל'
     ),
     'at issue': 'יּ',
     'summary': '+dg',
@@ -745,8 +744,7 @@ RECORD_33 = {
     'MPK': (
         'דָּנִ'
         '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
-        'א'
-        'ל'
+        'אל'
     ),
     'at issue': 'יּ',
     'summary': '+dg',
@@ -764,8 +762,7 @@ RECORD_34 = {
     'MPK': (
         'מִדָּֽנִ'
         '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT ETNAHTA}'
-        'אֿ'
-        'ל'
+        'אֿל'
     ),
     'at issue': 'יּ',
     'summary': '+dg',
