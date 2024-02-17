@@ -353,7 +353,11 @@ RECORD_14 = {
     'column': 3,
     'line': 11,
     'qere': 'וַיִּוָּלְד֧וּ',
-    'MPK': 'וַיִּ\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}לְד֧וּ',
+    'MPK': (
+        'וַיִּ'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT QAMATS}'
+        'לְד֧וּ'
+    ),
     'at issue': 'וָּ',
     'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('וָּ')],
@@ -446,7 +450,11 @@ RECORD_18 = {
     'line': 11,
     'column-remark': 'This page has only one column. It has a river of whitespace through its middle.',
     'qere': 'וַיִּתְגָּעַ֤שׁ',
-    'MPK': 'וַ\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}תְגָּעַ֤שׁ',
+    'MPK': (
+        'וַ'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT HIRIQ}'
+        'תְגָּעַ֤שׁ'
+    ),
     'at issue': 'יּ',
     'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('yod')],
@@ -490,8 +498,7 @@ RECORD_20 = {
         'The MPK suffix @וּ֥ #becomes @ו֥וּ# in the qere. '
         'In contrast, on closely-analogous words, gn27:29 and gn43:28 use a qubuts: '
         '@וֻ֤ #becomes @ו֤וּ# and '
-        '@וֻּֽ׃ #becomes @וּֽוּ׃# respectively.'
-        '',
+        '@וֻּֽ׃ #becomes @וּֽוּ׃# respectively.',
         #
         'BTW no shin dot is visible, although a shin dot might be hard to see here. '
         'The condition of the manuscript is not great here. '
@@ -852,7 +859,11 @@ RECORD_38 = {
     'column': 1,
     'line': 18,
     'qere': 'הִזְדְּמִנְתּוּן֙',
-    'MPK': 'הִזְ\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}מִנְתּוּן֙',
+    'MPK': (
+        'הִזְ'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT SHEVA}'
+        'מִנְתּוּן֙'
+    ),
     'at issue': 'דּ',
     'summary': '+dg',
     'remarks': [_has_no_letter_to_carry('ד')],
