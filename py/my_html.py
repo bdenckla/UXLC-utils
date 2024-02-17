@@ -48,6 +48,8 @@ def _default_styles_str(path_to_woff2=''):
         '    font-family: "Taamey D WOFF2";\n'
         f'src: url("'+path_to_woff2+'woff2/Taamey_D.woff2");\n'
         '}\n'
+        'p { max-width: 40em; }\n'
+        'blockquote { max-width: 40em; }\n'
         'table.border-collapse { border-collapse: collapse; }\n'
         'th, td {\n'
         '    padding-right: 0.4em;\n'
