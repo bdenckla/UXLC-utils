@@ -6,7 +6,7 @@ body { font-size: 14pt; }
 }
 @font-face {
     font-family: "Taamey D WOFF2";
-src: url("../woff2/Taamey_D.woff2");
+src: url("woff2/Taamey_D.woff2");
 }
 p { max-width: 40em; }
 blockquote { max-width: 40em; }
