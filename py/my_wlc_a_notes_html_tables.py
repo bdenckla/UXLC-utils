@@ -63,13 +63,15 @@ def _row_cell_for_hdr_str(rec, hdr_str):
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
     assert isinstance(val, str)
-    if rec_key in ('qere', 'MPK', 'at issue') or _HBO_VALS.get(val):
-        return my_html.table_datum(val, {'lang': 'hbo', 'dir': 'rtl'})
     if rec_key == 'bcv':
         href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(val)
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)
-    return my_html.table_datum(val)
+    if rec_key in ('qere', 'MPK', 'at issue') or _HBO_VALS.get(val):
+        attr = {'lang': 'hbo', 'dir': 'rtl'}
+    else:
+        attr = None
+    return my_html.table_datum(val, attr)
 
 
 def _get_anchors_to_full_and_ucp(rec):
