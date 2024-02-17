@@ -50,6 +50,7 @@ def _default_styles_str(path_to_woff2=''):
         '}\n'
         'p { max-width: 40em; }\n'
         'blockquote { max-width: 40em; }\n'
+        'table.limited-width { max-width: 40em; }\n'
         'table.border-collapse { border-collapse: collapse; }\n'
         'th, td {\n'
         '    padding-right: 0.4em;\n'

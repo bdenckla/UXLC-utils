@@ -11,7 +11,7 @@ def write_to_html(native, record):
     body_contents = []
     if html_for_i := img.html_for_img_or_imgs(record):
         body_contents.extend(html_for_i)
-    body_contents.append(my_html.table(rows))
+    body_contents.append(my_html.table(rows, {'class': 'limited-width'}))
     ucp_n = int(native['n'])
     ucp_n_str_02 = f'{ucp_n:02d}'
     title = f'UXLC change proposal {ucp_n_str_02}'
