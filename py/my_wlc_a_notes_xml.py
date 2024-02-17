@@ -157,7 +157,7 @@ def _mpk_note_aued_for_dc(mpk):
     mpk_aued = mpk.replace('\N{DOTTED CIRCLE}', _AUED)
     if _AUED in mpk_aued:
         exp = (
-            f' (We use {_AUED_WITH_EXP} to stand in for a blank space.)'
+            f' (We use {_AUED_WITH_EXP} to hold marks not associated with a parent letter.)'
         )
     else:
         exp = ''

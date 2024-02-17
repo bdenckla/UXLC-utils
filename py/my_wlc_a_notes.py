@@ -725,8 +725,8 @@ RECORD_32 = {
     'qere': 'דָּנִיֵּ֣אל',
     'MPK': (
         'דָּנִ'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
         'א'
-        '\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
         'ל'
     ),
     'at issue': 'יּ',
@@ -744,8 +744,8 @@ RECORD_33 = {
     'qere': 'דָּנִיֵּ֣אל',
     'MPK': (
         'דָּנִ'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
         'א'
-        '\N{HEBREW POINT TSERE}\N{HEBREW ACCENT MUNAH}'
         'ל'
     ),
     'at issue': 'יּ',
@@ -763,8 +763,8 @@ RECORD_34 = {
     'qere': 'מִדָּֽנִיֵּ֑אל',
     'MPK': (
         'מִדָּֽנִ'
+        '\N{DOTTED CIRCLE}\N{HEBREW POINT TSERE}\N{HEBREW ACCENT ETNAHTA}'
         'אֿ'
-        '\N{HEBREW POINT TSERE}\N{HEBREW ACCENT ETNAHTA}'
         'ל'
     ),
     'at issue': 'יּ',

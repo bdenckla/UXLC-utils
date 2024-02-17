@@ -21,7 +21,7 @@ _INTRO_TO_WLC_ORDER = my_html.para([
     my_html.anchor('in WLC order', {'href': _PATH_TO_WLC_ORDER}),
     '. '
     '(The table below is ordered by UXLC change proposal number. '
-    'This UXLC change proposals are numbered thematically rather than in WLC order.)'
+    'UXLC change proposals are numbered thematically rather than in WLC order.)'
 ])
 
 
