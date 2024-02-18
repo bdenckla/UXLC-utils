@@ -75,11 +75,11 @@ def _hebrew_spanify2(string: str):
 
 def _initial_rows(record):
     anchor = _anchor(record)
-    book = record['book']
+    uxlc_bkid = record['uxlc_bkid']
     word = record['word']
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', anchor))
-    rows.append(_make_key_value_row('book', book))
+    rows.append(_make_key_value_row('UXLC book ID', uxlc_bkid))
     rows.append(_make_key_value_row('word', word, hbo=True))
     return rows
 
