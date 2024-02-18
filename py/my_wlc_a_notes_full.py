@@ -2,7 +2,7 @@
 
 import my_html
 import my_convert_citation_from_wlc_to_uxlc
-import my_wlc_a_notes_img as img
+import my_html_for_img as img
 
 
 def write(io_records):
@@ -33,8 +33,7 @@ def _write_record(record):
         # XXX make this a real link
         rows.append(_make_key_value_row('existing UCP', ucp))
     #
-    if folio_row := _folio_row(record):
-        rows.append(folio_row)
+    rows.append(_folio_row(record))
     #
     body_contents.append(my_html.table(rows))
     #
