@@ -2,7 +2,7 @@
 
 import xml.etree.ElementTree as ET
 import my_open
-import my_uxlc
+# import my_uxlc
 import my_uxlc_unicode_names
 import my_convert_citation_from_wlc_to_uxlc
 import my_uxlc_book_abbreviations as u_bk_abbr
@@ -85,32 +85,33 @@ def _add_citation(io_uxlc, change_elem, record):
 def _word_position(io_uxlc, record, bcv):
     if position := record.get('pos-within-verse'):
         return position
-    qere_atom = _qere_atom(record)
-    position = _word_position2(io_uxlc, qere_atom, bcv)
-    print_out = {
-        'wlc-index': record['wlc-index'],
-        'qere_atom': qere_atom,
-        'pos-within-verse': position
-    }
-    print(print_out)
-    return position
+    assert False
+    # qere_atom = _qere_atom(record)
+    # position = _word_position2(io_uxlc, qere_atom, bcv)
+    # print_out = {
+    #     'wlc-index': record['wlc-index'],
+    #     'qere_atom': qere_atom,
+    #     'pos-within-verse': position
+    # }
+    # print(print_out)
+    # return position
 
 
-def _word_position2(io_uxlc, qere_atom, bcv):
-    verse_words = _get_verse_words(io_uxlc, bcv)
-    index = verse_words.index(qere_atom)
-    assert index != -1
-    return index + 1
+# def _word_position2(io_uxlc, qere_atom, bcv):
+#     verse_words = _get_verse_words(io_uxlc, bcv)
+#     index = verse_words.index(qere_atom)
+#     assert index != -1
+#     return index + 1
 
 
-def _get_verse_words(io_uxlc, bcv):
-    uxlc_bkid, chnu, vrnu = bcv
-    if uxlc_bkid not in io_uxlc:
-        std_bkid = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[uxlc_bkid]
-        io_uxlc[uxlc_bkid] = my_uxlc.read(std_bkid)
-    chidx = chnu - 1
-    vridx = vrnu - 1
-    return io_uxlc[uxlc_bkid][chidx][vridx]
+# def _get_verse_words(io_uxlc, bcv):
+#     uxlc_bkid, chnu, vrnu = bcv
+#     if uxlc_bkid not in io_uxlc:
+#         std_bkid = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[uxlc_bkid]
+#         io_uxlc[uxlc_bkid] = my_uxlc.read(std_bkid)
+#     chidx = chnu - 1
+#     vridx = vrnu - 1
+#     return io_uxlc[uxlc_bkid][chidx][vridx]
 
 
 def _add_author(change_elem):
