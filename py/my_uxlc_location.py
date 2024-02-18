@@ -1,4 +1,4 @@
-""" Exports estimate_location. """
+""" Exports prep & estimate. """
 
 import my_uxlc_cvp as cvp
 import my_uxlc_lci_augrec as lci_augrec
@@ -6,6 +6,13 @@ import my_uxlc_lci_rec as lci_rec
 import my_uxlc_bibdist as bibdist
 import my_uxlc_page_break_info as page_break_info
 import my_tanakh_book_names as tbn
+import my_uxlc
+
+
+def prep():
+    uxlc = {bkid: my_uxlc.read(bkid) for bkid in tbn.ALL_BOOK_IDS}
+    pbi = page_break_info.read_in(uxlc)
+    return uxlc, pbi
 
 
 def estimate(uxlc, pbi, cite_e):
