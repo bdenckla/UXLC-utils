@@ -149,8 +149,10 @@ RECORD_04 = {
     'MPK': 'מְעֵ֥בֶר',
     'at issue': 'בּ',
     'summary': '+dg',
-    'remarks': [_does_not_carry('מ', 'ב')+'for some reason. '+'This is the dual of js24:15.'],
+    'remarks': [_does_not_carry('מ', 'ב')+'for some reason.'],
     'side-notes': [
+        'This is the dual of js24:15.',
+        #
         'Dotan notes that strictly speaking, the implied qere is '
         '@בְעֵ֥בֶר#, which leaves the ב unexpectedly free of a dagesh.'
     ],
@@ -168,11 +170,9 @@ RECORD_05 = {
     'MPK': 'בְּעֵ֥בֶר',
     'at issue': 'מ',
     'summary': '-dg',
-    'remarks': [
-        'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '
-        'This is the dual of js22:7.'
-    ],
+    'remarks': ['The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected.'],
     'side-notes': [
+        'This is the dual of js22:7.',
         'Dotan notes that strictly speaking, the implied qere is '
         '@מֵּעֵ֣בֶר#, which gives the מ an unexpected dagesh.'
     ],
@@ -644,11 +644,9 @@ RECORD_27 = {
     'MPK': 'בִּמְּלֹ֖ךְ',
     'at issue': 'מ',
     'summary': '-dg',
-    'remarks': [
-        'The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. '
-        'See js24:15, which is similar.'
-    ],
+    'remarks': ['The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected.'],
     'side-notes': [
+        'See js24:15, which is similar.',
         'Dotan does not note this case, though he does note js24:15.'
     ],
 }
