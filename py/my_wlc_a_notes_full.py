@@ -2,7 +2,7 @@
 
 import my_html
 import my_convert_citation_from_wlc_to_uxlc
-import my_wlc_a_notes_html_img as img
+import my_wlc_a_notes_img as img
 
 
 def write(io_records):

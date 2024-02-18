@@ -1,7 +1,7 @@
 """ Exports write_html. """
 
 import my_convert_citation_from_wlc_to_uxlc
-import my_wlc_a_notes_html_intro
+import my_wlc_a_notes_intro
 import my_utils
 import my_html
 
@@ -10,7 +10,7 @@ import my_html
 def write(records, xml_out_path):
     """ Writes WLC a-notes records to index.html and other HTML files. """
     intro = [
-        *my_wlc_a_notes_html_intro.INTRO,
+        *my_wlc_a_notes_intro.INTRO,
         _intro_to_xml_out(xml_out_path),
         _INTRO_TO_WLC_ORDER,
         _INTRO_TO_BHLA_DIS,

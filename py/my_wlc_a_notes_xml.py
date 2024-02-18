@@ -6,8 +6,8 @@ import my_uxlc
 import my_uxlc_unicode_names
 import my_convert_citation_from_wlc_to_uxlc
 import my_uxlc_book_abbreviations as u_bk_abbr
-import my_wlc_a_notes_xml_native as native
-import my_wlc_a_notes_xml_etan as etan
+import my_wlc_a_notes_native as native
+import my_wlc_a_notes_etan as etan
 
 def write(io_records):
     """ Write records out in UXLC change proposal format. """
