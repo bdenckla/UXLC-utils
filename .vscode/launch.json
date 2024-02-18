@@ -13,6 +13,13 @@
             "justMyCode": true
         },
         {
+            "name": "amb early mtg",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "py/main_amb_early_mtg.py",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "WLC a-notes",
             "type": "debugpy",
             "request": "launch",
