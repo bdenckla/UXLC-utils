@@ -78,11 +78,13 @@ def _initial_rows(record):
     word = record['word']
     page = record['page']
     flg = record['fline-guess']
+    clg = record['col-and-line-guess']
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', anchor))
     rows.append(_make_key_value_row('word', word, hbo=True))
     rows.append(_make_key_value_row('page', page))
     rows.append(_make_key_value_row('fline-guess', flg))
+    rows.append(_make_key_value_row('col-and-line-guess', clg))
     return rows
 
 

@@ -18,18 +18,28 @@ def main():
         record['initial-remark'] = 'dummy initial remark'
         record['bcv-str'] = _bcv_str(record)
         record['tanach-dot-us-url'] = _tanach_dot_us_url(record)
-        paf = _page_and_flg(uxlc, pbi, _bcvp_quad(record))
-        record['page'] = paf[0]
-        record['fline-guess'] = paf[1]
+        pag = _page_and_guesses(uxlc, pbi, _bcvp_quad(record))
+        record['page'] = pag[0]
+        record['fline-guess'] = pag[1]
+        record['col-and-line-guess'] = pag[2]
     #
     my_amb_early_mtg_full.write(records)  # fills in path-to-full fields
     my_amb_early_mtg_summary.write(records)
 
 
-def _page_and_flg(uxlc, pbi, bcvp_quad):
+def _page_and_guesses(uxlc, pbi, bcvp_quad):
     page, guess_fline = my_uxlc_location.estimate(uxlc, pbi, bcvp_quad)
+    if guess_fline > 54:
+        line = guess_fline - 54
+        clg = f'col 3 line {line:.1f}'
+    elif guess_fline > 27:
+        line = guess_fline - 27
+        clg = f'col 2 line {line:.1f}'
+    else:
+        line = guess_fline
+        clg = f'col 1 line {line:.1f}'
     guess_fline_str = f'{guess_fline:.1f}'
-    return page, guess_fline_str
+    return page, guess_fline_str, clg
 
 
 def _bcvp_quad(record):
