@@ -79,15 +79,14 @@ def _initial_rows(record):
     word = record['word']
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', anchor))
-    rows.append(_make_key_value_row('UXLC book ID', uxlc_bkid))
     rows.append(_make_key_value_row('word', word, hbo=True))
     return rows
 
 
 def _anchor(record):
-    bcv = record['bcv']
-    href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(bcv)
-    return my_html.anchor(bcv, {'href': href})
+    bcv_str = record['bcv-str']
+    href = record['tanach-dot-us-url']
+    return my_html.anchor(bcv_str, {'href': href})
 
 
 def _line_str(record):

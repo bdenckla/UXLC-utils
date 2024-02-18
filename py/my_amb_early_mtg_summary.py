@@ -24,6 +24,7 @@ def _write2(records, intro, title, path):
 
 _REC_KEY_FROM_HDR_STR = {
     'initial remark': 'initial-remark',
+    'bcv': 'bcv-str'
 }
 
 
@@ -39,8 +40,8 @@ def _row_cell_for_hdr_str(record, hdr_str):
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
     assert isinstance(val, str)
-    if rec_key == 'bcv':
-        href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(val)
+    if rec_key == 'bcv-str':
+        href = record['tanach-dot-us-url']
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)
     if rec_key in ('word',):
