@@ -8,15 +8,18 @@ import my_convert_citation_from_wlc_to_uxlc
 import my_uxlc_book_abbreviations as u_bk_abbr
 import my_wlc_a_notes_native as native
 import my_wlc_a_notes_etan as etan
+import my_wlc_a_notes
 
 def write(io_records):
     """ Write records out in UXLC change proposal format. """
     dated_change_set = ET.Element('date')
     ET.SubElement(dated_change_set, 'date').text = '2024.02.09'
+    posrecdic = _posrecdic()
     uxlc = {}
     for io_record in io_records:
         ucp_seq = io_record.get('uxlc-change-proposal-sequential')
         if ucp_seq is not None:
+            io_record['pos-within-verse'] = _pos_within_verse(io_record, posrecdic)
             change_elem = etan.top_elem(dated_change_set, 'change')
             _add_misc(uxlc, change_elem, io_record)
             io_record['path-to-ucp'] = native.write_to_html(change_elem['native'], io_record)
@@ -28,6 +31,16 @@ def write(io_records):
     my_open.with_tmp_openw(
         f'docs/wlc-a-notes/{path}', {}, _etree_write_callback, dated_change_set_tree)
     return path
+
+
+def _posrecdic():
+    return {posrec['wlc-index']: posrec for posrec in my_wlc_a_notes.POSITION_RECORDS}
+
+
+def _pos_within_verse(record, posrecdic):
+    wlc_index = record['wlc-index']
+    posrec = posrecdic[wlc_index]
+    return posrec['pos-within-verse']
 
 
 def _etree_write_callback(xml_elementtree, out_fp):
@@ -60,20 +73,34 @@ def _add_citation(io_uxlc, change_elem, record):
     wlc_bcv_str = record['bcv']
     uxlc_bkid = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
     chnu, vrnu = my_convert_citation_from_wlc_to_uxlc.get_cv_pair(wlc_bcv_str)
-    index = _index(io_uxlc, _qere_atom(record), (uxlc_bkid, chnu, vrnu))
-    position = index + 1
+    bcv = uxlc_bkid, chnu, vrnu
+    word_position = _word_position(io_uxlc, record, bcv)
     #
     etan.sub_elem_text(citation_elem, 'book', uxlc_bkid)
     etan.sub_elem_text(citation_elem, 'c', str(chnu))
     etan.sub_elem_text(citation_elem, 'v', str(vrnu))
-    etan.sub_elem_text(citation_elem, 'position', str(position))
+    etan.sub_elem_text(citation_elem, 'position', str(word_position))
 
 
-def _index(io_uxlc, word, bcv):
+def _word_position(io_uxlc, record, bcv):
+    if position := record.get('pos-within-verse'):
+        return position
+    qere_atom = _qere_atom(record)
+    position = _word_position2(io_uxlc, qere_atom, bcv)
+    print_out = {
+        'wlc-index': record['wlc-index'],
+        'qere_atom': qere_atom,
+        'pos-within-verse': position
+    }
+    print(print_out)
+    return position
+
+
+def _word_position2(io_uxlc, qere_atom, bcv):
     verse_words = _get_verse_words(io_uxlc, bcv)
-    index = verse_words.index(word)
+    index = verse_words.index(qere_atom)
     assert index != -1
-    return index
+    return index + 1
 
 
 def _get_verse_words(io_uxlc, bcv):
