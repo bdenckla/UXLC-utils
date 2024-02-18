@@ -516,7 +516,8 @@
     <changeuni>bet dagesh sheva ayin tsere merkha bet segol resh</changeuni>
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is מְעֵ֥בֶר.</note>
-      <note>The MPK’s מ does not carry a dagesh for the qere’s ב, for some reason. This is the dual of js24:15.</note>
+      <note>The MPK’s מ does not carry a dagesh for the qere’s ב, for some reason.</note>
+      <note>This is the dual of js24:15.</note>
       <note>Dotan notes that strictly speaking, the implied qere is בְעֵ֥בֶר, which leaves the ב unexpectedly free of a dagesh.</note>
     </notes>
     <analysistags />
@@ -557,7 +558,8 @@
     <changeuni>mem tsere ayin tsere munah bet segol resh</changeuni>
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is בְּעֵ֥בֶר.</note>
-      <note>The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. This is the dual of js22:7.</note>
+      <note>The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected.</note>
+      <note>This is the dual of js22:7.</note>
       <note>Dotan notes that strictly speaking, the implied qere is מֵּעֵ֣בֶר, which gives the מ an unexpected dagesh.</note>
     </notes>
     <analysistags />
@@ -598,7 +600,8 @@
     <changeuni>mem hiriq mem dagesh sheva lamed holam tipeha final-kaf sheva</changeuni>
     <notes>
       <note>The manuscript’s pointed ketiv (MPK) is בִּמְּלֹ֖ךְ.</note>
-      <note>The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected. See js24:15, which is similar.</note>
+      <note>The MPK’s בּ seems to carry a dagesh for the qere’s מ but it is rejected.</note>
+      <note>See js24:15, which is similar.</note>
       <note>Dotan does not note this case, though he does note js24:15.</note>
     </notes>
     <analysistags />
