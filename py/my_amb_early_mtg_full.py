@@ -11,12 +11,12 @@ def write(io_records):
         io_record['path-to-full'] = _write_record(io_record)
 
 
-_HBO_RTL = {'lang': 'hbo', 'dir': 'rtl'}
+_HBO_RTL = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
 
 
-def _make_key_value_row(key, value, hbo=False):
+def _make_key_value_row(key, value, big_hbo=False):
     cell_for_key = my_html.table_datum(key)
-    attr = _HBO_RTL if hbo else None
+    attr = _HBO_RTL if big_hbo else None
     cell_for_value = my_html.table_datum(value, attr)
     return my_html.table_row([cell_for_key, cell_for_value])
 
@@ -78,7 +78,7 @@ def _initial_rows(record):
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
     rows.append(_make_key_value_row('img file name', record['img']))
-    rows.append(_make_key_value_row('word', record['word'], hbo=True))
+    rows.append(_make_key_value_row('word', record['word'], big_hbo=True))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
     if fem := record.get('false early mtg'):

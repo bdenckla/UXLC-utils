@@ -2,7 +2,6 @@ body { font-size: 14pt; }
 *[lang="hbo"] {
     font-family: "Taamey D WOFF2";
     font-size: 140%;
-    font-feature-settings: 'ss01'; /* ss01 = ḥataf qamats qatan */
 }
 @font-face {
     font-family: "Taamey D WOFF2";
