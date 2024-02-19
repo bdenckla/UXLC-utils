@@ -133,13 +133,13 @@ _RECORD_41 = {
     'word': 'הָאֽ͏ָהֳלִ֖י', 'bcvp': ('Josh', 7, 21, 22), 'img': 'Josh7v21.png'
 }
 _RECORD_42 = {
-    'word': 'וְאֽ͏ַחֲרֵי־', 'bcvp': ('Josh', 8, 34, 1), 'img': 'Josh8v34.png'
+    'word': 'וְאֽ͏ַחֲרֵי־', 'bcvp': ('Josh', 8, 34, 1), 'line': 6, 'img': 'Josh8v34.png'
 }
 _RECORD_43 = {
-    'word': 'וְנֽ͏ַהֲלָל֙', 'bcvp': ('Josh', 19, 15, 2), 'img': 'Josh19v15.png'
+    'word': 'וְנֽ͏ַהֲלָל֙', 'bcvp': ('Josh', 19, 15, 2), 'line': 25, 'img': 'Josh19v15.png'
 }
 _RECORD_44 = {
-    'word': 'וְהֽ͏ַחִתִּי֙', 'bcvp': ('Josh', 24, 11, 14), 'img': 'Josh24v11.png'
+    'word': 'וְהֽ͏ַחִתִּי֙', 'bcvp': ('Josh', 24, 11, 14), 'line': 11, 'img': 'Josh24v11.png'
 }
 _RECORD_45 = {
     'word': 'וַיּֽ͏ַחֲנ֖וּ', 'bcvp': ('Judg', 20, 19, 5), 'img': 'Judg20v19.png'
