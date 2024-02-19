@@ -25,9 +25,8 @@ def _write2(records, intro, title, path):
 def _row_cell_for_hdr_str(record, hdr_str):
     if hdr_str == 'initial remark':
         anchors = _get_anchors_to_full_and_ucp(record)
-        initial_remark = record['initial-remark']
-        assert isinstance(initial_remark, str)
-        if initial_remark:
+        if initial_remark := record.get('initial-remark'):
+            assert isinstance(initial_remark, str)
             datum_contents = [*anchors, '; ', *initial_remark]
         else:
             datum_contents = anchors

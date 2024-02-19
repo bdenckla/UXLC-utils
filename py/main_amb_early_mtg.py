@@ -15,7 +15,6 @@ def main():
     for recidx, record in enumerate(records):
         # _print_bcvp(io_uxlc, recidx, record)
         record['original-order'] = recidx + 1
-        record['initial-remark'] = 'dummy initial remark'
         pg_and_gs = _page_and_guesses(uxlc, pbi, _bcvp_quad(record))
         for key, val in pg_and_gs.items():
             record[key] = pg_and_gs[key]
