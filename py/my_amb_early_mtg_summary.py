@@ -6,14 +6,11 @@ import my_html
 
 
 
-def write(records):
+def write(records, path, title, intro=None):
     """ Writes amb-early-mtg records to index.html and other HTML files. """
-    intro = [
-    ]
-    _write2(records, intro, 'Ambiguous early metegs', 'index.html')
-
-
-def _write2(records, intro, title, path):
+    if intro is None:
+        intro = []
+    assert isinstance(intro, list)
     rows_for_data = list(map(_rec_to_row, records))
     rows = [_row_for_header(), *rows_for_data]
     table = my_html.table(rows)

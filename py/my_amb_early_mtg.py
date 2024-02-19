@@ -46,7 +46,7 @@ _RECORD_14 = {
 _RECORD_15 = {
     'word': 'וַיּֽ͏ַעֲשׂ֖וּ', 'bcvp': ('Ex', 12, 50, 1), 'img': 'Ex12v50.png',
     'false early mtg': True,
-    'initial remark': 'proposed change in email but not yet a UXLC change proposal'
+    'initial-remark': 'Proposed change in email but not yet a UXLC change proposal.'
 }
 _RECORD_16 = {
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
@@ -55,6 +55,11 @@ _RECORD_16 = {
 _RECORD_17 = {
     'word': 'וַיּֽ͏ַעֲמֹ֖ד', 'bcvp': ('Ex', 14, 19, 14), 'line': 18, 'img': '17-Ex14v19a14.png',
     'false early mtg': True,
+    'initial-remark': 'The first two pataḥ marks are shifted “late”.',
+    'further-remarks': [
+        'Despite this shift, if we assume that the meteg tracks with this shift, '
+        'the vav rather than the yod “owns” the meteg.'
+    ]
 }
 _RECORD_18 = {
     'word': 'וַיּֽ͏ַאֲמִ֙ינוּ֙', 'bcvp': ('Ex', 14, 31, 14), 'line': 5, 'img': '18-Ex14v31a14.png',
@@ -72,7 +77,8 @@ _RECORD_21 = {
 _RECORD_22 = {
     'word': 'וַיּֽ͏ַעֲל֖וּ', 'bcvp': ('Ex', 24, 5, 6), 'img': 'Ex24v5.png',
     'false early mtg': True,
-    'existing UXLC change proposal': 'https://hcanat.us/Changes/2024.04.01%20-%20Changes/2024.04.01%20-%20Changes.xml?2024.01.29-3'
+    'initial-remark': 'See UXLC change proposal 2024.01.29-3.',
+    'existing UXLC change proposal': ('2024.04.01', '2024.01.29-3'),
 }
 _RECORD_23 = {
     'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 30, 12, 5), 'img': 'Ex30v12.png',

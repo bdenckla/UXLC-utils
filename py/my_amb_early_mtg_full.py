@@ -83,7 +83,16 @@ def _initial_rows(record):
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
     if fem := record.get('false early mtg'):
         rows.append(_make_key_value_row('false early mtg', str(fem)))
+    if eucp := record.get('existing UXLC change proposal'):
+        rows.append(_make_key_value_row('existing UCP', _eucp_with_link(eucp)))
     return rows
+
+
+def _eucp_with_link(eucp):
+    change_set, change_id = eucp
+    change_set_str = f'{change_set}%20-%20Changes'
+    url = f'https://hcanat.us/Changes/{change_set_str}/{change_set_str}.xml?{change_id}'
+    return my_html.anchor(change_id, {'href': url})
 
 
 def _colx_and_linex(record):
