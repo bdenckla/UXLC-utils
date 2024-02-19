@@ -87,10 +87,10 @@ _RECORD_26 = {
     'word': 'וְאֽ͏ֵלַמָּ֔יו', 'bcvp': ('Ezek', 40, 36, 3), 'wq': 'q', 'line': 9, 'img': '26-Ezek40v36.png'
 }
 _RECORD_27 = {
-    'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ezra', 10, 16, 1), 'img': 'Ezra10v16.png'
+    'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ezra', 10, 16, 1), 'line': 3, 'img': 'Ezra10v16.png'
 }
 _RECORD_28 = {
-    'word': 'לְהֽ͏ַחֲיֽוֹת׃', 'bcvp': ('Gen', 6, 20, 14), 'img': 'Gen6v20.png'
+    'word': 'לְהֽ͏ַחֲיֽוֹת׃', 'bcvp': ('Gen', 6, 20, 14), 'line': 6, 'img': 'Gen6v20.png'
 }
 _RECORD_29 = {
     'word': 'בְּעֽ͏ַנְנִ֥י', 'bcvp': ('Gen', 9, 14, 2), 'img': 'Gen9v14.png'
