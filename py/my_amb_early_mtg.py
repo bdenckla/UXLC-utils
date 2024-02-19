@@ -81,7 +81,7 @@ _RECORD_24 = {
 }
 _RECORD_25 = {
     'word': 'וְלֽ͏ָקַחְתָּ֣', 'bcvp': ('Ezek', 5, 2, 9), 'line': 16, 'img': '25-Ezek5v2.png',
-    'false early mtg': True,
+    'false early mtg': True,  # or at least debatable
 }
 _RECORD_26 = {
     'word': 'וְאֽ͏ֵלַמָּ֔יו', 'bcvp': ('Ezek', 40, 36, 3), 'wq': 'q', 'line': 9, 'img': '26-Ezek40v36.png'
@@ -99,19 +99,20 @@ _RECORD_30 = {
     'word': 'וְהֽ͏ַכְּנַעֲנִ֖י', 'bcvp': ('Gen', 12, 6, 10), 'img': 'Gen12v6.png'
 }
 _RECORD_31 = {
-    'word': 'וְאֽ͏ֶעֱשֶׂ֨ה', 'bcvp': ('Gen', 27, 9, 12), 'img': 'Gen27v9.png'
+    'word': 'וְאֽ͏ֶעֱשֶׂ֨ה', 'bcvp': ('Gen', 27, 9, 12), 'line': 5, 'img': 'Gen27v9.png'
 }
 _RECORD_32 = {
     'word': 'וַיּֽ͏ַעֲל֨וּ', 'bcvp': ('Gen', 50, 7, 6), 'img': 'Gen50v7.png'
 }
 _RECORD_33 = {
-    'word': 'וְהֽ͏ַחֲזָקָ֗ה', 'bcvp': ('Isa', 27, 1, 8), 'img': 'Isa27v1.png'
+    'word': 'וְהֽ͏ַחֲזָקָ֗ה', 'bcvp': ('Isa', 27, 1, 8), 'line': 20, 'img': 'Isa27v1.png'
 }
 _RECORD_34 = {
-    'word': 'בְּרֽ͏ָע׃', 'bcvp': ('Isa', 33, 15, 19), 'img': 'Isa33v15.png'
+    'word': 'בְּרֽ͏ָע׃', 'bcvp': ('Isa', 33, 15, 19), 'line': 19, 'img': 'Isa33v15.png'
 }
 _RECORD_35 = {
-    'word': 'וְקֽ͏ָרָאתָ֩', 'bcvp': ('Jer', 3, 12, 2), 'img': 'Jer3v12.png'
+    'word': 'וְקֽ͏ָרָאתָ֩', 'bcvp': ('Jer', 3, 12, 2), 'img': 'Jer3v12.png',
+    'false early mtg': True,  # or at least debatable
 }
 _RECORD_36 = {
     'word': 'הַמּֽ͏ַעֲשִׂ֥ים', 'bcvp': ('Jer', 7, 13, 6), 'img': 'Jer7v13.png'

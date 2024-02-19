@@ -1,6 +1,6 @@
 """ Exports write_html. """
 
-import my_convert_citation_from_wlc_to_uxlc
+import my_amb_early_mtg_utils as  aem_utils
 import my_utils
 import my_html
 
@@ -22,16 +22,9 @@ def _write2(records, intro, title, path):
     my_html.write_html_to_file(body_contents, write_ctx)
 
 
-_REC_KEY_FROM_HDR_STR = {
-    'initial remark': 'initial-remark',
-    'bcv': 'bcv-str'
-}
-
-
 def _row_cell_for_hdr_str(record, hdr_str):
-    rec_key = _REC_KEY_FROM_HDR_STR.get(hdr_str) or hdr_str
-    val = record[rec_key]
-    if rec_key == 'initial-remark':
+    if hdr_str == 'initial-remark':
+        val = record['initial-remark']
         assert isinstance(val, str)
         anchors = _get_anchors_to_full_and_ucp(record)
         if val:
@@ -39,12 +32,14 @@ def _row_cell_for_hdr_str(record, hdr_str):
         else:
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
-    assert isinstance(val, str)
-    if rec_key == 'bcv-str':
-        href = record['tanach-dot-us-url']
+    if hdr_str == 'bcv':
+        val = aem_utils.bcv_str(record)
+        href = aem_utils.tanach_dot_us_url(record)
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)
-    if rec_key in ('word',):
+    val = record[hdr_str]
+    assert isinstance(val, str)
+    if hdr_str in ('word',):
         attr = {'lang': 'hbo', 'dir': 'rtl'}
     else:
         assert False

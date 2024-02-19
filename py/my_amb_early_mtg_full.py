@@ -1,7 +1,7 @@
 """ Exports write_xml. """
 
 import my_html
-import my_convert_citation_from_wlc_to_uxlc
+import my_amb_early_mtg_utils as aem_utils
 import my_html_for_img as img
 
 
@@ -74,14 +74,13 @@ def _hebrew_spanify2(string: str):
 
 
 def _initial_rows(record):
-    anchor = _anchor(record)
+    bcv_with_link_to_tdu = _bcv_with_link_to_tdu(record)
     word = record['word']
-    page = record['page']
     rows = []
-    rows.append(_make_key_value_row('bcv (link to tanach.us)', anchor))
+    rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
     rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('word', word, hbo=True))
-    rows.append(_make_key_value_row('page', page))
+    rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     if record.get('line'):
         rows.append(_make_key_value_row('col-and-line', _col_and_line(record)))
     else:
@@ -102,9 +101,15 @@ def _colg_and_lineg(record):
     return f'{columng} {lineg}'
 
 
-def _anchor(record):
-    bcv_str = record['bcv-str']
+def _bcv_with_link_to_tdu(record):
+    bcv_str = aem_utils.bcv_str(record)
     href = record['tanach-dot-us-url']
+    return my_html.anchor(bcv_str, {'href': href})
+
+
+def _page_with_link_to_img(record):
+    bcv_str = record['page']
+    href = f'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F{page}.jpg'
     return my_html.anchor(bcv_str, {'href': href})
 
 

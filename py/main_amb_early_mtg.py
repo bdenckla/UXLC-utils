@@ -16,8 +16,6 @@ def main():
         # _print_bcvp(io_uxlc, recidx, record)
         record['original-order'] = recidx + 1
         record['initial-remark'] = 'dummy initial remark'
-        record['bcv-str'] = _bcv_str(record)
-        record['tanach-dot-us-url'] = _tanach_dot_us_url(record)
         pg_and_gs = _page_and_guesses(uxlc, pbi, _bcvp_quad(record))
         for key, val in pg_and_gs.items():
             record[key] = pg_and_gs[key]
@@ -52,18 +50,6 @@ def _bcvp_quad(record):
     uxlc_bkid = bcvp[0]
     std_bkid = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[uxlc_bkid]
     return std_bkid, *bcvp[1:]
-
-
-def _bcv_str(record):
-    bcvp = record['bcvp']
-    uxlc_bkid = bcvp[0]
-    chnu, vrnu = bcvp[1:3]
-    return f'{uxlc_bkid}{chnu}:{vrnu}'
-
-
-def _tanach_dot_us_url(record):
-    bcv_str = _bcv_str(record)
-    return f'https://tanach.us/Tanach.xml?{bcv_str}'
 
 
 # def _print_bcvp(io_uxlc, recidx, record):
