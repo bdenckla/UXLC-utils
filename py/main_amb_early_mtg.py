@@ -26,10 +26,10 @@ def main():
 
 def _page_and_guesses(uxlc, pbi, bcvp_quad):
     page, fline_guess = my_uxlc_location.estimate(uxlc, pbi, bcvp_quad)
-    if fline_guess > 54:
+    if fline_guess > 55:
         line_guess = fline_guess - 54
         col_guess = 3
-    elif fline_guess > 27:
+    elif fline_guess >= 28:
         line_guess = fline_guess - 27
         col_guess = 2
     else:

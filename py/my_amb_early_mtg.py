@@ -172,7 +172,7 @@ _RECORD_54 = {
     'word': 'וְהֽ͏ֶאֱבִ֥יד', 'bcvp': ('Num', 24, 19, 3), 'img': 'Num24v19.png'
 }
 _RECORD_55 = {
-    'word': 'וְהֽ͏ַעֲמַדְתָּ֣', 'bcvp': ('Num', 3, 6, 5), 'img': 'Num3v6.png'
+    'word': 'וְהֽ͏ַעֲמַדְתָּ֣', 'bcvp': ('Num', 27, 19, 1), 'img': 'Num27v19.png'
 }
 _RECORD_56 = {
     'word': 'תֵדֽ͏ָע׃', 'bcvp': ('Prov', 5, 6, 8), 'img': 'Prov5v6.png'
@@ -202,7 +202,7 @@ _RECORD_64 = {
     'word': 'וַ֭יּֽ͏ַדְרִיכֵם', 'bcvp': ('Ps', 107, 7, 1), 'img': 'Ps107v7.png'
 }
 _RECORD_65 = {
-    'word': 'עָלֽ͏ָי׃', 'bcvp': ('Ps', 16, 6, 8), 'img': 'Ps16v6.png'
+    'word': 'עָלֽ͏ָי׃', 'bcvp': ('Ps', 142, 8, 12), 'img': 'Ps142v8.png'
 }
 _RECORD_66 = {
     'word': 'וַיּֽ͏ִזְכְּרֶ֖הָ', 'bcvp': ('1Sam', 1, 19, 16), 'img': '1Sam1v19.png'
