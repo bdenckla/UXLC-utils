@@ -43,14 +43,16 @@ def _page_and_guesses(uxlc, pbi, bcvp_quad):
 
 
 def _bcvp_quad(record):
-    uxlc_bkid = record['UXLC-bkid']
+    bcvp = record['bcvp']
+    uxlc_bkid = bcvp[0]
     std_bkid = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[uxlc_bkid]
-    return std_bkid, *record['ch-vr-ps']
+    return std_bkid, *bcvp[1:]
 
 
 def _bcv_str(record):
-    uxlc_bkid = record['UXLC-bkid']
-    chnu, vrnu, _psnu = record['ch-vr-ps']
+    bcvp = record['bcvp']
+    uxlc_bkid = bcvp[0]
+    chnu, vrnu = bcvp[1:3]
     return f'{uxlc_bkid}{chnu}:{vrnu}'
 
 
