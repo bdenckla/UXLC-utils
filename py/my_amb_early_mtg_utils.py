@@ -6,5 +6,5 @@ def bcv_str(record):
 
 
 def tanach_dot_us_url(record):
-    bcv_str = bcv_str(record)
-    return f'https://tanach.us/Tanach.xml?{bcv_str}'
+    the_bcv_str = bcv_str(record)
+    return f'https://tanach.us/Tanach.xml?{the_bcv_str}'

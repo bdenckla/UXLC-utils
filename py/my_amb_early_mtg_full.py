@@ -103,14 +103,14 @@ def _colg_and_lineg(record):
 
 def _bcv_with_link_to_tdu(record):
     bcv_str = aem_utils.bcv_str(record)
-    href = record['tanach-dot-us-url']
+    href = aem_utils.tanach_dot_us_url(record)
     return my_html.anchor(bcv_str, {'href': href})
 
 
 def _page_with_link_to_img(record):
-    bcv_str = record['page']
+    page = record['page']
     href = f'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F{page}.jpg'
-    return my_html.anchor(bcv_str, {'href': href})
+    return my_html.anchor(page, {'href': href})
 
 
 def _line_str(record):

@@ -23,7 +23,7 @@ def _write2(records, intro, title, path):
 
 
 def _row_cell_for_hdr_str(record, hdr_str):
-    if hdr_str == 'initial-remark':
+    if hdr_str == 'initial remark':
         val = record['initial-remark']
         assert isinstance(val, str)
         anchors = _get_anchors_to_full_and_ucp(record)
