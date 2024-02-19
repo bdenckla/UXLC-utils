@@ -45,9 +45,9 @@ def _write_record(record):
 
 
 def _append_remarks_and_side_notes(io_body_contents, record):
-    if init_remark := record.get('initial-remark'):
-        assert not init_remark.endswith(' ')
-        io_body_contents.append(my_html.para(init_remark))
+    if initial_remark := record.get('initial-remark'):
+        assert not initial_remark.endswith(' ')
+        io_body_contents.append(my_html.para(initial_remark))
     #
     if further_remarks := record.get('further-remarks'):
         for fur_remark in further_remarks:
@@ -74,7 +74,7 @@ def _hebrew_spanify2(string: str):
 
 
 def _initial_rows(record):
-    bcv_with_link_to_tdu = _bcv_with_link_to_tdu(record)
+    bcv_with_link_to_tdu = aem_utils.bcv_with_link_to_tdu(record)
     word = record['word']
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
@@ -99,12 +99,6 @@ def _colg_and_lineg(record):
     columng = record['column-guess']
     lineg = record['line-guess']
     return f'{columng} {lineg}'
-
-
-def _bcv_with_link_to_tdu(record):
-    bcv_str = aem_utils.bcv_str(record)
-    href = aem_utils.tanach_dot_us_url(record)
-    return my_html.anchor(bcv_str, {'href': href})
 
 
 def _page_with_link_to_img(record):

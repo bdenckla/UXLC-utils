@@ -24,26 +24,24 @@ def _write2(records, intro, title, path):
 
 def _row_cell_for_hdr_str(record, hdr_str):
     if hdr_str == 'initial remark':
-        val = record['initial-remark']
-        assert isinstance(val, str)
         anchors = _get_anchors_to_full_and_ucp(record)
-        if val:
-            datum_contents = [*anchors, '; ', *val]
+        initial_remark = record['initial-remark']
+        assert isinstance(initial_remark, str)
+        if initial_remark:
+            datum_contents = [*anchors, '; ', *initial_remark]
         else:
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
     if hdr_str == 'bcv':
-        val = aem_utils.bcv_str(record)
-        href = aem_utils.tanach_dot_us_url(record)
-        anchor = my_html.anchor(val, {'href': href})
+        anchor = aem_utils.bcv_with_link_to_tdu(record)
         return my_html.table_datum(anchor)
-    val = record[hdr_str]
-    assert isinstance(val, str)
+    initial_remark = record[hdr_str]
+    assert isinstance(initial_remark, str)
     if hdr_str in ('word',):
         attr = {'lang': 'hbo', 'dir': 'rtl'}
     else:
         assert False
-    return my_html.table_datum(val, attr)
+    return my_html.table_datum(initial_remark, attr)
 
 
 def _get_anchors_to_full_and_ucp(record):
