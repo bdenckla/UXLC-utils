@@ -75,20 +75,26 @@ def _hebrew_spanify2(string: str):
 
 def _initial_rows(record):
     bcv_with_link_to_tdu = aem_utils.bcv_with_link_to_tdu(record)
-    word = record['word']
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
     rows.append(_make_key_value_row('img file name', record['img']))
-    rows.append(_make_key_value_row('word', word, hbo=True))
+    rows.append(_make_key_value_row('word', record['word'], hbo=True))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
-    if record.get('line'):
-        rows.append(_make_key_value_row('col-and-line', _col_and_line(record)))
-    else:
-        rows.append(_make_key_value_row('col-guess-and-line-guess', _colg_and_lineg(record)))
+    rows.append(_make_key_value_row(*_colx_and_linex(record)))
+    if fem := record.get('false early mtg'):
+        rows.append(_make_key_value_row('false early mtg', str(fem)))
     return rows
 
 
-def _col_and_line(record):
+def _colx_and_linex(record):
+    if record.get('line'):
+        return 'col-and-line', _cole_and_linee(record)
+    return 'col-guess-and-line-guess', _colg_and_lineg(record)
+
+
+def _cole_and_linee(record):
+    # cole: column, exact
+    # linee: line, exact
     # If line is given, and column is not given, we assume column guess was right.
     column = record.get('column') or record['column-guess']
     line = record['line']
