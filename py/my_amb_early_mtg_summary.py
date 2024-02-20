@@ -43,12 +43,7 @@ def _row_cell_for_hdr_str(record, hdr_str):
 def _get_anchors_to_full_and_ucp(record):
     path_to_full = record['path-to-full']
     anchor_to_full = my_html.anchor('full', {'href': path_to_full})
-    path_to_ucp = record.get('path-to-ucp')
-    if path_to_ucp:
-        something_for_ucp = my_html.anchor('UCP', {'href': path_to_ucp})
-    else:
-        something_for_ucp = '(no UCP)'
-    return [anchor_to_full, '; ', something_for_ucp]
+    return [anchor_to_full]
 
 
 def _rec_to_row(record):

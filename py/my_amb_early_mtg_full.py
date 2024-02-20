@@ -10,8 +10,26 @@ import my_html_for_img as img
 def write(io_records):
     """ Write records out in full format. """
     nrec = len(io_records)
+    prev_record = None
+    for io_record in io_records:
+        if prev_record:
+            io_record['prev'] = prev_record
+            prev_record['next'] = io_record
     for recidx, io_record in enumerate(io_records):
         io_record['path-to-full'] = _write_record(recidx+1, nrec, io_record)
+
+
+def _set_prev_and_next(io_records):
+    prev_record = None
+    for io_record in io_records:
+        if prev_record:
+            io_record['prev'] = prev_record
+        prev_record = io_record
+    next_record = None
+    for io_record in reversed(io_records):
+        if next_record:
+            io_record['next'] = next_record
+        next_record = io_record
 
 
 _HBO_RTL = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
@@ -28,13 +46,15 @@ def _write_record(recnum, nrec, record):
     #
     body_contents = []
     #
+    prev_rec = record['prev']
+    next_rec = record['next']
     navs = []
-    if recnum > 1:
-        navs.append(_anchor_for_nav('Prev', recnum-1))
-    if recnum < nrec:
+    if prev_rec:
+        navs.append(_anchor_for_nav('Prev', prev_rec))
+    if next_rec:
         if navs:
             navs.append(' ')
-        navs.append(_anchor_for_nav('Next', recnum+1))
+        navs.append(_anchor_for_nav('Next', next_rec))
     body_contents.append(my_html.para(navs))
     #
     if html_for_i := img.html_for_img_or_imgs(record):
@@ -45,7 +65,7 @@ def _write_record(recnum, nrec, record):
     if folio_row := _folio_row(record):
         rows.append(folio_row)
     #
-    body_contents.append(my_html.table(rows))
+    body_contents.append(my_html.table(rows, {'class': 'limited-width'}))
     #
     _append_remarks_and_side_notes(body_contents, record)
     #
@@ -59,8 +79,9 @@ def _write_record(recnum, nrec, record):
     return path
 
 
-def _anchor_for_nav(pn_str, recnum):
-    return my_html.anchor(pn_str, {'href': _filename(recnum)})
+def _anchor_for_nav(pn_str, record):
+    orord = record['original-order']
+    return my_html.anchor(pn_str, {'href': _filename(orord)})
 
 
 def _filename(recnum):
@@ -75,8 +96,8 @@ def _append_remarks_and_side_notes(io_body_contents, record):
     if further_remarks := record.get('further-remarks'):
         for fur_remark in further_remarks:
             assert not fur_remark.endswith(' ')
-            hesp = _hebrew_spanify(fur_remark)
-            io_body_contents.append(my_html.para(hesp))
+            hesp_fur = _hebrew_spanify(fur_remark)
+            io_body_contents.append(my_html.para(hesp_fur))
 
 
 def _hebrew_spanify(string: str):
@@ -107,12 +128,24 @@ def _initial_rows(record):
     if deml2 := record.get('dubious early mtg on letter 2'):
         pro = _proposed_word(record, deml2)
         rows.append(_make_key_value_row('proposed word', pro, big_hbo=True))
+        if mam_word := record.get('MAM-word'):
+            rows.append(_make_key_value_row('MAM word', mam_word, big_hbo=True))
         rows.append(_make_key_value_row('dubious early mtg on letter 2', str(deml2)))
     if eucp := record.get('existing UXLC change proposal'):
         rows.append(_make_key_value_row('existing UCP', _eucp_with_link(eucp)))
+    if mamsta := record.get('MAM-status'):
+        rows.append(_make_key_value_row('MAM status', _mam_status(record, mamsta)))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
     return rows
+
+
+def _mam_status(record, mamsta):
+    out = [mamsta]
+    if diff_url := record.get('MAM-diff-URL'):
+        anchor = my_html.anchor('Wikisource diff', {'href': diff_url})
+        out.extend([' ', anchor])
+    return out
 
 
 def _proposed_word(record, deml2):

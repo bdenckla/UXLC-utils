@@ -1,5 +1,19 @@
 """ Exports RECORDS. """
 
+_MAM_STATUS_CNN_ALREADY_DONE = (
+    'Change not needed since change already made on Wikisource.'
+)
+_MAM_STATUS_CNN_MACRO_NOT_AT_ISSUE = (
+    'Change not needed since MAM’s corresponding word discards UXLC meteg micro-placement, '
+    'and the macro-placement is not at issue here. '
+    'I.e. MAM does not preseve the earliness of the meteg, '
+    'and which letter it belongs to is not at issue here.'
+)
+_MAM_STATUS_CHANGE_MAY_BE_NEEDED = (
+    'Change may be needed since MAM’s corresponding word retains UXLC’s meteg macro-placement. '
+    'I.e. MAM does not preseve the earliness of the meteg but it does preserve which letter it belongs to.'
+)
+
 
 _RECORD_01 = {
     'word': 'וּמֽ͏ַעֲשֵׂ֔ה', 'bcvp': ('1Chr', 23, 28, 17), 'img': '1Chr23v28.png',
@@ -50,11 +64,16 @@ _RECORD_15 = {
     'word': 'וַיּֽ͏ַעֲשׂ֖וּ', 'bcvp': ('Ex', 12, 50, 1), 'img': 'Ex12v50.png',
     'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on the first letter',
     'initial-remark': 'Proposed change in email but not yet a UXLC change proposal.',
+    'MAM-word': 'וַֽיַּעֲשׂ֖וּ',
+    'MAM-status': _MAM_STATUS_CNN_ALREADY_DONE,
+    'MAM-diff-URL': 'https://he.wikisource.org/w/index.php?title=%D7%A9%D7%9E%D7%95%D7%AA_%D7%99%D7%91%2F%D7%98%D7%A2%D7%9E%D7%99%D7%9D&diff=2839217&oldid=2815126',
 }
 _RECORD_16 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲשׂוּ־'),
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'MAM-word': 'וַיַּֽעֲשׂוּ־',
+    'MAM-status': _MAM_STATUS_CHANGE_MAY_BE_NEEDED,
 }
 _RECORD_17 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲמֹ֖ד'),
@@ -65,11 +84,15 @@ _RECORD_17 = {
         'Despite this shift, if we assume that the meteg tracks with this shift, '
         'the vav rather than the yod “owns” the meteg.'
     ],
+    'MAM-word': 'וַיַּֽעֲמֹ֖ד',
+    'MAM-status': _MAM_STATUS_CHANGE_MAY_BE_NEEDED,
 }
 _RECORD_18 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'אֲמִ֙ינוּ֙'),
     'word': 'וַיּֽ͏ַאֲמִ֙ינוּ֙', 'bcvp': ('Ex', 14, 31, 14), 'line': 5, 'img': '18-Ex14v31a14.png',
     'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on the first letter',
+    'MAM-word': 'וַיַּֽאֲמִ֙ינוּ֙',
+    'MAM-status': _MAM_STATUS_CHANGE_MAY_BE_NEEDED,
 }
 _RECORD_19 = {
     'word': 'וְהֽ͏ַאֲזַנְתָּ֙', 'bcvp': ('Ex', 15, 26, 11), 'img': 'Ex15v26a11.png',
@@ -86,6 +109,9 @@ _RECORD_22 = {
     'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on the first letter',
     'initial-remark': 'See UXLC change proposal 2024.01.29-3.',
     'existing UXLC change proposal': ('2024.04.01', '2024.01.29-3'),
+    'MAM-word': 'וַֽיַּעֲל֖וּ',
+    'MAM-status': _MAM_STATUS_CNN_ALREADY_DONE,
+    'MAM-diff-URL': 'https://he.wikisource.org/w/index.php?title=%D7%A9%D7%9E%D7%95%D7%AA_%D7%9B%D7%93%2F%D7%98%D7%A2%D7%9E%D7%99%D7%9D&diff=2838019&oldid=2837894',
 }
 _RECORD_23 = {
     'word123p': ('בְּ', 'נֽ͏ֵ', 'י־'),
@@ -96,6 +122,8 @@ _RECORD_23 = {
         'BHS agrees with L so this seems like purely a WLC transcription error.',
         'An almost identical error appears in @בְּנֽ͏ֵי־# in UXLC Ex 35:20.'
     ],
+    'MAM-word': 'בְּנֵֽי־',
+    'MAM-status': _MAM_STATUS_CNN_MACRO_NOT_AT_ISSUE,
 }
 _RECORD_24 = {
     'word123p': ('בְּ', 'נֽ͏ֵ', 'י־'),
@@ -106,11 +134,16 @@ _RECORD_24 = {
         'BHS agrees with L so this seems like purely a WLC transcription error.',
         'An almost identical error appears in @בְּנֽ͏ֵי־# in UXLC Ex 30:12.'
     ],
+    'MAM-word': 'בְּנֵֽי־',
+    'MAM-status': _MAM_STATUS_CNN_MACRO_NOT_AT_ISSUE,
 }
 _RECORD_25 = {
     'word123p': ('וְ', 'לֽ͏ָ', 'קַחְתָּ֣'),
     'word': 'וְלֽ͏ָקַחְתָּ֣', 'bcvp': ('Ezek', 5, 2, 9), 'line': 16, 'img': '25-Ezek5v2.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'initial-remark': 'The sheva has an additional dot below it, but we ignore that dot.',
+    'MAM-word': 'וְלָקַחְתָּ֣',
+    'MAM-status': 'No change needed since MAM has no meteg at all on this word.'
 }
 _RECORD_26 = {
     'word': 'וְאֽ͏ֵלַמָּ֔יו', 'bcvp': ('Ezek', 40, 36, 3), 'wq': 'q', 'line': 9, 'img': '26-Ezek40v36.png',
@@ -143,6 +176,10 @@ _RECORD_35 = {
     'word123p': ('וְ', 'קֽ͏ָ', 'רָאתָ֩'),
     'word': 'וְקֽ͏ָרָאתָ֩', 'bcvp': ('Jer', 3, 12, 2), 'img': 'Jer3v12.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'initial-remark': 'MAM notes with surprise that Mechon Mamre has meteg on qof.',
+    'further-remarks': ['MAM’s note is ממ!=@וְקָֽרָאתָ֩#'],
+    'MAM-word': 'וְֽקָרָ֩אתָ֩',
+    'MAM-status': 'No change needed; MAM already fixed this or never had this problem to begin with.',
 }
 _RECORD_36 = {
     'word': 'הַמּֽ͏ַעֲשִׂ֥ים', 'bcvp': ('Jer', 7, 13, 6), 'img': 'Jer7v13.png',
@@ -193,6 +230,9 @@ _RECORD_51 = {
     'word123p': ('וְ', 'הֽ͏ַ', 'עֲמַדְתָּ֣'),
     'word': 'וְהֽ͏ַעֲמַדְתָּ֣', 'bcvp': ('Num', 3, 6, 5), 'img': 'Num3v6.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'initial-remark': 'MAM notes the uncertainty of the ownership of this meteg in L.',
+    'MAM-word': 'וְהַעֲמַדְתָּ֣',
+    'MAM-status': 'No change needed since MAM has no meteg at all on this word.'
 }
 _RECORD_52 = {
     'word': 'לְטֽ͏ַהֲרָ֔ם', 'bcvp': ('Num', 8, 7, 4), 'img': 'Num8v7.png',
@@ -228,6 +268,8 @@ _RECORD_62 = {
     'word123p': ('וַ֭', 'יּֽ͏ַ', 'עֲבֹר'),
     'word': 'וַ֭יּֽ͏ַעֲבֹר', 'bcvp': ('Ps', 37, 36, 1), 'img': 'Ps37v36.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'MAM-word': 'וַֽ֭יַּעֲבֹר',
+    'MAM-status': 'No change needed; MAM already fixed this or never had this problem to begin with.',
 }
 _RECORD_63 = {
     'word': 'פָּ֤קֽ͏ַדְתָּ', 'bcvp': ('Ps', 65, 10, 1), 'img': 'Ps65v10.png',
@@ -236,6 +278,8 @@ _RECORD_64 = {
     'word123p': ('וַ֭', 'יּֽ͏ַ', 'דְרִיכֵם'),
     'word': 'וַ֭יּֽ͏ַדְרִיכֵם', 'bcvp': ('Ps', 107, 7, 1), 'img': 'Ps107v7.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'MAM-word': 'וַֽ֭יַּדְרִיכֵם',
+    'MAM-status': 'No change needed; MAM already fixed this or never had this problem to begin with.',
 }
 _RECORD_65 = {
     'word': 'עָלֽ͏ָי׃', 'bcvp': ('Ps', 142, 8, 12), 'img': 'Ps142v8.png',
