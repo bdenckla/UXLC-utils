@@ -4,10 +4,10 @@ _MAM_STATUS_CNN_ALREADY_DONE = (
     'Change not needed since change already made on Wikisource.'
 )
 _MAM_STATUS_CNN_FIXED_LONG_AGO = (
-    'No change needed; MAM already fixed this or never had this problem to begin with.'
+    'Change not needed since MAM already fixed this or never had this problem to begin with.'
 )
 _MAM_STATUS_CNN_NO_METEG = (
-    'No change needed since MAM has no meteg at all on this word.'
+    'Change not needed since MAM has no meteg at all on this word.'
 )
 _MAM_STATUS_CNN_MACRO_NOT_AT_ISSUE = (
     'Change not needed since MAM’s corresponding word discards UXLC meteg micro-placement, '
