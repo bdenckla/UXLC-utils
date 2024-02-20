@@ -12,11 +12,16 @@ def main():
     #
     my_amb_early_mtg_extend.extend_records(records)  # mutates, i.e. modifies in-place
     #
+    _set_prev_and_next(records, 'prev', 'next')
+    #
+    dubious_recs = list(filter(_has_deml2, records))
+    #
+    _set_prev_and_next(dubious_recs, 'prev-dubious', 'next-dubious')
+    #
     # Now we write varies HTML files in a bottom-up (leaves first) fashion
     #
     my_amb_early_mtg_full.write(records)  # fills in path-to-full fields
     #
-    dubious_recs = list(filter(_has_deml2, records))
     dubious_path = 'dubious.html'
     dubious_title = 'Words with dubious early meteg on their 2nd letter'
     my_amb_early_mtg_summary.write(dubious_recs, dubious_path, dubious_title)
@@ -24,6 +29,19 @@ def main():
     intro = _intro(records, dubious_recs, dubious_path, dubious_title)
     title = 'Words with early meteg on their 2nd letter'
     my_amb_early_mtg_summary.write(records, 'index.html', title, intro)
+
+
+def _set_prev_and_next(io_records, prevkey, nextkey):
+    prev_record = None
+    for io_record in io_records:
+        if prev_record:
+            io_record[prevkey] = prev_record
+        prev_record = io_record
+    next_record = None
+    for io_record in reversed(io_records):
+        if next_record:
+            io_record[nextkey] = next_record
+        next_record = io_record
 
 
 def _intro(records, dubious_recs, dubious_path, dubious_title):

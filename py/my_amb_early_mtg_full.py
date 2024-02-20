@@ -9,22 +9,8 @@ import my_html_for_img as img
 
 def write(io_records):
     """ Write records out in full format. """
-    _set_prev_and_next(io_records)
     for io_record in io_records:
         io_record['path-to-full'] = _write_record(io_record)
-
-
-def _set_prev_and_next(io_records):
-    prev_record = None
-    for io_record in io_records:
-        if prev_record:
-            io_record['prev'] = prev_record
-        prev_record = io_record
-    next_record = None
-    for io_record in reversed(io_records):
-        if next_record:
-            io_record['next'] = next_record
-        next_record = io_record
 
 
 _HBO_RTL = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
@@ -41,14 +27,7 @@ def _write_record(record):
     #
     body_contents = []
     #
-    navs = []
-    if prev_rec := record.get('prev'):
-        navs.append(_anchor_for_nav('Prev', prev_rec))
-    if next_rec := record.get('next'):
-        if navs:
-            navs.append(' ')
-        navs.append(_anchor_for_nav('Next', next_rec))
-    body_contents.append(my_html.para(navs))
+    body_contents.append(my_html.para(_navs(record)))
     #
     if html_for_i := img.html_for_img_or_imgs(record):
         body_contents.extend(html_for_i)
@@ -69,6 +48,22 @@ def _write_record(record):
     write_ctx = my_html.WriteCtx(title, f'docs/amb-early-mtg/{path}')
     my_html.write_html_to_file(body_contents, write_ctx, '../')
     return path
+
+
+def _navs(record):
+    navs = []
+    _maybe_append_nav(navs, record, 'prev', 'Prev')
+    _maybe_append_nav(navs, record, 'next', 'Next')
+    _maybe_append_nav(navs, record, 'prev-dubious', 'Prev-dubious')
+    _maybe_append_nav(navs, record, 'next-dubious', 'Next-dubious')
+    return navs
+
+
+def _maybe_append_nav(io_navs, record, key, human_readable):
+    if pn_rec := record.get(key):  # previous or next rec
+        if io_navs:
+            io_navs.append(' ')
+        io_navs.append(_anchor_for_nav(human_readable, pn_rec))
 
 
 def _anchor_for_nav(pn_str, record):
