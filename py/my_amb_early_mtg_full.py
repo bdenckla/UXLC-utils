@@ -9,14 +9,9 @@ import my_html_for_img as img
 
 def write(io_records):
     """ Write records out in full format. """
-    nrec = len(io_records)
-    prev_record = None
+    _set_prev_and_next(io_records)
     for io_record in io_records:
-        if prev_record:
-            io_record['prev'] = prev_record
-            prev_record['next'] = io_record
-    for recidx, io_record in enumerate(io_records):
-        io_record['path-to-full'] = _write_record(recidx+1, nrec, io_record)
+        io_record['path-to-full'] = _write_record(io_record)
 
 
 def _set_prev_and_next(io_records):
@@ -42,16 +37,14 @@ def _make_key_value_row(key, value, big_hbo=False):
     return my_html.table_row([cell_for_key, cell_for_value])
 
 
-def _write_record(recnum, nrec, record):
+def _write_record(record):
     #
     body_contents = []
     #
-    prev_rec = record['prev']
-    next_rec = record['next']
     navs = []
-    if prev_rec:
+    if prev_rec := record.get('prev'):
         navs.append(_anchor_for_nav('Prev', prev_rec))
-    if next_rec:
+    if next_rec := record.get('next'):
         if navs:
             navs.append(' ')
         navs.append(_anchor_for_nav('Next', next_rec))
@@ -70,9 +63,8 @@ def _write_record(recnum, nrec, record):
     _append_remarks_and_side_notes(body_contents, record)
     #
     orord = record['original-order']
-    assert orord == recnum
-    title = f'Ambiguous early meteg {recnum}'
-    filename = _filename(recnum)
+    title = f'Ambiguous early meteg {orord}'
+    filename = _filename(orord)
     path = f'full-record/{filename}'
     write_ctx = my_html.WriteCtx(title, f'docs/amb-early-mtg/{path}')
     my_html.write_html_to_file(body_contents, write_ctx, '../')
@@ -84,8 +76,8 @@ def _anchor_for_nav(pn_str, record):
     return my_html.anchor(pn_str, {'href': _filename(orord)})
 
 
-def _filename(recnum):
-    return f'amb-early-mtg-{recnum:02}.html'
+def _filename(orord):
+    return f'amb-early-mtg-{orord:02}.html'
 
 
 def _append_remarks_and_side_notes(io_body_contents, record):
