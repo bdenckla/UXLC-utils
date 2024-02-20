@@ -48,7 +48,7 @@ _RECORD_14 = {
 _RECORD_15 = {
     'word': 'וַיּֽ͏ַעֲשׂ֖וּ', 'bcvp': ('Ex', 12, 50, 1), 'img': 'Ex12v50.png',
     'false early mtg': True,
-    'initial-remark': 'Proposed change in email but not yet a UXLC change proposal.'
+    'initial-remark': 'Proposed change in email but not yet a UXLC change proposal.',
 }
 _RECORD_16 = {
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
@@ -61,17 +61,17 @@ _RECORD_17 = {
     'further-remarks': [
         'Despite this shift, if we assume that the meteg tracks with this shift, '
         'the vav rather than the yod “owns” the meteg.'
-    ]
+    ],
 }
 _RECORD_18 = {
     'word': 'וַיּֽ͏ַאֲמִ֙ינוּ֙', 'bcvp': ('Ex', 14, 31, 14), 'line': 5, 'img': '18-Ex14v31a14.png',
     'false early mtg': True,
 }
 _RECORD_19 = {
-    'word': 'וְהֽ͏ַאֲזַנְתָּ֙', 'bcvp': ('Ex', 15, 26, 11), 'img': 'Ex15v26.png',
+    'word': 'וְהֽ͏ַאֲזַנְתָּ֙', 'bcvp': ('Ex', 15, 26, 11), 'img': 'Ex15v26a11.png',
 }
 _RECORD_20 = {
-    'word': 'הַמּֽ͏ַחֲלָ֞ה', 'bcvp': ('Ex', 15, 26, 17), 'img': 'Ex15v26.png',
+    'word': 'הַמּֽ͏ַחֲלָ֞ה', 'bcvp': ('Ex', 15, 26, 17), 'img': 'Ex15v26a17.png',
 }
 _RECORD_21 = {
     'word': 'וַיּֽ͏ַעַמְד֖וּ', 'bcvp': ('Ex', 20, 18, 17), 'img': 'Ex20v18.png',
@@ -84,9 +84,21 @@ _RECORD_22 = {
 }
 _RECORD_23 = {
     'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 30, 12, 5), 'img': 'Ex30v12.png',
+    'false early mtg': 'false early where true is late (normal) on lett. 2 not lett. 1!',
+    'initial-remark': 'L has a normal meteg on the 2nd letter (nun).',
+    'further-remarks': [
+        'BHS agrees with L so this seems like purely a WLC transcription error.',
+        'An almost identical error appears in @בְּנֽ͏ֵי־# in UXLC Ex 35:20.'
+    ],
 }
 _RECORD_24 = {
-    'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 30, 12, 5), 'img': 'Ex30v12.png',
+    'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 35, 20, 4), 'img': 'Ex35v20.png',
+    'false early mtg': 'false early where true is late (normal) on lett. 2 not lett. 1!',
+    'initial-remark': 'L has a normal meteg on the 2nd letter (nun).',
+    'further-remarks': [
+        'BHS agrees with L so this seems like purely a WLC transcription error.',
+        'An almost identical error appears in @בְּנֽ͏ֵי־# in UXLC Ex 30:12.'
+    ],
 }
 _RECORD_25 = {
     'word': 'וְלֽ͏ָקַחְתָּ֣', 'bcvp': ('Ezek', 5, 2, 9), 'line': 16, 'img': '25-Ezek5v2.png',
