@@ -98,9 +98,11 @@ def _hebrew_spanify2(string: str):
 
 def _initial_rows(record):
     bcv_with_link_to_tdu = aem_utils.bcv_with_link_to_tdu(record)
+    bcv_with_link_to_mwd = aem_utils.bcv_with_link_to_mwd(record)
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
-    rows.append(_make_key_value_row('img file name', record['img']))
+    rows.append(_make_key_value_row('bcv (link to Mwd)', bcv_with_link_to_mwd))
+    # rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('word', record['word'], big_hbo=True))
     if deml2 := record.get('dubious early mtg on letter 2'):
         pro = _proposed_word(record, deml2)
