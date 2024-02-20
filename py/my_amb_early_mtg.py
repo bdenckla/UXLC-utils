@@ -27,6 +27,8 @@ _RECORD_08 = {
 }
 _RECORD_09 = {
     'word': 'וְקֽ͏ָרְבָה֙', 'bcvp': ('Deut', 25, 11, 7), 'img': 'Deut25v11.png',
+    'initial-remark': 'Seems more like a ḥiriq than a sheva under the vav.',
+    'further-remarks': ['Seems like there was an erasure under the vav.'],
 }
 _RECORD_10 = {
     'word': 'וְלֽ͏ָאַלְמָנָ֔ה', 'bcvp': ('Deut', 26, 12, 16), 'img': 'Deut26v12.png',
@@ -50,7 +52,7 @@ _RECORD_15 = {
 }
 _RECORD_16 = {
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
-    'false early mtg': True,
+    'false early mtg': 'hard call',
 }
 _RECORD_17 = {
     'word': 'וַיּֽ͏ַעֲמֹ֖ד', 'bcvp': ('Ex', 14, 19, 14), 'line': 18, 'img': '17-Ex14v19a14.png',
@@ -88,7 +90,7 @@ _RECORD_24 = {
 }
 _RECORD_25 = {
     'word': 'וְלֽ͏ָקַחְתָּ֣', 'bcvp': ('Ezek', 5, 2, 9), 'line': 16, 'img': '25-Ezek5v2.png',
-    'false early mtg': True,  # or at least debatable
+    'false early mtg': 'hard call',
 }
 _RECORD_26 = {
     'word': 'וְאֽ͏ֵלַמָּ֔יו', 'bcvp': ('Ezek', 40, 36, 3), 'wq': 'q', 'line': 9, 'img': '26-Ezek40v36.png',
@@ -119,7 +121,7 @@ _RECORD_34 = {
 }
 _RECORD_35 = {
     'word': 'וְקֽ͏ָרָאתָ֩', 'bcvp': ('Jer', 3, 12, 2), 'img': 'Jer3v12.png',
-    'false early mtg': True,  # or at least debatable
+    'false early mtg': 'hard call',
 }
 _RECORD_36 = {
     'word': 'הַמּֽ͏ַעֲשִׂ֥ים', 'bcvp': ('Jer', 7, 13, 6), 'img': 'Jer7v13.png',
@@ -168,7 +170,7 @@ _RECORD_50 = {
 }
 _RECORD_51 = {
     'word': 'וְהֽ͏ַעֲמַדְתָּ֣', 'bcvp': ('Num', 3, 6, 5), 'img': 'Num3v6.png',
-    # hard call
+    'false early mtg': 'hard call',
 }
 _RECORD_52 = {
     'word': 'לְטֽ͏ַהֲרָ֔ם', 'bcvp': ('Num', 8, 7, 4), 'img': 'Num8v7.png',
@@ -202,14 +204,14 @@ _RECORD_61 = {
 }
 _RECORD_62 = {
     'word': 'וַ֭יּֽ͏ַעֲבֹר', 'bcvp': ('Ps', 37, 36, 1), 'img': 'Ps37v36.png',
-    'false early mtg': True,  # or at least debatable
+    'false early mtg': 'hard call',
 }
 _RECORD_63 = {
     'word': 'פָּ֤קֽ͏ַדְתָּ', 'bcvp': ('Ps', 65, 10, 1), 'img': 'Ps65v10.png',
 }
 _RECORD_64 = {
     'word': 'וַ֭יּֽ͏ַדְרִיכֵם', 'bcvp': ('Ps', 107, 7, 1), 'img': 'Ps107v7.png',
-    'false early mtg': True,  # or at least debatable
+    'false early mtg': 'hard call',
 }
 _RECORD_65 = {
     'word': 'עָלֽ͏ָי׃', 'bcvp': ('Ps', 142, 8, 12), 'img': 'Ps142v8.png',
