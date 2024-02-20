@@ -3,6 +3,12 @@
 _MAM_STATUS_CNN_ALREADY_DONE = (
     'Change not needed since change already made on Wikisource.'
 )
+_MAM_STATUS_CNN_FIXED_LONG_AGO = (
+    'No change needed; MAM already fixed this or never had this problem to begin with.'
+)
+_MAM_STATUS_CNN_NO_METEG = (
+    'No change needed since MAM has no meteg at all on this word.'
+)
 _MAM_STATUS_CNN_MACRO_NOT_AT_ISSUE = (
     'Change not needed since MAM’s corresponding word discards UXLC meteg micro-placement, '
     'and the macro-placement is not at issue here. '
@@ -143,7 +149,7 @@ _RECORD_25 = {
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
     'initial-remark': 'The sheva has an additional dot below it, but we ignore that dot.',
     'MAM-word': 'וְלָקַחְתָּ֣',
-    'MAM-status': 'No change needed since MAM has no meteg at all on this word.'
+    'MAM-status': _MAM_STATUS_CNN_NO_METEG
 }
 _RECORD_26 = {
     'word': 'וְאֽ͏ֵלַמָּ֔יו', 'bcvp': ('Ezek', 40, 36, 3), 'wq': 'q', 'line': 9, 'img': '26-Ezek40v36.png',
@@ -179,7 +185,7 @@ _RECORD_35 = {
     'initial-remark': 'MAM notes with surprise that Mechon Mamre has meteg on qof.',
     'further-remarks': ['MAM’s note is ממ!=@וְקָֽרָאתָ֩#'],
     'MAM-word': 'וְֽקָרָ֩אתָ֩',
-    'MAM-status': 'No change needed; MAM already fixed this or never had this problem to begin with.',
+    'MAM-status': _MAM_STATUS_CNN_FIXED_LONG_AGO,
 }
 _RECORD_36 = {
     'word': 'הַמּֽ͏ַעֲשִׂ֥ים', 'bcvp': ('Jer', 7, 13, 6), 'img': 'Jer7v13.png',
@@ -232,7 +238,7 @@ _RECORD_51 = {
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
     'initial-remark': 'MAM notes the uncertainty of the ownership of this meteg in L.',
     'MAM-word': 'וְהַעֲמַדְתָּ֣',
-    'MAM-status': 'No change needed since MAM has no meteg at all on this word.'
+    'MAM-status': _MAM_STATUS_CNN_NO_METEG
 }
 _RECORD_52 = {
     'word': 'לְטֽ͏ַהֲרָ֔ם', 'bcvp': ('Num', 8, 7, 4), 'img': 'Num8v7.png',
@@ -269,7 +275,7 @@ _RECORD_62 = {
     'word': 'וַ֭יּֽ͏ַעֲבֹר', 'bcvp': ('Ps', 37, 36, 1), 'img': 'Ps37v36.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
     'MAM-word': 'וַֽ֭יַּעֲבֹר',
-    'MAM-status': 'No change needed; MAM already fixed this or never had this problem to begin with.',
+    'MAM-status': _MAM_STATUS_CNN_FIXED_LONG_AGO,
 }
 _RECORD_63 = {
     'word': 'פָּ֤קֽ͏ַדְתָּ', 'bcvp': ('Ps', 65, 10, 1), 'img': 'Ps65v10.png',
@@ -279,7 +285,7 @@ _RECORD_64 = {
     'word': 'וַ֭יּֽ͏ַדְרִיכֵם', 'bcvp': ('Ps', 107, 7, 1), 'img': 'Ps107v7.png',
     'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
     'MAM-word': 'וַֽ֭יַּדְרִיכֵם',
-    'MAM-status': 'No change needed; MAM already fixed this or never had this problem to begin with.',
+    'MAM-status': _MAM_STATUS_CNN_FIXED_LONG_AGO,
 }
 _RECORD_65 = {
     'word': 'עָלֽ͏ָי׃', 'bcvp': ('Ps', 142, 8, 12), 'img': 'Ps142v8.png',
