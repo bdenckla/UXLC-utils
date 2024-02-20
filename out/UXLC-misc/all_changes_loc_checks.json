@@ -10498,5 +10498,15 @@
     "change_fline": 29,
     "guess_fline": 29.07,
     "fline_diff": 0.07
+  },
+  {
+    "change_release": "2024.04.01",
+    "change_cite": "Ex 12:50.1",
+    "change_page": "038B",
+    "change_column": 2,
+    "change_line": 20,
+    "change_fline": 47,
+    "guess_fline": 49.26,
+    "fline_diff": 2.26
   }
 ]

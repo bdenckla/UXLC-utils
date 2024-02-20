@@ -4609,7 +4609,51 @@
                 <type>accent</type>
             </change>
             <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>4</n>
+                <citation>
+                    <book>Ex</book>
+                    <c>12</c>
+                    <v>50</v>
+                    <position>1</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Move meteg from yod to first vav.</description>
+                <lc>
+                    <folio>Folio_038B</folio>
+                    <column>2</column>
+                    <line>20</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וַיּֽ͏ַעֲשׂ֖וּ</reftext>
+                <refuni>vav     patah     yod     dagesh     meteg     CGJ     patah     ayin     hataf-patah     shin     sin-dot     tipeha     vav     dagesh     </refuni>
+                <changetext>וַֽיַּעֲשׂ֖וּ</changetext>
+                <changeuni>vav     patah     meteg     yod     dagesh     patah     ayin     hataf-patah     shin     sin-dot     tipeha     vav     dagesh     </changeuni>
+                <notes>
+                    <note>The meteg is under the patah on the first vav. The mark is not from the line below. Thus, the meteg belongs to the vav, not the yod. The CGJ under the yod is no longer necessary and has been removed.</note>
+                    <note>BHL has the meteg after the first patah under the first vav. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
         </date>
+        <!--===================================================-->
         <!--===================================================-->
     </dates>
 </Changes>

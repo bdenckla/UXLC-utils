@@ -33842,5 +33842,36 @@
     "refuni_gen": "vav patah yod dagesh meteg combining-grapheme-joiner patah ayin hataf-patah lamed tipeha vav dagesh",
     "changeuni_gen": null,
     "changeuni_erbs": false
+  },
+  {
+    "bhla": false,
+    "release": "2024.04.01",
+    "changeset": "2024.01.29",
+    "n": 4,
+    "citation": "Ex 12:50.1",
+    "description": "Move meteg from yod to first vav.",
+    "lc": "Folio_038B 2:20",
+    "reftext": "וַיּֽ͏ַעֲשׂ֖וּ",
+    "refuni": "vav patah yod dagesh meteg CGJ patah ayin hataf-patah shin sin-dot tipeha vav dagesh",
+    "changetext": "וַֽיַּעֲשׂ֖וּ",
+    "changeuni": "vav patah meteg yod dagesh patah ayin hataf-patah shin sin-dot tipeha vav dagesh",
+    "notes": [
+      "The meteg is under the patah on the first vav. The mark is not from the line below. Thus, the meteg belongs to the vav, not the yod. The CGJ under the yod is no longer necessary and has been removed.",
+      "BHL has the meteg after the first patah under the first vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "accent",
+    "authors": [
+      "Ben Denckla"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": "vav patah yod dagesh meteg combining-grapheme-joiner patah ayin hataf-patah shin sin-dot tipeha vav dagesh",
+    "changeuni_gen": null,
+    "changeuni_erbs": false
   }
 ]

@@ -25,23 +25,23 @@
     </column-dictionary>
     <column-analysis>
       <type-counts>
-        <type-count col-name="page" string="977" />
-        <type-count col-name="startco" none="932" integer="45" />
-        <type-count col-name="startli" none="932" integer="45" />
-        <type-count col-name="stopco" none="932" integer="45" />
-        <type-count col-name="stopli" none="932" integer="45" />
-        <type-count col-name="bkid" string="974" none="3" />
-        <type-count col-name="startc" integer="974" none="3" />
-        <type-count col-name="startv" integer="974" none="3" />
-        <type-count col-name="startp" integer="974" none="3" />
-        <type-count col-name="stopc" integer="974" none="3" />
-        <type-count col-name="stopv" integer="974" none="3" />
-        <type-count col-name="stopp" integer="974" none="3" />
-        <type-count col-name="note" none="947" string="30" />
+        <type-count col-name="page" string="978" />
+        <type-count col-name="startco" none="931" integer="47" />
+        <type-count col-name="startli" none="931" integer="47" />
+        <type-count col-name="stopco" none="931" integer="47" />
+        <type-count col-name="stopli" none="931" integer="47" />
+        <type-count col-name="bkid" string="975" none="3" />
+        <type-count col-name="startc" integer="975" none="3" />
+        <type-count col-name="startv" integer="975" none="3" />
+        <type-count col-name="startp" integer="975" none="3" />
+        <type-count col-name="stopc" integer="975" none="3" />
+        <type-count col-name="stopv" integer="975" none="3" />
+        <type-count col-name="stopp" integer="975" none="3" />
+        <type-count col-name="note" none="945" string="33" />
       </type-counts>
       <bkid-val-counts>
         <bkid-val-count bkid="Genesis" count="61" />
-        <bkid-val-count bkid="Exodus" count="53" />
+        <bkid-val-count bkid="Exodus" count="54" />
         <bkid-val-count bkid="Levit" count="35" />
         <bkid-val-count bkid="Numbers" count="52" />
         <bkid-val-count bkid="Deuter" count="44" />
@@ -1255,18 +1255,33 @@
     </lci_rec>
     <lci_rec>
       <page>040A</page>
-      <startco />
-      <startli />
-      <stopco />
-      <stopli />
+      <startco>1</startco>
+      <startli>1</startli>
+      <stopco>1</stopco>
+      <stopli>5</stopli>
       <bkid>Exodus</bkid>
       <startc>14</startc>
       <startv>28</startv>
       <startp>11</startp>
+      <stopc>14</stopc>
+      <stopv>31</stopv>
+      <stopp>17</stopp>
+      <note>column 1 of 1 is centered and about twice the width of a column on a normal 3-column page</note>
+    </lci_rec>
+    <lci_rec>
+      <page>040A</page>
+      <startco>1</startco>
+      <startli>7</startli>
+      <stopco>1</stopco>
+      <stopli>26</stopli>
+      <bkid>Exodus</bkid>
+      <startc>15</startc>
+      <startv>1</startv>
+      <startp>1</startp>
       <stopc>15</stopc>
       <stopv>14</stopv>
       <stopp>4</stopp>
-      <note />
+      <note>column 1 of 1 is centered and about twice the width of a column on a normal 3-column page</note>
     </lci_rec>
     <lci_rec>
       <page>040B</page>
@@ -4131,7 +4146,7 @@
       <stopc>19</stopc>
       <stopv>42</stopv>
       <stopp>2</stopp>
-      <note />
+      <note>column 1 has 28 lines!</note>
     </lci_rec>
     <lci_rec>
       <page>132B</page>
