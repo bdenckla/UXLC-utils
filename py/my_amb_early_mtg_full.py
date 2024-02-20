@@ -1,6 +1,8 @@
 """ Exports write_xml. """
 
 import my_html
+import my_str_defs as sd
+import my_hebrew_points as hpo
 import my_amb_early_mtg_utils as aem_utils
 import my_html_for_img as img
 
@@ -100,13 +102,31 @@ def _initial_rows(record):
     rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
     rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('word', record['word'], big_hbo=True))
-    rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
-    rows.append(_make_key_value_row(*_colx_and_linex(record)))
-    if fem := record.get('false early mtg'):
-        rows.append(_make_key_value_row('false early mtg', str(fem)))
+    if deml2 := record.get('dubious early mtg on letter 2'):
+        pro = _proposed_word(record, deml2)
+        rows.append(_make_key_value_row('proposed word', pro, big_hbo=True))
+        rows.append(_make_key_value_row('dubious early mtg on letter 2', str(deml2)))
     if eucp := record.get('existing UXLC change proposal'):
         rows.append(_make_key_value_row('existing UCP', _eucp_with_link(eucp)))
+    rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
+    rows.append(_make_key_value_row(*_colx_and_linex(record)))
     return rows
+
+
+def _proposed_word(record, deml2):
+    word123p = record['word123p']
+    assert ''.join(word123p) == record['word']
+    clus1, clus2, clus3p = word123p
+    assert clus2[-3] == hpo.METEG
+    assert clus2[-2] == sd.CGJ
+    assert clus2[-1] in (hpo.PATAX, hpo.QAMATS, hpo.TSERE)
+    clus2_alt = clus2[:-3] + clus2[-1]
+    if deml2 == 'Better transcribed as a normal meteg on letter 2':
+        clus2_alt += hpo.METEG
+        clus1_alt = clus1
+    else:
+        clus1_alt = clus1 + hpo.METEG
+    return clus1_alt + clus2_alt + clus3p
 
 
 def _eucp_with_link(eucp):

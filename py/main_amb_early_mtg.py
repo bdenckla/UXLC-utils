@@ -16,7 +16,7 @@ def main():
     #
     my_amb_early_mtg_full.write(records)  # fills in path-to-full fields
     #
-    dubious_recs = list(filter(_has_fem, records))
+    dubious_recs = list(filter(_has_deml2, records))
     dubious_path = 'dubious.html'
     dubious_title = 'Words with dubious early meteg on their 2nd letter'
     my_amb_early_mtg_summary.write(dubious_recs, dubious_path, dubious_title)
@@ -40,8 +40,8 @@ def _intro(records, dubious_recs, dubious_path, dubious_title):
 
 
 
-def _has_fem(record):
-    return record.get('false early mtg')
+def _has_deml2(record):
+    return record.get('dubious early mtg on letter 2')
 
 
 if __name__ == "__main__":

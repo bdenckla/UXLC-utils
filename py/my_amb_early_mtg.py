@@ -46,17 +46,20 @@ _RECORD_14 = {
     'word': 'וְאֽ͏ַהֲרֹ֔ן', 'bcvp': ('Ex', 7, 7, 5), 'img': 'Ex7v7.png',
 }
 _RECORD_15 = {
+    'word123p': ('וַ', 'יּֽ͏ַ', 'עֲשׂ֖וּ'),
     'word': 'וַיּֽ͏ַעֲשׂ֖וּ', 'bcvp': ('Ex', 12, 50, 1), 'img': 'Ex12v50.png',
-    'false early mtg': True,
+    'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on the first letter',
     'initial-remark': 'Proposed change in email but not yet a UXLC change proposal.',
 }
 _RECORD_16 = {
+    'word123p': ('וַ', 'יּֽ͏ַ', 'עֲשׂוּ־'),
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
-    'false early mtg': 'hard call',
+    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
 }
 _RECORD_17 = {
+    'word123p': ('וַ', 'יּֽ͏ַ', 'עֲמֹ֖ד'),
     'word': 'וַיּֽ͏ַעֲמֹ֖ד', 'bcvp': ('Ex', 14, 19, 14), 'line': 18, 'img': '17-Ex14v19a14.png',
-    'false early mtg': True,
+    'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on the first letter',
     'initial-remark': 'The first two pataḥ marks are shifted “late”.',
     'further-remarks': [
         'Despite this shift, if we assume that the meteg tracks with this shift, '
@@ -64,8 +67,9 @@ _RECORD_17 = {
     ],
 }
 _RECORD_18 = {
+    'word123p': ('וַ', 'יּֽ͏ַ', 'אֲמִ֙ינוּ֙'),
     'word': 'וַיּֽ͏ַאֲמִ֙ינוּ֙', 'bcvp': ('Ex', 14, 31, 14), 'line': 5, 'img': '18-Ex14v31a14.png',
-    'false early mtg': True,
+    'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on the first letter',
 }
 _RECORD_19 = {
     'word': 'וְהֽ͏ַאֲזַנְתָּ֙', 'bcvp': ('Ex', 15, 26, 11), 'img': 'Ex15v26a11.png',
@@ -77,14 +81,16 @@ _RECORD_21 = {
     'word': 'וַיּֽ͏ַעַמְד֖וּ', 'bcvp': ('Ex', 20, 18, 17), 'img': 'Ex20v18.png',
 }
 _RECORD_22 = {
+    'word123p': ('וַ', 'יּֽ͏ַ', 'עֲל֖וּ'),
     'word': 'וַיּֽ͏ַעֲל֖וּ', 'bcvp': ('Ex', 24, 5, 6), 'img': 'Ex24v5.png',
-    'false early mtg': True,
+    'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on the first letter',
     'initial-remark': 'See UXLC change proposal 2024.01.29-3.',
     'existing UXLC change proposal': ('2024.04.01', '2024.01.29-3'),
 }
 _RECORD_23 = {
+    'word123p': ('בְּ', 'נֽ͏ֵ', 'י־'),
     'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 30, 12, 5), 'img': 'Ex30v12.png',
-    'false early mtg': 'false early where true is late (normal) on lett. 2 not lett. 1!',
+    'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on letter 2',
     'initial-remark': 'L has a normal meteg on the 2nd letter (nun).',
     'further-remarks': [
         'BHS agrees with L so this seems like purely a WLC transcription error.',
@@ -92,8 +98,9 @@ _RECORD_23 = {
     ],
 }
 _RECORD_24 = {
+    'word123p': ('בְּ', 'נֽ͏ֵ', 'י־'),
     'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 35, 20, 4), 'img': 'Ex35v20.png',
-    'false early mtg': 'false early where true is late (normal) on lett. 2 not lett. 1!',
+    'dubious early mtg on letter 2': 'Better transcribed as a normal meteg on letter 2',
     'initial-remark': 'L has a normal meteg on the 2nd letter (nun).',
     'further-remarks': [
         'BHS agrees with L so this seems like purely a WLC transcription error.',
@@ -101,8 +108,9 @@ _RECORD_24 = {
     ],
 }
 _RECORD_25 = {
+    'word123p': ('וְ', 'לֽ͏ָ', 'קַחְתָּ֣'),
     'word': 'וְלֽ͏ָקַחְתָּ֣', 'bcvp': ('Ezek', 5, 2, 9), 'line': 16, 'img': '25-Ezek5v2.png',
-    'false early mtg': 'hard call',
+    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
 }
 _RECORD_26 = {
     'word': 'וְאֽ͏ֵלַמָּ֔יו', 'bcvp': ('Ezek', 40, 36, 3), 'wq': 'q', 'line': 9, 'img': '26-Ezek40v36.png',
@@ -132,8 +140,9 @@ _RECORD_34 = {
     'word': 'בְּרֽ͏ָע׃', 'bcvp': ('Isa', 33, 15, 19), 'line': 19, 'img': 'Isa33v15.png',
 }
 _RECORD_35 = {
+    'word123p': ('וְ', 'קֽ͏ָ', 'רָאתָ֩'),
     'word': 'וְקֽ͏ָרָאתָ֩', 'bcvp': ('Jer', 3, 12, 2), 'img': 'Jer3v12.png',
-    'false early mtg': 'hard call',
+    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
 }
 _RECORD_36 = {
     'word': 'הַמּֽ͏ַעֲשִׂ֥ים', 'bcvp': ('Jer', 7, 13, 6), 'img': 'Jer7v13.png',
@@ -181,8 +190,9 @@ _RECORD_50 = {
     'word': 'וְהֽ͏ֶעֱמִ֥יד', 'bcvp': ('Lev', 27, 11, 11), 'img': 'Lev27v11.png',
 }
 _RECORD_51 = {
+    'word123p': ('וְ', 'הֽ͏ַ', 'עֲמַדְתָּ֣'),
     'word': 'וְהֽ͏ַעֲמַדְתָּ֣', 'bcvp': ('Num', 3, 6, 5), 'img': 'Num3v6.png',
-    'false early mtg': 'hard call',
+    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
 }
 _RECORD_52 = {
     'word': 'לְטֽ͏ַהֲרָ֔ם', 'bcvp': ('Num', 8, 7, 4), 'img': 'Num8v7.png',
@@ -215,15 +225,17 @@ _RECORD_61 = {
     'word': 'עָלֽ͏ָי׃', 'bcvp': ('Ps', 16, 6, 8), 'img': 'Ps16v6.png',
 }
 _RECORD_62 = {
+    'word123p': ('וַ֭', 'יּֽ͏ַ', 'עֲבֹר'),
     'word': 'וַ֭יּֽ͏ַעֲבֹר', 'bcvp': ('Ps', 37, 36, 1), 'img': 'Ps37v36.png',
-    'false early mtg': 'hard call',
+    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
 }
 _RECORD_63 = {
     'word': 'פָּ֤קֽ͏ַדְתָּ', 'bcvp': ('Ps', 65, 10, 1), 'img': 'Ps65v10.png',
 }
 _RECORD_64 = {
+    'word123p': ('וַ֭', 'יּֽ͏ַ', 'דְרִיכֵם'),
     'word': 'וַ֭יּֽ͏ַדְרִיכֵם', 'bcvp': ('Ps', 107, 7, 1), 'img': 'Ps107v7.png',
-    'false early mtg': 'hard call',
+    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
 }
 _RECORD_65 = {
     'word': 'עָלֽ͏ָי׃', 'bcvp': ('Ps', 142, 8, 12), 'img': 'Ps142v8.png',
