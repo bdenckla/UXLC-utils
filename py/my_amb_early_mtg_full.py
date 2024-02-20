@@ -7,8 +7,9 @@ import my_html_for_img as img
 
 def write(io_records):
     """ Write records out in full format. """
-    for io_record in io_records:
-        io_record['path-to-full'] = _write_record(io_record)
+    nrec = len(io_records)
+    for recidx, io_record in enumerate(io_records):
+        io_record['path-to-full'] = _write_record(recidx+1, nrec, io_record)
 
 
 _HBO_RTL = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
@@ -21,9 +22,19 @@ def _make_key_value_row(key, value, big_hbo=False):
     return my_html.table_row([cell_for_key, cell_for_value])
 
 
-def _write_record(record):
+def _write_record(recnum, nrec, record):
     #
     body_contents = []
+    #
+    navs = []
+    if recnum > 1:
+        navs.append(_anchor_for_nav('Prev', recnum-1))
+    if recnum < nrec:
+        if navs:
+            navs.append(' ')
+        navs.append(_anchor_for_nav('Next', recnum+1))
+    body_contents.append(my_html.para(navs))
+    #
     if html_for_i := img.html_for_img_or_imgs(record):
         body_contents.extend(html_for_i)
     #
@@ -37,11 +48,21 @@ def _write_record(record):
     _append_remarks_and_side_notes(body_contents, record)
     #
     orord = record['original-order']
-    title = f'Ambiguous early meteg {orord}'
-    path = f'full-record/amb-early-mtg-{orord:02}.html'
+    assert orord == recnum
+    title = f'Ambiguous early meteg {recnum}'
+    filename = _filename(recnum)
+    path = f'full-record/{filename}'
     write_ctx = my_html.WriteCtx(title, f'docs/amb-early-mtg/{path}')
     my_html.write_html_to_file(body_contents, write_ctx, '../')
     return path
+
+
+def _anchor_for_nav(pn_str, recnum):
+    return my_html.anchor(pn_str, {'href': _filename(recnum)})
+
+
+def _filename(recnum):
+    return f'amb-early-mtg-{recnum:02}.html'
 
 
 def _append_remarks_and_side_notes(io_body_contents, record):
