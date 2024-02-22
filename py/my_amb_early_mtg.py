@@ -15,11 +15,14 @@ _MAM_STATUS_CNN_MACRO_NOT_AT_ISSUE = (
     'I.e. MAM does not preseve the earliness of the meteg, '
     'and which letter it belongs to is not at issue here.'
 )
+_MAM_STATUS_CNN_AC_AGREES = (
+    'Change not needed since MAM’s meteg placement agrees with AC.'
+)
 _MAM_STATUS_CHANGE_MAY_BE_NEEDED = (
     'Change may be needed since MAM’s corresponding word retains UXLC’s meteg macro-placement. '
     'I.e. MAM does not preseve the earliness of the meteg but it does preserve which letter it belongs to.'
 )
-_UNCLEAR = 'Unclear from the image alone whether this is an early meteg.'
+_UNCLEAR = 'Unclear from the LC image alone whether this is an early meteg.'
 _PERHAPS_BETTER_1 = 'Perhaps better transcribed as a normal meteg on the first letter.'
 _BETTER_1 = 'Better transcribed as a normal meteg on the first letter.'
 _BETTER_2 = 'Better transcribed as a normal meteg on letter 2.'
@@ -304,14 +307,26 @@ _RECORD_70 = {'word': 'הִשְׁתּֽ͏ַעַשְׁע֖וּ', 'bcvp': ('Isa', 
 _RECORD_71 = {'word': 'קִנְאֽ͏ָתְךָ֙', 'bcvp': ('Isa', 63, 15, 8), 'img': 'Isa63v15.png'}
 _RECORD_72 = {
     'word123p': ('בַּצָּ','רֽ͏ָ','ה׃',),
-    'word': 'בַּצָּרֽ͏ָה׃', 'bcvp': ('Ps', 10, 1, 7), 'img': 'Ps10v1.png',
+    'word': 'בַּצָּרֽ͏ָה׃', 'bcvp': ('Ps', 10, 1, 7),
+    'imgs': {
+        'LC': 'Ps10v1.png',
+        'AC': 'Ps10v1-AC.png',
+    },
     'dubious early mtg': _UNCLEAR,
+    'MAM-word': 'בַּצָּרָֽה׃',
+    'MAM-status': _MAM_STATUS_CNN_AC_AGREES,
 }
 _RECORD_73 = {'word': 'רַגְלֽ͏ָיו׃', 'bcvp': ('Ps', 18, 10, 6), 'img': 'Ps18v10.png'}
 _RECORD_74 = {
     'word123p': ('עֲנָ','וֽ͏ָ','ה׃',),
-    'word': 'עֲנָוֽ͏ָה׃', 'bcvp': ('Prov', 18, 12, 8), 'img': 'Prov18v12.png',
+    'word': 'עֲנָוֽ͏ָה׃', 'bcvp': ('Prov', 18, 12, 8),
+    'imgs': {
+        'LC': 'Prov18v12.png',
+        'AC': 'Prov18v12-AC.png',
+    },
     'dubious early mtg': _UNCLEAR,
+    'MAM-word': 'עֲנָוָֽה׃',
+    'MAM-status': _MAM_STATUS_CNN_AC_AGREES,
 }
 _RECORD_75 = {'word': 'מַלְוֽ͏ֶה׃', 'bcvp': ('Prov', 22, 7, 7), 'img': 'Prov22v7.png'}
 _RECORD_76 = {'word': 'יַעֲלֽ͏ֶה׃', 'bcvp': ('Job', 7, 9, 8), 'img': 'Job7v9.png'}
