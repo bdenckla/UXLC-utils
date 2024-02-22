@@ -138,17 +138,17 @@ def _mam_status(record, mamsta):
 def _proposed_word(record, deml2):
     word123p = record['word123p']
     assert ''.join(word123p) == record['word']
-    clus1, clus2, clus3p = word123p
-    assert clus2[-3] == hpo.METEG
-    assert clus2[-2] == sd.CGJ
-    assert clus2[-1] in (hpo.PATAX, hpo.QAMATS, hpo.TSERE)
-    clus2_alt = clus2[:-3] + clus2[-1]
+    pre, mid, post = word123p
+    assert mid[-3] == hpo.METEG
+    assert mid[-2] == sd.CGJ
+    assert mid[-1] in (hpo.PATAX, hpo.QAMATS, hpo.TSERE)
+    mid_alt = mid[:-3] + mid[-1]
     if deml2 == 'Better transcribed as a normal meteg on letter 2':
-        clus2_alt += hpo.METEG
-        clus1_alt = clus1
+        mid_alt += hpo.METEG
+        pre_alt = pre
     else:
-        clus1_alt = clus1 + hpo.METEG
-    return clus1_alt + clus2_alt + clus3p
+        pre_alt = pre + hpo.METEG
+    return pre_alt + mid_alt + post
 
 
 def _eucp_with_link(eucp):
