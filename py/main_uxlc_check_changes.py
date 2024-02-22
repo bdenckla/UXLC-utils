@@ -1,7 +1,6 @@
 """ Exports main """
 
 import xml.etree.ElementTree
-import my_uxlc
 import my_uxlc_misc_path
 import my_uxlc_bhl_appendix_a
 import my_uxlc_page_break_info as page_break_info
@@ -90,10 +89,8 @@ def main():
     """
     Convert various Changes files to JSON format.
     """
-    uxlc = my_uxlc.read_all_books()
-    pbi = page_break_info.read_in(uxlc)
     changes = _get_all_changes()
-    check_results_f = changes_loc.check(uxlc, pbi, changes)
+    check_results_f = changes_loc.check(changes)
     #
     json_output_path1 = 'out/UXLC-misc/all_changes.json'
     my_open.json_dump_to_file_path(changes, json_output_path1)

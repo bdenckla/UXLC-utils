@@ -5,9 +5,9 @@ import my_uxlc_book_abbreviations as u_bk_abbr
 import my_uxlc_location
 
 
-def check(uxlc, page_break_info, changes):
+def check(changes):
     """ Check the LC locations in changes against page break info. """
-    pbi = page_break_info
+    uxlc, pbi = my_uxlc_location.prep()
     check_results = tuple(_check_loc(uxlc, pbi, c) for c in changes)
     check_results_f = tuple(map(_flatten_check_result, check_results))
     return check_results_f
