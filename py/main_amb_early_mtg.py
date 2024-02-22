@@ -62,7 +62,7 @@ def _intro(records, dubious_recs, dubious_path, dubious_title):
 
 
 def _has_deml2(record):
-    return record.get('dubious early mtg on letter 2')
+    return record.get('dubious early mtg')
 
 
 if __name__ == "__main__":

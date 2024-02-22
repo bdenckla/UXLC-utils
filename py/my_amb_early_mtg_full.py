@@ -112,12 +112,12 @@ def _initial_rows(record):
     rows.append(_make_key_value_row('bcv (link to Mwd)', bcv_with_link_to_mwd))
     # rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('word', record['word'], big_hbo=True))
-    if deml2 := record.get('dubious early mtg on letter 2'):
+    if deml2 := record.get('dubious early mtg'):
         pro = _alternate(record, deml2)
         rows.append(_make_key_value_row('alternate transcription', pro, big_hbo=True))
         if mam_word := record.get('MAM-word'):
             rows.append(_make_key_value_row('MAM word', mam_word, big_hbo=True))
-        rows.append(_make_key_value_row('dubious early mtg on letter 2', str(deml2)))
+        rows.append(_make_key_value_row('dubious early mtg', str(deml2)))
     if eucp := record.get('existing UXLC change proposal'):
         rows.append(_make_key_value_row('existing UCP', _eucp_with_link(eucp)))
     if mamsta := record.get('MAM-status'):

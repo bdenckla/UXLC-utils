@@ -71,7 +71,7 @@ _RECORD_14 = {
 _RECORD_15 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲשׂ֖וּ'),
     'word': 'וַיּֽ͏ַעֲשׂ֖וּ', 'bcvp': ('Ex', 12, 50, 1), 'img': 'Ex12v50.png',
-    'dubious early mtg on letter 2': _BETTER_1,
+    'dubious early mtg': _BETTER_1,
     'initial-remark': 'See UXLC change proposal 2024.01.29-4.',
     'existing UXLC change proposal': ('2024.04.01', '2024.01.29-4'),
     'MAM-word': 'וַֽיַּעֲשׂ֖וּ',
@@ -81,14 +81,14 @@ _RECORD_15 = {
 _RECORD_16 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲשׂוּ־'),
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
-    'dubious early mtg on letter 2': _UNCLEAR,
+    'dubious early mtg': _UNCLEAR,
     'MAM-word': 'וַיַּֽעֲשׂוּ־',
     'MAM-status': _MAM_STATUS_CHANGE_MAY_BE_NEEDED,
 }
 _RECORD_17 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲמֹ֖ד'),
     'word': 'וַיּֽ͏ַעֲמֹ֖ד', 'bcvp': ('Ex', 14, 19, 14), 'line': 18, 'img': '17-Ex14v19a14.png',
-    'dubious early mtg on letter 2': _BETTER_1,
+    'dubious early mtg': _BETTER_1,
     'initial-remark': 'The first two pataḥ marks are shifted “late”.',
     'further-remarks': [
         'Despite this shift, if we assume that the meteg tracks with this shift, '
@@ -100,7 +100,7 @@ _RECORD_17 = {
 _RECORD_18 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'אֲמִ֙ינוּ֙'),
     'word': 'וַיּֽ͏ַאֲמִ֙ינוּ֙', 'bcvp': ('Ex', 14, 31, 14), 'line': 5, 'img': '18-Ex14v31a14.png',
-    'dubious early mtg on letter 2': _BETTER_1,
+    'dubious early mtg': _BETTER_1,
     'MAM-word': 'וַיַּֽאֲמִ֙ינוּ֙',
     'MAM-status': _MAM_STATUS_CHANGE_MAY_BE_NEEDED,
 }
@@ -116,7 +116,7 @@ _RECORD_21 = {
 _RECORD_22 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲל֖וּ'),
     'word': 'וַיּֽ͏ַעֲל֖וּ', 'bcvp': ('Ex', 24, 5, 6), 'img': 'Ex24v5.png',
-    'dubious early mtg on letter 2': _BETTER_1,
+    'dubious early mtg': _BETTER_1,
     'initial-remark': 'See UXLC change proposal 2024.01.29-3.',
     'existing UXLC change proposal': ('2024.04.01', '2024.01.29-3'),
     'MAM-word': 'וַֽיַּעֲל֖וּ',
@@ -126,7 +126,7 @@ _RECORD_22 = {
 _RECORD_23 = {
     'word123p': ('בְּ', 'נֽ͏ֵ', 'י־'),
     'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 30, 12, 5), 'img': 'Ex30v12.png',
-    'dubious early mtg on letter 2': _BETTER_2,
+    'dubious early mtg': _BETTER_2,
     'initial-remark': 'L has a normal meteg on the 2nd letter (nun).',
     'further-remarks': [
         'BHS agrees with L so this seems like purely a WLC transcription error.',
@@ -138,7 +138,7 @@ _RECORD_23 = {
 _RECORD_24 = {
     'word123p': ('בְּ', 'נֽ͏ֵ', 'י־'),
     'word': 'בְּנֽ͏ֵי־', 'bcvp': ('Ex', 35, 20, 4), 'img': 'Ex35v20.png',
-    'dubious early mtg on letter 2': _BETTER_2,
+    'dubious early mtg': _BETTER_2,
     'initial-remark': 'L has a normal meteg on the 2nd letter (nun).',
     'further-remarks': [
         'BHS agrees with L so this seems like purely a WLC transcription error.',
@@ -150,7 +150,7 @@ _RECORD_24 = {
 _RECORD_25 = {
     'word123p': ('וְ', 'לֽ͏ָ', 'קַחְתָּ֣'),
     'word': 'וְלֽ͏ָקַחְתָּ֣', 'bcvp': ('Ezek', 5, 2, 9), 'line': 16, 'img': '25-Ezek5v2.png',
-    'dubious early mtg on letter 2': _PERHAPS_BETTER_1,
+    'dubious early mtg': _PERHAPS_BETTER_1,
     'initial-remark': 'The sheva has an additional dot below it, but we ignore that dot.',
     'MAM-word': 'וְלָקַחְתָּ֣',
     'MAM-status': _MAM_STATUS_CNN_NO_METEG
@@ -185,7 +185,7 @@ _RECORD_34 = {
 _RECORD_35 = {
     'word123p': ('וְ', 'קֽ͏ָ', 'רָאתָ֩'),
     'word': 'וְקֽ͏ָרָאתָ֩', 'bcvp': ('Jer', 3, 12, 2), 'img': 'Jer3v12.png',
-    'dubious early mtg on letter 2': _UNCLEAR,
+    'dubious early mtg': _UNCLEAR,
     'initial-remark': 'MAM notes with surprise that Mechon Mamre has meteg on qof.',
     'further-remarks': ['MAM’s note is ממ!=@וְקָֽרָאתָ֩#'],
     'MAM-word': 'וְֽקָרָ֩אתָ֩',
@@ -239,7 +239,7 @@ _RECORD_50 = {
 _RECORD_51 = {
     'word123p': ('וְ', 'הֽ͏ַ', 'עֲמַדְתָּ֣'),
     'word': 'וְהֽ͏ַעֲמַדְתָּ֣', 'bcvp': ('Num', 3, 6, 5), 'img': 'Num3v6.png',
-    'dubious early mtg on letter 2': _UNCLEAR,
+    'dubious early mtg': _UNCLEAR,
     'initial-remark': 'MAM notes the uncertainty of the ownership of this meteg in L.',
     'MAM-word': 'וְהַעֲמַדְתָּ֣',
     'MAM-status': _MAM_STATUS_CNN_NO_METEG
@@ -277,7 +277,7 @@ _RECORD_61 = {
 _RECORD_62 = {
     'word123p': ('וַ֭', 'יּֽ͏ַ', 'עֲבֹר'),
     'word': 'וַ֭יּֽ͏ַעֲבֹר', 'bcvp': ('Ps', 37, 36, 1), 'img': 'Ps37v36.png',
-    'dubious early mtg on letter 2': _PERHAPS_BETTER_1,
+    'dubious early mtg': _PERHAPS_BETTER_1,
     'MAM-word': 'וַֽ֭יַּעֲבֹר',
     'MAM-status': _MAM_STATUS_CNN_FIXED_LONG_AGO,
 }
@@ -287,7 +287,7 @@ _RECORD_63 = {
 _RECORD_64 = {
     'word123p': ('וַ֭', 'יּֽ͏ַ', 'דְרִיכֵם'),
     'word': 'וַ֭יּֽ͏ַדְרִיכֵם', 'bcvp': ('Ps', 107, 7, 1), 'img': 'Ps107v7.png',
-    'dubious early mtg on letter 2': _PERHAPS_BETTER_1,
+    'dubious early mtg': _PERHAPS_BETTER_1,
     'MAM-word': 'וַֽ֭יַּדְרִיכֵם',
     'MAM-status': _MAM_STATUS_CNN_FIXED_LONG_AGO,
 }
@@ -305,13 +305,13 @@ _RECORD_71 = {'word': 'קִנְאֽ͏ָתְךָ֙', 'bcvp': ('Isa', 63, 15, 8), 
 _RECORD_72 = {
     'word123p': ('בַּצָּ','רֽ͏ָ','ה׃',),
     'word': 'בַּצָּרֽ͏ָה׃', 'bcvp': ('Ps', 10, 1, 7), 'img': 'Ps10v1.png',
-    'dubious early mtg on letter 2': _UNCLEAR,
+    'dubious early mtg': _UNCLEAR,
 }
 _RECORD_73 = {'word': 'רַגְלֽ͏ָיו׃', 'bcvp': ('Ps', 18, 10, 6), 'img': 'Ps18v10.png'}
 _RECORD_74 = {
     'word123p': ('עֲנָ','וֽ͏ָ','ה׃',),
     'word': 'עֲנָוֽ͏ָה׃', 'bcvp': ('Prov', 18, 12, 8), 'img': 'Prov18v12.png',
-    'dubious early mtg on letter 2': _UNCLEAR,
+    'dubious early mtg': _UNCLEAR,
 }
 _RECORD_75 = {'word': 'מַלְוֽ͏ֶה׃', 'bcvp': ('Prov', 22, 7, 7), 'img': 'Prov22v7.png'}
 _RECORD_76 = {'word': 'יַעֲלֽ͏ֶה׃', 'bcvp': ('Job', 7, 9, 8), 'img': 'Job7v9.png'}
