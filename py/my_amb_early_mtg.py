@@ -18,6 +18,11 @@ _MAM_STATUS_CNN_MACRO_NOT_AT_ISSUE = (
 _MAM_STATUS_CNN_AC_AGREES = (
     'Change not needed since MAM’s meteg placement agrees with AC.'
 )
+_MAM_STATUS_CNN_OTHER_MSS = (
+    'Change not needed since all of the many other manuscripts Avi consulted '
+    'reject the idea of a meteg on the first letter. '
+    'I.e. they reject the idea of a heavy gaʿya.'
+)
 _MAM_STATUS_CHANGE_MAY_BE_NEEDED = (
     'Change may be needed since MAM’s corresponding word retains UXLC’s meteg macro-placement. '
     'I.e. MAM does not preseve the earliness of the meteg but it does preserve which letter it belongs to.'
@@ -86,7 +91,7 @@ _RECORD_16 = {
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
     'dubious early mtg': _UNCLEAR,
     'MAM-word': 'וַיַּֽעֲשׂוּ־',
-    'MAM-status': _MAM_STATUS_CHANGE_MAY_BE_NEEDED,
+    'MAM-status': _MAM_STATUS_CNN_OTHER_MSS,
 }
 _RECORD_17 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲמֹ֖ד'),
