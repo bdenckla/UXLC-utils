@@ -17,7 +17,7 @@ def main():
     #
     _set_prev_and_next(records, 'prev', 'next')
     #
-    dubious_recs = list(filter(_has_deml2, records))
+    dubious_recs = list(filter(_has_dem, records))
     #
     _set_prev_and_next(dubious_recs, 'prev-dubious', 'next-dubious')
     #
@@ -61,7 +61,7 @@ def _intro(records, dubious_recs, dubious_path, dubious_title):
 
 
 
-def _has_deml2(record):
+def _has_dem(record):
     return record.get('dubious early mtg')
 
 
