@@ -1,9 +1,7 @@
 """ Exports main """
 
 import argparse
-import my_uxlc
 import my_tanakh_book_names as tbn
-import my_uxlc_page_break_info as page_break_info
 import my_uxlc_location
 
 
@@ -34,8 +32,7 @@ def example_run():
 
 
 def _main2(cite_e):
-    uxlc = my_uxlc.read_all_books()
-    pbi = page_break_info.read_in(uxlc)
+    uxlc, pbi = my_uxlc_location.prep()
     guess_page, guess_fline = my_uxlc_location.estimate(uxlc, pbi, cite_e)
     guess_fline_str = f'{guess_fline:.1f}'
     print(guess_page, guess_fline_str)

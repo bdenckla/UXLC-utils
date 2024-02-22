@@ -4,7 +4,6 @@ import xml.etree.ElementTree
 import my_uxlc
 import my_uxlc_misc_path
 import my_uxlc_bhl_appendix_a
-import my_tanakh_book_names as tbn
 import my_uxlc_page_break_info as page_break_info
 import my_uxlc_changes_loc as changes_loc
 import my_uxlc_lci_augrec as lci_augrec
