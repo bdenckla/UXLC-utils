@@ -20,9 +20,9 @@ _MAM_STATUS_CHANGE_MAY_BE_NEEDED = (
     'I.e. MAM does not preseve the earliness of the meteg but it does preserve which letter it belongs to.'
 )
 _UNCLEAR = 'Unclear from the image alone whether this is an early meteg.'
-_PERHAPS_BETTER_1 = 'Perhaps better transcribed as a normal meteg on the first letter'
-_BETTER_1 = 'Better transcribed as a normal meteg on the first letter'
-_BETTER_2 = 'Better transcribed as a normal meteg on letter 2'
+_PERHAPS_BETTER_1 = 'Perhaps better transcribed as a normal meteg on the first letter.'
+_BETTER_1 = 'Better transcribed as a normal meteg on the first letter.'
+_BETTER_2 = 'Better transcribed as a normal meteg on letter 2.'
 
 _RECORD_01 = {
     'word': 'וּמֽ͏ַעֲשֵׂ֔ה', 'bcvp': ('1Chr', 23, 28, 17), 'img': '1Chr23v28.png',
