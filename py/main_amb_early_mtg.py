@@ -4,11 +4,14 @@ import my_amb_early_mtg
 import my_amb_early_mtg_full
 import my_amb_early_mtg_summary
 import my_amb_early_mtg_extend
+import my_amb_early_mtg_three_and_beyond
 import my_html
 
 def main():
     """ Writes amb-early-mtg records to HTML files. """
     records = my_amb_early_mtg.RECORDS
+    #
+    my_amb_early_mtg_three_and_beyond.find()
     #
     my_amb_early_mtg_extend.extend_records(records)  # mutates, i.e. modifies in-place
     #

@@ -294,6 +294,17 @@ _RECORD_65 = {
 _RECORD_66 = {
     'word': 'וַיּֽ͏ִזְכְּרֶ֖הָ', 'bcvp': ('1Sam', 1, 19, 16), 'img': '1Sam1v19.png',
 }
+_RECORD_67 = {'word': 'הַמְאֽ͏ָרֲרִים֙', 'bcvp': ('Num', 5, 27, 13), 'img': 'Num5v27.png'}
+_RECORD_68 = {'word': 'וַיִּמּֽ͏ָסְרוּ֙', 'bcvp': ('Num', 31, 5, 1), 'img': 'Num31v5.png'}
+_RECORD_69 = {'word': 'וּנְתֽ͏ָנְךָ֨', 'bcvp': ('Deut', 28, 13, 1), 'img': 'Deut28v13.png'}
+_RECORD_70 = {'word': 'הִשְׁתּֽ͏ַעַשְׁע֖וּ', 'bcvp': ('Isa', 29, 9, 3), 'img': 'Isa29v9.png'}
+_RECORD_71 = {'word': 'קִנְאֽ͏ָתְךָ֙', 'bcvp': ('Isa', 63, 15, 8), 'img': 'Isa63v15.png'}
+_RECORD_72 = {'word': 'בַּצָּרֽ͏ָה׃', 'bcvp': ('Ps', 10, 1, 7), 'img': 'Ps10v1.png'}
+_RECORD_73 = {'word': 'רַגְלֽ͏ָיו׃', 'bcvp': ('Ps', 18, 10, 6), 'img': 'Ps18v10.png'}
+_RECORD_74 = {'word': 'עֲנָוֽ͏ָה׃', 'bcvp': ('Prov', 18, 12, 8), 'img': 'Prov18v12.png'}
+_RECORD_75 = {'word': 'מַלְוֽ͏ֶה׃', 'bcvp': ('Prov', 22, 7, 7), 'img': 'Prov22v7.png'}
+_RECORD_76 = {'word': 'יַעֲלֽ͏ֶה׃', 'bcvp': ('Job', 7, 9, 8), 'img': 'Job7v9.png'}
+_RECORD_77 = {'word': 'הִֽתְהֽ͏ַלְלוּ֙', 'bcvp': ('1Chr', 16, 10, 1), 'img': '1Chr16v10.png'}
 
 RECORDS = [
     _RECORD_01,
@@ -362,4 +373,15 @@ RECORDS = [
     _RECORD_64,
     _RECORD_65,
     _RECORD_66,
+    _RECORD_67,
+    _RECORD_68,
+    _RECORD_69,
+    _RECORD_70,
+    _RECORD_71,
+    _RECORD_72,
+    _RECORD_73,
+    _RECORD_74,
+    _RECORD_75,
+    _RECORD_76,
+    _RECORD_77,
 ]
