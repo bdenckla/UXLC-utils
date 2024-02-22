@@ -19,6 +19,7 @@ _MAM_STATUS_CHANGE_MAY_BE_NEEDED = (
     'Change may be needed since MAM’s corresponding word retains UXLC’s meteg macro-placement. '
     'I.e. MAM does not preseve the earliness of the meteg but it does preserve which letter it belongs to.'
 )
+_UNCLEAR = 'Unclear from the image alone whether this is an early meteg.'
 
 
 _RECORD_01 = {
@@ -78,7 +79,7 @@ _RECORD_15 = {
 _RECORD_16 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲשׂוּ־'),
     'word': 'וַיּֽ͏ַעֲשׂוּ־', 'bcvp': ('Ex', 14, 4, 16), 'img': 'Ex14v4.png',
-    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'dubious early mtg on letter 2': _UNCLEAR,
     'MAM-word': 'וַיַּֽעֲשׂוּ־',
     'MAM-status': _MAM_STATUS_CHANGE_MAY_BE_NEEDED,
 }
@@ -182,7 +183,7 @@ _RECORD_34 = {
 _RECORD_35 = {
     'word123p': ('וְ', 'קֽ͏ָ', 'רָאתָ֩'),
     'word': 'וְקֽ͏ָרָאתָ֩', 'bcvp': ('Jer', 3, 12, 2), 'img': 'Jer3v12.png',
-    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'dubious early mtg on letter 2': _UNCLEAR,
     'initial-remark': 'MAM notes with surprise that Mechon Mamre has meteg on qof.',
     'further-remarks': ['MAM’s note is ממ!=@וְקָֽרָאתָ֩#'],
     'MAM-word': 'וְֽקָרָ֩אתָ֩',
@@ -236,7 +237,7 @@ _RECORD_50 = {
 _RECORD_51 = {
     'word123p': ('וְ', 'הֽ͏ַ', 'עֲמַדְתָּ֣'),
     'word': 'וְהֽ͏ַעֲמַדְתָּ֣', 'bcvp': ('Num', 3, 6, 5), 'img': 'Num3v6.png',
-    'dubious early mtg on letter 2': 'Perhaps better transcribed as a normal meteg on the first letter',
+    'dubious early mtg on letter 2': _UNCLEAR,
     'initial-remark': 'MAM notes the uncertainty of the ownership of this meteg in L.',
     'MAM-word': 'וְהַעֲמַדְתָּ֣',
     'MAM-status': _MAM_STATUS_CNN_NO_METEG
@@ -302,13 +303,13 @@ _RECORD_71 = {'word': 'קִנְאֽ͏ָתְךָ֙', 'bcvp': ('Isa', 63, 15, 8), 
 _RECORD_72 = {
     'word123p': ('בַּצָּ','רֽ͏ָ','ה׃',),
     'word': 'בַּצָּרֽ͏ָה׃', 'bcvp': ('Ps', 10, 1, 7), 'img': 'Ps10v1.png',
-    'dubious early mtg on letter 2': 'Unclear from the image alone whether this is an early meteg.',
+    'dubious early mtg on letter 2': _UNCLEAR,
 }
 _RECORD_73 = {'word': 'רַגְלֽ͏ָיו׃', 'bcvp': ('Ps', 18, 10, 6), 'img': 'Ps18v10.png'}
 _RECORD_74 = {
     'word123p': ('עֲנָ','וֽ͏ָ','ה׃',),
     'word': 'עֲנָוֽ͏ָה׃', 'bcvp': ('Prov', 18, 12, 8), 'img': 'Prov18v12.png',
-    'dubious early mtg on letter 2': 'Unclear from the image alone whether this is an early meteg.',
+    'dubious early mtg on letter 2': _UNCLEAR,
 }
 _RECORD_75 = {'word': 'מַלְוֽ͏ֶה׃', 'bcvp': ('Prov', 22, 7, 7), 'img': 'Prov22v7.png'}
 _RECORD_76 = {'word': 'יַעֲלֽ͏ֶה׃', 'bcvp': ('Job', 7, 9, 8), 'img': 'Job7v9.png'}
