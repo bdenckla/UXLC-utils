@@ -113,8 +113,8 @@ def _initial_rows(record):
     # rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('word', record['word'], big_hbo=True))
     if deml2 := record.get('dubious early mtg on letter 2'):
-        pro = _proposed_word(record, deml2)
-        rows.append(_make_key_value_row('proposed word', pro, big_hbo=True))
+        pro = _alternate(record, deml2)
+        rows.append(_make_key_value_row('alternate transcription', pro, big_hbo=True))
         if mam_word := record.get('MAM-word'):
             rows.append(_make_key_value_row('MAM word', mam_word, big_hbo=True))
         rows.append(_make_key_value_row('dubious early mtg on letter 2', str(deml2)))
@@ -135,7 +135,7 @@ def _mam_status(record, mamsta):
     return out
 
 
-def _proposed_word(record, deml2):
+def _alternate(record, deml2):
     word123p = record['word123p']
     assert ''.join(word123p) == record['word']
     pre, mid, post = word123p
