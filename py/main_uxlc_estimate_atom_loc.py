@@ -7,10 +7,6 @@ import my_uxlc_page_break_info as page_break_info
 import my_uxlc_location
 
 
-def _get_uxlc():
-    return {bkid: my_uxlc.read(bkid) for bkid in tbn.ALL_BOOK_IDS}
-
-
 def _get_cite_e_from_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('book_id', choices=tbn.ALL_BOOK_IDS)
@@ -38,7 +34,7 @@ def example_run():
 
 
 def _main2(cite_e):
-    uxlc = _get_uxlc()
+    uxlc = my_uxlc.read_all_books()
     pbi = page_break_info.read_in(uxlc)
     guess_page, guess_fline = my_uxlc_location.estimate(uxlc, pbi, cite_e)
     guess_fline_str = f'{guess_fline:.1f}'

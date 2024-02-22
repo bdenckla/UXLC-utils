@@ -10,7 +10,7 @@ import my_uxlc
 
 
 def prep():
-    uxlc = {bkid: my_uxlc.read(bkid) for bkid in tbn.ALL_BOOK_IDS}
+    uxlc = my_uxlc.read_all_books()
     pbi = page_break_info.read_in(uxlc)
     return uxlc, pbi
 

@@ -89,10 +89,6 @@ def _get_all_changes():
     return all_changes
 
 
-def _get_uxlc():
-    return {bkid: my_uxlc.read(bkid) for bkid in tbn.ALL_BOOK_IDS}
-
-
 def _write_page_break_info(pbi):
     lciars = page_break_info.get_lci_augrecs(pbi)
     lciars_f = lci_augrec.flatten_many2(lciars)
@@ -121,7 +117,7 @@ def main():
     """
     Convert various Changes files to JSON format.
     """
-    uxlc = _get_uxlc()
+    uxlc = my_uxlc.read_all_books()
     pbi = page_break_info.read_in(uxlc)
     changes = _get_all_changes()
     check_results_f = changes_loc.check(uxlc, pbi, changes)

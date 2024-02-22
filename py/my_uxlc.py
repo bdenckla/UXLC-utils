@@ -1,9 +1,13 @@
-""" Exports read """
+""" Exports read_all_books, read. """
 
 import xml.etree.ElementTree
 
 import my_tanakh_book_names as tbn
 import my_sef_cmn
+
+
+def read_all_books():
+    return {bkid: read(bkid) for bkid in tbn.ALL_BOOK_IDS}
 
 
 def read(book_id):
