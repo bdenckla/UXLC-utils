@@ -60,13 +60,11 @@ def _append_remarks_and_side_notes(io_body_contents, record):
 
 
 def _side_note_html(side_note):
-    sns = my_wlc_a_notes_utils.side_note_string(side_note)
+    snt, sns = my_wlc_a_notes_utils.side_note_string(side_note)
     assert not sns.endswith(' ')
     hesp = _hebrew_spanify(sns)
-    if isinstance(side_note, dict):
-        assert list(side_note.keys()) == ['sn-blockquote']
+    if snt == 'sn-blockquote':  # snt: side-note type
         return my_html.blockquote(hesp)
-    assert isinstance(side_note, str)
     return my_html.para(hesp)
 
 

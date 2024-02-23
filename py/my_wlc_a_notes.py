@@ -61,7 +61,7 @@ _DOTAN_PAGE_XX = (
     #
     'Dotan’s example from dt28:27 is not a-noted in WLC, which has merely the following:',
     #
-    {'sn-blockquote': '*W/B/(PLYM **W./BA/+.:XORI80YM'}
+    {'sn-blockquote': '*W/B/(PLYM **W./BA/+.:XORI80YM'},
 )
 
 RECORD_01 = {
@@ -101,8 +101,8 @@ RECORD_02 = {
         'In WLC, this word has not only an a-note but also a 1-note, '
         'presumably because of the unexpected dagesh in the qere’s next-to-last vav.',
         #
-        'As a reminder, a WLC 1-note (bracket-1 note) is defined as follows: '
-        f'«{_WLC_1_BRACKET_NOTE_DEFINITION}»',
+        'As a reminder, a WLC 1-note (bracket-1 note) is defined as follows:',
+        {'sn-blockquote': _WLC_1_BRACKET_NOTE_DEFINITION},
         #
         'Although Dotan has a note about this ketiv/qere, '
         'I do not take him to have noted it for the issue at hand: '
@@ -525,8 +525,9 @@ RECORD_21 = {
         'In WLC, this word has not only an a-note but also a c-note, '
         'presumably because WLC has qadma where BHS (in error) has pashta.',
         #
-        'As a reminder, a WLC c-note (bracket-c note) is defined as follows: '
-        f'«{_WLC_C_BRACKET_NOTE_DEFINITION}»'],
+        'As a reminder, a WLC c-note (bracket-c note) is defined as follows:',
+        {'sn-blockquote': _WLC_C_BRACKET_NOTE_DEFINITION},
+    ],
 }
 RECORD_22 = {
     'wlc-index': 22,
