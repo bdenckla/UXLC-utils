@@ -8,6 +8,7 @@ import my_uxlc_unicode_names
 import my_convert_citation_from_wlc_to_uxlc
 import my_wlc_a_notes_native as native
 import my_wlc_a_notes_etan as etan
+import my_wlc_a_notes_utils
 import my_wlc_a_notes
 
 def write(io_records):
@@ -166,7 +167,8 @@ def _add_notes(change_elem, record):
         etan.sub_elem_text(notes_elem, 'note', _aued_for_dc(remark))
     side_notes = record.get('side-notes') or []
     for side_note in side_notes:
-        stripped = side_note.replace('@', '').replace('#', '')
+        sns = my_wlc_a_notes_utils.side_note_string(side_note)
+        stripped = sns.replace('@', '').replace('#', '')
         etan.sub_elem_text(notes_elem, 'note', _aued_for_dc(stripped))
 
 _AUED = 'א\N{HEBREW MARK UPPER DOT}'

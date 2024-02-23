@@ -3,6 +3,7 @@
 import my_html
 import my_convert_citation_from_wlc_to_uxlc
 import my_html_for_img as img
+import my_wlc_a_notes_utils
 
 
 def write(io_records):
@@ -55,9 +56,18 @@ def _append_remarks_and_side_notes(io_body_contents, record):
     #
     side_notes = record.get('side-notes') or []
     for side_note in side_notes:
-        assert not side_note.endswith(' ')
-        hesp = _hebrew_spanify(side_note)
-        io_body_contents.append(my_html.para(hesp))
+        io_body_contents.append(_side_note_html(side_note))
+
+
+def _side_note_html(side_note):
+    sns = my_wlc_a_notes_utils.side_note_string(side_note)
+    assert not sns.endswith(' ')
+    hesp = _hebrew_spanify(sns)
+    if isinstance(side_note, dict):
+        assert list(side_note.keys()) == ['blockquote']
+        return my_html.blockquote(hesp)
+    assert isinstance(side_note, str)
+    return my_html.para(hesp)
 
 
 def _hebrew_spanify(string: str):

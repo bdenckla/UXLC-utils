@@ -41,24 +41,27 @@ _WLC_1_BRACKET_NOTE_DEFINITION = \
     "and we keep the same form as BHS. "+ \
     "(This is similar to the note “]U”, but the latter refers to cases where "+ \
     "BHQ has been published and we keep the same form as both BHS and BHQ.)"
-_DOTAN_PAGE_XX = (
-    'Dotan remarks, in his Foreword to BHL (page xx):',
-    #
-    'Another example [of a point CEN] is '
+_DOTAN_PAGE_XX_QUOTE = (
+    'Another example [of a point created ex nihilo] is '
     'an ʿayin of the ketiv that cannot carry a dagesh that is due in the qere, '
     'as in the manuscript in Deut. 28:27 '
     'in the [body] text @וּבַעְפֹלִים# and '
-    'in the margin @ק̇ ובטחרים#; '
-    'in the printed edition a dagesh was added[, yielding] @וּבַטְּחֹרִים#.',
+    'in the margin ק̇ ובטחרים; '
+    'in the printed edition a dagesh was added[, yielding] @וּבַטְּחֹרִים#.'
+)
+_DOTAN_PAGE_XX = (
+    'Dotan remarks, in his Foreword to BHL (page xx):',
     #
-    '[The terminology CEN (created ex nihilo) is mine, not Dotan’s.]',
+    {'blockquote': _DOTAN_PAGE_XX_QUOTE},
     #
-    '[In this quote, Dotan omits the accent (zaqef qatan) on '
+    '(In this quote, Dotan omits the accent (zaqef qatan) on '
     'the ל of @וּבַעְפֹלִים# and on '
     'the ר of @וּבַטְּחֹרִים#, '
-    'perhaps because it is not germane to the topic at hand.]',
+    'perhaps because it is not germane to the topic at hand.)',
     #
-    '[Note that dt28:27 is not a-noted in WLC! (*W/B/(PLYM **W./BA/+.:XORI80YM)]'
+    'Dotan’s example from dt28:27 is not a-noted in WLC, which has merely the following:',
+    #
+    {'blockquote': '*W/B/(PLYM **W./BA/+.:XORI80YM'}
 )
 
 RECORD_01 = {
