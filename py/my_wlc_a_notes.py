@@ -52,7 +52,7 @@ _DOTAN_PAGE_XX_QUOTE = (
 _DOTAN_PAGE_XX = (
     'Dotan remarks, in his Foreword to BHL (page xx):',
     #
-    {'blockquote': _DOTAN_PAGE_XX_QUOTE},
+    {'sn-blockquote': _DOTAN_PAGE_XX_QUOTE},
     #
     '(In this quote, Dotan omits the accent (zaqef qatan) on '
     'the ל of @וּבַעְפֹלִים# and on '
@@ -61,7 +61,7 @@ _DOTAN_PAGE_XX = (
     #
     'Dotan’s example from dt28:27 is not a-noted in WLC, which has merely the following:',
     #
-    {'blockquote': '*W/B/(PLYM **W./BA/+.:XORI80YM'}
+    {'sn-blockquote': '*W/B/(PLYM **W./BA/+.:XORI80YM'}
 )
 
 RECORD_01 = {
