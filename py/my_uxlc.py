@@ -3,7 +3,6 @@
 import xml.etree.ElementTree
 
 import my_tanakh_book_names as tbn
-import my_sef_cmn
 
 
 def read_all_books():
@@ -12,9 +11,7 @@ def read_all_books():
 
 def read(book_id):
     """ Read book with id book_id into a list of chapters. """
-    basename = (
-        _UXLC_BOOK_FILE_NAMES.get(book_id) or
-        my_sef_cmn.SEF_BKNA[book_id])
+    basename = _UXLC_BOOK_FILE_NAMES[book_id]
     xml_path = f'in/UXLC/{basename}.xml'
     tree = xml.etree.ElementTree.parse(xml_path)
     root = tree.getroot()
@@ -31,11 +28,43 @@ def read(book_id):
 
 
 _UXLC_BOOK_FILE_NAMES = {
+    tbn.BK_GENESIS: 'Genesis',
+    tbn.BK_EXODUS: 'Exodus',
+    tbn.BK_LEVIT: 'Leviticus',
+    tbn.BK_NUMBERS: 'Numbers',
+    tbn.BK_DEUTER: 'Deuteronomy',
+    tbn.BK_JOSHUA: 'Joshua',
+    tbn.BK_JUDGES: 'Judges',
     tbn.BK_FST_SAM: 'Samuel_1',
     tbn.BK_SND_SAM: 'Samuel_2',
     tbn.BK_FST_KGS: 'Kings_1',
     tbn.BK_SND_KGS: 'Kings_2',
+    tbn.BK_ISAIAH: 'Isaiah',
+    tbn.BK_JEREM: 'Jeremiah',
+    tbn.BK_EZEKIEL: 'Ezekiel',
+    tbn.BK_HOSHEA: 'Hosea',
+    tbn.BK_JOEL: 'Joel',
+    tbn.BK_AMOS: 'Amos',
+    tbn.BK_OVADIAH: 'Obadiah',
+    tbn.BK_JONAH: 'Jonah',
+    tbn.BK_MIKHAH: 'Micah',
+    tbn.BK_NAXUM: 'Nahum',
+    tbn.BK_XABA: 'Habakkuk',
+    tbn.BK_TSEF: 'Zephaniah',
+    tbn.BK_XAGGAI: 'Haggai',
+    tbn.BK_ZEKHAR: 'Zechariah',
+    tbn.BK_MALAKHI: 'Malachi',
+    tbn.BK_PSALMS: 'Psalms',
+    tbn.BK_PROV: 'Proverbs',
+    tbn.BK_JOB: 'Job',
     tbn.BK_SONG: 'Song_of_Songs',
+    tbn.BK_RUTH: 'Ruth',
+    tbn.BK_LAMENT: 'Lamentations',
+    tbn.BK_QOHELET: 'Ecclesiastes',
+    tbn.BK_ESTHER: 'Esther',
+    tbn.BK_DANIEL: 'Daniel',
+    tbn.BK_EZRA: 'Ezra',
+    tbn.BK_NEXEM: 'Nehemiah',
     tbn.BK_FST_CHR: 'Chronicles_1',
     tbn.BK_SND_CHR: 'Chronicles_2',
 }

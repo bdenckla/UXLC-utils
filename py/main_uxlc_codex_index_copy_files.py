@@ -19,7 +19,6 @@ def main():
         'in/UXLC-misc/lci_recs.json',
         'out/UXLC-misc/lci_recs.xml',
         'py/main_uxlc_estimate_atom_loc.py',
-        'py/my_sef_cmn.py',
         'py/my_tanakh_book_names.py',
         'py/my_uxlc.py',
         'py/my_uxlc_bibdist.py',

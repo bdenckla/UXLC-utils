@@ -20,10 +20,24 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "WLC a-notes",
+            "name": "check changes",
             "type": "debugpy",
             "request": "launch",
-            "program": "py/main_wlc_a_notes.py",
+            "program": "py/main_uxlc_check_changes.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "codex index copy files",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "py/main_uxlc_codex_index_copy_files.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "download changes",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "py/main_uxlc_download_changes.py",
             "console": "integratedTerminal"
         },
         {
@@ -35,17 +49,18 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "download changes",
+            "name": "word list",
             "type": "debugpy",
             "request": "launch",
-            "program": "py/main_uxlc_download_changes.py",
+            "program": "py/main_uxlc_word_list.py",
+            "args": ["Genesis", "24", "24", "3"],
             "console": "integratedTerminal"
         },
         {
-            "name": "check changes",
+            "name": "WLC a-notes",
             "type": "debugpy",
             "request": "launch",
-            "program": "py/main_uxlc_check_changes.py",
+            "program": "py/main_wlc_a_notes.py",
             "console": "integratedTerminal"
         }
     ]

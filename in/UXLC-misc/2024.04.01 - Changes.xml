@@ -3948,11 +3948,11 @@
                     <position>5</position>
                 </citation>
                 <author>
-                    <name>Ben Denckla</name>
-                    <mail>bdenckla@alum.mit.edu</mail>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Remove sheva from under first nun. Add note 'c'.</description>
+                <description>Remove sheva from under first nun. Add note 't'.</description>
                 <lc>
                     <folio>Folio_154A</folio>
                     <column>2</column>
@@ -3964,16 +3964,8 @@
                 <changetext>מִבִּניָמִ֗ין</changetext>
                 <changeuni>mem     hiriq     bet     dagesh     hiriq     nun     yod     qamats     mem     hiriq     revia     yod     final-nun     </changeuni>
                 <notes>
-                    <note>The image is the LC body text which consists of the ketiv consonants, מבן־ימין (2 words), with the qere pointing. 
-						The qere consonants, מבנימין, appear to the right of the column.  
-						Words 3, 4, 5 of the UXLC represent both the LC body text and the qere consonants; 
-						   words 3, 4 contain the ketiv variants for this image; 
-						      UXLC word 5 is the qere variant, shown in the Reference/Change above.  
-						No sheva is present under the first nun in the image; hence, the qere has no sheva under the nun. 
-						The usual spelling of Benjamin, בִנְיָמִן, is with a sheva under the first nun. 
-						A transcription note 'c' will be added.
-					</note>
-                    <note>BHL has a sheva under the first nun in the qere.  BHLA has no sheva under the first nun in the qere; it also agrees with the UXLC ketiv.</note>
+                    <note>The image is the LC body text which consists of the ketiv consonants, מבן־ימין (2 words), with the qere pointing.  The qere consonants, מבנימין, appear to the right of the column and have no space or maqaf. The first nun is in the qere is a  nun (נ); a not a final nun (ן).  Words 3, 4, 5 of the UXLC represent both the LC body text and the qere consonants;  words 3, 4 contain the ketiv variants for this image;  UXLC word 5 is the qere variant, shown in the Reference/Change above.  No sheva is present under the first nun in the image; hence, the qere has no sheva under the nun.  The usual spelling of Benjamin, בִנְיָמִן, is with a sheva under the first nun.  A transcription note 't' will be added.</note>
+                    <note>BHL has a maqaf after the first nun (ן) in the ketiv; it has no maqaf and sheva on the first nun (נ) in the qere.  BHLA has a maqaf after the first nun (ן) in the ketiv; it has no maqaf and no sheva on the first nun (נ) in the qere. Both BHL and BHLA effectively consider the final nun (ן) and maqaf in the LC body text to be part of the ketiv.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -3981,7 +3973,7 @@
                 <transnotes>
                     <transnote>
                         <action>Add</action>
-                        <type>c</type>
+                        <type>t</type>
                         <beforetext>מִבִּנ</beforetext>
                     </transnote>
                 </transnotes>
@@ -4136,6 +4128,8 @@
                 <status>Pending</status>
                 <type>vowel</type>
             </change>
+            <!--...................................................-->
+            <!--...................................................-->
             <!--...................................................-->
         </date>
         <!--===================================================-->
