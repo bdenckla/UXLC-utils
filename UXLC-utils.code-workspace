@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "codex-index",
+			"path": "../codex-index"
+		}
+	],
+	"settings": {}
+}
