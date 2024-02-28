@@ -1,7 +1,7 @@
 """ Exports write_xml. """
 
 import my_html
-import my_convert_citation_from_wlc_to_uxlc
+import my_convert_citation_from_wlc
 import my_html_for_img as img
 import my_wlc_a_notes_utils
 import my_wlc_a_notes_full_nav as nav
@@ -110,7 +110,7 @@ def _initial_rows(record):
 
 def _anchor(record):
     bcv = record['bcv']
-    href = my_convert_citation_from_wlc_to_uxlc.get_tanach_dot_us_url(bcv)
+    href = my_convert_citation_from_wlc.get_tanach_dot_us_url(bcv)
     return my_html.anchor(bcv, {'href': href})
 
 

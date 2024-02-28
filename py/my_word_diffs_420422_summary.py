@@ -1,13 +1,13 @@
 """ Exports write_html. """
 
-import my_amb_early_mtg_utils as  aem_utils
+import my_word_diffs_420422_utils as wd_utils
 import my_utils
 import my_html
 
 
 
 def write(records, path, title, intro=None):
-    """ Writes amb-early-mtg records to index.html and other HTML files. """
+    """ Writes 420422 records to index.html and other HTML files. """
     if intro is None:
         intro = []
     assert isinstance(intro, list)
@@ -15,7 +15,7 @@ def write(records, path, title, intro=None):
     rows = [_row_for_header(), *rows_for_data]
     table = my_html.table(rows)
     body_contents = [*intro, table]
-    write_ctx = my_html.WriteCtx(title, f'docs/amb-early-mtg/{path}')
+    write_ctx = my_html.WriteCtx(title, f'docs/420422/{path}')
     my_html.write_html_to_file(body_contents, write_ctx)
 
 
@@ -29,11 +29,11 @@ def _row_cell_for_hdr_str(record, hdr_str):
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
     if hdr_str == 'bcv':
-        anchor = aem_utils.bcv_with_link_to_tdu(record)
+        anchor = wd_utils.bcv_with_link_to_tdu(record)
         return my_html.table_datum(anchor)
     misc_field = record[hdr_str]
     assert isinstance(misc_field, str)
-    if hdr_str in ('word',):
+    if hdr_str in ('ab_word',):
         attr = {'lang': 'hbo', 'dir': 'rtl'}
     else:
         assert False
@@ -59,4 +59,4 @@ def _row_for_header():
 
 
 _STRS_FOR_CELLS_FOR_HEADER = [
-    'bcv', 'word', 'initial remark']
+    'bcv', 'ab_word', 'initial remark']

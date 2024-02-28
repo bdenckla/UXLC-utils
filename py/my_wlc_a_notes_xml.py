@@ -5,7 +5,7 @@ import my_open
 # import my_uxlc
 # import my_uxlc_book_abbreviations as u_bk_abbr
 import my_uxlc_unicode_names
-import my_convert_citation_from_wlc_to_uxlc
+import my_convert_citation_from_wlc
 import my_wlc_a_notes_native as native
 import my_wlc_a_notes_etan as etan
 import my_wlc_a_notes_utils
@@ -72,8 +72,8 @@ def _add_citation(io_uxlc, change_elem, record):
     citation_elem = etan.sub_elem(change_elem, 'citation')
     #
     wlc_bcv_str = record['bcv']
-    uxlc_bkid = my_convert_citation_from_wlc_to_uxlc.get_uxlc_bkid(wlc_bcv_str)
-    chnu, vrnu = my_convert_citation_from_wlc_to_uxlc.get_cv_pair(wlc_bcv_str)
+    uxlc_bkid = my_convert_citation_from_wlc.get_uxlc_bkid(wlc_bcv_str)
+    chnu, vrnu = my_convert_citation_from_wlc.get_cv_pair(wlc_bcv_str)
     bcv = uxlc_bkid, chnu, vrnu
     word_position = _word_position(io_uxlc, record, bcv)
     #
