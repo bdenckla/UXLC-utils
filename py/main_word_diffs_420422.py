@@ -12,6 +12,8 @@ def main():
     #
     my_word_diffs_420422_add_fields.add(records)  # mutates, i.e. modifies in-place
     #
+    records = sorted(records, key=_sort_key_for_rec)
+    #
     _set_prev_and_next(records, 'prev', 'next')
     #
     # Now we write various HTML files in a bottom-up (leaves first) fashion
@@ -22,6 +24,12 @@ def main():
     intro = _intro(records)
     title = 'Words that differ btwn WLC 4.20 and 4.22'
     my_word_diffs_420422_summary.write(records, 'index.html', title, intro)
+
+
+def _sort_key_for_rec(record):
+    diffs = record['diffs']
+    return (1, 'misc') if diffs == 'misc' else (0, diffs)
+
 
 
 def _set_prev_and_next(io_records, prevkey, nextkey):

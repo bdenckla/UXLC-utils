@@ -54,8 +54,6 @@ def _navs(record):
     navs = []
     _maybe_append_nav(navs, record, 'prev', 'Prev')
     _maybe_append_nav(navs, record, 'next', 'Next')
-    _maybe_append_nav(navs, record, 'prev-dubious', 'Prev-dubious')
-    _maybe_append_nav(navs, record, 'next-dubious', 'Next-dubious')
     return navs
 
 
@@ -121,6 +119,7 @@ def _initial_rows(record):
                 rows.append(_make_key_value_row(f'release/changeset-n:{rcn_idx+1}', rcn_single))
         else:
             rows.append(_make_key_value_row('release/changeset-n', rcn))
+    rows.append(_make_key_value_row('diffs', record['diffs']))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
     return rows

@@ -15,15 +15,15 @@ def add(io_records):
 
 
 _CUSTOM = {
-    (('.', None),): '-dgsh',
-    ((None, '.'),): '+dgsh',
+    (('.', None),): '-dom',
+    ((None, '.'),): '+dom',
     ((',', None),): '-rfh',
     (('03', None),): '-pashta',
     ((None, '81'),): '+rev',
     ((None, '05'),): '+psq',
     ((None, '-'),): '+mqf',
-    ((':', None),): '-shva',
-    ((None, ':'),): '+shva',
+    ((':', None),): '-shoḥ',
+    ((None, ':'),): '+shoḥ',
     (('A', 'E'),): 'vow-chng',
     (('F', 'A'),): 'vow-chng',
     (('I', ':'),): 'vow-chng',
@@ -43,10 +43,7 @@ def _custom_diffs(record):
     generic_diffs = my_diffs.get(*pair)
     if custom := _CUSTOM.get(tuple(generic_diffs)):
         return custom
-    string = str(generic_diffs)
-    if len(string) < 15:
-        return string
-    return ''
+    return 'misc'
 
 
 def _page_and_guesses(uxlc, pbi, bcvp_quad):
