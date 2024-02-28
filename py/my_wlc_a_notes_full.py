@@ -4,6 +4,7 @@ import my_html
 import my_convert_citation_from_wlc_to_uxlc
 import my_html_for_img as img
 import my_wlc_a_notes_utils
+import my_wlc_a_notes_full_nav as nav
 
 
 def write(io_records):
@@ -25,6 +26,9 @@ def _make_key_value_row(key, value, hbo=False):
 def _write_record(record):
     #
     body_contents = []
+    #
+    body_contents.append(my_html.para(nav.navs(record)))
+    #
     if html_for_i := img.html_for_img_or_imgs(record):
         body_contents.extend(html_for_i)
     #
