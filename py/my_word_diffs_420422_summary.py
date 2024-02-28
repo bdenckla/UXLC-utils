@@ -31,13 +31,12 @@ def _row_cell_for_hdr_str(record, hdr_str):
     if hdr_str == 'bcv':
         anchor = wd_utils.bcv_with_link_to_tdu(record)
         return my_html.table_datum(anchor)
-    misc_field = record[hdr_str]
-    assert isinstance(misc_field, str)
-    if hdr_str in ('ab_word',):
+    if hdr_str == '4.20 uword':
+        ab_uword = record['ab_uword']
+        a_uword, _b_uword = ab_uword.split('\n')
         attr = {'lang': 'hbo', 'dir': 'rtl'}
-    else:
-        assert False
-    return my_html.table_datum(misc_field, attr)
+    return my_html.table_datum(a_uword, attr)
+    assert False
 
 
 def _get_anchors_to_full_and_ucp(record):
@@ -59,4 +58,4 @@ def _row_for_header():
 
 
 _STRS_FOR_CELLS_FOR_HEADER = [
-    'bcv', 'ab_word', 'initial remark']
+    'bcv', '4.20 uword', 'initial remark']

@@ -42,7 +42,7 @@ def _write_record(record):
     _append_remarks_and_side_notes(body_contents, record)
     #
     orord = record['original-order']
-    title = f'Ambiguous early meteg {orord}'
+    title = f'WLC 4.20 to 4.22 diff {orord}'
     filename = _filename(orord)
     path = f'full-record/{filename}'
     write_ctx = my_html.WriteCtx(title, f'docs/420422/{path}')
@@ -107,14 +107,22 @@ def _hebrew_spanify2(string: str):
 def _initial_rows(record):
     bcv_with_link_to_tdu = wd_utils.bcv_with_link_to_tdu(record)
     bcv_with_link_to_mwd = wd_utils.bcv_with_link_to_mwd(record)
+    ab_uword_br = _newline_to_br(record['ab_uword'])
+    ab_word_br = _newline_to_br(record['ab_word'])
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
     rows.append(_make_key_value_row('bcv (link to Mwd)', bcv_with_link_to_mwd))
     # rows.append(_make_key_value_row('img file name', record['img']))
-    rows.append(_make_key_value_row('ab_word', record['ab_word'], big_hbo=True))
+    rows.append(_make_key_value_row('ab_uword', ab_uword_br, big_hbo=True))
+    rows.append(_make_key_value_row('ab_word', ab_word_br))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
     return rows
+
+
+def _newline_to_br(nssp):  # nssp newline-separated string-pair
+    elem1of2, elem2of2 = nssp.split('\n')
+    return [elem1of2, my_html.line_break(), elem2of2]
 
 
 def _mam_status(record, mamsta):
