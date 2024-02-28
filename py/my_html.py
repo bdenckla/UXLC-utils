@@ -21,7 +21,7 @@ class WriteCtx:
 
 
 
-def write_html_to_file(body_contents, write_ctx: WriteCtx, path_to_woff2=''):
+def write_html_to_file(body_contents, write_ctx: WriteCtx, path_to_style):
     """
     Write HTML to file based on the following inputs:
         * a body contents
@@ -29,7 +29,7 @@ def write_html_to_file(body_contents, write_ctx: WriteCtx, path_to_woff2=''):
             * a title
             * an output path
     """
-    html_el = html_el2(write_ctx.title, body_contents, f'{path_to_woff2}style.css')
+    html_el = html_el2(write_ctx.title, body_contents, f'{path_to_style}style.css')
     my_open.with_tmp_openw(
         write_ctx.path, {}, _write_callback, html_el, write_ctx.add_wbr)
 

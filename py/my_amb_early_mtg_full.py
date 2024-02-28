@@ -46,7 +46,7 @@ def _write_record(record):
     filename = _filename(orord)
     path = f'full-record/{filename}'
     write_ctx = my_html.WriteCtx(title, f'docs/amb-early-mtg/{path}')
-    my_html.write_html_to_file(body_contents, write_ctx, '../')
+    my_html.write_html_to_file(body_contents, write_ctx, '../../')
     return path
 
 

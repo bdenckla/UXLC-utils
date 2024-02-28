@@ -55,7 +55,7 @@ def _write2(records, intro, title, path, no_ucp=False):
     table = my_html.table(rows)
     body_contents = [*intro, table]
     write_ctx = my_html.WriteCtx(title, f'docs/wlc-a-notes/{path}')
-    my_html.write_html_to_file(body_contents, write_ctx)
+    my_html.write_html_to_file(body_contents, write_ctx, '../')
 
 
 def _get_wlc_index(record):

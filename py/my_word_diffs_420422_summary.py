@@ -16,7 +16,7 @@ def write(records, path, title, intro=None):
     table = my_html.table(rows)
     body_contents = [*intro, table]
     write_ctx = my_html.WriteCtx(title, f'docs/420422/{path}')
-    my_html.write_html_to_file(body_contents, write_ctx)
+    my_html.write_html_to_file(body_contents, write_ctx, '../')
 
 
 def _row_cell_for_hdr_str(record, hdr_str):
