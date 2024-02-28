@@ -26,15 +26,17 @@ _THIS_PAGE_ALSO = (
     'I can’t figure out what adaptation the bracket-a note is referring to.)'
 )
 _THIS_PAGE_USES = 'This page uses the following abbreviations:'
-_INITIALISMS = my_html.unordered_list([
-    'UCP for “UXLC change proposal” ',
-    'MPK for “manuscript’s pointed ketiv”',
-    'AI for “the part of the WLC qere that is at issue”',
-    'AIC for “AI category,” i.e. “the type of thing that is at issue in the WLC qere”',
-])
-INTRO = [
-    my_html.para([_THIS_PAGE, my_html.blockquote(_DEFINITION_OF_AN_A_NOTE)]),
-    my_html.para([_THIS_PAGE_ALSO]),
-    my_html.para([_THIS_PAGE_USES]),
-    _INITIALISMS,
-]
+def _initialisms(no_ucp):
+    return my_html.unordered_list([
+        *([] if no_ucp else ['UCP for “UXLC change proposal”']),
+        'MPK for “manuscript’s pointed ketiv”',
+        'AI for “the part of the WLC qere that is at issue”',
+        'AIC for “AI category,” i.e. “the type of thing that is at issue in the WLC qere”',
+    ])
+def intro(no_ucp):
+    return [
+        my_html.para([_THIS_PAGE, my_html.blockquote(_DEFINITION_OF_AN_A_NOTE)]),
+        *([] if no_ucp else [my_html.para([_THIS_PAGE_ALSO])]),
+        my_html.para([_THIS_PAGE_USES]),
+        _initialisms(no_ucp),
+    ]

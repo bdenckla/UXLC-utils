@@ -15,6 +15,7 @@ def main():
     my_wlc_a_notes_full.write(records_s)  # fills in path-to-full fields
     xml_out_path = my_wlc_a_notes_xml.write(records_s)  # fills in path-to-ucp fields
     my_wlc_a_notes_summary.write(records_s, xml_out_path)
+    my_wlc_a_notes_summary.write(records_s, xml_out_path, no_ucp=True)
 
 
 def _sort_key_for_rec(record):

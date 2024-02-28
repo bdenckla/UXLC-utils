@@ -7,19 +7,22 @@ import my_html
 
 
 
-def write(records, xml_out_path):
+def write(records, xml_out_path, no_ucp=False):
     """ Writes WLC a-notes records to index.html and other HTML files. """
+    index_dot_html = 'index-no-ucp.html' if no_ucp else 'index.html'
+    dis_dot_html = 'table-of-BHLA-disagreements-no-ucp.html' if no_ucp else 'table-of-BHLA-disagreements.html'
     intro = [
-        *my_wlc_a_notes_intro.INTRO,
+        *my_wlc_a_notes_intro.intro(no_ucp),
         _intro_to_xml_out(xml_out_path),
         _INTRO_TO_WLC_ORDER,
-        _INTRO_TO_BHLA_DIS,
+        _intro_to_bhla_dis(dis_dot_html),
     ]
-    _write2(records, intro, 'WLC a-notes', 'index.html')
-    records_in_wlc_order = sorted(records, key=_get_wlc_index)
-    _write2(records_in_wlc_order, [], 'WLC a-notes in WLC order', _PATH_TO_WLC_ORDER)
-    records_filtered_to_bhla_dis = filter(_disagrees_with_bhla, records)
-    _write2(records_filtered_to_bhla_dis, [], 'WLC a-notes disagreeing with BHLA', _PATH_TO_BHLA_DIS)
+    _write2(records, intro, 'WLC a-notes', index_dot_html, no_ucp)
+    records_filtered_to_bhla_dis = list(filter(_disagrees_with_bhla, records))
+    _write2(records_filtered_to_bhla_dis, [], 'WLC a-notes disagreeing with BHLA', dis_dot_html, no_ucp)
+    if not no_ucp:
+        records_in_wlc_order = sorted(records, key=_get_wlc_index)
+        _write2(records_in_wlc_order, [], 'WLC a-notes in WLC order', _PATH_TO_WLC_ORDER)
 
 
 def _intro_to_xml_out(xml_out_path):
@@ -39,16 +42,16 @@ _INTRO_TO_WLC_ORDER = my_html.para([
     '(The table below is ordered by UXLC change proposal number. '
     'UXLC change proposals are numbered thematically rather than in WLC order.)'
 ])
-_PATH_TO_BHLA_DIS = 'table-of-BHLA-disagreements.html'
-_INTRO_TO_BHLA_DIS = my_html.para([
+def _intro_to_bhla_dis(dis_dot_html):
+    return my_html.para([
     'The table below is also available ',
-    my_html.anchor('filtered down to disagreements with BHLA', {'href': _PATH_TO_BHLA_DIS}),
+    my_html.anchor('filtered down to disagreements with BHLA', {'href': dis_dot_html}),
     '.'
 ])
 
 
-def _write2(records, intro, title, path):
-    rows_for_data = list(map(_rec_to_row, records))
+def _write2(records, intro, title, path, no_ucp=False):
+    rows_for_data = my_utils.ll_map((_rec_to_row, no_ucp), records)
     rows = [_row_for_header(), *rows_for_data]
     table = my_html.table(rows)
     body_contents = [*intro, table]
@@ -79,13 +82,13 @@ _HBO_VALS = {
 }
 
 
-def _row_cell_for_hdr_str(record, hdr_str):
+def _row_cell_for_hdr_str(no_ucp, record, hdr_str):
     rec_key = _REC_KEY_FROM_HDR_STR.get(hdr_str) or hdr_str
     val = record[rec_key]
     if rec_key == 'remarks':
         assert isinstance(val, list)
         assert len(val) in (0, 1)
-        anchors = _get_anchors_to_full_and_ucp(record)
+        anchors = _get_anchors_to_full_and_ucp(record, no_ucp)
         if val:
             datum_contents = [*anchors, '; ', *val]
         else:
@@ -103,9 +106,11 @@ def _row_cell_for_hdr_str(record, hdr_str):
     return my_html.table_datum(val, attr)
 
 
-def _get_anchors_to_full_and_ucp(record):
+def _get_anchors_to_full_and_ucp(record, no_ucp):
     path_to_full = record['path-to-full']
     anchor_to_full = my_html.anchor('full', {'href': path_to_full})
+    if no_ucp:
+        return [anchor_to_full]
     path_to_ucp = record.get('path-to-ucp')
     if path_to_ucp:
         something_for_ucp = my_html.anchor('UCP', {'href': path_to_ucp})
@@ -114,9 +119,9 @@ def _get_anchors_to_full_and_ucp(record):
     return [anchor_to_full, '; ', something_for_ucp]
 
 
-def _rec_to_row(record):
+def _rec_to_row(no_ucp, record):
     row_cells = my_utils.ll_map(
-        (_row_cell_for_hdr_str, record),
+        (_row_cell_for_hdr_str, no_ucp, record),
         strs_for_cells_for_header)
     return my_html.table_row(row_cells)
 
