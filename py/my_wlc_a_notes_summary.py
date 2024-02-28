@@ -11,18 +11,18 @@ def write(records, xml_out_path, no_ucp=False):
     """ Writes WLC a-notes records to index.html and other HTML files. """
     index_dot_html = 'index-no-ucp.html' if no_ucp else 'index.html'
     dis_dot_html = 'table-of-BHLA-disagreements-no-ucp.html' if no_ucp else 'table-of-BHLA-disagreements.html'
+    wlc_order_dot_html = 'table-in-wlc-order-no-ucp.html' if no_ucp else 'table-in-wlc-order.html'
     intro = [
         *my_wlc_a_notes_intro.intro(no_ucp),
-        _intro_to_xml_out(xml_out_path),
-        _INTRO_TO_WLC_ORDER,
+        *([] if no_ucp else [_intro_to_xml_out(xml_out_path)]),
+        _intro_to_wlc_order(wlc_order_dot_html),
         _intro_to_bhla_dis(dis_dot_html),
     ]
     _write2(records, intro, 'WLC a-notes', index_dot_html, no_ucp)
     records_filtered_to_bhla_dis = list(filter(_disagrees_with_bhla, records))
     _write2(records_filtered_to_bhla_dis, [], 'WLC a-notes disagreeing with BHLA', dis_dot_html, no_ucp)
-    if not no_ucp:
-        records_in_wlc_order = sorted(records, key=_get_wlc_index)
-        _write2(records_in_wlc_order, [], 'WLC a-notes in WLC order', _PATH_TO_WLC_ORDER)
+    records_in_wlc_order = sorted(records, key=_get_wlc_index)
+    _write2(records_in_wlc_order, [], 'WLC a-notes in WLC order', wlc_order_dot_html, no_ucp)
 
 
 def _intro_to_xml_out(xml_out_path):
@@ -34,14 +34,13 @@ def _intro_to_xml_out(xml_out_path):
     ])
 
 
-_PATH_TO_WLC_ORDER = 'table-in-wlc-order.html'
-_INTRO_TO_WLC_ORDER = my_html.para([
-    'The table below is also available ',
-    my_html.anchor('in WLC order', {'href': _PATH_TO_WLC_ORDER}),
-    '. '
-    '(The table below is ordered by UXLC change proposal number. '
-    'UXLC change proposals are numbered thematically rather than in WLC order.)'
-])
+def _intro_to_wlc_order(wlc_order_dot_html):
+    return my_html.para([
+        'The table below is also available ',
+        my_html.anchor('in WLC order', {'href': wlc_order_dot_html}),
+        '. '
+        '(The table below is in thematic order rather than in WLC order.)'
+    ])
 def _intro_to_bhla_dis(dis_dot_html):
     return my_html.para([
     'The table below is also available ',
