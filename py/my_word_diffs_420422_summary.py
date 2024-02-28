@@ -21,12 +21,12 @@ def write(records, path, title, intro=None):
 
 def _row_cell_for_hdr_str(record, hdr_str):
     if hdr_str == 'initial remark':
-        anchors = _get_anchors_to_full_and_ucp(record)
-        if initial_remark := record.get('initial-remark'):
-            assert isinstance(initial_remark, str)
-            datum_contents = [*anchors, '; ', *initial_remark]
+        anchor = _get_anchor_to_full(record)
+        if ir_or_rcn := _initial_remark_or_rcn(record):
+            assert isinstance(ir_or_rcn, str)
+            datum_contents = [anchor, '; ', ir_or_rcn]
         else:
-            datum_contents = anchors
+            datum_contents = [anchor]
         return my_html.table_datum(datum_contents)
     if hdr_str == 'bcv':
         anchor = wd_utils.bcv_with_link_to_tdu(record)
@@ -35,14 +35,18 @@ def _row_cell_for_hdr_str(record, hdr_str):
         ab_uword = record['ab_uword']
         a_uword, _b_uword = ab_uword.split('\n')
         attr = {'lang': 'hbo', 'dir': 'rtl'}
-    return my_html.table_datum(a_uword, attr)
+        return my_html.table_datum(a_uword, attr)
     assert False
 
 
-def _get_anchors_to_full_and_ucp(record):
+def _initial_remark_or_rcn(record):  # rcn: release-changeset-n
+    return record.get('initial-remark') or record.get('release-changeset-n')
+
+
+def _get_anchor_to_full(record):
     path_to_full = record['path-to-full']
     anchor_to_full = my_html.anchor('full', {'href': path_to_full})
-    return [anchor_to_full]
+    return anchor_to_full
 
 
 def _rec_to_row(record):
