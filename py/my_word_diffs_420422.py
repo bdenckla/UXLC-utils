@@ -304,7 +304,8 @@ RECORDS = [
       "ab_word": "WA/T.IT,:CW.03\nWA/T.IT:CW.03",
       "ab_uword": "וַתִּתְֿצוּ֙\nוַתִּתְצוּ֙",
       "ab_notes": "\n",
-      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh. It seems like a good change: does anyone think that this rafeh is notable?",
+      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh.",
+      "further-remarks": ["It seems like a good change: does anyone think that this rafeh is notable?"],
     },
     {
       "bcv": "is45:6",
@@ -328,7 +329,10 @@ RECORDS = [
       "ab_word": "W:/RAX:M/F73H,\nW:/RAX:M/F73H",
       "ab_uword": "וְרַחְמָ֖הֿ\nוְרַחְמָ֖ה",
       "ab_notes": "\n",
-      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh. It seems like a bad change because this rafe is (a) present in the manuscript (b) notable according to Avi.",
+      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh.",
+      "further-remarks": [
+          "It seems like a bad change because this rafe is "
+          "(a) present in the manuscript (b) notable according to Avi."],
     },
     {
       "bcv": "je27:13",
@@ -344,7 +348,13 @@ RECORDS = [
       "ab_word": "L:/HA74(:ACIB/F80H\nL:/HA74(:ACIB/F80H.",
       "ab_uword": "לְהַ֣עֲצִבָ֔ה\nלְהַ֣עֲצִבָ֔הּ",
       "ab_notes": "\n]p",
-      "initial-remark": "UXLC doesn't have this change: it has not added that mapiq. It seems like a bad change because the mapiq is likely an artifact. UXLC has a rafeh on the he in question. UXLC arrived at this with a bit of back-and-forth: 3 changes. Change 1 added the mapiq, change 2 added the rafeh, and change 3 removed the mapiq, with the net result that only a rafeh remains.",
+      "initial-remark": "UXLC doesn't have this change: it has not added that mapiq.",
+      "further-remarks": [
+          "It seems like a bad change because the mapiq is likely an artifact. "
+          "UXLC has a rafeh on the he in question. "
+          "UXLC arrived at this with a bit of back-and-forth: 3 changes. "
+          "Change 1 added the mapiq, change 2 added the rafeh, and change 3 removed the mapiq, "
+          "with the net result that only a rafeh remains."],
       "release-changeset-n": [
         "2020.02.19/2019.12.21-1",
         "2020.10.19/2020.07.16-1",
@@ -365,7 +375,10 @@ RECORDS = [
       "ab_word": "L/F71H,\nL/F71H",
       "ab_uword": "לָ֥הֿ\nלָ֥ה",
       "ab_notes": "\n]U",
-      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh. It seems like a bad change because this rafe is (a) present in the manuscript (b) notable according to Avi.",
+      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh.",
+      "further-remarks": [
+          "It seems like a bad change because this rafe is "
+          "(a) present in the manuscript (b) notable according to Avi."],
     },
     {
       "bcv": "1c10:1",
@@ -381,7 +394,10 @@ RECORDS = [
       "ab_word": "L,/I75Y00\nL/I75Y00",
       "ab_uword": "לִֽֿי׃\nלִֽי׃",
       "ab_notes": "\n",
-      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh. It seems like a good change because no one except BHS seems to think that this rafeh, though present in the manuscript, is notable.",
+      "initial-remark": "UXLC doesn't have this change: it has not removed that rafeh.",
+      "further-remarks": [
+          "It seems like a good change because no one except BHS "
+          "seems to think that this rafeh, though present in the manuscript, is notable."],
     },
     {
       "bcv": "es7:8",
