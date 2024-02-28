@@ -36,6 +36,8 @@ def _row_cell_for_hdr_str(record, hdr_str):
         a_uword, _b_uword = ab_uword.split('\n')
         attr = {'lang': 'hbo', 'dir': 'rtl'}
         return my_html.table_datum(a_uword, attr)
+    if hdr_str == 'AI':
+        return my_html.table_datum(record['diffs'])
     assert False
 
 
@@ -62,4 +64,4 @@ def _row_for_header():
 
 
 _STRS_FOR_CELLS_FOR_HEADER = [
-    'bcv', '4.20 uword', 'initial remark']
+    'bcv', 'AI', '4.20 uword', 'initial remark']
