@@ -12,6 +12,9 @@ RECORDS = [
       'ab-word': "B:/(\"73DEN\nB.:/(\"73DEN",
       'ab-uword': "בְעֵ֖דֶן\nבְּעֵ֖דֶן",
       'ab-notes': "\n",
+      'release-changeset-n': "2021.04.01/2021.02.22-2",
+      'initial-remark': 'UXLC has this change: it has added that dagesh, albeit qualified with a t-note.',
+      'UXLC-note': "https://tanach.us/Notes/Genesis/Genesis.2.8.5-t.html",
     },
     {
       'bcv': "gn2:10",
@@ -82,6 +85,8 @@ RECORDS = [
       'ab-word': "R:)W.B\"80N\nR:)W.B\"8081N",
       'ab-uword': "רְאוּבֵ֔ן\nרְאוּבֵ֔֗ן",
       'ab-notes': "\n]C]c",
+      'release-changeset-n': "2021.04.01/2021.02.22-8",
+      'initial-remark': 'UXLC has this change: it has added that revia.',
     },
     {
       'bcv': "gn38:11",
@@ -138,6 +143,15 @@ RECORDS = [
       'ab-word': "R71W.XA\nR71W.XA-",
       'ab-uword': "ר֥וּחַ\nר֥וּחַ־",
       'ab-notes': "\n",
+      'initial-remark': "UXLC has this change; it has added that maqaf.",
+      'release-changeset-n': [
+          "2021.04.01/2021.02.22-14",
+          "2023.07.04/2023.03.27-1"
+      ],
+      'further-remarks': [
+          "Although UXLC agrees with WLC 4.22 with respect to the maqaf at issue, "
+          "UXLC differs from WLC 4.22 by having “demoted” this word’s merkha to a meteg."
+      ]
     },
     {
       'bcv': "ex20:3",
@@ -217,6 +231,7 @@ RECORDS = [
       'ab-uword': "עֲלֵיהֶ֨ן\nעֲלֵיהֶ֨ן׀",
       'ab-notes': "\n]c",
       'release-changeset-n': "2021.04.01/2021.02.22-19",
+      'initial-remark': 'UXLC has this change: it has added that paseq.',
     },
     {
       'bcv': "nu24:13",
@@ -297,6 +312,7 @@ RECORDS = [
       'ab-uword': "וַיַּעַבְדֻ֑ם\nוַיַּעֲבְדֻ֑ם",
       'ab-notes': "\n]v",
       'release-changeset-n': "2021.04.01/2021.02.22-22",
+      'initial-remark': 'UXLC has this change: it has “demoted” that pataḥ to ḥataf-pataḥ.',
     },
     {
       'bcv': "is22:10",

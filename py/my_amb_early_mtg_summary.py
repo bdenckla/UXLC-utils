@@ -20,7 +20,7 @@ def write(records, path, title, intro=None):
 
 
 def _row_cell_for_hdr_str(record, hdr_str):
-    if hdr_str == 'initial remark':
+    if hdr_str == 'remark':
         anchors = _get_anchors_to_full_and_ucp(record)
         if initial_remark := record.get('initial-remark'):
             assert isinstance(initial_remark, str)
@@ -59,4 +59,4 @@ def _row_for_header():
 
 
 _STRS_FOR_CELLS_FOR_HEADER = [
-    'bcv', 'word', 'initial remark']
+    'bcv', 'word', 'remark']

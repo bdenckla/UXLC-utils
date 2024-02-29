@@ -113,18 +113,21 @@ def _initial_rows(record):
     # rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('ab-uword', ab_uword_br, big_hbo=True))
     rows.append(_make_key_value_row('ab-word', ab_word_br))
+    _append_rcn_or_rcns(rows, record)
+    rows.append(_make_key_value_row('diff type', wd_utils.diff_type_long(record)))
+    rows.append(_make_key_value_row('diff desc', record['diff-desc']))
+    rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
+    rows.append(_make_key_value_row(*_colx_and_linex(record)))
+    return rows
+
+
+def _append_rcn_or_rcns(rows, record):
     if rcn := record.get('release-changeset-n'):
         if isinstance(rcn, list):
             for rcn_idx, rcn_single in enumerate(rcn):
                 rows.append(_make_key_value_row(f'release/changeset-n:{rcn_idx+1}', rcn_single))
         else:
             rows.append(_make_key_value_row('release/changeset-n', rcn))
-    dity_long = wd_utils.diff_type_long(record)
-    rows.append(_make_key_value_row('diff type', dity_long))
-    rows.append(_make_key_value_row('diff desc', record['diff-desc']))
-    rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
-    rows.append(_make_key_value_row(*_colx_and_linex(record)))
-    return rows
 
 
 def _newline_to_br(nssp):  # nssp newline-separated string-pair

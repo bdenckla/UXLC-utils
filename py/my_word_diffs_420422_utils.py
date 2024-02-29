@@ -86,8 +86,8 @@ _DIFF_TYPES = {
     '+rev': _example('add revia accent', '', ha.REV),
     '+psq': _example('add paseq', '', hpu.PAS),
     '+mqf': _example('add maqaf', '', hpu.MAQ),
-    '-shoḥ': _example_quad('remove sheva or change ḥataf vowel to plain vowel', MQ1, MQ2),
-    '+shoḥ': _example_quad('add sheva or change ḥataf vowel to plain vowel', MQ2, MQ1),
+    '-shoḥ': _example_quad('remove sheva or change ḥataf vowel to full vowel', MQ1, MQ2),
+    '+shoḥ': _example_quad('add sheva or change full vowel to ḥataf vowel', MQ2, MQ1),
     'vow-chng': 'vowel change',
     'acc-chng': 'accent change',
     'misc': 'miscellaneous'

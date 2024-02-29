@@ -21,7 +21,7 @@ def write(records, path, title, intro=None):
 
 
 def _row_cell_for_hdr_str(record, hdr_str):
-    if hdr_str == 'initial remark':
+    if hdr_str == 'remark':
         anchor = _get_anchor_to_full(record)
         if ir_or_rcn := _initial_remark_or_rcn(record):
             assert isinstance(ir_or_rcn, str)
@@ -66,4 +66,4 @@ def _row_for_header():
 
 
 _STRS_FOR_CELLS_FOR_HEADER = [
-    'bcv', 'difftype', '4.20 uword', 'initial remark']
+    'bcv', 'difftype', '4.20 uword', 'remark']
