@@ -12,7 +12,7 @@ RECORDS = [
       'ab-word': "B:/(\"73DEN\nB.:/(\"73DEN",
       'ab-uword': "בְעֵ֖דֶן\nבְּעֵ֖דֶן",
       'ab-notes': "\n",
-      'release-changeset-n': "2021.04.01/2021.02.22-2",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-2"),
       'initial-remark': 'UXLC has this change: it has added that dagesh, albeit qualified with a t-note.',
       'UXLC-note': "https://tanach.us/Notes/Genesis/Genesis.2.8.5-t.html",
     },
@@ -85,7 +85,7 @@ RECORDS = [
       'ab-word': "R:)W.B\"80N\nR:)W.B\"8081N",
       'ab-uword': "רְאוּבֵ֔ן\nרְאוּבֵ֔֗ן",
       'ab-notes': "\n]C]c",
-      'release-changeset-n': "2021.04.01/2021.02.22-8",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-8"),
       'initial-remark': 'UXLC has this change: it has added that revia.',
     },
     {
@@ -144,9 +144,9 @@ RECORDS = [
       'ab-uword': "ר֥וּחַ\nר֥וּחַ־",
       'ab-notes': "\n",
       'initial-remark': "UXLC has this change; it has added that maqaf.",
-      'release-changeset-n': [
-          "2021.04.01/2021.02.22-14",
-          "2023.07.04/2023.03.27-1"
+      'UXLC-change-proposals': [
+          ("2021.04.01", "2021.02.22-14"),
+          ("2023.07.04", "2023.03.27-1")
       ],
       'further-remarks': [
           "Although UXLC agrees with WLC 4.22 with respect to the maqaf at issue, "
@@ -222,7 +222,7 @@ RECORDS = [
       'ab-word': "MO$E81H\nMO$E80H",
       'ab-uword': "מֹשֶׁ֗ה\nמֹשֶׁ֔ה",
       'ab-notes': "\n]c",
-      'release-changeset-n': "2021.04.01/2021.02.22-18",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-18"),
     },
     {
       'bcv': "nu16:7",
@@ -230,7 +230,7 @@ RECORDS = [
       'ab-word': "(:AL\"Y/HE63N\n(:AL\"Y/HE63N05",
       'ab-uword': "עֲלֵיהֶ֨ן\nעֲלֵיהֶ֨ן׀",
       'ab-notes': "\n]c",
-      'release-changeset-n': "2021.04.01/2021.02.22-19",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-19"),
       'initial-remark': 'UXLC has this change: it has added that paseq.',
     },
     {
@@ -239,7 +239,7 @@ RECORDS = [
       'ab-word': "MI/L.IB./I92Y\nMI/LIB./I92Y",
       'ab-uword': "מִלִּבִּ֑י\nמִלִבִּ֑י",
       'ab-notes': "\n]p",
-      'release-changeset-n': "2021.04.01/2021.02.22-20",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-20"),
     },
     {
       'bcv': "dt5:13",
@@ -255,7 +255,7 @@ RECORDS = [
       'ab-word': "W:/YO33WM03\nW:/YO63WM03",
       'ab-uword': "וְי֙וֹם֙\nוְי֨וֹם֙",
       'ab-notes': "\n",
-      'release-changeset-n': "2020.10.19/2020.06.07-4",
+      'UXLC-change-proposals': ("2020.10.19", "2020.06.07-4"),
     },
     {
       'bcv': "dt5:17",
@@ -287,7 +287,7 @@ RECORDS = [
       'ab-word': "W./MI/$.FM:R/70W.\nW./MI/$.FM:R/70W",
       'ab-uword': "וּמִשָּׁמְר֤וּ\nוּמִשָּׁמְר֤ו",
       'ab-notes': "]P]p]v\n]Q]n]v",
-      'release-changeset-n': "2021.04.01/2021.02.22-21",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-21"),
     },
     {
       'bcv': "dt12:30",
@@ -295,7 +295,7 @@ RECORDS = [
       'ab-word': "L\"/)MO63R\nL\"/)MO81R",
       'ab-uword': "לֵאמֹ֨ר\nלֵאמֹ֗ר",
       'ab-notes': "\n]P]p",
-      'release-changeset-n': "2020.02.19/2019.09.01-1",
+      'UXLC-change-proposals': ("2020.02.19", "2019.09.01-1"),
     },
     {
       'bcv': "2s11:1",
@@ -311,7 +311,7 @@ RECORDS = [
       'ab-word': "WA/Y.A(AB:DU92/M\nWA/Y.A(:AB:DU92/M",
       'ab-uword': "וַיַּעַבְדֻ֑ם\nוַיַּעֲבְדֻ֑ם",
       'ab-notes': "\n]v",
-      'release-changeset-n': "2021.04.01/2021.02.22-22",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-22"),
       'initial-remark': 'UXLC has this change: it has “demoted” that pataḥ to ḥataf-pataḥ.',
     },
     {
@@ -329,7 +329,7 @@ RECORDS = [
       'ab-word': "W./MI/M.A74(:ARFB/F80H.\nW./MI/M.A74(:ARFB/F80H",
       'ab-uword': "וּמִמַּ֣עֲרָבָ֔הּ\nוּמִמַּ֣עֲרָבָ֔ה",
       'ab-notes': "]p\n]1",
-      'release-changeset-n': "2021.04.01/2021.02.22-23",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-23"),
     },
     {
       'bcv': "je15:18",
@@ -337,7 +337,7 @@ RECORDS = [
       'ab-word': "):ANW.$F92H03\n):ANW.$F92H",
       'ab-uword': "אֲנוּשָׁ֑ה֙\nאֲנוּשָׁ֑ה",
       'ab-notes': "\n]c",
-      'release-changeset-n': "2021.04.01/2021.02.22-24",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-24"),
     },
     {
       'bcv': "je20:17",
@@ -356,7 +356,7 @@ RECORDS = [
       'ab-word': "W./BA/D.F92BER03\nW./BA/D.F92BER",
       'ab-uword': "וּבַדָּ֑בֶר֙\nוּבַדָּ֑בֶר",
       'ab-notes': "\n]c",
-      'release-changeset-n': "2021.04.01/2021.02.22-25",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-25"),
     },
     {
       'bcv': "je44:19",
@@ -371,10 +371,10 @@ RECORDS = [
           "UXLC arrived at this with a bit of back-and-forth: 3 changes. "
           "Change 1 added the mapiq, change 2 added the rafeh, and change 3 removed the mapiq, "
           "with the net result that only a rafeh remains."],
-      'release-changeset-n': [
-        "2020.02.19/2019.12.21-1",
-        "2020.10.19/2020.07.16-1",
-        "2021.04.01/2021.03.04-1"
+      'UXLC-change-proposals': [
+        ("2020.02.19", "2019.12.21-1"),
+        ("2020.10.19", "2020.07.16-1"),
+        ("2021.04.01", "2021.03.04-1")
       ]
     },
     {
@@ -383,7 +383,7 @@ RECORDS = [
       'ab-word': "D:BFRE71Y/KF\nD:BFRE91Y/KF",
       'ab-uword': "דְבָרֶ֥יךָ\nדְבָרֶ֛יךָ",
       'ab-notes': "\n]c",
-      'release-changeset-n': "2020.02.19/2019.01.03-1",
+      'UXLC-change-proposals': ("2020.02.19", "2019.01.03-1"),
     },
     {
       'bcv': "zc5:11",
@@ -402,7 +402,7 @@ RECORDS = [
       'ab-word': "WA/Y.F92NFS\nWA/Y.F70NFS",
       'ab-uword': "וַיָּ֑נָס\nוַיָּ֤נָס",
       'ab-notes': "\n",
-      'release-changeset-n': "2021.04.01/2021.02.22-27",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-27"),
     },
     {
       'bcv': "ps119:99",

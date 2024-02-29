@@ -5,6 +5,7 @@ import my_str_defs as sd
 import my_hebrew_points as hpo
 import my_amb_early_mtg_utils as aem_utils
 import my_html_for_img as img
+import my_url_generator as urlg
 
 
 def write(io_records):
@@ -119,7 +120,7 @@ def _initial_rows(record):
             rows.append(_make_key_value_row('MAM word', mam_word, big_hbo=True))
         rows.append(_make_key_value_row('dubious early mtg', str(dem)))
     if eucp := record.get('existing UXLC change proposal'):
-        rows.append(_make_key_value_row('existing UCP', _eucp_with_link(eucp)))
+        rows.append(_make_key_value_row('existing UCP', urlg.uxlc_change_with_link(eucp)))
     if mamsta := record.get('MAM-status'):
         rows.append(_make_key_value_row('MAM status', _mam_status(record, mamsta)))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
@@ -149,13 +150,6 @@ def _alternate(record, deml2):
     else:
         pre_alt = pre + hpo.METEG
     return pre_alt + mid_alt + post
-
-
-def _eucp_with_link(eucp):
-    change_set, change_id = eucp
-    change_set_str = f'{change_set}%20-%20Changes'
-    url = f'https://hcanat.us/Changes/{change_set_str}/{change_set_str}.xml?{change_id}'
-    return my_html.anchor(change_id, {'href': url})
 
 
 def _colx_and_linex(record):

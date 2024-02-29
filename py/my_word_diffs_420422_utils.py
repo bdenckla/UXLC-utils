@@ -1,40 +1,17 @@
 import my_html
-import my_tanakh_book_names as tbn
 import my_hebrew_points as hpo
 import my_hebrew_punctuation as hpu
 import my_hebrew_accents as ha
 
-def bcv_with_link_to_tdu(record):
-    the_bcv_str = _bcv_str(record)
-    href = _tanach_dot_us_url(record)
-    return my_html.anchor(the_bcv_str, {'href': href})
 
-
-def bcv_with_link_to_mwd(record):
-    the_bcv_str = _bcv_str(record)
-    href = _mam_with_doc_url(record)
-    return my_html.anchor(the_bcv_str, {'href': href})
-
-
-def _bcv_str(record):
-    bcvp = record['bcvp']
-    uxlc_bkid = bcvp[0]
-    chnu, vrnu = bcvp[1:3]
-    return f'{uxlc_bkid}{chnu}:{vrnu}'
-
-
-def _tanach_dot_us_url(record):
-    the_bcv_str = _bcv_str(record)
-    return f'https://tanach.us/Tanach.xml?{the_bcv_str}'
-
-
-def _mam_with_doc_url(record):
-    bcvp = record['bcvp']
-    std_bkid = bcvp[0]
-    osdf = tbn.ordered_short_dash_full(std_bkid)  # e.g. A2-Exodus
-    chnu, vrnu = bcvp[1:3]  # ignoring verse numbering differences
-    bcv_part = f'{osdf}.html#c{chnu}v{vrnu}'
-    return f'https://bdenckla.github.io/MAM-with-doc/{bcv_part}'
+def uxlc_change_proposals(record):
+    if ucp_or_ucps := record.get('UXLC-change-proposals'):
+        if isinstance(ucp_or_ucps, list):
+            ucps = ucp_or_ucps
+        else:
+            ucps = [ucp_or_ucps]
+        return ucps
+    return []
 
 
 def diff_type_span_with_title(record):
@@ -61,11 +38,6 @@ def _diff_type_abbreviation_row(ad_pair):
 
 def _example(english, mark1, mark2):
     return f'{english}: א{mark1} to א{mark2}'
-
-
-def _remove_sheva():
-    mark = hpo.SHEVA
-
 
 
 def _example_quad(english, mq1, mq2):

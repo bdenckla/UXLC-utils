@@ -1,6 +1,7 @@
 """ Exports write_html. """
 
 import my_word_diffs_420422_utils as wd_utils
+import my_url_generator as urlg
 import my_utils
 import my_html
 
@@ -24,13 +25,12 @@ def _row_cell_for_hdr_str(record, hdr_str):
     if hdr_str == 'remark':
         anchor = _get_anchor_to_full(record)
         if ir_or_rcn := _initial_remark_or_rcn(record):
-            assert isinstance(ir_or_rcn, str)
             datum_contents = [anchor, '; ', ir_or_rcn]
         else:
             datum_contents = [anchor]
         return my_html.table_datum(datum_contents)
     if hdr_str == 'bcv':
-        anchor = wd_utils.bcv_with_link_to_tdu(record)
+        anchor = urlg.bcv_with_link_to_tdu(record)
         return my_html.table_datum(anchor)
     if hdr_str == '4.20 uword':
         ab_uword = record['ab-uword']
@@ -43,8 +43,14 @@ def _row_cell_for_hdr_str(record, hdr_str):
     assert False
 
 
-def _initial_remark_or_rcn(record):  # rcn: release-changeset-n
-    return record.get('initial-remark') or record.get('release-changeset-n')
+def _initial_remark_or_rcn(record):  # rcn: UXLC-change-proposal
+    return record.get('initial-remark') or _first_ucp(record)
+
+
+def _first_ucp(record):
+    if ucps := wd_utils.uxlc_change_proposals(record):
+        return urlg.uxlc_change_with_link(ucps[0])
+    return None
 
 
 def _get_anchor_to_full(record):

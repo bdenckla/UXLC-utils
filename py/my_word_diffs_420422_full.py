@@ -1,10 +1,9 @@
 """ Exports write_xml. """
 
 import my_html
-import my_str_defs as sd
-import my_hebrew_points as hpo
 import my_word_diffs_420422_utils as wd_utils
 import my_html_for_img as img
+import my_url_generator as urlg
 
 
 def write(io_records):
@@ -103,8 +102,8 @@ def _hebrew_spanify2(string: str):
 
 
 def _initial_rows(record):
-    bcv_with_link_to_tdu = wd_utils.bcv_with_link_to_tdu(record)
-    bcv_with_link_to_mwd = wd_utils.bcv_with_link_to_mwd(record)
+    bcv_with_link_to_tdu = urlg.bcv_with_link_to_tdu(record)
+    bcv_with_link_to_mwd = urlg.bcv_with_link_to_mwd(record)
     ab_uword_br = _newline_to_br(record['ab-uword'])
     ab_word_br = _newline_to_br(record['ab-word'])
     rows = []
@@ -113,7 +112,7 @@ def _initial_rows(record):
     # rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('ab-uword', ab_uword_br, big_hbo=True))
     rows.append(_make_key_value_row('ab-word', ab_word_br))
-    _append_rcn_or_rcns(rows, record)
+    _append_uxlc_change_proposals(rows, record)
     rows.append(_make_key_value_row('diff type', wd_utils.diff_type_long(record)))
     rows.append(_make_key_value_row('diff desc', record['diff-desc']))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
@@ -121,49 +120,17 @@ def _initial_rows(record):
     return rows
 
 
-def _append_rcn_or_rcns(rows, record):
-    if rcn := record.get('release-changeset-n'):
-        if isinstance(rcn, list):
-            for rcn_idx, rcn_single in enumerate(rcn):
-                rows.append(_make_key_value_row(f'release/changeset-n:{rcn_idx+1}', rcn_single))
-        else:
-            rows.append(_make_key_value_row('release/changeset-n', rcn))
+def _append_uxlc_change_proposals(rows, record):
+    ucps = wd_utils.uxlc_change_proposals(record)
+    for ucp_idx, ucp in enumerate(ucps):
+        qualifier = f' {ucp_idx+1}' if len(ucps) > 1 else ''
+        anchor = urlg.uxlc_change_with_link(ucp)
+        rows.append(_make_key_value_row(f'UXLC change proposal{qualifier}', anchor))
 
 
 def _newline_to_br(nssp):  # nssp newline-separated string-pair
     elem1of2, elem2of2 = nssp.split('\n')
     return [elem1of2, my_html.line_break(), elem2of2]
-
-
-def _mam_status(record, mamsta):
-    out = [mamsta]
-    if diff_url := record.get('MAM-diff-URL'):
-        anchor = my_html.anchor('Wikisource diff', {'href': diff_url})
-        out.extend([' ', anchor])
-    return out
-
-
-def _alternate(record, deml2):
-    word123p = record['word123p']
-    assert ''.join(word123p) == record['word']
-    pre, mid, post = word123p
-    assert mid[-3] == hpo.METEG
-    assert mid[-2] == sd.CGJ
-    assert mid[-1] in (hpo.PATAX, hpo.QAMATS, hpo.TSERE)
-    mid_alt = mid[:-3] + mid[-1]
-    if deml2 == 'Better transcribed as a normal meteg on letter 2':
-        mid_alt += hpo.METEG
-        pre_alt = pre
-    else:
-        pre_alt = pre + hpo.METEG
-    return pre_alt + mid_alt + post
-
-
-def _eucp_with_link(eucp):
-    change_set, change_id = eucp
-    change_set_str = f'{change_set}%20-%20Changes'
-    url = f'https://hcanat.us/Changes/{change_set_str}/{change_set_str}.xml?{change_id}'
-    return my_html.anchor(change_id, {'href': url})
 
 
 def _colx_and_linex(record):
