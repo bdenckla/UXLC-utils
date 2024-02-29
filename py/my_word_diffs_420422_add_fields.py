@@ -2,16 +2,23 @@ import my_uxlc_location
 import my_convert_citation_from_wlc
 import my_word_diffs_420422
 import my_diffs
+import my_dd_diffs_description as diffs_desc
 
 def add(io_records):
     uxlc, pbi = my_uxlc_location.prep()
     for recidx, io_record in enumerate(io_records):
         io_record['original-order'] = recidx + 1
-        io_record['bcvp'] = _bcvp_quad(io_record['bcv'], io_record['ab_word'])
-        io_record['diff_type'] = _diff_type(io_record)
+        io_record['bcvp'] = _bcvp_quad(io_record['bcv'], io_record['ab-word'])
+        io_record['diff-type'] = _diff_type(io_record)
+        diff_detail, diff_category = diffs_desc.get1(*_ab_uwords_pair(io_record))
+        io_record['diff-desc'] = diff_detail
         pg_and_gs = _page_and_guesses(uxlc, pbi, io_record['bcvp'])
         for key, val in pg_and_gs.items():
             io_record[key] = val
+
+
+def _ab_uwords_pair(record):
+    return record['ab-uword'].split('\n')
 
 
 _CUSTOM = {
@@ -39,7 +46,7 @@ _CUSTOM = {
 
 
 def _diff_type(record):
-    pair = record['ab_word'].split('\n')
+    pair = record['ab-word'].split('\n')
     generic_diffs = my_diffs.get(*pair)
     if custom := _CUSTOM.get(tuple(generic_diffs)):
         return custom

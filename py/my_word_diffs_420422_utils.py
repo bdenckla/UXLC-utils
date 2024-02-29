@@ -38,12 +38,12 @@ def _mam_with_doc_url(record):
 
 
 def diff_type_span_with_title(record):
-    diff_type = record['diff_type']
+    diff_type = record['diff-type']
     return my_html.span(diff_type, {'title': diff_type_long(record)})
 
 
 def diff_type_long(record):
-    diff_type = record['diff_type']
+    diff_type = record['diff-type']
     return _DIFF_TYPES[diff_type]
 
 

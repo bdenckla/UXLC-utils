@@ -27,7 +27,7 @@ def main():
 
 
 def _sort_key_for_rec(record):
-    dity = record['diff_type']
+    dity = record['diff-type']
     return (1, 'misc') if dity == 'misc' else (0, dity)
 
 

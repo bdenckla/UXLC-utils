@@ -33,7 +33,7 @@ def _row_cell_for_hdr_str(record, hdr_str):
         anchor = wd_utils.bcv_with_link_to_tdu(record)
         return my_html.table_datum(anchor)
     if hdr_str == '4.20 uword':
-        ab_uword = record['ab_uword']
+        ab_uword = record['ab-uword']
         a_uword, _b_uword = ab_uword.split('\n')
         attr = {'lang': 'hbo', 'dir': 'rtl'}
         return my_html.table_datum(a_uword, attr)
