@@ -1,6 +1,5 @@
 """ Exports write_html. """
 
-import my_amb_early_mtg_utils as  aem_utils
 import my_utils
 import my_html
 
@@ -29,7 +28,7 @@ def _row_cell_for_hdr_str(record, hdr_str):
             datum_contents = anchors
         return my_html.table_datum(datum_contents)
     if hdr_str == 'bcv':
-        anchor = aem_utils.bcv_with_link_to_tdu(record)
+        anchor = urlg.bcv_with_link_to_tdu(record)
         return my_html.table_datum(anchor)
     misc_field = record[hdr_str]
     assert isinstance(misc_field, str)

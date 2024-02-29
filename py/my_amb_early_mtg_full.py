@@ -3,7 +3,6 @@
 import my_html
 import my_str_defs as sd
 import my_hebrew_points as hpo
-import my_amb_early_mtg_utils as aem_utils
 import my_html_for_img as img
 import my_url_generator as urlg
 
@@ -106,8 +105,8 @@ def _hebrew_spanify2(string: str):
 
 
 def _initial_rows(record):
-    bcv_with_link_to_tdu = aem_utils.bcv_with_link_to_tdu(record)
-    bcv_with_link_to_mwd = aem_utils.bcv_with_link_to_mwd(record)
+    bcv_with_link_to_tdu = urlg.bcv_with_link_to_tdu(record)
+    bcv_with_link_to_mwd = urlg.bcv_with_link_to_mwd(record)
     rows = []
     rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
     rows.append(_make_key_value_row('bcv (link to Mwd)', bcv_with_link_to_mwd))
