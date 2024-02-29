@@ -22,6 +22,7 @@ RECORDS = [
       'ab-word': "W:/NFHFR.03\nW:/NFHFR03",
       'ab-uword': "וְנָהָרּ֙\nוְנָהָר֙",
       'ab-notes': "]p\n",
+      'UXLC-change-proposals': ("2021.04.01", "2020.12.29-1"),
     },
     {
       'bcv': "gn14:17",
@@ -50,6 +51,7 @@ RECORDS = [
       'ab-word': "KA/C.AD.I73YQ\nKA/CAD.I73YQ",
       'ab-uword': "כַצַּדִּ֖יק\nכַצַדִּ֖יק",
       'ab-notes': "\n]Q]n]p",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-4"),
     },
     {
       'bcv': "gn24:53",
@@ -57,6 +59,7 @@ RECORDS = [
       'ab-word': "WA/Y.IT.\"73N\nWA/YIT.\"73N",
       'ab-uword': "וַיִּתֵּ֖ן\nוַיִתֵּ֖ן",
       'ab-notes': "\n]Q]n]p",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-5"),
     },
     {
       'bcv': "gn25:6",
@@ -71,6 +74,7 @@ RECORDS = [
       'ab-word': "):ABIYM.E71LEK:\n):ABIYME71LEK:",
       'ab-uword': "אֲבִימֶּ֥לֶךְ\nאֲבִימֶ֥לֶךְ",
       'ab-notes': "]1\n]Q]p",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-7"),
     },
     {
       'bcv': "gn34:28",
@@ -78,6 +82,7 @@ RECORDS = [
       'ab-word': "X:AMOR\"Y/H.E92M\nX:AMOR\"Y/HE92M",
       'ab-uword': "חֲמֹרֵיהֶּ֑ם\nחֲמֹרֵיהֶ֑ם",
       'ab-notes': "]1\n]Q]p",
+      'UXLC-change-proposals': ("2021.04.01", "2021.01.04-1"),
     },
     {
       'bcv': "gn35:22",
@@ -122,6 +127,7 @@ RECORDS = [
       'ab-word': "HA75/$.IB.:FLI80YM\nHA75/$IB.:FLI80YM",
       'ab-uword': "הַֽשִּׁבֳּלִ֔ים\nהַֽשִׁבֳּלִ֔ים",
       'ab-notes': "\n]Q]n]p",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-11"),
     },
     {
       'bcv': "gn41:24",
@@ -136,6 +142,7 @@ RECORDS = [
       'ab-word': "WA/Y.IP.O71L\nWA/YIP.O71L",
       'ab-uword': "וַיִּפֹּ֥ל\nוַיִפֹּ֥ל",
       'ab-notes': "\n]Q]n]p",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-13"),
     },
     {
       'bcv': "ex10:13",
@@ -208,6 +215,7 @@ RECORDS = [
       'ab-word': "Y.:HWF92H\nY:HWF92H",
       'ab-uword': "יְּהוָ֑ה\nיְהוָ֑ה",
       'ab-notes': "\n",
+      'UXLC-change-proposals': ("2021.04.01", "2021.02.22-16"),
     },
     {
       'bcv': "lv26:35",
@@ -215,6 +223,10 @@ RECORDS = [
       'ab-word': "HF$.AM./F73H\nHF$AM./F73H",
       'ab-uword': "הָשַּׁמָּ֖ה\nהָשַׁמָּ֖ה",
       'ab-notes': "\n]p",
+      'UXLC-change-proposals': [
+          ("2021.04.01", "2021.02.22-17"),
+          ("2022.04.01", "2021.12.28-2"),
+      ]
     },
     {
       'bcv': "nu11:24",
