@@ -119,7 +119,8 @@ def _initial_rows(record):
                 rows.append(_make_key_value_row(f'release/changeset-n:{rcn_idx+1}', rcn_single))
         else:
             rows.append(_make_key_value_row('release/changeset-n', rcn))
-    rows.append(_make_key_value_row('diffs', record['diffs']))
+    dity_long = wd_utils.diff_type_long(record)
+    rows.append(_make_key_value_row('diff type', dity_long))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
     return rows

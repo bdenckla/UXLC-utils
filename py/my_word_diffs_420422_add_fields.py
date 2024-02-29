@@ -8,15 +8,15 @@ def add(io_records):
     for recidx, io_record in enumerate(io_records):
         io_record['original-order'] = recidx + 1
         io_record['bcvp'] = _bcvp_quad(io_record['bcv'], io_record['ab_word'])
-        io_record['diffs'] = _custom_diffs(io_record)
+        io_record['diff_type'] = _diff_type(io_record)
         pg_and_gs = _page_and_guesses(uxlc, pbi, io_record['bcvp'])
         for key, val in pg_and_gs.items():
             io_record[key] = val
 
 
 _CUSTOM = {
-    (('.', None),): '-dom',
-    ((None, '.'),): '+dom',
+    (('.', None),): '-dms',
+    ((None, '.'),): '+dms',
     ((',', None),): '-rfh',
     (('03', None),): '-pashta',
     ((None, '81'),): '+rev',
@@ -38,7 +38,7 @@ _CUSTOM = {
 }
 
 
-def _custom_diffs(record):
+def _diff_type(record):
     pair = record['ab_word'].split('\n')
     generic_diffs = my_diffs.get(*pair)
     if custom := _CUSTOM.get(tuple(generic_diffs)):

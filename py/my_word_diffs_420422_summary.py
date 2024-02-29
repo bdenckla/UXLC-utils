@@ -11,10 +11,11 @@ def write(records, path, title, intro=None):
     if intro is None:
         intro = []
     assert isinstance(intro, list)
+    table_of_abbrev = wd_utils.diff_type_abbreviation_table()
     rows_for_data = list(map(_rec_to_row, records))
     rows = [_row_for_header(), *rows_for_data]
-    table = my_html.table(rows)
-    body_contents = [*intro, table]
+    table_of_records = my_html.table(rows)
+    body_contents = [*intro, table_of_abbrev, table_of_records]
     write_ctx = my_html.WriteCtx(title, f'docs/420422/{path}')
     my_html.write_html_to_file(body_contents, write_ctx, '../')
 
@@ -36,8 +37,9 @@ def _row_cell_for_hdr_str(record, hdr_str):
         a_uword, _b_uword = ab_uword.split('\n')
         attr = {'lang': 'hbo', 'dir': 'rtl'}
         return my_html.table_datum(a_uword, attr)
-    if hdr_str == 'AI':
-        return my_html.table_datum(record['diffs'])
+    if hdr_str == 'difftype':
+        dity_span = wd_utils.diff_type_span_with_title(record)
+        return my_html.table_datum(dity_span)
     assert False
 
 
@@ -64,4 +66,4 @@ def _row_for_header():
 
 
 _STRS_FOR_CELLS_FOR_HEADER = [
-    'bcv', 'AI', '4.20 uword', 'initial remark']
+    'bcv', 'difftype', '4.20 uword', 'initial remark']

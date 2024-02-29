@@ -22,13 +22,13 @@ def main():
     #
     #
     intro = _intro(records)
-    title = 'Words that differ btwn WLC 4.20 and 4.22'
+    title = 'WLC 4.22 Changes'
     my_word_diffs_420422_summary.write(records, 'index.html', title, intro)
 
 
 def _sort_key_for_rec(record):
-    diffs = record['diffs']
-    return (1, 'misc') if diffs == 'misc' else (0, diffs)
+    dity = record['diff_type']
+    return (1, 'misc') if dity == 'misc' else (0, dity)
 
 
 
@@ -47,7 +47,7 @@ def _set_prev_and_next(io_records, prevkey, nextkey):
 
 def _intro(records):
     nrecs = len(records)
-    para1_contents = f'This page lists differences between WLC 4.20 and 4.22.'
+    para1_contents = f'This page lists the {nrecs} words that differ between WLC 4.20 and 4.22.'
     return [
         my_html.para(para1_contents),
     ]
