@@ -113,8 +113,8 @@ def _initial_rows(record):
     rows.append(_make_key_value_row('ab-uword', ab_uword_br, big_hbo=True))
     rows.append(_make_key_value_row('ab-word', ab_word_br))
     _append_uxlc_change_proposals(rows, record)
+    rows.append(_make_key_value_row('auto desc', record['diff-desc']))
     rows.append(_make_key_value_row('diff type', wd_utils.diff_type_long(record)))
-    rows.append(_make_key_value_row('diff desc', record['diff-desc']))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
     return rows
@@ -122,10 +122,12 @@ def _initial_rows(record):
 
 def _append_uxlc_change_proposals(rows, record):
     ucps = wd_utils.uxlc_change_proposals(record)
-    for ucp_idx, ucp in enumerate(ucps):
+    for ucp_idx, release_and_id in enumerate(ucps):
         qualifier = f' {ucp_idx+1}' if len(ucps) > 1 else ''
-        anchor = urlg.uxlc_change_with_link(ucp)
-        rows.append(_make_key_value_row(f'UXLC change proposal{qualifier}', anchor))
+        anchor = urlg.uxlc_change_with_link(release_and_id)
+        desc = record['descs-for-ucps'][ucp_idx]
+        rows.append(_make_key_value_row(f'UCP RAI{qualifier}', anchor))
+        rows.append(_make_key_value_row(f'UCP desc{qualifier}', desc))
 
 
 def _newline_to_br(nssp):  # nssp newline-separated string-pair

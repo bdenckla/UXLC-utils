@@ -20,7 +20,6 @@ def main():
     #
     my_word_diffs_420422_full.write(records)  # fills in path-to-full fields
     #
-    #
     intro = _intro(records)
     title = 'WLC 4.22 Changes'
     my_word_diffs_420422_summary.write(records, 'index.html', title, intro)

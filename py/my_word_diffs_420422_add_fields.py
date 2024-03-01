@@ -1,20 +1,66 @@
+""" Exports add. """
+
+import json
 import my_uxlc_location
 import my_convert_citation_from_wlc
 import my_word_diffs_420422
 import my_diffs
 import my_dd_diffs_description as diffs_desc
+import my_word_diffs_420422_utils as wd_utils
+import my_utils
 
 def add(io_records):
     uxlc, pbi = my_uxlc_location.prep()
+    all_ucps = _read_in_all_ucps()
     for recidx, io_record in enumerate(io_records):
-        io_record['original-order'] = recidx + 1
-        io_record['bcvp'] = _bcvp_quad(io_record['bcv'], io_record['ab-word'])
-        io_record['diff-type'] = _diff_type(io_record)
-        diff_detail, diff_category = diffs_desc.get1(*_ab_uwords_pair(io_record))
-        io_record['diff-desc'] = diff_detail
-        pg_and_gs = _page_and_guesses(uxlc, pbi, io_record['bcvp'])
-        for key, val in pg_and_gs.items():
-            io_record[key] = val
+        _add1(uxlc, pbi, all_ucps, recidx, io_record)
+
+
+def _add1(uxlc, pbi, all_ucps, recidx, io_record):
+    io_record['original-order'] = recidx + 1
+    io_record['bcvp'] = _bcvp_quad(io_record['bcv'], io_record['ab-word'])
+    io_record['diff-type'] = _diff_type(io_record)
+    io_record['diff-desc'] = _diff_detail(io_record)
+    io_record['descs-for-ucps'] = _descs_for_ucps(all_ucps, io_record)
+    _add_page_and_guesses(io_record, uxlc, pbi)
+
+
+def _descs_for_ucps(all_ucps, record):
+    ucps_for_this_record = wd_utils.uxlc_change_proposals(record)
+    return my_utils.sl_map((_desc_from_ucp, all_ucps), ucps_for_this_record)
+
+
+def _desc_from_ucp(all_ucps, release_and_id):
+    if raw_ucp := all_ucps.get(release_and_id):
+        return raw_ucp['description']
+    return None
+
+
+def _add_page_and_guesses(io_record, uxlc, pbi):
+    pg_and_gs = _page_and_guesses(uxlc, pbi, io_record['bcvp'])
+    for key, val in pg_and_gs.items():
+        io_record[key] = val
+
+
+def _diff_detail(record):
+    diff_detail, _category = diffs_desc.get1(*_ab_uwords_pair(record))
+    return diff_detail
+
+
+def _read_in_all_ucps():
+    """ Read in lci_recs.json, raw """
+    path = 'out/UXLC-misc/all_changes.json'
+    with open(path, encoding='utf-8') as in_fp:
+        raw_ucps = json.load(in_fp)
+    return {_release_and_id(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
+
+
+def _release_and_id(raw_ucp):
+    release_date = raw_ucp['release']
+    changeset_date = raw_ucp['changeset']
+    number_within_changest = raw_ucp['n']
+    change_id = changeset_date + '-' + str(number_within_changest)
+    return release_date, change_id
 
 
 def _ab_uwords_pair(record):
