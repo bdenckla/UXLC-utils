@@ -87,6 +87,7 @@ RECORDS = [
       'ab-word': "K.:DFR→\nK.:DFR-",
       'ab-uword': "כְּדָר→\nכְּדָר־",
       'ab-notes': "\n",
+      'initial-remark': 'This is part 1 of 2 of a change from אב to א־ב.',
       'UXLC-change-proposals': [
           ('2021.04.01', '2021.02.22-3'),
           ('2022.10.19', '2022.07.02-6')
@@ -98,6 +99,7 @@ RECORDS = [
       'ab-word': "←LF(O80MER\nLF(O80MER",
       'ab-uword': "←לָעֹ֔מֶר\nלָעֹ֔מֶר",
       'ab-notes': "]n]p\n",
+      'initial-remark': 'This is part 2 of 2 of a change from אב to א־ב.',
       'UXLC-change-proposals': [
           ('2021.04.01', '2021.02.22-3'),
           ('2022.10.19', '2022.07.02-6')
@@ -567,6 +569,7 @@ RECORDS = [
       'ab-word': "**W:/$W.RAY./F74)\n*)#KLLW",
       'ab-uword': "**וְשׁוּרַיָּ֣א\n*אשכללו",
       'ab-notes': "\n",
+      'initial-remark': 'This is part 1 of 2 of a change from k1q1×2 to k2q2.',
     },
     {
       'wlc_bcv_str': "er4:12",
@@ -574,6 +577,7 @@ RECORDS = [
       'ab-word': "*)#KLLW\n**W:/$W.RAY./F74)",
       'ab-uword': "*אשכללו\n**וְשׁוּרַיָּ֣א",
       'ab-notes': "\n",
+      'initial-remark': 'This is part 2 of 2 of a change from k1q1×2 to k2q2.',
     }
   ]
 WORD_POSITIONS = {
