@@ -13,7 +13,7 @@ RECORDS = [
       'ab-uword': "בְעֵ֖דֶן\nבְּעֵ֖דֶן",
       'ab-notes': "\n",
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-2"),
-      'initial-remark': 'UXLC has this change: it has added that dagesh, albeit qualified with a t-note.',
+      'initial-remark': 'UXLC qualifies this change with a t-note.',
       'UXLC-note': "https://tanach.us/Notes/Genesis/Genesis.2.8.5-t.html",
     },
     {
@@ -91,7 +91,6 @@ RECORDS = [
       'ab-uword': "רְאוּבֵ֔ן\nרְאוּבֵ֔֗ן",
       'ab-notes': "\n]C]c",
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-8"),
-      'initial-remark': 'UXLC has this change: it has added that revia.',
     },
     {
       'bcv': "gn38:11",
@@ -150,7 +149,6 @@ RECORDS = [
       'ab-word': "R71W.XA\nR71W.XA-",
       'ab-uword': "ר֥וּחַ\nר֥וּחַ־",
       'ab-notes': "\n",
-      'initial-remark': "UXLC has this change; it has added that maqaf.",
       'UXLC-change-proposals': [
           ("2021.04.01", "2021.02.22-14"),
           ("2023.07.04", "2023.03.27-1")
@@ -243,7 +241,6 @@ RECORDS = [
       'ab-uword': "עֲלֵיהֶ֨ן\nעֲלֵיהֶ֨ן׀",
       'ab-notes': "\n]c",
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-19"),
-      'initial-remark': 'UXLC has this change: it has added that paseq.',
     },
     {
       'bcv': "nu24:13",
@@ -324,7 +321,6 @@ RECORDS = [
       'ab-uword': "וַיַּעַבְדֻ֑ם\nוַיַּעֲבְדֻ֑ם",
       'ab-notes': "\n]v",
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-22"),
-      'initial-remark': 'UXLC has this change: it has “demoted” that pataḥ to ḥataf-pataḥ.',
     },
     {
       'bcv': "is22:10",
