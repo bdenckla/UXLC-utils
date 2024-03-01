@@ -275,6 +275,7 @@ RECORDS = [
       # The proposal above is just adding a CGJ so it is not relevant to the WLC change,
       # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
@@ -290,6 +291,7 @@ RECORDS = [
       # The proposals above have the net effect of just adding a CGJ so they are not relevant to the WLC change,
       # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
@@ -299,6 +301,7 @@ RECORDS = [
       'ab-uword': "תִּֿגְנֹ֔+נֽב׃\nתִּגְנֹ֔+נֽב׃",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
@@ -307,6 +310,7 @@ RECORDS = [
       'ab-word': "HA/N.E33GA(03\nHA/N.E33GE(03",
       'ab-uword': "הַנֶּ֙גַע֙\nהַנֶּ֙גֶע֙",
       'ab-notes': "\n]v",
+      'UXLC-change-proposals': ('2021.04.01', '2021.02.22-15'),
     },
     {
       'wlc_bcv_str': "lv23:38",
@@ -358,6 +362,7 @@ RECORDS = [
       'ab-uword': "כָּֿל־\nכָּל־",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
@@ -375,6 +380,7 @@ RECORDS = [
       'ab-uword': "תִּֿרְצָֽח׃\nתִּרְצָֽח׃",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
@@ -384,6 +390,7 @@ RECORDS = [
       'ab-uword': "תִּֿנְאָֽ֑ף׃\nתִּנְאָֽ֑ף׃",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
@@ -393,6 +400,7 @@ RECORDS = [
       'ab-uword': "תִּֿגְנֹֽ֔ב׃\nתִּגְנֹֽ֔ב׃",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
@@ -418,6 +426,7 @@ RECORDS = [
       'ab-uword': "הַמַּלְאֿכִ֗ים\nהַמַּלְאכִ֗ים",
       'ab-notes': "]1\n]1",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
     },
     {
       'wlc_bcv_str': "1k9:9",
@@ -434,6 +443,7 @@ RECORDS = [
       'ab-uword': "וַתִּתְֿצוּ֙\nוַתִּתְצוּ֙",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
     },
     {
       'wlc_bcv_str': "is45:6",
@@ -458,6 +468,7 @@ RECORDS = [
       'ab-uword': "וְרַחְמָ֖הֿ\nוְרַחְמָ֖ה",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
     },
     {
       'wlc_bcv_str': "je27:13",
@@ -501,6 +512,7 @@ RECORDS = [
       'ab-uword': "לָ֥הֿ\nלָ֥ה",
       'ab-notes': "\n]U",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
     },
     {
       'wlc_bcv_str': "1c10:1",
@@ -517,6 +529,7 @@ RECORDS = [
       'ab-uword': "לִֽֿי׃\nלִֽי׃",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
+      'Decalogue-rafeh': True,
     },
     {
       'wlc_bcv_str': "es7:8",
@@ -524,6 +537,7 @@ RECORDS = [
       'ab-word': "NOP\"80L\nNOP\"81L",
       'ab-uword': "נֹפֵ֔ל\nנֹפֵ֗ל",
       'ab-notes': "\n]C]c",
+      'UXLC-change-proposals': ('2021.04.01', '2021.02.22-26'),
     },
     {
       'wlc_bcv_str': "da2:39",
@@ -531,6 +545,11 @@ RECORDS = [
       'ab-word': "):ARA74()\n**):ARA74(",
       'ab-uword': "אֲרַ֣עא\n**אֲרַ֣ע",
       'ab-notes': "]1\n",
+      'UXLC-change-proposals': [
+          ('2021.04.01', '2021.02.22-28'),
+          ('2023.04.01', '2023.03.06-1'),
+          ('2023.04.01', '2023.03.06-2')
+      ],
     },
     {
       'wlc_bcv_str': "er4:12",

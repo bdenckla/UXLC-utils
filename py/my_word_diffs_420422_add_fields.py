@@ -33,8 +33,9 @@ def _descs_for_ucps(all_ucps, record):
     if not ucps_for_this_record:
         wlc_bcv_str = record['wlc_bcv_str']
         raw_ucps = all_ucps['by-wbs'].get(wlc_bcv_str)
-        skippers = 'gn14:17', 'ex20:13', 'ex20:14'
-        if raw_ucps and wlc_bcv_str not in skippers:
+        skippers = ('gn14:17',)
+        skip = wlc_bcv_str in skippers or record.get('Decalogue-rafeh')
+        if raw_ucps and not skip:
             ab_uword = record['ab-uword']
             a_uword, _b_uword = ab_uword.split('\n')
             print(f'bcv {wlc_bcv_str} {a_uword} has ucp candidates as follows:')
