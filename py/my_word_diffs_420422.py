@@ -263,13 +263,17 @@ RECORDS = [
       'ab-word': "W:/YO33WM03\nW:/YO63WM03",
       'ab-uword': "וְי֙וֹם֙\nוְי֨וֹם֙",
       'ab-notes': "\n",
+      'UXLC-change-proposals': ('2020.10.19', '2020.06.07-2'),
     },
     {
       'wlc_bcv_str': "ex20:13",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IR:CF7375X00\nT.IR:CF7375X00",
-      'ab-uword': "תִּֿרְצָֽ֖ח׃\nתִּרְצָֽ֖ח׃",
+      'ab-uword': "תִּֿרְצָ֖+צֽח׃\nתִּרְצָ֖+צֽח׃",
       'ab-notes': "\n",
+      # 'UXLC-change-proposals': ('2020.10.19', '2020.09.29-4'),
+      # Proposal above is just adding a CGJ so is not relevant to the WLC change,
+      # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
@@ -277,7 +281,7 @@ RECORDS = [
       'wlc_bcv_str': "ex20:14",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IN:)F9275P00\nT.IN:)F9275P00",
-      'ab-uword': "תִּֿנְאָֽ֑ף׃\nתִּנְאָֽ֑ף׃",
+      'ab-uword': "תִּֿנְאָ֑+אֽף׃\nתִּנְאָ֑+אֽף׃",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
       'further-remarks': [*_DECALOGUE_RAFE]
@@ -286,7 +290,7 @@ RECORDS = [
       'wlc_bcv_str': "ex20:15",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IG:NO8075B00\nT.IG:NO8075B00",
-      'ab-uword': "תִּֿגְנֹֽ֔ב׃\nתִּגְנֹֽ֔ב׃",
+      'ab-uword': "תִּֿגְנֹ֔+נֽב׃\nתִּגְנֹ֔+נֽב׃",
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
       'further-remarks': [*_DECALOGUE_RAFE]

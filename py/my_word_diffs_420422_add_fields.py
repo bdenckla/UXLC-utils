@@ -33,7 +33,7 @@ def _descs_for_ucps(all_ucps, record):
     if not ucps_for_this_record:
         wlc_bcv_str = record['wlc_bcv_str']
         raw_ucps = all_ucps['by-wbs'].get(wlc_bcv_str)
-        skippers = ('gn14:17',)
+        skippers = ('gn14:17', 'ex20:13')
         if raw_ucps and wlc_bcv_str not in skippers:
             ab_uword = record['ab-uword']
             a_uword, _b_uword = ab_uword.split('\n')
