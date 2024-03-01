@@ -163,6 +163,7 @@ RECORDS = [
       'ab-word': "):ADONF73Y/W\n):ADONF71Y/W",
       'ab-uword': "אֲדֹנָ֖יו\nאֲדֹנָ֥יו",
       'ab-notes': "\n]C]c",
+      'UXLC-change-proposals': ('2020.02.19', '2018.11.27-2'),
     },
     {
       'wlc_bcv_str': "gn39:23",
@@ -170,6 +171,7 @@ RECORDS = [
       'ab-word': "HA/S.O81HAR\nHA/S.OHA81R",
       'ab-uword': "הַסֹּ֗הַר\nהַסֹּהַ֗ר",
       'ab-notes': "\n]Q]c]n",
+      'UXLC-change-proposals': ('2021.04.01', '2021.02.22-10'),
     },
     {
       'wlc_bcv_str': "gn41:7",
@@ -185,6 +187,7 @@ RECORDS = [
       'ab-word': "HF/$IB.:FLI74YM\nHA/$IB.:FLI74YM",
       'ab-uword': "הָשִׁבֳּלִ֣ים\nהַשִׁבֳּלִ֣ים",
       'ab-notes': "]1\n]Q]U]v",
+      'UXLC-change-proposals': ('2021.04.01', '2021.02.22-12'),
     },
     {
       'wlc_bcv_str': "gn50:1",
@@ -213,15 +216,46 @@ RECORDS = [
       'wlc_bcv_str': "ex20:3",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "P.FN/F8175YA\nP.FN/F75A81Y",
-      'ab-uword': "פָּנָֽ֗יַ\nפָּנַָֽ֗י",
+      'ab-uword': "פָּנָ+נ֗+נֽיַ\nפָּנָ+נֽ+נַ+נ֗י",
       'ab-notes': "]1\n]1",
+      'UXLC-change-proposals': [
+          ('2020.10.19', '2020.06.07-1'),
+          ('2021.10.19', '2021.05.19-8'),
+          ('2022.04.01', '2021.10.26-1'),
+      ],
+      'initial-remark': 'UXLC somehow already had part of this change.',
+      'further-remarks': [
+          'Both WLC & UXLC needed to move the pataḥ back from the yod to the nun. '
+          'WLC also needed to change the relative order of the accents (silluq and revia). '
+          'UXLC somehow already had the relative order of the accents correct: UO, '
+          'under-accent and then over-accent, which in this cases means '
+          'silluq and then revia.',
+          #
+          'All UXLC was doing in its 2021.05.19-8 change was making its mark order robust. '
+          'By “robust” I mean robust to Unicode normalization.',
+          #
+          'All UXLC was doing in its 2021.10.26-1 change was removing a ZWJ hack no longer relevant once CGJ was added.'
+      ]
     },
     {
       'wlc_bcv_str': "ex20:4",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "MI/T.F9261AXAT\nMI/T.F92A61XAT",
-      'ab-uword': "מִתַָּ֑֜חַת\nמִתַָּ֑֜חַת",
+      'ab-uword': "מִתָּ֑+תּ֜+תַּחַת\nמִתָּ֑+תַּ+תּ֜חַת",
       'ab-notes': "]1\n]1",
+      'UXLC-change-proposals': ('2021.10.19', '2021.05.19-7'),
+      'initial-remark': 'UXLC somehow already had the correct mark order.',
+      'further-remarks': [
+          'I.e., UXLC somehow already had QUPO mark order. '
+          'In terms of Michigan-Claremont encoding, we might call this FUAO mark order, '
+          'since in M-C, F is qamats and A is pataḥ. '
+          'So FUAO here is F92A61: '
+          'U (under-accent) is 92 (atnaḥ) and '
+          'O (over-accent) is 61 (geresh).',
+          #
+          'All UXLC was doing in its 2021.05.19-7 change was making its already-correct mark order robust. '
+          'By “robust” I mean robust to Unicode normalization.'
+      ]
     },
     {
       'wlc_bcv_str': "ex20:10",

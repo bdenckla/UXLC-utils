@@ -11,12 +11,22 @@ WLC 4.20 to 4.22 diff 21</title>
 <table class="limited-width">
 <tr><td>bcv (tanach.us)</td><td><a href="https://tanach.us/Tanach.xml?Ex20:3">Ex20:3</a></td></tr>
 <tr><td>bcv (Mwd)</td><td><a href="https://bdenckla.github.io/MAM-with-doc/A2-Exodus.html#c20v3">Ex20:3</a></td></tr>
-<tr><td>ab-uword</td><td lang="hbo" dir="rtl" class="big">פָּנָֽ֗יַ<br>פָּנַָֽ֗י</td></tr>
+<tr><td>ab-uword</td><td lang="hbo" dir="rtl" class="big">פָּנָ+נ֗+נֽיַ<br>פָּנָ+נֽ+נַ+נ֗י</td></tr>
 <tr><td>ab-word</td><td>P.FN/F8175YA<br>P.FN/F75A81Y</td></tr>
-<tr><td>auto desc</td><td>((None, (('meteg/siluq', 'nun', (1, 1)), ('pataḥ', 'nun', (1, 1)))), ((('meteg/siluq', 'nun', (1, 1)),), None), ((('pataḥ', 'yod', (1, 1)),), None))</td></tr>
+<tr><td>UCP  1</td><td><a href="https://hcanat.us/Changes/2020.10.19%20-%20Changes/2020.10.19%20-%20Changes.xml?2020.06.07-1">2020.06.07-1</a></td></tr>
+<tr><td>UCP desc 1</td><td>Move patah to preceding nun.</td></tr>
+<tr><td>UCP  2</td><td><a href="https://hcanat.us/Changes/2021.10.19%20-%20Changes/2021.10.19%20-%20Changes.xml?2021.05.19-8">2021.05.19-8</a></td></tr>
+<tr><td>UCP desc 2</td><td>Add CGJ to better position accents on the nun.</td></tr>
+<tr><td>UCP  3</td><td><a href="https://hcanat.us/Changes/2022.04.01%20-%20Changes/2022.04.01%20-%20Changes.xml?2021.10.26-1">2021.10.26-1</a></td></tr>
+<tr><td>UCP desc 3</td><td>Remove zero-width-joiner (ZWJ).</td></tr>
+<tr><td>auto desc</td><td>(((('nun', 'nun', (1, 3)), ('qamats', 'nun', (1, 3)), ('PLUS SIGN', 'nun', (1, 3)), ('nun', 'nun', (2, 3)), ('revia', 'nun', (2, 3)), ('PLUS SIGN', 'nun', (2, 3)), ('nun', 'nun', (3, 3)), ('meteg/siluq', 'nun', (3, 3))), (('nun', 'nun', (1, 4)), ('qamats', 'nun', (1, 4)), ('PLUS SIGN', 'nun', (1, 4)), ('nun', 'nun', (2, 4)), ('meteg/siluq', 'nun', (2, 4)), ('PLUS SIGN', 'nun', (2, 4)), ('nun', 'nun', (3, 4)), ('pataḥ', 'nun', (3, 4)), ('PLUS SIGN', 'nun', (3, 4)), ('nun', 'nun', (4, 4)), ('revia', 'nun', (4, 4)))), ((('pataḥ', 'yod', (1, 1)),), None))</td></tr>
 <tr><td>diff type</td><td>miscellaneous</td></tr>
 <tr><td>page</td><td><a href="https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F043A.jpg">043A</a></td></tr>
 <tr><td>col-guess-and-line-guess</td><td>2 20.3</td></tr>
 </table>
+<p>UXLC somehow already had part of this change.</p>
+<p>Both WLC &amp; UXLC needed to move the pataḥ back from the yod to the nun. WLC also needed to change the relative order of the accents (silluq and revia). UXLC somehow already had the relative order of the accents correct: UO, under-accent and then over-accent, which in this cases means silluq and then revia.</p>
+<p>All UXLC was doing in its 2021.05.19-8 change was making its mark order robust. By “robust” I mean robust to Unicode normalization.</p>
+<p>All UXLC was doing in its 2021.10.26-1 change was removing a ZWJ hack no longer relevant once CGJ was added.</p>
 </body>
 </html>
