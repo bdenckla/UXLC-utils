@@ -1,14 +1,16 @@
 """ Exports add. """
 
 import json
+import my_diffs
+import my_utils
 import my_uxlc_location
 import my_convert_citation_from_wlc
-import my_word_diffs_420422
-import my_diffs
 import my_dd_diffs_description as diffs_desc
-import my_word_diffs_420422_utils as wd_utils
-import my_utils
 import my_uxlc_book_abbreviations as u_bk_abbr
+import my_page_and_guesses as pg
+import my_word_diffs_420422
+import my_word_diffs_420422_utils as wd_utils
+
 
 def add(io_records):
     uxlc, pbi = my_uxlc_location.prep()
@@ -41,7 +43,7 @@ def _desc_from_ucp(all_ucps, release_and_id):
 
 
 def _add_page_and_guesses(io_record, uxlc, pbi, std_bcvp_quad):
-    pg_and_gs = _page_and_guesses(uxlc, pbi, std_bcvp_quad)
+    pg_and_gs = pg.page_and_guesses(uxlc, pbi, std_bcvp_quad)
     for key, val in pg_and_gs.items():
         io_record[key] = val
 
@@ -109,35 +111,17 @@ def _diff_type(record):
     return 'misc'
 
 
-def _page_and_guesses(uxlc, pbi, std_bcvp_quad):
-    page, fline_guess = my_uxlc_location.estimate(uxlc, pbi, std_bcvp_quad)
-    if fline_guess > 55:
-        line_guess = fline_guess - 54
-        col_guess = 3
-    elif fline_guess >= 28:
-        line_guess = fline_guess - 27
-        col_guess = 2
-    else:
-        line_guess = fline_guess
-        col_guess = 1
-    line_guess_str = f'{line_guess:.1f}'
-    fline_guess_str = f'{fline_guess:.1f}'
-    return {
-        'page': page,
-        'fline-guess': fline_guess_str,
-        'line-guess': line_guess_str,
-        'column-guess': col_guess
-    }
-
-
 def _std_bcvp_quad(record):
+    return *_std_bcv_triple(record), _pos(record)
+
+
+def _pos(record):
     wlc_bcv_str, ab_word = record['wlc_bcv_str'], record['ab-word']
-    std_bcv_triple = my_convert_citation_from_wlc.get_std_bcv_triple(wlc_bcv_str)
     a_word, _b_word = ab_word.split('\n')
     poskey = wlc_bcv_str + '!' + a_word
-    pos = my_word_diffs_420422.WORD_POSITIONS[poskey]
-    return *std_bcv_triple, pos
+    return my_word_diffs_420422.WORD_POSITIONS[poskey]
 
 
 def _std_bcv_triple(record):
-    return _std_bcvp_quad(record)[:-1]
+    wlc_bcv_str = record['wlc_bcv_str']
+    return my_convert_citation_from_wlc.get_std_bcv_triple(wlc_bcv_str)

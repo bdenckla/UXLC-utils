@@ -10,15 +10,9 @@ def get_std_bcv_triple(wlc_bcv_str):
     The returned book ID is a standard book ID.
     (bcv: book, chapter, & verse).
     """
-    std_bkid = get_std_bkid(wlc_bcv_str)
+    std_bkid = _get_std_bkid(wlc_bcv_str)
     cv_pair = get_cv_pair(wlc_bcv_str)
     return std_bkid, *cv_pair
-
-
-def get_std_bkid(wlc_bcv_str):
-    """ Return the standard book ID for WLC bcv string (bcv: book, chapter, & verse) """
-    wlc_bkid = wlc_bcv_str[:2]
-    return _WLC_BKID_TO_STD_BKID[wlc_bkid]
 
 
 def get_uxlc_bkid(wlc_bcv_str):
@@ -42,6 +36,12 @@ def get_tanach_dot_us_url(wlc_bcv_str):
     wlc_cv_str = _get_cv_str(wlc_bcv_str)
     uxlc_bcv_str = uxlc_bkid + wlc_cv_str
     return f'https://tanach.us/Tanach.xml?{uxlc_bcv_str}'
+
+
+def _get_std_bkid(wlc_bcv_str):
+    """ Return the standard book ID for WLC bcv string (bcv: book, chapter, & verse) """
+    wlc_bkid = wlc_bcv_str[:2]
+    return _WLC_BKID_TO_STD_BKID[wlc_bkid]
 
 
 def _get_cv_str(wlc_bcv_str):
