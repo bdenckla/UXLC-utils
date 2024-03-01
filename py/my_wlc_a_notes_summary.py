@@ -1,6 +1,6 @@
 """ Exports write_html. """
 
-import my_convert_citation_from_wlc
+import my_wlc_bcv_str
 import my_wlc_a_notes_intro
 import my_utils
 import my_html
@@ -95,7 +95,7 @@ def _row_cell_for_hdr_str(no_ucp, record, hdr_str):
         return my_html.table_datum(datum_contents)
     assert isinstance(val, str)
     if rec_key == 'bcv':
-        href = my_convert_citation_from_wlc.get_tanach_dot_us_url(val)
+        href = my_wlc_bcv_str.get_tanach_dot_us_url(val)
         anchor = my_html.anchor(val, {'href': href})
         return my_html.table_datum(anchor)
     if rec_key in ('qere', 'MPK', 'at issue') or _HBO_VALS.get(val):

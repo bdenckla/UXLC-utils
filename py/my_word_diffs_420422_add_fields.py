@@ -4,7 +4,7 @@ import json
 import my_diffs
 import my_utils
 import my_uxlc_location
-import my_convert_citation_from_wlc
+import my_wlc_bcv_str
 import my_dd_diffs_description as diffs_desc
 import my_uxlc_book_abbreviations as u_bk_abbr
 import my_page_and_guesses as pg
@@ -32,7 +32,7 @@ def _descs_for_ucps(all_ucps, record):
     ucps_for_this_record = wd_utils.uxlc_change_proposals(record)
     if not ucps_for_this_record:
         wlc_bcv_str = record['wlc_bcv_str']
-        if raw_ucp := all_ucps['by-bcv'].get(wlc_bcv_str):
+        if raw_ucp := all_ucps['by-wbs'].get(wlc_bcv_str):
             release_and_id = _release_and_id(raw_ucp)
             print(f'bcv {wlc_bcv_str} has ucp candidate: {release_and_id}')
     return my_utils.sl_map((_desc_from_ucp, all_ucps), ucps_for_this_record)
@@ -59,12 +59,14 @@ def _read_in_all_ucps():
     with open(path, encoding='utf-8') as in_fp:
         raw_ucps = json.load(in_fp)
     by_rai = {_release_and_id(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
-    by_bcv = {_wlc_bcv_str(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
-    return {'by-rai': by_rai, 'by-bcv': by_bcv}
+    by_wbs = {_wlc_bcv_str(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
+    return {'by-rai': by_rai, 'by-wbs': by_wbs}
 
 
 def _wlc_bcv_str(raw_ucp):
-    return u_bk_abbr.expand_citation(raw_ucp['citation'])
+    std_bcvp_quad = u_bk_abbr.expand_citation(raw_ucp['citation'])
+    std_bcv_triple = std_bcvp_quad[:-1]
+    return my_wlc_bcv_str.make_wbs_from_std_bcv_triple(std_bcv_triple)
 
 
 def _release_and_id(raw_ucp):
@@ -124,4 +126,4 @@ def _pos(record):
 
 def _std_bcv_triple(record):
     wlc_bcv_str = record['wlc_bcv_str']
-    return my_convert_citation_from_wlc.get_std_bcv_triple(wlc_bcv_str)
+    return my_wlc_bcv_str.get_std_bcv_triple(wlc_bcv_str)

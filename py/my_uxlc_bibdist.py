@@ -12,13 +12,13 @@
 import my_uxlc_cvp as cvp
 
 
-def calc(uxlc, bkid, cvp_range):
+def calc(uxlc, std_bkid, cvp_range):
     """
     Calculate bibdist of cvp_range in book bkid using uxlc.
     (We use "bibdist" to mean Biblical distance
     (word count).)
     """
-    book = uxlc[bkid]
+    book = uxlc[std_bkid]
     cvp_start, cvp_stop = cvp_range
     cai_start = _cvp_atom_num(cvp_start)
     wd_count = -cai_start

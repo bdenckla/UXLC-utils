@@ -11,8 +11,8 @@ def expand_citation(citation: str):
     book_ua, chnu_s, vrnu_s, wdnu_s = match.groups(0)
     # ua: UXLC abbreviation (for book)
     assert isinstance(book_ua, str)
-    bkid = BKNA_MAP_UXLC_TO_STD[book_ua]
-    return bkid, int(chnu_s), int(vrnu_s), int(wdnu_s)
+    std_bkid = BKNA_MAP_UXLC_TO_STD[book_ua]
+    return std_bkid, int(chnu_s), int(vrnu_s), int(wdnu_s)
 
 
 BKNA_MAP_UXLC_TO_STD = {  # not a two-way map! (E.g. 1Chr & 1 Chr)

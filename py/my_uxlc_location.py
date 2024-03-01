@@ -15,14 +15,14 @@ def prep():
     return uxlc, pbi
 
 
-def estimate(uxlc, pbi, cite_e):
+def estimate(uxlc, pbi, std_bcvp_quad):
     """
-    Given the atom specified by cite_e (book, chapter, verse, and atom),
+    Given the atom specified by std_bcvp_quad (std book, chapter, verse, and atom),
     estimate the location of that atom in the LC (page and "flat line").
     """
-    lciar = _find_lciar_for_cite(pbi, cite_e)
+    lciar = _find_lciar_for_cite(pbi, std_bcvp_quad)
     page = lci_augrec.get_pgid(lciar)
-    fline = _guess_fline(uxlc, pbi, lciar, cite_e)
+    fline = _guess_fline(uxlc, pbi, lciar, std_bcvp_quad)
     return page, fline
 
 
@@ -98,8 +98,8 @@ def _cite_is_in_range(pbi, citation, index):
     return cmps[0] <= cmps[1]
 
 
-def _guess_fline(uxlc, pbi, lciar, cite_e):
-    sd_fr_p0_to_cite = _sd_fr_p0_to_cite(uxlc, lciar, cite_e)  # E.g. 270
+def _guess_fline(uxlc, pbi, lciar, std_bcvp_quad):
+    sd_fr_p0_to_cite = _sd_fr_p0_to_cite(uxlc, lciar, std_bcvp_quad)  # E.g. 270
     sd_fr_p0_to_p1 = _sd_fr_p0_to_p1(pbi, lciar)  # E.g. 300
     sd_fr_p0_to_cite_n = sd_fr_p0_to_cite / sd_fr_p0_to_p1
     # [0..1), e.g. 0.9
@@ -130,10 +130,10 @@ def _fline_of_p0(lciar):
     return 1
 
 
-def _sd_fr_p0_to_cite(uxlc, lciar, cite_e):
+def _sd_fr_p0_to_cite(uxlc, lciar, std_bcvp_quad):
     """ Scalar distance from waypoint 0 to the citation. """
     # dist_12: distance from start of lciar to cite
-    dist_12 = _calc_bibdist(uxlc, lciar, cite_e)
+    dist_12 = _calc_bibdist(uxlc, lciar, std_bcvp_quad)
     if lci_augrec.get_coli_range(lciar):
         return bibdist.get_word_count(dist_12)
     # dist_01: distance from start of page to start of lciar
@@ -155,10 +155,10 @@ def _sd_fr_p0_to_p1(pbi, lciar):
     return bibdist.get_word_count(length_of_guess_page)
 
 
-def _calc_bibdist(uxlc, lciar, cite_e):
-    bkid = cite_e[0]
+def _calc_bibdist(uxlc, lciar, std_bcvp_quad):
+    std_bkid = std_bcvp_quad[0]
     cvp_start = lci_augrec.get_cvp_start(lciar)
-    cvp_stop = cvp.make(*cite_e[1:4])
+    cvp_stop = cvp.make(*std_bcvp_quad[1:4])
     cvp_range = cvp_start, cvp_stop
-    the_bibdist = bibdist.calc(uxlc, bkid, cvp_range)
+    the_bibdist = bibdist.calc(uxlc, std_bkid, cvp_range)
     return the_bibdist

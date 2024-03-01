@@ -4,6 +4,13 @@ import my_tanakh_book_names as tbn
 import my_uxlc_book_abbreviations as u_bk_abbr
 
 
+def make_wbs_from_std_bcv_triple(std_bcv_triple):
+    std_bkid = std_bcv_triple[0]
+    wlc_bkid = _STD_BKID_TO_WLC_BKID[std_bkid]
+    chnu, vrnu = std_bcv_triple[1], std_bcv_triple[2]
+    return f'{wlc_bkid}{chnu}:{vrnu}'
+
+
 def get_std_bcv_triple(wlc_bcv_str):
     """
     Return a bcv triple like ('Genesis', 1, 1) for a WLC bcv string like 'gn1:1'.
@@ -89,4 +96,7 @@ _WLC_BKID_TO_STD_BKID = {
     'da': tbn.BK_DANIEL,
     'er': tbn.BK_EZRA,
     'ne': tbn.BK_NEXEM
+}
+_STD_BKID_TO_WLC_BKID = {
+    std_bkid: wlc_bkid for wlc_bkid, std_bkid in _WLC_BKID_TO_STD_BKID.items()
 }

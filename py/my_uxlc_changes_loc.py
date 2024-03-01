@@ -43,9 +43,9 @@ def _tweak_change_col(pgid, column):
 
 
 def _check_loc(uxlc, pbi, change):
-    cite_e = u_bk_abbr.expand_citation(change['citation'])
+    std_bcvp_quad = u_bk_abbr.expand_citation(change['citation'])
     change_fline = _change_fline(change)
-    guess_page, guess_fline = my_uxlc_location.estimate(uxlc, pbi, cite_e)
+    guess_page, guess_fline = my_uxlc_location.estimate(uxlc, pbi, std_bcvp_quad)
     change_page = _pgcoli(change)[0]
     assert change_page == guess_page
     fline_diff = guess_fline - change_fline
