@@ -47,14 +47,14 @@ _DECALOGUE_RAFE = [
 ]
 RECORDS = [
     {
-      'bcv': "gn1:11",
+      'wlc_bcv_str': "gn1:11",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "D.E80$E)\nD.E81$E)",
       'ab-uword': "דֶּ֔שֶׁא\nדֶּ֗שֶׁא",
       'ab-notes': "\n]Q]c",
     },
     {
-      'bcv': "gn2:8",
+      'wlc_bcv_str': "gn2:8",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "B:/(\"73DEN\nB.:/(\"73DEN",
       'ab-uword': "בְעֵ֖דֶן\nבְּעֵ֖דֶן",
@@ -64,7 +64,7 @@ RECORDS = [
       'UXLC-note': "https://tanach.us/Notes/Genesis/Genesis.2.8.5-t.html",
     },
     {
-      'bcv': "gn2:10",
+      'wlc_bcv_str': "gn2:10",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "W:/NFHFR.03\nW:/NFHFR03",
       'ab-uword': "וְנָהָרּ֙\nוְנָהָר֙",
@@ -72,28 +72,28 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2020.12.29-1"),
     },
     {
-      'bcv': "gn14:17",
+      'wlc_bcv_str': "gn14:17",
       'word_diff_type': "word changed and notes changed",
       'ab-word': ")AX:AR\"74Y\n)AXAR\"74Y",
       'ab-uword': "אַחֲרֵ֣י\nאַחַרֵ֣י",
       'ab-notes': "\n]Q]n]v",
     },
     {
-      'bcv': "gn14:17",
+      'wlc_bcv_str': "gn14:17",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "K.:DFR→\nK.:DFR-",
       'ab-uword': "כְּדָר→\nכְּדָר־",
       'ab-notes': "\n",
     },
     {
-      'bcv': "gn14:17",
+      'wlc_bcv_str': "gn14:17",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "←LF(O80MER\nLF(O80MER",
       'ab-uword': "←לָעֹ֔מֶר\nלָעֹ֔מֶר",
       'ab-notes': "]n]p\n",
     },
     {
-      'bcv': "gn18:25",
+      'wlc_bcv_str': "gn18:25",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "KA/C.AD.I73YQ\nKA/CAD.I73YQ",
       'ab-uword': "כַצַּדִּ֖יק\nכַצַדִּ֖יק",
@@ -101,7 +101,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-4"),
     },
     {
-      'bcv': "gn24:53",
+      'wlc_bcv_str': "gn24:53",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "WA/Y.IT.\"73N\nWA/YIT.\"73N",
       'ab-uword': "וַיִּתֵּ֖ן\nוַיִתֵּ֖ן",
@@ -109,14 +109,14 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-5"),
     },
     {
-      'bcv': "gn25:6",
+      'wlc_bcv_str': "gn25:6",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "B.:N/OW03\nB.N/OW03",
       'ab-uword': "בְּנוֹ֙\nבּנוֹ֙",
       'ab-notes': "\n]Q]n]v",
     },
     {
-      'bcv': "gn26:1",
+      'wlc_bcv_str': "gn26:1",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "):ABIYM.E71LEK:\n):ABIYME71LEK:",
       'ab-uword': "אֲבִימֶּ֥לֶךְ\nאֲבִימֶ֥לֶךְ",
@@ -124,7 +124,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-7"),
     },
     {
-      'bcv': "gn34:28",
+      'wlc_bcv_str': "gn34:28",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "X:AMOR\"Y/H.E92M\nX:AMOR\"Y/HE92M",
       'ab-uword': "חֲמֹרֵיהֶּ֑ם\nחֲמֹרֵיהֶ֑ם",
@@ -132,7 +132,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.01.04-1"),
     },
     {
-      'bcv': "gn35:22",
+      'wlc_bcv_str': "gn35:22",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "R:)W.B\"80N\nR:)W.B\"8081N",
       'ab-uword': "רְאוּבֵ֔ן\nרְאוּבֵ֔֗ן",
@@ -140,35 +140,35 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-8"),
     },
     {
-      'bcv': "gn38:11",
+      'wlc_bcv_str': "gn38:11",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "B:N/I80Y\nB:N/:80Y",
       'ab-uword': "בְנִ֔י\nבְנְ֔י",
       'ab-notes': "\n]Q]n]v",
     },
     {
-      'bcv': "gn39:2",
+      'wlc_bcv_str': "gn39:2",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "B.:/B\"71YT\nB.:/B\"73YT",
       'ab-uword': "בְּבֵ֥ית\nבְּבֵ֖ית",
       'ab-notes': "\n]C]c",
     },
     {
-      'bcv': "gn39:2",
+      'wlc_bcv_str': "gn39:2",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "):ADONF73Y/W\n):ADONF71Y/W",
       'ab-uword': "אֲדֹנָ֖יו\nאֲדֹנָ֥יו",
       'ab-notes': "\n]C]c",
     },
     {
-      'bcv': "gn39:23",
+      'wlc_bcv_str': "gn39:23",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "HA/S.O81HAR\nHA/S.OHA81R",
       'ab-uword': "הַסֹּ֗הַר\nהַסֹּהַ֗ר",
       'ab-notes': "\n]Q]c]n",
     },
     {
-      'bcv': "gn41:7",
+      'wlc_bcv_str': "gn41:7",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "HA75/$.IB.:FLI80YM\nHA75/$IB.:FLI80YM",
       'ab-uword': "הַֽשִּׁבֳּלִ֔ים\nהַֽשִׁבֳּלִ֔ים",
@@ -176,14 +176,14 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-11"),
     },
     {
-      'bcv': "gn41:24",
+      'wlc_bcv_str': "gn41:24",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "HF/$IB.:FLI74YM\nHA/$IB.:FLI74YM",
       'ab-uword': "הָשִׁבֳּלִ֣ים\nהַשִׁבֳּלִ֣ים",
       'ab-notes': "]1\n]Q]U]v",
     },
     {
-      'bcv': "gn50:1",
+      'wlc_bcv_str': "gn50:1",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "WA/Y.IP.O71L\nWA/YIP.O71L",
       'ab-uword': "וַיִּפֹּ֥ל\nוַיִפֹּ֥ל",
@@ -191,7 +191,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-13"),
     },
     {
-      'bcv': "ex10:13",
+      'wlc_bcv_str': "ex10:13",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "R71W.XA\nR71W.XA-",
       'ab-uword': "ר֥וּחַ\nר֥וּחַ־",
@@ -206,28 +206,28 @@ RECORDS = [
       ]
     },
     {
-      'bcv': "ex20:3",
+      'wlc_bcv_str': "ex20:3",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "P.FN/F8175YA\nP.FN/F75A81Y",
       'ab-uword': "פָּנָֽ֗יַ\nפָּנַָֽ֗י",
       'ab-notes': "]1\n]1",
     },
     {
-      'bcv': "ex20:4",
+      'wlc_bcv_str': "ex20:4",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "MI/T.F9261AXAT\nMI/T.F92A61XAT",
       'ab-uword': "מִתַָּ֑֜חַת\nמִתַָּ֑֜חַת",
       'ab-notes': "]1\n]1",
     },
     {
-      'bcv': "ex20:10",
+      'wlc_bcv_str': "ex20:10",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "W:/YO33WM03\nW:/YO63WM03",
       'ab-uword': "וְי֙וֹם֙\nוְי֨וֹם֙",
       'ab-notes': "\n",
     },
     {
-      'bcv': "ex20:13",
+      'wlc_bcv_str': "ex20:13",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IR:CF7375X00\nT.IR:CF7375X00",
       'ab-uword': "תִּֿרְצָֽ֖ח׃\nתִּרְצָֽ֖ח׃",
@@ -236,7 +236,7 @@ RECORDS = [
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
-      'bcv': "ex20:14",
+      'wlc_bcv_str': "ex20:14",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IN:)F9275P00\nT.IN:)F9275P00",
       'ab-uword': "תִּֿנְאָֽ֑ף׃\nתִּנְאָֽ֑ף׃",
@@ -245,7 +245,7 @@ RECORDS = [
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
-      'bcv': "ex20:15",
+      'wlc_bcv_str': "ex20:15",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IG:NO8075B00\nT.IG:NO8075B00",
       'ab-uword': "תִּֿגְנֹֽ֔ב׃\nתִּגְנֹֽ֔ב׃",
@@ -254,14 +254,14 @@ RECORDS = [
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
-      'bcv': "lv13:3",
+      'wlc_bcv_str': "lv13:3",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "HA/N.E33GA(03\nHA/N.E33GE(03",
       'ab-uword': "הַנֶּ֙גַע֙\nהַנֶּ֙גֶע֙",
       'ab-notes': "\n]v",
     },
     {
-      'bcv': "lv23:38",
+      'wlc_bcv_str': "lv23:38",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "Y.:HWF92H\nY:HWF92H",
       'ab-uword': "יְּהוָ֑ה\nיְהוָ֑ה",
@@ -269,7 +269,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-16"),
     },
     {
-      'bcv': "lv26:35",
+      'wlc_bcv_str': "lv26:35",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "HF$.AM./F73H\nHF$AM./F73H",
       'ab-uword': "הָשַּׁמָּ֖ה\nהָשַׁמָּ֖ה",
@@ -280,7 +280,7 @@ RECORDS = [
       ]
     },
     {
-      'bcv': "nu11:24",
+      'wlc_bcv_str': "nu11:24",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "MO$E81H\nMO$E80H",
       'ab-uword': "מֹשֶׁ֗ה\nמֹשֶׁ֔ה",
@@ -288,7 +288,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-18"),
     },
     {
-      'bcv': "nu16:7",
+      'wlc_bcv_str': "nu16:7",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "(:AL\"Y/HE63N\n(:AL\"Y/HE63N05",
       'ab-uword': "עֲלֵיהֶ֨ן\nעֲלֵיהֶ֨ן׀",
@@ -296,7 +296,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-19"),
     },
     {
-      'bcv': "nu24:13",
+      'wlc_bcv_str': "nu24:13",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "MI/L.IB./I92Y\nMI/LIB./I92Y",
       'ab-uword': "מִלִּבִּ֑י\nמִלִבִּ֑י",
@@ -304,7 +304,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-20"),
     },
     {
-      'bcv': "dt5:13",
+      'wlc_bcv_str': "dt5:13",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "K.,FL-\nK.FL-",
       'ab-uword': "כָּֿל־\nכָּל־",
@@ -313,7 +313,7 @@ RECORDS = [
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
-      'bcv': "dt5:14",
+      'wlc_bcv_str': "dt5:14",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "W:/YO33WM03\nW:/YO63WM03",
       'ab-uword': "וְי֙וֹם֙\nוְי֨וֹם֙",
@@ -321,7 +321,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2020.10.19", "2020.06.07-4"),
     },
     {
-      'bcv': "dt5:17",
+      'wlc_bcv_str': "dt5:17",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IR:CF75X00\nT.IR:CF75X00",
       'ab-uword': "תִּֿרְצָֽח׃\nתִּרְצָֽח׃",
@@ -330,7 +330,7 @@ RECORDS = [
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
-      'bcv': "dt5:18",
+      'wlc_bcv_str': "dt5:18",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IN:)F7592P00\nT.IN:)F7592P00",
       'ab-uword': "תִּֿנְאָֽ֑ף׃\nתִּנְאָֽ֑ף׃",
@@ -339,7 +339,7 @@ RECORDS = [
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
-      'bcv': "dt5:19",
+      'wlc_bcv_str': "dt5:19",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "T.,IG:NO7580B00\nT.IG:NO7580B00",
       'ab-uword': "תִּֿגְנֹֽ֔ב׃\nתִּגְנֹֽ֔ב׃",
@@ -348,7 +348,7 @@ RECORDS = [
       'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
-      'bcv': "dt7:8",
+      'wlc_bcv_str': "dt7:8",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "W./MI/$.FM:R/70W.\nW./MI/$.FM:R/70W",
       'ab-uword': "וּמִשָּׁמְר֤וּ\nוּמִשָּׁמְר֤ו",
@@ -356,7 +356,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-21"),
     },
     {
-      'bcv': "dt12:30",
+      'wlc_bcv_str': "dt12:30",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "L\"/)MO63R\nL\"/)MO81R",
       'ab-uword': "לֵאמֹ֨ר\nלֵאמֹ֗ר",
@@ -364,7 +364,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2020.02.19", "2019.09.01-1"),
     },
     {
-      'bcv': "2s11:1",
+      'wlc_bcv_str': "2s11:1",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "HA/M.AL:),KI81YM\nHA/M.AL:)KI81YM",
       'ab-uword': "הַמַּלְאֿכִ֗ים\nהַמַּלְאכִ֗ים",
@@ -372,7 +372,7 @@ RECORDS = [
       'initial-remark': _UXLC_RAFEH,
     },
     {
-      'bcv': "1k9:9",
+      'wlc_bcv_str': "1k9:9",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "WA/Y.A(AB:DU92/M\nWA/Y.A(:AB:DU92/M",
       'ab-uword': "וַיַּעַבְדֻ֑ם\nוַיַּעֲבְדֻ֑ם",
@@ -380,7 +380,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-22"),
     },
     {
-      'bcv': "is22:10",
+      'wlc_bcv_str': "is22:10",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "WA/T.IT,:CW.03\nWA/T.IT:CW.03",
       'ab-uword': "וַתִּתְֿצוּ֙\nוַתִּתְצוּ֙",
@@ -388,7 +388,7 @@ RECORDS = [
       'initial-remark': _UXLC_RAFEH,
     },
     {
-      'bcv': "is45:6",
+      'wlc_bcv_str': "is45:6",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "W./MI/M.A74(:ARFB/F80H.\nW./MI/M.A74(:ARFB/F80H",
       'ab-uword': "וּמִמַּ֣עֲרָבָ֔הּ\nוּמִמַּ֣עֲרָבָ֔ה",
@@ -396,7 +396,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-23"),
     },
     {
-      'bcv': "je15:18",
+      'wlc_bcv_str': "je15:18",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "):ANW.$F92H03\n):ANW.$F92H",
       'ab-uword': "אֲנוּשָׁ֑ה֙\nאֲנוּשָׁ֑ה",
@@ -404,7 +404,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-24"),
     },
     {
-      'bcv': "je20:17",
+      'wlc_bcv_str': "je20:17",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "W:/RAX:M/F73H,\nW:/RAX:M/F73H",
       'ab-uword': "וְרַחְמָ֖הֿ\nוְרַחְמָ֖ה",
@@ -412,7 +412,7 @@ RECORDS = [
       'initial-remark': _UXLC_RAFEH,
     },
     {
-      'bcv': "je27:13",
+      'wlc_bcv_str': "je27:13",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "W./BA/D.F92BER03\nW./BA/D.F92BER",
       'ab-uword': "וּבַדָּ֑בֶר֙\nוּבַדָּ֑בֶר",
@@ -420,7 +420,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-25"),
     },
     {
-      'bcv': "je44:19",
+      'wlc_bcv_str': "je44:19",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "L:/HA74(:ACIB/F80H\nL:/HA74(:ACIB/F80H.",
       'ab-uword': "לְהַ֣עֲצִבָ֔ה\nלְהַ֣עֲצִבָ֔הּ",
@@ -439,7 +439,7 @@ RECORDS = [
       ]
     },
     {
-      'bcv': "je48:27",
+      'wlc_bcv_str': "je48:27",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "D:BFRE71Y/KF\nD:BFRE91Y/KF",
       'ab-uword': "דְבָרֶ֥יךָ\nדְבָרֶ֛יךָ",
@@ -447,7 +447,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2020.02.19", "2019.01.03-1"),
     },
     {
-      'bcv': "zc5:11",
+      'wlc_bcv_str': "zc5:11",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "L/F71H,\nL/F71H",
       'ab-uword': "לָ֥הֿ\nלָ֥ה",
@@ -455,7 +455,7 @@ RECORDS = [
       'initial-remark': _UXLC_RAFEH,
     },
     {
-      'bcv': "1c10:1",
+      'wlc_bcv_str': "1c10:1",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "WA/Y.F92NFS\nWA/Y.F70NFS",
       'ab-uword': "וַיָּ֑נָס\nוַיָּ֤נָס",
@@ -463,7 +463,7 @@ RECORDS = [
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-27"),
     },
     {
-      'bcv': "ps119:99",
+      'wlc_bcv_str': "ps119:99",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "L,/I75Y00\nL/I75Y00",
       'ab-uword': "לִֽֿי׃\nלִֽי׃",
@@ -471,28 +471,28 @@ RECORDS = [
       'initial-remark': _UXLC_RAFEH,
     },
     {
-      'bcv': "es7:8",
+      'wlc_bcv_str': "es7:8",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "NOP\"80L\nNOP\"81L",
       'ab-uword': "נֹפֵ֔ל\nנֹפֵ֗ל",
       'ab-notes': "\n]C]c",
     },
     {
-      'bcv': "da2:39",
+      'wlc_bcv_str': "da2:39",
       'word_diff_type': "word changed and notes changed",
       'ab-word': "):ARA74()\n**):ARA74(",
       'ab-uword': "אֲרַ֣עא\n**אֲרַ֣ע",
       'ab-notes': "]1\n",
     },
     {
-      'bcv': "er4:12",
+      'wlc_bcv_str': "er4:12",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "**W:/$W.RAY./F74)\n*)#KLLW",
       'ab-uword': "**וְשׁוּרַיָּ֣א\n*אשכללו",
       'ab-notes': "\n",
     },
     {
-      'bcv': "er4:12",
+      'wlc_bcv_str': "er4:12",
       'word_diff_type': "word changed but notes did not",
       'ab-word': "*)#KLLW\n**W:/$W.RAY./F74)",
       'ab-uword': "*אשכללו\n**וְשׁוּרַיָּ֣א",

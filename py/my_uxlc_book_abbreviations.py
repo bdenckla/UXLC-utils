@@ -1,6 +1,19 @@
-""" Exports UXLC_BOOK_ABBREVIATIONS. """
+""" Exports expand_citation and UXLC_BOOK_ABBREVIATIONS. """
 
+import re
 import my_tanakh_book_names as tbn
+
+
+def expand_citation(citation: str):
+    patt = r'([A-z0-9]+) (\d+):(\d+).(\d+)'
+    match = re.fullmatch(patt, citation)
+    assert match
+    book_ua, chnu_s, vrnu_s, wdnu_s = match.groups(0)
+    # ua: UXLC abbreviation (for book)
+    assert isinstance(book_ua, str)
+    bkid = BKNA_MAP_UXLC_TO_STD[book_ua]
+    return bkid, int(chnu_s), int(vrnu_s), int(wdnu_s)
+
 
 BKNA_MAP_UXLC_TO_STD = {  # not a two-way map! (E.g. 1Chr & 1 Chr)
     'Gen': tbn.BK_GENESIS,

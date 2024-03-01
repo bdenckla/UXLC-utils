@@ -43,7 +43,7 @@ def _tweak_change_col(pgid, column):
 
 
 def _check_loc(uxlc, pbi, change):
-    cite_e = _expand_citation(change['citation'])
+    cite_e = u_bk_abbr.expand_citation(change['citation'])
     change_fline = _change_fline(change)
     guess_page, guess_fline = my_uxlc_location.estimate(uxlc, pbi, cite_e)
     change_page = _pgcoli(change)[0]
@@ -81,14 +81,3 @@ def expand_lc_loc_to_pgcoli(lc_loc):
     leaf_int, ca_or_cb, col_int, line_int = _expand_lc_loc_to_leabcoli(lc_loc)
     pgid = f'{leaf_int:03d}{ca_or_cb}'
     return pgid, col_int, line_int
-
-
-def _expand_citation(citation: str):
-    patt = r'([A-z0-9]+) (\d+):(\d+).(\d+)'
-    match = re.fullmatch(patt, citation)
-    assert match
-    book_ua, chnu_s, vrnu_s, wdnu_s = match.groups(0)
-    # ua: UXLC abbreviation (for book)
-    assert isinstance(book_ua, str)
-    bkid = u_bk_abbr.BKNA_MAP_UXLC_TO_STD[book_ua]
-    return bkid, int(chnu_s), int(vrnu_s), int(wdnu_s)

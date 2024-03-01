@@ -8,6 +8,7 @@ import my_diffs
 import my_dd_diffs_description as diffs_desc
 import my_word_diffs_420422_utils as wd_utils
 import my_utils
+import my_uxlc_book_abbreviations as u_bk_abbr
 
 def add(io_records):
     uxlc, pbi = my_uxlc_location.prep()
@@ -18,20 +19,20 @@ def add(io_records):
 
 def _add1(uxlc, pbi, all_ucps, recidx, io_record):
     io_record['original-order'] = recidx + 1
-    io_record['bcvp'] = _bcvp_quad(io_record['bcv'], io_record['ab-word'])
+    io_record['std-bcv-triple'] = _std_bcv_triple(io_record)
     io_record['diff-type'] = _diff_type(io_record)
     io_record['diff-desc'] = _diff_detail(io_record)
     io_record['descs-for-ucps'] = _descs_for_ucps(all_ucps, io_record)
-    _add_page_and_guesses(io_record, uxlc, pbi)
+    _add_page_and_guesses(io_record, uxlc, pbi, _std_bcvp_quad(io_record))
 
 
 def _descs_for_ucps(all_ucps, record):
     ucps_for_this_record = wd_utils.uxlc_change_proposals(record)
     if not ucps_for_this_record:
-        bcv = record['bcv']
-        if raw_ucp := all_ucps['by-bcv'].get(bcv):
+        wlc_bcv_str = record['wlc_bcv_str']
+        if raw_ucp := all_ucps['by-bcv'].get(wlc_bcv_str):
             release_and_id = _release_and_id(raw_ucp)
-            print(f'bcv {bcv} has ucp candidate: {release_and_id}')
+            print(f'bcv {wlc_bcv_str} has ucp candidate: {release_and_id}')
     return my_utils.sl_map((_desc_from_ucp, all_ucps), ucps_for_this_record)
 
 
@@ -39,8 +40,8 @@ def _desc_from_ucp(all_ucps, release_and_id):
     return all_ucps['by-rai'][release_and_id]['description']
 
 
-def _add_page_and_guesses(io_record, uxlc, pbi):
-    pg_and_gs = _page_and_guesses(uxlc, pbi, io_record['bcvp'])
+def _add_page_and_guesses(io_record, uxlc, pbi, std_bcvp_quad):
+    pg_and_gs = _page_and_guesses(uxlc, pbi, std_bcvp_quad)
     for key, val in pg_and_gs.items():
         io_record[key] = val
 
@@ -56,12 +57,12 @@ def _read_in_all_ucps():
     with open(path, encoding='utf-8') as in_fp:
         raw_ucps = json.load(in_fp)
     by_rai = {_release_and_id(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
-    by_bcv = {_wlc_bcv(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
+    by_bcv = {_wlc_bcv_str(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
     return {'by-rai': by_rai, 'by-bcv': by_bcv}
 
 
-def _wlc_bcv(raw_ucp):
-    return raw_ucp['citation']
+def _wlc_bcv_str(raw_ucp):
+    return u_bk_abbr.expand_citation(raw_ucp['citation'])
 
 
 def _release_and_id(raw_ucp):
@@ -108,8 +109,8 @@ def _diff_type(record):
     return 'misc'
 
 
-def _page_and_guesses(uxlc, pbi, bcvp_quad):
-    page, fline_guess = my_uxlc_location.estimate(uxlc, pbi, bcvp_quad)
+def _page_and_guesses(uxlc, pbi, std_bcvp_quad):
+    page, fline_guess = my_uxlc_location.estimate(uxlc, pbi, std_bcvp_quad)
     if fline_guess > 55:
         line_guess = fline_guess - 54
         col_guess = 3
@@ -129,9 +130,14 @@ def _page_and_guesses(uxlc, pbi, bcvp_quad):
     }
 
 
-def _bcvp_quad(wlc_bcv_str, ab_word):
+def _std_bcvp_quad(record):
+    wlc_bcv_str, ab_word = record['wlc_bcv_str'], record['ab-word']
     std_bcv_triple = my_convert_citation_from_wlc.get_std_bcv_triple(wlc_bcv_str)
     a_word, _b_word = ab_word.split('\n')
     poskey = wlc_bcv_str + '!' + a_word
     pos = my_word_diffs_420422.WORD_POSITIONS[poskey]
     return *std_bcv_triple, pos
+
+
+def _std_bcv_triple(record):
+    return _std_bcvp_quad(record)[:-1]

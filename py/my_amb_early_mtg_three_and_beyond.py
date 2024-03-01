@@ -39,12 +39,8 @@ def _record_assignment(atom, recnum, bcvp):
     uxlc_bkid, chnu, vrnu, atnu = bcvp
     recval = {
         'word': atom,
-        'bcvp': (uxlc_bkid, chnu, vrnu, atnu),
+        'uxlc_bcvp': (uxlc_bkid, chnu, vrnu, atnu),
         'img': f'{uxlc_bkid}{chnu}v{vrnu}.png',
     }
     recname = f'_RECORD_{recnum:02}'
     return f'{recname} = {recval}'
-
-# _RECORD_12 = {
-#     'word': 'וְדֽ͏ַאֲב֥וֹן', 'bcvp': ('Deut', 28, 65, 18), 'img': 'Deut28v65.png',
-# }
