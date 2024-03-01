@@ -221,7 +221,7 @@ RECORDS = [
       'UXLC-change-proposals': [
           ('2020.10.19', '2020.06.07-1'),
           ('2021.10.19', '2021.05.19-8'),
-          ('2022.04.01', '2021.10.26-1'),
+          ('2022.04.01', '2021.10.26-1')
       ],
       'initial-remark': 'UXLC somehow already had part of this change.',
       'further-remarks': [
@@ -272,7 +272,7 @@ RECORDS = [
       'ab-uword': "תִּֿרְצָ֖+צֽח׃\nתִּרְצָ֖+צֽח׃",
       'ab-notes': "\n",
       # 'UXLC-change-proposals': ('2020.10.19', '2020.09.29-4'),
-      # Proposal above is just adding a CGJ so is not relevant to the WLC change,
+      # The proposal above is just adding a CGJ so it is not relevant to the WLC change,
       # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH,
       'further-remarks': [*_DECALOGUE_RAFE]
@@ -283,6 +283,12 @@ RECORDS = [
       'ab-word': "T.,IN:)F9275P00\nT.IN:)F9275P00",
       'ab-uword': "תִּֿנְאָ֑+אֽף׃\nתִּנְאָ֑+אֽף׃",
       'ab-notes': "\n",
+      # 'UXLC-change-proposals': [
+      #     ('2020.02.19', '2020.01.30-10'),
+      #     ('2021.04.01', '2020.09.29-1')
+      # ],
+      # The proposals above have the net effect of just adding a CGJ so they are not relevant to the WLC change,
+      # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH,
       'further-remarks': [*_DECALOGUE_RAFE]
     },
@@ -318,7 +324,7 @@ RECORDS = [
       'ab-notes': "\n]p",
       'UXLC-change-proposals': [
           ("2021.04.01", "2021.02.22-17"),
-          ("2022.04.01", "2021.12.28-2"),
+          ("2022.04.01", "2021.12.28-2")
       ]
     },
     {
