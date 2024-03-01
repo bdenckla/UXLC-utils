@@ -78,6 +78,8 @@ RECORDS = [
       'ab-word': ")AX:AR\"74Y\n)AXAR\"74Y",
       'ab-uword': "אַחֲרֵ֣י\nאַחַרֵ֣י",
       'ab-notes': "\n]Q]n]v",
+      'UXLC-change-proposals': ('2022.07.04', '2022.03.29-2'),
+      # Kind of weird that this was a Holman change not a Salisbury change.
     },
     {
       'wlc_bcv_str': "gn14:17",
@@ -85,6 +87,10 @@ RECORDS = [
       'ab-word': "K.:DFR→\nK.:DFR-",
       'ab-uword': "כְּדָר→\nכְּדָר־",
       'ab-notes': "\n",
+      'UXLC-change-proposals': [
+          ('2021.04.01', '2021.02.22-3'),
+          ('2022.10.19', '2022.07.02-6')
+      ],
     },
     {
       'wlc_bcv_str': "gn14:17",
@@ -92,6 +98,10 @@ RECORDS = [
       'ab-word': "←LF(O80MER\nLF(O80MER",
       'ab-uword': "←לָעֹ֔מֶר\nלָעֹ֔מֶר",
       'ab-notes': "]n]p\n",
+      'UXLC-change-proposals': [
+          ('2021.04.01', '2021.02.22-3'),
+          ('2022.10.19', '2022.07.02-6')
+      ],
     },
     {
       'wlc_bcv_str': "gn18:25",
