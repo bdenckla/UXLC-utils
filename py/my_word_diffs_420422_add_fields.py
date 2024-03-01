@@ -27,11 +27,16 @@ def _add1(uxlc, pbi, all_ucps, recidx, io_record):
 
 def _descs_for_ucps(all_ucps, record):
     ucps_for_this_record = wd_utils.uxlc_change_proposals(record)
+    if not ucps_for_this_record:
+        bcv = record['bcv']
+        if raw_ucp := all_ucps['by-bcv'].get(bcv):
+            release_and_id = _release_and_id(raw_ucp)
+            print(f'bcv {bcv} has ucp candidate: {release_and_id}')
     return my_utils.sl_map((_desc_from_ucp, all_ucps), ucps_for_this_record)
 
 
 def _desc_from_ucp(all_ucps, release_and_id):
-    return all_ucps[release_and_id]['description']
+    return all_ucps['by-rai'][release_and_id]['description']
 
 
 def _add_page_and_guesses(io_record, uxlc, pbi):
@@ -50,7 +55,13 @@ def _read_in_all_ucps():
     path = 'out/UXLC-misc/all_changes.json'
     with open(path, encoding='utf-8') as in_fp:
         raw_ucps = json.load(in_fp)
-    return {_release_and_id(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
+    by_rai = {_release_and_id(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
+    by_bcv = {_wlc_bcv(raw_ucp): raw_ucp for raw_ucp in raw_ucps}
+    return {'by-rai': by_rai, 'by-bcv': by_bcv}
+
+
+def _wlc_bcv(raw_ucp):
+    return raw_ucp['citation']
 
 
 def _release_and_id(raw_ucp):
