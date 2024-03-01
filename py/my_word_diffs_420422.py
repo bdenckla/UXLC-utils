@@ -1,3 +1,50 @@
+_UXLC_RAFEH = 'UXLC rejects all rafeh-removing WLC changes.'
+_DECALOGUE_RAFE = [
+    'In WLC 4.22, all 12 rafeh marks of 4.20 were removed. '
+    'Seven of those rafeh marks were in the Decalogues. '
+    'This is one of those seven.',
+    #
+    'The utility of the other five rafeh marks was debatable, '
+    'since they merely marked letters where dagesh/mapiq might have been expected. '
+    'Those rafeh marks expressed something like “this letter is intentionally left blank” '
+    'if “blank” is taken to mean “free of dagesh/mapiq.”',
+    #
+    'In contrast, the utility of these seven rafeh marks '
+    'was less debatable. '
+    'These seven marks meant something quite different than those other five. '
+    'We could say that these seven rafeh marks modulated the meaning '
+    'of the dagesh present on the same letter. '
+    'These rafeh marks expressed something like '
+    '“the dagesh below applies to only one of the cantillations.”',
+    #
+    'In other words, whereas the five non-Decalogue rafeh marks '
+    'merely reassure the reader that '
+    '“this letter is intentionally left blank,” '
+    'these seven rafeh marks tell the reader something like '
+    '“this letter is contextually left blank.”',
+    #
+    'As documented on page xiv of its Foreword, Dotan’s BHL does not include any rafeh marks. '
+    'This does not, as the WLC 4.22 documentation suggests, support the removal '
+    'of these seven Decalogue rafeh marks. '
+    'BHL presents the Decalogues in split rather than combined form, '
+    'so these rafeh marks would have the usual meaning, of debatable utility, '
+    'in the lower cantillation. '
+    'So, the lack of rafeh marks in BHL’s (four) Decalogues says nothing '
+    'one way or another about the utility of rafeh marks '
+    'in WLC’s (two) Decalogues.',
+    #
+    'The WLC 4.22 documentation cites not only BHL but also BHQ '
+    'in support of its decision to remove all rafeh marks. '
+    'The comparison with BHQ is more relevant, since BHQ, like WLC, '
+    'presents the Deuteronomy Decalogue in combined rather than split form. '
+    '(The Exodus fascicle of BHQ has not yet been released.) '
+    'Yet, I don’t consider BHQ’s lack of Decalogue rafeh marks '
+    'to be a precedent to be cited for support. '
+    'Rather, I see BHQ’s lack of Decalogue rafeh marks as '
+    'yet another piece of evidence pointing to a rather casual '
+    '(or at least inconsistently serious) '
+    'attitude towards details of niqqud.'
+]
 RECORDS = [
     {
       'bcv': "gn1:11",
@@ -13,7 +60,7 @@ RECORDS = [
       'ab-uword': "בְעֵ֖דֶן\nבְּעֵ֖דֶן",
       'ab-notes': "\n",
       'UXLC-change-proposals': ("2021.04.01", "2021.02.22-2"),
-      'initial-remark': 'UXLC qualifies this change with a t-note.',
+      'initial-remark': 'UXLC qualifies this WLC change with a t-note.',
       'UXLC-note': "https://tanach.us/Notes/Genesis/Genesis.2.8.5-t.html",
     },
     {
@@ -185,6 +232,8 @@ RECORDS = [
       'ab-word': "T.,IR:CF7375X00\nT.IR:CF7375X00",
       'ab-uword': "תִּֿרְצָֽ֖ח׃\nתִּרְצָֽ֖ח׃",
       'ab-notes': "\n",
+      'initial-remark': _UXLC_RAFEH,
+      'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
       'bcv': "ex20:14",
@@ -192,6 +241,8 @@ RECORDS = [
       'ab-word': "T.,IN:)F9275P00\nT.IN:)F9275P00",
       'ab-uword': "תִּֿנְאָֽ֑ף׃\nתִּנְאָֽ֑ף׃",
       'ab-notes': "\n",
+      'initial-remark': _UXLC_RAFEH,
+      'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
       'bcv': "ex20:15",
@@ -199,6 +250,8 @@ RECORDS = [
       'ab-word': "T.,IG:NO8075B00\nT.IG:NO8075B00",
       'ab-uword': "תִּֿגְנֹֽ֔ב׃\nתִּגְנֹֽ֔ב׃",
       'ab-notes': "\n",
+      'initial-remark': _UXLC_RAFEH,
+      'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
       'bcv': "lv13:3",
@@ -256,7 +309,8 @@ RECORDS = [
       'ab-word': "K.,FL-\nK.FL-",
       'ab-uword': "כָּֿל־\nכָּל־",
       'ab-notes': "\n",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
+      'initial-remark': _UXLC_RAFEH,
+      'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
       'bcv': "dt5:14",
@@ -272,7 +326,8 @@ RECORDS = [
       'ab-word': "T.,IR:CF75X00\nT.IR:CF75X00",
       'ab-uword': "תִּֿרְצָֽח׃\nתִּרְצָֽח׃",
       'ab-notes': "\n",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
+      'initial-remark': _UXLC_RAFEH,
+      'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
       'bcv': "dt5:18",
@@ -280,7 +335,8 @@ RECORDS = [
       'ab-word': "T.,IN:)F7592P00\nT.IN:)F7592P00",
       'ab-uword': "תִּֿנְאָֽ֑ף׃\nתִּנְאָֽ֑ף׃",
       'ab-notes': "\n",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
+      'initial-remark': _UXLC_RAFEH,
+      'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
       'bcv': "dt5:19",
@@ -288,7 +344,8 @@ RECORDS = [
       'ab-word': "T.,IG:NO7580B00\nT.IG:NO7580B00",
       'ab-uword': "תִּֿגְנֹֽ֔ב׃\nתִּגְנֹֽ֔ב׃",
       'ab-notes': "\n",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
+      'initial-remark': _UXLC_RAFEH,
+      'further-remarks': [*_DECALOGUE_RAFE]
     },
     {
       'bcv': "dt7:8",
@@ -312,7 +369,7 @@ RECORDS = [
       'ab-word': "HA/M.AL:),KI81YM\nHA/M.AL:)KI81YM",
       'ab-uword': "הַמַּלְאֿכִ֗ים\nהַמַּלְאכִ֗ים",
       'ab-notes': "]1\n]1",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
+      'initial-remark': _UXLC_RAFEH,
     },
     {
       'bcv': "1k9:9",
@@ -328,8 +385,7 @@ RECORDS = [
       'ab-word': "WA/T.IT,:CW.03\nWA/T.IT:CW.03",
       'ab-uword': "וַתִּתְֿצוּ֙\nוַתִּתְצוּ֙",
       'ab-notes': "\n",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
-      'further-remarks': ["It seems like a good change: does anyone think that this rafeh is notable?"],
+      'initial-remark': _UXLC_RAFEH,
     },
     {
       'bcv': "is45:6",
@@ -353,10 +409,7 @@ RECORDS = [
       'ab-word': "W:/RAX:M/F73H,\nW:/RAX:M/F73H",
       'ab-uword': "וְרַחְמָ֖הֿ\nוְרַחְמָ֖ה",
       'ab-notes': "\n",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
-      'further-remarks': [
-          "It seems like a bad change because this rafe is "
-          "(a) present in the manuscript (b) notable according to Avi."],
+      'initial-remark': _UXLC_RAFEH,
     },
     {
       'bcv': "je27:13",
@@ -372,9 +425,9 @@ RECORDS = [
       'ab-word': "L:/HA74(:ACIB/F80H\nL:/HA74(:ACIB/F80H.",
       'ab-uword': "לְהַ֣עֲצִבָ֔ה\nלְהַ֣עֲצִבָ֔הּ",
       'ab-notes': "\n]p",
-      'initial-remark': "UXLC doesn't have this change: it has not added that mapiq.",
+      'initial-remark': "UXLC rejected this WLC change, in the end.",
       'further-remarks': [
-          "It seems like a bad change because the mapiq is likely an artifact. "
+          "This seems like a bad change to WLC because the mapiq is likely an artifact. "
           "UXLC has a rafeh on the he in question. "
           "UXLC arrived at this with a bit of back-and-forth: 3 changes. "
           "Change 1 added the mapiq, change 2 added the rafeh, and change 3 removed the mapiq, "
@@ -399,10 +452,7 @@ RECORDS = [
       'ab-word': "L/F71H,\nL/F71H",
       'ab-uword': "לָ֥הֿ\nלָ֥ה",
       'ab-notes': "\n]U",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
-      'further-remarks': [
-          "It seems like a bad change because this rafe is "
-          "(a) present in the manuscript (b) notable according to Avi."],
+      'initial-remark': _UXLC_RAFEH,
     },
     {
       'bcv': "1c10:1",
@@ -418,10 +468,7 @@ RECORDS = [
       'ab-word': "L,/I75Y00\nL/I75Y00",
       'ab-uword': "לִֽֿי׃\nלִֽי׃",
       'ab-notes': "\n",
-      'initial-remark': "UXLC doesn't have this change: it has not removed that rafeh.",
-      'further-remarks': [
-          "It seems like a good change because no one except BHS "
-          "seems to think that this rafeh, though present in the manuscript, is notable."],
+      'initial-remark': _UXLC_RAFEH,
     },
     {
       'bcv': "es7:8",

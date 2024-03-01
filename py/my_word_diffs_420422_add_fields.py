@@ -31,9 +31,7 @@ def _descs_for_ucps(all_ucps, record):
 
 
 def _desc_from_ucp(all_ucps, release_and_id):
-    if raw_ucp := all_ucps.get(release_and_id):
-        return raw_ucp['description']
-    return None
+    return all_ucps[release_and_id]['description']
 
 
 def _add_page_and_guesses(io_record, uxlc, pbi):

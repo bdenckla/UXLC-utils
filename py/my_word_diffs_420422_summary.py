@@ -24,10 +24,9 @@ def write(records, path, title, intro=None):
 def _row_cell_for_hdr_str(record, hdr_str):
     if hdr_str == 'remark':
         anchor = _get_anchor_to_full(record)
-        if ir_or_rcn := _initial_remark_or_rcn(record):
-            datum_contents = [anchor, '; ', ir_or_rcn]
-        else:
-            datum_contents = [anchor]
+        ucps_and_ir = _ucps_and_initial_remark(record)
+        datum_contents = [anchor, *ucps_and_ir]
+        datum_contents = my_utils.intersperse('; ', datum_contents)
         return my_html.table_datum(datum_contents)
     if hdr_str == 'bcv':
         anchor = urlg.bcv_with_link_to_tdu(record)
@@ -43,14 +42,14 @@ def _row_cell_for_hdr_str(record, hdr_str):
     assert False
 
 
-def _initial_remark_or_rcn(record):  # rcn: UXLC-change-proposal
-    return record.get('initial-remark') or _first_ucp(record)
-
-
-def _first_ucp(record):
-    if ucps := wd_utils.uxlc_change_proposals(record):
-        return urlg.uxlc_change_with_link(ucps[0])
-    return None
+def _ucps_and_initial_remark(record):  # ucp: UXLC-change-proposal
+    ucps = wd_utils.uxlc_change_proposals(record)
+    ucp_anchors = list(map(urlg.uxlc_change_with_link, ucps))
+    if initial_remark_or_none := record.get('initial-remark'):
+        initial_remark_or_empty_list = [initial_remark_or_none]
+    else:
+        initial_remark_or_empty_list = []
+    return [*ucp_anchors, *initial_remark_or_empty_list]
 
 
 def _get_anchor_to_full(record):
