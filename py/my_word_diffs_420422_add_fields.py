@@ -32,9 +32,15 @@ def _descs_for_ucps(all_ucps, record):
     ucps_for_this_record = wd_utils.uxlc_change_proposals(record)
     if not ucps_for_this_record:
         wlc_bcv_str = record['wlc_bcv_str']
+        skippers = 'gn14:17',
         if raw_ucp := all_ucps['by-wbs'].get(wlc_bcv_str):
             release_and_id = _release_and_id(raw_ucp)
-            print(f'bcv {wlc_bcv_str} has ucp candidate: {release_and_id}')
+            reftext = raw_ucp['reftext']
+            ab_uword = record['ab-uword']
+            a_uword, _b_uword = ab_uword.split('\n')
+            print(f'bcv {wlc_bcv_str} {a_uword} has ucp candidate: {reftext}')
+            print(f"'UXLC-change-proposals': {release_and_id},")
+            print('')
     return my_utils.sl_map((_desc_from_ucp, all_ucps), ucps_for_this_record)
 
 

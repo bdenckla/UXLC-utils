@@ -107,8 +107,8 @@ def _initial_rows(record):
     ab_uword_br = _newline_to_br(record['ab-uword'])
     ab_word_br = _newline_to_br(record['ab-word'])
     rows = []
-    rows.append(_make_key_value_row('bcv (link to tanach.us)', bcv_with_link_to_tdu))
-    rows.append(_make_key_value_row('bcv (link to Mwd)', bcv_with_link_to_mwd))
+    rows.append(_make_key_value_row('bcv (tanach.us)', bcv_with_link_to_tdu))
+    rows.append(_make_key_value_row('bcv (Mwd)', bcv_with_link_to_mwd))
     # rows.append(_make_key_value_row('img file name', record['img']))
     rows.append(_make_key_value_row('ab-uword', ab_uword_br, big_hbo=True))
     rows.append(_make_key_value_row('ab-word', ab_word_br))
@@ -126,7 +126,7 @@ def _append_uxlc_change_proposals(rows, record):
         qualifier = f' {ucp_idx+1}' if len(ucps) > 1 else ''
         anchor = urlg.uxlc_change_with_link(release_and_id)
         desc = record['descs-for-ucps'][ucp_idx]
-        rows.append(_make_key_value_row(f'UCP RAI{qualifier}', anchor))
+        rows.append(_make_key_value_row(f'UCP {qualifier}', anchor))
         rows.append(_make_key_value_row(f'UCP desc{qualifier}', desc))
 
 

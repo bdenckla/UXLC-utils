@@ -52,6 +52,7 @@ RECORDS = [
       'ab-word': "D.E80$E)\nD.E81$E)",
       'ab-uword': "דֶּ֔שֶׁא\nדֶּ֗שֶׁא",
       'ab-notes': "\n]Q]c",
+      'UXLC-change-proposals': ('2021.04.01', '2021.02.22-1'),
     },
     {
       'wlc_bcv_str': "gn2:8",

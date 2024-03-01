@@ -96,7 +96,7 @@ def _initial_rows(record):
     atiss = record['at issue']
     reason = record.get('at issue English')
     rows = []
-    rows.append(_make_key_value_row('bcv (link to tanach.us)', anchor))
+    rows.append(_make_key_value_row('bcv (tanach.us)', anchor))
     rows.append(_make_key_value_row('MPK', mpk, hbo=True))
     if qere_c := record.get('qere-context'):
         rows.append(_make_key_value_row('qere-context', qere_c, hbo=True))
