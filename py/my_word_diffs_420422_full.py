@@ -113,7 +113,9 @@ def _initial_rows(record):
     rows.append(_make_key_value_row('ab-uword', ab_uword_br, big_hbo=True))
     rows.append(_make_key_value_row('ab-word', ab_word_br))
     _append_uxlc_change_proposals(rows, record)
-    rows.append(_make_key_value_row('auto desc', record['diff-desc']))
+    auto_desc = record['diff-desc']
+    if not auto_desc.startswith('('):  # these are not that helpful
+        rows.append(_make_key_value_row('auto desc', auto_desc))
     rows.append(_make_key_value_row('diff type', wd_utils.diff_type_long(record)))
     rows.append(_make_key_value_row('page', _page_with_link_to_img(record)))
     rows.append(_make_key_value_row(*_colx_and_linex(record)))
