@@ -44,7 +44,7 @@ def _dump_txt(changes, path):
 def _do_one_changes_file(bhla, filename):
     release_date, changes = _do_one_changes_file_core(filename)
     changes = [{'release': release_date, **c} for c in changes]
-    changes = [{'bhla': _join_bhla(bhla, c), **c} for c in changes]
+    changes = [{**c, 'bhla': _join_bhla(bhla, c)} for c in changes]
     return changes
 
 
