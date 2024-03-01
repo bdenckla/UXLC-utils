@@ -115,6 +115,7 @@ RECORDS = [
       'ab-word': "B.:N/OW03\nB.N/OW03",
       'ab-uword': "בְּנוֹ֙\nבּנוֹ֙",
       'ab-notes': "\n]Q]n]v",
+      'UXLC-change-proposals': ('2021.04.01', '2021.02.22-6'),
     },
     {
       'wlc_bcv_str': "gn26:1",
@@ -146,6 +147,7 @@ RECORDS = [
       'ab-word': "B:N/I80Y\nB:N/:80Y",
       'ab-uword': "בְנִ֔י\nבְנְ֔י",
       'ab-notes': "\n]Q]n]v",
+      'UXLC-change-proposals': ('2021.04.01', '2021.02.22-9'),
     },
     {
       'wlc_bcv_str': "gn39:2",
@@ -153,6 +155,7 @@ RECORDS = [
       'ab-word': "B.:/B\"71YT\nB.:/B\"73YT",
       'ab-uword': "בְּבֵ֥ית\nבְּבֵ֖ית",
       'ab-notes': "\n]C]c",
+      'UXLC-change-proposals': ('2020.02.19', '2018.11.27-1'),
     },
     {
       'wlc_bcv_str': "gn39:2",
