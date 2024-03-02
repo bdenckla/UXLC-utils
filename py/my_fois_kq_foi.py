@@ -38,17 +38,12 @@ def _quad(state):
     return k_stack, q_stack, numk, numq
 
 
-def _stacks_are_equal_len(state):
-    _k_stack, _q_stack, numk, numq = _quad(state)
-    return numk == numq
-
-
 def _collect_for_atom(state, fois, bcvp, atom):
     if atom[0] == 'w':
         _record_and_clear(state, fois, bcvp)
         return
     if atom[0] == 'k':
-        if _stacks_are_equal_len(state):
+        if state['q_stack']:
             _record_and_clear(state, fois, bcvp)
         state['k_stack'].append(atom[1])
         return
