@@ -3,9 +3,10 @@
 def init():
     full = {
         'type-counts': _init_helper(int),  # zero
-        'exotic-cases': _init_helper(list)  # []
+        'exotic-cases-by-type': _init_helper(list),  # []
+        'exotic-cases-flat': []
     }
-    del full['exotic-cases']['k1q1']  # k1q1 is not exotic
+    del full['exotic-cases-by-type']['k1q1']  # k1q1 is not exotic
     return full
 
 
@@ -64,7 +65,9 @@ def _record_and_clear(state, fois, bcvp):
     kq_type = _knqm_str(numk, numq)
     fois['type-counts'][kq_type] += 1
     if (numk, numq) != (1, 1):
-        fois['exotic-cases'][kq_type].append(_case_dic(state, bcvp))
+        case_dic = _case_dic(state, bcvp)
+        fois['exotic-cases-by-type'][kq_type].append(case_dic)
+        fois['exotic-cases-flat'].append(case_dic)
     state['k_stack'] = []
     state['q_stack'] = []
 
