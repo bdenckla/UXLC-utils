@@ -44,7 +44,7 @@ _VERSE_CHILD_HANDLERS = {
 }
 
 
-def _collect(state, fois, atom):
+def _collect_for_atom(state, fois, atom):
     if atom[0] == 'w':
         _record_and_clear(state, fois)
         return
@@ -78,24 +78,27 @@ def _str_key(numk, numq):
     return f'k{numk}q{numq}'
 
 
+def _collect_for_verse(fois, verse):
+    state = {'k_stack': [], 'q_stack': []}
+    for atom in verse:
+        assert isinstance(atom, list)
+        assert len(atom) == 2
+        assert atom[0] in ('w', 'k', 'q')
+        _collect_for_atom(state, fois, atom)
+    _record_and_clear(state, fois)
+
 
 def main():
     """ Writes UXLC features of interest to a JSON file. """
     uxlc = my_uxlc.read_all_books(_VERSE_CHILD_HANDLERS)
-    state = {'k_stack': [], 'q_stack': []}
     fois = {
         'kq_type_count': {'k0q1': 0, 'k1q0': 0, 'k1q1': 0, 'k2q1': 0, 'k1q2': 0, 'k2q2': 0},
         'kq_cases': {'k0q1': [], 'k1q0': [], 'k2q1': [], 'k1q2': [], 'k2q2': []}
     }
-    for bkid, chapters in uxlc.items():
+    for _bkid, chapters in uxlc.items():
         for chapter in chapters:
             for verse in chapter:
-                for atom in verse:
-                    assert isinstance(atom, list)
-                    assert len(atom) == 2
-                    assert atom[0] in ('w', 'k', 'q')
-                    _collect(state, fois, atom)
-                _record_and_clear(state, fois)
+                _collect_for_verse(fois, verse)
     json_output_path = 'out/UXLC-misc/features_of_interest.json'
     my_open.json_dump_to_file_path(fois, json_output_path)
 
