@@ -1,12 +1,13 @@
 """ Exports main. """
 
 import my_uxlc
+import my_open
 
 
 def _handle_vc_wqk(wqk, accum, verse_child):
     accum.append([wqk, verse_child.text.strip()])
     for word_child in verse_child:
-        my_uxlc.dispatch_on_tag(accum, word_child, my_uxlc._WORD_CHILD_HANDLERS)
+        my_uxlc.dispatch_on_tag(accum, word_child, _WORD_CHILD_HANDLERS)
         accum[-1][1] += word_child.tail.strip()
 
 
@@ -43,10 +44,60 @@ _VERSE_CHILD_HANDLERS = {
 }
 
 
+def _collect(state, fois, atom):
+    if atom[0] == 'w':
+        _record_and_clear(state, fois)
+        return
+    if atom[0] == 'k':
+        k_stack, q_stack = state['k_stack'], state['q_stack']
+        numk, numq = len(k_stack), len(q_stack)
+        if numk == numq:
+            _record_and_clear(state, fois)
+        state['k_stack'].append(atom[1])
+        return
+    if atom[0] == 'q':
+        state['q_stack'].append(atom[1])
+        return
+    assert False
+
+
+def _record_and_clear(state, fois):
+    k_stack, q_stack = state['k_stack'], state['q_stack']
+    numk, numq = len(k_stack), len(q_stack)
+    if (numk, numq) == (0, 0):
+        return
+    fois['kq_type_count'][_str_key(numk, numq)] += 1
+    if (numk, numq) != (1, 1):
+        str_for_case = '/'.join((*k_stack, *q_stack))
+        fois['kq_cases'][_str_key(numk, numq)].append(str_for_case)
+    state['k_stack'] = []
+    state['q_stack'] = []
+
+
+def _str_key(numk, numq):
+    return f'k{numk}q{numq}'
+
+
+
 def main():
     """ Writes UXLC features of interest to a JSON file. """
     uxlc = my_uxlc.read_all_books(_VERSE_CHILD_HANDLERS)
-    pass
+    state = {'k_stack': [], 'q_stack': []}
+    fois = {
+        'kq_type_count': {'k0q1': 0, 'k1q0': 0, 'k1q1': 0, 'k2q1': 0, 'k1q2': 0, 'k2q2': 0},
+        'kq_cases': {'k0q1': [], 'k1q0': [], 'k2q1': [], 'k1q2': [], 'k2q2': []}
+    }
+    for bkid, chapters in uxlc.items():
+        for chapter in chapters:
+            for verse in chapter:
+                for atom in verse:
+                    assert isinstance(atom, list)
+                    assert len(atom) == 2
+                    assert atom[0] in ('w', 'k', 'q')
+                    _collect(state, fois, atom)
+                _record_and_clear(state, fois)
+    json_output_path = 'out/UXLC-misc/features_of_interest.json'
+    my_open.json_dump_to_file_path(fois, json_output_path)
 
 
 if __name__ == "__main__":
