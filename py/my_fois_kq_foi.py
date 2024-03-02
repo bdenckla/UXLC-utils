@@ -1,10 +1,12 @@
 
 
 def init():
-    return {
-        'kq_type_count': {'k0q1': 0, 'k1q0': 0, 'k1q1': 0, 'k2q1': 0, 'k1q2': 0, 'k2q2': 0},
-        'kq_cases': {'k0q1': [], 'k1q0': [], 'k2q1': [], 'k1q2': [], 'k2q2': []}
+    full = {
+        'type-counts': _init_helper(int),  # zero
+        'exotic-cases': _init_helper(list)  # []
     }
+    del full['exotic-cases']['k1q1']  # k1q1 is not exotic
+    return full
 
 
 def collect_for_verse(fois, bcv, verse):
@@ -16,6 +18,17 @@ def collect_for_verse(fois, bcv, verse):
         bcvp = *bcv, atidx+1
         _collect_for_atom(state, fois, bcvp, atom)
     _record_and_clear(state, fois, bcvp)
+
+
+def _init_helper(constructor):
+    return {
+        'k0q1': constructor(),
+        'k1q0': constructor(),
+        'k1q1': constructor(),
+        'k1q2': constructor(),
+        'k2q1': constructor(),
+        'k2q2': constructor()
+    }
 
 
 def _quad(state):
@@ -49,10 +62,10 @@ def _record_and_clear(state, fois, bcvp):
     if (numk, numq) == (0, 0):
         return
     str_key = _knqm_str(numk, numq)
-    fois['kq_type_count'][str_key] += 1
+    fois['type-counts'][str_key] += 1
     if (numk, numq) != (1, 1):
         str_for_case = '/'.join((*k_stack, *q_stack))
-        fois['kq_cases'][str_key].append((_bcvp_str(bcvp), str_for_case))
+        fois['exotic-cases'][str_key].append((_bcvp_str(bcvp), str_for_case))
     state['k_stack'] = []
     state['q_stack'] = []
 
