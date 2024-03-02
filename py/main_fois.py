@@ -51,10 +51,11 @@ def main():
     fois = {
         'kq': my_fois_kq_foi.init()
     }
-    for _bkid, chapters in uxlc.items():
-        for chapter in chapters:
-            for verse in chapter:
-                my_fois_kq_foi.collect_for_verse(fois['kq'], verse)
+    for bkid, chapters in uxlc.items():
+        for chidx, chapter in enumerate(chapters):
+            for vridx, verse in enumerate(chapter):
+                bcv = bkid, chidx+1, vridx+1
+                my_fois_kq_foi.collect_for_verse(fois['kq'], bcv, verse)
     json_output_path = 'out/UXLC-misc/features_of_interest.json'
     my_open.json_dump_to_file_path(fois, json_output_path)
 

@@ -7,14 +7,15 @@ def init():
     }
 
 
-def collect_for_verse(fois, verse):
+def collect_for_verse(fois, bcv, verse):
     state = {'k_stack': [], 'q_stack': []}
-    for atom in verse:
+    for atidx, atom in enumerate(verse):
         assert isinstance(atom, list)
         assert len(atom) == 2
         assert atom[0] in ('w', 'k', 'q')
-        _collect_for_atom(state, fois, atom)
-    _record_and_clear(state, fois)
+        bcvp = *bcv, atidx+1
+        _collect_for_atom(state, fois, bcvp, atom)
+    _record_and_clear(state, fois, bcvp)
 
 
 def _quad(state):
@@ -28,13 +29,13 @@ def _stacks_are_equal_len(state):
     return numk == numq
 
 
-def _collect_for_atom(state, fois, atom):
+def _collect_for_atom(state, fois, bcvp, atom):
     if atom[0] == 'w':
-        _record_and_clear(state, fois)
+        _record_and_clear(state, fois, bcvp)
         return
     if atom[0] == 'k':
         if _stacks_are_equal_len(state):
-            _record_and_clear(state, fois)
+            _record_and_clear(state, fois, bcvp)
         state['k_stack'].append(atom[1])
         return
     if atom[0] == 'q':
@@ -43,18 +44,23 @@ def _collect_for_atom(state, fois, atom):
     assert False
 
 
-def _record_and_clear(state, fois):
+def _record_and_clear(state, fois, bcvp):
     k_stack, q_stack, numk, numq = _quad(state)
     if (numk, numq) == (0, 0):
         return
-    str_key = _str_key(numk, numq)
+    str_key = _knqm_str(numk, numq)
     fois['kq_type_count'][str_key] += 1
     if (numk, numq) != (1, 1):
         str_for_case = '/'.join((*k_stack, *q_stack))
-        fois['kq_cases'][str_key].append(str_for_case)
+        fois['kq_cases'][str_key].append((_bcvp_str(bcvp), str_for_case))
     state['k_stack'] = []
     state['q_stack'] = []
 
 
-def _str_key(numk, numq):
+def _knqm_str(numk, numq):
     return f'k{numk}q{numq}'
+
+
+def _bcvp_str(bcvp):
+    bkid, chnu, vrnu, atnu = bcvp
+    return f'{bkid} {chnu}:{vrnu}.{atnu}'
