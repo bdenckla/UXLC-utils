@@ -66,10 +66,11 @@ def _record_and_clear(state, fois):
     numk, numq = len(k_stack), len(q_stack)
     if (numk, numq) == (0, 0):
         return
-    fois['kq_type_count'][_str_key(numk, numq)] += 1
+    str_key = _str_key(numk, numq)
+    fois['kq_type_count'][str_key] += 1
     if (numk, numq) != (1, 1):
         str_for_case = '/'.join((*k_stack, *q_stack))
-        fois['kq_cases'][_str_key(numk, numq)].append(str_for_case)
+        fois['kq_cases'][str_key].append(str_for_case)
     state['k_stack'] = []
     state['q_stack'] = []
 
