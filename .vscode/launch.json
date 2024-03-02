@@ -13,6 +13,13 @@
             "justMyCode": true
         },
         {
+            "name": "FOIs",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "py/main_fois.py",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "420422",
             "type": "debugpy",
             "request": "launch",
@@ -60,7 +67,6 @@
             "type": "debugpy",
             "request": "launch",
             "program": "py/main_uxlc_word_list.py",
-            "args": ["Genesis", "24", "24", "3"],
             "console": "integratedTerminal"
         },
         {

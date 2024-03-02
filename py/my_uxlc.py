@@ -5,12 +5,13 @@ import xml.etree.ElementTree
 import my_tanakh_book_names as tbn
 
 
-def read_all_books():
-    return {bkid: read(bkid) for bkid in tbn.ALL_BOOK_IDS}
+def read_all_books(handlers=None):
+    return {bkid: read(bkid, handlers) for bkid in tbn.ALL_BOOK_IDS}
 
 
-def read(book_id):
+def read(book_id, handlers=None):
     """ Read book with id book_id into a list of chapters. """
+    handlers = handlers or _VERSE_CHILD_HANDLERS
     basename = _UXLC_BOOK_FILE_NAMES[book_id]
     xml_path = f'in/UXLC/{basename}.xml'
     tree = xml.etree.ElementTree.parse(xml_path)
@@ -21,12 +22,47 @@ def read(book_id):
         for verse in chapter.iter('v'):
             words = []
             for verse_child in verse:
-                _dispatch_on_tag(words, verse_child, _VERSE_CHILD_FNS)
+                dispatch_on_tag(words, verse_child, handlers)
             verses.append(words)
         chapters.append(verses)
     return chapters
 
 
+def handle_xc_ignore(_1, _2):  # xc means vc or wc (verse child or word child)
+    return
+
+
+def dispatch_on_tag(accum, xml_element, handlers):
+    fn_for_tag = handlers[xml_element.tag]
+    fn_for_tag(accum, xml_element)
+
+
+def _handle_wc_s(accum, word_child_s):
+    # The <s> element implements small, large, and suspended letters.
+    # E.g. <s t="large">וֹ</s>.
+    accum[-1] += word_child_s.text.strip()
+
+
+def _handle_vc_wq(accum, verse_child_wq):
+    accum.append(verse_child_wq.text.strip())
+    for word_child in verse_child_wq:
+        dispatch_on_tag(accum, word_child, _WORD_CHILD_HANDLERS)
+        accum[-1] += word_child.tail.strip()
+
+
+_WORD_CHILD_HANDLERS = {
+    'x': handle_xc_ignore,
+    's': _handle_wc_s,
+}
+_VERSE_CHILD_HANDLERS = {
+    'w':           _handle_vc_wq,
+    'q':           _handle_vc_wq,
+    'k':           handle_xc_ignore,
+    'x':           handle_xc_ignore,
+    'pe':          handle_xc_ignore,
+    'samekh':      handle_xc_ignore,
+    'reversednun': handle_xc_ignore,
+}
 _UXLC_BOOK_FILE_NAMES = {
     tbn.BK_GENESIS: 'Genesis',
     tbn.BK_EXODUS: 'Exodus',
@@ -68,50 +104,3 @@ _UXLC_BOOK_FILE_NAMES = {
     tbn.BK_FST_CHR: 'Chronicles_1',
     tbn.BK_SND_CHR: 'Chronicles_2',
 }
-
-# GOs have 6 types:
-#    w, a single word;
-#    q, a word representing a qere variant;
-#    k, a word representing a ketib variant;
-#    pe, an empty tag representing an open paragraph marker;
-#    samekh, an empty tag representing a closed paragraph marker,
-#    reversednun, an empty tag representing a reversed nun.
-
-
-def _handle_xc_ignore(_1, _2):  # xc means vc or wc (verse child or word child)
-    return
-
-
-def _handle_wc_s(accum, word_child_s):
-    # The <s> element implements small, large, and suspended letters.
-    # E.g. <s t="large">וֹ</s>.
-    accum[-1] += word_child_s.text.strip()
-
-
-_WORD_CHILD_FNS = {
-    'x': _handle_xc_ignore,
-    's': _handle_wc_s,
-}
-
-
-def _handle_vc_wq(accum, verse_child_wq):
-    accum.append(verse_child_wq.text.strip())
-    for word_child in verse_child_wq:
-        _dispatch_on_tag(accum, word_child, _WORD_CHILD_FNS)
-        accum[-1] += word_child.tail.strip()
-
-
-_VERSE_CHILD_FNS = {
-    'w':           _handle_vc_wq,
-    'q':           _handle_vc_wq,
-    'k':           _handle_xc_ignore,
-    'x':           _handle_xc_ignore,
-    'pe':          _handle_xc_ignore,
-    'samekh':      _handle_xc_ignore,
-    'reversednun': _handle_xc_ignore,
-}
-
-
-def _dispatch_on_tag(accum, verse_child, fns):
-    fn_for_tag = fns[verse_child.tag]
-    fn_for_tag(accum, verse_child)
