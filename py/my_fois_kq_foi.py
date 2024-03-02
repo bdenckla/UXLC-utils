@@ -61,13 +61,28 @@ def _record_and_clear(state, fois, bcvp):
     k_stack, q_stack, numk, numq = _quad(state)
     if (numk, numq) == (0, 0):
         return
-    str_key = _knqm_str(numk, numq)
-    fois['type-counts'][str_key] += 1
+    kq_type = _knqm_str(numk, numq)
+    fois['type-counts'][kq_type] += 1
     if (numk, numq) != (1, 1):
-        str_for_case = '/'.join((*k_stack, *q_stack))
-        fois['exotic-cases'][str_key].append((_bcvp_str(bcvp), str_for_case))
+        fois['exotic-cases'][kq_type].append(_case_dic(state, bcvp))
     state['k_stack'] = []
     state['q_stack'] = []
+
+
+def _case_dic(state, bcvp):
+    k_stack, q_stack, numk, numq = _quad(state)
+    return {
+        'knqm': _knqm_str(numk, numq),
+        'bcvp': _bcvp_str(bcvp),
+        'k1': _my_get(k_stack, 0),
+        'k2': _my_get(k_stack, 1),
+        'q1': _my_get(q_stack, 0),
+        'q2': _my_get(q_stack, 1),
+    }
+
+
+def _my_get(the_list, the_idx):
+    return the_list[the_idx] if len(the_list) > the_idx else None
 
 
 def _knqm_str(numk, numq):
