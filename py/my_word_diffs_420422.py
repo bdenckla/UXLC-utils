@@ -1,4 +1,8 @@
-_UXLC_RAFEH = 'UXLC rejects all rafeh-removing WLC changes.'
+def _part_n_of_2(partn, from_str, to_str):
+  return f'This is part {partn} of 2 of a change from {from_str} to {to_str}.'
+
+
+_UXLC_RAFEH = 'UXLC rejected all rafeh-removing WLC changes.'
 _DECALOGUE_RAFE = [
     'In WLC 4.22, all 12 rafeh marks of 4.20 were removed. '
     'Seven of those rafeh marks were in the Decalogues. '
@@ -87,7 +91,7 @@ RECORDS = [
       'ab-word': "K.:DFR→\nK.:DFR-",
       'ab-uword': "כְּדָר→\nכְּדָר־",
       'ab-notes': "\n",
-      'initial-remark': 'This is part 1 of 2 of a change from אב to א־ב.',
+      'initial-remark': _part_n_of_2(1, 'אב', 'א־ב'),
       'UXLC-change-proposals': [
           ('2021.04.01', '2021.02.22-3'),
           ('2022.10.19', '2022.07.02-6')
@@ -99,7 +103,7 @@ RECORDS = [
       'ab-word': "←LF(O80MER\nLF(O80MER",
       'ab-uword': "←לָעֹ֔מֶר\nלָעֹ֔מֶר",
       'ab-notes': "]n]p\n",
-      'initial-remark': 'This is part 2 of 2 of a change from אב to א־ב.',
+      'initial-remark': _part_n_of_2(2, 'אב', 'א־ב'),
       'UXLC-change-proposals': [
           ('2021.04.01', '2021.02.22-3'),
           ('2022.10.19', '2022.07.02-6')
@@ -569,7 +573,7 @@ RECORDS = [
       'ab-word': "**W:/$W.RAY./F74)\n*)#KLLW",
       'ab-uword': "**וְשׁוּרַיָּ֣א\n*אשכללו",
       'ab-notes': "\n",
-      'initial-remark': 'This is part 1 of 2 of a change from k1q1×2 to k2q2.',
+      'initial-remark': _part_n_of_2(1, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
     },
     {
       'wlc_bcv_str': "er4:12",
@@ -577,7 +581,7 @@ RECORDS = [
       'ab-word': "*)#KLLW\n**W:/$W.RAY./F74)",
       'ab-uword': "*אשכללו\n**וְשׁוּרַיָּ֣א",
       'ab-notes': "\n",
-      'initial-remark': 'This is part 2 of 2 of a change from k1q1×2 to k2q2.',
+      'initial-remark': _part_n_of_2(2, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
     }
   ]
 WORD_POSITIONS = {
