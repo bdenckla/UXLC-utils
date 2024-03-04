@@ -20,9 +20,16 @@ def main():
     #
     my_word_diffs_420422_full.write(records)  # fills in path-to-full fields
     #
-    intro = _intro(records)
-    title = 'WLC 4.22 Changes'
-    my_word_diffs_420422_summary.write(records, 'index.html', title, intro)
+    records_r = list(filter(_is_reject, records))
+    titro_r = _title_and_intro_rejects(len(records_r))
+    my_word_diffs_420422_summary.write(records_r, 'index-rejects.html', *titro_r)
+    #
+    titro_m = _title_and_intro_main(len(records))
+    my_word_diffs_420422_summary.write(records, 'index.html', *titro_m)
+
+
+def _is_reject(record):
+    return record.get('UXLC-rejected')
 
 
 def _sort_key_for_rec(record):
@@ -44,12 +51,28 @@ def _set_prev_and_next(io_records, prevkey, nextkey):
         next_record = io_record
 
 
-def _intro(records):
-    nrecs = len(records)
+def _title_and_intro_main(nrecs):
     para1_contents = f'This page lists the {nrecs} words that differ between WLC 4.20 and 4.22.'
-    return [
-        my_html.para(para1_contents),
+    link_to_rejects = [
+        'Here is a similar ',
+        my_html.anchor(
+            'page listing only those 4.22 changes rejected by UXLC',
+            {'href': 'index-rejects.html'}),
+        '.'
     ]
+    intro = [
+        my_html.para(para1_contents),
+        my_html.para(link_to_rejects),
+    ]
+    title = 'WLC 4.22 Changes'
+    return title, intro
+
+
+def _title_and_intro_rejects(nrecs):
+    para1_contents = f'This page lists the {nrecs} WLC 4.22 changes that were rejected by UXLC.'
+    intro = [my_html.para(para1_contents)]
+    title = 'WLC 4.22 Changes Rejected by UXLC'
+    return title, intro
 
 
 

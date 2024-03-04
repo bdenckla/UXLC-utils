@@ -5,7 +5,7 @@ def _part_n_of_2(partn, from_str, to_str):
   return f'This is part {partn} of 2 of a change from {from_str} to {to_str}.'
 
 
-_UXLC_RAFEH = 'UXLC rejected all rafeh-removing WLC changes.'
+_UXLC_RAFEH_REMOVE_REJECTED = 'UXLC rejected all rafeh-removing WLC changes.'
 RECORDS = [
     {
       'wlc_bcv_str': "gn1:11",
@@ -244,10 +244,11 @@ RECORDS = [
       'ab-word': "T.,IR:CF7375X00\nT.IR:CF7375X00",
       'ab-uword': "תִּֿרְצָ֖+צֽח׃\nתִּרְצָ֖+צֽח׃",
       'ab-notes': "\n",
+      'UXLC-rejected': True,
       # 'UXLC-change-proposals': ('2020.10.19', '2020.09.29-4'),
       # The proposal above is just adding a CGJ so it is not relevant to the WLC change,
       # which is to remove a rafeh.
-      'initial-remark': _UXLC_RAFEH,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
       'further-remarks': furrem.DECALOGUE_RAFE
     },
@@ -257,13 +258,14 @@ RECORDS = [
       'ab-word': "T.,IN:)F9275P00\nT.IN:)F9275P00",
       'ab-uword': "תִּֿנְאָ֑+אֽף׃\nתִּנְאָ֑+אֽף׃",
       'ab-notes': "\n",
+      'UXLC-rejected': True,
       # 'UXLC-change-proposals': [
       #     ('2020.02.19', '2020.01.30-10'),
       #     ('2021.04.01', '2020.09.29-1')
       # ],
       # The proposals above have the net effect of just adding a CGJ so they are not relevant to the WLC change,
       # which is to remove a rafeh.
-      'initial-remark': _UXLC_RAFEH,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
       'further-remarks': furrem.DECALOGUE_RAFE
     },
@@ -273,7 +275,8 @@ RECORDS = [
       'ab-word': "T.,IG:NO8075B00\nT.IG:NO8075B00",
       'ab-uword': "תִּֿגְנֹ֔+נֽב׃\nתִּגְנֹ֔+נֽב׃",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
       'further-remarks': furrem.DECALOGUE_RAFE
     },
@@ -334,7 +337,8 @@ RECORDS = [
       'ab-word': "K.,FL-\nK.FL-",
       'ab-uword': "כָּֿל־\nכָּל־",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
       'further-remarks': furrem.DECALOGUE_RAFE
     },
@@ -352,7 +356,8 @@ RECORDS = [
       'ab-word': "T.,IR:CF75X00\nT.IR:CF75X00",
       'ab-uword': "תִּֿרְצָֽח׃\nתִּרְצָֽח׃",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
       'further-remarks': furrem.DECALOGUE_RAFE
     },
@@ -362,7 +367,8 @@ RECORDS = [
       'ab-word': "T.,IN:)F7592P00\nT.IN:)F7592P00",
       'ab-uword': "תִּֿנְאָֽ֑ף׃\nתִּנְאָֽ֑ף׃",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
       'further-remarks': furrem.DECALOGUE_RAFE
     },
@@ -372,7 +378,8 @@ RECORDS = [
       'ab-word': "T.,IG:NO7580B00\nT.IG:NO7580B00",
       'ab-uword': "תִּֿגְנֹֽ֔ב׃\nתִּגְנֹֽ֔ב׃",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
       'further-remarks': furrem.DECALOGUE_RAFE
     },
@@ -398,7 +405,8 @@ RECORDS = [
       'ab-word': "HA/M.AL:),KI81YM\nHA/M.AL:)KI81YM",
       'ab-uword': "הַמַּלְאֿכִ֗ים\nהַמַּלְאכִ֗ים",
       'ab-notes': "]1\n]1",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
     },
     {
@@ -415,7 +423,8 @@ RECORDS = [
       'ab-word': "WA/T.IT,:CW.03\nWA/T.IT:CW.03",
       'ab-uword': "וַתִּתְֿצוּ֙\nוַתִּתְצוּ֙",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
     },
     {
@@ -440,7 +449,8 @@ RECORDS = [
       'ab-word': "W:/RAX:M/F73H,\nW:/RAX:M/F73H",
       'ab-uword': "וְרַחְמָ֖הֿ\nוְרַחְמָ֖ה",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
     },
     {
@@ -457,6 +467,7 @@ RECORDS = [
       'ab-word': "L:/HA74(:ACIB/F80H\nL:/HA74(:ACIB/F80H.",
       'ab-uword': "לְהַ֣עֲצִבָ֔ה\nלְהַ֣עֲצִבָ֔הּ",
       'ab-notes': "\n]p",
+      'UXLC-rejected': True,
       'initial-remark': "UXLC rejected this WLC change, in the end.",
       'further-remarks': [
           "This seems like a bad change to WLC because the mapiq is likely an artifact. "
@@ -484,7 +495,8 @@ RECORDS = [
       'ab-word': "L/F71H,\nL/F71H",
       'ab-uword': "לָ֥הֿ\nלָ֥ה",
       'ab-notes': "\n]U",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
     },
     {
@@ -501,7 +513,8 @@ RECORDS = [
       'ab-word': "L,/I75Y00\nL/I75Y00",
       'ab-uword': "לִֽֿי׃\nלִֽי׃",
       'ab-notes': "\n",
-      'initial-remark': _UXLC_RAFEH,
+      'UXLC-rejected': True,
+      'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
     },
     {
@@ -530,6 +543,7 @@ RECORDS = [
       'ab-word': "**W:/$W.RAY./F74)\n*)#KLLW",
       'ab-uword': "**וְשׁוּרַיָּ֣א\n*אשכללו",
       'ab-notes': "\n",
+      'UXLC-rejected': True,
       'initial-remark': _part_n_of_2(1, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
       'further-remarks': furrem.EZRA_4_12,
       'img': 'Ezra4v12.png',
@@ -541,6 +555,7 @@ RECORDS = [
       'ab-word': "*)#KLLW\n**W:/$W.RAY./F74)",
       'ab-uword': "*אשכללו\n**וְשׁוּרַיָּ֣א",
       'ab-notes': "\n",
+      'UXLC-rejected': True,
       'initial-remark': _part_n_of_2(2, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
       'further-remarks': furrem.EZRA_4_12,
       'img': 'Ezra4v12.png',

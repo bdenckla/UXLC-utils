@@ -114,17 +114,22 @@ def _strictify(str_or_tuple):
 
 def para(contents, attr=None):
     """ Make a <p> element. """
-    return htel_mk_nlb1('p', attr=attr, contents=contents)
+    return htel_mk_nlb1('p', attr, contents)
 
 
 def blockquote(contents, attr=None):
     """ Make a <blockquote> element. """
-    return htel_mk_nlb1('blockquote', attr=attr, contents=contents)
+    return htel_mk_nlb1('blockquote', attr, contents)
 
 
 def img(attr=None):
     """ Make an <img> element. """
-    return htel_mk_nlb1('img', attr=attr)
+    return htel_mk_nlb1('img', attr)
+
+
+def caption(contents):
+    """ Make a <caption> element. """
+    return htel_mk_nlb1('caption', contents=contents)
 
 
 def table_row(contents):
@@ -134,17 +139,17 @@ def table_row(contents):
 
 def table_datum(contents, attr=None):
     """ Make a <td> (table datum cell) element. """
-    return htel_mk_inline('td', attr=attr, contents=contents)
+    return htel_mk_inline('td', attr, contents)
 
 
 def table_header(contents, attr=None):
     """ Make a <th> (table header cell) element. """
-    return htel_mk_inline('th', attr=attr, contents=contents)
+    return htel_mk_inline('th', attr, contents)
 
 
 def div(contents, attr=None):
     """ Make a <div> element. """
-    return htel_mk('div', attr=attr, flex_contents=contents)
+    return htel_mk('div', attr, contents)
 
 
 def table(contents, attr=None):
@@ -186,12 +191,12 @@ def colgroup(contents, attr=None):
 
 def col(attr=None):
     """ Make a <col> element. """
-    return htel_mk_nlb2_nc('col', attr=attr)
+    return htel_mk_nlb2_nc('col', attr)
 
 
 def span(contents, attr=None):
     """ Make a <span> element. """
-    return htel_mk_inline('span', attr=attr, contents=contents)
+    return htel_mk_inline('span', attr, contents)
 
 
 def span_c(contents, the_class=None):
@@ -201,34 +206,34 @@ def span_c(contents, the_class=None):
 
 def bold(contents, attr=None):
     """ Make a <bold> element. """
-    return htel_mk_inline('b', attr=attr, contents=contents)
+    return htel_mk_inline('b', attr, contents)
 
 
 def italic(contents, attr=None):
     """ Make a <italic> element. """
-    return htel_mk_inline('i', attr=attr, contents=contents)
+    return htel_mk_inline('i', attr, contents)
 
 
 def small(contents, attr=None):
     """ Make a <small> element. """
-    return htel_mk_inline('small', attr=attr, contents=contents)
+    return htel_mk_inline('small', attr, contents)
 
 
 def big(contents, attr=None):
     """ Make a <big> element. """
-    return htel_mk_inline('big', attr=attr, contents=contents)
+    return htel_mk_inline('big', attr, contents)
 
 
 def sup(contents, attr=None):
     """ Make a <sup> (superscript) element. """
-    return htel_mk_inline('sup', attr=attr, contents=contents)
+    return htel_mk_inline('sup', attr, contents)
 
 
 def horizontal_rule(attr=None):
     """
     Make a <hr> element
     """
-    return htel_mk_inline_nc('hr', attr=attr)
+    return htel_mk_inline_nc('hr', attr)
 
 
 def line_break(attr=None):
@@ -236,7 +241,7 @@ def line_break(attr=None):
     Make a <br> element
     that is NOT followed by a newline in the source code.
     """
-    return htel_mk_inline_nc('br', attr=attr)
+    return htel_mk_inline_nc('br', attr)
 
 
 def line_break2(attr=None):
@@ -244,7 +249,7 @@ def line_break2(attr=None):
     Make <br> element
     that is followed by a newline in the source code.
     """
-    return htel_mk_nlb1_nc('br', attr=attr)
+    return htel_mk_nlb1_nc('br', attr)
 
 
 @dataclass
