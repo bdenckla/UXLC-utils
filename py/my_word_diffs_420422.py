@@ -1,54 +1,11 @@
+import my_word_diffs_420422_long_further_remarks as furrem
+
+
 def _part_n_of_2(partn, from_str, to_str):
   return f'This is part {partn} of 2 of a change from {from_str} to {to_str}.'
 
 
 _UXLC_RAFEH = 'UXLC rejected all rafeh-removing WLC changes.'
-_DECALOGUE_RAFE = [
-    'In WLC 4.22, all 12 rafeh marks of 4.20 were removed. '
-    'Seven of those rafeh marks were in the Decalogues. '
-    'This is one of those seven.',
-    #
-    'The utility of the other five rafeh marks was debatable, '
-    'since they merely marked letters where dagesh/mapiq might have been expected. '
-    'Those rafeh marks expressed something like “this letter is intentionally left blank” '
-    'if “blank” is taken to mean “free of dagesh/mapiq.”',
-    #
-    'In contrast, the utility of these seven rafeh marks '
-    'was less debatable. '
-    'These seven marks meant something quite different than those other five. '
-    'We could say that these seven rafeh marks modulated the meaning '
-    'of the dagesh present on the same letter. '
-    'These rafeh marks expressed something like '
-    '“the dagesh below applies to only one of the cantillations.”',
-    #
-    'In other words, whereas the five non-Decalogue rafeh marks '
-    'merely reassure the reader that '
-    '“this letter is intentionally left blank,” '
-    'these seven rafeh marks tell the reader something like '
-    '“this letter is contextually left blank.”',
-    #
-    'As documented on page xiv of its Foreword, Dotan’s BHL does not include any rafeh marks. '
-    'This does not, as the WLC 4.22 documentation suggests, support the removal '
-    'of these seven Decalogue rafeh marks. '
-    'BHL presents the Decalogues in split rather than combined form, '
-    'so these rafeh marks would have the usual meaning, of debatable utility, '
-    'in the lower cantillation. '
-    'So, the lack of rafeh marks in BHL’s (four) Decalogues says nothing '
-    'one way or another about the utility of rafeh marks '
-    'in WLC’s (two) Decalogues.',
-    #
-    'The WLC 4.22 documentation cites not only BHL but also BHQ '
-    'in support of its decision to remove all rafeh marks. '
-    'The comparison with BHQ is more relevant, since BHQ, like WLC, '
-    'presents the Deuteronomy Decalogue in combined rather than split form. '
-    '(The Exodus fascicle of BHQ has not yet been released.) '
-    'Yet, I don’t consider BHQ’s lack of Decalogue rafeh marks '
-    'to be a precedent to be cited for support. '
-    'Rather, I see BHQ’s lack of Decalogue rafeh marks as '
-    'yet another piece of evidence pointing to a rather casual '
-    '(or at least inconsistently serious) '
-    'attitude towards details of niqqud.'
-]
 RECORDS = [
     {
       'wlc_bcv_str': "gn1:11",
@@ -292,7 +249,7 @@ RECORDS = [
       # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH,
       'Decalogue-rafeh': True,
-      'further-remarks': [*_DECALOGUE_RAFE]
+      'further-remarks': furrem.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "ex20:14",
@@ -308,7 +265,7 @@ RECORDS = [
       # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH,
       'Decalogue-rafeh': True,
-      'further-remarks': [*_DECALOGUE_RAFE]
+      'further-remarks': furrem.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "ex20:15",
@@ -318,7 +275,7 @@ RECORDS = [
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
       'Decalogue-rafeh': True,
-      'further-remarks': [*_DECALOGUE_RAFE]
+      'further-remarks': furrem.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "lv13:3",
@@ -379,7 +336,7 @@ RECORDS = [
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
       'Decalogue-rafeh': True,
-      'further-remarks': [*_DECALOGUE_RAFE]
+      'further-remarks': furrem.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt5:14",
@@ -397,7 +354,7 @@ RECORDS = [
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
       'Decalogue-rafeh': True,
-      'further-remarks': [*_DECALOGUE_RAFE]
+      'further-remarks': furrem.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt5:18",
@@ -407,7 +364,7 @@ RECORDS = [
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
       'Decalogue-rafeh': True,
-      'further-remarks': [*_DECALOGUE_RAFE]
+      'further-remarks': furrem.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt5:19",
@@ -417,7 +374,7 @@ RECORDS = [
       'ab-notes': "\n",
       'initial-remark': _UXLC_RAFEH,
       'Decalogue-rafeh': True,
-      'further-remarks': [*_DECALOGUE_RAFE]
+      'further-remarks': furrem.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt7:8",
@@ -574,6 +531,9 @@ RECORDS = [
       'ab-uword': "**וְשׁוּרַיָּ֣א\n*אשכללו",
       'ab-notes': "\n",
       'initial-remark': _part_n_of_2(1, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
+      'further-remarks': furrem.EZRA_4_12,
+      'img': 'Ezra4v12.png',
+      'line': 25,
     },
     {
       'wlc_bcv_str': "er4:12",
@@ -582,6 +542,9 @@ RECORDS = [
       'ab-uword': "*אשכללו\n**וְשׁוּרַיָּ֣א",
       'ab-notes': "\n",
       'initial-remark': _part_n_of_2(2, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
+      'further-remarks': furrem.EZRA_4_12,
+      'img': 'Ezra4v12.png',
+      'line': 25,
     }
   ]
 WORD_POSITIONS = {

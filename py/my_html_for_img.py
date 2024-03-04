@@ -3,7 +3,7 @@
 import my_html
 import my_utils
 
-def html_for_img_or_imgs(record):
+def html_for_imgs(record):
     """ Return HTML for image or images in record. """
     if 'img' in record:
         return [_html_for_single_img(record['img'])]

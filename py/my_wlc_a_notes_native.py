@@ -9,7 +9,7 @@ def write_to_html(native, record):
     rows = list(map(_make_key_value_row, native.items()))
     #
     body_contents = []
-    if html_for_i := img.html_for_img_or_imgs(record):
+    if html_for_i := img.html_for_imgs(record):
         body_contents.extend(html_for_i)
     body_contents.append(my_html.table(rows, {'class': 'limited-width'}))
     ucp_n = int(native['n'])
