@@ -33,9 +33,8 @@ def example_run():
 
 def _main2(std_bcvp_quad):
     uxlc, pbi = my_uxlc_location.prep()
-    guess_page, guess_fline = my_uxlc_location.estimate(uxlc, pbi, std_bcvp_quad)
-    guess_fline_str = f'{guess_fline:.1f}'
-    print(guess_page, guess_fline_str)
+    pg = my_uxlc_location.page_and_guesses(uxlc, pbi, std_bcvp_quad)
+    print(pg)
 
 
 if __name__ == "__main__":

@@ -7,7 +7,6 @@ import my_uxlc_location
 import my_wlc_bcv_str
 import my_dd_diffs_description as diffs_desc
 import my_uxlc_book_abbreviations as u_bk_abbr
-import my_page_and_guesses as pg
 import my_word_diffs_420422
 import my_word_diffs_420422_utils as wd_utils
 
@@ -51,7 +50,7 @@ def _desc_from_ucp(all_ucps, release_and_id):
 
 
 def _add_page_and_guesses(io_record, uxlc, pbi, std_bcvp_quad):
-    pg_and_gs = pg.page_and_guesses(uxlc, pbi, std_bcvp_quad)
+    pg_and_gs = my_uxlc_location.page_and_guesses(uxlc, pbi, std_bcvp_quad)
     for key, val in pg_and_gs.items():
         io_record[key] = val
 

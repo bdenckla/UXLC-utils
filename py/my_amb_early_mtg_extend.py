@@ -1,13 +1,12 @@
 import my_uxlc_location
 import my_uxlc_book_abbreviations as u_bk_abbr
-import my_page_and_guesses as pg
 
 def extend_records(io_records):
     uxlc, pbi = my_uxlc_location.prep()
     for recidx, io_record in enumerate(io_records):
         io_record['original-order'] = recidx + 1
         io_record['std-bcv-triple'] = _std_bcv_triple(io_record)
-        pg_and_gs = pg.page_and_guesses(uxlc, pbi, _std_bcvp_quad(io_record))
+        pg_and_gs = my_uxlc_location.page_and_guesses(uxlc, pbi, _std_bcvp_quad(io_record))
         for key, val in pg_and_gs.items():
             io_record[key] = val
 
