@@ -37,7 +37,6 @@ def _sort_key_for_rec(record):
     return (1, 'misc') if dity == 'misc' else (0, dity)
 
 
-
 def _set_prev_and_next(io_records, prevkey, nextkey):
     prev_record = None
     for io_record in io_records:
