@@ -26,7 +26,8 @@ def diff_type_long(record):
 
 def diff_type_abbreviation_table():
     rows = list(map(_diff_type_abbreviation_row, _DIFF_TYPES.items()))
-    return my_html.table(rows)
+    toa_frag_id = 'table-of-abbreviations'
+    return toa_frag_id, my_html.table(rows, {'id': toa_frag_id})
 
 
 def _diff_type_abbreviation_row(ad_pair):

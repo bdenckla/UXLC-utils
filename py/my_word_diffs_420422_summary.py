@@ -12,13 +12,19 @@ def write(records, path, title, intro=None):
     if intro is None:
         intro = []
     assert isinstance(intro, list)
-    table_of_abbrev = wd_utils.diff_type_abbreviation_table()
+    toa_frag_id, table_of_abbrev = wd_utils.diff_type_abbreviation_table()
+    link_to_toa = _link_to_toa(toa_frag_id)
     rows_for_data = list(map(_rec_to_row, records))
     rows = [_row_for_header(), *rows_for_data]
     table_of_records = my_html.table(rows)
-    body_contents = [*intro, table_of_abbrev, table_of_records]
+    body_contents = [*intro, link_to_toa, table_of_records, table_of_abbrev]
     write_ctx = my_html.WriteCtx(title, f'docs/420422/{path}')
     my_html.write_html_to_file(body_contents, write_ctx, '../')
+
+
+def _link_to_toa(toa_frag_id):
+    anchor = my_html.anchor('Abbreviations used below.', {'href': f'#{toa_frag_id}'})
+    return my_html.para(anchor)
 
 
 def _row_cell_for_hdr_str(record, hdr_str):
