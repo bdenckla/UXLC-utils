@@ -201,13 +201,14 @@ RECORDS = [
           'Both WLC & UXLC needed to move the pataḥ back from the yod to the nun. '
           'WLC also needed to change the relative order of the accents (silluq and revia). '
           'UXLC somehow already had the relative order of the accents correct: UO, '
-          'under-accent and then over-accent, which in this cases means '
+          'under-accent and then over-accent, which in this case means '
           'silluq and then revia.',
           #
           'All UXLC was doing in its 2021.05.19-8 change was making its mark order robust. '
           'By “robust” I mean robust to Unicode normalization.',
           #
-          'All UXLC was doing in its 2021.10.26-1 change was removing a ZWJ hack no longer relevant once CGJ was added.'
+          'All UXLC was doing in its 2021.10.26-1 change was removing a ZWJ hack '
+          'that became irrelevant once CGJ was added.'
       ]
     },
     {
@@ -470,11 +471,13 @@ RECORDS = [
       'UXLC-rejected': True,
       'initial-remark': "UXLC rejected this WLC change, in the end.",
       'further-remarks': [
-          "This seems like a bad change to WLC because the mapiq is likely an artifact. "
+          'I advise WLC to follow UXLC and revert this change in a future version '
+          'because the mapiq is likely an artifact. '
           "UXLC has a rafeh on the he in question. "
           "UXLC arrived at this with a bit of back-and-forth: 3 changes. "
           "Change 1 added the mapiq, change 2 added the rafeh, and change 3 removed the mapiq, "
-          "with the net result that only a rafeh remains."],
+          "with the net result that only a rafeh remains."
+      ],
       'UXLC-change-proposals': [
         ("2020.02.19", "2019.12.21-1"),
         ("2020.10.19", "2020.07.16-1"),
