@@ -10,18 +10,18 @@ DECALOGUE_RAFE = [
         [
             "In WLC 4.22, all 12 ",
             rmn("rafeh"),
-            " marks of 4.20 were removed. " "Seven of those ",
+            " marks of 4.20 were removed. Seven of those ",
             rmn("rafeh"),
-            " marks were in the Decalogues. " "This is one of those seven.",
+            " marks were in the Decalogues. This is one of those seven.",
         ]
     ),
     my_html.para(
         [
             "The utility of the other five ",
             rmn("rafeh"),
-            " marks was debatable, " "since they merely marked letters where ",
+            " marks was debatable, since they merely marked letters where ",
             rmn("dagesh/mapiq"),
-            " might have been expected. " "Those ",
+            " might have been expected. Those ",
             rmn("rafeh"),
             " marks expressed something like “this letter is intentionally left blank” "
             "if “blank” is taken to mean “free of ",
@@ -38,11 +38,11 @@ DECALOGUE_RAFE = [
             "These seven marks meant something quite different than those other five. "
             "We could say that these seven ",
             rmn("rafeh"),
-            " marks modulated the meaning " "of the ",
+            " marks modulated the meaning of the ",
             rmn("dagesh"),
-            " present on the same letter. " "These ",
+            " present on the same letter. These ",
             rmn("rafeh"),
-            " marks expressed something like " "“the ",
+            " marks expressed something like “the ",
             rmn("dagesh"),
             " below applies to only one of the cantillations.”",
         ]
@@ -79,7 +79,7 @@ DECALOGUE_RAFE = [
             " marks in BHL’s (four) Decalogues says nothing "
             "one way or another about the utility of ",
             rmn("rafeh"),
-            " marks " "in WLC’s (two) Decalogues.",
+            " marks in WLC’s (two) Decalogues.",
         ]
     ),
     my_html.para(
