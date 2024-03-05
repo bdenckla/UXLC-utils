@@ -488,7 +488,7 @@ RECORDS = [
         my_html.para([
           'I advise WLC to follow UXLC and revert this change in a future version '
           'because the ', rmn('mapiq'), ' is likely an artifact. '
-          'UXLC has a ', rmn('rafeh'), ' on the he in question. '
+          'UXLC has a ', rmn('rafeh'), ' on the ה in question. '
           "UXLC arrived at this with a bit of back-and-forth: 3 changes. "
           'Change 1 added the ', rmn('mapiq'), ', '
           'change 2 added the ', rmn('rafeh'), ', and '
