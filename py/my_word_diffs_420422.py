@@ -1,8 +1,13 @@
 import my_word_diffs_420422_long_further_remarks as furrem
+import my_html
 
 
 def _part_n_of_2(partn, from_str, to_str):
   return f'This is part {partn} of 2 of a change from {from_str} to {to_str}.'
+
+
+def rmn(string):
+  return my_html.span(string, {'class': 'romanized'})
 
 
 _UXLC_RAFEH_REMOVE_REJECTED = 'UXLC rejected all rafeh-removing WLC changes.'
@@ -181,8 +186,10 @@ RECORDS = [
           ("2023.07.04", "2023.03.27-1")
       ],
       'further-remarks': [
-          "Although UXLC agrees with WLC 4.22 with respect to the maqaf at issue, "
-          "UXLC differs from WLC 4.22 by having “demoted” this word’s merkha to a meteg."
+        my_html.para([
+          'Although UXLC agrees with WLC 4.22 with respect to the ', rmn('maqaf'), ' at issue, '
+          'UXLC differs from WLC 4.22 by having “demoted” this word’s ', rmn('merkha'), ' to a ', rmn('meteg'), '.'
+        ])
       ]
     },
     {
@@ -198,17 +205,21 @@ RECORDS = [
       ],
       'initial-remark': 'UXLC somehow already had part of this change.',
       'further-remarks': [
-          'Both WLC & UXLC needed to move the pataḥ back from the yod to the nun. '
-          'WLC also needed to change the relative order of the accents (silluq and revia). '
+        my_html.para([
+          'Both WLC & UXLC needed to move the ', rmn('pataḥ'), ' back from the ', rmn('yod'), ' to the ', rmn('nun'), '. '
+          'WLC also needed to change the relative order of the accents (', rmn('silluq'), ' and ', rmn('revia'), '). '
           'UXLC somehow already had the relative order of the accents correct: UO, '
           'under-accent and then over-accent, which in this case means '
-          'silluq and then revia.',
-          #
+          '', rmn('silluq'), ' and then ', rmn('revia'), '.',
+        ]),
+        my_html.para([
           'All UXLC was doing in its 2021.05.19-8 change was making its mark order robust. '
           'By “robust” I mean robust to Unicode normalization.',
-          #
+        ]),
+        my_html.para([
           'All UXLC was doing in its 2021.10.26-1 change was removing a ZWJ hack '
           'that became irrelevant once CGJ was added.'
+        ])
       ]
     },
     {
@@ -220,15 +231,18 @@ RECORDS = [
       'UXLC-change-proposals': ('2021.10.19', '2021.05.19-7'),
       'initial-remark': 'UXLC somehow already had the correct mark order.',
       'further-remarks': [
+        my_html.para([
           'I.e., UXLC somehow already had QUPO mark order. '
           'In terms of Michigan-Claremont encoding, we might call this FUAO mark order, '
-          'since in M-C, F is qamats and A is pataḥ. '
+          'since in M-C, F is qamats and A is ', rmn('pataḥ'), '. '
           'So FUAO here is F92A61: '
-          'U (under-accent) is 92 (atnaḥ) and '
-          'O (over-accent) is 61 (geresh).',
-          #
+          'U (under-accent) is 92 (', rmn('atnaḥ'), ') and '
+          'O (over-accent) is 61 (', rmn('geresh'), ').',
+        ]),
+        my_html.para([
           'All UXLC was doing in its 2021.05.19-7 change was making its already-correct mark order robust. '
           'By “robust” I mean robust to Unicode normalization.'
+        ])
       ]
     },
     {
@@ -471,12 +485,16 @@ RECORDS = [
       'UXLC-rejected': True,
       'initial-remark': "UXLC rejected this WLC change, in the end.",
       'further-remarks': [
+        my_html.para([
           'I advise WLC to follow UXLC and revert this change in a future version '
-          'because the mapiq is likely an artifact. '
-          "UXLC has a rafeh on the he in question. "
+          'because the ', rmn('mapiq'), ' is likely an artifact. '
+          'UXLC has a ', rmn('rafeh'), ' on the he in question. '
           "UXLC arrived at this with a bit of back-and-forth: 3 changes. "
-          "Change 1 added the mapiq, change 2 added the rafeh, and change 3 removed the mapiq, "
-          "with the net result that only a rafeh remains."
+          'Change 1 added the ', rmn('mapiq'), ', '
+          'change 2 added the ', rmn('rafeh'), ', and '
+          'change 3 removed the ', rmn('mapiq'), ', '
+          'with the net result that only a ', rmn('rafeh'), ' remains.'
+        ])
       ],
       'UXLC-change-proposals': [
         ("2020.02.19", "2019.12.21-1"),

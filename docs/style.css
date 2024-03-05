@@ -7,6 +7,7 @@ body { font-size: 14pt; }
     font-family: "Taamey D WOFF2";
 src: url("woff2/Taamey_D.woff2");
 }
+span.romanized { font-style: italic; }
 p { max-width: 40em; }
 blockquote { max-width: 40em; }
 td.big { font-size: 250%; letter-spacing: 0.1em; text-align: left;}

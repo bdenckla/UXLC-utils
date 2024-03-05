@@ -209,11 +209,6 @@ def bold(contents, attr=None):
     return htel_mk_inline('b', attr, contents)
 
 
-def italic(contents, attr=None):
-    """ Make a <italic> element. """
-    return htel_mk_inline('i', attr, contents)
-
-
 def small(contents, attr=None):
     """ Make a <small> element. """
     return htel_mk_inline('small', attr, contents)
@@ -316,16 +311,15 @@ def htel_get_tag(html_el):
     return html_el['_htel_tag']
 
 
+def is_htel(obj):
+    return isinstance(obj, dict) and htel_get_tag(obj)
+
+
 ###########################################################
 
 
 def _is_str_or_htel(obj):
-    if isinstance(obj, str):
-        return True
-    if isinstance(obj, dict) and '_htel_tag' in obj:
-        return True
-    return False
-
+    return isinstance(obj, str) or is_htel(obj)
 
 
 def _write_callback(html_el, add_wbr, out_fp):

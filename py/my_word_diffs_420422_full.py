@@ -78,27 +78,13 @@ def _append_remarks_and_side_notes(io_body_contents, record):
         io_body_contents.append(my_html.para(initial_remark))
     #
     if further_remarks := record.get('further-remarks'):
-        for fur_remark in further_remarks:
-            assert not fur_remark.endswith(' ')
-            hesp_fur = _hebrew_spanify(fur_remark)
-            io_body_contents.append(my_html.para(hesp_fur))
-
-
-def _hebrew_spanify(string: str):
-    pre, sep, post = string.partition('@')
-    pre_list = [pre] if pre else []
-    if not sep:
-        assert not post
-        assert pre == string
-        return pre_list
-    return pre_list + _hebrew_spanify2(post)
-
-
-def _hebrew_spanify2(string: str):
-    pre, sep, post = string.partition('#')
-    assert sep
-    assert sep == '#'
-    return [my_html.span(pre, {'lang': 'hbo'}), *_hebrew_spanify(post)]
+        for fur in further_remarks:
+            if isinstance(fur, str):
+                assert not fur.endswith(' ')
+                io_body_contents.append(my_html.para(fur))
+            else:
+                assert my_html.is_htel(fur)
+                io_body_contents.append(fur)
 
 
 def _initial_rows(record):
