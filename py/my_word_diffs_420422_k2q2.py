@@ -20,16 +20,41 @@ def _html_for_bcv_str_wlt_tdu(bcv_str):  # wlt_tdu: with link to tanach.us
     )
 
 
-_FST_SAM_20_2_UXLC = 'https://tanach.us/Tanach.xml?1Sam20:2'
-_FST_SAM_20_2_IMG = 'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F161B.jpg'
+def _html_for_kq(kq):
+    return kq[0], my_html.line_break(), kq[1]
+
+
+def _k2q2_table_row(k2q2rec):
+    return my_html.table_row([
+        my_html.table_datum(_html_for_bcv_str_wlt_tdu(k2q2rec['bcv-str'])),
+        my_html.table_datum(_html_for_kq(k2q2rec['kq-strs']), {'class': 'big'}),
+    ])
+
+
+_K2Q2REC_FST_SAM = {
+    'bcv-str': '1Sam20:2',
+    'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
+}
 _FST_SAM_20_2_PCL = '161B', 2, 17
 
-_SND_SAM_21_12_KQ = ['שם הפלשתים', my_html.line_break(), 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים']
-_SND_SAM_21_12_BCV_STR = '2Sam21:12'
+_K2Q2REC_SND_SAM = {
+    'bcv-str': '2Sam21:12',
+    'kq-strs': ('שם הפלשתים', 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים'),
+}
 _SND_SAM_21_12_PCL = '181B', 2, 12
 
-_EZEK_42_9_KQ = ['ומתחתה לשכות', my_html.line_break(), 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת']
-_EZEK_42_9_BCV_STR = 'Ezek42:9'
+_K2Q2REC_FST_KGS = {
+    'bcv-str': '1Kings17:15',
+    'kq-strs': ('הוא־והיא', 'הִיא־וָה֛וּא'),
+}
+_FST_KGS_PCL = '197B', 3, 24
+_FST_KGS_IMG = '1Kings17v15.png'
+
+
+_K2Q2REC_EZEK = {
+    'bcv-str': 'Ezek42:9',
+    'kq-strs': ('ומתחתה לשכות', 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת'),
+}
 _EZEK_42_9_PCL = '299B', 3, 22
 
 EZRA_4_12 = [
@@ -113,14 +138,8 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        my_html.table_row([
-            my_html.table_datum(_html_for_bcv_str_wlt_tdu(_EZEK_42_9_BCV_STR)),
-            my_html.table_datum(_EZEK_42_9_KQ, {'class': 'big'}),
-        ]),
-        my_html.table_row([
-            my_html.table_datum(_html_for_bcv_str_wlt_tdu(_SND_SAM_21_12_BCV_STR)),
-            my_html.table_datum(_SND_SAM_21_12_KQ, {'class': 'big'}),
-        ]),
+        _k2q2_table_row(_K2Q2REC_EZEK),
+        _k2q2_table_row(_K2Q2REC_SND_SAM),
     ]),
     my_html.para(
         [
@@ -153,6 +172,31 @@ EZRA_4_12 = [
             my_html.table_datum('[תלאום שמה] פלשתים', {'dir': 'rtl'}),
         ]),
     ]),
+    my_html.para(
+        [
+            'Let’s look at some other k2q2 cases that don’t concern word division, '
+            'but may still give us a greater feel for how ', rmn('qere'), ' grouping '
+            'was handled in Ms ל.'
+        ]
+    ),
+    my_html.table([
+        _k2q2_table_row(_K2Q2REC_FST_SAM),
+        _k2q2_table_row(_K2Q2REC_FST_KGS),
+    ]),
+    my_html.para(
+        [
+            'In the case of 1 Sam 20:2, we find that the manuscript supports the k2q2 grouping '
+            '(', *_html_for_pcl(_FST_SAM_20_2_PCL), '):'
+        ]
+    ),
+    my_html_for_img.html_for_single_img('1Sam20v2.png'),
+    my_html.para(
+        [
+            'In the case of 1 Kings 17:15, we find that the manuscript does not support the k2q2 grouping '
+            '(', *_html_for_pcl(_FST_KGS_PCL), '):'
+        ]
+    ),
+    my_html_for_img.html_for_single_img('1Kings17v15.png'),
     my_html.para(
         [
             'Finally, we should admit that ', rmn('qere'), ' grouping '
