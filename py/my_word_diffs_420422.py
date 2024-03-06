@@ -1,4 +1,5 @@
 import my_word_diffs_420422_long_further_remarks as furrem
+import my_word_diffs_420422_decalogue_rafeh as dr
 import my_html
 
 
@@ -265,7 +266,7 @@ RECORDS = [
       # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
-      'further-remarks': furrem.DECALOGUE_RAFE
+      'further-remarks': dr.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "ex20:14",
@@ -282,7 +283,7 @@ RECORDS = [
       # which is to remove a rafeh.
       'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
-      'further-remarks': furrem.DECALOGUE_RAFE
+      'further-remarks': dr.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "ex20:15",
@@ -293,7 +294,7 @@ RECORDS = [
       'UXLC-rejected': True,
       'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
-      'further-remarks': furrem.DECALOGUE_RAFE
+      'further-remarks': dr.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "lv13:3",
@@ -355,7 +356,7 @@ RECORDS = [
       'UXLC-rejected': True,
       'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
-      'further-remarks': furrem.DECALOGUE_RAFE
+      'further-remarks': dr.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt5:14",
@@ -374,7 +375,7 @@ RECORDS = [
       'UXLC-rejected': True,
       'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
-      'further-remarks': furrem.DECALOGUE_RAFE
+      'further-remarks': dr.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt5:18",
@@ -385,7 +386,7 @@ RECORDS = [
       'UXLC-rejected': True,
       'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
-      'further-remarks': furrem.DECALOGUE_RAFE
+      'further-remarks': dr.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt5:19",
@@ -396,7 +397,7 @@ RECORDS = [
       'UXLC-rejected': True,
       'initial-remark': _UXLC_RAFEH_REMOVE_REJECTED,
       'Decalogue-rafeh': True,
-      'further-remarks': furrem.DECALOGUE_RAFE
+      'further-remarks': dr.DECALOGUE_RAFE
     },
     {
       'wlc_bcv_str': "dt7:8",

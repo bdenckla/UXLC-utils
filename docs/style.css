@@ -5,7 +5,7 @@ body { font-size: 14pt; }
 }
 @font-face {
     font-family: "Taamey D WOFF2";
-src: url("woff2/Taamey_D.woff2");
+    src: url("woff2/Taamey_D.woff2");
 }
 span.romanized { font-style: italic; }
 p { max-width: 40em; }
@@ -18,8 +18,8 @@ th, td {
     padding-left: 0.4em;
 }
 tr:nth-of-type(odd) td {
-  background-color: #eee;
+    background-color: #eee;
 }
 img {
-  max-width: 100%;
+    max-width: 100%;
 }
