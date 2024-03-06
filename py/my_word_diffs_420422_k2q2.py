@@ -59,20 +59,27 @@ _K2Q2REC_SND_SAM = {
     'intro': (
         'But in the case of 2 Samuel 21:12, we find that the manuscript supports '
         'a different k2q2 grouping than that found in WLC! '
-        'The manuscript k2q2 reaches back one word earlier than the two words of WLC’s k2q2'
+        'The manuscript’s k2q2 reaches back one word earlier than WLC’s k2q2'
     ),
 }
 _K2Q2REC_FST_SAM = {
     'bcv-str': '1Sam20:2',
     'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
+    'pcl': ('161B', 2, 17),
+    'img': '1Sam20v2.png',
+    'intro': (
+        'In the case of 1 Sam 20:2, we find that the manuscript supports WLC’s k2q2 grouping'
+    ),
 }
-_FST_SAM_20_2_PCL = '161B', 2, 17
 _K2Q2REC_FST_KGS = {
     'bcv-str': '1Kings17:15',
     'kq-strs': ('הוא־והיא', 'הִיא־וָה֛וּא'),
+    'pcl': ('197B', 3, 24),
+    'img': '1Kings17v15.png',
+    'intro': (
+        'In the case of 1 Kings 17:15, we find that the manuscript does not support WLC’s k2q2 grouping'
+    ),
 }
-_FST_KGS_PCL = '197B', 3, 24
-_FST_KGS_IMG = '1Kings17v15.png'
 
 
 EZRA_4_12 = [
@@ -87,12 +94,16 @@ EZRA_4_12 = [
     my_html.para(
         [
             'My guess is that the impulse behind this change is '
-            'that we are primarily dealing with a word boundary issue here. '
-            'There is a ',
+            'that we are primarily dealing with a word boundary issue here, '
+            'so a k2q2 seems more appropriate than k1q1×2. '
+            '(There is a ',
             rmn('ḥaser/malei'),
             ' issue later in the second word, '
-            'but the primary issue is where the word boundary falls within the letters '
-            'ושוריאשכל[י]לו. '
+            'but the primary issue is the word boundary issue.) '
+            'The word boundary issue concerns a difference between ',
+            rmn('qere'), ' and ', rmn('ketiv'),
+            ' as to where the word boundary falls within the letters '
+            'ושוריאשכל[י]לו.) '
             'The table below shows the details.'
         ]
     ),
@@ -120,7 +131,7 @@ EZRA_4_12 = [
             '(which is what WLC 4.22 now has) '
             'rather than group them into a k1q1×2 (two adjacent k1q1 constructs) '
             '(which is what WLC 4.20 had). '
-            'The table below shows what these constructs look like in Michigan-Claremont terms.',
+            'The table below shows what these two grouping strategies look like in Michigan-Claremont terms.',
         ]
     ),
     my_html.table([
@@ -151,7 +162,7 @@ EZRA_4_12 = [
     ),
     my_html.para(
         [
-            'The table below shows two other k2q2 in WLC that are instructive to compare, '
+            'The table below shows two other k2q2 in WLC that are instructive to compare with this one, '
             'since they, too, concern word division.'
         ]
     ),
@@ -179,29 +190,18 @@ EZRA_4_12 = [
     ]),
     my_html.para(
         [
-            'Let’s look at some other k2q2 cases in WLC that don’t concern word division, '
-            'but may still give us a greater feel for how ', rmn('qere'), ' grouping '
-            'is handled in Ms ל.'
+            'Let’s look at some other k2q2 cases in WLC. '
+            'These cases don’t concern word division, '
+            'but it will still be interesting to see '
+            'whether, in each case, the manuscript supports or contradicts WLC’s k2q2 grouping.'
         ]
     ),
     my_html.table([
         _k2q2_table_row(_K2Q2REC_FST_SAM),
         _k2q2_table_row(_K2Q2REC_FST_KGS),
     ]),
-    my_html.para(
-        [
-            'In the case of 1 Sam 20:2, we find that the manuscript supports WLC’s k2q2 grouping '
-            '(', *_html_for_pcl(_FST_SAM_20_2_PCL), '):'
-        ]
-    ),
-    my_html_for_img.html_for_single_img('1Sam20v2.png'),
-    my_html.para(
-        [
-            'In the case of 1 Kings 17:15, we find that the manuscript does not support WLC’s k2q2 grouping '
-            '(', *_html_for_pcl(_FST_KGS_PCL), '):'
-        ]
-    ),
-    my_html_for_img.html_for_single_img('1Kings17v15.png'),
+    *_intro_and_img(_K2Q2REC_FST_SAM),
+    *_intro_and_img(_K2Q2REC_FST_KGS),
     my_html.para(
         [
             'Finally, we should admit that ', rmn('qere'), ' grouping '
