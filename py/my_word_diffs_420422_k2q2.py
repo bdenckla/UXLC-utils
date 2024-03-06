@@ -9,25 +9,29 @@ def _html_for_pcl(pcl):
             f'page {page}',
             {'href': f"https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F{page}.jpg"}
         ),
-        ' col {column} line {line}'
+        f' col {column} line {line}'
     ]
 
-FST_SAM_20_2_UXLC = 'https://tanach.us/Tanach.xml?1Sam20:2'
-FST_SAM_20_2_IMG = 'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F161B.jpg'
-FST_SAM_20_2_PCL = '161B', 2, 17
 
-SND_SAM_21_12_KQ = ['שם הפלשתים', my_html.line_break(), 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים']
-SND_SAM_21_12_ANC = my_html.anchor(
-    '2Sam21:12',
-    {'href': 'https://tanach.us/Tanach.xml?2Sam21:12'}
-)
-SND_SAM_21_12_PCL = '181B', 2, 12
-EZEK_42_9_KQ = ['ומתחתה לשכות', my_html.line_break(), 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת']
-EZEK_42_9_ANC = my_html.anchor(
-    'Ezek42:9',
-    {'href': 'https://tanach.us/Tanach.xml?Ezek42:9'}
-)
-EZEK_42_9_PCL = '299B', 3, 22
+def _html_for_bcv_str_wlt_tdu(bcv_str):  # wlt_tdu: with link to tanach.us
+    return my_html.anchor(
+        bcv_str,
+        {'href': f'https://tanach.us/Tanach.xml?{bcv_str}'}
+    )
+
+
+_FST_SAM_20_2_UXLC = 'https://tanach.us/Tanach.xml?1Sam20:2'
+_FST_SAM_20_2_IMG = 'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F161B.jpg'
+_FST_SAM_20_2_PCL = '161B', 2, 17
+
+_SND_SAM_21_12_KQ = ['שם הפלשתים', my_html.line_break(), 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים']
+_SND_SAM_21_12_BCV_STR = '2Sam21:12'
+_SND_SAM_21_12_PCL = '181B', 2, 12
+
+_EZEK_42_9_KQ = ['ומתחתה לשכות', my_html.line_break(), 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת']
+_EZEK_42_9_BCV_STR = 'Ezek42:9'
+_EZEK_42_9_PCL = '299B', 3, 22
+
 EZRA_4_12 = [
     my_html.para(
         [
@@ -110,18 +114,18 @@ EZRA_4_12 = [
     ),
     my_html.table([
         my_html.table_row([
-            my_html.table_datum(EZEK_42_9_ANC),
-            my_html.table_datum(EZEK_42_9_KQ, {'class': 'big'}),
+            my_html.table_datum(_html_for_bcv_str_wlt_tdu(_EZEK_42_9_BCV_STR)),
+            my_html.table_datum(_EZEK_42_9_KQ, {'class': 'big'}),
         ]),
         my_html.table_row([
-            my_html.table_datum(SND_SAM_21_12_ANC),
-            my_html.table_datum(SND_SAM_21_12_KQ, {'class': 'big'}),
+            my_html.table_datum(_html_for_bcv_str_wlt_tdu(_SND_SAM_21_12_BCV_STR)),
+            my_html.table_datum(_SND_SAM_21_12_KQ, {'class': 'big'}),
         ]),
     ]),
     my_html.para(
         [
             "In the case of Ezekiel 42:9, we find that the manuscript supports the k2q2 grouping "
-            "(", *_html_for_pcl(EZEK_42_9_PCL), "):"
+            "(", *_html_for_pcl(_EZEK_42_9_PCL), "):"
         ]
     ),
     my_html_for_img.html_for_single_img('Ezek42v9.png'),
@@ -129,7 +133,7 @@ EZRA_4_12 = [
         [
             "But in the case of 2 Samuel 21:12, we find that the manuscript supports a different k2q2 grouping! "
             "This k2q2 reaches back one word earlier than the two words of WLC’s k2q2 "
-            "(", *_html_for_pcl(SND_SAM_21_12_PCL), "):"
+            "(", *_html_for_pcl(_SND_SAM_21_12_PCL), "):"
         ]
     ),
     my_html_for_img.html_for_single_img('2Sam21c12.png'),
