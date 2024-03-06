@@ -158,10 +158,25 @@ EZRA_4_12 = [
             'Finally, we should admit that ', rmn('qere'), ' grouping '
             'may have been left up to individual scribal discretion. '
             'In other words, ', rmn('qere'), ' grouping '
-            'may not have been viewed as meaningful. '
-            'Just as we do not strive to reproduce the occasional elongated ',
-            rmn('lamed'), ' letters that appear in the manuscript, ',
-            'perhaps we should not be concerned to reproduce ', rmn('qere'), ' groupings. '
+            'may not have been viewed as meaningful by the Masoretes. '
+            'Just as we do not distinguish a normal ', rmn('lamed'),
+            ' letter from the occasional elongated one, ',
+            'perhaps we should not be concerned to preserve ', rmn('qere'), ' grouping, '
+            'particularly when we don’t like the  manuscript’s grouping.'
+        ]
+    ),
+    my_html.para(
+        [
+            'That having been said, it seems more consistent with the diplomatic spirit '
+            'of WLC to err on the safe side by preserving ', rmn('qere'), ' grouping. '
+            'For example this is what BHS did, and WLC continues to do, with respect to meteg '
+            'placement. '
+            'In the 50-or-so years since the publication of BHS, scholarship has reached a consensus '
+            'that meteg placement was not viewed as meaningful by the Masoretes. '
+            'I.e. the consensus is that meteg placment '
+            'was left up to scribal discretion. '
+            'Still, at the time, perhaps it was the right decision for BHS to err on the safe side by preserving '
+            'meteg placement.'
         ]
     ),
 ]
