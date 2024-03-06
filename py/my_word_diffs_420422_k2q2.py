@@ -31,6 +31,17 @@ def _k2q2_table_row(k2q2rec):
     ])
 
 
+def _intro_and_img(k2q2rec, intro_intro):
+    return [
+        my_html.para(
+            [
+                intro_intro, ' (', *_html_for_pcl(k2q2rec['pcl']), '):'
+            ]
+        ),
+        my_html_for_img.html_for_single_img('Ezek42v9.png')
+    ]
+
+
 _K2Q2REC_FST_SAM = {
     'bcv-str': '1Sam20:2',
     'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
@@ -50,12 +61,11 @@ _K2Q2REC_FST_KGS = {
 _FST_KGS_PCL = '197B', 3, 24
 _FST_KGS_IMG = '1Kings17v15.png'
 
-
 _K2Q2REC_EZEK = {
     'bcv-str': 'Ezek42:9',
     'kq-strs': ('ומתחתה לשכות', 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת'),
+    'pcl': ('299B', 3, 22),
 }
-_EZEK_42_9_PCL = '299B', 3, 22
 
 EZRA_4_12 = [
     my_html.para(
@@ -133,7 +143,7 @@ EZRA_4_12 = [
     ),
     my_html.para(
         [
-            'The table below shows two other k2q2 that are instructive to compare, '
+            'The table below shows two other k2q2 in WLC that are instructive to compare, '
             'since they, too, concern word division.'
         ]
     ),
@@ -141,17 +151,12 @@ EZRA_4_12 = [
         _k2q2_table_row(_K2Q2REC_EZEK),
         _k2q2_table_row(_K2Q2REC_SND_SAM),
     ]),
+    *_intro_and_img(_K2Q2REC_EZEK, 'In the case of Ezekiel 42:9, we find that the manuscript supports WLC’s k2q2 grouping'),
     my_html.para(
         [
-            'In the case of Ezekiel 42:9, we find that the manuscript supports the k2q2 grouping '
-            '(', *_html_for_pcl(_EZEK_42_9_PCL), '):'
-        ]
-    ),
-    my_html_for_img.html_for_single_img('Ezek42v9.png'),
-    my_html.para(
-        [
-            'But in the case of 2 Samuel 21:12, we find that the manuscript supports a different k2q2 grouping! '
-            'This k2q2 reaches back one word earlier than the two words of WLC’s k2q2 '
+            'But in the case of 2 Samuel 21:12, we find that the manuscript supports '
+            'a different k2q2 grouping than that found in WLC! '
+            'The manuscript k2q2 reaches back one word earlier than the two words of WLC’s k2q2 '
             '(', *_html_for_pcl(_SND_SAM_21_12_PCL), '):'
         ]
     ),
@@ -174,9 +179,9 @@ EZRA_4_12 = [
     ]),
     my_html.para(
         [
-            'Let’s look at some other k2q2 cases that don’t concern word division, '
+            'Let’s look at some other k2q2 cases in WLC that don’t concern word division, '
             'but may still give us a greater feel for how ', rmn('qere'), ' grouping '
-            'was handled in Ms ל.'
+            'is handled in Ms ל.'
         ]
     ),
     my_html.table([
@@ -185,14 +190,14 @@ EZRA_4_12 = [
     ]),
     my_html.para(
         [
-            'In the case of 1 Sam 20:2, we find that the manuscript supports the k2q2 grouping '
+            'In the case of 1 Sam 20:2, we find that the manuscript supports WLC’s k2q2 grouping '
             '(', *_html_for_pcl(_FST_SAM_20_2_PCL), '):'
         ]
     ),
     my_html_for_img.html_for_single_img('1Sam20v2.png'),
     my_html.para(
         [
-            'In the case of 1 Kings 17:15, we find that the manuscript does not support the k2q2 grouping '
+            'In the case of 1 Kings 17:15, we find that the manuscript does not support WLC’s k2q2 grouping '
             '(', *_html_for_pcl(_FST_KGS_PCL), '):'
         ]
     ),
