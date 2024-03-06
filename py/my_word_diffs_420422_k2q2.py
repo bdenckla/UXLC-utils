@@ -31,29 +31,42 @@ def _k2q2_table_row(k2q2rec):
     ])
 
 
-def _intro_and_img(k2q2rec, intro_intro):
+def _intro_and_img(k2q2rec):
     return [
         my_html.para(
             [
-                intro_intro, ' (', *_html_for_pcl(k2q2rec['pcl']), '):'
+                k2q2rec['intro'], ' (', *_html_for_pcl(k2q2rec['pcl']), '):'
             ]
         ),
-        my_html_for_img.html_for_single_img('Ezek42v9.png')
+        my_html_for_img.html_for_single_img(k2q2rec['img'])
     ]
 
 
+_K2Q2REC_EZEK = {
+    'bcv-str': 'Ezek42:9',
+    'kq-strs': ('ומתחתה לשכות', 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת'),
+    'pcl': ('299B', 3, 22),
+    'img': 'Ezek42v9.png',
+    'intro': (
+        'In the case of Ezekiel 42:9, we find that the manuscript supports WLC’s k2q2 grouping'
+    ),
+}
+_K2Q2REC_SND_SAM = {
+    'bcv-str': '2Sam21:12',
+    'kq-strs': ('שם הפלשתים', 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים'),
+    'pcl': ('181B', 2, 12),
+    'img': '2Sam21c12.png',
+    'intro': (
+        'But in the case of 2 Samuel 21:12, we find that the manuscript supports '
+        'a different k2q2 grouping than that found in WLC! '
+        'The manuscript k2q2 reaches back one word earlier than the two words of WLC’s k2q2'
+    ),
+}
 _K2Q2REC_FST_SAM = {
     'bcv-str': '1Sam20:2',
     'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
 }
 _FST_SAM_20_2_PCL = '161B', 2, 17
-
-_K2Q2REC_SND_SAM = {
-    'bcv-str': '2Sam21:12',
-    'kq-strs': ('שם הפלשתים', 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים'),
-}
-_SND_SAM_21_12_PCL = '181B', 2, 12
-
 _K2Q2REC_FST_KGS = {
     'bcv-str': '1Kings17:15',
     'kq-strs': ('הוא־והיא', 'הִיא־וָה֛וּא'),
@@ -61,11 +74,6 @@ _K2Q2REC_FST_KGS = {
 _FST_KGS_PCL = '197B', 3, 24
 _FST_KGS_IMG = '1Kings17v15.png'
 
-_K2Q2REC_EZEK = {
-    'bcv-str': 'Ezek42:9',
-    'kq-strs': ('ומתחתה לשכות', 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת'),
-    'pcl': ('299B', 3, 22),
-}
 
 EZRA_4_12 = [
     my_html.para(
@@ -151,16 +159,8 @@ EZRA_4_12 = [
         _k2q2_table_row(_K2Q2REC_EZEK),
         _k2q2_table_row(_K2Q2REC_SND_SAM),
     ]),
-    *_intro_and_img(_K2Q2REC_EZEK, 'In the case of Ezekiel 42:9, we find that the manuscript supports WLC’s k2q2 grouping'),
-    my_html.para(
-        [
-            'But in the case of 2 Samuel 21:12, we find that the manuscript supports '
-            'a different k2q2 grouping than that found in WLC! '
-            'The manuscript k2q2 reaches back one word earlier than the two words of WLC’s k2q2 '
-            '(', *_html_for_pcl(_SND_SAM_21_12_PCL), '):'
-        ]
-    ),
-    my_html_for_img.html_for_single_img('2Sam21c12.png'),
+    *_intro_and_img(_K2Q2REC_EZEK),
+    *_intro_and_img(_K2Q2REC_SND_SAM),
     my_html.para(
         [
             'Using square brackets to set off the k2q2 grouping, here’s how WLC and the manuscript '
