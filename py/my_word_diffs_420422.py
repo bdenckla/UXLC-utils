@@ -1,4 +1,4 @@
-import my_word_diffs_420422_long_further_remarks as furrem
+import my_word_diffs_420422_k2q2 as k2q2
 import my_word_diffs_420422_decalogue_rafeh as dr
 import my_html
 
@@ -567,7 +567,7 @@ RECORDS = [
       'ab-notes': "\n",
       'UXLC-rejected': True,
       'initial-remark': _part_n_of_2(1, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
-      'further-remarks': furrem.EZRA_4_12,
+      'further-remarks': k2q2.EZRA_4_12,
       'img': 'Ezra4v12.png',
       'line': 25,
     },
@@ -579,7 +579,7 @@ RECORDS = [
       'ab-notes': "\n",
       'UXLC-rejected': True,
       'initial-remark': _part_n_of_2(2, 'k1q1×2', 'k2q2') + ' UXLC rejected this change.',
-      'further-remarks': furrem.EZRA_4_12,
+      'further-remarks': k2q2.EZRA_4_12,
       'img': 'Ezra4v12.png',
       'line': 25,
     }
