@@ -62,15 +62,6 @@ _K2Q2REC_SND_SAM = {
         'The manuscript’s k2q2 reaches back one word earlier than WLC’s k2q2'
     ),
 }
-_K2Q2REC_FST_SAM = {
-    'bcv-str': '1Sam20:2',
-    'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
-    'pcl': ('161B', 2, 17),
-    'img': '1Sam20v2.png',
-    'intro': (
-        'In the case of 1 Sam 20:2, we find that the manuscript supports WLC’s k2q2 grouping'
-    ),
-}
 _K2Q2REC_FST_KGS = {
     'bcv-str': '1Kings17:15',
     'kq-strs': ('הוא־והיא', 'הִיא־וָה֛וּא'),
@@ -80,37 +71,51 @@ _K2Q2REC_FST_KGS = {
         'In the case of 1 Kings 17:15, we find that the manuscript does not support WLC’s k2q2 grouping'
     ),
 }
+_K2Q2REC_FST_SAM = {
+    'bcv-str': '1Sam20:2',
+    'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
+    'pcl': ('161B', 2, 17),
+    'img': '1Sam20v2.png',
+    'intro': (
+        'In the case of 1 Sam 20:2 and in the remaining 4 cases, we find that the manuscript supports WLC’s k2q2 grouping'
+    ),
+}
 _K2Q2REC_ISAIAH = {
     'bcv-str': 'Isaiah52:5',
     'img': 'Isaiah52v5.png',
     'kq-strs': ('מי־לי־', 'מַה־לִּי־'),
     'pcl': ('240B', 3, 3),
-    'intro': ('foo'),
+    'intro': (
+        'In the case of Isaiah 52:5, we find that the manuscript supports WLC’s k2q2 grouping'
+    ),
 }
 _K2Q2REC_JOB_38V01 = {
     'bcv-str': 'Job38:1',
     'img': 'Job38v1.png',
     'kq-strs': ('מנ הסערה', 'מִ֥ן ׀ הַסְּעָרָ֗ה'),
     'pcl': ('408A', 2, 5),
-    'intro': ('foo'),
+    'intro': (
+        'In the case of Job 38:1, we find that the manuscript supports WLC’s k2q2 grouping'
+    ),
 }
-# {'page': '408A', 'fline-guess': '5.8', 'line-guess': '5.8', 'column-guess': 1}
 _K2Q2REC_JOB_38V12 = {
     'bcv-str': 'Job38:12',
     'img': 'Job38v12.png',
     'kq-strs': ('ידעתה שחר', 'יִדַּ֖עְתָּה הַשַּׁ֣חַר'),
     'pcl': ('408A', 2, 17),
-    'intro': ('foo'),
+    'intro': (
+        'In the case of Job 38:12, we find that the manuscript supports WLC’s k2q2 grouping'
+    ),
 }
-# {'page': '408A', 'fline-guess': '18.5', 'line-guess': '18.5', 'column-guess': 1}
 _K2Q2REC_JOB_40 = {
     'bcv-str': 'Job40:6',
     'img': 'Job40v6.png',
     'kq-strs': ('מנ סערה', 'מִ֥ן ׀ סְעָרָ֗ה'),
     'pcl': ('408B', 2, 13),
-    'intro': ('foo'),
+    'intro': (
+        'In the case of Job 40:6, we find that the manuscript supports WLC’s k2q2 grouping'
+    ),
 }
-# {'page': '408B', 'fline-guess': '40.4', 'line-guess': '13.4', 'column-guess': 2}
 
 EZRA_4_12 = [
     my_html.para(
@@ -227,18 +232,18 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        _k2q2_table_row(_K2Q2REC_FST_SAM),
         _k2q2_table_row(_K2Q2REC_FST_KGS),
+        _k2q2_table_row(_K2Q2REC_FST_SAM),
         _k2q2_table_row(_K2Q2REC_ISAIAH),
-        _k2q2_table_row(_K2Q2REC_JOB_38V01),
         _k2q2_table_row(_K2Q2REC_JOB_38V12),
+        _k2q2_table_row(_K2Q2REC_JOB_38V01),
         _k2q2_table_row(_K2Q2REC_JOB_40),
     ]),
-    *_intro_and_img(_K2Q2REC_FST_SAM),
     *_intro_and_img(_K2Q2REC_FST_KGS),
+    *_intro_and_img(_K2Q2REC_FST_SAM),
     *_intro_and_img(_K2Q2REC_ISAIAH),
-    *_intro_and_img(_K2Q2REC_JOB_38V01),
     *_intro_and_img(_K2Q2REC_JOB_38V12),
+    *_intro_and_img(_K2Q2REC_JOB_38V01),
     *_intro_and_img(_K2Q2REC_JOB_40),
     my_html.para(
         [
