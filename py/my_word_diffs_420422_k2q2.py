@@ -3,16 +3,6 @@ import my_html_for_img
 from my_html_span_romanized import rmn
 
 
-def _job_38_1_and_40_6(cva, cvb):
-    return [
-        f'In the case of Job {cva}, we find that the manuscript supports a k1q2 grouping rather than WLC’s k2q2 grouping. '
-        f'(The same is true in the case of Job {cvb}.) '
-        f'In both {cva} and {cvb}, '
-        'the ', rmn('paseq'), ' after the ', rmn('nun'), ' '
-        'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
-        'as splitting the ', rmn('ketiv'), ' into two words. Here is the manuscript image'
-    ]
-
 def _html_for_pcl(pcl):
     page, column, line = pcl
     return [
@@ -53,6 +43,25 @@ def _intro_and_img(k2q2rec):
     ]
 
 
+_GAYA_PAREN_METEG = [rmn('gaʿya'), ' (', rmn('meteg'), ')']
+_JOB_38_1_and_40_6 = [
+    'In the cases of Job 38:1 and 40:6, '
+    'we find that the manuscript supports a k1q2 grouping rather than WLC’s k2q2 grouping. '
+    'In both 38:1 and 40:6, '
+    'the ', rmn('paseq'), ' after the ', rmn('nun'), ' '
+    'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
+    'as splitting the ', rmn('ketiv'), ' into two words. '
+    'Note that, extraordinarily, the scribe has reiterated some of the pointing of the ', rmn('ketiv'), ' '
+    'on the ', rmn('qere'), ' letters, '
+    'pointing the מן of the ', rmn('qere'), ' with ',
+    rmn('ḥiriq'), ', ',
+    *_GAYA_PAREN_METEG, ', and ',
+    rmn('paseq'), '. '
+    '(I’m not sure why this was done, '
+    'and I don’t think it is relevant to the issue at hand, '
+    'but nonetheless it seemed worth mentioning.) '
+    'Here is the manuscript image for Job 38:1'
+]
 _K2Q2REC_EZEK = {
     'bcv-str': 'Ezek42:9',
     'kq-strs': ('ומתחתה לשכות', 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת'),
@@ -114,16 +123,15 @@ _K2Q2REC_JOB_38V01 = {
     'img': 'Job38v1.png',
     'kq-strs': ('מנ הסערה', 'מִ֥ן ׀ הַסְּעָרָ֗ה'),
     'pcl': ('408A', 2, 5),
-    'intro': _job_38_1_and_40_6('38:1', '40:6'),
+    'intro': _JOB_38_1_and_40_6,
 }
 _K2Q2REC_JOB_40 = {
     'bcv-str': 'Job40:6',
     'img': 'Job40v6.png',
     'kq-strs': ('מנ סערה', 'מִ֥ן ׀ סְעָרָ֗ה'),
     'pcl': ('408B', 2, 13),
-    'intro': _job_38_1_and_40_6('40:6', '38:1'),
+    'intro': ['Here is the manuscript image for Job 40:6'],
 }
-
 EZRA_4_12 = [
     my_html.para(
         [
@@ -268,14 +276,14 @@ EZRA_4_12 = [
         [
             'That having been said, it seems more consistent with the diplomatic spirit '
             'of WLC to err on the safe side by preserving ', rmn('qere'), ' grouping. '
-            'For example this is what BHS did, and WLC continues to do, with respect to meteg '
+            'For example this is what BHS did, and WLC continues to do, with respect to ', *_GAYA_PAREN_METEG, ' '
             'placement. '
             'In the 50-or-so years since the publication of BHS, scholarship has reached a consensus '
-            'that meteg placement was not viewed as meaningful by the Masoretes. '
-            'I.e. the consensus is that meteg placment '
+            'that ', rmn('gaʿya'), ' placement was not viewed as meaningful by the Masoretes. '
+            'I.e. the consensus is that ', rmn('gaʿya'), ' placment '
             'was left up to scribal discretion. '
             'Still, at the time, perhaps it was the right decision for BHS to err on the safe side by preserving '
-            'meteg placement.'
+            '', rmn('gaʿya'), ' placement.'
         ]
     ),
 ]
