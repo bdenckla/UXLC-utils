@@ -53,25 +53,31 @@ def _intro_and_img(k2q2rec):
 
 
 _GAYA_PAREN_METEG = [rmn('gaʿya'), ' (', rmn('meteg'), ')']
-_JOB_38_1_and_40_6_PARA = my_html.para([
-    'In the cases of Job 38:1 and 40:6, '
-    'we find that '
-    'while the manuscript supports WLC’s grouping of the two ', rmn('qere'), ' words together, '
-    'the manuscript does not support WLC’s treatment of the ', rmn('ketiv'), ' letters '
-    'as a single word. '
-    'In other words, the manuscript would support a k1q2 rather than k2q2 grouping. '
-    'In both 38:1 and 40:6, '
-    'the ', rmn('paseq'), ' after the ', rmn('nun'), ' '
-    'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
-    'as splitting the ', rmn('ketiv'), ' into two words. '
-    'I find it surprising and unfortunate that WLC went to the trouble of devoting a special bracket note, ',
-    my_html.code(']M'), ', '
-    'to these cases, rather than scrutinizing these cases and realizing that there is only a mistake in transcription, '
-    'not an anomaly in the manuscript. '
-    'Here the WLC transcription has a little more work to do than usual because, as with all k/q, WLC is '
-    'converting (in this case incorrectly) '
-    'from BHS’ pointed-ketiv, unpointed-qere representation to the opposite representation. '
-])
+_JOB_38_1_and_40_6_PARAS = [
+    my_html.para([
+        'In the cases of Job 38:1 and 40:6, '
+        'we find that '
+        'while the manuscript supports WLC’s grouping of the two ', rmn('qere'), ' words together, '
+        'the manuscript does not support WLC’s treatment of the ', rmn('ketiv'), ' letters '
+        'as a single word. '
+        'In other words, the manuscript supports a k1q2 grouping rather than a k2q2 grouping. '
+    ]),
+    my_html.para([
+        'In both 38:1 and 40:6, '
+        'the ', rmn('paseq'), ' after the ', rmn('nun'), ' '
+        'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
+        'as splitting the ', rmn('ketiv'), ' into two words. '
+        'I find it surprising and unfortunate that WLC went to the trouble of devoting a special bracket note, ',
+        my_html.code(']M'), ', '
+        'to these cases. '
+        'A little more scrutiny might have revealed that there is only a mistake in transcription, '
+        'not an anomaly in the manuscript. '
+        'Here the WLC transcription has a little more work to do than usual because, as with all k/q, WLC is '
+        'not just transcribing BHS (or later, ל) '
+        'but also converting (in this case incorrectly) '
+        'from pointed-ketiv, unpointed-qere representation to the opposite representation. '
+    ])
+]
 _JOB_38_1_and_40_6_INTRO = [
     'Note that, extraordinarily, in Job 38:1 and 40:6, '
     'the scribe has reiterated some of the pointing of the ', rmn('ketiv'), ' '
@@ -296,7 +302,7 @@ EZRA_4_12 = [
     *_intro_and_img(_K2Q2REC_FST_SAM),
     *_intro_and_img(_K2Q2REC_ISAIAH),
     *_intro_and_img(_K2Q2REC_JOB_38V12),
-    _JOB_38_1_and_40_6_PARA,
+    *_JOB_38_1_and_40_6_PARAS,
     *_intro_and_img(_K2Q2REC_JOB_38V01),
     *_intro_and_img(_K2Q2REC_JOB_40),
     my_html.para(
