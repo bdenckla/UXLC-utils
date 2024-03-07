@@ -2,6 +2,17 @@ import my_html
 import my_html_for_img
 from my_html_span_romanized import rmn
 
+
+def _job_38_1_and_40_6(cva, cvb):
+    return [
+        f'In the case of Job {cva}, we find that the manuscript supports a k1q2 grouping rather than WLC’s k2q2 grouping. '
+        f'(The same is true in the case of Job {cvb}.) '
+        f'In both {cva} and {cvb}, '
+        'the ', rmn('paseq'), ' between the ', rmn('nun'), ' and the ', rmn('samkeh'), ' '
+        'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
+        'as splitting the ', rmn('ketiv'), ' into two words. Here is the manuscript image'
+    ]
+
 def _html_for_pcl(pcl):
     page, column, line = pcl
     return [
@@ -35,7 +46,7 @@ def _intro_and_img(k2q2rec):
     return [
         my_html.para(
             [
-                k2q2rec['intro'], ' (', *_html_for_pcl(k2q2rec['pcl']), '):'
+                *k2q2rec['intro'], ' (', *_html_for_pcl(k2q2rec['pcl']), '):'
             ]
         ),
         my_html_for_img.html_for_single_img(k2q2rec['img'])
@@ -47,74 +58,70 @@ _K2Q2REC_EZEK = {
     'kq-strs': ('ומתחתה לשכות', 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת'),
     'pcl': ('299B', 3, 22),
     'img': 'Ezek42v9.png',
-    'intro': (
+    'intro': [
         'In the case of Ezekiel 42:9, we find that the manuscript supports WLC’s k2q2 grouping'
-    ),
+    ],
 }
 _K2Q2REC_SND_SAM = {
     'bcv-str': '2Sam21:12',
     'kq-strs': ('שם הפלשתים', 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים'),
     'pcl': ('181B', 2, 12),
     'img': '2Sam21c12.png',
-    'intro': (
-        'But in the case of 2 Samuel 21:12, we find that the manuscript supports '
-        'a different k2q2 grouping than that found in WLC! '
+    'intro': [
+        'But in the case of 2 Samuel 21:12, we find that the manuscript does not support WLC’s k2q2 grouping. '
+        'Rather, it supports a different k2q2 grouping than that found in WLC! '
         'The manuscript’s k2q2 reaches back one word earlier than WLC’s k2q2'
-    ),
+    ],
 }
 _K2Q2REC_FST_KGS = {
     'bcv-str': '1Kings17:15',
     'kq-strs': ('הוא־והיא', 'הִיא־וָה֛וּא'),
     'pcl': ('197B', 3, 24),
     'img': '1Kings17v15.png',
-    'intro': (
+    'intro': [
         'In the case of 1 Kings 17:15, we find that the manuscript does not support WLC’s k2q2 grouping'
-    ),
+    ],
 }
 _K2Q2REC_FST_SAM = {
     'bcv-str': '1Sam20:2',
     'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
     'pcl': ('161B', 2, 17),
     'img': '1Sam20v2.png',
-    'intro': (
-        'In the case of 1 Sam 20:2 and in the remaining 4 cases, we find that the manuscript supports WLC’s k2q2 grouping'
-    ),
+    'intro': [
+        'In the case of 1 Sam 20:2, we find that the manuscript supports WLC’s k2q2 grouping'
+    ],
 }
 _K2Q2REC_ISAIAH = {
     'bcv-str': 'Isaiah52:5',
     'img': 'Isaiah52v5.png',
     'kq-strs': ('מי־לי־', 'מַה־לִּי־'),
     'pcl': ('240B', 3, 3),
-    'intro': (
+    'intro': [
         'In the case of Isaiah 52:5, we find that the manuscript supports WLC’s k2q2 grouping'
-    ),
-}
-_K2Q2REC_JOB_38V01 = {
-    'bcv-str': 'Job38:1',
-    'img': 'Job38v1.png',
-    'kq-strs': ('מנ הסערה', 'מִ֥ן ׀ הַסְּעָרָ֗ה'),
-    'pcl': ('408A', 2, 5),
-    'intro': (
-        'In the case of Job 38:1, we find that the manuscript supports WLC’s k2q2 grouping'
-    ),
+    ],
 }
 _K2Q2REC_JOB_38V12 = {
     'bcv-str': 'Job38:12',
     'img': 'Job38v12.png',
     'kq-strs': ('ידעתה שחר', 'יִדַּ֖עְתָּה הַשַּׁ֣חַר'),
     'pcl': ('408A', 2, 17),
-    'intro': (
+    'intro': [
         'In the case of Job 38:12, we find that the manuscript supports WLC’s k2q2 grouping'
-    ),
+    ],
+}
+_K2Q2REC_JOB_38V01 = {
+    'bcv-str': 'Job38:1',
+    'img': 'Job38v1.png',
+    'kq-strs': ('מנ הסערה', 'מִ֥ן ׀ הַסְּעָרָ֗ה'),
+    'pcl': ('408A', 2, 5),
+    'intro': _job_38_1_and_40_6('38:1', '40:6'),
 }
 _K2Q2REC_JOB_40 = {
     'bcv-str': 'Job40:6',
     'img': 'Job40v6.png',
     'kq-strs': ('מנ סערה', 'מִ֥ן ׀ סְעָרָ֗ה'),
     'pcl': ('408B', 2, 13),
-    'intro': (
-        'In the case of Job 40:6, we find that the manuscript supports WLC’s k2q2 grouping'
-    ),
+    'intro': _job_38_1_and_40_6('40:6', '38:1'),
 }
 
 EZRA_4_12 = [
@@ -228,7 +235,7 @@ EZRA_4_12 = [
             'Let’s look at the six other k2q2 cases in WLC. '
             'These cases don’t concern word division, '
             'but it will still be interesting to see '
-            'whether, in each case, the manuscript supports or contradicts WLC’s k2q2 grouping.'
+            'whether, in each case, the manuscript does or does not support WLC’s k2q2 grouping.'
         ]
     ),
     my_html.table([
