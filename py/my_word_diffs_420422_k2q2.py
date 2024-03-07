@@ -8,7 +8,7 @@ def _job_38_1_and_40_6(cva, cvb):
         f'In the case of Job {cva}, we find that the manuscript supports a k1q2 grouping rather than WLC’s k2q2 grouping. '
         f'(The same is true in the case of Job {cvb}.) '
         f'In both {cva} and {cvb}, '
-        'the ', rmn('paseq'), ' between the ', rmn('nun'), ' and the ', rmn('samkeh'), ' '
+        'the ', rmn('paseq'), ' after the ', rmn('nun'), ' '
         'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
         'as splitting the ', rmn('ketiv'), ' into two words. Here is the manuscript image'
     ]
