@@ -80,7 +80,37 @@ _K2Q2REC_FST_KGS = {
         'In the case of 1 Kings 17:15, we find that the manuscript does not support WLC’s k2q2 grouping'
     ),
 }
-
+_K2Q2REC_ISAIAH = {
+    'bcv-str': 'Isaiah52:5',
+    'img': 'Isaiah52v5.png',
+    'kq-strs': ('מי־לי־', 'מַה־לִּי־'),
+    'pcl': ('240B', 3, 3),
+    'intro': ('foo'),
+}
+_K2Q2REC_JOB_38V01 = {
+    'bcv-str': 'Job38:1',
+    'img': 'Job38v1.png',
+    'kq-strs': ('מנ הסערה', 'מִ֥ן ׀ הַסְּעָרָ֗ה'),
+    'pcl': ('408A', 2, 5),
+    'intro': ('foo'),
+}
+# {'page': '408A', 'fline-guess': '5.8', 'line-guess': '5.8', 'column-guess': 1}
+_K2Q2REC_JOB_38V12 = {
+    'bcv-str': 'Job38:12',
+    'img': 'Job38v12.png',
+    'kq-strs': ('ידעתה שחר', 'יִדַּ֖עְתָּה הַשַּׁ֣חַר'),
+    'pcl': ('408A', 2, 17),
+    'intro': ('foo'),
+}
+# {'page': '408A', 'fline-guess': '18.5', 'line-guess': '18.5', 'column-guess': 1}
+_K2Q2REC_JOB_40 = {
+    'bcv-str': 'Job40:6',
+    'img': 'Job40v6.png',
+    'kq-strs': ('מנ סערה', 'מִ֥ן ׀ סְעָרָ֗ה'),
+    'pcl': ('408B', 2, 13),
+    'intro': ('foo'),
+}
+# {'page': '408B', 'fline-guess': '40.4', 'line-guess': '13.4', 'column-guess': 2}
 
 EZRA_4_12 = [
     my_html.para(
@@ -190,7 +220,7 @@ EZRA_4_12 = [
     ]),
     my_html.para(
         [
-            'Let’s look at some other k2q2 cases in WLC. '
+            'Let’s look at the six other k2q2 cases in WLC. '
             'These cases don’t concern word division, '
             'but it will still be interesting to see '
             'whether, in each case, the manuscript supports or contradicts WLC’s k2q2 grouping.'
@@ -199,9 +229,17 @@ EZRA_4_12 = [
     my_html.table([
         _k2q2_table_row(_K2Q2REC_FST_SAM),
         _k2q2_table_row(_K2Q2REC_FST_KGS),
+        _k2q2_table_row(_K2Q2REC_ISAIAH),
+        _k2q2_table_row(_K2Q2REC_JOB_38V01),
+        _k2q2_table_row(_K2Q2REC_JOB_38V12),
+        _k2q2_table_row(_K2Q2REC_JOB_40),
     ]),
     *_intro_and_img(_K2Q2REC_FST_SAM),
     *_intro_and_img(_K2Q2REC_FST_KGS),
+    *_intro_and_img(_K2Q2REC_ISAIAH),
+    *_intro_and_img(_K2Q2REC_JOB_38V01),
+    *_intro_and_img(_K2Q2REC_JOB_38V12),
+    *_intro_and_img(_K2Q2REC_JOB_40),
     my_html.para(
         [
             'Finally, we should admit that ', rmn('qere'), ' grouping '
