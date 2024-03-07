@@ -97,7 +97,7 @@ BHL has no dagesh in the samekh. BHLA has no entry for this verse.
 Change meteg to merkha under the first he.
 The thin line after the qamats on the first he has the required northeast-to-southwest inclination of a merkha.
 BHL has a merkha after the qamats under the first he. BHLA has no entry for this verse.
-* Remove dagesh from shin. Add note 't'
+Remove dagesh from shin. Add note 't'
 The shin has only a very faint hint of a dagesh. (The shin-dot is not clear either.) The shin will be transcribed without the dagesh and a note 't' added.
 BHL has a dagesh in the shin. BHLA has no entry for this verse.
 Remove maqaf from end of word.
@@ -109,7 +109,7 @@ BHL has no meteg under the mem. BHLA has no entry for this verse.
 Change merkha to munah under the bet.
 The sharp bend in the accent is distinct, making it a munah. The line emerging from the top leading arm of the alef is from a tipeha on the preceding word 8 of this verse.
 BHL has a munah under the bet. BHLA has no entry for this verse.
-* Change zaqef-qatan over the mem to revia. Add note 't'.
+Change zaqef-qatan over the mem to revia. Add note 't'.
 An erasure appears above the trailing edge of the mem. In the erasure is a fractured dot that might be considered part of a zaqef-qatan; however, this dot is offset too far to the left for it to be part of a zaqef-qatan. It will be transcribed as a revia.
 BHL has a zaqef-qatan over the mem. BHLA has no entry for this verse.
 Move tipeha from under pe to under het.
@@ -118,7 +118,7 @@ BHL has the tipeha under the het after the qamats. BHLA has no entry for this ve
 Change accent from munah to tipeha under the resh.
 The accent under the resh is clearly a tipeha and not a munah.
 BHL has a tipeha under the resh. BHLA has no entry for this verse.
-* Examine the very ambiguous markings under the yod and resh. Add note 't'.
+Examine the very ambiguous markings under the yod and resh. Add note 't'.
 The text is of poor quality with lots of chipped ink in this region. Credible shevas appear under both the lamed and the resh. A very chipped potential qamats then meteg pair might be assumed under the yod. A light, smeared horizontal bar appears under the resh. It is too high to be transcribed as a patah. The current text's qamats then meteg will be retained. A transcription note 't' is added.
 BHL has a qamats then meteg under the yod. It has a sheva under both the lamed and the resh. That is, the BHL does not consider the horizontal bar under the resh to be part of the text. BHLA has a qamats, meteg under the yod and a hataf-patah under the resh. That is, BHLA considers the horizontal bar under the resh to be part of the text.
 Remove patah under the ayin.
@@ -127,13 +127,13 @@ BHL has a patah under the ayin. BHLA has no patah under the ayin.
 Add meteg under yod after the hiriq.
 A meteg is evident under the yod.
 BHL has no meteg under the yod. BHLA has a meteg after the hiriq under the yod.
-* Examine possible dagesh in tav. Add note 't'.
+Examine possible dagesh in tav. Add note 't'.
 The text is chipped in this region. The patah under the ayin is clear. A possible chipped dagesh appears in the tav; however, it is too faint to be transcribed here.
 BHL has a sheva under the ayin and dagesh in the tav. BHLA has a patah under the ayin and dagesh in the tav.
 Change qadma to pashta on kaf.
 The accent above the kaf is on the left side of the consonant.
 BHL has a pashta over the kaf. BHLA has no entry for this verse.
-* Examine accent under first nun. Add note 't'.
+Examine accent under first nun. Add note 't'.
 A light and chipped near-vertical mark is under the nun. It could be either a meteg or a merkha. Add note 't'.
 BHL has a merkha under the first nun. BHLA has no entry for this verse.
 Remove hiriq from under yod.
@@ -192,7 +192,7 @@ BHL has a merkha under the bet and no maqaf at the end of this word. BHLA has no
 Remove dagesh from qof.
 A slight bulge appears at the top of the vertical stem of the qof. It is too slight to be transcribed as a dagesh.
 BHL has a dagesh in the qof. BHLA has no entry for this verse.
-* Add meteg between sheva and patah under the alef. Add ZWJ to force visual ordering to match LC. Add note 't'.
+Add meteg between sheva and patah under the alef. Add ZWJ to force visual ordering to match LC. Add note 't'.
 A slightly curved mark occurs between the sheva and the patah. The comma-like shape of the meteg is a very unusual. The markings below the alef probably mean a hataf-patah vowel with a meteg accent. Other instances of a meteg 'splitting' a hataf vowel occur in the LC.
 BHL has sheva, then meteg, then patah under the alef. BHLA has no entry for this verse.
 Remove munah under zayin. Add accent segol to het.
@@ -202,7 +202,7 @@ A potentially "consensus" pointing for this word pair is munah then segol with t
 Replace mahapakh under resh with darga.
 The darga shape is distinctive.
 BHL has a darga under the resh. BHLA has no entry for this verse.
-* Accents under the bet and alef are uncertain. Add note 't'.
+Accents under the bet and alef are uncertain. Add note 't'.
 Both the bet and alef have vertical bars under them. The bar under the alef is significantly longer. Generally, this would indicate that the bar under the alef is a merkha as in the present text. (This is in contrast to BHL which has a meteg under the alef.)
 BHL has a merkha under the bet and a meteg under the alef. BHLA has no entry for this verse.
 Replace patah under lamed with qamats.
@@ -235,7 +235,7 @@ BHL has a merkha under the kaf. BHLA has no entry for this verse.
 Add pashta to yod.
 A pashta is evident above the yod.
 BHL has a pashta above the yod. BHLA has no entry for this verse.
-* Move meteg below the qof to below the zayin. Add note 't'.
+Move meteg below the qof to below the zayin. Add note 't'.
 The meteg is between the zayin and the qof. Space is available to write the meteg below the qof.
 BHL has the meteg below the qof. BHLA has no entry for this verse.
 Remove qadma over tav; add pashta to he.

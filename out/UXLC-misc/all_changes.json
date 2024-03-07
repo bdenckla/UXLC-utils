@@ -30573,7 +30573,7 @@
       "BHL has no dagesh in the nun and a tsere under the tav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -30603,8 +30603,7 @@
       "Neither a meteg under the dalet nor a dagesh in the yod are apparent in the LC. Ben Denckla: \"... though the tsere and tipeḥa are displaced very \"late,\" we still transcribe them as belonging to the yod, not the alef. They are \"late\" probably not only because of the inherent narrowness of the yod, but also because we see the somewhat-common \"yod nested in nun\" construct here\".",
       "BHL has no meteg under the dalet; it does have a dagesh in the yod. BHLA has no meteg under the dalet and no dagesh in the yod."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel/accent",
     "authors": [
       "Daniel Holman"
@@ -30614,6 +30613,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30634,8 +30634,7 @@
       "This is the second of 3 די in this verse, not counting the initial ודי. A reddish, small, but well-positioned dot appears in the dalet. Because the dalet has a clear rafe mark on the dalet no dagesh will be transcribed. No maqaf appears on this word in the LC.",
       "BHL has a meteg after a hiriq on the dalet and the word ends with a maqaf. No dagesh appears in the dalet. BHLA has meteg after a hiriq in the dalet without a dagesh in the dalet and without a final maqaf."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -30645,6 +30644,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30666,7 +30666,7 @@
       "BHL has a tsere under the dalet. BHLA has a segol under the dalet with a '?' in parentheses."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -30696,8 +30696,7 @@
       "The he has a smudge in its trailing leg. In that smudge is a dot in contact with the interior of the leg that is well-sized and distinct. It will be transcribed as a dagesh.",
       "BHL has a dagesh in the he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -30707,6 +30706,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30727,8 +30727,7 @@
       "A dark, well-formed, slightly off-positioned dagesh is evident in the tet.",
       "BHL has no dagesh in the tet. BHLA has a dagesh in the tet."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -30738,6 +30737,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30758,8 +30758,7 @@
       "A dark and well-positioned dagesh is evident in the tet.",
       "BHL has no dagesh in the tet. BHLA has a dagesh in the tet."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -30769,6 +30768,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30789,8 +30789,7 @@
       "The name בלטשאצר appears 3 times in this verse. Of these 3 instances, word 14 is the second instance and the only one in the LC which has a dagesh in the tet.",
       "BHL has no dagesh in any instance of בלטשאצר in this verse. BHLA has a dagesh in the second (this) instance of the word."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -30800,6 +30799,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30820,8 +30820,7 @@
       "A clear sheva is present under the pe.",
       "BHL has a hiriq under the pe. BHLA has a sheva under the pe."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -30831,6 +30830,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30851,8 +30851,7 @@
       "No dagesh is evident in the vav.",
       "BHL has a dagesh in the vav. BHLA has no dagesh in the vav."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -30862,6 +30861,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30882,8 +30882,7 @@
       "Although the dot in the he is slightly reddish, it is well-sized and well-positioned.",
       "BHL has no dagesh in the he. BHLA has a dagesh in the he."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -30893,6 +30892,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30913,8 +30913,7 @@
       "Although irregular and smeared, the mark under the two dots of the putative tsere is dark and well-positioned.",
       "BHL has a tsere under the yod. BHLA has a segol under the yod."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -30924,6 +30923,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30944,8 +30944,7 @@
       "The trailing lower vertical component of the mem is split. This is likely due to ink fracturing and removal than an intentional added vav.",
       "BHL has no vav after the mem. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -30955,6 +30954,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -30976,7 +30976,7 @@
       "BHL has a patah under the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -31006,8 +31006,7 @@
       "The text quality is poor; however, no plausible dagesh is evident in the he.",
       "BHL has a dagesh in the he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31017,6 +31016,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31038,7 +31038,7 @@
       "BHL has a zaqef-qatan over the bet. BHLA has no entry for this word in this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -31068,8 +31068,7 @@
       "No maqaf is evident in the LC.",
       "BHL has a maqaf at the end of this word. BHLA has no maqaf at the end of this word."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31079,6 +31078,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31099,8 +31099,7 @@
       "The dagesh in the nun is dark, well-sized, and well-positioned.",
       "BHL has no dagesh in the nun. BHLA has a dagesh in the nun."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31110,6 +31109,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31130,8 +31130,7 @@
       "This word is the first of two instances of האיל in the verse. The upper dot of the putative sheva is reddish, but well-sized and well-positioned.",
       "BHL has a hiriq under the yod. BHLA has a sheva under the yod."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31141,6 +31140,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31161,8 +31161,7 @@
       "This word is the second of two instances of האיל in the verse. Evidence of erasure appears over the revia, suggesting it was originally a zaqef-qatan.",
       "BHL has a revia over the alef. BHLA has an entry for the first instance of האיל in this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31172,6 +31171,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31192,8 +31192,7 @@
       "No maqaf is evident at the end of this word. An odd circle does appear under/in the lamed, however.",
       "BHL has no maqaf at the end of this word. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31203,6 +31202,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31223,8 +31223,7 @@
       "The text quality is good. The first yod is fatter in its lower portion than the second yod. Although a slight, blurred protrusion occurs in the first yod in a position appropriate for a dagesh, the overall addition is a blob of ink, not a dagesh.",
       "BHL has no dagesh in the first yod. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -31234,6 +31233,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31254,8 +31254,7 @@
       "This is likely to be poor penmanship. The author suggests that the scribe mis-drew the second letter as a kaf and crudely corrected it to a bet, resulting in a gimel-like leg at the base of the vav. Note that the top of the vav is smeared onto the top of the bet. A gimel is extremely unlikely here.",
       "BHL has an initial vav with a dagesh (acting as a shureq) and meteg followed by a bet with a sheva. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -31265,6 +31264,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31285,8 +31285,7 @@
       "A dark, well-positioned dagesh appears in the he. The text is in good condition here.",
       "BHL has no dagesh in the he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31296,6 +31295,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31316,8 +31316,7 @@
       "The lower dot of the putative segol below the lamed is reddish, but dark and well-positioned.",
       "BHL has a tsere below the lamed. BHLA has a segol below the lamed."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -31327,6 +31326,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31348,7 +31348,7 @@
       "BHL has a vav as the fourth letter. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -31379,7 +31379,7 @@
       "BHL has a tsere below the resh; it has a maqaf after the yod, starting a new word, כן. BHLA has a tsere below the resh; it has a space after the yod, starting a new word, כן."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -31409,8 +31409,7 @@
       "Chipping of the ink has occurred in this word. The lower dot of the vowel beneath the he is light, but well-sized and well-positioned. The other dots of the segol show signs of ink chipping.",
       "BHL has a segol below the he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -31420,6 +31419,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31441,7 +31441,7 @@
       "BHL has a sheva below the vav. BHLA has a sheva below the vav; however, it has a dagesh in the vav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31472,7 +31472,7 @@
       "BHL has an initial yod and a segol under the pe. BHLA has an initial yod and a qamats under the pe."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31502,8 +31502,7 @@
       "No dagesh is evident in the shin.",
       "BHL has a dagesh in the shin. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31513,6 +31512,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31533,8 +31533,7 @@
       "The quality of the text is good around this word. A dark, but ill-positioned, dagesh is in the samekh.",
       "BHL has no dagesh in the samekh. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31544,6 +31543,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31564,8 +31564,7 @@
       "The thin line after the qamats on the first he has the required northeast-to-southwest inclination of a merkha.",
       "BHL has a merkha after the qamats under the first he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31575,6 +31574,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31585,7 +31585,7 @@
     "changeset": "2023.09.13",
     "n": 9,
     "citation": "Ezra 10:24.5",
-    "description": "* Remove dagesh from shin. Add note 't'",
+    "description": "Remove dagesh from shin. Add note 't'",
     "lc": "Folio_454A 1:2",
     "reftext": "הַשֹּׁ֣עֲרִ֔ים",
     "refuni": "he patah shin shin-dot dagesh holam munah ayin hataf-patah resh hiriq zaqef-qatan yod final-mem",
@@ -31596,7 +31596,7 @@
       "BHL has a dagesh in the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31626,8 +31626,7 @@
       "No maqaf is apparent at the end of this word.",
       "BHL has a maqaf at the end of this word. BHLA has no maqaf at the end of this word."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31637,6 +31636,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31658,7 +31658,7 @@
       "BHL has no meteg under the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31688,8 +31688,7 @@
       "The sharp bend in the accent is distinct, making it a munah. The line emerging from the top leading arm of the alef is from a tipeha on the preceding word 8 of this verse.",
       "BHL has a munah under the bet. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31699,6 +31698,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31709,7 +31709,7 @@
     "changeset": "2023.09.14",
     "n": 4,
     "citation": "Neh 2:20.7",
-    "description": "* Change zaqef-qatan over the mem to revia. Add note 't'.",
+    "description": "Change zaqef-qatan over the mem to revia. Add note 't'.",
     "lc": "Folio_455A 1:23",
     "reftext": "הַשָּׁמַ֔יִם",
     "refuni": "he patah shin shin-dot dagesh qamats mem patah zaqef-qatan yod hiriq final-mem",
@@ -31720,7 +31720,7 @@
       "BHL has a zaqef-qatan over the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31750,8 +31750,7 @@
       "The tipeha is clearly under the het.",
       "BHL has the tipeha under the het after the qamats. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31761,6 +31760,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31781,8 +31781,7 @@
       "The accent under the resh is clearly a tipeha and not a munah.",
       "BHL has a tipeha under the resh. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31792,6 +31791,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31802,7 +31802,7 @@
     "changeset": "2023.09.14",
     "n": 7,
     "citation": "Neh 6:19.13",
-    "description": "* Examine the very ambiguous markings under the yod and resh. Add note 't'.",
+    "description": "Examine the very ambiguous markings under the yod and resh. Add note 't'.",
     "lc": "Folio_457B 1:14",
     "reftext": "לְיָֽרְאֵֽנִי׃",
     "refuni": "lamed sheva yod qamats meteg resh sheva alef tsere meteg nun hiriq yod sof-pasuq",
@@ -31813,7 +31813,7 @@
       "BHL has a qamats then meteg under the yod. It has a sheva under both the lamed and the resh. That is, the BHL does not consider the horizontal bar under the resh to be part of the text. BHLA has a qamats, meteg under the yod and a hataf-patah under the resh. That is, BHLA considers the horizontal bar under the resh to be part of the text."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -31843,8 +31843,7 @@
       "No patah is evident under the ayin.",
       "BHL has a patah under the ayin. BHLA has no patah under the ayin."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -31854,6 +31853,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31874,8 +31874,7 @@
       "A meteg is evident under the yod.",
       "BHL has no meteg under the yod. BHLA has a meteg after the hiriq under the yod."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31885,6 +31884,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31895,7 +31895,7 @@
     "changeset": "2023.09.14",
     "n": 10,
     "citation": "Neh 9:14.4",
-    "description": "* Examine possible dagesh in tav. Add note 't'.",
+    "description": "Examine possible dagesh in tav. Add note 't'.",
     "lc": "Folio_459B 1:26",
     "reftext": "הוֹדַ֣עַתָ",
     "refuni": "he vav holam dalet patah munah ayin patah tav qamats",
@@ -31906,7 +31906,7 @@
       "BHL has a sheva under the ayin and dagesh in the tav. BHLA has a patah under the ayin and dagesh in the tav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -31936,8 +31936,7 @@
       "The accent above the kaf is on the left side of the consonant.",
       "BHL has a pashta over the kaf. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -31947,6 +31946,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -31957,7 +31957,7 @@
     "changeset": "2023.09.14",
     "n": 12,
     "citation": "Neh 12:47.7",
-    "description": "* Examine accent under first nun. Add note 't'.",
+    "description": "Examine accent under first nun. Add note 't'.",
     "lc": "Folio_462A 3:26",
     "reftext": "נֹֽתְנִ֛ים",
     "refuni": "nun holam meteg tav sheva nun hiriq tevir yod final-mem",
@@ -31968,7 +31968,7 @@
       "BHL has a merkha under the first nun. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -31998,8 +31998,7 @@
       "No hiriq is apparent under the yod.",
       "BHL has a hiriq under the yod. BHLA has no hiriq under the yod."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32009,6 +32008,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32029,8 +32029,7 @@
       "No dagesh is apparent in the shin.",
       "BHL has a dagesh in the shin. BHLA has no dagesh in the shin."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32040,6 +32039,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32060,8 +32060,7 @@
       "A light dot appears in the appropriate place in the shin.",
       "BHL has a dagesh in the shin. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -32071,6 +32070,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32091,8 +32091,7 @@
       "No hint of a dagesh is present in the shin.",
       "BHL has a dagesh in the shin. BHLA has no dagesh in the shin."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32102,6 +32101,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32122,8 +32122,7 @@
       "No hint of a dagesh appears in the shin.",
       "BHL has a dagesh in the shin. BHLA has no dagesh in the shin."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32133,6 +32132,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32153,8 +32153,7 @@
       "No patah is evident under the he.",
       "BHL has a patah under the he. BHLA has no patah under the he."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32164,6 +32163,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32184,8 +32184,7 @@
       "The Sefaria image is cropped, the line reference above is for the cropped image. This is the second of two לבית in this verse. No maqaf is evident for this, the second לבית in the verse.",
       "BHL has no maqaf on this word. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32195,6 +32194,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32215,8 +32215,7 @@
       "No dagesh is apparent in the first yod.",
       "BHL has a dagesh in the first yod. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32226,6 +32225,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32246,8 +32246,7 @@
       "No dagesh is apparent in the first yod. The upper leg of the lamed on the following line is unlikely to contain a dagesh.",
       "BHL has a dagesh in the first yod. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32257,6 +32256,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32277,8 +32277,7 @@
       "The munah is under the second vav, probably because of the tail in the ayin. With care, the munah could have been placed under the first vav and ayin tail.",
       "BHL has a munah under the first vav. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32288,6 +32287,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32309,7 +32309,7 @@
       "BHL has no dagesh in the final vav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -32339,8 +32339,7 @@
       "No dagesh is apparent in the nun.",
       "BHL has no dagesh in the nun. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32350,6 +32349,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32370,8 +32370,7 @@
       "No dagesh is apparent in the first shin.",
       "BHL has a dagesh in both shins. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32381,6 +32380,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32400,8 +32400,7 @@
     "notes": [
       "BHL has a hataf-patah under the het. BHLA has a patah under the het."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -32411,6 +32410,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32431,8 +32431,7 @@
       "No maqaf is evident at the end of this word. The word is the last on the line; however, a maqaf is usually inserted if the text requires it.",
       "BHL has no maqaf at the end of this word. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32442,6 +32441,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32462,8 +32462,7 @@
       "The mark above the final kaf is not sufficiently to the left (postfix) to be transcribed as a pashta.",
       "BHL has a clear qadma over the final kaf. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32473,6 +32472,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32493,8 +32493,7 @@
       "Under the first kaf the sheva is followed by a bar. This bar is slightly lighter, but appears to be deliberate and unerased. Hence the vowel will be transcribed as a hataf-patah.",
       "BHL has a hataf-patah under the first kaf. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32504,6 +32503,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32524,8 +32524,7 @@
       "The image shows both this word, word 5, and its successor. The vertical accent under the bet has a very slight tail to the left. It also has a very slight northeast-to-southwest inclination. Thus it will be transcribed as a merkha. No maqaf appears at the end of this word, word 5.",
       "BHL has a merkha under the bet and no maqaf at the end of this word. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32535,6 +32534,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32555,8 +32555,7 @@
       "A slight bulge appears at the top of the vertical stem of the qof. It is too slight to be transcribed as a dagesh.",
       "BHL has a dagesh in the qof. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32566,6 +32565,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32576,7 +32576,7 @@
     "changeset": "2023.09.16",
     "n": 2,
     "citation": "2Chr 6:29.12",
-    "description": "* Add meteg between sheva and patah under the alef. Add ZWJ to force visual ordering to match LC. Add note 't'.",
+    "description": "Add meteg between sheva and patah under the alef. Add ZWJ to force visual ordering to match LC. Add note 't'.",
     "lc": "Folio_347B 3:12",
     "reftext": "אֲשֶׁ֣ר",
     "refuni": "alef hataf-patah shin shin-dot segol munah resh",
@@ -32587,7 +32587,7 @@
       "BHL has sheva, then meteg, then patah under the alef. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel/accent",
     "authors": [
       "Daniel Holman"
@@ -32618,8 +32618,7 @@
       "BHL has no munah under the zayin; it has an accent segol on the het. On the next word BHL has a revia over the qof. BHLA has no entry for this verse.",
       "A potentially \"consensus\" pointing for this word pair is munah then segol with the munah under the zayin of the first word and a segol over the resh of the second word. Of interest are the erasure splotches in the image under the zayin of the first word and over the resh of the second word. This suggests a delibrate correction of the LC by a scribe contrary to the \"consensus\" pointing. BHL, as expected, reflects the actual LC pointing of both words. BHS has a munah then revia pointing of the two words; agreeing with the \"consensus\" on the first word and the LC on the second. The pre-change UXLC pointing of the first word with a munah under the zayin and a revia over the resh probably reflects the pointing of the BHS from which the WLC was transcribed."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32629,6 +32628,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": "zayin segol bet patah het segol-accent",
     "changeuni_erbs": false,
@@ -32649,8 +32649,7 @@
       "The darga shape is distinctive.",
       "BHL has a darga under the resh. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32660,6 +32659,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32670,7 +32670,7 @@
     "changeset": "2023.09.16",
     "n": 5,
     "citation": "2Chr 8:11.26",
-    "description": "* Accents under the bet and alef are uncertain. Add note 't'.",
+    "description": "Accents under the bet and alef are uncertain. Add note 't'.",
     "lc": "Folio_349A 2:3",
     "reftext": "בָּֽאָ֥ה",
     "refuni": "bet dagesh qamats meteg alef qamats merkha he",
@@ -32681,7 +32681,7 @@
       "BHL has a merkha under the bet and a meteg under the alef. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Daniel Holman"
@@ -32711,8 +32711,7 @@
       "A qamats under the lamed is evident.",
       "BHL has a qamats under the lamed. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -32722,6 +32721,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32742,8 +32742,7 @@
       "The geresh is evident on the alef.",
       "BHL has a geresh over the ayin. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32753,6 +32752,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32773,8 +32773,7 @@
       "The mark under the nun is a tipeha. This is the first of three consecutive words being changed. Taken together, they change the accent pattern on the words from merkha-tipeha-merkha to tipeha-merkha-meteg.",
       "BHL has a tipeha under the nun. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32784,6 +32783,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32804,8 +32804,7 @@
       "The near-vertical line under the pe has a slight curvature to the left at its lower end; hence a merkha will be transcribed. This is the second of three consecutive words being changed. Taken together, they change the accent pattern on the words from merkha-tipeha-merkha to tipeha-merkha-meteg.",
       "BHL has a tipeha under the pe. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32815,6 +32814,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32835,8 +32835,7 @@
       "The near-vertical lacks the northeast-to-southwest inclination of a merkha; it is transcribed as a meteg. This is the third of three consecutive words being changed. Taken together, they change the accent pattern on the words from merkha-tipeha-merkha to tipeha-merkha-meteg.",
       "BHL has a meteg under the mem. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32846,6 +32845,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32866,8 +32866,7 @@
       "The etnachta is midway between the first and second bets.",
       "BHL has the etnachta under the second bet. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -32877,6 +32876,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32897,8 +32897,7 @@
       "The accent under the nun is clearly an etnachta.",
       "BHL has hiriq then tipeha under the nun. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32908,6 +32907,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32928,8 +32928,7 @@
       "The accent under the resh is open to the right as expected of a mahapakh. A munah (the current text) would be open to the left.",
       "BHL has a hiriq then munah under the resh. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32939,6 +32938,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32959,8 +32959,7 @@
       "The near-vertical bar under the kaf has a very slight northeast-to-southwest inclination and is longer than a typical meteg. The interior of the lamed has an erasure that touches small portions of the lamed and yod.",
       "BHL has a merkha under the kaf. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -32970,6 +32969,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -32990,8 +32990,7 @@
       "A pashta is evident above the yod.",
       "BHL has a pashta above the yod. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33001,6 +33000,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33011,7 +33011,7 @@
     "changeset": "2023.09.16",
     "n": 16,
     "citation": "2Chr 28:20.10",
-    "description": "* Move meteg below the qof to below the zayin. Add note 't'.",
+    "description": "Move meteg below the qof to below the zayin. Add note 't'.",
     "lc": "Folio_359B 3:8",
     "reftext": "חֲזָקֽוֹ׃",
     "refuni": "het hataf-patah zayin qamats qof meteg vav holam sof-pasuq",
@@ -33022,7 +33022,7 @@
       "BHL has the meteg below the qof. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33052,8 +33052,7 @@
       "The accent is clearly above the he; it is distinctly postfix and is therefore a pashta.",
       "BHL has a qadma over the tav. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33063,6 +33062,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33083,8 +33083,7 @@
       "The sheva component of the hataf-patah is clear.",
       "BHL has a patah under the first he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -33094,6 +33093,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33114,8 +33114,7 @@
       "The tevir is evident.",
       "BHL has a tevir under the pe. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33125,6 +33124,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33145,8 +33145,7 @@
       "The telisha-qetana over the resh is evident. A slightly lighter and higher circle appears over the mem-ayin pair. This is a masorah circle and isn't transcribed here.",
       "BHL has a telisha-qetana only over the he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33156,6 +33155,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33176,8 +33176,7 @@
       "The accent under the mark is not squiggly like a darga. It might be a merkha, but it has no northeast-to-southwest inclination and is short. It will be transcribed as a meteg.",
       "BHL has a darga under the resh. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33187,6 +33186,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33207,8 +33207,7 @@
       "A smudge appears above the clear dot above the he. The smudge is very diffuse and too far to the right to be associated with the dot as a part of a zaqef-qatan.",
       "BHL has a revia over the he. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33218,6 +33217,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33239,7 +33239,7 @@
       "BHL has a dagesh in the tsadi. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -33269,8 +33269,7 @@
       "No dagesh is apparent in the shin.",
       "BHL has no dagesh in the shin. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Daniel Holman"
@@ -33280,6 +33279,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33300,8 +33300,7 @@
       "The text is of good quality and clearly shows a meteg under the vav.",
       "BHL has a meteg under the vav. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33311,6 +33310,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33331,8 +33331,7 @@
       "The mark over the bet might be taken as either a holam or pashta; it can't be both. The connection between the black (presumably holam) dot and the bet is faint, making a pashta unlikely. No pashta is over the tav. It will be removed.",
       "BHL has a holam on the bet and a first pashta over the tav. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Daniel Holman"
@@ -33342,6 +33341,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33362,8 +33362,7 @@
       "A faint vertical line appears under the dalet. It is much lighter than any other parts of this word and appears to be an erasure. The 6-th word of following verse, Deut 17:10.6, יגידו, has a clear meteg under the dalet. The scribe may have mistaken which word he was accenting, written a meteg on this word, discovered his error, and erased the erroneous meteg.",
       "BHL has no meteg under the dalet; Deut 17:10.6 has a meteg under the dalet. BHLA has no entry for this verse or for Deut 17:10."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Daniel Holman"
@@ -33373,6 +33372,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33394,7 +33394,7 @@
       "BHL has a maqaf after the first nun (ן) in the ketiv; it has no maqaf and sheva on the first nun (נ) in the qere. BHLA has a maqaf after the first nun (ן) in the ketiv; it has no maqaf and no sheva on the first nun (נ) in the qere. Both BHL and BHLA effectively consider the final nun (ן) and maqaf in the LC body text to be part of the ketiv."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -33425,7 +33425,7 @@
       "BHL agrees with the UXLC text in both the qere and ketiv variants. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -33456,7 +33456,7 @@
       "BHL agrees with this change in both the qere and ketiv. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -33486,8 +33486,7 @@
       "The image is the LC body text which consists of the ketiv consonants, מן־בת־ (2 words), with the qere pointing. The qere consonants, מבת, appear to the left of the column. Words 2, 3, 4 of the UXLC represent both the LC body text and the qere consonants; words 3, 4 contain the ketiv variants for this image; UXLC word 2 is the first ketiv variant, shown in the Reference/Change above. No maqaf is present between the final nun and the following bet in the image. This change removes the maqaf from the UXLC ketiv word in position 2, מן־ .",
       "BHL agrees with this change in both the qere and ketiv. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -33497,6 +33496,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33517,8 +33517,7 @@
       "No change to the text should be apparent.",
       "BHL has the same text. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": null,
     "authors": [
       "Ben Denckla"
@@ -33528,6 +33527,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33548,8 +33548,7 @@
       "No change to the text should be apparent.",
       "BHL has the same text. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": null,
     "authors": [
       "Ben Denckla"
@@ -33559,6 +33558,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33579,8 +33579,7 @@
       "No change to the text should be apparent.",
       "BHL has the same text. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": null,
     "authors": [
       "Ben Denckla"
@@ -33590,6 +33589,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33610,8 +33610,7 @@
       "No change to the text should be apparent.",
       "BHL has the same text. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": null,
     "authors": [
       "Ben Denckla"
@@ -33621,6 +33620,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33641,8 +33641,7 @@
       "No change to the text should be apparent.",
       "BHL has the same text. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": null,
     "authors": [
       "Ben Denckla"
@@ -33652,6 +33651,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33672,8 +33672,7 @@
       "No change to the text should be apparent.",
       "BHL has the same text. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": null,
     "authors": [
       "Ben Denckla"
@@ -33683,6 +33682,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33703,8 +33703,7 @@
       "This change appears in Changes file 2023.10.19 - 2023.08.10 - 3, but was not implemented due to error. No dagesh is apparent in the shin.",
       "BHL has a dagesh in the shin. BHLA has no dagesh in the shin."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -33714,6 +33713,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33734,8 +33734,7 @@
       "This word is the first qere component of a two word qere, עַל־כֵּ֥ן. The two qere words are part of qere-without-ketiv variant, where the second qere word, כֵּ֥ן, has no matching ketiv word. The tsere, merkha pointings under the lamed belong to the second qere whose letters, כן, are shown in the left margin along with the Masoretic note: qere and no ketiv.",
       "BHL has a maqaf at the end of this word. BHLA has no maqaf at the end of this word."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -33745,6 +33744,7 @@
     "aBHLA": true,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33766,7 +33766,7 @@
       "BHL has the etnachta under the nun. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -33796,8 +33796,7 @@
       "The letters in the LC body text shown in the image are for the ketiv; they have the vav preceding the yod. The word in question is the qere variant and its letters are shown in the margin of the LC; they're in the expected yod then vav order. In the body text image above the meteg (acting as a siluq) is clearly under the ketiv vav (the qere yod) and not the nun. Hence, in the qere the meteg belongs under the yod. Here the writer has carefully displaced the meteg away from the foot of the nun to avoid confusion.",
       "BHL has the meteg under the yod. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -33807,6 +33806,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": null,
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33827,8 +33827,7 @@
       "The meteg is under the patah on the first vav. The mark is not from the line below. Thus, the meteg belongs to the vav, not the yod. The CGJ under the yod is no longer necessary and has been removed.",
       "BHL has the meteg after the first patah under the first vav. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -33838,6 +33837,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": "vav patah yod dagesh meteg combining-grapheme-joiner patah ayin hataf-patah lamed tipeha vav dagesh",
     "changeuni_gen": null,
     "changeuni_erbs": false,
@@ -33858,8 +33858,7 @@
       "The meteg is under the patah on the first vav. The mark is not from the line below. Thus, the meteg belongs to the vav, not the yod. The CGJ under the yod is no longer necessary and has been removed.",
       "BHL has the meteg after the first patah under the first vav. BHLA has no entry for this verse."
     ],
-    "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -33869,6 +33868,7 @@
     "aBHLA": null,
     "D2T": null,
     "T2D": null,
+    "transnotes": null,
     "refuni_gen": "vav patah yod dagesh meteg combining-grapheme-joiner patah ayin hataf-patah shin sin-dot tipeha vav dagesh",
     "changeuni_gen": null,
     "changeuni_erbs": false,
