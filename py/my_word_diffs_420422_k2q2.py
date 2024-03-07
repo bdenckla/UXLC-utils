@@ -25,10 +25,19 @@ def _html_for_kq(kq):
     return kq[0], my_html.line_break(), kq[1]
 
 
+def _k2q2_table_row_of_headers():
+    return my_html.table_row([
+        my_html.table_header(''),
+        my_html.table_header(''),
+        my_html.table_header('manuscript'),
+    ])
+
+
 def _k2q2_table_row(k2q2rec):
     return my_html.table_row([
         my_html.table_datum(_html_for_bcv_str_wlt_tdu(k2q2rec['bcv-str'])),
         my_html.table_datum(_html_for_kq(k2q2rec['kq-strs']), {'class': 'big'}),
+        my_html.table_datum(k2q2rec['manuscript']),
     ])
 
 
@@ -81,6 +90,7 @@ _K2Q2REC_EZEK = {
     'kq-strs': ('ומתחתה לשכות', 'וּמִתַּ֖חַת הַלְּשָׁכ֣וֹת'),
     'pcl': ('299B', 3, 22),
     'img': 'Ezek42v9.png',
+    'manuscript': 'supports WLC’s k2q2',
     'intro': [
         'In the case of Ezekiel 42:9, we find that the manuscript supports WLC’s k2q2 grouping'
     ],
@@ -90,6 +100,7 @@ _K2Q2REC_SND_SAM = {
     'kq-strs': ('שם הפלשתים', 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים'),
     'pcl': ('181B', 2, 12),
     'img': '2Sam21c12.png',
+    'manuscript': ['supports k2q2+k1q1', my_html.line_break(), 'rather than WLC’s k1q1+k2q2'],
     'intro': [
         'But in the case of 2 Samuel 21:12, we find that the manuscript does not support WLC’s k2q2 grouping. '
         'Rather, it supports a different k2q2 grouping than that found in WLC! '
@@ -101,6 +112,7 @@ _K2Q2REC_FST_KGS = {
     'kq-strs': ('הוא־והיא', 'הִיא־וָה֛וּא'),
     'pcl': ('197B', 3, 24),
     'img': '1Kings17v15.png',
+    'manuscript': ['supports k1q1×2', my_html.line_break(), 'rather than WLC’s k2q2'],
     'intro': [
         'In the case of 1 Kings 17:15, we find that the manuscript does not support WLC’s k2q2 grouping'
     ],
@@ -110,6 +122,7 @@ _K2Q2REC_FST_SAM = {
     'kq-strs': ('לו־עשה', 'לֹֽא־יַעֲשֶׂ֨ה'),
     'pcl': ('161B', 2, 17),
     'img': '1Sam20v2.png',
+    'manuscript': 'supports WLC’s k2q2',
     'intro': [
         'In the case of 1 Sam 20:2, we find that the manuscript supports WLC’s k2q2 grouping'
     ],
@@ -119,6 +132,7 @@ _K2Q2REC_ISAIAH = {
     'img': 'Isaiah52v5.png',
     'kq-strs': ('מי־לי־', 'מַה־לִּי־'),
     'pcl': ('240B', 3, 3),
+    'manuscript': 'supports WLC’s k2q2',
     'intro': [
         'In the case of Isaiah 52:5, we find that the manuscript supports WLC’s k2q2 grouping. '
         'It is slightly surprising that this k/q is framed as a k2q2 at all, since the second word '
@@ -131,6 +145,7 @@ _K2Q2REC_JOB_38V12 = {
     'img': 'Job38v12.png',
     'kq-strs': ('ידעתה שחר', 'יִדַּ֖עְתָּה הַשַּׁ֣חַר'),
     'pcl': ('408A', 2, 17),
+    'manuscript': 'supports WLC’s k2q2',
     'intro': [
         'In the case of Job 38:12, we find that the manuscript supports WLC’s k2q2 grouping'
     ],
@@ -140,6 +155,7 @@ _K2Q2REC_JOB_38V01 = {
     'img': 'Job38v1.png',
     'kq-strs': ('מנ הסערה', 'מִ֥ן ׀ הַסְּעָרָ֗ה'),
     'pcl': ('408A', 2, 5),
+    'manuscript': ['supports k1q2', my_html.line_break(), 'rather than WLC’s k2q2'],
     'intro': _JOB_38_1_and_40_6_INTRO,
 }
 _K2Q2REC_JOB_40 = {
@@ -147,6 +163,7 @@ _K2Q2REC_JOB_40 = {
     'img': 'Job40v6.png',
     'kq-strs': ('מנ סערה', 'מִ֥ן ׀ סְעָרָ֗ה'),
     'pcl': ('408B', 2, 13),
+    'manuscript': ['supports k1q2', my_html.line_break(), 'rather than WLC’s k2q2'],
     'intro': ['Here is the manuscript image for Job 40:6'],
 }
 EZRA_4_12 = [
@@ -184,12 +201,12 @@ EZRA_4_12 = [
         ]),
         my_html.table_row([
             my_html.table_datum(rmn('ketiv')),
-            my_html.table_datum('ושורי אשכללו'),
+            my_html.table_datum('ושורי אשכללו', {'class': 'big'}),
             my_html.table_datum('before the א'),
         ]),
         my_html.table_row([
             my_html.table_datum(rmn('qere')),
-            my_html.table_datum('ושוריא שכלילו'),
+            my_html.table_datum('וְשׁוּרַיָּ֣א שַׁכְלִ֔ילוּ', {'class': 'big'}),
             my_html.table_datum('after the א'),
         ])
     ]),
@@ -236,6 +253,7 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
+        _k2q2_table_row_of_headers(),
         _k2q2_table_row(_K2Q2REC_EZEK),
         _k2q2_table_row(_K2Q2REC_SND_SAM),
     ]),
@@ -266,6 +284,7 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
+        _k2q2_table_row_of_headers(),
         _k2q2_table_row(_K2Q2REC_FST_KGS),
         _k2q2_table_row(_K2Q2REC_FST_SAM),
         _k2q2_table_row(_K2Q2REC_ISAIAH),
