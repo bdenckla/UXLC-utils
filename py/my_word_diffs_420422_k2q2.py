@@ -36,7 +36,7 @@ def _k2q2_table_row_of_headers():
 def _k2q2_table_row(k2q2rec):
     return my_html.table_row([
         my_html.table_datum(_html_for_bcv_str_wlt_tdu(k2q2rec['bcv-str'])),
-        my_html.table_datum(_html_for_kq(k2q2rec['kq-strs']), {'class': 'big'}),
+        my_html.table_datum(_html_for_kq(k2q2rec['kq-strs']), _HBO_RTL_BIG),
         my_html.table_datum(k2q2rec['manuscript']),
     ])
 
@@ -51,7 +51,7 @@ def _intro_and_img(k2q2rec):
         my_html_for_img.html_for_single_img(k2q2rec['img'])
     ]
 
-
+_HBO_RTL_BIG = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
 _GAYA_PAREN_METEG = [rmn('gaʿya'), ' (', rmn('meteg'), ')']
 _JOB_38_1_and_40_6_PARAS = [
     my_html.para([
@@ -207,12 +207,12 @@ EZRA_4_12 = [
         ]),
         my_html.table_row([
             my_html.table_datum(rmn('ketiv')),
-            my_html.table_datum('ושורי אשכללו', {'class': 'big'}),
+            my_html.table_datum('ושורי אשכללו', _HBO_RTL_BIG),
             my_html.table_datum('before the א'),
         ]),
         my_html.table_row([
             my_html.table_datum(rmn('qere')),
-            my_html.table_datum('וְשׁוּרַיָּ֣א שַׁכְלִ֔ילוּ', {'class': 'big'}),
+            my_html.table_datum('וְשׁוּרַיָּ֣א שַׁכְלִ֔ילוּ', _HBO_RTL_BIG),
             my_html.table_datum('after the א'),
         ])
     ]),
@@ -305,6 +305,26 @@ EZRA_4_12 = [
     *_JOB_38_1_and_40_6_PARAS,
     *_intro_and_img(_K2Q2REC_JOB_38V01),
     *_intro_and_img(_K2Q2REC_JOB_40),
+    my_html.para(
+        [
+            'Having completed our review of k2q2 in WLC, we can say that some are '
+            'supported by the manuscript, and some are not. '
+            'I would urge WLC, in future versions, to use k2q2 only when supported by the manuscript.'
+        ]
+    ),
+    my_html.para(
+        [
+            'It would be nice to also review all cases of multiple adjacent k1q1 to see if all of them '
+            'are supported by the manuscript. '
+            'I wonder whether, for example, some instances of k1q1×2 in WLC should in fact be represented as k2q2. '
+            'I do not propose to do this (possibly rather large) survey at the moment, but one problematic case has, '
+            'almost accidentally, come to my attention, and I will discuss it here. That cases is a k1q1×3 in 2 Samuel 5:2:'
+        ]
+    ),
+    my_html.table([
+        my_html.table_row(my_html.table_datum('הייתה מוציא והמבי', _HBO_RTL_BIG)),
+        my_html.table_row(my_html.table_datum('הָיִ֛יתָ הַמּוֹצִ֥יא וְהַמֵּבִ֖יא', _HBO_RTL_BIG))
+    ]),
     my_html.para(
         [
             'Finally, we should admit that ', rmn('qere'), ' grouping '

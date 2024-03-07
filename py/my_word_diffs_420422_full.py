@@ -12,12 +12,12 @@ def write(io_records):
         io_record['path-to-full'] = _write_record(io_record)
 
 
-_HBO_RTL = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
+_HBO_RTL_BIG = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
 
 
 def _make_key_value_row(key, value, big_hbo=False):
     cell_for_key = my_html.table_datum(key)
-    attr = _HBO_RTL if big_hbo else None
+    attr = _HBO_RTL_BIG if big_hbo else None
     cell_for_value = my_html.table_datum(value, attr)
     return my_html.table_row([cell_for_key, cell_for_value])
 
