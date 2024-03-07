@@ -199,6 +199,11 @@ def span(contents, attr=None):
     return htel_mk_inline('span', attr, contents)
 
 
+def code(contents, attr=None):
+    """ Make a <code> element. """
+    return htel_mk_inline('code', attr, contents)
+
+
 def span_c(contents, the_class=None):
     """ Make a <span> element, given a value for the "class" attr. """
     return span(contents, the_class and {'class': the_class})

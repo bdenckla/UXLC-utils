@@ -44,14 +44,28 @@ def _intro_and_img(k2q2rec):
 
 
 _GAYA_PAREN_METEG = [rmn('gaʿya'), ' (', rmn('meteg'), ')']
-_JOB_38_1_and_40_6 = [
+_JOB_38_1_and_40_6_PARA = my_html.para([
     'In the cases of Job 38:1 and 40:6, '
-    'we find that the manuscript supports a k1q2 grouping rather than WLC’s k2q2 grouping. '
+    'we find that '
+    'while the manuscript supports WLC’s grouping of the two ', rmn('qere'), ' words together, '
+    'the manuscript does not support WLC’s treatment of the ', rmn('ketiv'), ' letters '
+    'as a single word. '
+    'In other words, the manuscript would support a k1q2 rather than k2q2 grouping. '
     'In both 38:1 and 40:6, '
     'the ', rmn('paseq'), ' after the ', rmn('nun'), ' '
     'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
     'as splitting the ', rmn('ketiv'), ' into two words. '
-    'Note that, extraordinarily, the scribe has reiterated some of the pointing of the ', rmn('ketiv'), ' '
+    'I find it surprising and unfortunate that WLC went to the trouble of devoting a special bracket note, ',
+    my_html.code(']M'), ', '
+    'to these cases, rather than scrutinizing these cases and realizing that there is only a mistake in transcription, '
+    'not an anomaly in the manuscript. '
+    'Here the WLC transcription has a little more work to do than usual because, as with all k/q, WLC is '
+    'converting (in this case incorrectly) '
+    'from BHS’ pointed-ketiv, unpointed-qere representation to the opposite representation. '
+])
+_JOB_38_1_and_40_6_INTRO = [
+    'Note that, extraordinarily, in Job 38:1 and 40:6, '
+    'the scribe has reiterated some of the pointing of the ', rmn('ketiv'), ' '
     'on the ', rmn('qere'), ' letters, '
     'pointing the מן of the ', rmn('qere'), ' with ',
     rmn('ḥiriq'), ', ',
@@ -106,7 +120,10 @@ _K2Q2REC_ISAIAH = {
     'kq-strs': ('מי־לי־', 'מַה־לִּי־'),
     'pcl': ('240B', 3, 3),
     'intro': [
-        'In the case of Isaiah 52:5, we find that the manuscript supports WLC’s k2q2 grouping'
+        'In the case of Isaiah 52:5, we find that the manuscript supports WLC’s k2q2 grouping. '
+        'It is slightly surprising that this k/q is framed as a k2q2 at all, since the second word '
+        'of both qere and ketiv is לי, i.e. there is no variation in the second word. '
+        'Here is the manuscript image'
     ],
 }
 _K2Q2REC_JOB_38V12 = {
@@ -123,7 +140,7 @@ _K2Q2REC_JOB_38V01 = {
     'img': 'Job38v1.png',
     'kq-strs': ('מנ הסערה', 'מִ֥ן ׀ הַסְּעָרָ֗ה'),
     'pcl': ('408A', 2, 5),
-    'intro': _JOB_38_1_and_40_6,
+    'intro': _JOB_38_1_and_40_6_INTRO,
 }
 _K2Q2REC_JOB_40 = {
     'bcv-str': 'Job40:6',
@@ -145,7 +162,9 @@ EZRA_4_12 = [
         [
             'My guess is that the impulse behind this change is '
             'that we are primarily dealing with a word boundary issue here, '
-            'so a k2q2 seems more appropriate than k1q1×2. '
+            'so a single k2q2 seems more appropriate than '
+            'two adjacent k1q1 constructs, '
+            'a configuration we sometimes abbreviate as k1q1×2. '
             '(There is a ',
             rmn('ḥaser/malei'),
             ' issue later in the second word, '
@@ -179,7 +198,7 @@ EZRA_4_12 = [
             'Because we are primarily dealing with a word boundary issue, '
             'it is an understandable impulse to group these 4 words into a single k2q2 construct '
             '(which is what WLC 4.22 now has) '
-            'rather than group them into a k1q1×2 (two adjacent k1q1 constructs) '
+            'rather than group them into two adjacent k1q1 constructs. '
             '(which is what WLC 4.20 had). '
             'The table below shows what these two grouping strategies look like in Michigan-Claremont terms.',
         ]
@@ -204,7 +223,7 @@ EZRA_4_12 = [
         [
             'Although the impulse is understandable, it is not consistent with the diplomatic spirit of '
             'WLC to allow such an impulse to override what we see in the manuscript. '
-            'What we see in the manuscript is the choice to treat these words as k1q1×2: '
+            'What we see in the manuscript is the choice to group these words into '
             'two adjacent k1q1 constructs. '
             'BHS and BHQ agree with the manuscript, though of course we’d be willing to reject their '
             'reading if it contradicted the manuscript.'
@@ -258,6 +277,7 @@ EZRA_4_12 = [
     *_intro_and_img(_K2Q2REC_FST_SAM),
     *_intro_and_img(_K2Q2REC_ISAIAH),
     *_intro_and_img(_K2Q2REC_JOB_38V12),
+    _JOB_38_1_and_40_6_PARA,
     *_intro_and_img(_K2Q2REC_JOB_38V01),
     *_intro_and_img(_K2Q2REC_JOB_40),
     my_html.para(
@@ -283,7 +303,9 @@ EZRA_4_12 = [
             'I.e. the consensus is that ', rmn('gaʿya'), ' placment '
             'was left up to scribal discretion. '
             'Still, at the time, perhaps it was the right decision for BHS to err on the safe side by preserving '
-            '', rmn('gaʿya'), ' placement.'
+            '', rmn('gaʿya'), ' placement. '
+            'I urge WLC to follow this example and '
+            'err on the safe side by preserving ', rmn('qere'), ' grouping. '
         ]
     ),
 ]
