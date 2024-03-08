@@ -56,6 +56,10 @@ def _intro_and_img(k2q2rec):
         my_html_for_img.html_for_single_img(k2q2rec['img'])
     ]
 
+_SND_SAM_5_2_VMG_ARCHIVE_DOT_ORG_URL = (
+    'https://archive.org/details/The_Second_Rabbinic_Bible_Vol_2/page/n202/mode/1up?view=theater'
+)
+_SND_SAM_5_2_VMG_ARCHIVE_DOT_ORG_ANC = my_html.anchor('full page', {'href': _SND_SAM_5_2_VMG_ARCHIVE_DOT_ORG_URL})
 _HBO_RTL_BIG = {'lang': 'hbo', 'dir': 'rtl', 'class': 'big'}
 _GAYA_PAREN_METEG = [rmn('gaʿya'), ' (', rmn('meteg'), ')']
 _JOB_38_1_and_40_6_PARAS = [
@@ -184,10 +188,20 @@ _BKM_REC_SND_SAM_5_2 = {
     'pcl': ('171A', 1, 20),
     'manuscript': ['supports ∅+k1q1×2', my_html.line_break(), 'rather than WLC’s k1q1×3'],
     'intro': [
-        'In WLC, the k/q differences of the first two words are about a word boundary, '
+        'In WLC’s 2 Samuel 5:2, the k/q differences of the first two words are about a word boundary, '
         'but the manuscript does not support that. '
         'Indeed the first k1q1 in WLC, הייתה/היית, '
         'corresponds to a normal word in the manuscript, as the following image shows'
+    ]
+}
+_BKM_REC_PROV_21_29 = {
+    'bcv-str': 'Prov21:29',
+    'img': 'Prov21v29.png',
+    'kq-strs': ('יכין דרכיו', 'יָבִ֬ין דַּרְכּֽוֹ׃'),
+    'pcl': ('417A', 1, 14),
+    'manuscript': ['supports k2q2', my_html.line_break(), 'rather than WLC’s k1q1×2'],
+    'intro': [
+        'Here is the image for Proverbs 21:29'
     ]
 }
 EZRA_4_12 = [
@@ -315,19 +329,16 @@ EZRA_4_12 = [
             'It would be nice to also review all cases of multiple adjacent k1q1 in WLC to see if all of them '
             'are supported by the manuscript. '
             'I wonder whether, for example, some instances of k1q1×2 in WLC should in fact be represented as k2q2. '
-            'I do not propose to do this (possibly rather large) survey at the moment, but one problematic case has, '
-            'almost accidentally, come to my attention, and I will discuss it here. ',
-            my_html.span(
-                'That problematic case is the following k1q1×3 in 2 Samuel 5:2:',
-                {'id': 'SndSam5v2'}
-            )
+            'I do not propose to do this (possibly rather large) survey at the moment, but '
+            'I will discuss two cases here.'
         ]
     ),
     my_html.table([
         _bkm_table_row_of_headers(),
+        _bkm_table_row(_BKM_REC_PROV_21_29),
         _bkm_table_row(_BKM_REC_SND_SAM_5_2),
-        #_bkm_table_row(_BKM_REC_PROV_21_29),
     ]),
+    *_intro_and_img(_BKM_REC_PROV_21_29),
     *_intro_and_img(_BKM_REC_SND_SAM_5_2),
     my_html.para([
         'In other words the manuscript considers the ה of the ', rmn('qere'), ' המוציא ',
@@ -355,12 +366,30 @@ EZRA_4_12 = [
         my_html_for_img.html_for_single_img('2Sam5v2-Aleppo.png')
     ]),
     my_html.para([
-        'So we could say that WLC represents the k/q of Samuel 5:2 as an uncomfortable mix '
+        'So we could say that WLC’s k1q1×3 in Samuel 5:2 is a mix '
         'of the traditions we see in ל and א, whereas, '
         'according to its charter, WLC should hew to ל. '
-        '(I very much doubt that א actually influenced BHS but I suspect that the tradition captured in א appears '
-        'in the Second Rabbinic Bible (Second Venice Miqraot Gedolot) and it is through that influential edition '
-        'that BHS (and hence WLC) ended up with this content not supported by ל.)'
+        'As to why WLC diverges from ל here, '
+        'I very much doubt that א actually influenced BHS. ',
+        'Rather, we can see this mix of traditions in '
+        'the Second Rabbinic Bible (RB2) (Second Venice Miqraot Gedolot), '
+        'so that’s almost certainly where WLC/BHS got this mix from '
+        '(', _SND_SAM_5_2_VMG_ARCHIVE_DOT_ORG_ANC, '):',
+        my_html_for_img.html_for_single_img('2Sam5v2-VeniceMG.png')
+    ]),
+    my_html.para([
+        'This case is typical of most cases where WLC/BHS blatantly diverges from ל. '
+        'In most such cases of blatant divergence from ל, '
+        'WLC/BHS is conforming to its base text, which, like almost all printed editions '
+        'before BHS, hewed close to RB2. '
+        'In other words, this is a typical example of a pattern that, as a whole, betrays the methodology of BHS. '
+        'Although one might imagine or hope that BHS was simply a transcription of ל, in fact '
+        'BHS started from an RB2-type text '
+        'and then edited it in most but not all places to conform to ל. '
+        'In a similar way, most modern, general-purpose Hebrew Bibles started from some version of WLC '
+        'and then edited it in most but not all places to conform to general-purpose expectations. '
+        'This methodoloy is often not publicly disclosed, but certain telltale WLC artifacts leak through, '
+        'betraying this methodology.'
     ]),
     my_html.heading_level_2('Conclusion'),
     my_html.para(
