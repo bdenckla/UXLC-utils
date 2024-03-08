@@ -6,11 +6,13 @@ from my_html_span_romanized import rmn
 def _html_for_pcl(pcl):
     page, column, line = pcl
     return [
+        '(',
         my_html.anchor(
             f'page {page}',
             {'href': f'https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F{page}.jpg'}
         ),
-        f' col {column} line {line}'
+        f' col {column} line {line}',
+        '):'
     ]
 
 
@@ -45,7 +47,7 @@ def _intro_and_img(k2q2rec):
     return [
         my_html.para(
             [
-                *k2q2rec['intro'], ' (', *_html_for_pcl(k2q2rec['pcl']), '):'
+                *k2q2rec['intro'], ' ', *_html_for_pcl(k2q2rec['pcl'])
             ]
         ),
         my_html_for_img.html_for_single_img(k2q2rec['img'])
@@ -192,7 +194,7 @@ EZRA_4_12 = [
             rmn('ḥaser/malei'),
             ' issue later in the second word, '
             'but the primary issue is the word boundary issue.) '
-            'The word boundary issue concerns a difference between ',
+            'The word boundary issue is about a difference between ',
             rmn('qere'), ' and ', rmn('ketiv'),
             ' as to where the word boundary falls within the letters '
             'ושוריאשכל[י]לו.) '
@@ -252,10 +254,11 @@ EZRA_4_12 = [
             'reading if it contradicted the manuscript.'
         ]
     ),
+    my_html.heading_level_2('Other k2q2 in WLC'),
     my_html.para(
         [
-            'The table below shows two other k2q2 in WLC that are instructive to compare with this one, '
-            'since they, too, concern word division.'
+            'The table below shows two other k2q2 in WLC that are instructive to compare with this Ezra 4:12 one, '
+            'since they, too, are about a word boundary.'
         ]
     ),
     my_html.table([
@@ -284,7 +287,7 @@ EZRA_4_12 = [
     my_html.para(
         [
             'Let’s look at the six other k2q2 cases in WLC. '
-            'These cases don’t concern word division, '
+            'None of these cases are about a word boundary, '
             'but it will still be interesting to see '
             'whether, in each case, the manuscript does or does not support WLC’s k2q2 grouping.'
         ]
@@ -312,19 +315,66 @@ EZRA_4_12 = [
             'I would urge WLC, in future versions, to use k2q2 only when supported by the manuscript.'
         ]
     ),
+    my_html.heading_level_2('k1q1×2, k1q1×3, etc. in WLC'),
     my_html.para(
         [
-            'It would be nice to also review all cases of multiple adjacent k1q1 to see if all of them '
+            'It would be nice to also review all cases of multiple adjacent k1q1 in WLC to see if all of them '
             'are supported by the manuscript. '
             'I wonder whether, for example, some instances of k1q1×2 in WLC should in fact be represented as k2q2. '
             'I do not propose to do this (possibly rather large) survey at the moment, but one problematic case has, '
-            'almost accidentally, come to my attention, and I will discuss it here. That cases is a k1q1×3 in 2 Samuel 5:2:'
+            'almost accidentally, come to my attention, and I will discuss it here. ',
+            my_html.span(
+                'That problematic case is the following k1q1×3 in 2 Samuel 5:2:',
+                {'id': 'SndSam5v2'}
+            )
         ]
     ),
     my_html.table([
         my_html.table_row(my_html.table_datum('הייתה מוציא והמבי', _HBO_RTL_BIG)),
         my_html.table_row(my_html.table_datum('הָיִ֛יתָ הַמּוֹצִ֥יא וְהַמֵּבִ֖יא', _HBO_RTL_BIG))
     ]),
+    my_html.para(
+        [
+            'In WLC, the k/q differences of the first two words are about a word boundary, '
+            'but the manuscript does not support that. '
+            'Indeed the first k1q1 in WLC, הייתה/היית, '
+            'correspond to a normal word in the manuscript, as the following image shows ',
+            *_html_for_pcl(('171A', 1, 20)),
+            my_html_for_img.html_for_single_img('2Sam5v2.png')
+        ]
+    ),
+    my_html.para([
+        'In other words the manuscript considers the ה of the ', rmn('qere'), ' המוציא ',
+        'to come from nowhere, not from the end of הייתה. '
+    ]),
+    my_html.para([
+        'The Aleppo Codex (Ms א) is rarely relevant to WLC, but here it is perhaps useful to look at it. '
+        'Ms א treats these words quite differently than ל does. '
+        'Unlike ל, Ms א does consider the ה of the ', rmn('qere'), ' המוציא ',
+        'to come from the end of הייתה, as indicated by the following: '
+    ]),
+    my_html.unordered_list([
+        'היית rather than הייתה are the qere letters',
+        'the final ה of הייתה is pointed with pataḥ, i.e. הייתהַ',
+        ['the ', rmn('qere'), ' words היית המוציא are grouped together']
+    ]),
+    my_html.para([
+        'Also unlike ל, Ms א considers והמבי to be a normal word, not a ', rmn('ketiv'), ' '
+        'needing a final א to form a ', rmn('qere'), '. '
+        'Ms א does note the lack of a final א, with “חס א” with a splotch above that may have been a numeral, '
+        'perhaps a ', rmn('vav'), ' meaning “6 times lacking [a final] א”. '
+        'All this can be seen in the following image: ',
+        my_html_for_img.html_for_single_img('2Sam5v2-Aleppo.png')
+    ]),
+    my_html.para([
+        'So we could say that WLC represents the k/q of Samuel 5:2 as an uncomfortable mix '
+        'of the traditions we see in ל and א, whereas, '
+        'according to its charter, WLC should hew to ל. '
+        '(I very much doubt that א actually influenced BHS but I suspect that the tradition captured in א appears '
+        'in the Second Rabbinic Bible (Second Venice Miqraot Gedolot) and it is through that influential edition '
+        'that BHS (and hence WLC) ended up with this content not supported by ל.)'
+    ]),
+    my_html.heading_level_2('Conclusion'),
     my_html.para(
         [
             'Finally, we should admit that ', rmn('qere'), ' grouping '
