@@ -137,6 +137,22 @@ def table_row(contents):
     return htel_mk_nlb1('tr', contents=contents)
 
 
+def table_row_of_data(tdconts, tdattrs=None):
+    """ Make a <tr> element containing <td> elements. """
+    # tdcont: table datum contents
+    # tdconts: a sequence where each element is a tdcont
+    if tdattrs is None:
+        tdattrs = (None,) * len(tdconts)
+    return table_row(tuple(map(table_datum, tdconts, tdattrs)))
+
+
+def table_row_of_headers(thconts):
+    """ Make a <tr> element containing <th> elements. """
+    # thcont: table header contents
+    # thconts: a sequence where each element is a thcont
+    return table_row(tuple(map(table_header, thconts)))
+
+
 def table_datum(contents, attr=None):
     """ Make a <td> (table datum cell) element. """
     return htel_mk_inline('td', attr, contents)
@@ -158,9 +174,9 @@ def table(contents, attr=None):
 
 
 def unordered_list(liconts, attr=None):
-    """ Make a <ul> element. """
+    """ Make a <ul> element containing <li> elements. """
     # licont: list item contents
-    # liconts: a tuple where each element is a licont
+    # liconts: a sequence where each element is a licont
     return htel_mk('ul', attr, tuple(map(_list_item, liconts)))
 
 
@@ -332,8 +348,8 @@ def _write_callback(html_el, add_wbr, out_fp):
     out_fp.write(el_to_str(add_wbr, html_el))
 
 
-def _is_text_singleton(array):  # "array": tuple or list
-    return len(array) == 1 and isinstance(array[0], str)
+def _is_text_singleton(sequence):  # "sequence": tuple or list
+    return len(sequence) == 1 and isinstance(sequence[0], str)
 
 
 def _list_item(contents, attr=None):

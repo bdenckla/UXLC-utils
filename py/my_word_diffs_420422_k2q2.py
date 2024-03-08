@@ -28,19 +28,22 @@ def _html_for_kq(kq):
 
 
 def _k2q2_table_row_of_headers():
-    return my_html.table_row([
-        my_html.table_header(''),
-        my_html.table_header(''),
-        my_html.table_header('manuscript'),
-    ])
+    return my_html.table_row_of_headers(['', '', 'manuscript'])
 
 
 def _k2q2_table_row(k2q2rec):
-    return my_html.table_row([
-        my_html.table_datum(_html_for_bcv_str_wlt_tdu(k2q2rec['bcv-str'])),
-        my_html.table_datum(_html_for_kq(k2q2rec['kq-strs']), _HBO_RTL_BIG),
-        my_html.table_datum(k2q2rec['manuscript']),
-    ])
+    return my_html.table_row_of_data(
+        [
+            _html_for_bcv_str_wlt_tdu(k2q2rec['bcv-str']),
+            _html_for_kq(k2q2rec['kq-strs']),
+            k2q2rec['manuscript']
+        ],
+        [
+            None,
+            _HBO_RTL_BIG,
+            None
+        ],
+    )
 
 
 def _intro_and_img(k2q2rec):
@@ -202,21 +205,17 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        my_html.table_row([
-            my_html.table_header([]),
-            my_html.table_header([]),
-            my_html.table_header('word boundary'),
-        ]),
-        my_html.table_row([
-            my_html.table_datum(rmn('ketiv')),
-            my_html.table_datum('ושורי אשכללו', _HBO_RTL_BIG),
-            my_html.table_datum('before the א'),
-        ]),
-        my_html.table_row([
-            my_html.table_datum(rmn('qere')),
-            my_html.table_datum('וְשׁוּרַיָּ֣א שַׁכְלִ֔ילוּ', _HBO_RTL_BIG),
-            my_html.table_datum('after the א'),
-        ])
+        my_html.table_row_of_headers(
+            ['', '', 'word boundary']
+        ),
+        my_html.table_row_of_data(
+            [rmn('ketiv'), 'ושורי אשכללו', 'before the א'],
+            [None, _HBO_RTL_BIG, None]
+        ),
+        my_html.table_row_of_data(
+            [rmn('qere'), 'וְשׁוּרַיָּ֣א שַׁכְלִ֔ילוּ', 'after the א'],
+            [None, _HBO_RTL_BIG, None]
+        )
     ]),
     my_html.para(
         [
@@ -229,20 +228,8 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        my_html.table_row([
-            my_html.table_datum('k2q2'),
-            my_html.table_datum('*ka'),
-            my_html.table_datum('*kb'),
-            my_html.table_datum('**qa'),
-            my_html.table_datum('**qb'),
-        ]),
-        my_html.table_row([
-            my_html.table_datum('k1q1×2'),
-            my_html.table_datum('*ka'),
-            my_html.table_datum('**qa'),
-            my_html.table_datum('*kb'),
-            my_html.table_datum('**qb'),
-        ])
+        my_html.table_row_of_data(['k2q2', '*ka', '*kb', '**qa', '**qb']),
+        my_html.table_row_of_data(['k1q1×2', '*ka', '**qa', '*kb', '**qb'])
     ]),
     my_html.para(
         [
@@ -275,14 +262,8 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        my_html.table_row([
-            my_html.table_datum('WLC'),
-            my_html.table_datum('תלאום [שמה פלשתים]', {'dir': 'rtl'}),
-        ]),
-        my_html.table_row([
-            my_html.table_datum('Ms ל'),
-            my_html.table_datum('[תלאום שמה] פלשתים', {'dir': 'rtl'}),
-        ]),
+        my_html.table_row_of_data(['WLC', 'תלאום [שמה פלשתים]'], [None, {'dir': 'rtl'}]),
+        my_html.table_row_of_data(['Ms ל', '[תלאום שמה] פלשתים'], [None, {'dir': 'rtl'}])
     ]),
     my_html.para(
         [
