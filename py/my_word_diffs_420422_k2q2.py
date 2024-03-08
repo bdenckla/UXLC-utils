@@ -27,11 +27,11 @@ def _html_for_kq(kq):
     return kq[0], my_html.line_break(), kq[1]
 
 
-def _k2q2_table_row_of_headers():
+def _bkm_table_row_of_headers():  # bkm: bcv, ketiv/qere, manuscript
     return my_html.table_row_of_headers(['', '', 'manuscript'])
 
 
-def _k2q2_table_row(k2q2rec):
+def _bkm_table_row(k2q2rec):
     return my_html.table_row_of_data(
         [
             _html_for_bcv_str_wlt_tdu(k2q2rec['bcv-str']),
@@ -106,7 +106,7 @@ _K2Q2REC_EZEK = {
         'In the case of Ezekiel 42:9, we find that the manuscript supports WLC’s k2q2 grouping'
     ],
 }
-_K2Q2REC_SND_SAM = {
+_K2Q2REC_SND_SAM_21_12 = {
     'bcv-str': '2Sam21:12',
     'kq-strs': ('שם הפלשתים', 'שָׁ֙מָּה֙ פְּלִשְׁתִּ֔ים'),
     'pcl': ('181B', 2, 12),
@@ -176,6 +176,19 @@ _K2Q2REC_JOB_40 = {
     'pcl': ('408B', 2, 13),
     'manuscript': ['supports k1q2', my_html.line_break(), 'rather than WLC’s k2q2'],
     'intro': ['Here is the manuscript image for Job 40:6'],
+}
+_BKM_REC_SND_SAM_5_2 = {
+    'bcv-str': '2Sam5:2',
+    'img': '2Sam5v2.png',
+    'kq-strs': ('הייתה מוציא והמבי', 'הָיִ֛יתָ הַמּוֹצִ֥יא וְהַמֵּבִ֖יא'),
+    'pcl': ('171A', 1, 20),
+    'manuscript': ['supports ∅+k1q1×2', my_html.line_break(), 'rather than WLC’s k1q1×3'],
+    'intro': [
+        'In WLC, the k/q differences of the first two words are about a word boundary, '
+        'but the manuscript does not support that. '
+        'Indeed the first k1q1 in WLC, הייתה/היית, '
+        'corresponds to a normal word in the manuscript, as the following image shows'
+    ]
 }
 EZRA_4_12 = [
     my_html.para(
@@ -249,12 +262,12 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        _k2q2_table_row_of_headers(),
-        _k2q2_table_row(_K2Q2REC_EZEK),
-        _k2q2_table_row(_K2Q2REC_SND_SAM),
+        _bkm_table_row_of_headers(),
+        _bkm_table_row(_K2Q2REC_EZEK),
+        _bkm_table_row(_K2Q2REC_SND_SAM_21_12),
     ]),
     *_intro_and_img(_K2Q2REC_EZEK),
-    *_intro_and_img(_K2Q2REC_SND_SAM),
+    *_intro_and_img(_K2Q2REC_SND_SAM_21_12),
     my_html.para(
         [
             'Using square brackets to set off the k2q2 grouping, here’s how WLC and the manuscript '
@@ -274,13 +287,13 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        _k2q2_table_row_of_headers(),
-        _k2q2_table_row(_K2Q2REC_FST_KGS),
-        _k2q2_table_row(_K2Q2REC_FST_SAM),
-        _k2q2_table_row(_K2Q2REC_ISAIAH),
-        _k2q2_table_row(_K2Q2REC_JOB_38V12),
-        _k2q2_table_row(_K2Q2REC_JOB_38V01),
-        _k2q2_table_row(_K2Q2REC_JOB_40),
+        _bkm_table_row_of_headers(),
+        _bkm_table_row(_K2Q2REC_FST_KGS),
+        _bkm_table_row(_K2Q2REC_FST_SAM),
+        _bkm_table_row(_K2Q2REC_ISAIAH),
+        _bkm_table_row(_K2Q2REC_JOB_38V12),
+        _bkm_table_row(_K2Q2REC_JOB_38V01),
+        _bkm_table_row(_K2Q2REC_JOB_40),
     ]),
     *_intro_and_img(_K2Q2REC_FST_KGS),
     *_intro_and_img(_K2Q2REC_FST_SAM),
@@ -311,22 +324,16 @@ EZRA_4_12 = [
         ]
     ),
     my_html.table([
-        my_html.table_row(my_html.table_datum('הייתה מוציא והמבי', _HBO_RTL_BIG)),
-        my_html.table_row(my_html.table_datum('הָיִ֛יתָ הַמּוֹצִ֥יא וְהַמֵּבִ֖יא', _HBO_RTL_BIG))
+        _bkm_table_row_of_headers(),
+        _bkm_table_row(_BKM_REC_SND_SAM_5_2),
+        #_bkm_table_row(_BKM_REC_PROV_21_29),
     ]),
-    my_html.para(
-        [
-            'In WLC, the k/q differences of the first two words are about a word boundary, '
-            'but the manuscript does not support that. '
-            'Indeed the first k1q1 in WLC, הייתה/היית, '
-            'correspond to a normal word in the manuscript, as the following image shows ',
-            *_html_for_pcl(('171A', 1, 20)),
-            my_html_for_img.html_for_single_img('2Sam5v2.png')
-        ]
-    ),
+    *_intro_and_img(_BKM_REC_SND_SAM_5_2),
     my_html.para([
         'In other words the manuscript considers the ה of the ', rmn('qere'), ' המוציא ',
         'to come from nowhere, not from the end of הייתה. '
+        'Note that in ל, the ', rmn('pataḥ'), ' intended for this ה is an orphan, floating out in '
+        'a lonely fashion before the ', rmn('ketiv'), ' letters מוציא.'
     ]),
     my_html.para([
         'The Aleppo Codex (Ms א) is rarely relevant to WLC, but here it is perhaps useful to look at it. '
