@@ -96,7 +96,7 @@ _JOB_38_1_and_40_6_INTRO = [
     rmn('ḥiriq'), ', ',
     *_GAYA_PAREN_METEG, ', and ',
     rmn('paseq'), '. '
-    '(I’m not sure why this was done, '
+    '(I’m not sure why this pointing was done, '
     'and I don’t think it is relevant to the issue at hand, '
     'but nonetheless it seemed worth mentioning.) '
     'Here is the manuscript image for Job 38:1'
@@ -346,6 +346,19 @@ EZRA_4_12 = [
         'to come from nowhere, not from the end of הייתה. '
         'Note that in ל, the ', rmn('pataḥ'), ' intended for this ה is an orphan, floating out in '
         'a lonely fashion before the ', rmn('ketiv'), ' letters מוציא.'
+    ]),
+    my_html.para([
+        'There is an odd mark after והמבי.'
+        ' '
+        'It is a bit like a maqaf, but the thickness of the stroke makes it look more like '
+        'part of a letter than a maqaf.'
+        ' '
+        'Is it the top right part of an א that was abandoned, and for some reason not erased?'
+        ' '
+        'If it is part of an abandoned א, was this א the א of the qere or the א of the next word, את?'
+        ' '
+        '(I don’t think this mark is relevant to the k/q issues at hand, '
+        'but nonetheless this mark seemed worth mentioning.)'
     ]),
     my_html.para([
         'The Aleppo Codex (Ms א) is rarely relevant to WLC, but here it is perhaps useful to look at it. '
