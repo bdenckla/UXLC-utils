@@ -69,23 +69,27 @@ _JOB_38_1_and_40_6_PARAS = [
         'we find that '
         'while the manuscript supports WLC’s grouping of the two ', rmn('qere'), ' words together, '
         'the manuscript does not support WLC’s treatment of the ', rmn('ketiv'), ' letters '
-        'as a single word. '
-        'In other words, the manuscript supports a k1q2 grouping rather than a k2q2 grouping. '
+        'as a single word.'
+        ' '
+        'In other words, the manuscript supports a k1q2 grouping rather than a k2q2 grouping.'
     ]),
     my_html.para([
         'In both 38:1 and 40:6, '
         'the ', rmn('paseq'), ' after the ', rmn('nun'), ' '
         'should not be interpreted as relevant to the ', rmn('ketiv'), ', i.e. should not be be interpreted '
-        'as splitting the ', rmn('ketiv'), ' into two words. '
+        'as splitting the ', rmn('ketiv'), ' into two words.'
+        ' '
         'I find it surprising and unfortunate that WLC went to the trouble of devoting a special bracket note, ',
         my_html.code(']M'), ', '
-        'to these cases. '
+        'to these cases.'
+        ' '
         'A little more scrutiny might have revealed that there is only a mistake in transcription, '
-        'not an anomaly in the manuscript. '
+        'not an anomaly in the manuscript.'
+        ' '
         'Here the WLC transcription has a little more work to do than usual because, as with all k/q, WLC is '
         'not just transcribing BHS (or later, ל) '
         'but also converting (in this case incorrectly) '
-        'from pointed-ketiv, unpointed-qere representation to the opposite representation. '
+        'from pointed-ketiv, unpointed-qere representation to the opposite representation.'
     ])
 ]
 _JOB_38_1_and_40_6_INTRO = [
@@ -95,7 +99,8 @@ _JOB_38_1_and_40_6_INTRO = [
     'pointing the מן of the ', rmn('qere'), ' with ',
     rmn('ḥiriq'), ', ',
     *_GAYA_PAREN_METEG, ', and ',
-    rmn('paseq'), '. '
+    rmn('paseq'), '.'
+    ' '
     '(I’m not sure why this pointing was done, '
     'and I don’t think it is relevant to the issue at hand, '
     'but nonetheless it seemed worth mentioning.) '
@@ -118,7 +123,8 @@ _K2Q2REC_SND_SAM_21_12 = {
     'img': '2Sam21c12.png',
     'manuscript': ['supports k2q2+k1q1', my_html.line_break(), 'rather than WLC’s k1q1+k2q2'],
     'intro': [
-        'But in the case of 2 Samuel 21:12, we find that the manuscript does not support WLC’s k2q2 grouping. '
+        'But in the case of 2 Samuel 21:12, we find that the manuscript does not support WLC’s k2q2 grouping.'
+        ' '
         'Rather, it supports a different k2q2 grouping than that found in WLC! '
         'The manuscript’s k2q2 reaches back one word earlier than WLC’s k2q2'
     ],
@@ -150,9 +156,11 @@ _K2Q2REC_ISAIAH = {
     'pcl': ('240B', 3, 3),
     'manuscript': 'supports WLC’s k2q2',
     'intro': [
-        'In the case of Isaiah 52:5, we find that the manuscript supports WLC’s k2q2 grouping. '
+        'In the case of Isaiah 52:5, we find that the manuscript supports WLC’s k2q2 grouping.'
+        ' '
         'It is slightly surprising that this k/q is framed as a k2q2 at all, since the second word '
-        'of both qere and ketiv is לי, i.e. there is no variation in the second word. '
+        'of both qere and ketiv is לי, i.e. there is no variation in the second word.'
+        ' '
         'Here is the manuscript image'
     ],
 }
@@ -190,7 +198,8 @@ _BKM_REC_SND_SAM_5_2 = {
     'manuscript': ['supports ∅+k1q1×2', my_html.line_break(), 'rather than WLC’s k1q1×3'],
     'intro': [
         'In WLC’s 2 Samuel 5:2, the k/q differences of the first two words are about a word boundary, '
-        'but the manuscript does not support that. '
+        'but the manuscript does not support that.'
+        ' '
         'Indeed the first k1q1 in WLC, הייתה/היית, '
         'corresponds to a normal word in the manuscript, as the following image shows'
     ]
@@ -209,7 +218,8 @@ EZRA_4_12 = [
     my_html.para(
         [
             'I think I understand the impulse behind this WLC change, '
-            'but nonetheless I find the change inadvisable. '
+            'but nonetheless I find the change inadvisable.'
+            ' '
             'So I not only support UXLC’s rejection of this change '
             'but also advise WLC to revert this change in some future version.'
         ]
@@ -220,7 +230,8 @@ EZRA_4_12 = [
             'that we are primarily dealing with a word boundary issue here, '
             'so a single k2q2 seems more appropriate than '
             'two adjacent k1q1 constructs, '
-            'a configuration we sometimes abbreviate as k1q1×2. '
+            'a configuration we sometimes abbreviate as k1q1×2.'
+            ' '
             '(There is a ',
             rmn('ḥaser/malei'),
             ' issue later in the second word, '
@@ -250,8 +261,10 @@ EZRA_4_12 = [
             'Because we are primarily dealing with a word boundary issue, '
             'it is an understandable impulse to group these 4 words into a single k2q2 construct '
             '(which is what WLC 4.22 now has) '
-            'rather than group them into two adjacent k1q1 constructs. '
-            '(which is what WLC 4.20 had). '
+            'rather than group them into two adjacent k1q1 constructs '
+            ' '
+            '(which is what WLC 4.20 had).'
+            ' '
             'The table below shows what these two grouping strategies look like in Michigan-Claremont terms.'
         ]
     ),
@@ -262,9 +275,11 @@ EZRA_4_12 = [
     my_html.para(
         [
             'Although the impulse is understandable, it is not consistent with the diplomatic spirit of '
-            'WLC to allow such an impulse to override what we see in the manuscript. '
+            'WLC to allow such an impulse to override what we see in the manuscript.'
+            ' '
             'What we see in the manuscript is the choice to group these words into '
-            'two adjacent k1q1 constructs. '
+            'two adjacent k1q1 constructs.'
+            ' '
             'BHS and BHQ agree with the manuscript, though of course we’d be willing to reject their '
             'reading if it contradicted the manuscript.'
         ]
@@ -295,7 +310,8 @@ EZRA_4_12 = [
     ]),
     my_html.para(
         [
-            'Let’s look at the six other k2q2 cases in WLC. '
+            'Let’s look at the six other k2q2 cases in WLC.'
+            ' '
             'None of these cases are about a word boundary, '
             'but it will still be interesting to see '
             'whether, in each case, the manuscript does or does not support WLC’s k2q2 grouping.'
@@ -320,7 +336,8 @@ EZRA_4_12 = [
     my_html.para(
         [
             'Having completed our review of k2q2 in WLC, we can say that some are '
-            'supported by the manuscript, and some are not. '
+            'supported by the manuscript, and some are not.'
+            ' '
             'I would urge WLC, in future versions, to use k2q2 only when supported by the manuscript.'
         ]
     ),
@@ -328,8 +345,10 @@ EZRA_4_12 = [
     my_html.para(
         [
             'It would be nice to also review all cases of multiple adjacent k1q1 in WLC to see if all of them '
-            'are supported by the manuscript. '
-            'I wonder whether, for example, some instances of k1q1×2 in WLC should in fact be represented as k2q2. '
+            'are supported by the manuscript.'
+            ' '
+            'I wonder whether, for example, some instances of k1q1×2 in WLC should in fact be represented as k2q2.'
+            ' '
             'I do not propose to do this (possibly rather large) survey at the moment, but '
             'I will discuss two cases here.'
         ]
@@ -343,7 +362,8 @@ EZRA_4_12 = [
     *_intro_and_img(_BKM_REC_SND_SAM_5_2),
     my_html.para([
         'In other words the manuscript considers the ה of the ', rmn('qere'), ' המוציא ',
-        'to come from nowhere, not from the end of הייתה. '
+        'to come from nowhere, not from the end of הייתה.'
+        ' '
         'Note that in ל, the ', rmn('pataḥ'), ' intended for this ה is an orphan, floating out in '
         'a lonely fashion before the ', rmn('ketiv'), ' letters מוציא.'
     ]),
@@ -361,8 +381,10 @@ EZRA_4_12 = [
         'but nonetheless this mark seemed worth mentioning.)'
     ]),
     my_html.para([
-        'The Aleppo Codex (Ms א) is rarely relevant to WLC, but here it is perhaps useful to look at it. '
-        'Ms א treats these words quite differently than ל does. '
+        'The Aleppo Codex (Ms א) is rarely relevant to WLC, but here it is perhaps useful to look at it.'
+        ' '
+        'Ms א treats these words quite differently than ל does.'
+        ' '
         'Unlike ל, Ms א does consider the ה of the ', rmn('qere'), ' המוציא ',
         'to come from the end of הייתה, as indicated by the following: '
     ]),
@@ -373,9 +395,11 @@ EZRA_4_12 = [
     ]),
     my_html.para([
         'Also unlike ל, Ms א considers והמבי to be a normal word, not a ', rmn('ketiv'), ' '
-        'needing a final א to form a ', rmn('qere'), '. '
+        'needing a final א to form a ', rmn('qere'), '.'
+        ' '
         'Ms א does note the lack of a final א, with “חס א” with a splotch above that may have been a numeral, '
-        'perhaps a ', rmn('vav'), ' meaning “6 times lacking [a final] א”. '
+        'perhaps a ', rmn('vav'), ' meaning “6 times lacking [a final] א”.'
+        ' '
         'All this can be seen in the following image: ',
         my_html_for_img.html_for_single_img('2Sam5v2-Aleppo.png')
     ]),
@@ -400,10 +424,13 @@ EZRA_4_12 = [
     ]),
     my_html.para([
         'So we could say that WLC’s k1q1×3 in Samuel 5:2 is a mix '
-        'of the traditions we see in ל and א. '
-        'But according to its charter, WLC should hew to ל. '
+        'of the traditions we see in ל and א.'
+        ' '
+        'But according to its charter, WLC should hew to ל.'
+        ' '
         'As to why WLC diverges from ל here, '
-        'I very much doubt that א actually influenced BHS. '
+        'I very much doubt that א actually influenced BHS.'
+        ' '
         'Rather, we can see this mix of traditions in '
         'the Second Rabbinic Bible (RB2) (Second Venice Miqraot Gedolot), '
         'so that’s almost certainly where WLC/BHS got this mix from '
@@ -411,18 +438,22 @@ EZRA_4_12 = [
         my_html_for_img.html_for_single_img('2Sam5v2-VeniceMG.png')
     ]),
     my_html.para([
-        'This case is typical of most cases where WLC/BHS blatantly diverges from ל. '
+        'This case is typical of most cases where WLC/BHS blatantly diverges from ל.'
+        ' '
         'In most cases of blatant divergence from ל, '
         'WLC/BHS is conforming to its base text, which, like almost all printed editions '
-        'before BHS, hewed close to RB2. '
-        'In other words, this is a typical example of a pattern that, as a whole, betrays the methodology of BHS. '
+        'before BHS, hewed close to RB2.'
+        ' '
+        'In other words, this is a typical example of a pattern that, as a whole, betrays the methodology of BHS.'
+        ' '
         'Although one might imagine or hope that BHS was created by transcribing ל from scratch, in fact '
         'BHS was created by starting with an RB2-type text '
-        'and editing it in most but not all places to conform to ל. '
+        'and editing it in most but not all places to conform to ל.'
     ]),
     my_html.para([
         'In a similar way, most modern, general-purpose Hebrew Bibles were created by starting with some version of WLC '
-        'and then editing it in most but not all places to conform to general-purpose expectations. '
+        'and then editing it in most but not all places to conform to general-purpose expectations.'
+        ' '
         'This methodoloy is often not publicly disclosed, but certain telltale WLC artifacts leak through, '
         'betraying this methodology.'
     ]),
@@ -430,9 +461,11 @@ EZRA_4_12 = [
     my_html.para(
         [
             'Finally, we should admit that ', rmn('qere'), ' grouping '
-            'may have been left up to individual scribal discretion. '
+            'may have been left up to individual scribal discretion.'
+            ' '
             'In other words, ', rmn('qere'), ' grouping '
-            'may not have been viewed as meaningful by the Masoretes. '
+            'may not have been viewed as meaningful by the Masoretes.'
+            ' '
             'Just as we do not distinguish a normal ', rmn('lamed'),
             ' letter from the occasional elongated one, ',
             'perhaps we should not be concerned to preserve ', rmn('qere'), ' grouping, '
@@ -442,17 +475,22 @@ EZRA_4_12 = [
     my_html.para(
         [
             'That having been said, it seems more consistent with the diplomatic spirit '
-            'of WLC to err on the safe side by preserving ', rmn('qere'), ' grouping. '
+            'of WLC to err on the safe side by preserving ', rmn('qere'), ' grouping.'
+            ' '
             'For example this is what BHS did, and WLC continues to do, with respect to ', *_GAYA_PAREN_METEG, ' '
-            'placement. '
+            'placement.'
+            ' '
             'In the 50-or-so years since the publication of BHS, scholarship has reached a consensus '
-            'that ', rmn('gaʿya'), ' placement was not viewed as meaningful by the Masoretes. '
+            'that ', rmn('gaʿya'), ' placement was not viewed as meaningful by the Masoretes.'
+            ' '
             'I.e. the consensus is that ', rmn('gaʿya'), ' placment '
-            'was left up to scribal discretion. '
+            'was left up to scribal discretion.'
+            ' '
             'Still, at the time, perhaps it was the right decision for BHS to err on the safe side by preserving '
-            '', rmn('gaʿya'), ' placement. '
+            '', rmn('gaʿya'), ' placement.'
+            ' '
             'I urge WLC to follow this example and '
-            'err on the safe side by preserving ', rmn('qere'), ' grouping. '
+            'err on the safe side by preserving ', rmn('qere'), ' grouping.'
         ]
     ),
 ]
