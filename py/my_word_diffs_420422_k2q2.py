@@ -103,7 +103,8 @@ _JOB_38_1_and_40_6_INTRO = [
     ' '
     '(I’m not sure why this pointing was done, '
     'and I don’t think it is relevant to the issue at hand, '
-    'but nonetheless it seemed worth mentioning.) '
+    'but nonetheless it seemed worth mentioning.)'
+    ' '
     'Here is the manuscript image for Job 38:1'
 ]
 _K2Q2REC_EZEK = {
@@ -125,7 +126,8 @@ _K2Q2REC_SND_SAM_21_12 = {
     'intro': [
         'But in the case of 2 Samuel 21:12, we find that the manuscript does not support WLC’s k2q2 grouping.'
         ' '
-        'Rather, it supports a different k2q2 grouping than that found in WLC! '
+        'Rather, it supports a different k2q2 grouping than that found in WLC!'
+        ' '
         'The manuscript’s k2q2 reaches back one word earlier than WLC’s k2q2'
     ],
 }
@@ -235,11 +237,13 @@ EZRA_4_12 = [
             '(There is a ',
             rmn('ḥaser/malei'),
             ' issue later in the second word, '
-            'but the primary issue is the word boundary issue.) '
+            'but the primary issue is the word boundary issue.)'
+            ' '
             'The word boundary issue is about a difference between ',
             rmn('qere'), ' and ', rmn('ketiv'),
             ' as to where the word boundary falls within the letters '
-            'ושוריאשכל[י]לו.) '
+            'ושוריאשכל[י]לו.)'
+            ' '
             'The table below shows the details.'
         ]
     ),
@@ -386,7 +390,7 @@ EZRA_4_12 = [
         'Ms א treats these words quite differently than ל does.'
         ' '
         'Unlike ל, Ms א does consider the ה of the ', rmn('qere'), ' המוציא ',
-        'to come from the end of הייתה, as indicated by the following: '
+        'to come from the end of הייתה, as indicated by the following:'
     ]),
     my_html.unordered_list([
         'היית rather than הייתה are the qere letters',
