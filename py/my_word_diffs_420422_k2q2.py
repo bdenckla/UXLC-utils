@@ -211,7 +211,7 @@ EZRA_4_12 = [
             'I think I understand the impulse behind this WLC change, '
             'but nonetheless I find the change inadvisable. '
             'So I not only support UXLC’s rejection of this change '
-            'but also advise WLC to revert this change in some future version.',
+            'but also advise WLC to revert this change in some future version.'
         ]
     ),
     my_html.para(
@@ -252,7 +252,7 @@ EZRA_4_12 = [
             '(which is what WLC 4.22 now has) '
             'rather than group them into two adjacent k1q1 constructs. '
             '(which is what WLC 4.20 had). '
-            'The table below shows what these two grouping strategies look like in Michigan-Claremont terms.',
+            'The table below shows what these two grouping strategies look like in Michigan-Claremont terms.'
         ]
     ),
     my_html.table([
@@ -403,7 +403,7 @@ EZRA_4_12 = [
         'of the traditions we see in ל and א. '
         'But according to its charter, WLC should hew to ל. '
         'As to why WLC diverges from ל here, '
-        'I very much doubt that א actually influenced BHS. ',
+        'I very much doubt that א actually influenced BHS. '
         'Rather, we can see this mix of traditions in '
         'the Second Rabbinic Bible (RB2) (Second Venice Miqraot Gedolot), '
         'so that’s almost certainly where WLC/BHS got this mix from '
