@@ -57,9 +57,18 @@ _RECORD_08 = {
     'word': 'וּפֽ͏ָרְשׂוּ֙', 'uxlc_bcvp': ('Deut', 22, 17, 14), 'img': 'Deut22v17.png',
 }
 _RECORD_09 = {
-    'word': 'וְקֽ͏ָרְבָה֙', 'uxlc_bcvp': ('Deut', 25, 11, 7), 'img': 'Deut25v11.png',
-    'initial-remark': 'Seems more like a ḥiriq than a sheva under the vav.',
-    'further-remarks': ['Seems like there was an erasure under the vav.'],
+    'word': 'וְקֽ͏ָרְבָה֙', 'uxlc_bcvp': ('Deut', 25, 11, 7),
+    'imgs':
+    {
+        'LC': 'Deut25v11.png',
+        'Sassoon 1053': 'Deut25v11-Sassoon-1053-page-179-col-2-line-17.png'
+    },
+    'initial-remark': 'Ḥiriq-pataḥ would be the strict transcription (vs. sheva-qamats).',
+    'further-remarks': [
+        'Seems like there was an erasure under the vav. '
+        'IMO the evidence of a qamats dot is too faint to justify transcribing it.',
+        'Sassoon 1053 has sheva and qamats, with no meteg in sight.'
+    ],
 }
 _RECORD_10 = {
     'word': 'וְלֽ͏ָאַלְמָנָ֔ה', 'uxlc_bcvp': ('Deut', 26, 12, 16), 'img': 'Deut26v12.png',
