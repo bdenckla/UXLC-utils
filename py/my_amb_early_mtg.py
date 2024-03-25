@@ -87,7 +87,11 @@ _RECORD_14 = {
 }
 _RECORD_15 = {
     'word123p': ('וַ', 'יּֽ͏ַ', 'עֲשׂ֖וּ'),
-    'word': 'וַיּֽ͏ַעֲשׂ֖וּ', 'uxlc_bcvp': ('Ex', 12, 50, 1), 'img': 'Ex12v50.png',
+    'word': 'וַיּֽ͏ַעֲשׂ֖וּ', 'uxlc_bcvp': ('Ex', 12, 50, 1),
+    'imgs': {
+        'LC': 'Ex12v50.png',
+        'BHS': 'Ex12v50-ויעשו-in-BHS.jpg',
+    },
     'dubious early mtg': _BETTER_1,
     'initial-remark': 'See UXLC change proposal 2024.01.29-4.',
     'existing UXLC change proposal': ('2024.04.01', '2024.01.29-4'),
