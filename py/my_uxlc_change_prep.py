@@ -74,11 +74,25 @@ def _normalize_book_name(book_name_uxlc):
     return u_bk_abbr.BKNA_MAP_STD_TO_UXLC[book_name_std]
 
 
+ALT_CREDITS = [
+    ' '.join((
+        'Credit: Photograph by Bruce and Kenneth Zuckerman, West Semitic',
+        'Research, in collaboration with Ancient Biblical Manuscript',
+        'Center. Courtesy National Library of Russia',
+        '(Saltykov-Shchedrin).')),
+    '.',  # (just period!) in '2020.09.29'-1
+    'Photo by author, cropped by publisher.',
+    'Credit: Internet Archive (archive.org)',
+    'Credit: Internet Archive (archive.org).',
+]
+
 def _credit_is_okay(credit):
     if credit is None:  # credit is None happens in 2020.01.30-1
         return True
+    if credit in ALT_CREDITS:
+        return True
     #
-    # Some credit fields lack period after 'Credit: Sefaria.org'.
+    # Some standard (Sefaria) credit fields lack period after 'Credit: Sefaria.org'.
     #
     # Below, we use "startswith" rather than == (equals) because in at least
     # one case, the "credit" field is also used to make a comment about the
@@ -89,18 +103,7 @@ def _credit_is_okay(credit):
     #
     #     The complete LC line 18, words 9-12, are shown.
     #
-    alt_credits = {}
-    alt_credits[0] = ' '.join((
-        'Credit: Photograph by Bruce and Kenneth Zuckerman, West Semitic',
-        'Research, in collaboration with Ancient Biblical Manuscript',
-        'Center. Courtesy National Library of Russia',
-        '(Saltykov-Shchedrin).'))
-    alt_credits[1] = '.'  # (just period!) in '2020.09.29'-1
-    alt_credits[2] = 'Photo by author, cropped by publisher.'
-    alt_credits[3] = 'Credit: Internet Archive (archive.org)'
-    is_alt_credit = credit in alt_credits.values()
-    is_std_credit = credit.startswith('Credit: Sefaria.org')
-    return is_alt_credit or is_std_credit
+    return credit.startswith('Credit: Sefaria.org')
 
 
 def _collapse_lc(lc_location):

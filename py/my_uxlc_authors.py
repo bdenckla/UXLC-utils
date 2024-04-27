@@ -32,6 +32,7 @@ MAIL_AND_CONFIRMED = {
     'Stephen Salisbury': ('Steve@grovescenter.org', 'true'),
     'Yishai Glasner': ('yishai@sefaria.org', 'true'),
     'Charles Loder': ('charles.w.loder@gmail.com', 'true'),
+    'David Reimer': ('djr24@st-andrews.ac.uk', 'true'),
     #
     'Alexander Adler': ('alexander.adler0@googlemail.com', 'false'),
     'Zev Farkas': ('zev.farkas@gmail.com', 'false'),

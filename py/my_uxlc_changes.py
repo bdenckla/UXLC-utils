@@ -20,4 +20,5 @@ FILENAMES = (
     #
     '2024.04.01 - Changes.xml',
     '2024.07.04 - Changes.xml',
+    '2024.10.19 - Changes.xml',
 )
