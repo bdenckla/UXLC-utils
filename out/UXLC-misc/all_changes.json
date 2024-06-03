@@ -35100,7 +35100,7 @@
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "accent",
+    "type": "vowel/accent",
     "authors": [
       "Ben Denckla"
     ],
@@ -35398,19 +35398,19 @@
     "changeset": "2024.04.12",
     "n": 9,
     "citation": "Job 39:30.2",
-    "description": "Remove unsupported yod as next-to-last letter in qere. [וְאֶפְרֹחָ֥יו]. Add transcription note 'q'.",
+    "description": "Remove unsupported yod as next-to-last letter in qere. [וְאֶפְרֹחָ֥יו]. Add transcription note 'q'. Remove qere/ketiv pair.",
     "lc": "Folio_408B 2:3",
     "reftext": "וְאֶפְרֹחָ֥יו",
     "refuni": "vav sheva alef segol pe sheva resh holam het qamats merkha yod vav",
     "changetext": "וְאֶפְרֹחָ֥ו",
     "changeuni": "vav sheva alef segol pe sheva resh holam het qamats merkha vav",
     "notes": [
-      "Example from BHL \"Qere and Ketiv\", p. xx, second of Dotan's 4 qere cases: \"manuscript has a yattir (=superfluous) indication\". The ketiv body text is ואפרחו; in the right margin is the note: ז. No Masoretic circle is apparent over the word nor does a \"yatir\" appear in either margin. Dotan interprets the zayin as specifying a qere, but without any qere text. He adds the yod as the next to last letter. The presence of a yod is unsupported in the LC. This makes a qere/ketiv pair unnecessary for this word.",
+      "Example from BHL \"Qere and Ketiv\", p. xx, second of Dotan's 4 qere cases: \"manuscript has a yattir (=superfluous) indication\". The ketiv body text is ואפרחו; in the right margin is the note: ז. No Masoretic circle is apparent over the word nor does a \"yatir\" appear in either margin. Dotan interprets the zayin as specifying a qere, but without any qere text. He adds the yod as the next to last letter. The presence of a yod is unsupported in the LC. This makes a qere/ketiv pair unnecessary for this word; the qere/ketiv pair will be removed.",
       "BHL has has a yod as the next-to-last letter in the qere, וְאֶפְרֹחָ֥יו. BHLA has no entry for this verse."
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "consonant",
+    "type": "consonant/RemoveQK",
     "authors": [
       "CVK"
     ],
@@ -35870,7 +35870,7 @@
     "changetext": "עַבְדָ֛יךְ",
     "changeuni": "ayin patah bet sheva dalet qamats tevir yod final-kaf sheva",
     "notes": [
-      "Example from BHL \"Qere and Ketiv\", p. xxi, third of Dotan's 4 qere cases: \"obliged to add a qere\" (Aramaic). This word has neither a qere nor yatir Masoretic note. It also lacks any Masoretic note; however, Dotan ascribes the lack of note to \"scribe's negligence\". The UXLC will retain the marking of the LC.",
+      "Example from BHL \"Qere and Ketiv\", p. xxi, third of Dotan's 4 qere cases: \"obliged to add a qere\" (Aramaic). This word has neither a qere nor yatir Masoretic note. It also lacks any Masoretic note; however, Dotan ascribes the lack of note to \"scribe's negligence\".",
       "BHL has inserted a qere word with the yod removed, עַבְדָ֛ךְ, instead of the marked body text, עַבְדָ֛יךְ. BHLA has no entry for this verse"
     ],
     "transnotes": null,
@@ -35894,7 +35894,7 @@
     "changeset": "2024.04.12",
     "n": 25,
     "citation": "1Sam 19:23.5",
-    "description": "Examine Dotan's suggested qere. [נָי֖וֹת] Interchange vav and yod in the qere word; then remove qere/ketiv pair, placing the qere word into a normal word.",
+    "description": "Examine Dotan's suggested qere. [נָי֖וֹת] Interchange vav and yod in the qere word. Remove qere/ketiv pair.",
     "lc": "Folio_161B 2:4",
     "reftext": "נָי֖וֹת",
     "refuni": "nun qamats yod tipeha vav holam tav",
@@ -35906,7 +35906,7 @@
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "RemoveQK",
+    "type": "consonant/RemoveQK",
     "authors": [
       "CVK"
     ],
@@ -35925,7 +35925,7 @@
     "changeset": "2024.04.12",
     "n": 26,
     "citation": "2Sam 20:8.15",
-    "description": "Examine Dotan's suggested qere. [וְעָלָ֞יוְ] Remove yod from qere word; then remove qere/ketiv pair, placing the qere word into a normal word.",
+    "description": "Examine Dotan's suggested qere. [וְעָלָ֞יוְ] Remove yod from qere word. Remove qere/ketiv pair.",
     "lc": "Folio_180B 3:22",
     "reftext": "וְעָלָ֞יו",
     "refuni": "vav sheva ayin qamats lamed qamats gereshayim yod vav",
@@ -35937,7 +35937,7 @@
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "RemoveQK",
+    "type": "consonant/RemoveQK",
     "authors": [
       "CVK"
     ],
@@ -36465,10 +36465,10 @@
     "transnotes": null,
     "split": {
       "position": "0",
-      "firstTag": "q",
-      "firstText": "אַרְתַּחְשַׁ֖שְׂתְּ",
-      "secondTag": "k",
-      "secondText": "ארתחששתא"
+      "firstTag": "k",
+      "firstText": "ארתחששתא",
+      "secondTag": "q",
+      "secondText": "אַרְתַּחְשַׁ֖שְׂתְּ"
     },
     "status": "Pending",
     "type": "split",
@@ -36936,7 +36936,7 @@
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "vowel",
+    "type": "NoAction",
     "authors": [
       "CVK"
     ],
@@ -36962,7 +36962,7 @@
     "changetext": "וַיֹּאמְרֻ֣ו",
     "changeuni": "vav patah yod dagesh holam alef mem sheva resh qubuts munah vav",
     "notes": [
-      "The qere letters in the right margin have a terminal vav that is not present in the ketiv letters of the body text. A qubuts vowel occurs before the munah under the resh. The conventional assignment is to place the munah on the resh and to place a dagesh (acting as a shuruq dot) on the final vav. (וַיֹּאמְר֣וּ as in the reference text and the BHL body text). This replaces the qubuts with a dagesh acting as a shuruq dot on the final vav. The UXLC retains the qubuts on the next-to-last vav to be true to the LC image. A transcription note 't' is added to emphasize this decision. This change is similar to that of 1 Sam 13:19.9.",
+      "The qere letters in the right margin have a terminal vav that is not present in the ketiv letters of the body text. A qubuts vowel occurs before the munah under the resh. The conventional assignment is to place the munah on the resh and to place a dagesh (acting as a shuruq dot) on the final vav. (וַיֹּאמְר֣וּ as in the reference text and the BHL body text). This replaces the qubuts with a dagesh acting as a shuruq dot on the final vav. The UXLC retains the qubuts on the next-to-last vav to be true to the LC image. A transcription note 'q' is added to emphasize this decision. This change is similar to that of 1 Sam 13:19.9.",
       "BHL has a dagesh in the final vav of the qere, וַיֹּאמְר֣וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
@@ -36993,7 +36993,7 @@
     "changetext": "אָמְרֻ֣ו",
     "changeuni": "alef qamats mem sheva resh qubuts munah vav",
     "notes": [
-      "The qere letters in the right margin have a terminal vav that is not present in the ketiv letters of the body text. A qubuts vowel occurs before the munah under the resh. The conventional assignment is to place the munah on the resh and to place a dagesh (acting as a shuruq dot) on the final vav. (וַיֹּאמְר֣וּ as in the reference text and the BHL body text). This replaces the qubuts with a dagesh acting as a shuruq dot on the final vav. The UXLC retains the qubuts on the next-to-last vav to be true to the LC image. A transcription note 't' is added to emphasize this decision. This change is similar to that of 1 Sam 12.10.5.",
+      "The qere letters in the right margin have a terminal vav that is not present in the ketiv letters of the body text. A qubuts vowel occurs before the munah under the resh. The conventional assignment is to place the munah on the resh and to place a dagesh (acting as a shuruq dot) on the final vav. (וַיֹּאמְר֣וּ as in the reference text and the BHL body text). This replaces the qubuts with a dagesh acting as a shuruq dot on the final vav. The UXLC retains the qubuts on the next-to-last vav to be true to the LC image. A transcription note 'q' is added to emphasize this decision. This change is similar to that of 1 Sam 12.10.5.",
       "BHL has a dagesh in the final vav of the qere, אָמְר֣וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
@@ -37339,7 +37339,7 @@
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "vowel.",
+    "type": "vowel",
     "authors": [
       "CVK"
     ],
@@ -37768,7 +37768,7 @@
     "changetext": "וְקִבְּלֻ֣ו",
     "changeuni": "vav sheva qof hiriq bet dagesh sheva lamed qubuts munah vav",
     "notes": [
-      "The qere in the right margin ends in a vav that is not present in the ketiv body text. The ketiv body text has a qubuts then munah under the lamed; no dagesh is available for the final vav. The UXLC retains the qubuts on the lamed to be true to the LC image. A transcription note 't' is added to emphasize this decision.",
+      "The qere in the right margin ends in a vav that is not present in the ketiv body text. The ketiv body text has a qubuts then munah under the lamed; no dagesh is available for the final vav. The UXLC retains the qubuts on the lamed to be true to the LC image. A transcription note 'q' is added to emphasize this decision.",
       "BHL has a dagesh (acting as a shuruq dot) in the final vav in the qere word, וְקִבְּל֣וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
@@ -37830,7 +37830,7 @@
     "changetext": "וַיַּעֲלֻ֨ו",
     "changeuni": "vav patah yod dagesh patah ayin hataf-patah lamed qubuts qadma vav",
     "notes": [
-      "The qere word in the right margin ends in a vav not present in the ketiv body text. The ketiv body text has a qadma and a qubuts on the lamed; no dagesh is available for the final vav. The UXLC retains the qubuts on the lamed to be true to the LC image. A transcription note 't' is added to emphasize this decision.",
+      "The qere word in the right margin ends in a vav not present in the ketiv body text. The ketiv body text has a qadma and a qubuts on the lamed; no dagesh is available for the final vav. The UXLC retains the qubuts on the lamed to be true to the LC image. A transcription note 'q' is added to emphasize this decision.",
       "BHL has a dagesh (acting as a shuruq dot) in the final vav, וַיַּעֲל֨וּ, for the qere word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
