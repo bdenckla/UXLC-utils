@@ -1,10 +1,10 @@
-""" Exports get """
+"""Exports get"""
 
 import difflib
 
 
 def get(sidea, sideb, outa=None, outb=None):
-    """ Provide a different interface to SequenceMatcher """
+    """Provide a different interface to SequenceMatcher"""
     outa = outa or sidea
     outb = outb or sideb
     seqmat = difflib.SequenceMatcher(a=sidea, b=sideb, autojunk=False)
@@ -14,12 +14,10 @@ def get(sidea, sideb, outa=None, outb=None):
 
 
 def _seqmat_opcode_not_equal(seqmat_opcode):
-    return seqmat_opcode[0] != 'equal'
+    return seqmat_opcode[0] != "equal"
 
 
 def _to_diff_pair(seqmat_opcode, outa, outb):
     _tag, as0, as1, bs0, bs1 = seqmat_opcode
     # Below converts empty lists to None
-    return (
-        outa[as0:as1] or None,
-        outb[bs0:bs1] or None)
+    return (outa[as0:as1] or None, outb[bs0:bs1] or None)

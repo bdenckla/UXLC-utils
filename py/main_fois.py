@@ -1,4 +1,4 @@
-""" Exports main. """
+"""Exports main."""
 
 import my_uxlc
 import my_open
@@ -13,15 +13,15 @@ def _handle_vc_wqk(wqk, accum, verse_child):
 
 
 def _handle_vc_w(accum, verse_child):
-    _handle_vc_wqk('w', accum, verse_child)
+    _handle_vc_wqk("w", accum, verse_child)
 
 
 def _handle_vc_q(accum, verse_child):
-    _handle_vc_wqk('q', accum, verse_child)
+    _handle_vc_wqk("q", accum, verse_child)
 
 
 def _handle_vc_k(accum, verse_child):
-    _handle_vc_wqk('k', accum, verse_child)
+    _handle_vc_wqk("k", accum, verse_child)
 
 
 def _handle_wc_s(accum, word_child_s):
@@ -31,32 +31,30 @@ def _handle_wc_s(accum, word_child_s):
 
 
 _WORD_CHILD_HANDLERS = {
-    'x': my_uxlc.handle_xc_ignore,
-    's': _handle_wc_s,
+    "x": my_uxlc.handle_xc_ignore,
+    "s": _handle_wc_s,
 }
 _VERSE_CHILD_HANDLERS = {
-    'w':           _handle_vc_w,
-    'q':           _handle_vc_q,
-    'k':           _handle_vc_k,
-    'x':           my_uxlc.handle_xc_ignore,
-    'pe':          my_uxlc.handle_xc_ignore,
-    'samekh':      my_uxlc.handle_xc_ignore,
-    'reversednun': my_uxlc.handle_xc_ignore,
+    "w": _handle_vc_w,
+    "q": _handle_vc_q,
+    "k": _handle_vc_k,
+    "x": my_uxlc.handle_xc_ignore,
+    "pe": my_uxlc.handle_xc_ignore,
+    "samekh": my_uxlc.handle_xc_ignore,
+    "reversednun": my_uxlc.handle_xc_ignore,
 }
 
 
 def main():
-    """ Writes UXLC features of interest to a JSON file. """
+    """Writes UXLC features of interest to a JSON file."""
     uxlc = my_uxlc.read_all_books(_VERSE_CHILD_HANDLERS)
-    fois = {
-        'kq': my_fois_kq_foi.init()
-    }
+    fois = {"kq": my_fois_kq_foi.init()}
     for bkid, chapters in uxlc.items():
         for chidx, chapter in enumerate(chapters):
             for vridx, verse in enumerate(chapter):
-                bcv = bkid, chidx+1, vridx+1
-                my_fois_kq_foi.collect_for_verse(fois['kq'], bcv, verse)
-    json_output_path = 'out/UXLC-misc/features_of_interest.json'
+                bcv = bkid, chidx + 1, vridx + 1
+                my_fois_kq_foi.collect_for_verse(fois["kq"], bcv, verse)
+    json_output_path = "out/UXLC-misc/features_of_interest.json"
     my_open.json_dump_to_file_path(fois, json_output_path)
 
 

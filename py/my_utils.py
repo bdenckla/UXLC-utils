@@ -1,46 +1,47 @@
-""" Exports various utilities. """
+"""Exports various utilities."""
+
 import os
 
 
 def init(dic, key, val):
-    """ If key is fresh in dic, set its value to val. Other assert. """
+    """If key is fresh in dic, set its value to val. Other assert."""
     assert key not in dic
     dic[key] = val
 
 
 def maybe_init(dic, key, val):
-    """ If key is fresh in dic, set its value to val. Otherwise whiff. """
+    """If key is fresh in dic, set its value to val. Otherwise whiff."""
     if key not in dic:
         dic[key] = val
 
 
 def first_and_only(seq):
-    """ Assert that this is there is only 1 el of seq, and returns it. """
+    """Assert that this is there is only 1 el of seq, and returns it."""
     assert len(seq) == 1
     return seq[0]
 
 
 def first_and_only_and_str(seq):
-    """ Like first_and_only, but also asserts that result is a string. """
+    """Like first_and_only, but also asserts that result is a string."""
     fao = first_and_only(seq)
     assert isinstance(fao, str)
     return fao
 
 
 def szip(*seqs):
-    """ Strongly zip (zip, asserting equal length) """
+    """Strongly zip (zip, asserting equal length)"""
     for seq in seqs[1:]:
         assert _len_for_szip(seq) == _len_for_szip(seqs[0])
     return zip(*seqs)
 
 
 def l_szip(*seqs):
-    """ Force output of szip to be a list. """
+    """Force output of szip to be a list."""
     return list(szip(*seqs))
 
 
 def intersperse(sep, seq):
-    """ Intersperse a separator between the elements of a sequence. """
+    """Intersperse a separator between the elements of a sequence."""
     accum = []
     for elem in seq:
         if accum:
@@ -89,7 +90,7 @@ def st_map(fun, the_sequence):
 
 
 def sum_of_lists(lists):
-    """ Return the sum of lists. """
+    """Return the sum of lists."""
     accum = []
     for the_list in lists:
         accum.extend(the_list)
@@ -97,10 +98,10 @@ def sum_of_lists(lists):
 
 
 def show_progress_g(uufileuu, *rest):
-    """ Show a progress string. Typically called with first arg __file__. """
+    """Show a progress string. Typically called with first arg __file__."""
     # label is usually some sort of book name
     bn_uufileuu = os.path.basename(uufileuu)
-    bn_and_rest = ' '.join((bn_uufileuu, *rest))
+    bn_and_rest = " ".join((bn_uufileuu, *rest))
     print(bn_and_rest)
 
 

@@ -1,4 +1,4 @@
-""" Exports prep, estimate, page_and_guesses. """
+"""Exports prep, estimate, page_and_guesses."""
 
 import my_uxlc_cvp as cvp
 import my_uxlc_lci_augrec as lci_augrec
@@ -37,13 +37,13 @@ def page_and_guesses(uxlc, pbi, std_bcvp_quad):
     else:
         line_guess = fline_guess
         col_guess = 1
-    line_guess_str = f'{line_guess:.1f}'
-    fline_guess_str = f'{fline_guess:.1f}'
+    line_guess_str = f"{line_guess:.1f}"
+    fline_guess_str = f"{fline_guess:.1f}"
     return {
-        'page': page,
-        'fline-guess': fline_guess_str,
-        'line-guess': line_guess_str,
-        'column-guess': col_guess
+        "page": page,
+        "fline-guess": fline_guess_str,
+        "line-guess": line_guess_str,
+        "column-guess": col_guess,
     }
 
 
@@ -85,7 +85,7 @@ def _add_mid(start_incl, stop_excl):
     return start_mid_stop
 
 
-def _get_comparables(pbi, citation, index, stasto='start'):
+def _get_comparables(pbi, citation, index, stasto="start"):
     lci_augrecs = page_break_info.get_lci_augrecs_real(pbi)
     book_order = page_break_info.get_book_order(pbi)
     ncva_from_cite = _get_ncva1(book_order, citation)
@@ -104,7 +104,7 @@ def _get_ncva1(book_order, citation):
 def _get_ncva2(book_order, lciar, stasto_str: str):
     bkid = lci_augrec.get_bkid(lciar)
     cvp_range = lci_augrec.get_cvp_range(lciar)
-    stasto_01 = {'start': 0, 'stop': 1}
+    stasto_01 = {"start": 0, "stop": 1}
     bknu = book_order[bkid]
     the_cvp = cvp_range[stasto_01[stasto_str]]
     chapnver = cvp.chapnver(the_cvp)
@@ -115,7 +115,7 @@ def _get_ncva2(book_order, lciar, stasto_str: str):
 
 
 def _cite_is_in_range(pbi, citation, index):
-    cmps = _get_comparables(pbi, citation, index, 'stop')
+    cmps = _get_comparables(pbi, citation, index, "stop")
     return cmps[0] <= cmps[1]
 
 
@@ -152,7 +152,7 @@ def _fline_of_p0(lciar):
 
 
 def _sd_fr_p0_to_cite(uxlc, lciar, std_bcvp_quad):
-    """ Scalar distance from waypoint 0 to the citation. """
+    """Scalar distance from waypoint 0 to the citation."""
     # dist_12: distance from start of lciar to cite
     dist_12 = _calc_bibdist(uxlc, lciar, std_bcvp_quad)
     if lci_augrec.get_coli_range(lciar):
@@ -165,7 +165,7 @@ def _sd_fr_p0_to_cite(uxlc, lciar, std_bcvp_quad):
 
 
 def _sd_fr_p0_to_p1(pbi, lciar):
-    """ Scalar distance from waypoint 0 to waypoint 1. """
+    """Scalar distance from waypoint 0 to waypoint 1."""
     if lci_augrec.get_coli_range(lciar):
         bd_start = lci_augrec.get_bibdist_start(lciar)
         bd_stop = lci_augrec.get_bibdist_stop(lciar)

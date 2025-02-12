@@ -1,4 +1,4 @@
-""" Exports main """
+"""Exports main"""
 
 import xml.etree.ElementTree
 import my_uxlc_misc_path
@@ -18,21 +18,21 @@ def _listify(list_or_nonlist):
 
 
 def _get_changes(changeset):
-    date = changeset['date']
-    if 'change' not in changeset:
+    date = changeset["date"]
+    if "change" not in changeset:
         # Sometimes a changeset just has a date, because it is an empty
         # placeholder, to be filled in with changes later.
         return []
-    changes = _listify(changeset['change'])
+    changes = _listify(changeset["change"])
     return [prep.date_qualify_and_reformat(date, c) for c in changes]
 
 
 def _get_lines(change):
-    return [change['description']] + change['notes']
+    return [change["description"]] + change["notes"]
 
 
 def _dump_txt_write_callback(lines, out_fp):
-    out_fp.write('\n'.join(lines))
+    out_fp.write("\n".join(lines))
 
 
 def _dump_txt(changes, path):
@@ -43,8 +43,8 @@ def _dump_txt(changes, path):
 
 def _do_one_changes_file(bhla, filename):
     release_date, changes = _do_one_changes_file_core(filename)
-    changes = [{'release': release_date, **c} for c in changes]
-    changes = [{**c, 'bhla': _join_bhla(bhla, c)} for c in changes]
+    changes = [{"release": release_date, **c} for c in changes]
+    changes = [{**c, "bhla": _join_bhla(bhla, c)} for c in changes]
     return changes
 
 
@@ -57,22 +57,22 @@ def _do_one_changes_file_core(filename):
     root = tree.getroot()
     root_dic = my_xml_node.to_dic(root)
     # release_major_dot_minor = root_dic['target']  # E.g. 'UXLC 1.2'
-    release_date = root_dic['filedate']
-    changesets_list = _listify(root_dic['dates']['date'])
+    release_date = root_dic["filedate"]
+    changesets_list = _listify(root_dic["dates"]["date"])
     list_of_lists = list(map(_get_changes, changesets_list))
     changes = sum(list_of_lists, [])
-    basename = filename.removesuffix('.xml')
+    basename = filename.removesuffix(".xml")
     assert basename != filename
-    txt_output_path = f'out/UXLC-misc/{basename}.txt'
+    txt_output_path = f"out/UXLC-misc/{basename}.txt"
     _dump_txt(changes, txt_output_path)
     return release_date, changes
 
 
 def _join_bhla(bhla, change_record):
-    citation = change_record['citation']
+    citation = change_record["citation"]
     if citation in bhla:
         return True
-    cite_sod = citation.split('.')   # sod: split on dot
+    cite_sod = citation.split(".")  # sod: split on dot
     return cite_sod[0] in bhla
 
 
@@ -92,9 +92,9 @@ def main():
     changes = _get_all_changes()
     check_results_f = changes_loc.check(changes)
     #
-    json_output_path1 = 'out/UXLC-misc/all_changes.json'
+    json_output_path1 = "out/UXLC-misc/all_changes.json"
     my_open.json_dump_to_file_path(changes, json_output_path1)
-    json_output_path2 = 'out/UXLC-misc/all_changes_loc_checks.json'
+    json_output_path2 = "out/UXLC-misc/all_changes_loc_checks.json"
     my_open.json_dump_to_file_path(check_results_f, json_output_path2)
 
 

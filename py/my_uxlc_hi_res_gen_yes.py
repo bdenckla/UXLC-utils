@@ -1,4 +1,4 @@
-""" Exports read_them_in2 """
+"""Exports read_them_in2"""
 
 import csv
 import re
@@ -15,15 +15,14 @@ import my_uxlc_hi_res_gen_no as hi_res_gen_no
 
 
 def read_them_in2(uxlc, lci_recs):
-    """ Read in line info from a CSV file """
-    path = 'in/UXLC-misc/LC Genesis line breaks.csv'
-    with open(path, encoding='utf-8') as csv_in_fp:
+    """Read in line info from a CSV file"""
+    path = "in/UXLC-misc/LC Genesis line breaks.csv"
+    with open(path, encoding="utf-8") as csv_in_fp:
         raw_rows = tuple(map(_make_row, csv.reader(csv_in_fp)))
     real_raw_rows = tuple(filter(_raw_row_is_real, raw_rows))
     pages = _get_pages(real_raw_rows)
     stastos = _get_stastos(pages)
-    hi_res_starts = tuple(
-        _make_hi_res(uxlc, stastos, lcir) for lcir in lci_recs)
+    hi_res_starts = tuple(_make_hi_res(uxlc, stastos, lcir) for lcir in lci_recs)
     hi_res_starts_real = tuple(filter(None, hi_res_starts))
     hi_res_dic = {v[0]: v[1:] for v in hi_res_starts_real}
     return hi_res_dic, stastos
@@ -54,16 +53,16 @@ def _find_unique(pg_sp_vr, cell_atoms, offset=0):
     page_start_atom = cell_atoms[offset]
     count = pg_sp_vr.count(page_start_atom)
     if count > 1:
-        return _find_unique(pg_sp_vr, cell_atoms, offset+1)
+        return _find_unique(pg_sp_vr, cell_atoms, offset + 1)
     assert count == 1
     atom_number = 1 + pg_sp_vr.index(page_start_atom)
     return atom_number - offset
 
 
 def _atomize(cell_str):
-    sep_patt = '([\u0591-\u05f4\u034f\u200d]+)'
+    sep_patt = "([\u0591-\u05f4\u034f\u200d]+)"
     words_and_seps = re.split(sep_patt, cell_str)
-    rejoined = ' '.join(words_and_seps[1::2])
+    rejoined = " ".join(words_and_seps[1::2])
     atoms = hi_res_gen_no.atoms(rejoined)
     return atoms
 
@@ -83,7 +82,7 @@ def _make_hi_res2(lcir, atom_number):
     pgid = lci_rec.get_pgid(lcir)
     bkid = lci_rec.get_bkid(lcir)
     cvp_start = lci_rec.get_cvp_start(lcir)
-    assert cvp.get_povr(cvp_start) == 'b'
+    assert cvp.get_povr(cvp_start) == "b"
     chapnver = cvp.chapnver(cvp_start)
     new_cvp = cvp.make(*chapnver, atom_number)
     return pgid, bkid, new_cvp
@@ -132,10 +131,10 @@ def _get_pages(real_raw_rows):
 
 
 def _get_pgid_from_gpgid(gpgid):
-    match = re.fullmatch(r'\d\d-(\d\d[AB])', gpgid)
+    match = re.fullmatch(r"\d\d-(\d\d[AB])", gpgid)
     assert match
     pgid_end = match.group(1)
-    return '0' + pgid_end
+    return "0" + pgid_end
 
 
 def _make_row(list_of_cell_vals):

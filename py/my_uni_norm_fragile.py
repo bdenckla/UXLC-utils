@@ -3,35 +3,39 @@ Exports:
     get_fragile_comps
     is_fragile
 """
+
 import unicodedata
 
 import my_hebrew_points as hpo
 
 
-_DROP_TABLE = str.maketrans({
-    hpo.DAGESH_OM: None,
-    hpo.RAFE: None,
-    hpo.SHIND: None,
-    hpo.SIND: None,
-    '\N{HEBREW MARK LOWER DOT}': None,
-    '\N{COMBINING ACUTE ACCENT}': None,
-    # COMBINING ACUTE ACCENT is used in í in Martín in a documentation note.
-    # We drop it because otherwise the string is fragile, since we define
-    # fragile to mean "changed by normalization to NFC".
-})
+_DROP_TABLE = str.maketrans(
+    {
+        hpo.DAGESH_OM: None,
+        hpo.RAFE: None,
+        hpo.SHIND: None,
+        hpo.SIND: None,
+        "\N{HEBREW MARK LOWER DOT}": None,
+        "\N{COMBINING ACUTE ACCENT}": None,
+        # COMBINING ACUTE ACCENT is used in í in Martín in a documentation note.
+        # We drop it because otherwise the string is fragile, since we define
+        # fragile to mean "changed by normalization to NFC".
+    }
+)
 
 
 def get_fragile_comps(string):
-    """ Get the pair of strings used in fragile comparison. """
+    """Get the pair of strings used in fragile comparison."""
     dropped = string.translate(_DROP_TABLE)
-    dropped_n = unicodedata.normalize('NFC', dropped)
+    dropped_n = unicodedata.normalize("NFC", dropped)
     return dropped, dropped_n
 
 
 def is_fragile(string):
-    """ Return whether the string is fragile. """
+    """Return whether the string is fragile."""
     fcs = get_fragile_comps(string)
     return fcs[0] != fcs[1]
+
 
 ###########################################################
 # Note on lower dot:

@@ -1,4 +1,5 @@
-""" Exports get1 """
+"""Exports get1"""
+
 import my_unicode
 import my_diffs
 import my_dd_simplify_simple_diffs as ssd
@@ -29,7 +30,7 @@ def _letters_differ(str1, str2):
 
 
 def _get_dide_incl_letter_changes(_str1, _str2, named_diffs):
-    return str(named_diffs), 'deep diff'
+    return str(named_diffs), "deep diff"
 
 
 def _get_unicode_names_for_diff(diff):
@@ -42,9 +43,9 @@ def _get_unicode_names_for_side(side):
 
 
 def _get_unicode_names_for_side_el(side):
-    letter = ssd.qcp_get(side, 'letter')
+    letter = ssd.qcp_get(side, "letter")
     return ssd.qcp_make(
-        my_unicode.name(ssd.qcp_get(side, 'code_point')),
+        my_unicode.name(ssd.qcp_get(side, "code_point")),
         letter and my_unicode.name(letter),
-        ssd.qcp_get(side, 'count')
+        ssd.qcp_get(side, "count"),
     )

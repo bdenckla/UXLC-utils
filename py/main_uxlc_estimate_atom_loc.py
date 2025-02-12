@@ -1,4 +1,4 @@
-""" Exports main """
+"""Exports main"""
 
 import argparse
 import my_tanakh_book_names as tbn
@@ -7,11 +7,11 @@ import my_uxlc_location
 
 def _get_std_bcvp_quad_from_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('book_id', choices=tbn.ALL_BOOK_IDS)
+    parser.add_argument("book_id", choices=tbn.ALL_BOOK_IDS)
     # e.g. 'Levit'
-    parser.add_argument('chapter', type=int)
-    parser.add_argument('verse', type=int)
-    parser.add_argument('atom', type=int)
+    parser.add_argument("chapter", type=int)
+    parser.add_argument("verse", type=int)
+    parser.add_argument("atom", type=int)
     args = parser.parse_args()
     std_bcvp_quad = args.book_id, args.chapter, args.verse, args.atom
     return std_bcvp_quad
@@ -26,7 +26,7 @@ def main():
 
 
 def example_run():
-    """ Do an example run of the program, for main_0_mega.py. """
+    """Do an example run of the program, for main_0_mega.py."""
     std_bcvp_quad = tbn.BK_GENESIS, 27, 7, 3
     _main2(std_bcvp_quad)
 

@@ -1,18 +1,18 @@
-""" Exports make, chapnver, get_povr, decrement_povr, set_povr """
+"""Exports make, chapnver, get_povr, decrement_povr, set_povr"""
 
 
 def make(chnu, vrnu, povr):
-    """ Construct a cvp """
+    """Construct a cvp"""
     return _HIDE(chnu, vrnu, povr)
 
 
 def chapnver(cvp):
-    """ Get chapter and verse pair. """
+    """Get chapter and verse pair."""
     return _UNHIDE(cvp)[0:2]
 
 
 def get_povr(cvp):
-    """ Get part of verse (atom index, None, 'a', or 'b') """
+    """Get part of verse (atom index, None, 'a', or 'b')"""
     return _UNHIDE(cvp)[2]
 
 
@@ -23,7 +23,7 @@ def decrement_povr(cvp):
     """
     povr = get_povr(cvp)
     assert povr > 1
-    return set_povr(cvp, povr-1)
+    return set_povr(cvp, povr - 1)
 
 
 def set_povr(cvp, povr):

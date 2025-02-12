@@ -1,4 +1,4 @@
-""" Exports read_them_in2, atoms """
+"""Exports read_them_in2, atoms"""
 
 import csv
 import re
@@ -11,28 +11,26 @@ import my_hebrew_punctuation as hpu
 
 
 def read_them_in3(uxlc, lci_recs):
-    """ Read in high resolution page break info from multiple CSV files """
-    sections = 'Exo thru Deu', 'Prophets', 'Writings'
-    hi_res_starts = tuple(
-        _read_sec(uxlc, lci_recs, sec) for sec in sections)
+    """Read in high resolution page break info from multiple CSV files"""
+    sections = "Exo thru Deu", "Prophets", "Writings"
+    hi_res_starts = tuple(_read_sec(uxlc, lci_recs, sec) for sec in sections)
     hi_res_starts_f = sum(hi_res_starts, tuple())
     hi_res_starts_per_page = {v[0]: v[1:] for v in hi_res_starts_f}
     return hi_res_starts_per_page
 
 
 def _read_sec(uxlc, lci_recs, section):
-    """ Read in high resolution page break info from a single CSV file """
-    fn_parts = 'LC page-spanning verses', section, 'triple alefs added.csv'
-    filename = ' -- '.join(fn_parts)
-    path = f'in/UXLC-misc/{filename}'
-    with open(path, encoding='utf-8') as csv_in_fp:
+    """Read in high resolution page break info from a single CSV file"""
+    fn_parts = "LC page-spanning verses", section, "triple alefs added.csv"
+    filename = " -- ".join(fn_parts)
+    path = f"in/UXLC-misc/{filename}"
+    with open(path, encoding="utf-8") as csv_in_fp:
         raw_rows = tuple(map(_make_row, csv.reader(csv_in_fp)))
     real_raw_rows = tuple(filter(_raw_row_is_real, raw_rows))
     cooked_rows = tuple(map(_cook_row, real_raw_rows[1:]))
     split_verses = dict(cooked_rows)
     assert len(split_verses) == len(cooked_rows)
-    hi_res_starts = tuple(
-        _make_hi_res(uxlc, split_verses, lcir) for lcir in lci_recs)
+    hi_res_starts = tuple(_make_hi_res(uxlc, split_verses, lcir) for lcir in lci_recs)
     hi_res_starts_real = tuple(filter(None, hi_res_starts))
     return hi_res_starts_real
 
@@ -44,7 +42,7 @@ def _make_row(list_of_cell_vals):
 def _raw_row_is_real(raw_row):
     verse_str, pgid = raw_row
     pgids_of_bad_pages = {}
-    return verse_str != '' and pgid not in pgids_of_bad_pages
+    return verse_str != "" and pgid not in pgids_of_bad_pages
 
 
 def _cook_row(raw_row):
@@ -57,12 +55,12 @@ def _cook_row(raw_row):
 
 
 def atoms(string):
-    """ Split a string into its atoms. """
-    patt = f'([ {hpu.MAQ}])'
+    """Split a string into its atoms."""
+    patt = f"([ {hpu.MAQ}])"
     words_and_seps = re.split(patt, string)
-    if words_and_seps[-1] == '':
+    if words_and_seps[-1] == "":
         words_and_seps.pop()
-    remaps = {' ': '', hpu.PAS: ' ' + hpu.PAS, hpu.MAQ: hpu.MAQ}
+    remaps = {" ": "", hpu.PAS: " " + hpu.PAS, hpu.MAQ: hpu.MAQ}
     accum = []
     for word_or_sep in words_and_seps:
         remap = remaps.get(word_or_sep)
@@ -108,7 +106,7 @@ def _make_hi_res2(lcir, split_verse):
     pgid = lci_rec.get_pgid(lcir)
     bkid = lci_rec.get_bkid(lcir)
     cvp_start = lci_rec.get_cvp_start(lcir)
-    assert cvp.get_povr(cvp_start) == 'b'
+    assert cvp.get_povr(cvp_start) == "b"
     atom_num = 1 + len(split_verse[0])  # one-based
     chapnver = cvp.chapnver(cvp_start)
     new_cvp = cvp.make(*chapnver, atom_num)
@@ -126,4 +124,4 @@ def _norm_atoms(in_atoms: List[str]):
 
 
 def _norm_str(string: str):
-    return unicodedata.normalize('NFC', string)
+    return unicodedata.normalize("NFC", string)

@@ -1,4 +1,4 @@
-""" Exports write_html. """
+"""Exports write_html."""
 
 import my_word_diffs_420422_utils as wd_utils
 import my_url_generator as urlg
@@ -6,9 +6,8 @@ import my_utils
 import my_html
 
 
-
 def write(records, path, title, intro=None):
-    """ Writes 420422 records to index.html and other HTML files. """
+    """Writes 420422 records to index.html and other HTML files."""
     if intro is None:
         intro = []
     assert isinstance(intro, list)
@@ -18,31 +17,31 @@ def write(records, path, title, intro=None):
     rows = [_row_for_header(), *rows_for_data]
     table_of_records = my_html.table(rows)
     body_contents = [*intro, link_to_toa, table_of_records, table_of_abbrev]
-    write_ctx = my_html.WriteCtx(title, f'docs/420422/{path}')
-    my_html.write_html_to_file(body_contents, write_ctx, '../')
+    write_ctx = my_html.WriteCtx(title, f"docs/420422/{path}")
+    my_html.write_html_to_file(body_contents, write_ctx, "../")
 
 
 def _link_to_toa(toa_frag_id):
-    anchor = my_html.anchor('Abbreviations used below.', {'href': f'#{toa_frag_id}'})
+    anchor = my_html.anchor("Abbreviations used below.", {"href": f"#{toa_frag_id}"})
     return my_html.para(anchor)
 
 
 def _row_cell_for_hdr_str(record, hdr_str):
-    if hdr_str == 'remark':
+    if hdr_str == "remark":
         anchor = _get_anchor_to_full(record)
         ucps_and_ir = _ucps_and_initial_remark(record)
         datum_contents = [anchor, *ucps_and_ir]
-        datum_contents = my_utils.intersperse('; ', datum_contents)
+        datum_contents = my_utils.intersperse("; ", datum_contents)
         return my_html.table_datum(datum_contents)
-    if hdr_str == 'bcv':
+    if hdr_str == "bcv":
         anchor = urlg.bcv_with_link_to_tdu(record)
         return my_html.table_datum(anchor)
-    if hdr_str == '4.20 uword':
-        ab_uword = record['ab-uword']
-        a_uword, _b_uword = ab_uword.split('\n')
-        attr = {'lang': 'hbo', 'dir': 'rtl'}
+    if hdr_str == "4.20 uword":
+        ab_uword = record["ab-uword"]
+        a_uword, _b_uword = ab_uword.split("\n")
+        attr = {"lang": "hbo", "dir": "rtl"}
         return my_html.table_datum(a_uword, attr)
-    if hdr_str == 'difftype':
+    if hdr_str == "difftype":
         dity_span = wd_utils.diff_type_span_with_title(record)
         return my_html.table_datum(dity_span)
     assert False
@@ -51,7 +50,7 @@ def _row_cell_for_hdr_str(record, hdr_str):
 def _ucps_and_initial_remark(record):  # ucp: UXLC-change-proposal
     ucps = wd_utils.uxlc_change_proposals(record)
     ucp_anchors = list(map(urlg.uxlc_change_with_link, ucps))
-    if initial_remark_or_none := record.get('initial-remark'):
+    if initial_remark_or_none := record.get("initial-remark"):
         initial_remark_or_empty_list = [initial_remark_or_none]
     else:
         initial_remark_or_empty_list = []
@@ -59,15 +58,15 @@ def _ucps_and_initial_remark(record):  # ucp: UXLC-change-proposal
 
 
 def _get_anchor_to_full(record):
-    path_to_full = record['path-to-full']
-    anchor_to_full = my_html.anchor('full', {'href': path_to_full})
+    path_to_full = record["path-to-full"]
+    anchor_to_full = my_html.anchor("full", {"href": path_to_full})
     return anchor_to_full
 
 
 def _rec_to_row(record):
     row_cells = my_utils.ll_map(
-        (_row_cell_for_hdr_str, record),
-        _STRS_FOR_CELLS_FOR_HEADER)
+        (_row_cell_for_hdr_str, record), _STRS_FOR_CELLS_FOR_HEADER
+    )
     return my_html.table_row(row_cells)
 
 
@@ -76,5 +75,4 @@ def _row_for_header():
     return my_html.table_row(cells_for_header)
 
 
-_STRS_FOR_CELLS_FOR_HEADER = [
-    'bcv', 'difftype', '4.20 uword', 'remark']
+_STRS_FOR_CELLS_FOR_HEADER = ["bcv", "difftype", "4.20 uword", "remark"]

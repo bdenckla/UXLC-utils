@@ -1,12 +1,12 @@
 """
-    Exports:
-        calc
-        make_none
-        make_zero
-        get_word_count
-        add
-        subtract
-        rekey
+Exports:
+    calc
+    make_none
+    make_zero
+    get_word_count
+    add
+    subtract
+    rekey
 """
 
 import my_uxlc_cvp as cvp
@@ -24,7 +24,7 @@ def calc(uxlc, std_bkid, cvp_range):
     wd_count = -cai_start
     chnu, vrnu = cvp.chapnver(cvp_start)
     while (chnu, vrnu) < cvp.chapnver(cvp_stop):
-        wd_count += len(book[chnu-1][vrnu-1])
+        wd_count += len(book[chnu - 1][vrnu - 1])
         chnu, vrnu = _get_next_cv(book, chnu, vrnu)
     cai_stop = _cvp_atom_num(cvp_stop)
     wd_count += cai_stop + 1  # + 1 because stop is inclusive
@@ -33,40 +33,40 @@ def calc(uxlc, std_bkid, cvp_range):
 
 
 def make_none():
-    """ Construct an "all nones" bibdist. """
+    """Construct an "all nones" bibdist."""
     return _make(None)
 
 
 def make_zero():
-    """ Construct an "all zeroes" bibdist. """
+    """Construct an "all zeroes" bibdist."""
     return _make(0)
 
 
 def get_word_count(bibdist):
-    """ Return the word count """
-    return bibdist['_bibdist_word_count']
+    """Return the word count"""
+    return bibdist["_bibdist_word_count"]
 
 
 def add(bibdist_a, bibdist_b):
-    """ Return bibdist a plus bibdist b. """
-    wc_sum = _add2(bibdist_a, bibdist_b, '_bibdist_word_count')
+    """Return bibdist a plus bibdist b."""
+    wc_sum = _add2(bibdist_a, bibdist_b, "_bibdist_word_count")
     return _make(wc_sum)
 
 
 def subtract(bibdist_a, bibdist_b):
-    """ Return bibdist a minus bibdist b. """
-    wc_diff = _subtract2(bibdist_a, bibdist_b, '_bibdist_word_count')
+    """Return bibdist a minus bibdist b."""
+    wc_diff = _subtract2(bibdist_a, bibdist_b, "_bibdist_word_count")
     return _make(wc_diff)
 
 
 def rekey(the_bibdist, wkey):
-    """ Return a bibdist as a dict with the given keys for the word count """
-    return {wkey: the_bibdist['_bibdist_word_count']}
+    """Return a bibdist as a dict with the given keys for the word count"""
+    return {wkey: the_bibdist["_bibdist_word_count"]}
 
 
 def _make(word_count):
-    """ Construct a bibdist. """
-    return {'_bibdist_word_count': word_count}
+    """Construct a bibdist."""
+    return {"_bibdist_word_count": word_count}
 
 
 def _add2(dic_a, dic_b, key):
@@ -82,11 +82,11 @@ def _cvp_atom_num(the_cvp):
     part_of_verse = cvp.get_povr(the_cvp)
     if isinstance(part_of_verse, int):
         return part_of_verse
-    assert part_of_verse is None or part_of_verse in ('a', 'b')
+    assert part_of_verse is None or part_of_verse in ("a", "b")
     return 1
 
 
 def _get_next_cv(book, chnu, vrnu):
-    if vrnu + 1 > len(book[chnu-1]):
+    if vrnu + 1 > len(book[chnu - 1]):
         return chnu + 1, 1
     return chnu, vrnu + 1
