@@ -2,6 +2,7 @@
 
 import py.my_uxlc_lci_rec as lci_rec
 import py.my_uxlc_bibdist as bibdist
+import py.my_uxlc_verlen as verlen
 import py.my_uxlc_lci_rec_flatten as lci_rec_flatten
 
 
@@ -74,18 +75,32 @@ def get_bibdist_stop(lci_augrec):
 
 def is_real(lci_augrec):
     """
-    Tell whether this lci_augrec is for a Biblical chunk.
-    I.e. whether it is not a chunk of Masoretic text.
+    Tell whether this lci_augrec is for a Biblical chunk,
+    as opposed to a Masoretic list or some other non-Biblical chunk of text.
     """
     bkid = get_bkid(lci_augrec)
     return bkid is not None
 
 
+def _get_verlens_stasto(lci_augrec):
+    """Get start and stop verlens."""
+    return lci_augrec["_lciar_verlens"]
+
+
 def _flatten_one(lci_augrec):
     lci_rec_f = lci_rec_flatten.flatten(get_lci_rec(lci_augrec))
     bibdists_f = _flatten_bibdists(get_bibdists_stasto(lci_augrec))
-    lci_augrec_f = {**lci_rec_f, **bibdists_f}
+    verlens_f = _flatten_verlens(_get_verlens_stasto(lci_augrec))
+    lci_augrec_f = {**lci_rec_f, **bibdists_f, **verlens_f}
     return lci_augrec_f
+
+
+def _flatten_verlens(verlens_stasto):
+    vrl_start, vrl_stop = verlens_stasto
+    return {
+        "startl": vrl_start,
+        "stopl": vrl_stop,
+    }
 
 
 def _flatten_bibdists(bibdists):
@@ -102,20 +117,12 @@ def _flatten_page_length(page_and_length):
 
 
 def _make(ctx, lcir):
-    bibdists = _get_bibdists(ctx, lcir)
-    assert _ab_agreement(ctx, lcir)
     ctx["prev_lci_rec"] = lcir
     return {
         "_lciar_lci_rec": lcir,
-        "_lciar_bibdists": bibdists,
+        "_lciar_bibdists": _get_bibdists(ctx, lcir),
+        "_lciar_verlens": _get_verlens(ctx, lcir),
     }
-
-
-def _ab_agreement(ctx, lcir1):
-    lcir0 = ctx["prev_lci_rec"]
-    l0stoa = lcir0 and lci_rec.stops_with_part_a(lcir0)
-    l1stab = lci_rec.starts_with_part_b(lcir1)
-    return l0stoa == l1stab
 
 
 def _get_bibdists(ctx, lcir):
@@ -132,3 +139,13 @@ def _get_bibdists(ctx, lcir):
     bibdist_stop = bibdist.add(bibdist_start, the_bibdist)
     ctxp[pgid] = bibdist_stop
     return bibdist_start, bibdist_stop
+
+
+def _get_verlens(ctx, lcir):
+    bkid = lci_rec.get_bkid(lcir)
+    if bkid is None:
+        return None, None
+    cvp_start, cvp_stop = lci_rec.get_cvp_range(lcir)
+    vrl_start = verlen.get_verlen(ctx["uxlc"], bkid, cvp_start)
+    vrl_stop = verlen.get_verlen(ctx["uxlc"], bkid, cvp_stop)
+    return vrl_start, vrl_stop
