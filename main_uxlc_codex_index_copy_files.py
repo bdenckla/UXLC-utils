@@ -50,6 +50,7 @@ _TREES_TO_COPY = ("in/UXLC",)
 _FILES_TO_COPY = (
     "in/UXLC-misc/lci_recs.json",
     "out/UXLC-misc/lci_recs.xml",
+    "out/UXLC-misc/lci_augrecs.json",
     "./main_uxlc_estimate_atom_loc.py",
     "py/my_tanakh_book_names.py",
     "py/my_uxlc.py",
