@@ -1,6 +1,6 @@
-import my_html
-import my_tanakh_book_names as tbn
-import my_uxlc_book_abbreviations as u_bk_abbr
+import py.my_html as my_html
+import py.my_tanakh_book_names as tbn
+import py.my_uxlc_book_abbreviations as u_bk_abbr
 
 
 def bcv_with_link_to_tdu(record):

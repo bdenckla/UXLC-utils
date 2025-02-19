@@ -1,9 +1,9 @@
 """Exports write_html."""
 
-import my_word_diffs_420422_utils as wd_utils
-import my_url_generator as urlg
-import my_utils
-import my_html
+import py.my_word_diffs_420422_utils as wd_utils
+import py.my_url_generator as urlg
+import py.my_utils as my_utils
+import py.my_html as my_html
 
 
 def write(records, path, title, intro=None):

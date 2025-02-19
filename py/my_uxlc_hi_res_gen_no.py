@@ -5,9 +5,9 @@ import re
 import unicodedata
 from typing import List
 import itertools
-import my_uxlc_cvp as cvp
-import my_uxlc_lci_rec as lci_rec
-import my_hebrew_punctuation as hpu
+import py.my_uxlc_cvp as cvp
+import py.my_uxlc_lci_rec as lci_rec
+import py.my_hebrew_punctuation as hpu
 
 
 def read_them_in3(uxlc, lci_recs):

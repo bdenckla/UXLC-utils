@@ -1,16 +1,16 @@
 """Exports write_xml."""
 
 import xml.etree.ElementTree as ET
-import my_open
+import py.my_open as my_open
 
-# import my_uxlc
-# import my_uxlc_book_abbreviations as u_bk_abbr
-import my_uxlc_unicode_names
-import my_wlc_bcv_str
-import my_wlc_a_notes_native as native
-import my_wlc_a_notes_etan as etan
-import my_wlc_a_notes_utils
-import my_wlc_a_notes
+# import py.my_uxlc as my_uxlc
+# import py.my_uxlc_book_abbreviations as u_bk_abbr
+import py.my_uxlc_unicode_names as my_uxlc_unicode_names
+import py.my_wlc_bcv_str as my_wlc_bcv_str
+import py.my_wlc_a_notes_native as native
+import py.my_wlc_a_notes_etan as etan
+import py.my_wlc_a_notes_utils as my_wlc_a_notes_utils
+import py.my_wlc_a_notes as my_wlc_a_notes
 
 
 def write(io_records):

@@ -6,7 +6,7 @@ Exports:
 
 import unicodedata
 
-import my_hebrew_points as hpo
+import py.my_hebrew_points as hpo
 
 
 _DROP_TABLE = str.maketrans(

@@ -1,7 +1,7 @@
 """Exports write_native_to_html."""
 
-import my_html
-import my_html_for_img as img
+import py.my_html as my_html
+import py.my_html_for_img as img
 
 
 def write_to_html(native, record):

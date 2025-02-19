@@ -1,8 +1,8 @@
 """Exports write_html."""
 
-import my_utils
-import my_html
-import my_url_generator as urlg
+import py.my_utils as my_utils
+import py.my_html as my_html
+import py.my_url_generator as urlg
 
 
 def write(records, path, title, intro=None):

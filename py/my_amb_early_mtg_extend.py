@@ -1,5 +1,5 @@
-import my_uxlc_location
-import my_uxlc_book_abbreviations as u_bk_abbr
+import py.my_uxlc_location as my_uxlc_location
+import py.my_uxlc_book_abbreviations as u_bk_abbr
 
 
 def extend_records(io_records):

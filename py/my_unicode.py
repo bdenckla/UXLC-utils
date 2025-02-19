@@ -1,9 +1,9 @@
 """Exports unicode_names, unicode_name"""
 
 import unicodedata
-import my_hebrew_letters as hl
-import my_hebrew_points as hpo
-import my_hebrew_accents as ha
+import py.my_hebrew_letters as hl
+import py.my_hebrew_points as hpo
+import py.my_hebrew_accents as ha
 
 
 def names(string, separator=" "):

@@ -1,11 +1,11 @@
 """Exports find."""
 
 import re
-import my_tanakh_book_names as tbn
-import my_uxlc
-import my_hebrew_points as hpo
-import my_str_defs as sd
-import my_uxlc_book_abbreviations as u_bk_abbr
+import py.my_tanakh_book_names as tbn
+import py.my_uxlc as my_uxlc
+import py.my_hebrew_points as hpo
+import py.my_str_defs as sd
+import py.my_uxlc_book_abbreviations as u_bk_abbr
 
 
 def find():

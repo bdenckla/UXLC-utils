@@ -1,10 +1,10 @@
 """Exports write_xml."""
 
-import my_html
-import my_str_defs as sd
-import my_hebrew_points as hpo
-import my_html_for_img as img
-import my_url_generator as urlg
+import py.my_html as my_html
+import py.my_str_defs as sd
+import py.my_hebrew_points as hpo
+import py.my_html_for_img as img
+import py.my_url_generator as urlg
 
 
 def write(io_records):

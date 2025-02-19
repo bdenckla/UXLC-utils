@@ -1,7 +1,7 @@
-import my_html
-import my_hebrew_points as hpo
-import my_hebrew_punctuation as hpu
-import my_hebrew_accents as ha
+import py.my_html as my_html
+import py.my_hebrew_points as hpo
+import py.my_hebrew_punctuation as hpu
+import py.my_hebrew_accents as ha
 
 
 def uxlc_change_proposals(record):

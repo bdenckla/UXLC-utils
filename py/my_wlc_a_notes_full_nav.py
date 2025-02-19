@@ -1,6 +1,6 @@
 """Exports navs."""
 
-import my_html
+import py.my_html as my_html
 
 
 def navs(record):

@@ -1,7 +1,7 @@
 """Exports flatten_one"""
 
-import my_uxlc_lci_rec as lci_rec
-import my_uxlc_cvp as cvp
+import py.my_uxlc_lci_rec as lci_rec
+import py.my_uxlc_cvp as cvp
 
 
 def flatten(lcir):

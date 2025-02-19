@@ -1,9 +1,9 @@
 """Exports write_html."""
 
-import my_wlc_bcv_str
-import my_wlc_a_notes_intro
-import my_utils
-import my_html
+import py.my_wlc_bcv_str as my_wlc_bcv_str
+import py.my_wlc_a_notes_intro as my_wlc_a_notes_intro
+import py.my_utils as my_utils
+import py.my_html as my_html
 
 
 def write(records, xml_out_path, no_ucp=False):

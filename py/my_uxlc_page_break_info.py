@@ -9,8 +9,8 @@ Exports:
 """
 
 import json
-import my_uxlc_lci_rec as lci_rec
-import my_uxlc_lci_augrec as lci_augrec
+import py.my_uxlc_lci_rec as lci_rec
+import py.my_uxlc_lci_augrec as lci_augrec
 
 
 def read_in(uxlc):

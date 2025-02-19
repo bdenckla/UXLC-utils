@@ -1,5 +1,5 @@
-import my_html
-import my_html_for_img
+import py.my_html as my_html
+import py.my_html_for_img as my_html_for_img
 from my_html_span_romanized import rmn
 
 

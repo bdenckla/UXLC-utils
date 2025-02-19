@@ -1,8 +1,8 @@
 """Exports augment_lci_recs, flatten_many2, ..."""
 
-import my_uxlc_lci_rec as lci_rec
-import my_uxlc_bibdist as bibdist
-import my_uxlc_lci_rec_flatten as lci_rec_flatten
+import py.my_uxlc_lci_rec as lci_rec
+import py.my_uxlc_bibdist as bibdist
+import py.my_uxlc_lci_rec_flatten as lci_rec_flatten
 
 
 def augment_lci_recs(uxlc, lci_recs):

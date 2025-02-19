@@ -1,6 +1,6 @@
 """Exports name, names."""
 
-import my_unicode
+import py.my_unicode as my_unicode
 
 
 def names(string):

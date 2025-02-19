@@ -1,10 +1,10 @@
 """Exports write_xml."""
 
-import my_html
-import my_wlc_bcv_str
-import my_html_for_img as img
-import my_wlc_a_notes_utils
-import my_wlc_a_notes_full_nav as nav
+import py.my_html as my_html
+import py.my_wlc_bcv_str as my_wlc_bcv_str
+import py.my_html_for_img as img
+import py.my_wlc_a_notes_utils as my_wlc_a_notes_utils
+import py.my_wlc_a_notes_full_nav as nav
 
 
 def write(io_records):

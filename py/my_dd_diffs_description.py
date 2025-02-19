@@ -1,9 +1,9 @@
 """Exports get1"""
 
-import my_unicode
-import my_diffs
-import my_dd_simplify_simple_diffs as ssd
-import my_dd_lett_words
+import py.my_unicode as my_unicode
+import py.my_diffs as my_diffs
+import py.my_dd_simplify_simple_diffs as ssd
+import py.my_dd_lett_words as my_dd_lett_words
 
 
 def get1(str1, str2):

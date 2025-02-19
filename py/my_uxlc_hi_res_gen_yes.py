@@ -2,10 +2,10 @@
 
 import csv
 import re
-import my_tanakh_book_names as tbn
-import my_uxlc_cvp as cvp
-import my_uxlc_lci_rec as lci_rec
-import my_uxlc_hi_res_gen_no as hi_res_gen_no
+import py.my_tanakh_book_names as tbn
+import py.my_uxlc_cvp as cvp
+import py.my_uxlc_lci_rec as lci_rec
+import py.my_uxlc_hi_res_gen_no as hi_res_gen_no
 
 # gpgid: Genesis page id: PP-LLC e.g. 01-01B, 61-31B
 # where:

@@ -1,9 +1,9 @@
 """Exports date_qualify_and_reformat"""
 
 import re
-import my_uxlc_unicode_names
-import my_uxlc_book_abbreviations as u_bk_abbr
-import my_uxlc_authors
+import py.my_uxlc_unicode_names as my_uxlc_unicode_names
+import py.my_uxlc_book_abbreviations as u_bk_abbr
+import py.my_uxlc_authors as my_uxlc_authors
 
 
 def date_qualify_and_reformat(date, change):

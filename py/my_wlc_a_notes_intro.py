@@ -1,6 +1,6 @@
 """Exprots INTRO"""
 
-import my_html
+import py.my_html as my_html
 
 
 _THIS_PAGE = (

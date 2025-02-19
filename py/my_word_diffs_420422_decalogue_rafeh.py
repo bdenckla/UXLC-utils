@@ -1,4 +1,4 @@
-import my_html
+import py.my_html as my_html
 from my_html_span_romanized import rmn
 
 DECALOGUE_RAFE = [

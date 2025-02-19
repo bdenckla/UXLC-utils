@@ -1,9 +1,9 @@
 """Exports write_xml."""
 
-import my_html
-import my_word_diffs_420422_utils as wd_utils
-import my_html_for_img as img
-import my_url_generator as urlg
+import py.my_html as my_html
+import py.my_word_diffs_420422_utils as wd_utils
+import py.my_html_for_img as img
+import py.my_url_generator as urlg
 
 
 def write(io_records):

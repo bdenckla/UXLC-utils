@@ -1,4 +1,4 @@
-import my_html
+import py.my_html as my_html
 
 
 def rmn(string):
