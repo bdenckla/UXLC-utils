@@ -2,6 +2,7 @@
 
 import shutil
 import os
+import py.my_open as my_open
 
 
 def _trees(files):
@@ -31,8 +32,20 @@ def main():
         dst = f"{_CI_L}/{file}"
         shutil.copy(file, dst)
         print(f"to {_CI_L}, did shutil.copy of {file}")
+    wpath = f"{_CI_L}/warning-do-not-edit-these-files.txt"
+    my_open.with_tmp_openw(wpath, {}, _wcallback)
+    print(f"wrote {wpath}")
 
 
+def _wcallback(out_fp):
+    out_fp.write("\n".join(_WARNING_LINES) + "\n")
+
+
+_WARNING_LINES = [
+    "Do not edit these files here in the codex-index public repo.",
+    "These files are copied from the UXLC-utils private repo.",
+    "If needed, edit them their in the UXLC-utils private repo.",
+]
 _TREES_TO_COPY = ("in/UXLC",)
 _FILES_TO_COPY = (
     "in/UXLC-misc/lci_recs.json",
