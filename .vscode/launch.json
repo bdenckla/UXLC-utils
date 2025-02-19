@@ -77,7 +77,7 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "420422",
+            "name": "write page break info",
             "type": "debugpy",
             "request": "launch",
             "program": "main_write_page_break_info.py",

@@ -6,13 +6,19 @@
     <ref>UXLC 2.1</ref>
     <target>UXLC 2.2</target>
     <filedate>2024.10.19</filedate>
-    <type>proposed</type>
+    <type>installed</type>
     <reffiles>
         <reffile>
-            <title>Changes to </title>
-            <linkname>qere and ketiv forms.</linkname>
-            <titleend/>
+            <title>Comments on </title>
+            <linkname>qere and ketiv forms</linkname>
+            <titleend> for these changes.</titleend>
             <link>Qere and ketiv forms.html</link>
+        </reffile>
+        <reffile>
+            <title>Comments on </title>
+            <linkname>yatir forms</linkname>
+            <titleend> for these changes.</titleend>
+            <link>Yatir forms.html</link>
         </reffile>
     </reffiles>
     <dates>
@@ -58,7 +64,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel/accent</type>
             </change>
             <!--...................................................-->
@@ -106,7 +112,7 @@
                         <beforetext>וַֽיַ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -141,7 +147,7 @@
                 <changetext>וַיּוֻשַׂ֤ם</changetext>
                 <changeuni>vav     patah     yod     dagesh     vav     qubuts     shin     sin-dot     patah     mahapakh     final-mem     </changeuni>
                 <notes>
-                    <note>Example from BHL "Qere and Ketiv", p. xx, on qubuts (qibbus&#x0323;) to mark a dagesh in the qere. The ketiv body text is ויישם; the qere in the left margin is ויושם. In the image the qubuts is positioned between the yod and the vav.</note>
+                    <note>Example from BHL "Qere and Ketiv", p. xx, on qubuts (qibbuṣ) to mark a dagesh in the qere. The ketiv body text is ויישם; the qere in the left margin is ויושם. In the image the qubuts is positioned between the yod and the vav.</note>
                     <note>BHL has a dagesh (acting as a shuruq dot) in the second vav, וַיּוּשַׂ֤ם.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -152,7 +158,7 @@
                         <beforetext>וַיּוֻ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -182,7 +188,7 @@
                 <changetext>עָלֻ֗ו</changetext>
                 <changeuni>ayin     qamats     lamed     qubuts     revia     vav     </changeuni>
                 <notes>
-                    <note>Example from BHL "Qere and Ketiv", p. xx, on qubuts (qibbus&#x0323;) to mark a dagesh in the qere. The ketiv body text is עלה; the qere in the right margin is עלו. In the image the qubuts is positioned under the between the ayin and the lamed.</note>
+                    <note>Example from BHL "Qere and Ketiv", p. xx, on qubuts (qibbuṣ) to mark a dagesh in the qere. The ketiv body text is עלה; the qere in the right margin is עלו. In the image the qubuts is positioned under the between the ayin and the lamed.</note>
                     <note>BHL has a dagesh (acting as a shuruq dot) in the vav, ועָל֗וּ. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -193,7 +199,7 @@
                         <beforetext>עָלֻ֗</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -223,7 +229,7 @@
                 <changetext>וּבַטְחֹרִ֔ים</changetext>
                 <changeuni>vav     dagesh     bet     patah     tet     sheva     het     holam     resh     hiriq     zaqef-qatan     yod     final-mem     </changeuni>
                 <notes>
-                    <note>Example from BHL "Qere and Ketiv", p. xx, on "ketiv that cannot carry a dagesh that is due in the qere". The ketiv body text is ובעפלים; the qere in the left margin is ובטחרים. The pe in the ketiv cannot carry a dagesh so the tet would be without a dagesh. The BHL adds a dagesh in the tet which is unsupported by the LC text. The qere/ketiv pair is a euphemism (tumors instead of hemorrhoids) that occurs in 1 Sam 5:6.10 and 1 Sam 5:12.7.</note>
+                    <note>Example from BHL "Qere and Ketiv", p. xx, on "ketiv that cannot carry a dagesh that is due in the qere". The ketiv body text is ובעפלים; the qere in the left margin is ובטחרים. The ayin in the ketiv cannot carry a dagesh so the tet would be without a dagesh. The BHL adds a dagesh in the tet which is unsupported by the LC text. The qere/ketiv pair is a euphemism (tumors instead of hemorrhoids) that occurs in 1 Sam 5:6.10 and 1 Sam 5:12.7.</note>
                     <note>BHL has a dagesh in the tet, וּבַטְּחֹרִ֔ים. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -234,7 +240,7 @@
                         <beforetext>וּבַטְ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -277,7 +283,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -322,7 +328,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -365,7 +371,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -408,7 +414,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -451,7 +457,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -500,7 +506,7 @@
                         <beforetext>וְאֶפְרֹחָ֥</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>consonant/RemoveQK</type>
             </change>
             <!--...................................................-->
@@ -541,7 +547,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -582,7 +588,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -623,7 +629,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -664,7 +670,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -705,7 +711,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -746,7 +752,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -787,7 +793,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -828,7 +834,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -874,7 +880,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -917,7 +923,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -958,7 +964,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1005,7 +1011,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1048,7 +1054,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel/accent</type>
             </change>
             <!--...................................................-->
@@ -1089,7 +1095,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1135,7 +1141,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1177,7 +1183,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>consonant/RemoveQK</type>
             </change>
             <!--...................................................-->
@@ -1220,7 +1226,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>consonant/RemoveQK</type>
             </change>
             <!--...................................................-->
@@ -1261,7 +1267,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1304,7 +1310,7 @@
                         <beforetext>הַשָּׁלִ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -1345,7 +1351,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1386,7 +1392,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1427,7 +1433,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1468,7 +1474,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1509,7 +1515,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1550,7 +1556,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1591,7 +1597,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1632,7 +1638,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1674,7 +1680,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1715,7 +1721,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1756,7 +1762,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1797,7 +1803,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1838,7 +1844,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1881,7 +1887,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1929,7 +1935,7 @@
                     <secondTag>q</secondTag>
                     <secondText>אַרְתַּחְשַׁ֖שְׂתְּ</secondText>
                 </split>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>split</type>
             </change>
             <!--...................................................-->
@@ -1972,7 +1978,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2013,7 +2019,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2056,7 +2062,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2097,7 +2103,7 @@
                         <beforetext>פְ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2140,7 +2146,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2186,7 +2192,7 @@
                         <beforetext>וְיִֽשְׁתַּחֲוֻ֤</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2226,7 +2232,7 @@
                         <beforetext>וַיִּֽשְׁתַּחֲוֻּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2267,7 +2273,7 @@
                         <beforetext>מַה</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2310,7 +2316,7 @@
                         <beforetext>בְ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2353,7 +2359,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2394,7 +2400,7 @@
                         <beforetext>ב</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2435,7 +2441,7 @@
                         <beforetext>וַיְצַוֻ֕</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2476,7 +2482,7 @@
                         <beforetext>בַּטְ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2517,7 +2523,7 @@
                         <beforetext>בַּטְח</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2557,7 +2563,7 @@
                         <beforetext>מִבִּנ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2603,7 +2609,7 @@
                         <beforetext>וַיֹּאמְרֻ֣ו</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2650,7 +2656,7 @@
                         <beforetext>אָמְרֻ֣ו</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2694,7 +2700,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2735,7 +2741,7 @@
                         <beforetext>וַיִּוָ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2775,7 +2781,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2815,7 +2821,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2856,7 +2862,7 @@
                         <beforetext>בִת</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2897,7 +2903,7 @@
                         <beforetext>וַיִ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2938,7 +2944,7 @@
                         <beforetext>הָאֵ֔לֶ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2981,7 +2987,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3022,7 +3028,7 @@
                         <beforetext>וַיְדַבְּר֨וֻ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3063,7 +3069,7 @@
                         <beforetext>שְׁכֵנָ֑יִך</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3106,7 +3112,7 @@
                         <beforetext>דִ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3149,7 +3155,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3190,7 +3196,7 @@
                         <beforetext>בָ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3231,7 +3237,7 @@
                         <beforetext>יִקָּ֑חוֻ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3272,7 +3278,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3313,7 +3319,7 @@
                         <beforetext>מַה</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3354,7 +3360,7 @@
                         <beforetext>וְהִנֵּה</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3395,7 +3401,7 @@
                         <beforetext>בָ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3438,7 +3444,7 @@
                         <beforetext>לָהּ֙</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -3479,7 +3485,7 @@
                         <beforetext>דָּנִיֵ֣</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3520,7 +3526,7 @@
                         <beforetext>דָּנִיֵ֣</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3561,7 +3567,7 @@
                         <beforetext>מִדָּֽנִיֵ֑</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3604,7 +3610,7 @@
                         <beforetext>תִּצֽרְ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3645,7 +3651,7 @@
                         <beforetext>ו</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3689,7 +3695,7 @@
                         <beforetext>וְקִבְּלֻ֣ו</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3730,7 +3736,7 @@
                         <beforetext>הִזְדְ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3774,12 +3780,2131 @@
                         <beforetext>וַיַּעֲלֻ֨ו</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Installed</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
         </date>
         <!--===================================================-->
+        <!--===================================================-->
+        <!--===================================================-->
+        <date>
+            <title>Missing yatir qere/ketiv pairs</title>
+            <date>2024.07.01</date>
+            <!--...................................................-->
+            <change>
+                <n>1</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>5</c>
+                    <v>10</v>
+                    <position>19</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Create qere/ketiv pair for word marked as "יתיר י  (yatir yod)". </description>
+                <lc>
+                    <folio>Folio_442A</folio>
+                    <column>1</column>
+                    <line>26</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <image2>
+                    <title>Expanded view of text in area of word.</title>
+                    <credit>Credit: Sefaria.org.</credit>
+                </image2>
+                <reftext>וְזִיוָ֖יךְ</reftext>
+                <refuni>vav     sheva     zayin     hiriq     yod     vav     qamats     tipeha     yod     final-kaf     sheva     </refuni>
+                <changetext>וְזִיוָ֖ךְ</changetext>
+                <changeuni>vav     sheva     zayin     hiriq     yod     vav     qamats     tipeha     final-kaf     sheva     </changeuni>
+                <notes>
+                    <note>The LC word contains two yods: one before and one after the second vav. 
+						  The second yod is broken and squeezed between the second vav and the final kaf. 
+						  The right margin of the text contains the note "יתיר י  (yatir yod)" for this word;
+						      hence, the LC word should be represented by a qere/ketiv pair.
+						  The letters from the reference will be placed in the ketiv word (k tag); 
+						       the changetext will be placed in the qere word (q tag).    
+                          The resulting qere/ketiv pair is found in the BHL, MAM, and JPS Tanach 1999; 
+                             however, it is not in WLC 4.20. 
+                          Because neither the margin note nor the Masora dot specifies which yod is superfluous, 
+                              a transcription note 't' will be added in the next change: 2024.07.01 - 2.</note>
+                    <note>BHL has a qere/ketiv pair for this word. The qere is missing the second yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <split>
+                    <position>0</position>
+                    <firstTag>k</firstTag>
+                    <firstText>וזיויך</firstText>
+                    <secondTag>q</secondTag>
+                    <secondText>וְזִיוָ֖ךְּ</secondText>
+                </split>
+                <status>Installed</status>
+                <type>split</type>
+            </change>
+            <change>
+                <n>2</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>5</c>
+                    <v>10</v>
+                    <position>19</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add note 't' to preceding change: 2024.07.01 - 1 for ambiquity.</description>
+                <lc>
+                    <folio>Folio_442A</folio>
+                    <column>1</column>
+                    <line>26</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <image2>
+                    <title>Expanded view of text in area of word.</title>
+                    <credit>Credit: Sefaria.org.</credit>
+                </image2>
+                <reftext>וזיוי</reftext>
+                <refuni>vav     sheva     zayin     hiriq     yod     vav     qamats     tipeha     final-kaf     sheva     </refuni>
+                <changetext>וְזִיוָ֖ךְ</changetext>
+                <changeuni>vav     sheva     zayin     hiriq     yod     vav     qamats     tipeha     final-kaf     sheva     </changeuni>
+                <notes>
+                    <note>The LC word contains two yods: one before and one after the second vav. 
+						  The second yod is broken and squeezed between the second vav and the final kaf. 
+						  The right margin of the text contains the note "יתיר י  (yatir yod)" for the LC word;
+						      hence, the LC word should be represented by a qere/ketiv pair.
+ 						  In the preceding change, 2024.07.01 - 1, 
+ 						      the letters from the LC text were placed in the preceding ketiv word (k tag) 
+ 						          and the qere (q tag) was placed in this word.    
+                          The resulting qere/ketiv pair is found in the BHL, MAM, and JPS Tanach 1999; 
+                             however, it is not in WLC 4.20. 
+						  Because neither the margin note nor the Masora dot specifies which yod is superfluous,
+						      this  transcription note 't' will be added to this word.
+                    </note>
+                </notes>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>וזיוי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <change>
+                <n>3</n>
+                <citation>
+                    <book>Josh</book>
+                    <c>10</c>
+                    <v>24</v>
+                    <position>19</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Create qere/ketiv pair for word marked as "יתיר א  (yatir aleph)". </description>
+                <lc>
+                    <folio>Folio_127A</folio>
+                    <column>3</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <image2>
+                    <title>Expanded view of text in area of word.</title>
+                    <credit>Credit: Sefaria.org.</credit>
+                </image2>
+                <reftext>הֶהָלְכ֣וּא</reftext>
+                <refuni>he     segol     he     qamats     lamed     sheva     kaf     munah     vav     dagesh     alef     </refuni>
+                <changetext>הֶהָלְכ֣וּ</changetext>
+                <changeuni>he     segol     he     qamats     lamed     sheva     kaf     munah     vav     dagesh      </changeuni>
+                <notes>
+                    <note>
+						  The LC word ends in an aleph.  
+						  The left margin of the text contains the note "יתיר א  (yatir aleph)" for this word;  
+						      hence, the LC word should be represented by a qere/ketiv pair.  
+						  (The preceding letters in the left margin, "יב", represent a count (12) of this form.)
+						  The letters from the reference will be placed in the ketiv word (k tag);  
+						      the changetext will be placed in the qere word (q tag).  
+						  The resulting qere/ketiv pair is found in the JPS Tanach 1999;  however, it is not in BHL, MAM, or WLC 4.20.
+						  From"The Masorah of the Biblia Hebraica Stuttgartensia", Kelly et al, 1998, p. 115.
+				    </note>
+                    <note>BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <split>
+                    <position>0</position>
+                    <firstTag>k</firstTag>
+                    <firstText>ההלכוא</firstText>
+                    <secondTag>q</secondTag>
+                    <secondText>הֶהָלְכ֣וְּּ</secondText>
+                </split>
+                <status>Installed</status>
+                <type>split</type>
+            </change>
+            <!--...................................................-->
+            <change>
+                <n>4</n>
+                <citation>
+                    <book>1 Sam</book>
+                    <c>17</c>
+                    <v>17</v>
+                    <position>9</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Create qere/ketiv pair for word marked as "יתיר א  (yatir aleph)". </description>
+                <lc>
+                    <folio>Folio_159B</folio>
+                    <column>1</column>
+                    <line>20</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <image2>
+                    <title>Expanded view of text in area of word.</title>
+                    <credit>Credit: Sefaria.org.</credit>
+                </image2>
+                <reftext>הַקָּלִיא֙</reftext>
+                <refuni>he     patah     qof     dagesh     qamats     lamed     hiriq     yod     alef     pashta     </refuni>
+                <changetext>הַקָּלִי֙</changetext>
+                <changeuni>he     patah     qof     dagesh     qamats     lamed     hiriq     yod     pashta     </changeuni>
+                <notes>
+                    <note>The LC word ends in an aleph.  
+						  The right margin of the text contains the note "יתיר א  (yatir aleph)" for this word;  
+						      hence, the LC word should be represented by a qere/ketiv pair.  
+						  (The preceding letters in the right margin, "יב", represent a count (12) of this form.)  
+						  The letters from the reference will be placed in the ketiv word (k tag);  
+						      the changetext will be placed in the qere word (q tag).  
+						  The resulting qere/ketiv pair is found in the JPS Tanach 1999;  
+						      however, it is not in BHL, MAM, or WLC 4.20.
+						  From"The Masorah of the Biblia Hebraica Stuttgartensia", Kelly et al, 1998, p. 115.</note>
+                    <note>BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <split>
+                    <position>0</position>
+                    <firstTag>k</firstTag>
+                    <firstText>הקליא</firstText>
+                    <secondTag>q</secondTag>
+                    <secondText>הַקָּלִי֙</secondText>
+                </split>
+                <status>Installed</status>
+                <type>split</type>
+            </change>
+        </date>
+        <!--===================================================-->
+        <!--===================================================-->
+        <date>
+            <date>2024.07.08</date>
+            <title>Addition of 'y' notes to yatir forms.</title>
+            <!--...................................................-->
+            <change>
+                <n>1</n>
+                <citation>
+                    <book>Deut</book>
+                    <c>32</c>
+                    <v>13</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_118B</folio>
+                    <column>C1</column>
+                    <line>L17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>במותי</reftext>
+                <refuni>bet     mem     vav     tav     yod     </refuni>
+                <changetext>במותי</changetext>
+                <changeuni>bet     mem     vav     tav     yod     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the second of 3 markings on the word; it is a yatir vav.</note>
+                    <note>BHL has a qere/ketiv pair; this word is the ketiv word of that pair.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>במו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <change>
+                <n>2</n>
+                <citation>
+                    <book>Josh</book>
+                    <c>10</c>
+                    <v>24</v>
+                    <position>19</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir aleph)</description>
+                <lc>
+                    <folio>Folio_127A</folio>
+                    <column>3</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>ההלכוא</reftext>
+                <refuni>he      he     lamed     kaf     vav     alef</refuni>
+                <changetext>ההלכוא</changetext>
+                <changeuni>he      he     lamed     kaf     vav     alef</changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the left margin; it is a yatir aleph. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.</note>
+                    <note>BHL has no qere/ketiv marking and has a final aleph on this word.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ההלכוא</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <change>
+                <n>3</n>
+                <citation>
+                    <book>1 Sam</book>
+                    <c>17</c>
+                    <v>17</v>
+                    <position>9</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word.  (yatir aleph)</description>
+                <lc>
+                    <folio>Folio_159B</folio>
+                    <column>1</column>
+                    <line>20</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הקליא</reftext>
+                <refuni>he     qof     lamed     yod     alef</refuni>
+                <changetext>הקליא</changetext>
+                <changeuni>he     qof     lamed     yod     alef</changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir aleph. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.</note>
+                    <note>BHL has no qere/ketiv marking and has a final aleph on this word. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>הקליא</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>4</n>
+                <citation>
+                    <book>1 Sam</book>
+                    <c>24</c>
+                    <v>5</v>
+                    <position>15</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word.  (yatir yod)</description>
+                <lc>
+                    <folio>Folio_164A</folio>
+                    <column>2</column>
+                    <line>27</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>איביך</reftext>
+                <refuni>alef     yod     bet     yod     final-kaf     </refuni>
+                <changetext>איביך</changetext>
+                <changeuni>alef     yod     bet     yod     final-kaf     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir yod.  The word has two yods; however, the Masorah circle appears over the second yod. WLC 4.20 lacks a 'y' transcription note for this word.</note>
+                    <note>This verse and word appear as verse 4 in the BHL. The BHL has a qere/ketiv form without the second yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>איבי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>5</n>
+                <citation>
+                    <book>1 Sam</book>
+                    <c>28</c>
+                    <v>8</v>
+                    <position>16</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_166B</folio>
+                    <column>3</column>
+                    <line>9</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>קסומי־</reftext>
+                <refuni>qof     samekh     vav     mem     yod     maqaf     </refuni>
+                <changetext>קסומי־</changetext>
+                <changeuni>qof     samekh     vav     mem     yod     maqaf     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir vav.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>קסו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>6</n>
+                <citation>
+                    <book>Jer</book>
+                    <c>3</c>
+                    <v>5</v>
+                    <position>7</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.</description>
+                <lc>
+                    <folio>Folio_247A</folio>
+                    <column>1 </column>
+                    <line>18</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>דברתי</reftext>
+                <refuni>dalet     bet     resh     tav     yod     </refuni>
+                <changetext>דברתי</changetext>
+                <changeuni>dalet     bet     resh     tav     yod     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the left margin; it is a yatir yod. Alas, no Masorah circle appears in the line and the line contains two yods, one in this word and one in the following word. Add a transcription note 't' to reflect this uncertainty.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word lacks a final yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>דברתי</beforetext>
+                    </transnote>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>דברתי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>7</n>
+                <citation>
+                    <book>Jer</book>
+                    <c>5</c>
+                    <v>7</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_248A</folio>
+                    <column>3</column>
+                    <line>3</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>אסלוח־</reftext>
+                <refuni>alef     samekh     lamed     vav     het     maqaf     </refuni>
+                <changetext>אסלוח־</changetext>
+                <changeuni>alef     samekh     lamed     vav     het     maqaf     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir vav.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>אסלו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>8</n>
+                <citation>
+                    <book>Prov</book>
+                    <c>6</c>
+                    <v>16</v>
+                    <position>6</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_411B</folio>
+                    <column>1</column>
+                    <line>19</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>תועבות</reftext>
+                <refuni>tav     vav     ayin     bet     vav     tav     </refuni>
+                <changetext>תועבות</changetext>
+                <changeuni>tav     vav     ayin     bet     vav     tav     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir vav. Although the word contains two vavs the first is vowelized and, hence, not superfluous.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere doesn't contain the second vav. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>תועבו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>9</n>
+                <citation>
+                    <book>Prov</book>
+                    <c>8</c>
+                    <v>35</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.</description>
+                <lc>
+                    <folio>Folio_412B</folio>
+                    <column>1</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>מצאי</reftext>
+                <refuni>mem     tsadi     alef     yod     </refuni>
+                <changetext>מצאי</changetext>
+                <changeuni>mem     tsadi     alef     yod     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir yod. The line containing this word contains five yods and no Masorah circle is present to indicate which yod is superfluous. The (unusually-large) zayin represents the number 7; normally this would indicate that the yatir yod occurs 7 times throughout the text. Because of this ambiguity, a transcription note 't' will be added.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere lacks the final yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>מצאי</beforetext>
+                    </transnote>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>מצאי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>10</n>
+                <citation>
+                    <book>Prov</book>
+                    <c>22</c>
+                    <v>8</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_417A</folio>
+                    <column>1</column>
+                    <line>26</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>יקצור־</reftext>
+                <refuni>yod     qof     tsadi     vav     resh     maqaf     </refuni>
+                <changetext>יקצור־</changetext>
+                <changeuni>yod     qof     tsadi     vav     resh     maqaf     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the right margin; it is a yatir vav.  WLC 4.20 lacks a 'y' transcription note for this word.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>יקצו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>11</n>
+                <citation>
+                    <book>Prov</book>
+                    <c>24</c>
+                    <v>17</v>
+                    <position>2</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_418A</folio>
+                    <column>1</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>אויביך</reftext>
+                <refuni>alef     vav     yod     bet     yod     final-kaf     </refuni>
+                <changetext>אויביך</changetext>
+                <changeuni>alef     vav     yod     bet     yod     final-kaf     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir yod. The word contains two yods; however, the first yod is vowelized with a hiriq.  Note that the marking and Masorah circle are unusually light for this page.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere doesn't contain the second yod. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>אויבי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>12</n>
+                <citation>
+                    <book>Lam</book>
+                    <c>1</c>
+                    <v>11</v>
+                    <position>7</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_430A</folio>
+                    <column>2</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>מחמודיהם</reftext>
+                <refuni>mem     het     mem     vav     dalet     yod     he     final-mem     </refuni>
+                <changetext>מחמודיהם</changetext>
+                <changeuni>mem     het     mem     vav     dalet     yod     he     final-mem     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the right margin; it is a yatir vav. No Masorah circle is present on the line and two vavs are present; however, the first vav in the line, part of the first word in the line, is vowelized with a dagesh (acting as a shuruq).</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere lacks the vav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>מחמו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>13</n>
+                <citation>
+                    <book>Eccl</book>
+                    <c>10</c>
+                    <v>3</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir he)</description>
+                <lc>
+                    <folio>Folio_429A</folio>
+                    <column>2</column>
+                    <line>2</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>כשהסכל</reftext>
+                <refuni>kaf     shin     he     samekh     kaf     lamed     </refuni>
+                <changetext>כשהסכל</changetext>
+                <changeuni>kaf     shin     he     samekh     kaf     lamed     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the right margin; it is a yatir he. The lamed and dalet at the extreme right side of the above image are for words in the preceding column.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere lacks the he.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>כשה</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>14</n>
+                <citation>
+                    <book>Eccl</book>
+                    <c>10</c>
+                    <v>10</v>
+                    <position>11</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_429A</folio>
+                    <column>2</column>
+                    <line>20</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הכשיר</reftext>
+                <refuni>he     kaf     shin     yod     resh     </refuni>
+                <changetext>הכשיר</changetext>
+                <changeuni>he     kaf     shin     yod     resh     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir yod. The Masorah circle is filled in, yet distinct. The purpose of the dotted lamed in the right margin is unknown; it is slightly lower than the yod.</note>
+                    <note>BHL does not have a qere/ketiv pair for this word; it retains the yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>הכשי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>15</n>
+                <citation>
+                    <book>Esth</book>
+                    <c>4</c>
+                    <v>7</v>
+                    <position>18</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_434B</folio>
+                    <column>2</column>
+                    <line>9</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>ביהודיים</reftext>
+                <refuni>bet     yod     he     vav     dalet     yod     yod     final-mem     </refuni>
+                <changetext>ביהודיים</changetext>
+                <changeuni>bet     yod     he     vav     dalet     yod     yod     final-mem     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the left margin; it is a yatir yod. The word has 3 yods; the first is vowelized and accented. Neither the second or third yod is vowelized or accented; the second yod in the word will be noted as a yatir here.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere has a single unvowelized, unaccented yod before the final mem.
+						BHLA has no entry for this verse.
+					</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ביהודי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>16</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>3</c>
+                    <v>15</v>
+                    <position>12</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_440A</folio>
+                    <column>2</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>קיתרס</reftext>
+                <refuni>qof     yod     tav     resh     samekh     </refuni>
+                <changetext>קיתרס</changetext>
+                <changeuni>qof     yod     tav     resh     samekh     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir vav. 
+						  (This word contains no vav; it has a holam on the next-to-last letter, resh.
+						  See change 2024.07.11 - 1 which follows.) </note>
+                    <note>BHL has a qere/ketiv pair; the qere form has no yod after the qof and no vav.  
+						  BHLA has an entry for this verse; the entry is for word 38 (דֵּ֥י), not this word. (Word 38 agrees with BHLA)</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>קי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>17</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>3</c>
+                    <v>21</v>
+                    <position>6</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.</description>
+                <lc>
+                    <folio>Folio_440A</folio>
+                    <column>3</column>
+                    <line>24</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>פטישיהון</reftext>
+                <refuni>pe     tet     yod     shin     yod     he     vav     final-nun     </refuni>
+                <changetext>פטישיהון</changetext>
+                <changeuni>pe     tet     yod     shin     yod     he     vav     final-nun     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir yod. 
+						The word has 2 yods; neither is vowelized. 
+						The first yod in the word will be noted as a yatir here. 
+						A note 't' will be added to reflect this ambiguity.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere has a single unvowelized, unaccented yod after the shin. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>פטי</beforetext>
+                    </transnote>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>פטי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>18</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>3</c>
+                    <v>28</v>
+                    <position>23</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_440B</folio>
+                    <column>2</column>
+                    <line>16</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>גשמיהון</reftext>
+                <refuni>gimel     shin     mem     yod     he     vav     final-nun     </refuni>
+                <changetext>גשמיהון</changetext>
+                <changeuni>gimel     shin     mem     yod     he     vav     final-nun     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir yod. A raised yod appears between the mem and the he.</note>
+                    <note>BHL has  a qere/ketiv pair for this word; the qere form has no yod between the mem and the he.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>גשמי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>19</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>4</c>
+                    <v>14</v>
+                    <position>17</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_441A</folio>
+                    <column>2</column>
+                    <line>13</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>אנושא</reftext>
+                <refuni>alef     nun     vav     shin     alef     </refuni>
+                <changetext>אנושא</changetext>
+                <changeuni>alef     nun     vav     shin     alef     </changeuni>
+                <notes>
+                    <note>The line has two markings in the left margin but no Masorah circles. The first marking is a qere form indicating that a he follows an aleph. This applies to preceding  words 14 and 15. The second marking is a yatir vav. Two vavs appear on the line; the one in word 16 is vowelized with a dagesh acting as a shuruq. Hence, this marking must be for word 17.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere form has no vav. BHL also agrees with the qere/ketiv pair in words 14 and 15. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>אנו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>20</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>5</c>
+                    <v>10</v>
+                    <position>19</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod).</description>
+                <lc>
+                    <folio>Folio_442A</folio>
+                    <column>1</column>
+                    <line>26</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וזיויך</reftext>
+                <refuni>vav     zayin    yod     vav    yod     final-kaf</refuni>
+                <changetext>וזיויך</changetext>
+                <changeuni>vav     zayin    yod     vav    yod     final-kaf</changeuni>
+                <notes>
+                    <note>The yatir note is in the right margin; it is a yatir yod. The first word on the line has a Masorah circle and two unvowelized and unaccented yods. The second of these yods, between the vav and final kaf, is broken. The 'y' note will be added to the second yod. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere form has a single yod after the zayin.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>וזיוי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>21</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>5</c>
+                    <v>23</v>
+                    <position>13</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_442B</folio>
+                    <column>1</column>
+                    <line>16</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>ורברבניך</reftext>
+                <refuni>vav     resh     bet     resh     bet     nun     yod     final-kaf     </refuni>
+                <changetext>ורברבניך</changetext>
+                <changeuni>vav     resh     bet     resh     bet     nun     yod     final-kaf     </changeuni>
+                <notes>
+                    <note>This line has 3 markings: a qere marking for the first word in the right margin that lacks a Masorah cirle and a qere marking in the left for the second word, as indicated by the Masorah cirle. The third word has a Masorah circle and has a yatir yod marking.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere forn has no yod betweeb the nun and final kaf.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ורברבני</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>22</n>
+                <citation>
+                    <book>Ezra</book>
+                    <c>4</c>
+                    <v>11</v>
+                    <position>8</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir aleph)</description>
+                <lc>
+                    <folio>Folio_449B</folio>
+                    <column>2</column>
+                    <line>18</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>ארתחששתא</reftext>
+                <refuni>alef     resh    tav     het     shin     shin-dot     patah     tipeha     shin      tav     alef</refuni>
+                <changetext>ארתחששתא</changetext>
+                <changeuni>alef     resh    tav     het     shin     shin-dot     patah     tipeha     shin      tav     alef</changeuni>
+                <notes>
+                    <note>The yatir note is in the right margin; it is a yatir aleph. The word on the line has a Masorah circle and two alephs. The first of these alephs is vowelized. The 'y' note will be added to the second aleph. WLC 4.20 lacks a 'y' transcription note for this word.</note>
+                    <note>BHL has no qere/ketiv pair for this word; the word starts and ends with an aleph.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ארתחששתא</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>23</n>
+                <citation>
+                    <book>Ezra</book>
+                    <c>4</c>
+                    <v>12</v>
+                    <position>15</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir aleph) Add 't' note for ambiguity.</description>
+                <lc>
+                    <folio>Folio_449B</folio>
+                    <column>2</column>
+                    <line>24</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>ובאישתא</reftext>
+                <refuni>vav     bet     alef     yod     shin     tav     alef     </refuni>
+                <changetext>ובאישתא</changetext>
+                <changeuni>vav     bet     alef     yod     shin     tav     alef     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir aleph. The word has a Masorah circle and contains two alephs; the first has an unexpected rafe mark, the second, final aleph, is accented. The first aleph will be marked as the yatir. Add a 't' note to indicate ambiguity.</note>
+                    <note>BHL has no qere/ketiv pair for this word; both alephs are retained.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>ובא</beforetext>
+                    </transnote>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ובא</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>24</n>
+                <citation>
+                    <book>Ezra</book>
+                    <c>7</c>
+                    <v>18</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_451B</folio>
+                    <column>2</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>עליך</reftext>
+                <refuni>ayin     lamed     yod     final-kaf     </refuni>
+                <changetext>עליך</changetext>
+                <changeuni>ayin     lamed     yod     final-kaf     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir yod. </note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word haS no yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>עלי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>25</n>
+                <citation>
+                    <book>Ezra</book>
+                    <c>7</c>
+                    <v>18</v>
+                    <position>6</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_451B</folio>
+                    <column>2</column>
+                    <line>18</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>אחיך</reftext>
+                <refuni>alef     het     yod     final-kaf     </refuni>
+                <changetext>אחיך</changetext>
+                <changeuni>alef     het     yod     final-kaf     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir yod. </note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word lacks a yod.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>אחי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>26</n>
+                <citation>
+                    <book>Ezra</book>
+                    <c>8</c>
+                    <v>25</v>
+                    <position>1</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_452B</folio>
+                    <column>1</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>ואשקולה</reftext>
+                <refuni>vav     alef     shin     qof     vav     lamed     he     </refuni>
+                <changetext>ואשקולה</changetext>
+                <changeuni>vav     alef     shin     qof     vav     lamed     he     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir vav.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word lacks a vav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ואשקו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>27</n>
+                <citation>
+                    <book>Neh</book>
+                    <c>5</c>
+                    <v>7</v>
+                    <position>15</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir aleph)</description>
+                <lc>
+                    <folio>Folio_456B</folio>
+                    <column>2</column>
+                    <line>4</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>נשאים</reftext>
+                <refuni>nun     shin     alef     yod     final-mem     </refuni>
+                <changetext>נשאים</changetext>
+                <changeuni>nun     shin     alef     yod     final-mem     </changeuni>
+                <notes>
+                    <note>The yatir note is in the left margin; it is a yatir aleph.  The lamed slighly below the aleph of the yatir marking is probably for the Masorah circle on the next line.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word lacks the aleph.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>נשא</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>28</n>
+                <citation>
+                    <book>Neh</book>
+                    <c>9</c>
+                    <v>17</v>
+                    <position>25</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_459B</folio>
+                    <column>2</column>
+                    <line>16</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וחסד</reftext>
+                <refuni>vav     het     samekh     dalet     </refuni>
+                <changetext>וחסד</changetext>
+                <changeuni>vav     het     samekh     dalet     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the right margin; it is a yatir vav. The text quality is low on this line.</note>
+                    <note>BHL has  a qere/ketiv pair for this word; the qere word has no vav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>29</n>
+                <citation>
+                    <book>Neh</book>
+                    <c>13</c>
+                    <v>23</v>
+                    <position>9</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_463A</folio>
+                    <column>1</column>
+                    <line>18</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>אשדודיות</reftext>
+                <refuni>alef     shin     dalet     vav     dalet     yod     vav     tav     </refuni>
+                <changetext>אשדודיות</changetext>
+                <changeuni>alef     shin     dalet     vav     dalet     yod     vav     tav     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the right margin; it is a yatir vav. No Masorah cicle appears above this word; however, the only  other word on this line has a Masorah circle and a yatir vav marking in the left margin.  Thus, yatir vav marking in the right margin must apply to this word. The word contains two vavs; The first is unvowelized and unaccented, the second is vowelized. The yatir vav marking is applied to the first vav. The following word is also a yatir vav.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word has a vav before the final tav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>אשדו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>30</n>
+                <citation>
+                    <book>Neh</book>
+                    <c>13</c>
+                    <v>23</v>
+                    <position>11</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_463A</folio>
+                    <column>1</column>
+                    <line>18</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>עמוניות</reftext>
+                <refuni>ayin     mem     vav     nun     yod     vav     tav     </refuni>
+                <changetext>עמוניות</changetext>
+                <changeuni>ayin     mem     vav     nun     yod     vav     tav     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the left margin; it is a yatir vav. A masorah circle is over this word. The word contains two vavs; the first is unvowelized and unaccented, the second is vowelized. The yatir will be applied to the first vav. The preceding word is also a yatir vav, but it lacks a Masorah circle.</note>
+                    <note>BHL has a qere/ketiv pair for this word, the qere word has a vav befor the final tav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>עמו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>31</n>
+                <citation>
+                    <book>1 Chr</book>
+                    <c>25</c>
+                    <v>1</v>
+                    <position>10</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiquity.</description>
+                <lc>
+                    <folio>Folio_341B</folio>
+                    <column>1</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הנביאים</reftext>
+                <refuni>he     nun     bet     yod     alef     yod     final-mem     </refuni>
+                <changetext>הנביאים</changetext>
+                <changeuni>he     nun     bet     yod     alef     yod     final-mem     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the left margin; it is a yatir yod. The word has two yods, neither are vowelized or accented. The yatir will be applied to the first yod and a 't' note added.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word has no yod between the bet and the aleph.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>הנבי</beforetext>
+                    </transnote>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>הנבי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>32</n>
+                <citation>
+                    <book>2 Chr</book>
+                    <c>8</c>
+                    <v>10</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiquity.</description>
+                <lc>
+                    <folio>Folio_349A</folio>
+                    <column>1</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הנציבים</reftext>
+                <refuni>he     nun     tsadi     yod     bet     yod     final-mem     </refuni>
+                <changetext>הנציבים</changetext>
+                <changeuni>he     nun     tsadi     yod     bet     yod     final-mem     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir yod. The word has two unvowelized and unaccented yods; the first yod will be taken as the yatir. A note 't' is added for the ambiquity.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word has no yod between the tsadi and the bet.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>הנצי</beforetext>
+                    </transnote>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>הנצי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>33</n>
+                <citation>
+                    <book>2 Chr</book>
+                    <c>29</c>
+                    <v>28</v>
+                    <position>7</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir tsadi)</description>
+                <lc>
+                    <folio>Folio_360B</folio>
+                    <column>2</column>
+                    <line>11</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>מחצצרים</reftext>
+                <refuni>mem     het     tsadi     tsadi     resh     yod     final-mem     </refuni>
+                <changetext>מחצצרים</changetext>
+                <changeuni>mem     het     tsadi     tsadi     resh     yod     final-mem     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the left margin; it is a yatir tsadi. Two words with Masorah circles appear in the line for only one yatir tsadi note; the preceding word and this word. Both tsadis in the preceeding word are vowelized; thus, this word is the object of the yatir tsadi note. The second tsadi in this word is unvowelized and unaccented; that tsadi the yatir will be applied to that letter (not that it matters which tsadi is taken).</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word has a single tsadi. (The previous word has no qere/ketiv pair and has double tsadis. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>מחצצ</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>34</n>
+                <citation>
+                    <book>2 Chr</book>
+                    <c>31</c>
+                    <v>12</v>
+                    <position>9</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_361B</folio>
+                    <column>3</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>כונניהו</reftext>
+                <refuni>kaf     vav     nun     nun     yod     he     vav     </refuni>
+                <changetext>כונניהו</changetext>
+                <changeuni>kaf     vav     nun     nun     yod     he     vav     </changeuni>
+                <notes>
+                    <note>The yatir vav marking is in the left margin and is very light. A Masorah circle is present over this word and the first vav is unvowelized and unaccented. The yatir will be applied to the first vav.</note>
+                    <note>BHL has a qere/ketiv pair for this word; it has no vav between the kaf and the nun.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>כו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>35</n>
+                <citation>
+                    <book>2 Chr</book>
+                    <c>31</c>
+                    <v>13</v>
+                    <position>13</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir vav)</description>
+                <lc>
+                    <folio>Folio_361B</folio>
+                    <column>3</column>
+                    <line>22</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>כונניהו</reftext>
+                <refuni>kaf     vav     nun     nun     yod     he     vav     </refuni>
+                <changetext>כונניהו</changetext>
+                <changeuni>kaf     vav     nun     nun     yod     he     vav     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is in the left margin; it is a yatir vav and is light. 
+						This word has no Masorah circle; however, the first vav in this word is the only unmarked vav on the line. 
+						The yatir vav will be applied to the first vav.
+						WLC 4.20 lacks a 'y' transcription note for this word.</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word has no vav between the kaf and the nun.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>כו</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>36</n>
+                <citation>
+                    <book>2 Chr</book>
+                    <c>34</c>
+                    <v>25</v>
+                    <position>4</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add transcription note 'y' to yatir ketiv word. (yatir yod)</description>
+                <lc>
+                    <folio>Folio_364A</folio>
+                    <column>2</column>
+                    <line>21</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>ויקטירו</reftext>
+                <refuni>vav     yod     qof     tet     yod     resh     vav     </refuni>
+                <changetext>ויקטירו</changetext>
+                <changeuni>vav     yod     qof     tet     yod     resh     vav     </changeuni>
+                <notes>
+                    <note>The yatir marking for this word is the right margin; it is a yatir yod. 
+						The word has two yods; the first is vowelized, the second is unvowelized and unaccented. 
+						The second yod will be marked as the yatir yod. 
+						</note>
+                    <note>BHL has a qere/ketiv pair for this word; the qere word has no yod between the tet and the resh.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>y</type>
+                        <beforetext>ויקטי</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+        </date>
+        <!--===================================================-->
+        <!--===================================================-->
+        <date>
+            <date>2024.07.11</date>
+            <!--...................................................-->
+            <change>
+                <n>1</n>
+                <citation>
+                    <book>Dan</book>
+                    <c>3</c>
+                    <v>15</v>
+                    <position>13</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add holam to resh, remove vav.</description>
+                <lc>
+                    <folio>Folio_440A</folio>
+                    <column>2</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>קַתְר֣וֹס</reftext>
+                <refuni>qof     patah     tav     sheva     resh     munah     vav     holam     samekh     </refuni>
+                <changetext>קַתְרֹ֣ס</changetext>
+                <changeuni>qof     patah     tav     sheva     resh     munah     holam     samekh     </changeuni>
+                <notes>
+                    <note>The LC text has no vav in this word.</note>
+                    <note>BHL has no vav in this word.  BHLA has an entry for this verse; the entry is for word 38 (דֵּ֥י), not this word. (Word 38 agrees with BHLA)</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>consonant/vowel</type>
+            </change>
+            <!--...................................................-->
+        </date>
+        <!--===================================================-->
+        <!--===================================================-->
+        <date>
+            <date>2024.09.29</date>
+            <!--...................................................-->
+            <change>
+                <n>1</n>
+                <citation>
+                    <book>Gen</book>
+                    <c>18</c>
+                    <v>15</v>
+                    <position>8</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add merkha after segol under mem. Add note 't'.</description>
+                <lc>
+                    <folio>Folio_009B</folio>
+                    <column>2</column>
+                    <line>14</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וַיֹּ֥אמֶר ׀</reftext>
+                <refuni>vav     patah     yod     dagesh     holam     merkha     alef     mem     segol     resh     space     paseq     </refuni>
+                <changetext>וַיֹּ֥אמֶ֥ר ׀</changetext>
+                <changeuni>vav     patah     yod     dagesh     holam     merkha     alef     mem     segol     merkha     resh     space     paseq     </changeuni>
+                <notes>
+                    <note>
+                          The ink is chipped in this area; however, 
+                              the remnant of a mark remains following the segol. 
+                          The mark has the northeast-to-southwest inclination of a merkha. 
+                          Add transcription note 't'. 
+                          This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting
+                              "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+                    </note>
+                    <note>BHL has no accent under the mem.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>וַיֹּ֥אמֶ֥</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>2</n>
+                <citation>
+                    <book>Judg</book>
+                    <c>12</c>
+                    <v>5</v>
+                    <position>19</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Examine meteg after segol under the mem as possible merkha.</description>
+                <lc>
+                    <folio>Folio_144B</folio>
+                    <column>1</column>
+                    <line>24</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וַיֹּ֥אמֶֽר ׀</reftext>
+                <refuni>vav     patah     yod     dagesh     holam     merkha     alef     mem     segol     meteg     resh     space     paseq     </refuni>
+                <changetext>וַיֹּ֥אמֶֽר ׀</changetext>
+                <changeuni>vav     patah     yod     dagesh     holam     merkha     alef     mem     segol     meteg     resh     space     paseq     </changeuni>
+                <notes>
+                    <note>
+                        The vertical line following the segol under the mem is very slightly canted 
+                            to northwest-to-southeast and not an obvious merkha. 
+                        The existing merkha under the yod is questionable.
+                        This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting
+                              "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+                     </note>
+                    <note>BHL has a meteg after the segol under the mem.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>NoAction</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>3</n>
+                <citation>
+                    <book>1 Sam</book>
+                    <c>2</c>
+                    <v>16</v>
+                    <position>13</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Change merkha following the patah under the mem to meteg. Add note 'm'</description>
+                <lc>
+                    <folio>Folio_151A</folio>
+                    <column>2</column>
+                    <line>7</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וְאָמַ֥ר ׀</reftext>
+                <refuni>vav     sheva     alef     qamats     mem     patah     merkha     resh     space     paseq     </refuni>
+                <changetext>וְאָמַֽר ׀</changetext>
+                <changeuni>vav     sheva     alef     qamats     mem     patah     meteg     resh     space     paseq     </changeuni>
+                <notes>
+                    <note>
+                        The line following the patah under the mem lacks the northeast-to-southwest 
+                            inclination of a merkha. 
+                        Thus, it will be transcribed as a meteg. 
+                        BHL has a merkha instead. 
+                        Add note'm' to signify the meteg/merkha uncertainty of this accent.
+                        This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting
+                              "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+                        </note>
+                    <note>BHL has a merkha following the patah under the mem.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>m</type>
+                        <beforetext>וְאָמַֽ</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>4</n>
+                <citation>
+                    <book>1 Kings</book>
+                    <c>2</c>
+                    <v>30</v>
+                    <position>12</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add merka following segol under the mem.</description>
+                <lc>
+                    <folio>Folio_186A</folio>
+                    <column>1</column>
+                    <line>12</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וַיֹּ֥אמֶר ׀</reftext>
+                <refuni>vav     patah     yod     dagesh     holam     merkha     alef     mem     segol     resh     space     paseq     </refuni>
+                <changetext>וַיֹּ֥אמֶ֥ר ׀</changetext>
+                <changeuni>vav     patah     yod     dagesh     holam     merkha     alef     mem     segol     merkha     resh     space     paseq     </changeuni>
+                <notes>
+                    <note>
+                        The mark following the segol under the mem has a very slight northeast-to-southwest 
+                            inclination and will be transcribed as a merkha. 
+                        The mark under the yod is a marginal merkha.
+                        This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting
+                              "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+                    </note>
+                    <note>BHL has a meteg following the segol under the mem.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>5</n>
+                <citation>
+                    <book>1 Kings</book>
+                    <c>11</c>
+                    <v>22</v>
+                    <position>14</position>
+                </citation>
+                <author>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Add meteg after the segol under the mem.</description>
+                <lc>
+                    <folio>Folio_193A</folio>
+                    <column>3</column>
+                    <line>14</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וַיֹּ֣אמֶר ׀</reftext>
+                <refuni>vav     patah     yod     dagesh     holam     munah     alef     mem     segol     resh     space     paseq     </refuni>
+                <changetext>וַיֹּ֣אמֶֽר ׀</changetext>
+                <changeuni>vav     patah     yod     dagesh     holam     munah     alef     mem     segol     meteg     resh     space     paseq     </changeuni>
+                <notes>
+                    <note>
+                        The near-vertical line after the segol under the mem lacks the northeast-to-southwest 
+                            inclination to be considered to be a merkha. 
+                        It will be transcribed as a meteg.
+                        This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting
+                              "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+                    </note>
+                    <note>BHL has a meteg following the segol under the mem.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Installed</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+        </date>
         <!--===================================================-->
     </dates>
 </Changes>

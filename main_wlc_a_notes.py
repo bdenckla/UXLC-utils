@@ -1,10 +1,10 @@
 """Exports main."""
 
-import my_wlc_a_notes
-import my_wlc_a_notes_expand
-import my_wlc_a_notes_summary
-import my_wlc_a_notes_full
-import my_wlc_a_notes_xml
+import py.my_wlc_a_notes as my_wlc_a_notes
+import py.my_wlc_a_notes_expand as my_wlc_a_notes_expand
+import py.my_wlc_a_notes_summary as my_wlc_a_notes_summary
+import py.my_wlc_a_notes_full as my_wlc_a_notes_full
+import py.my_wlc_a_notes_xml as my_wlc_a_notes_xml
 
 
 def main():

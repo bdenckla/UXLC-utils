@@ -1,10 +1,10 @@
 """Exports main"""
 
-import my_uxlc
-import my_uxlc_page_break_info as page_break_info
-import my_uxlc_lci_augrec as lci_augrec
-import my_uxlc_lci_rec_to_xml as lci_rec_to_xml
-import my_open
+import py.my_uxlc as my_uxlc
+import py.my_uxlc_page_break_info as page_break_info
+import py.my_uxlc_lci_augrec as lci_augrec
+import py.my_uxlc_lci_rec_to_xml as lci_rec_to_xml
+import py.my_open as my_open
 
 
 def _write_page_break_info(pbi):

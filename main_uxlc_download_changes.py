@@ -5,9 +5,9 @@ Base Usage:
 
 import requests
 
-import my_open
-import my_utils
-import my_uxlc_changes
+import py.my_open as my_open
+import py.my_utils as my_utils
+import py.my_uxlc_changes as my_uxlc_changes
 
 
 def _do_one_download(date):

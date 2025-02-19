@@ -1,6 +1,6 @@
 import py.my_html as my_html
 import py.my_html_for_img as my_html_for_img
-from my_html_span_romanized import rmn
+from py.my_html_span_romanized import rmn
 
 
 def _html_for_pcl(pcl):

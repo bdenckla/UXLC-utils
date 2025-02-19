@@ -1,10 +1,10 @@
 """Exports main."""
 
-import my_word_diffs_420422
-import my_word_diffs_420422_add_fields
-import my_word_diffs_420422_full
-import my_word_diffs_420422_summary
-import my_html
+import py.my_word_diffs_420422 as my_word_diffs_420422
+import py.my_word_diffs_420422_add_fields as my_word_diffs_420422_add_fields
+import py.my_word_diffs_420422_full as my_word_diffs_420422_full
+import py.my_word_diffs_420422_summary as my_word_diffs_420422_summary
+import py.my_html as my_html
 
 
 def main():

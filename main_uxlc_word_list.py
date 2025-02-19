@@ -6,13 +6,13 @@ https://tanach.us/Books/Tanach.xml.zip
 """
 
 import unicodedata
-import my_uxlc
-import my_open
-import my_tanakh_book_names as tbn
-import my_hebrew_letters as hl
-import my_hebrew_points as hpo
-import my_uni_norm_fragile as unf
-import my_uni_heb as uh
+import py.my_uxlc as my_uxlc
+import py.my_open as my_open
+import py.my_tanakh_book_names as tbn
+import py.my_hebrew_letters as hl
+import py.my_hebrew_points as hpo
+import py.my_uni_norm_fragile as unf
+import py.my_uni_heb as uh
 
 
 def _is_uxlc_fragile(string):

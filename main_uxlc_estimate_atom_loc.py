@@ -1,8 +1,8 @@
 """Exports main"""
 
 import argparse
-import my_tanakh_book_names as tbn
-import my_uxlc_location
+import py.my_tanakh_book_names as tbn
+import py.my_uxlc_location as my_uxlc_location
 
 
 def _get_std_bcvp_quad_from_args():

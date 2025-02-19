@@ -1,8 +1,8 @@
 """Exports main."""
 
-import my_uxlc
-import my_open
-import my_fois_kq_foi
+import py.my_uxlc as my_uxlc
+import py.my_open as my_open
+import py.my_fois_kq_foi as my_fois_kq_foi
 
 
 def _handle_vc_wqk(wqk, accum, verse_child):

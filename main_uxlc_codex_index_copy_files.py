@@ -12,34 +12,43 @@ def main():
     """
     Copy files to the codex-index repo.
     """
-    trees_to_copy = ("in/UXLC",)
-    files_to_copy = (
-        "in/UXLC-misc/lci_recs.json",
-        "out/UXLC-misc/lci_recs.xml",
-        "py/main_uxlc_estimate_atom_loc.py",
-        "py/my_tanakh_book_names.py",
-        "py/my_uxlc.py",
-        "py/my_uxlc_bibdist.py",
-        "py/my_uxlc_cvp.py",
-        "py/my_uxlc_location.py",
-        "py/my_uxlc_lci_augrec.py",
-        "py/my_uxlc_lci_rec.py",
-        "py/my_uxlc_lci_rec_flatten.py",
-        "py/my_uxlc_page_break_info.py",
-    )
-    ci_l = "../codex-index/leningrad"
-    trees_to_rmtree = trees_to_copy + _trees(files_to_copy)
-    for tree in trees_to_rmtree:
-        dst = f"{ci_l}/{tree}"
-        if os.path.exists(dst):
-            shutil.rmtree(dst)
-        os.makedirs(dst)
-    for tree in trees_to_copy:
-        dst = f"{ci_l}/{tree}"
+    if os.path.exists(_CI_L):
+        shutil.rmtree(_CI_L)
+        print(f"did shutil.rmtree of {_CI_L}")
+    trees_to_mkdir = _TREES_TO_COPY + _trees(_FILES_TO_COPY)
+    for tree in trees_to_mkdir:
+        fulltree = f"{_CI_L}/{tree}"
+        if tree == ".":
+            print(f"not did os.makedirs of {fulltree}")
+            continue
+        os.makedirs(fulltree)
+        print(f"yes did os.makedirs of {fulltree}")
+    for tree in _TREES_TO_COPY:
+        dst = f"{_CI_L}/{tree}"
         shutil.copytree(tree, dst, dirs_exist_ok=True)
-    for file in files_to_copy:
-        dst = f"{ci_l}/{file}"
+        print(f"to {_CI_L}, did shutil.copytree of {tree}")
+    for file in _FILES_TO_COPY:
+        dst = f"{_CI_L}/{file}"
         shutil.copy(file, dst)
+        print(f"to {_CI_L}, did shutil.copy of {file}")
+
+
+_TREES_TO_COPY = ("in/UXLC",)
+_FILES_TO_COPY = (
+    "in/UXLC-misc/lci_recs.json",
+    "out/UXLC-misc/lci_recs.xml",
+    "./main_uxlc_estimate_atom_loc.py",
+    "py/my_tanakh_book_names.py",
+    "py/my_uxlc.py",
+    "py/my_uxlc_bibdist.py",
+    "py/my_uxlc_cvp.py",
+    "py/my_uxlc_location.py",
+    "py/my_uxlc_lci_augrec.py",
+    "py/my_uxlc_lci_rec.py",
+    "py/my_uxlc_lci_rec_flatten.py",
+    "py/my_uxlc_page_break_info.py",
+)
+_CI_L = "../codex-index/leningrad"
 
 
 if __name__ == "__main__":
