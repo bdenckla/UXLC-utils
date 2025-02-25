@@ -1,11 +1,11 @@
 {
     "header": {
-        "Version": "2023-05-18",
+        "Version": "2025-02-25",
         "Author": "Ben Denckla",
         "Derived-From": "LCIndex",
         "LCIndex-URL": "https://tanach.us/XSL/LCIndex.xml",
         "LCIndex-Derived-From": "USC-WSRP-Index",
-        "USC-WSRP-Index-URL": "https://dornsife.usc.edu/wsrp/biblical-text/",
+        "USC-WSRP-Index-URL": "https://dornsife.usc.edu/wsrp/",
         "USC": "The University of Southern California",
         "WSRP": "West Semitic Research Project",
         "column-dictionary": {
@@ -10242,6 +10242,21 @@
         },
         {
             "page": "326B",
+            "startco": null,
+            "startli": null,
+            "stopco": null,
+            "stopli": null,
+            "bkid": null,
+            "startc": null,
+            "startv": null,
+            "startp": null,
+            "stopc": null,
+            "stopv": null,
+            "stopp": null,
+            "note": "Masoretic lists: Number of verses and the sections in the Prophets"
+        },
+        {
+            "page": "327A",
             "startco": null,
             "startli": null,
             "stopco": null,
