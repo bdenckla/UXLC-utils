@@ -1,11 +1,11 @@
 <lcindex>
   <header>
-    <Version>2023-05-18</Version>
+    <Version>2025-02-25</Version>
     <Author>Ben Denckla</Author>
     <Derived-From>LCIndex</Derived-From>
     <LCIndex-URL>https://tanach.us/XSL/LCIndex.xml</LCIndex-URL>
     <LCIndex-Derived-From>USC-WSRP-Index</LCIndex-Derived-From>
-    <USC-WSRP-Index-URL>https://dornsife.usc.edu/wsrp/biblical-text/</USC-WSRP-Index-URL>
+    <USC-WSRP-Index-URL>https://dornsife.usc.edu/wsrp/</USC-WSRP-Index-URL>
     <USC>The University of Southern California</USC>
     <WSRP>West Semitic Research Project</WSRP>
     <column-dictionary>
@@ -25,19 +25,19 @@
     </column-dictionary>
     <column-analysis>
       <type-counts>
-        <type-count col-name="page" string="978" />
-        <type-count col-name="startco" none="931" integer="47" />
-        <type-count col-name="startli" none="931" integer="47" />
-        <type-count col-name="stopco" none="931" integer="47" />
-        <type-count col-name="stopli" none="931" integer="47" />
-        <type-count col-name="bkid" string="975" none="3" />
-        <type-count col-name="startc" integer="975" none="3" />
-        <type-count col-name="startv" integer="975" none="3" />
-        <type-count col-name="startp" integer="975" none="3" />
-        <type-count col-name="stopc" integer="975" none="3" />
-        <type-count col-name="stopv" integer="975" none="3" />
-        <type-count col-name="stopp" integer="975" none="3" />
-        <type-count col-name="note" none="945" string="33" />
+        <type-count col-name="page" string="979" />
+        <type-count col-name="startco" none="932" integer="47" />
+        <type-count col-name="startli" none="932" integer="47" />
+        <type-count col-name="stopco" none="932" integer="47" />
+        <type-count col-name="stopli" none="932" integer="47" />
+        <type-count col-name="bkid" string="975" none="4" />
+        <type-count col-name="startc" integer="975" none="4" />
+        <type-count col-name="startv" integer="975" none="4" />
+        <type-count col-name="startp" integer="975" none="4" />
+        <type-count col-name="stopc" integer="975" none="4" />
+        <type-count col-name="stopv" integer="975" none="4" />
+        <type-count col-name="stopp" integer="975" none="4" />
+        <type-count col-name="note" none="945" string="34" />
       </type-counts>
       <bkid-val-counts>
         <bkid-val-count bkid="Genesis" count="61" />
@@ -10300,6 +10300,21 @@
     </lci_rec>
     <lci_rec>
       <page>326B</page>
+      <startco />
+      <startli />
+      <stopco />
+      <stopli />
+      <bkid />
+      <startc />
+      <startv />
+      <startp />
+      <stopc />
+      <stopv />
+      <stopp />
+      <note>Masoretic lists: Number of verses and the sections in the Prophets</note>
+    </lci_rec>
+    <lci_rec>
+      <page>327A</page>
       <startco />
       <startli />
       <stopco />
