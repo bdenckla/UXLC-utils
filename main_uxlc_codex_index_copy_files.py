@@ -61,6 +61,7 @@ _FILES_TO_COPY = (
     "py/my_uxlc_lci_rec.py",
     "py/my_uxlc_lci_rec_flatten.py",
     "py/my_uxlc_page_break_info.py",
+    "py/my_uxlc_verlen.py",
 )
 _CI_L = "../codex-index/leningrad"
 
