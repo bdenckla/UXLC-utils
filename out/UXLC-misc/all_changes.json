@@ -33890,7 +33890,7 @@
       "BHL has a meteg under the bet and a maqaf at the end of the word as in the reference text. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel/accent",
     "authors": [
       "Ben Denckla"
@@ -33921,7 +33921,7 @@
       "BHL has a dagesh in the yod. BHLA has no dagesh in the yod."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoTextChange",
     "authors": [
       "David Reimer"
@@ -33952,7 +33952,7 @@
       "BHL has a dagesh (acting as a shuruq dot) in the second vav, וַיּוּשַׂ֤ם. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -33983,7 +33983,7 @@
       "BHL has a dagesh (acting as a shuruq dot) in the vav, ועָל֗וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -34010,11 +34010,11 @@
     "changetext": "וּבַטְחֹרִ֔ים",
     "changeuni": "vav dagesh bet patah tet sheva het holam resh hiriq zaqef-qatan yod final-mem",
     "notes": [
-      "Example from BHL \"Qere and Ketiv\", p. xx, on \"ketiv that cannot carry a dagesh that is due in the qere\". The ketiv body text is ובעפלים; the qere in the left margin is ובטחרים. The pe in the ketiv cannot carry a dagesh so the tet would be without a dagesh. The BHL adds a dagesh in the tet which is unsupported by the LC text. The qere/ketiv pair is a euphemism (tumors instead of hemorrhoids) that occurs in 1 Sam 5:6.10 and 1 Sam 5:12.7.",
+      "Example from BHL \"Qere and Ketiv\", p. xx, on \"ketiv that cannot carry a dagesh that is due in the qere\". The ketiv body text is ובעפלים; the qere in the left margin is ובטחרים. The ayin in the ketiv cannot carry a dagesh so the tet would be without a dagesh. The BHL adds a dagesh in the tet which is unsupported by the LC text. The qere/ketiv pair is a euphemism (tumors instead of hemorrhoids) that occurs in 1 Sam 5:6.10 and 1 Sam 5:12.7.",
       "BHL has a dagesh in the tet, וּבַטְּחֹרִ֔ים. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -34045,7 +34045,7 @@
       "BHL has the same markings as the reference text, בַּשָּׁ֣יו. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34076,7 +34076,7 @@
       "BHL has the same markings as the reference text, וַיִּתְאָ֥יו. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34107,7 +34107,7 @@
       "BHL has the qere word: אֹֽיִבְךָ֙. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34138,7 +34138,7 @@
       "BHL has the qere word: יִקְצָר־. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34169,7 +34169,7 @@
       "BHL has no alef in the qere word, נֹשִׁ֑ים. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34200,7 +34200,7 @@
       "BHL has a yod as the next-to-last letter in the qere, וְאֶפְרֹחָ֥יו. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "consonant/RemoveQK",
     "authors": [
       "CVK"
@@ -34231,7 +34231,7 @@
       "BHL has inserted a qere word without the second vav, וַיָּ֖בָל instead of the marked body text, וַיָּ֖בָול. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34262,7 +34262,7 @@
       "BHL has an alef after the bet in the qere, בָּ֑אנוּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34293,7 +34293,7 @@
       "BHL has no vav in the added qere word, בָּ֣מֳתֵי. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34324,7 +34324,7 @@
       "BHL has inserted a qere word without the vav, ויְכָנְיָ֨ה instead of the marked body text, ויְכָונְיָ֨ה. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34355,7 +34355,7 @@
       "BHL has a yod between the resh and the alef in the added qere, וּמֵהָאֲרִיאֵ֣ל. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34386,7 +34386,7 @@
       "BHL has inserted a qere word without the second vav, ולֶאֱכָל־ instead of the marked body text, ולֶאֱכָול־. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34417,7 +34417,7 @@
       "BHL has inserted a qere word without the yod, וַ֠תָּבוֹאנָה instead of the marked body text, וַ֠תָּבוֹאינָה. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34448,7 +34448,7 @@
       "BHL has inserted a qere word without the yod, וַלִמְעָל־ instead of the marked body text, וַלִמְעָול־. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34479,7 +34479,7 @@
       "BHL has inserted a qere word without the he, ואַנְתְּ־, instead of the marked body text, ואַנְתְּה־. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34510,7 +34510,7 @@
       "BHL has inserted a qere word without the yod, עֲלָ֑ךְ, instead of the marked body text, עֲלָ֑יךְ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34541,7 +34541,7 @@
       "BHL has inserted a qere word ending in alef he, עִלָּאָה֙֙֙, instead of the marked body text, עִלָּיָא֙֙. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34572,7 +34572,7 @@
       "BHL has inserted a qere word ending in alef he, עִלָּאָה֙֙֙, instead of the marked body text, עִלָּיָא֙֙. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34603,7 +34603,7 @@
       "BHL has inserted a qere word ending in alef he, מָֽדָאָ֔ה, instead of the marked body text, מָֽדָיָ֔א. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel/accent",
     "authors": [
       "CVK"
@@ -34634,7 +34634,7 @@
       "BHL has inserted a qere word with the yod removed, גַפַּ֜הּ, instead of the marked body text, גַפַּ֜יהּ. BHLA has no entry for this verse"
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34665,7 +34665,7 @@
       "BHL has inserted a qere word with the yod removed, עַבְדָ֛ךְ, instead of the marked body text, עַבְדָ֛יךְ. BHLA has no entry for this verse"
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34696,7 +34696,7 @@
       "BHL has the qere word נָי֖וֹת. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "consonant/RemoveQK",
     "authors": [
       "CVK"
@@ -34727,7 +34727,7 @@
       "BHL has the qere word וְעָלָ֞יו. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "consonant/RemoveQK",
     "authors": [
       "CVK"
@@ -34758,7 +34758,7 @@
       "BHL has the qere word with the second vav replaced by a yod, וְהָכִ֥ינוּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34789,7 +34789,7 @@
       "BHL has the qere word הַשָּׁלִישִׁים֒. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoTextChange",
     "authors": [
       "CVK"
@@ -34820,7 +34820,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעֲרָ֖. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34851,7 +34851,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעֲרָ֛. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34882,7 +34882,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעַרָ֖. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34913,7 +34913,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: לַֽנַּעֲרָֽ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34944,7 +34944,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעֲרָ֜. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -34975,7 +34975,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: נַעֲרָ֣. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35006,7 +35006,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעֲרָ֗. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35037,7 +35037,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעֲרָָ֙. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35068,7 +35068,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: וְלַֽנַּעֲרָ֙. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35099,7 +35099,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: לַֽנַּעֲרָ֖. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35130,7 +35130,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעֲרָ֙. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35161,7 +35161,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: נַעֲרָ֤. ַBHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35192,7 +35192,7 @@
       "BHL has no qere form for this word; it has the ketiv body text: הַֽנַּעֲרָ֖. ַBHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35223,7 +35223,7 @@
       "BHL has the qere word אַרְתַּחְשַׁ֖שְׂתְּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35261,7 +35261,7 @@
       "secondTag": "q",
       "secondText": "אַרְתַּחְשַׁ֖שְׂתְּ"
     },
-    "status": "Pending",
+    "status": "Installed",
     "type": "split",
     "authors": [
       "CVK"
@@ -35292,7 +35292,7 @@
       "BHL has the qere word אַרְתַּחְשַׁ֣שְׂתְּ; this word is the same as that in Ezra 4:7.12 except for the accent mark, munah. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35323,7 +35323,7 @@
       "BHL has no qere for this word and agrees with the reference text. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35354,7 +35354,7 @@
       "BHL has no qere for this word and agrees with the reference text. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35385,7 +35385,7 @@
       "BHL has the qere word: פְּרָֽת׃. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35416,7 +35416,7 @@
       "BHL has the ketiv word אם without the hiriq in the body text with a note אם לא קרי, not to be read: אם. BHL doesn't indicate the hiriq or the maqaf. BHLA has the ketiv word אִם־."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35447,7 +35447,7 @@
       "BHL has qere has a mahapakh on the next-to-last vav and a dagesh on the last vav, וְיִֽשְׁתַּחֲו֤וּ. BHLA has no entry for this word but has an entry for word 10; the entry for word 10 agrees with the UXLC text."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35478,7 +35478,7 @@
       "BHL has qere has no dagesh on the next-to-last vav and a dagesh in the last vav; the meteg is on the next-to-last vav, וְיִֽשְׁתַּחֲו֤וּ. BHLA agrees with the markings on the marked ketiv above, but has a dagesh on the last two vavs with the meteg on the next-to-last vav as in the reference text."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35509,7 +35509,7 @@
       "BHL has a maqaf at the end of this qere word, מַה־. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35540,7 +35540,7 @@
       "BHL has a dagesh in the bet, בְּעֵ֥בֶר. BHLA has no dagesh in the bet of this word, בְעֵ֥בֶר."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35571,7 +35571,7 @@
       "BHL has no dagesh in the qere. BHLA has a dagesh in the mem."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35602,7 +35602,7 @@
       "BHL has a dagesh in the qere bet, בְּנֵ֣י; the other markings (sheva, tsere, munah) agree with the reference text. BHLA has no entry for this word; it has an entry for the following word, בִּנְיָמִ֔ן for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35633,7 +35633,7 @@
       "BHL has qere has a dagesh in the next-to-last and final vavs, וַיְצַוּ֕וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35664,7 +35664,7 @@
       "BHL has a dagesh in the tet for the qere, בַּטְּחֹרִ֔ים. BHLA has an entry only for word 6 of this verse (the reference text for word 6 agrees with BHLA)."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35695,7 +35695,7 @@
       "BHL has a dagesh in the tet for the qere, בַּטְּחֹרִ֑ים. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35726,7 +35726,7 @@
       "BHL has a maqaf after the first nun (ן) in the ketiv; it has no maqaf and sheva on the first nun (נ) in the qere. BHLA has a maqaf after the first nun (ן) in the ketiv; it has no maqaf and no sheva on the first nun (נ) in the qere. Both BHL and BHLA effectively consider the final nun (ן) and maqaf in the LC body text to be part of the ketiv. (The UXLC agrees with BHLA.) Not re-entered in BHL statistics."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35757,7 +35757,7 @@
       "BHL has a dagesh in the final vav of the qere, וַיֹּאמְר֣וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35788,7 +35788,7 @@
       "BHL has a dagesh in the final vav of the qere, אָמְר֣וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35819,7 +35819,7 @@
       "BHL has the munah on the vav in the ketiv and a sheva on the resh the munah on the kaf in the qere. BHLA has a sheva then munah on the ketiv resh and transcribes the sheva to the resh and the munah to the kaf in the qere. The difference between BHL and BHLA is on the ketiv words, not the qere words. Thus, the UXLC reference text agrees with both the BHL and BHLA; this change is marked as agreeing with the BHL."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35850,7 +35850,7 @@
       "BHL has a dagesh and qamats in the yod, וַיִּוָּלְד֧וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35881,7 +35881,7 @@
       "BHL has a dagesh and sheva on the pe and a qamats then meteg on the resh in the qere, פְּרָֽת׃. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35912,7 +35912,7 @@
       "BHL has a maqaf at the end of this word. BHLA has no maqaf at the end of this word. (The UXLC agrees with BHLA.) Not re-entered in BHL statistics."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -35943,7 +35943,7 @@
       "BHL has a dagesh in the bet of the qere, בִּתְחִלַּ֖ת. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -35974,7 +35974,7 @@
       "BHL has a dagesh in the yod of the qere, וַיִּתְגָּעַ֤שׁ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36005,7 +36005,7 @@
       "BHL has a dagesh in the lamed of the qere, הָאֵ֔לֶּה. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36036,7 +36036,7 @@
       "BHL has a merkha under the next-to-last vav and a dagesh (acting as a shuruq dot) on the final vav in the qere. BHLA has an entry for this verse for word 20, but not for this word."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -36067,7 +36067,7 @@
       "BHL has a dagesh (acting as a shuruq dot) on the final vav in the qere, וַיְדַבְּר֨וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36098,7 +36098,7 @@
       "BHL has a hiriq on the yod and a sheva on the final kaf in the qere, שְׁכֵנָ֑יִךְ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36129,7 +36129,7 @@
       "BHL has a dagesh in the dalet and a holam on the vav in the qere, דִּבְיוֹנִ֖ים. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36160,7 +36160,7 @@
       "BHL agrees with the reference text in the qere. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoAction",
     "authors": [
       "CVK"
@@ -36191,7 +36191,7 @@
       "BHL has a dagesh in the bet in the qere word, בָּנָיו֙. BHL doesn't show a dagesh in its ketiv body text markings. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36222,7 +36222,7 @@
       "BHL has a dagesh in the qof and has a dagesh (acting as a shuruq dot) in the vav, יִקָּ֑חוּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36253,7 +36253,7 @@
       "BHL has no dagesh in the initial mem in the qere; otherwise, it agrees with the reference text. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36284,7 +36284,7 @@
       "BHL has a maqaf at the end of this word, showing the present text, מַה־לָּכֶם֙. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36315,7 +36315,7 @@
       "BHL has the present text, וְהִנֵּה־ה֛וּא, as the qere word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36346,7 +36346,7 @@
       "BHL has the current text, בָּאִ֖ים, for the qere form. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36377,7 +36377,7 @@
       "BHL has a dagesh (acting as a mapiq) in the he, לָהּ֙, in the qere form. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "NoTextChange",
     "authors": [
       "CVK"
@@ -36408,7 +36408,7 @@
       "BHL has a dagesh, tsere, and munah on the yod in the qere form, דָּנִיֵּ֣אל. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36439,7 +36439,7 @@
       "BHL has a dagesh, tsere, and munah on the yod in the qere form, דָּנִיֵּ֣אל. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36470,7 +36470,7 @@
       "BHL has a dagesh, tsere, and etnachta on the yod in the qere form, מִדָּֽנִיֵּ֑אל. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36501,7 +36501,7 @@
       "BHL qere word, תִּצֹּֽרְנָה׃, has a dagesh a holam on the tsade. BHLA qere word has no dagesh in the tsade, תִּצֹֽרְנָה׃; BHLA acknowledges (\"instead of:\") that the holam should be placed on the resh, too. The UXLC agrees with the BHLA \"instead of:\" qere word."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36532,7 +36532,7 @@
       "BHL has a dagesh in the vav of the qere word, וּזְקֵנִ֖ים. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36563,7 +36563,7 @@
       "BHL has a dagesh (acting as a shuruq dot) in the final vav in the qere word, וְקִבְּל֣וּ. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36594,7 +36594,7 @@
       "BHL has a dagesh in the dalet, הִזְדְּמִנְתּוּן֙, in the qere word. BHLA has no entry for this word in the verse; however, it has an entry for word 24."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
@@ -36625,10 +36625,1657 @@
       "BHL has a dagesh (acting as a shuruq dot) in the final vav, וַיַּעֲל֨וּ, for the qere word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Installed",
     "type": "vowel",
     "authors": [
       "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.01",
+    "n": 1,
+    "citation": "Dan 5:10.19",
+    "description": "Create qere/ketiv pair for word marked as \"יתיר י (yatir yod)\".",
+    "lc": "Folio_442A 1:26",
+    "image2": {
+      "title": "Expanded view of text in area of word.",
+      "credit": "Credit: Sefaria.org."
+    },
+    "reftext": "וְזִיוָ֖יךְ",
+    "refuni": "vav sheva zayin hiriq yod vav qamats tipeha yod final-kaf sheva",
+    "changetext": "וְזִיוָ֖ךְ",
+    "changeuni": "vav sheva zayin hiriq yod vav qamats tipeha final-kaf sheva",
+    "notes": [
+      "The LC word contains two yods: one before and one after the second vav. The second yod is broken and squeezed between the second vav and the final kaf. The right margin of the text contains the note \"יתיר י (yatir yod)\" for this word; hence, the LC word should be represented by a qere/ketiv pair. The letters from the reference will be placed in the ketiv word (k tag); the changetext will be placed in the qere word (q tag). The resulting qere/ketiv pair is found in the BHL, MAM, and JPS Tanach 1999; however, it is not in WLC 4.20. Because neither the margin note nor the Masora dot specifies which yod is superfluous, a transcription note 't' will be added in the next change: 2024.07.01 - 2.",
+      "BHL has a qere/ketiv pair for this word. The qere is missing the second yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "split": {
+      "position": "0",
+      "firstTag": "k",
+      "firstText": "וזיויך",
+      "secondTag": "q",
+      "secondText": "וְזִיוָ֖ךְּ"
+    },
+    "status": "Installed",
+    "type": "split",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.01",
+    "n": 2,
+    "citation": "Dan 5:10.19",
+    "description": "Add note 't' to preceding change: 2024.07.01 - 1 for ambiquity.",
+    "lc": "Folio_442A 1:26",
+    "image2": {
+      "title": "Expanded view of text in area of word.",
+      "credit": "Credit: Sefaria.org."
+    },
+    "reftext": "וזיוי",
+    "refuni": "vav sheva zayin hiriq yod vav qamats tipeha final-kaf sheva",
+    "changetext": "וְזִיוָ֖ךְ",
+    "changeuni": "vav sheva zayin hiriq yod vav qamats tipeha final-kaf sheva",
+    "notes": [
+      "The LC word contains two yods: one before and one after the second vav. The second yod is broken and squeezed between the second vav and the final kaf. The right margin of the text contains the note \"יתיר י (yatir yod)\" for the LC word; hence, the LC word should be represented by a qere/ketiv pair. In the preceding change, 2024.07.01 - 1, the letters from the LC text were placed in the preceding ketiv word (k tag) and the qere (q tag) was placed in this word. The resulting qere/ketiv pair is found in the BHL, MAM, and JPS Tanach 1999; however, it is not in WLC 4.20. Because neither the margin note nor the Masora dot specifies which yod is superfluous, this transcription note 't' will be added to this word."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": "vav zayin yod vav yod",
+    "changeuni_gen": null,
+    "changeuni_erbs": true,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.01",
+    "n": 3,
+    "citation": "Josh 10:24.19",
+    "description": "Create qere/ketiv pair for word marked as \"יתיר א (yatir aleph)\".",
+    "lc": "Folio_127A 3:23",
+    "image2": {
+      "title": "Expanded view of text in area of word.",
+      "credit": "Credit: Sefaria.org."
+    },
+    "reftext": "הֶהָלְכ֣וּא",
+    "refuni": "he segol he qamats lamed sheva kaf munah vav dagesh alef",
+    "changetext": "הֶהָלְכ֣וּ",
+    "changeuni": "he segol he qamats lamed sheva kaf munah vav dagesh",
+    "notes": [
+      "The LC word ends in an aleph. The left margin of the text contains the note \"יתיר א (yatir aleph)\" for this word; hence, the LC word should be represented by a qere/ketiv pair. (The preceding letters in the left margin, \"יב\", represent a count (12) of this form.) The letters from the reference will be placed in the ketiv word (k tag); the changetext will be placed in the qere word (q tag). The resulting qere/ketiv pair is found in the JPS Tanach 1999; however, it is not in BHL, MAM, or WLC 4.20. From\"The Masorah of the Biblia Hebraica Stuttgartensia\", Kelly et al, 1998, p. 115.",
+      "BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "split": {
+      "position": "0",
+      "firstTag": "k",
+      "firstText": "ההלכוא",
+      "secondTag": "q",
+      "secondText": "הֶהָלְכ֣וְּּ"
+    },
+    "status": "Installed",
+    "type": "split",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.01",
+    "n": 4,
+    "citation": "1Sam 17:17.9",
+    "description": "Create qere/ketiv pair for word marked as \"יתיר א (yatir aleph)\".",
+    "lc": "Folio_159B 1:20",
+    "image2": {
+      "title": "Expanded view of text in area of word.",
+      "credit": "Credit: Sefaria.org."
+    },
+    "reftext": "הַקָּלִיא֙",
+    "refuni": "he patah qof dagesh qamats lamed hiriq yod alef pashta",
+    "changetext": "הַקָּלִי֙",
+    "changeuni": "he patah qof dagesh qamats lamed hiriq yod pashta",
+    "notes": [
+      "The LC word ends in an aleph. The right margin of the text contains the note \"יתיר א (yatir aleph)\" for this word; hence, the LC word should be represented by a qere/ketiv pair. (The preceding letters in the right margin, \"יב\", represent a count (12) of this form.) The letters from the reference will be placed in the ketiv word (k tag); the changetext will be placed in the qere word (q tag). The resulting qere/ketiv pair is found in the JPS Tanach 1999; however, it is not in BHL, MAM, or WLC 4.20. From\"The Masorah of the Biblia Hebraica Stuttgartensia\", Kelly et al, 1998, p. 115.",
+      "BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "split": {
+      "position": "0",
+      "firstTag": "k",
+      "firstText": "הקליא",
+      "secondTag": "q",
+      "secondText": "הַקָּלִי֙"
+    },
+    "status": "Installed",
+    "type": "split",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 1,
+    "citation": "Deut 32:13.3",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_118B 1:17",
+    "reftext": "במותי",
+    "refuni": "bet mem vav tav yod",
+    "changetext": "במותי",
+    "changeuni": "bet mem vav tav yod",
+    "notes": [
+      "The yatir marking for this word is the second of 3 markings on the word; it is a yatir vav.",
+      "BHL has a qere/ketiv pair; this word is the ketiv word of that pair. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 2,
+    "citation": "Josh 10:24.19",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir aleph)",
+    "lc": "Folio_127A 3:23",
+    "reftext": "ההלכוא",
+    "refuni": "he he lamed kaf vav alef",
+    "changetext": "ההלכוא",
+    "changeuni": "he he lamed kaf vav alef",
+    "notes": [
+      "The yatir marking for this word is in the left margin; it is a yatir aleph. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.",
+      "BHL has no qere/ketiv marking and has a final aleph on this word. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 3,
+    "citation": "1Sam 17:17.9",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir aleph)",
+    "lc": "Folio_159B 1:20",
+    "reftext": "הקליא",
+    "refuni": "he qof lamed yod alef",
+    "changetext": "הקליא",
+    "changeuni": "he qof lamed yod alef",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir aleph. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.",
+      "BHL has no qere/ketiv marking and has a final aleph on this word. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 4,
+    "citation": "1Sam 24:5.15",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_164A 2:27",
+    "reftext": "איביך",
+    "refuni": "alef yod bet yod final-kaf",
+    "changetext": "איביך",
+    "changeuni": "alef yod bet yod final-kaf",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir yod. The word has two yods; however, the Masorah circle appears over the second yod. WLC 4.20 lacks a 'y' transcription note for this word.",
+      "This verse and word appear as verse 4 in the BHL. The BHL has a qere/ketiv form without the second yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 5,
+    "citation": "1Sam 28:8.16",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_166B 3:9",
+    "reftext": "קסומי־",
+    "refuni": "qof samekh vav mem yod maqaf",
+    "changetext": "קסומי־",
+    "changeuni": "qof samekh vav mem yod maqaf",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir vav.",
+      "BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 6,
+    "citation": "Jer 3:5.7",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.",
+    "lc": "Folio_247A 1:18",
+    "reftext": "דברתי",
+    "refuni": "dalet bet resh tav yod",
+    "changetext": "דברתי",
+    "changeuni": "dalet bet resh tav yod",
+    "notes": [
+      "The yatir marking for this word is in the left margin; it is a yatir yod. Alas, no Masorah circle appears in the line and the line contains two yods, one in this word and one in the following word. Add a transcription note 't' to reflect this uncertainty.",
+      "BHL has a qere/ketiv pair for this word; the qere word lacks a final yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 7,
+    "citation": "Jer 5:7.3",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_248A 3:3",
+    "reftext": "אסלוח־",
+    "refuni": "alef samekh lamed vav het maqaf",
+    "changetext": "אסלוח־",
+    "changeuni": "alef samekh lamed vav het maqaf",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir vav.",
+      "BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 8,
+    "citation": "Prov 6:16.6",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_411B 1:19",
+    "reftext": "תועבות",
+    "refuni": "tav vav ayin bet vav tav",
+    "changetext": "תועבות",
+    "changeuni": "tav vav ayin bet vav tav",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir vav. Although the word contains two vavs the first is vowelized and, hence, not superfluous.",
+      "BHL has a qere/ketiv pair for this word; the qere doesn't contain the second vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 9,
+    "citation": "Prov 8:35.3",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.",
+    "lc": "Folio_412B 1:23",
+    "reftext": "מצאי",
+    "refuni": "mem tsadi alef yod",
+    "changetext": "מצאי",
+    "changeuni": "mem tsadi alef yod",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir yod. The line containing this word contains five yods and no Masorah circle is present to indicate which yod is superfluous. The (unusually-large) zayin represents the number 7; normally this would indicate that the yatir yod occurs 7 times throughout the text. Because of this ambiguity, a transcription note 't' will be added.",
+      "BHL has a qere/ketiv pair for this word; the qere lacks the final yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 10,
+    "citation": "Prov 22:8.3",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_417A 1:26",
+    "reftext": "יקצור־",
+    "refuni": "yod qof tsadi vav resh maqaf",
+    "changetext": "יקצור־",
+    "changeuni": "yod qof tsadi vav resh maqaf",
+    "notes": [
+      "The yatir marking for this word is the right margin; it is a yatir vav. WLC 4.20 lacks a 'y' transcription note for this word.",
+      "BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 11,
+    "citation": "Prov 24:17.2",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_418A 1:17",
+    "reftext": "אויביך",
+    "refuni": "alef vav yod bet yod final-kaf",
+    "changetext": "אויביך",
+    "changeuni": "alef vav yod bet yod final-kaf",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir yod. The word contains two yods; however, the first yod is vowelized with a hiriq. Note that the marking and Masorah circle are unusually light for this page.",
+      "BHL has a qere/ketiv pair for this word; the qere doesn't contain the second yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 12,
+    "citation": "Lam 1:11.7",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_430A 2:23",
+    "reftext": "מחמודיהם",
+    "refuni": "mem het mem vav dalet yod he final-mem",
+    "changetext": "מחמודיהם",
+    "changeuni": "mem het mem vav dalet yod he final-mem",
+    "notes": [
+      "The yatir marking for this word is the right margin; it is a yatir vav. No Masorah circle is present on the line and two vavs are present; however, the first vav in the line, part of the first word in the line, is vowelized with a dagesh (acting as a shuruq).",
+      "BHL has a qere/ketiv pair for this word; the qere lacks the vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 13,
+    "citation": "Eccl 10:3.3",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir he)",
+    "lc": "Folio_429A 2:2",
+    "reftext": "כשהסכל",
+    "refuni": "kaf shin he samekh kaf lamed",
+    "changetext": "כשהסכל",
+    "changeuni": "kaf shin he samekh kaf lamed",
+    "notes": [
+      "The yatir marking for this word is the right margin; it is a yatir he. The lamed and dalet at the extreme right side of the above image are for words in the preceding column.",
+      "BHL has a qere/ketiv pair for this word; the qere lacks the he. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 14,
+    "citation": "Eccl 10:10.11",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_429A 2:20",
+    "reftext": "הכשיר",
+    "refuni": "he kaf shin yod resh",
+    "changetext": "הכשיר",
+    "changeuni": "he kaf shin yod resh",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir yod. The Masorah circle is filled in, yet distinct. The purpose of the dotted lamed in the right margin is unknown; it is slightly lower than the yod.",
+      "BHL does not have a qere/ketiv pair for this word; it retains the yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 15,
+    "citation": "Esth 4:7.18",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_434B 2:9",
+    "reftext": "ביהודיים",
+    "refuni": "bet yod he vav dalet yod yod final-mem",
+    "changetext": "ביהודיים",
+    "changeuni": "bet yod he vav dalet yod yod final-mem",
+    "notes": [
+      "The yatir marking for this word is in the left margin; it is a yatir yod. The word has 3 yods; the first is vowelized and accented. Neither the second or third yod is vowelized or accented; the second yod in the word will be noted as a yatir here.",
+      "BHL has a qere/ketiv pair for this word; the qere has a single unvowelized, unaccented yod before the final mem. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 16,
+    "citation": "Dan 3:15.12",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_440A 2:17",
+    "reftext": "קיתרס",
+    "refuni": "qof yod tav resh samekh",
+    "changetext": "קיתרס",
+    "changeuni": "qof yod tav resh samekh",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir vav. (This word contains no vav; it has a holam on the next-to-last letter, resh. See change 2024.07.11 - 1 which follows.)",
+      "BHL has a qere/ketiv pair; the qere form has no yod after the qof and no vav. BHLA has an entry for this verse; the entry is for word 38 (דֵּ֥י), not this word. (Word 38 agrees with BHLA)"
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 17,
+    "citation": "Dan 3:21.6",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.",
+    "lc": "Folio_440A 3:24",
+    "reftext": "פטישיהון",
+    "refuni": "pe tet yod shin yod he vav final-nun",
+    "changetext": "פטישיהון",
+    "changeuni": "pe tet yod shin yod he vav final-nun",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir yod. The word has 2 yods; neither is vowelized. The first yod in the word will be noted as a yatir here. A note 't' will be added to reflect this ambiguity.",
+      "BHL has a qere/ketiv pair for this word; the qere has a single unvowelized, unaccented yod after the shin. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 18,
+    "citation": "Dan 3:28.23",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_440B 2:16",
+    "reftext": "גשמיהון",
+    "refuni": "gimel shin mem yod he vav final-nun",
+    "changetext": "גשמיהון",
+    "changeuni": "gimel shin mem yod he vav final-nun",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir yod. A raised yod appears between the mem and the he.",
+      "BHL has a qere/ketiv pair for this word; the qere form has no yod between the mem and the he. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 19,
+    "citation": "Dan 4:14.17",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_441A 2:13",
+    "reftext": "אנושא",
+    "refuni": "alef nun vav shin alef",
+    "changetext": "אנושא",
+    "changeuni": "alef nun vav shin alef",
+    "notes": [
+      "The line has two markings in the left margin but no Masorah circles. The first marking is a qere form indicating that a he follows an aleph. This applies to preceding words 14 and 15. The second marking is a yatir vav. Two vavs appear on the line; the one in word 16 is vowelized with a dagesh acting as a shuruq. Hence, this marking must be for word 17.",
+      "BHL has a qere/ketiv pair for this word; the qere form has no vav. BHL also agrees with the qere/ketiv pair in words 14 and 15. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 20,
+    "citation": "Dan 5:10.19",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod).",
+    "lc": "Folio_442A 1:26",
+    "reftext": "וזיויך",
+    "refuni": "vav zayin yod vav yod final-kaf",
+    "changetext": "וזיויך",
+    "changeuni": "vav zayin yod vav yod final-kaf",
+    "notes": [
+      "The yatir note is in the right margin; it is a yatir yod. The first word on the line has a Masorah circle and two unvowelized and unaccented yods. The second of these yods, between the vav and final kaf, is broken. The 'y' note will be added to the second yod. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.",
+      "BHL has a qere/ketiv pair for this word; the qere form has a single yod after the zayin. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 21,
+    "citation": "Dan 5:23.13",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_442B 1:16",
+    "reftext": "ורברבניך",
+    "refuni": "vav resh bet resh bet nun yod final-kaf",
+    "changetext": "ורברבניך",
+    "changeuni": "vav resh bet resh bet nun yod final-kaf",
+    "notes": [
+      "This line has 3 markings: a qere marking for the first word in the right margin that lacks a Masorah cirle and a qere marking in the left for the second word, as indicated by the Masorah cirle. The third word has a Masorah circle and has a yatir yod marking.",
+      "BHL has a qere/ketiv pair for this word; the qere forn has no yod betweeb the nun and final kaf. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 22,
+    "citation": "Ezra 4:11.8",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir aleph)",
+    "lc": "Folio_449B 2:18",
+    "reftext": "ארתחששתא",
+    "refuni": "alef resh tav het shin shin-dot patah tipeha shin tav alef",
+    "changetext": "ארתחששתא",
+    "changeuni": "alef resh tav het shin shin-dot patah tipeha shin tav alef",
+    "notes": [
+      "The yatir note is in the right margin; it is a yatir aleph. The word on the line has a Masorah circle and two alephs. The first of these alephs is vowelized. The 'y' note will be added to the second aleph. WLC 4.20 lacks a 'y' transcription note for this word.",
+      "BHL has no qere/ketiv pair for this word; the word starts and ends with an aleph. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": "alef resh tav het shin shin tav alef",
+    "changeuni_gen": "alef resh tav het shin shin tav alef",
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 23,
+    "citation": "Ezra 4:12.15",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir aleph) Add 't' note for ambiguity.",
+    "lc": "Folio_449B 2:24",
+    "reftext": "ובאישתא",
+    "refuni": "vav bet alef yod shin tav alef",
+    "changetext": "ובאישתא",
+    "changeuni": "vav bet alef yod shin tav alef",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir aleph. The word has a Masorah circle and contains two alephs; the first has an unexpected rafe mark, the second, final aleph, is accented. The first aleph will be marked as the yatir. Add a 't' note to indicate ambiguity.",
+      "BHL has no qere/ketiv pair for this word; both alephs are retained. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 24,
+    "citation": "Ezra 7:18.3",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_451B 2:17",
+    "reftext": "עליך",
+    "refuni": "ayin lamed yod final-kaf",
+    "changetext": "עליך",
+    "changeuni": "ayin lamed yod final-kaf",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir yod.",
+      "BHL has a qere/ketiv pair for this word; the qere word haS no yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 25,
+    "citation": "Ezra 7:18.6",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_451B 2:18",
+    "reftext": "אחיך",
+    "refuni": "alef het yod final-kaf",
+    "changetext": "אחיך",
+    "changeuni": "alef het yod final-kaf",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir yod.",
+      "BHL has a qere/ketiv pair for this word; the qere word lacks a yod. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 26,
+    "citation": "Ezra 8:25.1",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_452B 1:17",
+    "reftext": "ואשקולה",
+    "refuni": "vav alef shin qof vav lamed he",
+    "changetext": "ואשקולה",
+    "changeuni": "vav alef shin qof vav lamed he",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir vav.",
+      "BHL has a qere/ketiv pair for this word; the qere word lacks a vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 27,
+    "citation": "Neh 5:7.15",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir aleph)",
+    "lc": "Folio_456B 2:4",
+    "reftext": "נשאים",
+    "refuni": "nun shin alef yod final-mem",
+    "changetext": "נשאים",
+    "changeuni": "nun shin alef yod final-mem",
+    "notes": [
+      "The yatir note is in the left margin; it is a yatir aleph. The lamed slighly below the aleph of the yatir marking is probably for the Masorah circle on the next line.",
+      "BHL has a qere/ketiv pair for this word; the qere word lacks the aleph. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 28,
+    "citation": "Neh 9:17.25",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_459B 2:16",
+    "reftext": "וחסד",
+    "refuni": "vav het samekh dalet",
+    "changetext": "וחסד",
+    "changeuni": "vav het samekh dalet",
+    "notes": [
+      "The yatir marking for this word is the right margin; it is a yatir vav. The text quality is low on this line.",
+      "BHL has a qere/ketiv pair for this word; the qere word has no vav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 29,
+    "citation": "Neh 13:23.9",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_463A 1:18",
+    "reftext": "אשדודיות",
+    "refuni": "alef shin dalet vav dalet yod vav tav",
+    "changetext": "אשדודיות",
+    "changeuni": "alef shin dalet vav dalet yod vav tav",
+    "notes": [
+      "The yatir marking for this word is in the right margin; it is a yatir vav. No Masorah cicle appears above this word; however, the only other word on this line has a Masorah circle and a yatir vav marking in the left margin. Thus, yatir vav marking in the right margin must apply to this word. The word contains two vavs; The first is unvowelized and unaccented, the second is vowelized. The yatir vav marking is applied to the first vav. The following word is also a yatir vav.",
+      "BHL has a qere/ketiv pair for this word; the qere word has a vav before the final tav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 30,
+    "citation": "Neh 13:23.11",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_463A 1:18",
+    "reftext": "עמוניות",
+    "refuni": "ayin mem vav nun yod vav tav",
+    "changetext": "עמוניות",
+    "changeuni": "ayin mem vav nun yod vav tav",
+    "notes": [
+      "The yatir marking for this word is in the left margin; it is a yatir vav. A masorah circle is over this word. The word contains two vavs; the first is unvowelized and unaccented, the second is vowelized. The yatir will be applied to the first vav. The preceding word is also a yatir vav, but it lacks a Masorah circle.",
+      "BHL has a qere/ketiv pair for this word, the qere word has a vav befor the final tav. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 31,
+    "citation": "1Chr 25:1.10",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiquity.",
+    "lc": "Folio_341B 1:17",
+    "reftext": "הנביאים",
+    "refuni": "he nun bet yod alef yod final-mem",
+    "changetext": "הנביאים",
+    "changeuni": "he nun bet yod alef yod final-mem",
+    "notes": [
+      "The yatir marking for this word is in the left margin; it is a yatir yod. The word has two yods, neither are vowelized or accented. The yatir will be applied to the first yod and a 't' note added.",
+      "BHL has a qere/ketiv pair for this word; the qere word has no yod between the bet and the aleph. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 32,
+    "citation": "2Chr 8:10.3",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiquity.",
+    "lc": "Folio_349A 1:23",
+    "reftext": "הנציבים",
+    "refuni": "he nun tsadi yod bet yod final-mem",
+    "changetext": "הנציבים",
+    "changeuni": "he nun tsadi yod bet yod final-mem",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir yod. The word has two unvowelized and unaccented yods; the first yod will be taken as the yatir. A note 't' is added for the ambiquity.",
+      "BHL has a qere/ketiv pair for this word; the qere word has no yod between the tsadi and the bet. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 33,
+    "citation": "2Chr 29:28.7",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir tsadi)",
+    "lc": "Folio_360B 2:11",
+    "reftext": "מחצצרים",
+    "refuni": "mem het tsadi tsadi resh yod final-mem",
+    "changetext": "מחצצרים",
+    "changeuni": "mem het tsadi tsadi resh yod final-mem",
+    "notes": [
+      "The yatir marking for this word is the left margin; it is a yatir tsadi. Two words with Masorah circles appear in the line for only one yatir tsadi note; the preceding word and this word. Both tsadis in the preceeding word are vowelized; thus, this word is the object of the yatir tsadi note. The second tsadi in this word is unvowelized and unaccented; that tsadi the yatir will be applied to that letter (not that it matters which tsadi is taken).",
+      "BHL has a qere/ketiv pair for this word; the qere word has a single tsadi. (The previous word has no qere/ketiv pair and has double tsadis. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 34,
+    "citation": "2Chr 31:12.9",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_361B 3:17",
+    "reftext": "כונניהו",
+    "refuni": "kaf vav nun nun yod he vav",
+    "changetext": "כונניהו",
+    "changeuni": "kaf vav nun nun yod he vav",
+    "notes": [
+      "The yatir vav marking is in the left margin and is very light. A Masorah circle is present over this word and the first vav is unvowelized and unaccented. The yatir will be applied to the first vav.",
+      "BHL has a qere/ketiv pair for this word; it has no vav between the kaf and the nun. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 35,
+    "citation": "2Chr 31:13.13",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir vav)",
+    "lc": "Folio_361B 3:22",
+    "reftext": "כונניהו",
+    "refuni": "kaf vav nun nun yod he vav",
+    "changetext": "כונניהו",
+    "changeuni": "kaf vav nun nun yod he vav",
+    "notes": [
+      "The yatir marking for this word is in the left margin; it is a yatir vav and is light. This word has no Masorah circle; however, the first vav in this word is the only unmarked vav on the line. The yatir vav will be applied to the first vav. WLC 4.20 lacks a 'y' transcription note for this word.",
+      "BHL has a qere/ketiv pair for this word; the qere word has no vav between the kaf and the nun. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.08",
+    "n": 36,
+    "citation": "2Chr 34:25.4",
+    "description": "Add transcription note 'y' to yatir ketiv word. (yatir yod)",
+    "lc": "Folio_364A 2:21",
+    "reftext": "ויקטירו",
+    "refuni": "vav yod qof tet yod resh vav",
+    "changetext": "ויקטירו",
+    "changeuni": "vav yod qof tet yod resh vav",
+    "notes": [
+      "The yatir marking for this word is the right margin; it is a yatir yod. The word has two yods; the first is vowelized, the second is unvowelized and unaccented. The second yod will be marked as the yatir yod.",
+      "BHL has a qere/ketiv pair for this word; the qere word has no yod between the tet and the resh. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoTextChange",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.07.11",
+    "n": 1,
+    "citation": "Dan 3:15.13",
+    "description": "Add holam to resh, remove vav.",
+    "lc": "Folio_440A 2:17",
+    "reftext": "קַתְר֣וֹס",
+    "refuni": "qof patah tav sheva resh munah vav holam samekh",
+    "changetext": "קַתְרֹ֣ס",
+    "changeuni": "qof patah tav sheva resh munah holam samekh",
+    "notes": [
+      "The LC text has no vav in this word.",
+      "BHL has no vav in this word. BHLA has an entry for this verse; the entry is for word 38 (דֵּ֥י), not this word. (Word 38 agrees with BHLA)"
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "consonant/vowel",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.09.29",
+    "n": 1,
+    "citation": "Gen 18:15.8",
+    "description": "Add merkha after segol under mem. Add note 't'.",
+    "lc": "Folio_009B 2:14",
+    "reftext": "וַיֹּ֥אמֶר ׀",
+    "refuni": "vav patah yod dagesh holam merkha alef mem segol resh space paseq",
+    "changetext": "וַיֹּ֥אמֶ֥ר ׀",
+    "changeuni": "vav patah yod dagesh holam merkha alef mem segol merkha resh space paseq",
+    "notes": [
+      "The ink is chipped in this area; however, the remnant of a mark remains following the segol. The mark has the northeast-to-southwest inclination of a merkha. Add transcription note 't'. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting \"What about Ktiv / Kri ?\" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.",
+      "BHL has no accent under the mem. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "accent",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.09.29",
+    "n": 2,
+    "citation": "Judg 12:5.19",
+    "description": "Examine meteg after segol under the mem as possible merkha.",
+    "lc": "Folio_144B 1:24",
+    "reftext": "וַיֹּ֥אמֶֽר ׀",
+    "refuni": "vav patah yod dagesh holam merkha alef mem segol meteg resh space paseq",
+    "changetext": "וַיֹּ֥אמֶֽר ׀",
+    "changeuni": "vav patah yod dagesh holam merkha alef mem segol meteg resh space paseq",
+    "notes": [
+      "The vertical line following the segol under the mem is very slightly canted to northwest-to-southeast and not an obvious merkha. The existing merkha under the yod is questionable. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting \"What about Ktiv / Kri ?\" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.",
+      "BHL has a meteg after the segol under the mem. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "NoAction",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.09.29",
+    "n": 3,
+    "citation": "1Sam 2:16.13",
+    "description": "Change merkha following the patah under the mem to meteg. Add note 'm'",
+    "lc": "Folio_151A 2:7",
+    "reftext": "וְאָמַ֥ר ׀",
+    "refuni": "vav sheva alef qamats mem patah merkha resh space paseq",
+    "changetext": "וְאָמַֽר ׀",
+    "changeuni": "vav sheva alef qamats mem patah meteg resh space paseq",
+    "notes": [
+      "The line following the patah under the mem lacks the northeast-to-southwest inclination of a merkha. Thus, it will be transcribed as a meteg. BHL has a merkha instead. Add note'm' to signify the meteg/merkha uncertainty of this accent. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting \"What about Ktiv / Kri ?\" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.",
+      "BHL has a merkha following the patah under the mem. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "accent",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.09.29",
+    "n": 4,
+    "citation": "1Kings 2:30.12",
+    "description": "Add merka following segol under the mem.",
+    "lc": "Folio_186A 1:12",
+    "reftext": "וַיֹּ֥אמֶר ׀",
+    "refuni": "vav patah yod dagesh holam merkha alef mem segol resh space paseq",
+    "changetext": "וַיֹּ֥אמֶ֥ר ׀",
+    "changeuni": "vav patah yod dagesh holam merkha alef mem segol merkha resh space paseq",
+    "notes": [
+      "The mark following the segol under the mem has a very slight northeast-to-southwest inclination and will be transcribed as a merkha. The mark under the yod is a marginal merkha. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting \"What about Ktiv / Kri ?\" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.",
+      "BHL has a meteg following the segol under the mem. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "accent",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2024.10.19",
+    "changeset": "2024.09.29",
+    "n": 5,
+    "citation": "1Kings 11:22.14",
+    "description": "Add meteg after the segol under the mem.",
+    "lc": "Folio_193A 3:14",
+    "reftext": "וַיֹּ֣אמֶר ׀",
+    "refuni": "vav patah yod dagesh holam munah alef mem segol resh space paseq",
+    "changetext": "וַיֹּ֣אמֶֽר ׀",
+    "changeuni": "vav patah yod dagesh holam munah alef mem segol meteg resh space paseq",
+    "notes": [
+      "The near-vertical line after the segol under the mem lacks the northeast-to-southwest inclination to be considered to be a merkha. It will be transcribed as a meteg. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting \"What about Ktiv / Kri ?\" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.",
+      "BHL has a meteg following the segol under the mem. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Installed",
+    "type": "accent",
+    "authors": [
+      "CVK"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2025.04.01",
+    "changeset": "2024.11.29",
+    "n": 1,
+    "citation": "Deut 28:11.7",
+    "description": "Patah under the he is a segol in many texts. Add note'c' after he.",
+    "lc": "Folio_115A 3:2",
+    "reftext": "בְהַמְתְּךָ֖",
+    "refuni": "bet sheva he patah mem sheva tav dagesh sheva final-kaf qamats tipeha",
+    "changetext": "בְהַמְתְּךָ֖",
+    "changeuni": "bet sheva he patah mem sheva tav dagesh sheva final-kaf qamats tipeha",
+    "notes": [
+      "The patah under the he is very clear; but wider and lighter than other marks on this page. BHL, MAM and other texts have a segol rather than a patah under the he. Add a note 'c' to indicate a peculiarity of the LC.",
+      "BHL has a segol under the he. BHLA has a patah under the he with the note \"(s. m.)\", secunda manus, second hand."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "NoTextChange",
+    "authors": [
+      "Ben Denckla"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": true,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2025.10.19",
+    "changeset": "2025.03.21",
+    "n": 1,
+    "citation": "Gen 41:24.2",
+    "description": "Change patah to qamats on he.",
+    "lc": "Folio_025A 3:6",
+    "reftext": "הַשִׁבֳּלִ֣ים",
+    "refuni": "he patah shin shin-dot hiriq bet dagesh hataf-qamats lamed hiriq munah yod final-mem",
+    "changetext": "הָשִׁבֳּלִ֣ים",
+    "changeuni": "he qamats shin shin-dot hiriq bet dagesh hataf-qamats lamed hiriq munah yod final-mem",
+    "notes": [
+      "The dot of the qamats in light, but well-sized and well-positioned. This reverts the change of change file 2021.04.01, date 2021.02.22 - 12 to the original condition.",
+      "BHL has a patah on the he. BHLA has a qamats on the he."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "vowel",
+    "authors": [
+      "Stephen Salisbury"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": true,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2025.10.19",
+    "changeset": "2025.03.21",
+    "n": 2,
+    "citation": "1Sam 18:14.4",
+    "description": "Change sheva under resh to patah.",
+    "lc": "Folio_160B 2:24",
+    "reftext": "דָּרְכָ֖ו",
+    "refuni": "dalet dagesh qamats resh sheva kaf qamats tipeha vav",
+    "changetext": "דָּרָכָ֖ו",
+    "changeuni": "dalet dagesh qamats resh qamats kaf qamats tipeha vav",
+    "notes": [
+      "BHL has a qamats under the resh. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "vowel",
+    "authors": [
+      "Stephen Salisbury"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2025.10.19",
+    "changeset": "2025.04.24",
+    "n": 1,
+    "citation": "Ps 7:10.8",
+    "description": "Add transcription note 'c' after lamed.",
+    "lc": "Folio_366B 2:12",
+    "reftext": "לִ֭בּ֗וֹת",
+    "refuni": "lamed hiriq dehi bet dagesh revia vav holam tav",
+    "changetext": "לִ֭בּ֗וֹת",
+    "changeuni": "lamed hiriq dehi bet dagesh revia vav holam tav",
+    "notes": [
+      "The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. The hiriq on the lamed is light; however, the current page has few erroneous dots. Other instances are Ps 89:28.1 and Job 11:13.2.",
+      "BHL has a dehi on the lamed, but no revia on the bet. BHLA has a dehi on the lamed and a revia on the bet."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "NoTextChange",
+    "authors": [
+      "Ben Denckla"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": true,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": true
+  },
+  {
+    "release": "2025.10.19",
+    "changeset": "2025.04.24",
+    "n": 2,
+    "citation": "Ps 89:29.1",
+    "description": "Add transcription note 'c' after lamed.",
+    "lc": "Folio_384B 1:13",
+    "reftext": "לְ֭עוֹלָ֗ם",
+    "refuni": "lamed sheva dehi ayin vav holam lamed qamats revia final-mem",
+    "changetext": "לְ֭עוֹלָ֗ם",
+    "changeuni": "lamed sheva dehi ayin vav holam lamed qamats revia final-mem",
+    "notes": [
+      "The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. Other instances are Ps 7:10.8 and Job 11:13.2.",
+      "BHL has a dehi on the lamed, but no revia on the bet. BHLA has a dehi on the lamed and a revia on the bet."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "NoTextChange",
+    "authors": [
+      "Ben Denckla"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": true,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": true
+  },
+  {
+    "release": "2025.10.19",
+    "changeset": "2025.04.24",
+    "n": 3,
+    "citation": "Job 11:13.2",
+    "description": "Add transcription note 'c' after alef.",
+    "lc": "Folio_400A 2:13",
+    "reftext": "אַ֭תָּ֗ה",
+    "refuni": "alef patah dehi tav dagesh qamats revia he",
+    "changetext": "אַ֭תָּ֗ה",
+    "changeuni": "alef patah dehi tav dagesh qamats revia he",
+    "notes": [
+      "The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. Other instances are Ps 7:10.8 and Ps 89:29.1.",
+      "BHL has a dehi on the lamed, but no revia on the tav. BHLA no note for this verse."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "NoTextChange",
+    "authors": [
+      "Ben Denckla"
     ],
     "lc_gen": null,
     "aBHL": null,

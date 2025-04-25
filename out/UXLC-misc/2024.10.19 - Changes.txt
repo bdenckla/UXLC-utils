@@ -11,7 +11,7 @@ Replace unsupported dagesh on vav with qubuts under lamed. Add note 'q'. [ועָ
 Example from BHL "Qere and Ketiv", p. xx, on qubuts (qibbuṣ) to mark a dagesh in the qere. The ketiv body text is עלה; the qere in the right margin is עלו. In the image the qubuts is positioned under the between the ayin and the lamed.
 BHL has a dagesh (acting as a shuruq dot) in the vav, ועָל֗וּ. BHLA has no entry for this verse.
 Remove unsupported dagesh in tet. Add note 'q'. [וּבַטְּחֹרִ֔ים]
-Example from BHL "Qere and Ketiv", p. xx, on "ketiv that cannot carry a dagesh that is due in the qere". The ketiv body text is ובעפלים; the qere in the left margin is ובטחרים. The pe in the ketiv cannot carry a dagesh so the tet would be without a dagesh. The BHL adds a dagesh in the tet which is unsupported by the LC text. The qere/ketiv pair is a euphemism (tumors instead of hemorrhoids) that occurs in 1 Sam 5:6.10 and 1 Sam 5:12.7.
+Example from BHL "Qere and Ketiv", p. xx, on "ketiv that cannot carry a dagesh that is due in the qere". The ketiv body text is ובעפלים; the qere in the left margin is ובטחרים. The ayin in the ketiv cannot carry a dagesh so the tet would be without a dagesh. The BHL adds a dagesh in the tet which is unsupported by the LC text. The qere/ketiv pair is a euphemism (tumors instead of hemorrhoids) that occurs in 1 Sam 5:6.10 and 1 Sam 5:12.7.
 BHL has a dagesh in the tet, וּבַטְּחֹרִ֔ים. BHLA has no entry for this verse.
 Examine qere/ketiv pair.
 Example from BHL "Qere and Ketiv", p. xx, first of Dotan's 4 qere cases: "indicated in the manuscript". This word is called "seemingly strange" by Dotan. The ketiv body text is בשו; the qere in the left margin is בשיו. The markings on the ketiv are easily transferred to the qere, however.
@@ -265,3 +265,140 @@ BHL has a dagesh in the dalet, הִזְדְּמִנְתּוּן֙, in the qere w
 Remove unsupported dagesh from last vav; place a qubuts under lamed in qere word. Add note 'q'. [וַיַּעֲל֨וּ]
 The qere word in the right margin ends in a vav not present in the ketiv body text. The ketiv body text has a qadma and a qubuts on the lamed; no dagesh is available for the final vav. The UXLC retains the qubuts on the lamed to be true to the LC image. A transcription note 'q' is added to emphasize this decision.
 BHL has a dagesh (acting as a shuruq dot) in the final vav, וַיַּעֲל֨וּ, for the qere word. BHLA has no entry for this verse.
+Create qere/ketiv pair for word marked as "יתיר י (yatir yod)".
+The LC word contains two yods: one before and one after the second vav. The second yod is broken and squeezed between the second vav and the final kaf. The right margin of the text contains the note "יתיר י (yatir yod)" for this word; hence, the LC word should be represented by a qere/ketiv pair. The letters from the reference will be placed in the ketiv word (k tag); the changetext will be placed in the qere word (q tag). The resulting qere/ketiv pair is found in the BHL, MAM, and JPS Tanach 1999; however, it is not in WLC 4.20. Because neither the margin note nor the Masora dot specifies which yod is superfluous, a transcription note 't' will be added in the next change: 2024.07.01 - 2.
+BHL has a qere/ketiv pair for this word. The qere is missing the second yod. BHLA has no entry for this verse.
+Add note 't' to preceding change: 2024.07.01 - 1 for ambiquity.
+The LC word contains two yods: one before and one after the second vav. The second yod is broken and squeezed between the second vav and the final kaf. The right margin of the text contains the note "יתיר י (yatir yod)" for the LC word; hence, the LC word should be represented by a qere/ketiv pair. In the preceding change, 2024.07.01 - 1, the letters from the LC text were placed in the preceding ketiv word (k tag) and the qere (q tag) was placed in this word. The resulting qere/ketiv pair is found in the BHL, MAM, and JPS Tanach 1999; however, it is not in WLC 4.20. Because neither the margin note nor the Masora dot specifies which yod is superfluous, this transcription note 't' will be added to this word.
+Create qere/ketiv pair for word marked as "יתיר א (yatir aleph)".
+The LC word ends in an aleph. The left margin of the text contains the note "יתיר א (yatir aleph)" for this word; hence, the LC word should be represented by a qere/ketiv pair. (The preceding letters in the left margin, "יב", represent a count (12) of this form.) The letters from the reference will be placed in the ketiv word (k tag); the changetext will be placed in the qere word (q tag). The resulting qere/ketiv pair is found in the JPS Tanach 1999; however, it is not in BHL, MAM, or WLC 4.20. From"The Masorah of the Biblia Hebraica Stuttgartensia", Kelly et al, 1998, p. 115.
+BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse.
+Create qere/ketiv pair for word marked as "יתיר א (yatir aleph)".
+The LC word ends in an aleph. The right margin of the text contains the note "יתיר א (yatir aleph)" for this word; hence, the LC word should be represented by a qere/ketiv pair. (The preceding letters in the right margin, "יב", represent a count (12) of this form.) The letters from the reference will be placed in the ketiv word (k tag); the changetext will be placed in the qere word (q tag). The resulting qere/ketiv pair is found in the JPS Tanach 1999; however, it is not in BHL, MAM, or WLC 4.20. From"The Masorah of the Biblia Hebraica Stuttgartensia", Kelly et al, 1998, p. 115.
+BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is the second of 3 markings on the word; it is a yatir vav.
+BHL has a qere/ketiv pair; this word is the ketiv word of that pair. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir aleph)
+The yatir marking for this word is in the left margin; it is a yatir aleph. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.
+BHL has no qere/ketiv marking and has a final aleph on this word. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir aleph)
+The yatir marking for this word is in the right margin; it is a yatir aleph. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.
+BHL has no qere/ketiv marking and has a final aleph on this word. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is in the right margin; it is a yatir yod. The word has two yods; however, the Masorah circle appears over the second yod. WLC 4.20 lacks a 'y' transcription note for this word.
+This verse and word appear as verse 4 in the BHL. The BHL has a qere/ketiv form without the second yod. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is in the right margin; it is a yatir vav.
+BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.
+The yatir marking for this word is in the left margin; it is a yatir yod. Alas, no Masorah circle appears in the line and the line contains two yods, one in this word and one in the following word. Add a transcription note 't' to reflect this uncertainty.
+BHL has a qere/ketiv pair for this word; the qere word lacks a final yod. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is the left margin; it is a yatir vav.
+BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is the left margin; it is a yatir vav. Although the word contains two vavs the first is vowelized and, hence, not superfluous.
+BHL has a qere/ketiv pair for this word; the qere doesn't contain the second vav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.
+The yatir marking for this word is in the right margin; it is a yatir yod. The line containing this word contains five yods and no Masorah circle is present to indicate which yod is superfluous. The (unusually-large) zayin represents the number 7; normally this would indicate that the yatir yod occurs 7 times throughout the text. Because of this ambiguity, a transcription note 't' will be added.
+BHL has a qere/ketiv pair for this word; the qere lacks the final yod. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is the right margin; it is a yatir vav. WLC 4.20 lacks a 'y' transcription note for this word.
+BHL has a qere/ketiv pair for this word; the qere doesn't contain a vav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is in the right margin; it is a yatir yod. The word contains two yods; however, the first yod is vowelized with a hiriq. Note that the marking and Masorah circle are unusually light for this page.
+BHL has a qere/ketiv pair for this word; the qere doesn't contain the second yod. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is the right margin; it is a yatir vav. No Masorah circle is present on the line and two vavs are present; however, the first vav in the line, part of the first word in the line, is vowelized with a dagesh (acting as a shuruq).
+BHL has a qere/ketiv pair for this word; the qere lacks the vav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir he)
+The yatir marking for this word is the right margin; it is a yatir he. The lamed and dalet at the extreme right side of the above image are for words in the preceding column.
+BHL has a qere/ketiv pair for this word; the qere lacks the he. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is in the right margin; it is a yatir yod. The Masorah circle is filled in, yet distinct. The purpose of the dotted lamed in the right margin is unknown; it is slightly lower than the yod.
+BHL does not have a qere/ketiv pair for this word; it retains the yod. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is in the left margin; it is a yatir yod. The word has 3 yods; the first is vowelized and accented. Neither the second or third yod is vowelized or accented; the second yod in the word will be noted as a yatir here.
+BHL has a qere/ketiv pair for this word; the qere has a single unvowelized, unaccented yod before the final mem. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is the left margin; it is a yatir vav. (This word contains no vav; it has a holam on the next-to-last letter, resh. See change 2024.07.11 - 1 which follows.)
+BHL has a qere/ketiv pair; the qere form has no yod after the qof and no vav. BHLA has an entry for this verse; the entry is for word 38 (דֵּ֥י), not this word. (Word 38 agrees with BHLA)
+Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiguity.
+The yatir marking for this word is in the right margin; it is a yatir yod. The word has 2 yods; neither is vowelized. The first yod in the word will be noted as a yatir here. A note 't' will be added to reflect this ambiguity.
+BHL has a qere/ketiv pair for this word; the qere has a single unvowelized, unaccented yod after the shin. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is the left margin; it is a yatir yod. A raised yod appears between the mem and the he.
+BHL has a qere/ketiv pair for this word; the qere form has no yod between the mem and the he. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The line has two markings in the left margin but no Masorah circles. The first marking is a qere form indicating that a he follows an aleph. This applies to preceding words 14 and 15. The second marking is a yatir vav. Two vavs appear on the line; the one in word 16 is vowelized with a dagesh acting as a shuruq. Hence, this marking must be for word 17.
+BHL has a qere/ketiv pair for this word; the qere form has no vav. BHL also agrees with the qere/ketiv pair in words 14 and 15. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod).
+The yatir note is in the right margin; it is a yatir yod. The first word on the line has a Masorah circle and two unvowelized and unaccented yods. The second of these yods, between the vav and final kaf, is broken. The 'y' note will be added to the second yod. This word is not represented by a qere/ketiv pair in previous versions of the UXLC or in WLC 4.20.
+BHL has a qere/ketiv pair for this word; the qere form has a single yod after the zayin. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+This line has 3 markings: a qere marking for the first word in the right margin that lacks a Masorah cirle and a qere marking in the left for the second word, as indicated by the Masorah cirle. The third word has a Masorah circle and has a yatir yod marking.
+BHL has a qere/ketiv pair for this word; the qere forn has no yod betweeb the nun and final kaf. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir aleph)
+The yatir note is in the right margin; it is a yatir aleph. The word on the line has a Masorah circle and two alephs. The first of these alephs is vowelized. The 'y' note will be added to the second aleph. WLC 4.20 lacks a 'y' transcription note for this word.
+BHL has no qere/ketiv pair for this word; the word starts and ends with an aleph. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir aleph) Add 't' note for ambiguity.
+The yatir marking for this word is the left margin; it is a yatir aleph. The word has a Masorah circle and contains two alephs; the first has an unexpected rafe mark, the second, final aleph, is accented. The first aleph will be marked as the yatir. Add a 't' note to indicate ambiguity.
+BHL has no qere/ketiv pair for this word; both alephs are retained. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is the left margin; it is a yatir yod.
+BHL has a qere/ketiv pair for this word; the qere word haS no yod. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is the left margin; it is a yatir yod.
+BHL has a qere/ketiv pair for this word; the qere word lacks a yod. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is the left margin; it is a yatir vav.
+BHL has a qere/ketiv pair for this word; the qere word lacks a vav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir aleph)
+The yatir note is in the left margin; it is a yatir aleph. The lamed slighly below the aleph of the yatir marking is probably for the Masorah circle on the next line.
+BHL has a qere/ketiv pair for this word; the qere word lacks the aleph. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is the right margin; it is a yatir vav. The text quality is low on this line.
+BHL has a qere/ketiv pair for this word; the qere word has no vav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is in the right margin; it is a yatir vav. No Masorah cicle appears above this word; however, the only other word on this line has a Masorah circle and a yatir vav marking in the left margin. Thus, yatir vav marking in the right margin must apply to this word. The word contains two vavs; The first is unvowelized and unaccented, the second is vowelized. The yatir vav marking is applied to the first vav. The following word is also a yatir vav.
+BHL has a qere/ketiv pair for this word; the qere word has a vav before the final tav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is in the left margin; it is a yatir vav. A masorah circle is over this word. The word contains two vavs; the first is unvowelized and unaccented, the second is vowelized. The yatir will be applied to the first vav. The preceding word is also a yatir vav, but it lacks a Masorah circle.
+BHL has a qere/ketiv pair for this word, the qere word has a vav befor the final tav. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiquity.
+The yatir marking for this word is in the left margin; it is a yatir yod. The word has two yods, neither are vowelized or accented. The yatir will be applied to the first yod and a 't' note added.
+BHL has a qere/ketiv pair for this word; the qere word has no yod between the bet and the aleph. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod) Add note 't' for ambiquity.
+The yatir marking for this word is the left margin; it is a yatir yod. The word has two unvowelized and unaccented yods; the first yod will be taken as the yatir. A note 't' is added for the ambiquity.
+BHL has a qere/ketiv pair for this word; the qere word has no yod between the tsadi and the bet. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir tsadi)
+The yatir marking for this word is the left margin; it is a yatir tsadi. Two words with Masorah circles appear in the line for only one yatir tsadi note; the preceding word and this word. Both tsadis in the preceeding word are vowelized; thus, this word is the object of the yatir tsadi note. The second tsadi in this word is unvowelized and unaccented; that tsadi the yatir will be applied to that letter (not that it matters which tsadi is taken).
+BHL has a qere/ketiv pair for this word; the qere word has a single tsadi. (The previous word has no qere/ketiv pair and has double tsadis. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir vav marking is in the left margin and is very light. A Masorah circle is present over this word and the first vav is unvowelized and unaccented. The yatir will be applied to the first vav.
+BHL has a qere/ketiv pair for this word; it has no vav between the kaf and the nun. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir vav)
+The yatir marking for this word is in the left margin; it is a yatir vav and is light. This word has no Masorah circle; however, the first vav in this word is the only unmarked vav on the line. The yatir vav will be applied to the first vav. WLC 4.20 lacks a 'y' transcription note for this word.
+BHL has a qere/ketiv pair for this word; the qere word has no vav between the kaf and the nun. BHLA has no entry for this verse.
+Add transcription note 'y' to yatir ketiv word. (yatir yod)
+The yatir marking for this word is the right margin; it is a yatir yod. The word has two yods; the first is vowelized, the second is unvowelized and unaccented. The second yod will be marked as the yatir yod.
+BHL has a qere/ketiv pair for this word; the qere word has no yod between the tet and the resh. BHLA has no entry for this verse.
+Add holam to resh, remove vav.
+The LC text has no vav in this word.
+BHL has no vav in this word. BHLA has an entry for this verse; the entry is for word 38 (דֵּ֥י), not this word. (Word 38 agrees with BHLA)
+Add merkha after segol under mem. Add note 't'.
+The ink is chipped in this area; however, the remnant of a mark remains following the segol. The mark has the northeast-to-southwest inclination of a merkha. Add transcription note 't'. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+BHL has no accent under the mem. BHLA has no entry for this verse.
+Examine meteg after segol under the mem as possible merkha.
+The vertical line following the segol under the mem is very slightly canted to northwest-to-southeast and not an obvious merkha. The existing merkha under the yod is questionable. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+BHL has a meteg after the segol under the mem. BHLA has no entry for this verse.
+Change merkha following the patah under the mem to meteg. Add note 'm'
+The line following the patah under the mem lacks the northeast-to-southwest inclination of a merkha. Thus, it will be transcribed as a meteg. BHL has a merkha instead. Add note'm' to signify the meteg/merkha uncertainty of this accent. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+BHL has a merkha following the patah under the mem. BHLA has no entry for this verse.
+Add merka following segol under the mem.
+The mark following the segol under the mem has a very slight northeast-to-southwest inclination and will be transcribed as a merkha. The mark under the yod is a marginal merkha. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+BHL has a meteg following the segol under the mem. BHLA has no entry for this verse.
+Add meteg after the segol under the mem.
+The near-vertical line after the segol under the mem lacks the northeast-to-southwest inclination to be considered to be a merkha. It will be transcribed as a meteg. This word appears in a response to Jason Hare's b-hebrew/Hebrew Bible posting "What about Ktiv / Kri ?" of 28 Sep 2024 by Ben Denckla on 29 Sep 2024.
+BHL has a meteg following the segol under the mem. BHLA has no entry for this verse.
