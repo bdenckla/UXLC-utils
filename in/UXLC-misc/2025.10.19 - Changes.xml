@@ -25,7 +25,7 @@
                     <mail>Steve@grovescenter.org</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change patah to qamats on he.</description>
+                <description>Change patah to qamats on he. Add note 't'.</description>
                 <lc>
                     <folio>Folio_025A</folio>
                     <column>3</column>
@@ -37,7 +37,7 @@
                 <changetext>הָשִׁבֳּלִ֣ים</changetext>
                 <changeuni>he     qamats     shin     shin-dot     hiriq     bet     dagesh     hataf-qamats     lamed     hiriq     munah     yod     final-mem     </changeuni>
                 <notes>
-                    <note>The dot of the qamats in light, but well-sized and well-positioned. This reverts the change of change file 2021.04.01, date 2021.02.22 - 12 to the original condition.</note>
+                    <note>The dot of the qamats is reddish, slightly oversized, but well-positioned. Dotan in BHLA also sees the vowel as a qamats. This reverts the change of change file 2021.04.01 - Changes at 2021.02.22 - 12 to the original condition.</note>
                     <note>BHL has a patah on the he.  BHLA has a qamats on the he.</note>
                 </notes>
                 <analysistags>
@@ -46,8 +46,8 @@
                 <transnotes>
                     <transnote>
                         <action>Add</action>
-                        <type/>
-                        <beforetext/>
+                        <type>t</type>
+                        <beforetext>הָ</beforetext>
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
@@ -68,7 +68,7 @@
                     <mail>Steve@grovescenter.org</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change sheva under resh to patah.</description>
+                <description>Change qamats under dalet to sheva; change sheva under resh to qamats.</description>
                 <lc>
                     <folio>Folio_160B</folio>
                     <column>2</column>
@@ -77,11 +77,11 @@
                 </lc>
                 <reftext>דָּרְכָ֖ו</reftext>
                 <refuni>dalet     dagesh     qamats     resh     sheva     kaf     qamats     tipeha     vav     </refuni>
-                <changetext>דָּרָכָ֖ו</changetext>
-                <changeuni>dalet     dagesh     qamats     resh     qamats     kaf     qamats     tipeha     vav     </changeuni>
+                <changetext>דְרָכָ֖ו</changetext>
+                <changeuni>dalet     sheva     resh     qamats     kaf     qamats     tipeha     vav     </changeuni>
                 <notes>
                     <note/>
-                    <note>BHL has a qamats under the resh.  BHLA has no entry for this verse.</note>
+                    <note>BHL has a sheva under the dalet and a qamats under the resh.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -112,11 +112,11 @@
                     <position>8</position>
                 </citation>
                 <author>
-                    <name>Ben Denckla</name>
-                    <mail>bdenckla@alum.mit.edu</mail>
+                    <name>Stephen Salisbury</name>
+                    <mail>Steve@grovescenter.org</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Add transcription note 'c' after lamed.</description>
+                <description>Add transcription note 'c' after bet.</description>
                 <lc>
                     <folio>Folio_366B</folio>
                     <column>2</column>
@@ -128,7 +128,7 @@
                 <changetext>לִ֭בּ֗וֹת</changetext>
                 <changeuni>lamed     hiriq     dehi     bet     dagesh     revia     vav     holam     tav     </changeuni>
                 <notes>
-                    <note>The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. The hiriq on the lamed is light; however, the current page has few erroneous dots. Other instances are Ps 89:28.1 and Job 11:13.2.</note>
+                    <note>The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. The hiriq on the lamed is light; however, the current page has few erroneous dots. Other instances are Ps 89:29.1 and Job 11:13.2.</note>
                     <note>BHL has a dehi on the lamed, but no revia on the bet.  BHLA has a dehi on the lamed and a revia on the bet.</note>
                 </notes>
                 <analysistags>
@@ -138,7 +138,7 @@
                     <transnote>
                         <action>Add</action>
                         <type>c</type>
-                        <beforetext>לִ֭</beforetext>
+                        <beforetext>לִ֭בּ֗</beforetext>
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
@@ -155,11 +155,11 @@
                     <position>1</position>
                 </citation>
                 <author>
-                    <name>Ben Denckla</name>
-                    <mail>bdenckla@alum.mit.edu</mail>
+                    <name>Stephen Salisbury</name>
+                    <mail>Steve@grovescenter.org</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Add transcription note 'c' after lamed.</description>
+                <description>Add transcription note 'c' after the second lamed.</description>
                 <lc>
                     <folio>Folio_384B</folio>
                     <column>1</column>
@@ -172,7 +172,7 @@
                 <changeuni>lamed     sheva     dehi     ayin     vav     holam     lamed     qamats     revia     final-mem     </changeuni>
                 <notes>
                     <note>The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC.  Other instances are Ps 7:10.8 and Job 11:13.2.</note>
-                    <note>BHL has a dehi on the lamed, but no revia on the bet. BHLA has a dehi on the lamed and a revia on the bet.</note>
+                    <note>BHL has a dehi on the first lamed, but no revia on the second lamed. BHLA has a dehi on the first lamed and a revia on the second lamed.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -181,7 +181,7 @@
                     <transnote>
                         <action>Add</action>
                         <type>c</type>
-                        <beforetext>לְ֭</beforetext>
+                        <beforetext>לְ֭עוֹלָ֗</beforetext>
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
@@ -198,11 +198,11 @@
                     <position>2</position>
                 </citation>
                 <author>
-                    <name>Ben Denckla</name>
-                    <mail>bdenckla@alum.mit.edu</mail>
+                    <name>Stephen Salisbury</name>
+                    <mail>Steve@grovescenter.org</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Add transcription note 'c' after alef.</description>
+                <description>Add transcription note 'c' after tav.</description>
                 <lc>
                     <folio>Folio_400A</folio>
                     <column>2</column>
@@ -215,14 +215,14 @@
                 <changeuni>alef     patah     dehi     tav     dagesh     qamats     revia     he     </changeuni>
                 <notes>
                     <note>The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. Other instances are Ps 7:10.8 and Ps 89:29.1.</note>
-                    <note>BHL has a dehi on the lamed, but no revia on the tav. BHLA no note for this verse.</note>
+                    <note>BHL has a dehi on the alef, but no revia on the tav. BHLA has no note for this verse.</note>
                 </notes>
                 <analysistags/>
                 <transnotes>
                     <transnote>
                         <action>Add</action>
                         <type>c</type>
-                        <beforetext>אַ֭</beforetext>
+                        <beforetext>אַ֭תָּ֗</beforetext>
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
