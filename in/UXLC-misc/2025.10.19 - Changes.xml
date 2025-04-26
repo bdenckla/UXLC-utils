@@ -21,37 +21,41 @@
                     <position>2</position>
                 </citation>
                 <author>
-                    <name>Stephen Salisbury</name>
-                    <mail>Steve@grovescenter.org</mail>
+                    <name>CVK</name>
+                    <mail>mail@cvkimball.com</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Change patah to qamats on he. Add note 't'.</description>
+                <description>Consider changing the patah on he to qamats. Retain the patah and add note 't'.</description>
                 <lc>
                     <folio>Folio_025A</folio>
                     <column>3</column>
                     <line>6</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
+                <image2>
+                    <title>Qamats on adjacent lines.</title>
+                    <credit>Credit: Sefaria.org annotated with red circles by CVK.</credit>
+                </image2>
                 <reftext>הַשִׁבֳּלִ֣ים</reftext>
                 <refuni>he     patah     shin     shin-dot     hiriq     bet     dagesh     hataf-qamats     lamed     hiriq     munah     yod     final-mem     </refuni>
-                <changetext>הָשִׁבֳּלִ֣ים</changetext>
-                <changeuni>he     qamats     shin     shin-dot     hiriq     bet     dagesh     hataf-qamats     lamed     hiriq     munah     yod     final-mem     </changeuni>
+                <changetext>הַשִׁבֳּלִ֣ים</changetext>
+                <changeuni>he     patah     shin     shin-dot     hiriq     bet     dagesh     hataf-qamats     lamed     hiriq     munah     yod     final-mem     </changeuni>
                 <notes>
-                    <note>The dot of the qamats is reddish, slightly oversized, but well-positioned. Dotan in BHLA also sees the vowel as a qamats. This reverts the change of change file 2021.04.01 - Changes at 2021.02.22 - 12 to the original condition.</note>
+                    <note>The patah on the he was a result of a change in change file 2021.04.01 - Changes at 2021.02.22 - 12 from the original condition in which the previous vowel was a qamats. The dot of the putative qamats is reddish and slightly oversized. The text in this region does not have many extraneous dots, however. Examining the qamats on the adjacent lines shows that the dot of the putative qamats is spaced at a greater distance from the bar of the qamats than in the adjacent lines. This is particularly true of the qamats preceding/following the putative qamats. Dotan in BHLA also sees the vowel as a qamats, but has a patah in his body text, BHL. Ben Denckla argues convincingly that Dotan did not have access to color images of the text. Retain the patah as the vowel on the he and add a transcription note 't'.</note>
                     <note>BHL has a patah on the he.  BHLA has a qamats on the he.</note>
                 </notes>
                 <analysistags>
-                    <aBHLA/>
+                    <aBHL/>
                 </analysistags>
                 <transnotes>
                     <transnote>
                         <action>Add</action>
                         <type>t</type>
-                        <beforetext>הָ</beforetext>
+                        <beforetext>הַ</beforetext>
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
-                <type>vowel</type>
+                <type>NoTextChange</type>
             </change>
             <!--...................................................-->
             <!--...................................................-->
@@ -112,8 +116,8 @@
                     <position>8</position>
                 </citation>
                 <author>
-                    <name>Stephen Salisbury</name>
-                    <mail>Steve@grovescenter.org</mail>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
                 <description>Add transcription note 'c' after bet.</description>
@@ -155,8 +159,8 @@
                     <position>1</position>
                 </citation>
                 <author>
-                    <name>Stephen Salisbury</name>
-                    <mail>Steve@grovescenter.org</mail>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
                 <description>Add transcription note 'c' after the second lamed.</description>
@@ -198,8 +202,8 @@
                     <position>2</position>
                 </citation>
                 <author>
-                    <name>Stephen Salisbury</name>
-                    <mail>Steve@grovescenter.org</mail>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
                 <description>Add transcription note 'c' after tav.</description>
