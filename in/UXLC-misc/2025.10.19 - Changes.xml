@@ -81,8 +81,8 @@
                 </lc>
                 <reftext>דָּרְכָ֖ו</reftext>
                 <refuni>dalet     dagesh     qamats     resh     sheva     kaf     qamats     tipeha     vav     </refuni>
-                <changetext>דְרָכָ֖ו</changetext>
-                <changeuni>dalet     sheva     resh     qamats     kaf     qamats     tipeha     vav     </changeuni>
+                <changetext>דְּרָכָ֖ו</changetext>
+                <changeuni>dalet     dagesh     sheva     resh     qamats     kaf     qamats     tipeha     vav     </changeuni>
                 <notes>
                     <note/>
                     <note>BHL has a sheva under the dalet and a qamats under the resh.  BHLA has no entry for this verse.</note>
