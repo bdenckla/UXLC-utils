@@ -38138,25 +38138,29 @@
     "changeset": "2025.03.21",
     "n": 1,
     "citation": "Gen 41:24.2",
-    "description": "Change patah to qamats on he.",
+    "description": "Consider changing the patah on he to qamats. Retain the patah and add note 't'.",
     "lc": "Folio_025A 3:6",
+    "image2": {
+      "title": "Qamats on adjacent lines.",
+      "credit": "Credit: Sefaria.org annotated with red circles by CVK."
+    },
     "reftext": "הַשִׁבֳּלִ֣ים",
     "refuni": "he patah shin shin-dot hiriq bet dagesh hataf-qamats lamed hiriq munah yod final-mem",
-    "changetext": "הָשִׁבֳּלִ֣ים",
-    "changeuni": "he qamats shin shin-dot hiriq bet dagesh hataf-qamats lamed hiriq munah yod final-mem",
+    "changetext": "הַשִׁבֳּלִ֣ים",
+    "changeuni": "he patah shin shin-dot hiriq bet dagesh hataf-qamats lamed hiriq munah yod final-mem",
     "notes": [
-      "The dot of the qamats in light, but well-sized and well-positioned. This reverts the change of change file 2021.04.01, date 2021.02.22 - 12 to the original condition.",
+      "The patah on the he was a result of a change in change file 2021.04.01 - Changes at 2021.02.22 - 12 from the original condition in which the previous vowel was a qamats. The dot of the putative qamats is reddish and slightly oversized. The text in this region does not have many extraneous dots, however. Examining the qamats on the adjacent lines shows that the dot of the putative qamats is spaced at a greater distance from the bar of the qamats than in the adjacent lines. This is particularly true of the qamats preceding/following the putative qamats. Dotan in BHLA also sees the vowel as a qamats, but has a patah in his body text, BHL. Ben Denckla argues convincingly that Dotan did not have access to color images of the text. Retain the patah as the vowel on the he and add a transcription note 't'.",
       "BHL has a patah on the he. BHLA has a qamats on the he."
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "vowel",
+    "type": "NoTextChange",
     "authors": [
-      "Stephen Salisbury"
+      "CVK"
     ],
     "lc_gen": null,
-    "aBHL": null,
-    "aBHLA": true,
+    "aBHL": true,
+    "aBHLA": null,
     "D2T": null,
     "T2D": null,
     "refuni_gen": null,
@@ -38169,14 +38173,14 @@
     "changeset": "2025.03.21",
     "n": 2,
     "citation": "1Sam 18:14.4",
-    "description": "Change sheva under resh to patah.",
+    "description": "Change qamats under dalet to sheva; change sheva under resh to qamats.",
     "lc": "Folio_160B 2:24",
     "reftext": "דָּרְכָ֖ו",
     "refuni": "dalet dagesh qamats resh sheva kaf qamats tipeha vav",
-    "changetext": "דָּרָכָ֖ו",
-    "changeuni": "dalet dagesh qamats resh qamats kaf qamats tipeha vav",
+    "changetext": "דְרָכָ֖ו",
+    "changeuni": "dalet sheva resh qamats kaf qamats tipeha vav",
     "notes": [
-      "BHL has a qamats under the resh. BHLA has no entry for this verse."
+      "BHL has a sheva under the dalet and a qamats under the resh. BHLA has no entry for this verse."
     ],
     "transnotes": null,
     "status": "Pending",
@@ -38199,14 +38203,14 @@
     "changeset": "2025.04.24",
     "n": 1,
     "citation": "Ps 7:10.8",
-    "description": "Add transcription note 'c' after lamed.",
+    "description": "Add transcription note 'c' after bet.",
     "lc": "Folio_366B 2:12",
     "reftext": "לִ֭בּ֗וֹת",
     "refuni": "lamed hiriq dehi bet dagesh revia vav holam tav",
     "changetext": "לִ֭בּ֗וֹת",
     "changeuni": "lamed hiriq dehi bet dagesh revia vav holam tav",
     "notes": [
-      "The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. The hiriq on the lamed is light; however, the current page has few erroneous dots. Other instances are Ps 89:28.1 and Job 11:13.2.",
+      "The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. The hiriq on the lamed is light; however, the current page has few erroneous dots. Other instances are Ps 89:29.1 and Job 11:13.2.",
       "BHL has a dehi on the lamed, but no revia on the bet. BHLA has a dehi on the lamed and a revia on the bet."
     ],
     "transnotes": null,
@@ -38230,7 +38234,7 @@
     "changeset": "2025.04.24",
     "n": 2,
     "citation": "Ps 89:29.1",
-    "description": "Add transcription note 'c' after lamed.",
+    "description": "Add transcription note 'c' after the second lamed.",
     "lc": "Folio_384B 1:13",
     "reftext": "לְ֭עוֹלָ֗ם",
     "refuni": "lamed sheva dehi ayin vav holam lamed qamats revia final-mem",
@@ -38238,7 +38242,7 @@
     "changeuni": "lamed sheva dehi ayin vav holam lamed qamats revia final-mem",
     "notes": [
       "The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. Other instances are Ps 7:10.8 and Job 11:13.2.",
-      "BHL has a dehi on the lamed, but no revia on the bet. BHLA has a dehi on the lamed and a revia on the bet."
+      "BHL has a dehi on the first lamed, but no revia on the second lamed. BHLA has a dehi on the first lamed and a revia on the second lamed."
     ],
     "transnotes": null,
     "status": "Pending",
@@ -38261,7 +38265,7 @@
     "changeset": "2025.04.24",
     "n": 3,
     "citation": "Job 11:13.2",
-    "description": "Add transcription note 'c' after alef.",
+    "description": "Add transcription note 'c' after tav.",
     "lc": "Folio_400A 2:13",
     "reftext": "אַ֭תָּ֗ה",
     "refuni": "alef patah dehi tav dagesh qamats revia he",
@@ -38269,7 +38273,7 @@
     "changeuni": "alef patah dehi tav dagesh qamats revia he",
     "notes": [
       "The presence of both a dehi and a revia on a word is unexpected but occurs 3 times in the UXLC. Other instances are Ps 7:10.8 and Ps 89:29.1.",
-      "BHL has a dehi on the lamed, but no revia on the tav. BHLA no note for this verse."
+      "BHL has a dehi on the alef, but no revia on the tav. BHLA has no note for this verse."
     ],
     "transnotes": null,
     "status": "Pending",
