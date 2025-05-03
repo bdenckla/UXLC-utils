@@ -11918,5 +11918,15 @@
     "change_fline": 40,
     "guess_fline": 40.29,
     "fline_diff": 0.29
+  },
+  {
+    "change_release": "2025.10.19",
+    "change_cite": "2Sam 11:1.6",
+    "change_page": "173B",
+    "change_column": 2,
+    "change_line": 23,
+    "change_fline": 50,
+    "guess_fline": 50.93,
+    "fline_diff": 0.93
   }
 ]

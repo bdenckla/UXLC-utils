@@ -120,7 +120,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Add transcription note 'c' after bet.</description>
+                <description>Unusual accent pair: dehi, revia. Add transcription note 'c' after bet.</description>
                 <lc>
                     <folio>Folio_366B</folio>
                     <column>2</column>
@@ -163,7 +163,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Add transcription note 'c' after the second lamed.</description>
+                <description>Unusual accent pair: dehi, revia. Add transcription note 'c' after the second lamed.</description>
                 <lc>
                     <folio>Folio_384B</folio>
                     <column>1</column>
@@ -206,7 +206,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Add transcription note 'c' after tav.</description>
+                <description>Unusual accent pair: dehi, revia. Add transcription note 'c' after tav.</description>
                 <lc>
                     <folio>Folio_400A</folio>
                     <column>2</column>
@@ -227,6 +227,49 @@
                         <action>Add</action>
                         <type>c</type>
                         <beforetext>אַ֭תָּ֗</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>NoTextChange</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>4</n>
+                <citation>
+                    <book>2 Sam</book>
+                    <c>11</c>
+                    <v>1</v>
+                    <position>6</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Vowels on the initial mem and following lamed differ from other texts. Add 'c' note after lamed.</description>
+                <lc>
+                    <folio>Folio_173B</folio>
+                    <column>2</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הַמַּלְאֿכִ֗ים</reftext>
+                <refuni>he     patah     mem     dagesh     patah     lamed     sheva     alef     rafe     kaf     hiriq     revia     yod     final-mem     </refuni>
+                <changetext>הַמַּלְאֿכִ֗ים</changetext>
+                <changeuni>he     patah     mem     dagesh     patah     lamed     sheva     alef     rafe     kaf     hiriq     revia     yod     final-mem     </changeuni>
+                <notes>
+                    <note>Other texts have a sheva on the mem and a qamats on the lamed.</note>
+                    <note>BHL has a sheva on the mem and a qamats on the lamed.  BHLA has a patah on the mem and a sheva on the lamed. Both BHL texts have a dagesh on the mem; neither has a rafe on the alef.</note>
+                </notes>
+                <analysistags>
+                    <aBHLA/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>c</type>
+                        <beforetext>הַמַּלְ</beforetext>
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
