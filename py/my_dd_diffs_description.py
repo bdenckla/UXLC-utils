@@ -1,10 +1,10 @@
-"""Exports get1"""
+""" Exports get1 & get2 """
 
-import py.my_unicode as my_unicode
+import py.my_unicode as diff_mm_uni_name
 import py.my_diffs as my_diffs
 import py.my_dd_simplify_simple_diffs as ssd
-import py.my_dd_lett_words as my_dd_lett_words
-
+import py.my_dd_lett_words as hlw
+from py import uni_heb_char_classes as uhc
 
 def get1(str1, str2):
     """
@@ -23,14 +23,38 @@ def get1(str1, str2):
     return ssd.simplify_simple_diffs(named_diffs)
 
 
+def get2(mlist_a, mlist_b):
+    """
+    If possible, get a human-friendly description of the diffs
+    between mlist1 & mlist2. (mlist: maybe a list, i.e. a list or None)
+    """
+    rstra = _get_refinable_str(mlist_a)
+    rstrb = _get_refinable_str(mlist_b)
+    return rstra and rstrb and get1(rstra, rstrb)
+
+
 def _letters_differ(str1, str2):
-    lm1 = my_dd_lett_words.letters_and_maqafs(str1)
-    lm2 = my_dd_lett_words.letters_and_maqafs(str2)
+    lm1 = hlw.letters_and_maqafs(str1)
+    lm2 = hlw.letters_and_maqafs(str2)
     return lm1 != lm2
 
 
 def _get_dide_incl_letter_changes(_str1, _str2, named_diffs):
     return str(named_diffs), "deep diff"
+
+
+def _get_refinable_str(mlist):
+    if mlist is None:
+        return None
+    assert isinstance(mlist, list)
+    if not len(mlist) == 1:
+        return None
+    if not isinstance(mlist[0], str):
+        return None
+    inter = set(uhc.VOWEL_POINTS).intersection(mlist[0])
+    if len(inter) == 0:
+        return None
+    return mlist[0]
 
 
 def _get_unicode_names_for_diff(diff):
@@ -45,7 +69,7 @@ def _get_unicode_names_for_side(side):
 def _get_unicode_names_for_side_el(side):
     letter = ssd.qcp_get(side, "letter")
     return ssd.qcp_make(
-        my_unicode.name(ssd.qcp_get(side, "code_point")),
-        letter and my_unicode.name(letter),
+        diff_mm_uni_name.name(ssd.qcp_get(side, "code_point")),
+        letter and diff_mm_uni_name.name(letter),
         ssd.qcp_get(side, "count"),
     )
