@@ -7,8 +7,11 @@ import py.my_uxlc_page_break_info as page_break_info
 import py.my_uxlc_changes_loc as changes_loc
 import py.my_uxlc_change_prep as prep
 import py.my_uxlc_changes as my_uxlc_changes
+import py.my_uxlc_change_sanity as sanity
 import py.my_open as my_open
 import py.my_xml_node as my_xml_node
+
+_SANITY_PATH = "out/UXLC-misc/sanity_problems.json"
 
 
 def _listify(list_or_nonlist):
@@ -24,6 +27,7 @@ def _get_changes(changeset):
         # placeholder, to be filled in with changes later.
         return []
     changes = _listify(changeset["change"])
+    sanity.check(date, changes, _SANITY_PATH)
     return [prep.date_qualify_and_reformat(date, c) for c in changes]
 
 
