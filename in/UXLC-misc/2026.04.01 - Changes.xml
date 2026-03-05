@@ -860,7 +860,7 @@
                 <changetext>וְשֽׁוּבוּ</changetext>
                 <changeuni>vav     sheva     shin     shin-dot     meteg     vav     dagesh     bet     vav     dagesh     </changeuni>
                 <notes>
-                    <note>This is the qere word of a qere/ketiv pair.  The accent under the shin is too vertical to be considered a merkha here. Change merkha to to meteg and add note 'm'.</note>
+                    <note>This is the qere word of a qere/ketiv pair.  The accent under the shin is too vertical to be considered a merkha here. Change merkha to meteg and add note 'm'.</note>
                     <note>BHL has a merkha under the shin; otherwise, it agrees with BHL.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -1159,7 +1159,7 @@
                 <changeuni>vav     dagesh     sheva     geresh-muqdam     alef     patah     het     hataf-patah     resh     hiriq     yod     tav     sheva     final-kaf     qamats     revia     </changeuni>
                 <notes>
                     <note>The dagesh is not as dark as other dots in this word; however, it is well-positioned.</note>
-                    <note>BHL has no dagesh acting as a shuruq in the vav.  BHLA has aa dagesh acting as a shuruq in the vav.</note>
+                    <note>BHL has no dagesh acting as a shuruq in the vav.  BHLA has a dagesh acting as a shuruq in the vav.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -1243,7 +1243,7 @@
                 <changeuni>he     dehi     vav     dagesh     alef     </changeuni>
                 <notes>
                     <note>The accent mark appears before the centerline of the he and is therefore a dehi, rather than a tipeha,</note>
-                    <note>BHL has has a dehi accent.  BHLA has no entry for this verse.</note>
+                    <note>BHL has a dehi accent.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -1355,7 +1355,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>* Examine for qeresh-muqdam on initial vav.</description>
+                <description>* Examine for geresh-muqdam on initial vav.</description>
                 <lc>
                     <folio>Folio_399B</folio>
                     <column>1</column>
@@ -1494,7 +1494,7 @@
                 <changetext>אַֽ֭דַבְּרָה</changetext>
                 <changeuni>alef     patah     meteg     dehi     dalet     patah     bet     dagesh     sheva     resh     qamats     he     </changeuni>
                 <notes>
-                    <note>No sheva is visble in the text. The leading mark is a dehi as it is distinctly advanced from the centerline of the alef.</note>
+                    <note>No sheva is visible in the text. The leading mark is a dehi as it is distinctly advanced from the centerline of the alef.</note>
                     <note>BHL has dehi, sheva, meteg, and patah under the alef.  The meteg breaks a possible hataf patah. BHLA has a dehi, patah, and meteg under the alef.</note>
                 </notes>
                 <analysistags>
@@ -2174,7 +2174,7 @@
                 <changetext>וְיָלֹד</changetext>
                 <changeuni>vav     sheva     yod     qamats     lamed     holam     dalet     </changeuni>
                 <notes>
-                    <note>The text is in bad condition and clutterred. At least a qamats is evident under the yod. The horizontal line of the qamats appears to be extended; however, the extension cannot be mistaken for a munah. The UXLC has a 't' note indicating the problem.</note>
+                    <note>The text is in bad condition and cluttered. At least a qamats is evident under the yod. The horizontal line of the qamats appears to be extended; however, the extension cannot be mistaken for a munah. The UXLC has a 't' note indicating the problem.</note>
                     <note>BHL has a patah then munah under the yod.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -2554,8 +2554,8 @@
                 <changetext>הֲ֭לְמַּעַנְךָ</changetext>
                 <changeuni>he     hataf-patah     dehi     lamed     sheva     mem     dagesh     patah     ayin     patah     nun     sheva     final-kaf     qamats     </changeuni>
                 <notes>
-                    <note>The text is of poor quality. The outline of the patah is distinct and well positioned; the ink appears to have fallen off. The sheva of a hataf-path is clear, the dehi is the best formed of the 3 markings.</note>
-                    <note>BHL has a dehi the path under the he.  BHLA has dehi, hataf-path under the he.</note>
+                    <note>The text is of poor quality. The outline of the patah is distinct and well positioned; the ink appears to have fallen off. The sheva of a hataf-patah is clear, the dehi is the best formed of the 3 markings.</note>
+                    <note>BHL has a dehi then patah under the he.  BHLA has dehi, hataf-patah under the he.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -2639,7 +2639,7 @@
                 <changeuni>alef     tipeha     vav     holam     resh     </changeuni>
                 <notes>
                     <note>The northwest-to-southeast inclined line under the alef is either a dehi or tipeha, depending on horizontal positioning relative to the alef. The line is not sufficiently prepositive to be taken as a dehi, it will be transcribed as a tipeha. The UXLC has a transcription note 'd' on this letter.</note>
-                    <note>BHL has has a dehi under the alef .  BHLA has a tipeha under the alef.</note>
+                    <note>BHL has a dehi under the alef .  BHLA has a tipeha under the alef.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -2808,7 +2808,7 @@
                 <changetext>קָּ֭רָאתִי</changetext>
                 <changeuni>qof     dagesh     qamats     dehi     resh     qamats     alef     tav     hiriq     yod     </changeuni>
                 <notes>
-                    <note>The dot is the qof is well-formed and well-positioned; it will be taken as a dagesh.</note>
+                    <note>The dot in the qof is well-formed and well-positioned; it will be taken as a dagesh.</note>
                     <note>BHL has no dagesh in the qof.  BHLA has a dagesh in the qof and a question mark in parentheses, "(?)".</note>
                 </notes>
                 <analysistags>
@@ -2852,7 +2852,7 @@
                 <changeuni>bet     dagesh     sheva     mem     vav     holam     maqaf     </changeuni>
                 <notes>
                     <note>The image shows both parts of a maqaf-joined pair, this word is the first in the pair.  No accent appears above the bet.</note>
-                    <note>BHL has has no accent above the bet.  BHLA has no entry for this verse.</note>
+                    <note>BHL has no accent above the bet.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -2885,8 +2885,8 @@
                 <description>Examine if pe has a gersh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'.</description>
                 <lc>
                     <folio>Folio_402B</folio>
-                    <column/>
-                    <line/>
+                    <column>1</column>
+                    <line>9</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
                 <reftext>פִ֝֗י</reftext>
@@ -2894,7 +2894,7 @@
                 <changetext>פִ֗‍֝י</changetext>
                 <changeuni>pe     hiriq     revia     ZWJ     geresh-muqdam     yod     </changeuni>
                 <notes>
-                    <note>The image shows both parts of a maqaf-joined pair, this word is the second in the pair. A gersh-muqdam over the pe is clear; it is preceded by a small dot that may be a revia. Add transcription note 't'. Note that the putative revia appears before the geresh-muqdam in the image. Place the revia before the gerseh-muqdam; adding a zero-width-joiner (ZWJ, x200d) between them to achieve the ordering in the display.</note>
+                    <note>The image shows both parts of a maqaf-joined pair, this word is the second in the pair. A geresh-muqdam over the pe is clear; it is preceded by a small dot that may be a revia. Add transcription note 't'. Note that the putative revia appears before the geresh-muqdam in the image. Place the revia before the gerseh-muqdam; adding a zero-width-joiner (ZWJ, x200d) between them to achieve the ordering in the display.</note>
                     <note>BHL has a geresh-muqdam and a revia in that order.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -2902,7 +2902,7 @@
                     <transnote>
                         <action>Add</action>
                         <type>t</type>
-                        <beforetext>פִ֗‍֝</beforetext>
+                        <beforetext>פִ֗</beforetext>
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
@@ -3367,7 +3367,7 @@
                 <changetext>ל֭וֹ</changetext>
                 <changeuni>lamed     dehi     vav     holam     </changeuni>
                 <notes>
-                    <note>The accenton the lamed is either a tipeha or a dehi. The mark is sufficiently pre-positive to be transcribed as a dehi.</note>
+                    <note>The accent on the lamed is either a tipeha or a dehi. The mark is sufficiently pre-positive to be transcribed as a dehi.</note>
                     <note>BHL has a dehi under the lamed.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -3454,7 +3454,7 @@
                 <changeuni>vav     dagesh     shin     shin-dot     sheva     lamed     final-mem     </changeuni>
                 <notes>
                     <note>A very faint merkha or etnachta can be seen under the lamed. It is much lighter than surrounding text and may have been an erasure. It's too faint to be transcribed.</note>
-                    <note>BHL has a etnachta under the lamed.  BHLA has no entry for this verse.</note>
+                    <note>BHL has an etnachta under the lamed.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
                 <transnotes>
@@ -3580,7 +3580,7 @@
                 <changetext>יְמַלֵּ֥ט</changetext>
                 <changeuni>yod     sheva     mem     patah     lamed     dagesh     tsere     merkha     tet     </changeuni>
                 <notes>
-                    <note>The sheva under the yod is apparent; determining what to do with the line/blob before the sheva is the problem. The near-vertical line before the sheva is too long to be a meteg and ends with an out of place dot. Accept the sheva as real; add transciption note 't'.</note>
+                    <note>The sheva under the yod is apparent; determining what to do with the line/blob before the sheva is the problem. The near-vertical line before the sheva is too long to be a meteg and ends with an out of place dot. Accept the sheva as real; add transcription note 't'.</note>
                     <note>BHL has a sheva without a preceding meteg under the yod.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -4006,8 +4006,8 @@
                 <changetext>גְּ֝בוּרוֹתָ֗יו</changetext>
                 <changeuni>gimel     dagesh     sheva     geresh-muqdam     bet     vav     dagesh     resh     vav     holam     tav     qamats     revia     yod     vav     </changeuni>
                 <notes>
-                    <note>The image shows the qere/ketiv forms for this word both in the body text (ketiv) and in the left margin beneath a dotted qof (qere). The letters for the qere form are found in the left margin of the LC. The qere has a vav between the resh and tav; it has a yod bewteen the tav and the yod. The letters for the ketiv appear in the body text. They lack the vav between the resh and tav and the yod between the tav and vav. This is a conventional qere/ketiv pair; the ketiv appears in the preceding word in the UXLC.</note>
-                    <note>BHL qere has a vav between the resh and the tav, the vav has a holam dot, a yod is present between the tav and the vav. the BHL ketiv has no vav between the resh and the tav; it has no yod btween the tav and the last letter, a vav.  BHLA has no entry for this verse.</note>
+                    <note>The image shows the qere/ketiv forms for this word both in the body text (ketiv) and in the left margin beneath a dotted qof (qere). The letters for the qere form are found in the left margin of the LC. The qere has a vav between the resh and tav; it has a yod between the tav and the yod. The letters for the ketiv appear in the body text. They lack the vav between the resh and tav and the yod between the tav and vav. This is a conventional qere/ketiv pair; the ketiv appears in the preceding word in the UXLC.</note>
+                    <note>BHL qere has a vav between the resh and the tav, the vav has a holam dot, a yod is present between the tav and the vav. the BHL ketiv has no vav between the resh and the tav; it has no yod between the tav and the last letter, a vav.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -4479,7 +4479,7 @@
                 <changetext>כֹּ֭חַ</changetext>
                 <changeuni>kaf     dagesh     holam     dehi     het     patah     </changeuni>
                 <notes>
-                    <note>The accent under the kaf is suffiently advanced to be transcribed as a dehi.</note>
+                    <note>The accent under the kaf is sufficiently advanced to be transcribed as a dehi.</note>
                     <note>BHL has a dehi under the kaf.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -4522,7 +4522,7 @@
                 <changetext>ר֖וּחַ</changetext>
                 <changeuni>resh     tipeha     vav     dagesh     het     patah     </changeuni>
                 <notes>
-                    <note>The accent is not suffiently pre-positive to be transcribed as a dehi. The existing UXLC text has a note 'd' indicating the possibility that this might be a dehi.</note>
+                    <note>The accent is not sufficiently pre-positive to be transcribed as a dehi. The existing UXLC text has a note 'd' indicating the possibility that this might be a dehi.</note>
                     <note>BHL has a dehi under the resh.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -4693,7 +4693,7 @@
                 <changeuni>resh     patah     gimel     sheva     lamed     meteg     CGJ     hiriq     yod     sof-pasuq     </changeuni>
                 <notes>
                     <note>The mark order in the image under the lamed is meteg then hiriq.</note>
-                    <note>BHL has hiriq the meteg under the lamed.  BHLA has a meteg then hiriq under the lamed.</note>
+                    <note>BHL has hiriq then meteg under the lamed.  BHLA has a meteg then hiriq under the lamed.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -4778,7 +4778,7 @@
                 <changetext>הְֽ͏ַ֝לֹא־</changetext>
                 <changeuni>he     sheva     meteg     CGJ     patah     geresh-muqdam     lamed     holam     alef     maqaf     </changeuni>
                 <notes>
-                    <note>The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah; no complete hataf-patah is present. Change the Unicode characters below the he to sheva then meteg then CGJ then patah to preserve appear and eliminate the dubious use of the Unicode hataf patah character. Add a note 't' indicating transcription problem with gersh-muqdam marking. AFor technical reasons the change type must be set to vowel/accent to change the Unicode characters, even though the visible text under the he is unchanged.</note>
+                    <note>The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah; no complete hataf-patah is present. Change the Unicode characters below the he to sheva then meteg then CGJ then patah to preserve appearance and eliminate the dubious use of the Unicode hataf patah character. Add a note 't' indicating transcription problem with geresh-muqdam marking. For technical reasons the change type must be set to vowel/accent to change the Unicode characters, even though the visible text under the he is unchanged.</note>
                     <note>BHL has no geresh-muqdam on the he; the order of the markings below the he is sheva then meteg then patah.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -5288,7 +5288,7 @@
                 <changetext>אָ֭מַר</changetext>
                 <changeuni>alef     qamats     dehi     mem     patah     resh     </changeuni>
                 <notes>
-                    <note>A dehi is cleaar and well-positioned in front of  the alef; the mem has no accent. The text quality is good.</note>
+                    <note>A dehi is clear and well-positioned in front of  the alef; the mem has no accent. The text quality is good.</note>
                     <note>BHL has a dehi on the alef and no accent on the mem. BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -5415,7 +5415,7 @@
                 <changetext>שׁ֭וֹעַ</changetext>
                 <changeuni>shin     shin-dot     dehi     vav     holam     ayin     patah     </changeuni>
                 <notes>
-                    <note>The accent below the shin could be either a dehi or a merkha, depending on it's horizontal position. The accent is sufficiently pre-positive to be a dehi.</note>
+                    <note>The accent below the shin could be either a dehi or a merkha, depending on its horizontal position. The accent is sufficiently pre-positive to be a dehi.</note>
                     <note>BHL has a dehi on the shin.  BHLA has an entry for this verse corresponding to the 7-th word (נִכַּר־).</note>
                 </notes>
                 <analysistags>
@@ -5489,7 +5489,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examine for vowel on he: path or hataf-patah.</description>
+                <description>Examine for vowel on he: patah or hataf-patah.</description>
                 <lc>
                     <folio>Folio_407A</folio>
                     <column>1</column>
@@ -5502,7 +5502,7 @@
                 <changeuni>he     patah     meteg     mem     tsere     ayin     hiriq     mem     dagesh     sheva     final-kaf     qamats     iluy     </changeuni>
                 <notes>
                     <note>The image shows a patah then meteg under the he. </note>
-                    <note>BHL has a patah the meteg under the he.  BHLA has no entry for this verse.</note>
+                    <note>BHL has a patah then meteg under the he.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -5886,7 +5886,7 @@
                 <changetext>שׁ֭וּעֲךָ</changetext>
                 <changeuni>shin     shin-dot     dehi     vav     dagesh     ayin     hataf-patah     final-kaf     qamats     </changeuni>
                 <notes>
-                    <note>THe text is in poor condition. The light outline of a dehi or tipeha under the shin is apparent, however. This outline is pre-position and the accent will be transcribed as a dehi.</note>
+                    <note>The text is in poor condition. The light outline of a dehi or tipeha under the shin is apparent, however. This outline is pre-positive and the accent will be transcribed as a dehi.</note>
                     <note>BHL has a dehi on the shin.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -6310,7 +6310,7 @@
                 <changetext>שֹׁ֖אָה</changetext>
                 <changeuni>shin     shin-dot     holam     tipeha     alef     qamats     he     </changeuni>
                 <notes>
-                    <note>THe accent below the shin isn't sufficiently pre-positive to be taken as a dehi. Change to tipeha and add note 'd'.</note>
+                    <note>The accent below the shin isn't sufficiently pre-positive to be taken as a dehi. Change to tipeha and add note 'd'.</note>
                     <note>BHL has a dehi under the shin.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -6554,7 +6554,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examine for revia over theresh.</description>
+                <description>Examine for revia over the resh.</description>
                 <lc>
                     <folio>Folio_408B</folio>
                     <column>1</column>
@@ -6653,7 +6653,7 @@
                 <changeuni>he     sheva     meteg     dehi     tav     patah     resh     sheva     ayin     hiriq     yod     shin     shin-dot     segol     nun     dagesh     vav     dagesh     </changeuni>
                 <notes>
                     <note>The image shows a dehi then sheva then meteg under the he.</note>
-                    <note>BHL has a dehi then sheva the meteg then patah under the he; 4 markings.  BHLA has a dehi then sheva then meteg under the he; 3 markings.</note>
+                    <note>BHL has a dehi then sheva then meteg then patah under the he; 4 markings.  BHLA has a dehi then sheva then meteg under the he; 3 markings.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -6769,7 +6769,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examime accent below the he: dehi or tipeha.</description>
+                <description>Examine accent below the he: dehi or tipeha.</description>
                 <lc>
                     <folio>Folio_408B</folio>
                     <column>2</column>

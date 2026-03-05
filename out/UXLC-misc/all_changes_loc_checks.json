@@ -12604,10 +12604,10 @@
     "change_cite": "Job 19:16.6",
     "change_page": "402B",
     "change_column": 1,
-    "change_line": 8,
-    "change_fline": 8,
+    "change_line": 9,
+    "change_fline": 9,
     "guess_fline": 9.31,
-    "fline_diff": 1.31
+    "fline_diff": 0.31
   },
   {
     "change_release": "2026.04.01",

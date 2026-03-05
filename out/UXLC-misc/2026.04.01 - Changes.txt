@@ -56,7 +56,7 @@ Examine maqaf-linked pair for accents. Replace meteg under kaf with merkha. Add 
 The preceding word has no accent and a connecting maqaf; the accent is on this word. The mark under the kaf is heavily inclined northeast-to-southwest and must be transcribed as a merkha in the UXLC. Add a transcription note 'c'.
 BHL has no accent on the preceding word and a meteg under the resh and a meteg under the kaf. BHLA has no entry for this verse.
 Examine accent under shin. Change merkha to meteg. Add note 'm'.
-This is the qere word of a qere/ketiv pair. The accent under the shin is too vertical to be considered a merkha here. Change merkha to to meteg and add note 'm'.
+This is the qere word of a qere/ketiv pair. The accent under the shin is too vertical to be considered a merkha here. Change merkha to meteg and add note 'm'.
 BHL has a merkha under the shin; otherwise, it agrees with BHL. BHLA has no entry for this verse.
 * Examine possible double accents (revia, tipeha) on the mem.
 Above the mem are two dots and a crescent-shaped mark. One dot and the crescent-shaped mark are probably part of an incomplete Masorah Circle. The remaining dot would be a revia. The UXLC has a 'c' note on the mem.
@@ -78,20 +78,20 @@ No revia is apparent over the bet. The text quality is excellent.
 BHL has no revia over the bet. BHLA has no entry for this verse.
 * Examine dagesh acting as a shuruq in the vav.
 The dagesh is not as dark as other dots in this word; however, it is well-positioned.
-BHL has no dagesh acting as a shuruq in the vav. BHLA has aa dagesh acting as a shuruq in the vav.
+BHL has no dagesh acting as a shuruq in the vav. BHLA has a dagesh acting as a shuruq in the vav.
 * Examine for revia above the bet. Remove revia.
 The text has a rafe above the bet. (The UXLC doesn't usually display rafe marks.) Remove the revia.
 BHL has a revia above the bet. BHLA has no entry for this verse.
 Examine accent under he (dehi, tipeha).
 The accent mark appears before the centerline of the he and is therefore a dehi, rather than a tipeha,
-BHL has has a dehi accent. BHLA has no entry for this verse.
+BHL has a dehi accent. BHLA has no entry for this verse.
 Examine accent under yod (meteg, dehi). Change meteg to dehi.
 The mark under the yod has a distinct northwest-to-southeast inclination and is displaced forward of the centerline of the yod. The mark under the yod is a dehi.
 BHL has a meteg under the yod. BHLA has no entry for this verse.
 Examine for dagesh in pe.
 No dagesh appears in the pe.
 BHL has a dagesh in the pe. BHLA has no entry for this verse.
-* Examine for qeresh-muqdam on initial vav.
+* Examine for geresh-muqdam on initial vav.
 The text is chipped and of low quality for this word. Two parallel lines can be seen slightly to the top left of the vav. If filled, they would constitute a gersh-muqdam. The UXLC accepts the gersh-muqdam, but adds a transcription note 't'.
 BHL has no accent on the initial vav. BHLA has no entry for this verse.
 * Examine mem for meteg acting as a siluq.
@@ -101,7 +101,7 @@ BHL has a meteg under the mem. BHLA has a question mark in parentheses, "(?)", a
 No meteg under the pe is apparent. The UXLC has a note, 't', on this word.
 BHL has a meteg acting as siluq under the pe. BHLA has a question mark in parentheses, "(?)", and no meteg acting as siluq.
 Examine the markings under the alef.
-No sheva is visble in the text. The leading mark is a dehi as it is distinctly advanced from the centerline of the alef.
+No sheva is visible in the text. The leading mark is a dehi as it is distinctly advanced from the centerline of the alef.
 BHL has dehi, sheva, meteg, and patah under the alef. The meteg breaks a possible hataf patah. BHLA has a dehi, patah, and meteg under the alef.
 Examine word for revia on the he.
 The he has a rafe mark, not shown in UXLC, and a dot. The dot is not part of the previous line of text and can be taken as a revia.
@@ -149,7 +149,7 @@ BHL has a dagesh acting as a mapiq in the he. BHLA has no dagesh acting as mapiq
 Although the text quality is not good, a meteg then merkha are present under the shin.
 BHL has only a meteg on the shin. BHLA has a meteg then merkha on the shin.
 * Examine markings under the yod: patah, munah.
-The text is in bad condition and clutterred. At least a qamats is evident under the yod. The horizontal line of the qamats appears to be extended; however, the extension cannot be mistaken for a munah. The UXLC has a 't' note indicating the problem.
+The text is in bad condition and cluttered. At least a qamats is evident under the yod. The horizontal line of the qamats appears to be extended; however, the extension cannot be mistaken for a munah. The UXLC has a 't' note indicating the problem.
 BHL has a patah then munah under the yod. BHLA has no entry for this verse.
 Examine maqaf on word.
 The maqaf is present following the vav.
@@ -176,14 +176,14 @@ Examine second bet for possible dagesh. Add dagesh to second bet.
 Although the text quality is not good, a very dark and well-positioned dagesh appears in the second bet. Add dagesh to second bet.
 BHL has no dagesh in the second bet. BHLA has no entry for this verse.
 * Examine markings below he: dehi, hataf-patah or dehi, patah.
-The text is of poor quality. The outline of the patah is distinct and well positioned; the ink appears to have fallen off. The sheva of a hataf-path is clear, the dehi is the best formed of the 3 markings.
-BHL has a dehi the path under the he. BHLA has dehi, hataf-path under the he.
+The text is of poor quality. The outline of the patah is distinct and well positioned; the ink appears to have fallen off. The sheva of a hataf-patah is clear, the dehi is the best formed of the 3 markings.
+BHL has a dehi then patah under the he. BHLA has dehi, hataf-patah under the he.
 * Examine for dagesh in mem.
 The dagesh in the mem is dark and well-positioned. The text quality is poor.
 BHL has no dagesh in the mem. BHLA has no dagesh in the mem.
 * Examine for dehi or tipeha under alef.
 The northwest-to-southeast inclined line under the alef is either a dehi or tipeha, depending on horizontal positioning relative to the alef. The line is not sufficiently prepositive to be taken as a dehi, it will be transcribed as a tipeha. The UXLC has a transcription note 'd' on this letter.
-BHL has has a dehi under the alef . BHLA has a tipeha under the alef.
+BHL has a dehi under the alef . BHLA has a tipeha under the alef.
 Examine for dagesh in ayin. Add dagesh to ayin.
 A dark dot appears in the ayin. The dot is a little off-center, but must be taken as a dagesh. (The letter ayin conventionally doesn't take a dagesh.)
 BHL has no dagesh in ayin. BHLA has no entry for this verse.
@@ -194,13 +194,13 @@ BHL has a dagesh in the kaf. BHLA has no entry for this verse.
 A mis-shapen blob occurs in the resh that might be taken as a dagesh; it will be ignored. The dagesh in the pe is small, but clear. The dagesh in the tav is unusually light, but well-formed and well-positioned. The rafe on the tav is very clear. (A letter should not have both a dagesh and a rafe.) Retain the dagesh in the tav and add transcription note 't'.
 BHL has no dagesh in the tav or resh; it doesn't normally display rafe marks. BHLA has a dagesh and a rafe on the tav and no dagesh on the resh.
 * Examine qof for possible dagesh.
-The dot is the qof is well-formed and well-positioned; it will be taken as a dagesh.
+The dot in the qof is well-formed and well-positioned; it will be taken as a dagesh.
 BHL has no dagesh in the qof. BHLA has a dagesh in the qof and a question mark in parentheses, "(?)".
 Examine for accent above bet. [First part of 2 part change.]
 The image shows both parts of a maqaf-joined pair, this word is the first in the pair. No accent appears above the bet.
-BHL has has no accent above the bet. BHLA has no entry for this verse.
+BHL has no accent above the bet. BHLA has no entry for this verse.
 Examine if pe has a gersh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'.
-The image shows both parts of a maqaf-joined pair, this word is the second in the pair. A gersh-muqdam over the pe is clear; it is preceded by a small dot that may be a revia. Add transcription note 't'. Note that the putative revia appears before the geresh-muqdam in the image. Place the revia before the gerseh-muqdam; adding a zero-width-joiner (ZWJ, x200d) between them to achieve the ordering in the display.
+The image shows both parts of a maqaf-joined pair, this word is the second in the pair. A geresh-muqdam over the pe is clear; it is preceded by a small dot that may be a revia. Add transcription note 't'. Note that the putative revia appears before the geresh-muqdam in the image. Place the revia before the gerseh-muqdam; adding a zero-width-joiner (ZWJ, x200d) between them to achieve the ordering in the display.
 BHL has a geresh-muqdam and a revia in that order. BHLA has no entry for this verse.
 Determine accent on the tav: dehi or tipeha. Add note 't' as pre-positive positioning is weak.
 The accent on the tav is dark and well-formed; the question is whether it is sufficiently pre-positive to be a dehi. Add note 't'.
@@ -233,14 +233,14 @@ Examine accent on the resh: dehi or tipeha. Add note 't'.
 The mark under the resh could be either a dehi or tipeha depending on its position relative to the resh. Space was available for the scribe to make the mark more pre-positive; hence, the accent is taken as a tipeha. Add note 't'.
 BHL has a tipeha under the resh. BHLA has no entry for this verse.
 Examine accent under lamed: dehi or tipeha.
-The accenton the lamed is either a tipeha or a dehi. The mark is sufficiently pre-positive to be transcribed as a dehi.
+The accent on the lamed is either a tipeha or a dehi. The mark is sufficiently pre-positive to be transcribed as a dehi.
 BHL has a dehi under the lamed. BHLA has no entry for this verse.
 Examine accent under the mem: munah or etnachta.
 The accent below the mem is an etnachta.
 BHL has a munah below the mem. BHLA has an etnachta below the mem and a question mark in parentheses, "(?)".
 * Examine markings below the lamed.
 A very faint merkha or etnachta can be seen under the lamed. It is much lighter than surrounding text and may have been an erasure. It's too faint to be transcribed.
-BHL has a etnachta under the lamed. BHLA has no entry for this verse.
+BHL has an etnachta under the lamed. BHLA has no entry for this verse.
 Examine whether the second letter is a bet or a kaf. The dagesh in the initial vav is weak; add note 't'.
 The text is of poor quality around this word. The second letter has the lower near-horizonal line protruding forward of the vertical line. The dagesh on the initial vav is very small, add note 't' to the initial vav.
 BHL has a bet as the second letter; it has a dagesh in the initial vav. BHLA has no entry for this verse.
@@ -248,7 +248,7 @@ BHL has a bet as the second letter; it has a dagesh in the initial vav. BHLA has
 The accent below the alef is not sufficiently pre-positive to be transcribed as a dehi. It will be transcribed as a tipeha.
 BHL has a dehi below the alef. BHLA has a tipeha below the alef.
 * Examine markings under the yod: sheva or meteg then sheva. Remove meteg (and its CGJ) and add note 't'.
-The sheva under the yod is apparent; determining what to do with the line/blob before the sheva is the problem. The near-vertical line before the sheva is too long to be a meteg and ends with an out of place dot. Accept the sheva as real; add transciption note 't'.
+The sheva under the yod is apparent; determining what to do with the line/blob before the sheva is the problem. The near-vertical line before the sheva is too long to be a meteg and ends with an out of place dot. Accept the sheva as real; add transcription note 't'.
 BHL has a sheva without a preceding meteg under the yod. BHLA has no entry for this verse.
 Examine for dagesh in nun. Add dagesh to nun.
 The nun has a small, but dark and well-positioned, dagesh in the nun.
@@ -278,8 +278,8 @@ BHL has no revia over nun. BHLA has no entry for this verse.
 The ayin has two very dark and well-positioned dots under the ayin. Under these two dots is a very faint, slightly off-centered dot. Retain the tsere and add transcription note 't'.
 BHL has a segol under the ayin. BHLA has a tsere under the ayin and a question mark in parentheses, "(?)".
 Examine possible vav between resh and tav; yod between tav and last letter.
-The image shows the qere/ketiv forms for this word both in the body text (ketiv) and in the left margin beneath a dotted qof (qere). The letters for the qere form are found in the left margin of the LC. The qere has a vav between the resh and tav; it has a yod bewteen the tav and the yod. The letters for the ketiv appear in the body text. They lack the vav between the resh and tav and the yod between the tav and vav. This is a conventional qere/ketiv pair; the ketiv appears in the preceding word in the UXLC.
-BHL qere has a vav between the resh and the tav, the vav has a holam dot, a yod is present between the tav and the vav. the BHL ketiv has no vav between the resh and the tav; it has no yod btween the tav and the last letter, a vav. BHLA has no entry for this verse.
+The image shows the qere/ketiv forms for this word both in the body text (ketiv) and in the left margin beneath a dotted qof (qere). The letters for the qere form are found in the left margin of the LC. The qere has a vav between the resh and tav; it has a yod between the tav and the yod. The letters for the ketiv appear in the body text. They lack the vav between the resh and tav and the yod between the tav and vav. This is a conventional qere/ketiv pair; the ketiv appears in the preceding word in the UXLC.
+BHL qere has a vav between the resh and the tav, the vav has a holam dot, a yod is present between the tav and the vav. the BHL ketiv has no vav between the resh and the tav; it has no yod between the tav and the last letter, a vav. BHLA has no entry for this verse.
 * Examine for maqaf at end of word.
 No maqaf appears at the end of this word.
 BHL has a maqaf at the end of this word. BHLA has no maqaf at the end of this word.
@@ -311,10 +311,10 @@ BHL has a hiriq on the yod. BHLA has no hiriq on the yod.
 The markings below the resh are meteg then hiriq.
 BHL has hiriq then meteg below resh. BHLA has meteg then hiriq below resh.
 Examine accent below kaf: dehi or tipeha.
-The accent under the kaf is suffiently advanced to be transcribed as a dehi.
+The accent under the kaf is sufficiently advanced to be transcribed as a dehi.
 BHL has a dehi under the kaf. BHLA has no entry for this verse.
 * Examine the accent under the resh: dehi or tipeha.
-The accent is not suffiently pre-positive to be transcribed as a dehi. The existing UXLC text has a note 'd' indicating the possibility that this might be a dehi.
+The accent is not sufficiently pre-positive to be transcribed as a dehi. The existing UXLC text has a note 'd' indicating the possibility that this might be a dehi.
 BHL has a dehi under the resh. BHLA has no entry for this verse.
 Examine accent under the ayin: dehi or tipeha.
 The accent under the ayin is sufficiently pre-positive to be transcribed as a dehi.
@@ -327,12 +327,12 @@ The mark under the he is pre-positive and; therefore, a dehi.
 BHL has a dehi under the he. BHLA has no entry for this verse.
 * Examine order of markings under the lamed: meteg then hiriq or hiriq then meteg.
 The mark order in the image under the lamed is meteg then hiriq.
-BHL has hiriq the meteg under the lamed. BHLA has a meteg then hiriq under the lamed.
+BHL has hiriq then meteg under the lamed. BHLA has a meteg then hiriq under the lamed.
 * Examine for meteg under the vav.
 A slightly inclined meteg occurs under the vav in the image.
 BHL has no meteg under the vav. BHLA has a meteg under the vav.
 Examine he for geresh-muqdam accent; examine order of markings below the he. Add note 't' as geresh-muqdam is ill-formed. Change the Unicode characters for the markings below the he to produce the same image without misusing the hataf-patah character.
-The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah; no complete hataf-patah is present. Change the Unicode characters below the he to sheva then meteg then CGJ then patah to preserve appear and eliminate the dubious use of the Unicode hataf patah character. Add a note 't' indicating transcription problem with gersh-muqdam marking. AFor technical reasons the change type must be set to vowel/accent to change the Unicode characters, even though the visible text under the he is unchanged.
+The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah; no complete hataf-patah is present. Change the Unicode characters below the he to sheva then meteg then CGJ then patah to preserve appearance and eliminate the dubious use of the Unicode hataf patah character. Add a note 't' indicating transcription problem with geresh-muqdam marking. For technical reasons the change type must be set to vowel/accent to change the Unicode characters, even though the visible text under the he is unchanged.
 BHL has no geresh-muqdam on the he; the order of the markings below the he is sheva then meteg then patah. BHLA has no entry for this verse.
 Examine accent below the alef: dehi or tipeha. Change dehi to tipeha.
 The accent below the alef is not sufficiently pre-positive to be considered a dehi and space was available to make it more pre-positive. The accent will be changed to a tipeha.
@@ -368,7 +368,7 @@ Examine for possible meteg acting as siluq under the he and for possible meteg u
 The text quality is good. The meteg acting as a siluq under the he is unusually long. No meteg acting as siluq appears under the first yod.
 BHL has a patah then meteg acting as a siluq under the he. It also has a meteg acting as a siluq after the hiriq under the first yod. BHLA has a patah then meteg acting as a siluq under the he. It has only a hiriq under the first yod.
 Examine accent structure: dehi under alef or munah under mem.
-A dehi is cleaar and well-positioned in front of the alef; the mem has no accent. The text quality is good.
+A dehi is clear and well-positioned in front of the alef; the mem has no accent. The text quality is good.
 BHL has a dehi on the alef and no accent on the mem. BHLA has no entry for this verse.
 Examine accent on alef: meteg or merkha. Change merkha to meteg under the alef. Add note 'm'.
 The accent on the alef is a meteg; it lacks the northeast-to-southwest inclination of a merkha. Change merkha to meteg. Add note 'm' because BHL sees a merkha.
@@ -377,14 +377,14 @@ Examine for dagesh in nun.
 No dagesh is apparent in the nun. The text quality is good.
 BHL has no dagesh in the nun. BHLA has no entry for this verse.
 Examine accent on shin: dehi or tipeha.
-The accent below the shin could be either a dehi or a merkha, depending on it's horizontal position. The accent is sufficiently pre-positive to be a dehi.
+The accent below the shin could be either a dehi or a merkha, depending on its horizontal position. The accent is sufficiently pre-positive to be a dehi.
 BHL has a dehi on the shin. BHLA has an entry for this verse corresponding to the 7-th word (נִכַּר־).
 Examine the accent on the het: dehi or tipeha.
 The accent on the het is a dehi or a tipeha depending on its horizontal position relative to the het. The tail of a lamed from the line below precludes the accent being centered on the het, which would make it a tipeha. Because the accent is slightly pre-positive, the accent will be transcribed as a dehi.
 BHL has a dehi on the het. BHLA has no entry for this verse.
-Examine for vowel on he: path or hataf-patah.
+Examine for vowel on he: patah or hataf-patah.
 The image shows a patah then meteg under the he.
-BHL has a patah the meteg under the he. BHLA has no entry for this verse.
+BHL has a patah then meteg under the he. BHLA has no entry for this verse.
 Examine for dagesh in lamed.
 No dagesh is present in the lamed.
 BHL has no dagesh in the lamed. BHLA has no entry for this verse.
@@ -410,7 +410,7 @@ Determine the initial letter: kaf or bet.
 Although the initial letter isn't as well-rounded as a typical kaf, it lacks the distinctive bulge on the lower left of a bet. It is transcribed as a kaf.
 BHL has the first letter as a bet with a dagesh and hiriq. BHLA has no entry for this verse.
 Examine accent on the shin: dehi or tipeha.
-THe text is in poor condition. The light outline of a dehi or tipeha under the shin is apparent, however. This outline is pre-position and the accent will be transcribed as a dehi.
+The text is in poor condition. The light outline of a dehi or tipeha under the shin is apparent, however. This outline is pre-positive and the accent will be transcribed as a dehi.
 BHL has a dehi on the shin. BHLA has no entry for this verse.
 Examine whether kaf has a meteg. Add a meteg under the kaf and a transcription note 't'.
 The text quality is not good. The meteg under the tav is very dark; the mark under the kaf is much lighter, as is the qamats under the kaf. Add a meteg under the kaf and add a transcription note 't'.
@@ -440,7 +440,7 @@ BHL has no dagesh in the mem. BHLA has no entry for this verse.
 The image shows no revia above the bet.
 BHL has no revia above the bet. BHLA has no entry for this verse.
 Examine accent on shin: dehi or tipeha. Change dehi to tipeha. Add note 'd'.
-THe accent below the shin isn't sufficiently pre-positive to be taken as a dehi. Change to tipeha and add note 'd'.
+The accent below the shin isn't sufficiently pre-positive to be taken as a dehi. Change to tipeha and add note 'd'.
 BHL has a dehi under the shin. BHLA has no entry for this verse.
 Examine for revia over mem.
 No revia is seen above the mem.
@@ -457,7 +457,7 @@ BHL has a dehi under the bet . BHLA has no entry for this verse.
 Examine accent under the bet: dehi or tipeha.
 The accent under the bet is sufficiently pre-positive to be taken as a dehi.
 BHL has a dehi under the bet. BHLA has no entry for this verse.
-Examine for revia over theresh.
+Examine for revia over the resh.
 The image has an odd-shaped blob over the resh. A line is touching the top of the resh; this is the meteg from the last word of the previous verse, יֶאֱסֹֽף׃ . A revia over the resh is transcribed.
 BHL has a revia over the resh. BHLA has no revia over the resh and has a question mark in parentheses, "(?)".
 Examine for possible dagesh in tav.
@@ -465,14 +465,14 @@ A dagesh is clear in the tav.
 BHL has a dagesh in the tav. BHLA has no entry for this verse.
 Examine markings under the he.
 The image shows a dehi then sheva then meteg under the he.
-BHL has a dehi then sheva the meteg then patah under the he; 4 markings. BHLA has a dehi then sheva then meteg under the he; 3 markings.
+BHL has a dehi then sheva then meteg then patah under the he; 4 markings. BHLA has a dehi then sheva then meteg under the he; 3 markings.
 Examine for revia over the resh.
 The image shows no revia over the resh.
 BHL has no revia over the resh. BHLA has no entry for this verse.
 Examine possible meteg after qamats on gimmel.
 The qamats under the gimel is followed by a variable-width vertical line. It has the correct length and position to be a meteg.
 BHL has no meteg after qamats on gimel. BHLA has a meteg after the qamats on the gimel; the BHLA note has a question mark in parentheses, "(?)".
-Examime accent below the he: dehi or tipeha.
+Examine accent below the he: dehi or tipeha.
 The accent under the he is sufficiently pre-positive to be a dehi.
 BHL has a dehi under the he. BHLA has no entry for this verse.
 Examine for possible revia over the sin.
