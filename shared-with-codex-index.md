@@ -28,10 +28,3 @@ A copy of this document lives in both repos.
 | `py/my_uxlc_lci_rec_flatten.py` | `leningrad/py/my_uxlc_lci_rec_flatten.py` |
 | `py/my_uxlc_page_break_info.py` | `leningrad/py/my_uxlc_page_break_info.py` |
 | `py/my_uxlc_verlen.py` | `leningrad/py/my_uxlc_verlen.py` |
-
-## Known divergence
-
-`main_uxlc_estimate_atom_loc.py` has diverged: the codex-index copy
-accepts a word string and `c:v` format (`<book> <c:v> <word>`) and does
-automatic word-finding, while the UXLC-utils copy uses the older
-`<book> <chapter> <verse> <atom>` interface.

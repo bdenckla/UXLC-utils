@@ -1,28 +1,108 @@
-"""Exports main"""
+"""Exports main
 
-import argparse
+Word-finding behavior here is kept in sync with the "find word"
+utilities in the sibling repos:
+
+  codex-index-aleppo  — py/py_ac_word_image_helper/linebreak_search.py
+  codex-index-cam1753 — py_cam1753_word_image/linebreak_search.py
+
+Shared conventions:
+  - CLI argument order: <book> <c:v> <word>  (c:v colon-separated)
+  - Match strategy: exact first, then stripped (vowels/accents removed
+    via unicodedata category, same logic as hebrew_metrics.strip_heb
+    in those repos)
+  - Ambiguity: raises ValueError("Ambiguous: N matches ...") when a
+    word matches more than one position, rather than silently picking
+    one.  The caller must disambiguate.
+
+One difference from the sibling repos: on *no match at all* this
+script prints the verse's word list and exits (sys.exit(1)), whereas
+the sibling linebreak_search modules return a None-tuple to their
+callers.  That is because those modules are libraries consumed by
+higher-level tools, while this script is a standalone CLI entry point.
+"""
+
+import sys
+import unicodedata
 import py.my_tanakh_book_names as tbn
 import py.my_uxlc_location as my_uxlc_location
 
 
-def _get_std_bcvp_quad_from_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("book_id", choices=tbn.ALL_BOOK_IDS)
-    # e.g. 'Levit'
-    parser.add_argument("chapter", type=int)
-    parser.add_argument("verse", type=int)
-    parser.add_argument("atom", type=int)
-    args = parser.parse_args()
-    std_bcvp_quad = args.book_id, args.chapter, args.verse, args.atom
-    return std_bcvp_quad
+def _strip_heb(s):
+    """Strip cantillation marks, vowels, and format chars from Hebrew text."""
+    out = []
+    for ch in s:
+        cat = unicodedata.category(ch)
+        if cat not in ("Mn", "Cf"):
+            out.append(ch)
+    return "".join(out)
+
+
+def _find_atom(uxlc, book_id, chapter, verse, word):
+    """Find the 1-based atom index of *word* in the given verse.
+
+    Tries exact match first, then stripped (no vowels/accents).
+    Raises ValueError if the word matches more than one atom.
+    """
+    words = uxlc[book_id][chapter - 1][verse - 1]
+    word_stripped = _strip_heb(word)
+    # Exact matches
+    exact = [i + 1 for i, w in enumerate(words) if w == word]
+    if len(exact) == 1:
+        return exact[0], "exact"
+    if len(exact) > 1:
+        raise ValueError(
+            f"Ambiguous: {len(exact)} exact matches for {word!r} "
+            f"in {book_id} {chapter}:{verse} (atoms {exact})"
+        )
+    # Stripped matches
+    stripped = [i + 1 for i, w in enumerate(words) if _strip_heb(w) == word_stripped]
+    if len(stripped) == 1:
+        return stripped[0], "stripped"
+    if len(stripped) > 1:
+        raise ValueError(
+            f"Ambiguous: {len(stripped)} stripped matches for {word!r} "
+            f"in {book_id} {chapter}:{verse} (atoms {stripped})"
+        )
+    print(f"Word {word!r} not found in {book_id} {chapter}:{verse}")
+    print(f"Words in verse: {words}")
+    sys.exit(1)
 
 
 def main():
     """
-    Estimate the concrete location of the given atom.
+    Estimate the concrete location of the given word.
+
+    Usage: python main_uxlc_estimate_atom_loc.py <book_id> <c:v> <word>
+    Example: python main_uxlc_estimate_atom_loc.py Genes 27:7 "וַיָּבֵא"
     """
-    std_bcvp_quad = _get_std_bcvp_quad_from_args()
-    _main2(std_bcvp_quad)
+    args = sys.argv[1:]
+    if len(args) != 3:
+        print("Usage: python main_uxlc_estimate_atom_loc.py <book_id> <c:v> <word>")
+        print('Example: ... Genes 27:7 "וַיָּבֵא"')
+        sys.exit(1)
+
+    book_id = args[0]
+    if book_id not in tbn.ALL_BOOK_IDS:
+        print(f"ERROR: unknown book_id {book_id!r}")
+        print(f"Valid: {' '.join(tbn.ALL_BOOK_IDS)}")
+        sys.exit(1)
+
+    cv = args[1]
+    if ":" not in cv:
+        print(f"ERROR: verse must be in c:v format (e.g. 27:7), got: {cv}")
+        sys.exit(1)
+    chapter, verse = (int(x) for x in cv.split(":"))
+
+    word = args[2]
+
+    uxlc, pbi = my_uxlc_location.prep()
+    atom, match_method = _find_atom(uxlc, book_id, chapter, verse, word)
+    if match_method != "exact":
+        print(f"  (matched via {match_method})")
+    std_bcvp_quad = book_id, chapter, verse, atom
+    pg = my_uxlc_location.page_and_guesses(uxlc, pbi, std_bcvp_quad)
+    print(pg)
 
 
 def example_run():
