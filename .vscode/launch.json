@@ -33,14 +33,7 @@
             "program": "main_uxlc_check_changes.py",
             "console": "integratedTerminal"
         },
-        {
-            "name": "codex index copy files",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "main_uxlc_codex_index_copy_files.py",
-            "console": "integratedTerminal"
-        },
-        {
+{
             "name": "download changes",
             "type": "debugpy",
             "request": "launch",
