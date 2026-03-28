@@ -16,7 +16,6 @@ A copy of this document lives in both repos.
 |---|---|
 | `main_uxlc_estimate_atom_loc.py` | `leningrad/main_uxlc_estimate_atom_loc.py` |
 | `in/UXLC-misc/lci_recs.json` | `leningrad/in/UXLC-misc/lci_recs.json` |
-| `out/UXLC-misc/lci_recs.xml` | `leningrad/out/UXLC-misc/lci_recs.xml` |
 | `out/UXLC-misc/lci_augrecs.json` | `leningrad/out/UXLC-misc/lci_augrecs.json` |
 | `py/my_tanakh_book_names.py` | `leningrad/py/my_tanakh_book_names.py` |
 | `py/my_uxlc.py` | `leningrad/py/my_uxlc.py` |
