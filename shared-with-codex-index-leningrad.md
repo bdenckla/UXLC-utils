@@ -1,4 +1,4 @@
-# Shared files: UXLC-utils and codex-index/UXLC-utils-sparse
+# Shared files: UXLC-utils and codex-index-leningrad/UXLC-utils-sparse
 
 These two locations share a set of files. Either copy may be edited;
 there is no enforced "upstream" direction. When you edit a shared file
@@ -7,7 +7,7 @@ in one repo, remember to copy the change to the other.
 A copy of this document lives in both repos.
 
 Every path below is relative to the UXLC-utils repo root. In
-codex-index the same path appears under `UXLC-utils-sparse/`.
+codex-index-leningrad the same path appears under `UXLC-utils-sparse/`.
 
 ## Shared trees (entire directories)
 
