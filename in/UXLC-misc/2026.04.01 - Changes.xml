@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type='text/xsl'  href='../../../XSL/Changes.xsl.xml'?>
+<?xml-stylesheet type='text/xsl'  href='../../XSL/Changes.xsl.xml'?>
 
 <!--===================================================-->
 <Changes>
@@ -50,7 +50,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -98,7 +98,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -139,7 +139,7 @@
                 <analysistags>
                     <aBHL/>
                 </analysistags>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -189,7 +189,7 @@
                         <beforetext>וַיִּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -232,7 +232,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -275,7 +275,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -318,7 +318,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -348,7 +348,7 @@
                 <changetext>א֤וֹ</changetext>
                 <changeuni>alef     mahapakh     vav     holam     </changeuni>
                 <notes>
-                    <note>The Accent is horizontally centered on the alef, making the accent a mahapakh rather than a dehi. The scribe had space before the alef for a dehi if intending to do so.</note>
+                    <note>The accent is horizontally centered on the alef, making the accent a mahapakh rather than a dehi. The scribe had space before the alef for a dehi if intending to do so.</note>
                     <note>BHL has a mahapakh under the alef.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -361,7 +361,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -404,7 +404,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -447,7 +447,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -490,7 +490,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -533,7 +533,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -576,7 +576,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -619,7 +619,7 @@
                         <beforetext>לָֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -662,7 +662,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -703,7 +703,7 @@
                         <beforetext>וּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -746,7 +746,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -789,7 +789,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -830,7 +830,7 @@
                         <beforetext>רֵֽיעֲכֶ֥</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -871,7 +871,7 @@
                         <beforetext>וְשֽׁ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -914,7 +914,7 @@
                         <beforetext>וְכִימֵ֖֗</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -958,7 +958,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1001,7 +1001,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1044,7 +1044,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1085,7 +1085,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1128,7 +1128,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1171,7 +1171,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1212,7 +1212,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1242,7 +1242,7 @@
                 <changetext>ה֭וּא</changetext>
                 <changeuni>he     dehi     vav     dagesh     alef     </changeuni>
                 <notes>
-                    <note>The accent mark appears before the centerline of the he and is therefore a dehi, rather than a tipeha,</note>
+                    <note>The accent mark appears before the centerline of the he and is therefore a dehi, rather than a tipeha.</note>
                     <note>BHL has a dehi accent.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -1255,7 +1255,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1296,7 +1296,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1337,7 +1337,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1367,7 +1367,7 @@
                 <changetext>וְ֝נִפְלָא֗וֹת</changetext>
                 <changeuni>vav     sheva     geresh-muqdam     nun     hiriq     pe     sheva     lamed     qamats     alef     revia     vav     holam     tav     </changeuni>
                 <notes>
-                    <note>The text is chipped and of low quality for this word. Two parallel lines can be seen slightly to the top left of the vav. If filled, they would constitute a gersh-muqdam. The UXLC accepts the gersh-muqdam, but adds a transcription note 't'.</note>
+                    <note>The text is chipped and of low quality for this word. Two parallel lines can be seen slightly to the top left of the vav. If filled, they would constitute a geresh-muqdam. The UXLC accepts the geresh-muqdam, but adds a transcription note 't'.</note>
                     <note>BHL has no accent on the initial vav.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -1378,7 +1378,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1421,7 +1421,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1464,7 +1464,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1507,7 +1507,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1550,7 +1550,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1593,7 +1593,7 @@
                         <beforetext>וּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1634,7 +1634,7 @@
                         <beforetext>עָנְי֥‍ִ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -1665,7 +1665,7 @@
                 <changeuni>yod     patah     het     hataf-patah     resh     hiriq     etnachta     yod     shin     shin-dot     vav     </changeuni>
                 <notes>
                     <note>No meteg acting as shuruq in the vav is apparent. The text quality is excellent.</note>
-                    <note>BHL has a meteg acting as shuruq in vav.  BHLA has no meteg acting as shureq in vav.</note>
+                    <note>BHL has a meteg acting as shuruq in vav.  BHLA has no meteg acting as shuruq in vav.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -1677,7 +1677,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1720,7 +1720,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1763,7 +1763,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1804,7 +1804,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1847,7 +1847,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1890,7 +1890,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -1931,7 +1931,7 @@
                         <beforetext>וְתֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -1974,7 +1974,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2004,7 +2004,7 @@
                 <changetext>מֵרֵ֣יַּח</changetext>
                 <changeuni>mem     tsere     resh     tsere     munah     yod     dagesh     patah     het     </changeuni>
                 <notes>
-                    <note>The dagesh in the yod is clear. The patah is unusually forward of the het to be a furtive patah..</note>
+                    <note>The dagesh in the yod is clear. The patah is unusually forward of the het to be a furtive patah.</note>
                     <note>BHL has no dagesh in the yod; the patah belongs to the het (furtive patah).  BHLA has a dagesh in the yod; the patah belongs to the yod.</note>
                 </notes>
                 <analysistags>
@@ -2017,7 +2017,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2047,7 +2047,7 @@
                 <changetext>תָּ֤שִֽׁית</changetext>
                 <changeuni>tav     dagesh     qamats     mahapakh     shin     shin-dot     hiriq     meteg     yod     tav     </changeuni>
                 <notes>
-                    <note>The line below the shin is vertical, it lacks the southeast-to-northwest inclination to be a merkha. The UXLC acknowledges the possibility of a merkha with a note 'm'.</note>
+                    <note>The line below the shin is vertical, it lacks the northeast-to-southwest inclination to be a merkha. The UXLC acknowledges the possibility of a merkha with a note 'm'.</note>
                     <note>BHL has a merkha below the shin.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -2058,7 +2058,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2101,7 +2101,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2144,7 +2144,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2185,7 +2185,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2228,7 +2228,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2272,7 +2272,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2315,7 +2315,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2358,7 +2358,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2401,7 +2401,7 @@
                         <beforetext>עַ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2442,7 +2442,7 @@
                         <beforetext>מִ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2483,7 +2483,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2524,7 +2524,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2567,7 +2567,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2608,7 +2608,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2638,8 +2638,8 @@
                 <changetext>א֖וֹר</changetext>
                 <changeuni>alef     tipeha     vav     holam     resh     </changeuni>
                 <notes>
-                    <note>The northwest-to-southeast inclined line under the alef is either a dehi or tipeha, depending on horizontal positioning relative to the alef. The line is not sufficiently prepositive to be taken as a dehi, it will be transcribed as a tipeha. The UXLC has a transcription note 'd' on this letter.</note>
-                    <note>BHL has a dehi under the alef .  BHLA has a tipeha under the alef.</note>
+                    <note>The northwest-to-southeast inclined line under the alef is either a dehi or tipeha, deApproved on horizontal positioning relative to the alef. The line is not sufficiently prepositive to be taken as a dehi, it will be transcribed as a tipeha. The UXLC has a transcription note 'd' on this letter.</note>
+                    <note>BHL has a dehi under the alef.  BHLA has a tipeha under the alef.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -2651,7 +2651,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2692,7 +2692,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -2735,7 +2735,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2778,7 +2778,7 @@
                         <beforetext>חֶרְפָּתִּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2821,7 +2821,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2864,7 +2864,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -2882,7 +2882,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examine if pe has a gersh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'.</description>
+                <description>Examine if pe has a geresh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'.</description>
                 <lc>
                     <folio>Folio_402B</folio>
                     <column>1</column>
@@ -2905,7 +2905,7 @@
                         <beforetext>פִ֗</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -2948,7 +2948,7 @@
                         <beforetext>תֹ֭</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -2991,7 +2991,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3021,7 +3021,7 @@
                 <changetext>בּ֭וֹ</changetext>
                 <changeuni>bet     dagesh     dehi     vav     holam     </changeuni>
                 <notes>
-                    <note>The bet has two dots within it. the small, dark vertically-centered dot is the dagesh; the lighter, larger lower dot is likely an imperfection. The accent is pre-positive and; therefore, a dehi.</note>
+                    <note>The bet has two dots within it. The small, dark vertically-centered dot is the dagesh; the lighter, larger lower dot is likely an imperfection. The accent is pre-positive and; therefore, a dehi.</note>
                     <note>BHL has a dagesh in the bet and a dehi below it.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -3034,7 +3034,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3077,7 +3077,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3120,7 +3120,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3163,7 +3163,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3208,7 +3208,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3251,7 +3251,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3294,7 +3294,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3324,7 +3324,7 @@
                 <changetext>רֹ֖אשׁ</changetext>
                 <changeuni>resh     holam     tipeha     alef     shin     shin-dot     </changeuni>
                 <notes>
-                    <note>The mark under the resh could be either a dehi or tipeha depending on its position relative to the resh.  Space was available for the scribe to make the mark more pre-positive; hence, the accent is taken as a tipeha. Add note 't'.</note>
+                    <note>The mark under the resh could be either a dehi or tipeha deApproved on its position relative to the resh.  Space was available for the scribe to make the mark more pre-positive; hence, the accent is taken as a tipeha. Add note 't'.</note>
                     <note>BHL has a tipeha under the resh.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -3337,7 +3337,7 @@
                         <beforetext>רֹ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -3380,7 +3380,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3423,7 +3423,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3464,7 +3464,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3494,7 +3494,7 @@
                 <changetext>וּבְצ֖וּר</changetext>
                 <changeuni>vav     dagesh     bet     sheva     tsadi     tipeha     vav     dagesh     resh     </changeuni>
                 <notes>
-                    <note>The text is of poor quality around this word. The second letter has the lower near-horizonal line protruding forward of the vertical line. The dagesh on the initial vav is very small, add note 't' to the initial vav.</note>
+                    <note>The text is of poor quality around this word. The second letter has the lower near-horizontal line protruding forward of the vertical line. The dagesh on the initial vav is very small, add note 't' to the initial vav.</note>
                     <note>BHL has a bet as the second letter; it has a dagesh in the initial vav.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -3507,7 +3507,7 @@
                         <beforetext>וּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -3550,7 +3550,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3593,7 +3593,7 @@
                         <beforetext>יְ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -3634,7 +3634,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3645,7 +3645,7 @@
                     <book>Job</book>
                     <c>23</c>
                     <v>5</v>
-                    <position>5</position>
+                    <position>6</position>
                 </citation>
                 <author>
                     <name>Ben Denckla</name>
@@ -3659,13 +3659,13 @@
                     <line>11</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
-                <reftext>מַה־</reftext>
-                <refuni>mem     patah     he     maqaf     </refuni>
-                <changetext>מַה־</changetext>
-                <changeuni>mem     patah     he     maqaf     </changeuni>
+                <reftext>יֹּ֥אמַר</reftext>
+                <refuni>yod     dagesh     holam     merkha     alef     mem     patah     resh     </refuni>
+                <changetext>יֹּ֥אמַר</changetext>
+                <changeuni>yod     dagesh     holam     merkha     alef     mem     patah     resh     </changeuni>
                 <notes>
-                    <note>The image shows this word and its successor. The maqaf between the he and the vav of the next word is clear.</note>
-                    <note>BHL has a maqaf at the end of the word.  BHLA has no entry for this verse.</note>
+                    <note>The image shows this word and its successor. No maqaf is present between resh and the lamed.</note>
+                    <note>BHL has no maqaf at the end of the word.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -3677,7 +3677,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3720,7 +3720,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3750,7 +3750,7 @@
                 <changetext>מִ֭שַׁדַּי</changetext>
                 <changeuni>mem     hiriq     dehi     shin     shin-dot     patah     dalet     dagesh     patah     yod     </changeuni>
                 <notes>
-                    <note>The space between the fingers of the shin has assorted blemishes and a dot in the second gap. None of these feature are sufficiently well-formed or well-positioned to transcribe as a sheva.</note>
+                    <note>The space between the fingers of the shin has assorted blemishes and a dot in the second gap. None of these features are sufficiently well-formed or well-positioned to transcribe as a sheva.</note>
                     <note>BHL has no dagesh in the shin.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -3763,7 +3763,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3794,7 +3794,7 @@
                 <changeuni>bet     dagesh     patah     merkha     mem     dagesh     hiriq     dalet     sheva     bet     dagesh     qamats     revia     resh     </changeuni>
                 <notes>
                     <note>The patah then merkha below the bet are clear. The merkha has a slight northeast-to-southwest inclination adequate to be transcribed as a merkha.</note>
-                    <note>BHL has a patah the merkha below the bet.  BHLA has no entry for this verse.</note>
+                    <note>BHL has a patah then merkha below the bet.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -3806,7 +3806,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3849,7 +3849,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3890,7 +3890,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -3933,7 +3933,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -3976,7 +3976,7 @@
                         <beforetext>רֹעֵ֣</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoTextChange</type>
             </change>
             <!--...................................................-->
@@ -4019,7 +4019,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4062,7 +4062,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4105,7 +4105,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4148,7 +4148,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4178,7 +4178,7 @@
                 <changetext>הִדְרִיכֻ֥הוּ</changetext>
                 <changeuni>he     hiriq     dalet     sheva     resh     hiriq     yod     kaf     qubuts     merkha     he     vav     dagesh     </changeuni>
                 <notes>
-                    <note>No vowel (or accent) appears under the resh. The dot at the lower border under the resh is a shin-dot from the following line. Its too far from the resh to be a vowel on the resh.</note>
+                    <note>No vowel (or accent) appears under the resh. The dot at the lower border under the resh is a shin-dot from the following line. It's too far from the resh to be a vowel on the resh.</note>
                     <note>BHL has a hiriq under the resh.  BHLA has no hiriq under the resh.</note>
                 </notes>
                 <analysistags>
@@ -4191,7 +4191,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4234,7 +4234,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4277,7 +4277,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4295,7 +4295,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examine accent on the resh: geresh-muqdam.</description>
+                <description>Examine possible revia on the resh.</description>
                 <lc>
                     <folio>Folio_405A</folio>
                     <column>1</column>
@@ -4320,7 +4320,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4363,7 +4363,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4406,7 +4406,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4449,7 +4449,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4492,7 +4492,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4533,7 +4533,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4576,7 +4576,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4619,7 +4619,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4662,7 +4662,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4705,7 +4705,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4748,7 +4748,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4766,7 +4766,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examine he for geresh-muqdam accent; examine order of markings below the he. Add note 't' as geresh-muqdam is ill-formed. Change the Unicode characters for the markings below the he to produce the same image without misusing the hataf-patah character.</description>
+                <description>Examine he for geresh-muqdam accent; examine order of markings below the he. Add note 't' as geresh-muqdam is ill-formed.</description>
                 <lc>
                     <folio>Folio_405B</folio>
                     <column>2</column>
@@ -4775,10 +4775,10 @@
                 </lc>
                 <reftext>הֲ‍ֽ֝לֹא־</reftext>
                 <refuni>he     hataf-patah     ZWJ     meteg     geresh-muqdam     lamed     holam     alef     maqaf     </refuni>
-                <changetext>הְֽ͏ַ֝לֹא־</changetext>
-                <changeuni>he     sheva     meteg     CGJ     patah     geresh-muqdam     lamed     holam     alef     maqaf     </changeuni>
+                <changetext>הֲ‍ֽ֝לֹא־</changetext>
+                <changeuni>he     hataf-patah     ZWJ     meteg     geresh-muqdam     lamed     holam     alef     maqaf     </changeuni>
                 <notes>
-                    <note>The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah; no complete hataf-patah is present. Change the Unicode characters below the he to sheva then meteg then CGJ then patah to preserve appearance and eliminate the dubious use of the Unicode hataf patah character. Add a note 't' indicating transcription problem with geresh-muqdam marking. For technical reasons the change type must be set to vowel/accent to change the Unicode characters, even though the visible text under the he is unchanged.</note>
+                    <note>The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah. Add a note 't' indicating transcription problem with geresh-muqdam marking.</note>
                     <note>BHL has no geresh-muqdam on the he; the order of the markings below the he is sheva then meteg then patah.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
@@ -4789,8 +4789,8 @@
                         <beforetext>הְֽ͏ַ֝</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
-                <type>vowel/accent</type>
+                <status>Approved</status>
+                <type>NoTextChange</type>
             </change>
             <!--...................................................-->
             <!--...................................................-->
@@ -4830,7 +4830,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -4873,7 +4873,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -4914,7 +4914,7 @@
                         <beforetext>ה֭</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -4957,7 +4957,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5000,7 +5000,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5031,7 +5031,7 @@
                 <changeuni>yod     sheva     shin     shin-dot     hiriq     yod     shin     shin-dot     etnachta     ZWJ     hiriq     yod     final-mem     </changeuni>
                 <notes>
                     <note>The etnachta precedes the hiriq under the shin.</note>
-                    <note>BHL has hiriq then etnachta under the shin .  BHLA has etnachta then hiriq under the shin.</note>
+                    <note>BHL has hiriq then etnachta under the shin.  BHLA has etnachta then hiriq under the shin.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -5043,7 +5043,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5086,7 +5086,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5129,7 +5129,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5172,7 +5172,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5215,7 +5215,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5258,7 +5258,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5301,7 +5301,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5342,7 +5342,7 @@
                         <beforetext>אַֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -5353,40 +5353,40 @@
                     <book>Job</book>
                     <c>34</c>
                     <v>19</v>
-                    <position>3</position>
+                    <position>7</position>
                 </citation>
                 <author>
                     <name>Ben Denckla</name>
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examine for dagesh in nun.</description>
+                <description>Examine for dagesh in nun. Add dagesh to nun. Add note 't'.</description>
                 <lc>
                     <folio>Folio_406B</folio>
                     <column>2</column>
-                    <line>25</line>
+                    <line>26</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
-                <reftext>נָשָׂ֨א ׀</reftext>
-                <refuni>nun     qamats     shin     sin-dot     qamats     qadma     alef     space     paseq     </refuni>
-                <changetext>נָשָׂ֨א ׀</changetext>
-                <changeuni>nun     qamats     shin     sin-dot     qamats     qadma     alef     space     paseq     </changeuni>
+                <reftext>נִכַּר־</reftext>
+                <refuni>nun     hiriq     kaf     dagesh     patah     resh     maqaf     </refuni>
+                <changetext>נִּכַּר־</changetext>
+                <changeuni>nun     dagesh     hiriq     kaf     dagesh     patah     resh     maqaf     </changeuni>
                 <notes>
-                    <note>No dagesh is apparent in the nun. The text quality is good.</note>
-                    <note>BHL has no dagesh in the nun.  BHLA has no entry for this verse.</note>
+                    <note>A light, well-positioned, but oddly-shaped dagesh is in the nun. Add dagesh and note 't'.</note>
+                    <note>BHL has no dagesh in the nun.  BHLA has a dagesh in the nun.</note>
                 </notes>
                 <analysistags>
-                    <aBHL/>
+                    <aBHLA/>
                 </analysistags>
                 <transnotes>
                     <transnote>
                         <action>Add</action>
-                        <type/>
-                        <beforetext/>
+                        <type>t</type>
+                        <beforetext>נִּ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
-                <type>NoAction</type>
+                <status>Approved</status>
+                <type>vowel</type>
             </change>
             <!--...................................................-->
             <!--...................................................-->
@@ -5415,7 +5415,7 @@
                 <changetext>שׁ֭וֹעַ</changetext>
                 <changeuni>shin     shin-dot     dehi     vav     holam     ayin     patah     </changeuni>
                 <notes>
-                    <note>The accent below the shin could be either a dehi or a merkha, depending on its horizontal position. The accent is sufficiently pre-positive to be a dehi.</note>
+                    <note>The accent below the shin could be either a dehi or a merkha, deApproved on its horizontal position. The accent is sufficiently pre-positive to be a dehi.</note>
                     <note>BHL has a dehi on the shin.  BHLA has an entry for this verse corresponding to the 7-th word (נִכַּר־).</note>
                 </notes>
                 <analysistags>
@@ -5428,7 +5428,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5458,7 +5458,7 @@
                 <changetext>חֹ֭שֶׁךְ</changetext>
                 <changeuni>het     holam     dehi     shin     shin-dot     segol     final-kaf     sheva     </changeuni>
                 <notes>
-                    <note>The accent on the het is a dehi or a tipeha depending on its horizontal position relative to the het. The tail of a lamed from the line below precludes the accent being centered on the het, which would make it a tipeha. Because the accent is slightly pre-positive, the accent will be transcribed as a dehi.</note>
+                    <note>The accent on the het is a dehi or a tipeha deApproved on its horizontal position relative to the het. The tail of a lamed from the line below precludes the accent being centered on the het, which would make it a tipeha. Because the accent is slightly pre-positive, the accent will be transcribed as a dehi.</note>
                     <note>BHL has a dehi on the het.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
@@ -5471,7 +5471,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5514,7 +5514,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5557,7 +5557,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5600,7 +5600,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5643,7 +5643,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5686,7 +5686,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5729,7 +5729,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5772,7 +5772,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5815,7 +5815,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5856,7 +5856,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5899,7 +5899,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -5942,7 +5942,7 @@
                         <beforetext>סֻכָּֽ</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -5985,7 +5985,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6028,7 +6028,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6069,7 +6069,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6110,7 +6110,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6141,7 +6141,7 @@
                 <changeuni>he     sheva     meteg     dehi     mem     hiriq     yod     dagesh     qamats     mem     segol     yod     final-kaf     qamats     </changeuni>
                 <notes>
                     <note>The text is of poor quality with chipped ink. The image shows a sufficiently pre-positive dehi then a sheva then a meteg, three very light markings.</note>
-                    <note>BHL has a dehi then sheva then meteg then patah under the he; a hataf-patah does not fit the markings.  BHLA has a dehi then sheva then meteg under the he,</note>
+                    <note>BHL has a dehi then sheva then meteg then patah under the he; a hataf-patah does not fit the markings.  BHLA has a dehi then sheva then meteg under the he.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -6153,7 +6153,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6196,7 +6196,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6237,7 +6237,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->
@@ -6280,7 +6280,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6321,7 +6321,7 @@
                         <beforetext>שֹׁ֖</beforetext>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -6364,7 +6364,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6407,7 +6407,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>accent</type>
             </change>
             <!--...................................................-->
@@ -6450,7 +6450,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6481,7 +6481,7 @@
                 <changeuni>bet     dagesh     dehi     vav     holam     </changeuni>
                 <notes>
                     <note>The accent under the bet is very slightly pre-positive, but will be taken as a dehi.</note>
-                    <note>BHL has a dehi under the bet .  BHLA has no entry for this verse.</note>
+                    <note>BHL has a dehi under the bet.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags>
                     <aBHL/>
@@ -6493,7 +6493,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6536,7 +6536,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6579,7 +6579,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6622,7 +6622,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6665,7 +6665,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6708,7 +6708,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6726,7 +6726,7 @@
                     <mail>bdenckla@alum.mit.edu</mail>
                     <confirmed>true</confirmed>
                 </author>
-                <description>Examine possible meteg after qamats on gimmel.</description>
+                <description>Examine possible meteg after qamats on gimel.</description>
                 <lc>
                     <folio>Folio_408B</folio>
                     <column>2</column>
@@ -6751,7 +6751,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6794,7 +6794,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6839,7 +6839,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6882,7 +6882,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6925,7 +6925,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -6956,7 +6956,7 @@
                 <changeuni>het     qamats     tav     sof-pasuq     </changeuni>
                 <notes>
                     <note>The image shows no meteg following the qamats. The UXLC has a transcription note 'c' on the het.</note>
-                    <note>BHL has a meteg following the qamats under the het.  BHLA has no meteg following the qamats under the bet.</note>
+                    <note>BHL has a meteg following the qamats under the het.  BHLA has no meteg following the qamats under the het.</note>
                 </notes>
                 <analysistags>
                     <aBHLA/>
@@ -6968,7 +6968,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -7009,7 +7009,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>NoAction</type>
             </change>
             <!--...................................................-->
@@ -7050,7 +7050,7 @@
                         <beforetext/>
                     </transnote>
                 </transnotes>
-                <status>Pending</status>
+                <status>Approved</status>
                 <type>vowel</type>
             </change>
             <!--...................................................-->

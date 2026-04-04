@@ -5,6 +5,9 @@ import xml.etree.ElementTree
 import py.my_tanakh_book_names as tbn
 
 
+UXLC_CANONICAL_DIR = "in/UXLC-39"
+
+
 def read_all_books(handlers=None):
     return {bkid: read(bkid, handlers) for bkid in tbn.ALL_BOOK_IDS}
 
@@ -13,7 +16,7 @@ def read(book_id, handlers=None):
     """Read book with id book_id into a list of chapters."""
     handlers = handlers or _VERSE_CHILD_HANDLERS
     basename = _UXLC_BOOK_FILE_NAMES[book_id]
-    xml_path = f"in/UXLC/{basename}.xml"
+    xml_path = f"{UXLC_CANONICAL_DIR}/{basename}.xml"
     tree = xml.etree.ElementTree.parse(xml_path)
     root = tree.getroot()
     chapters = []
@@ -37,17 +40,21 @@ def dispatch_on_tag(accum, xml_element, handlers):
     fn_for_tag(accum, xml_element)
 
 
+def _stripped_text(value):
+    return value.strip() if value else ""
+
+
 def _handle_wc_s(accum, word_child_s):
     # The <s> element implements small, large, and suspended letters.
     # E.g. <s t="large">וֹ</s>.
-    accum[-1] += word_child_s.text.strip()
+    accum[-1] += _stripped_text(word_child_s.text)
 
 
 def _handle_vc_wq(accum, verse_child_wq):
-    accum.append(verse_child_wq.text.strip())
+    accum.append(_stripped_text(verse_child_wq.text))
     for word_child in verse_child_wq:
         dispatch_on_tag(accum, word_child, _WORD_CHILD_HANDLERS)
-        accum[-1] += word_child.tail.strip()
+        accum[-1] += _stripped_text(word_child.tail)
 
 
 _WORD_CHILD_HANDLERS = {
@@ -104,3 +111,4 @@ _UXLC_BOOK_FILE_NAMES = {
     tbn.BK_FST_CHR: "Chronicles_1",
     tbn.BK_SND_CHR: "Chronicles_2",
 }
+CANONICAL_XML_FILE_NAMES = frozenset(f"{basename}.xml" for basename in _UXLC_BOOK_FILE_NAMES.values())
