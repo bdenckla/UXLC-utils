@@ -45,7 +45,7 @@ def _write_record(record):
     title = f"Ambiguous early meteg {orord}"
     filename = _filename(orord)
     path = f"full-record/{filename}"
-    write_ctx = my_html.WriteCtx(title, f"docs/amb-early-mtg/{path}")
+    write_ctx = my_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
     my_html.write_html_to_file(body_contents, write_ctx, "../../")
     return path
 

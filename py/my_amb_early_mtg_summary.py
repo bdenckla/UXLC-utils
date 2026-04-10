@@ -14,7 +14,7 @@ def write(records, path, title, intro=None):
     rows = [_row_for_header(), *rows_for_data]
     table = my_html.table(rows)
     body_contents = [*intro, table]
-    write_ctx = my_html.WriteCtx(title, f"docs/amb-early-mtg/{path}")
+    write_ctx = my_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
     my_html.write_html_to_file(body_contents, write_ctx, "../")
 
 

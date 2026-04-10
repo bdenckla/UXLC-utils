@@ -39,7 +39,7 @@ BOOK_OF_JOB_REPO = REPO.parent / "book-of-job"
 
 XML_PATH = REPO / "in" / "UXLC-misc" / "2026.04.01 - Changes.xml"
 QR_PATH = BOOK_OF_JOB_REPO / "out" / "enriched-quirkrecs.json"
-HTML_DIR = BOOK_OF_JOB_REPO / "docs" / "jobn-details"
+HTML_DIR = BOOK_OF_JOB_REPO / "gh-pages" / "jobn-details"
 MAP_OUT_PATH = REPO / "in" / "UXLC-misc" / "2026.04.01-map-to-book-of-job.json"
 
 CHANGESET = "2026.02.05"
@@ -140,7 +140,7 @@ def align_sequences(xml_entries, html_entries):
 def write_mapping(matched, xml_only, html_only):
     output = {
         "xml_source": "in/UXLC-misc/2026.04.01 - Changes.xml",
-        "html_base": "../book-of-job/docs/jobn-details/",
+        "html_base": "../book-of-job/gh-pages/jobn-details/",
         "changeset": CHANGESET,
         "matched": [
             {"n": xe["n"], "ref": xe["ref"], "pos": xe["pos"], "html": he["file"]}

@@ -34,7 +34,7 @@ def write(io_records):
     #
     path = "all_uxlc_change_proposals.xml"
     my_open.with_tmp_openw(
-        f"docs/wlc-a-notes/{path}", {}, _etree_write_callback, dated_change_set_tree
+        f"gh-pages/wlc-a-notes/{path}", {}, _etree_write_callback, dated_change_set_tree
     )
     return path
 
