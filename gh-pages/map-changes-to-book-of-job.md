@@ -8,7 +8,7 @@ These correspond to the "quirkrecs" (quirk records) maintained in the
 sibling `book-of-job` repo (`out/enriched-quirkrecs.json`), which has
 160 entries.
 
-The script `main_map_changes_to_book_of_job.py` establishes and verifies
+The script `py/main_map_changes_to_book_of_job.py` establishes and verifies
 this correspondence.
 
 ## Results

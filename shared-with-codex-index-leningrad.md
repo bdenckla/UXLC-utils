@@ -15,16 +15,17 @@ codex-index-leningrad the same path appears under `UXLC-utils-sparse/`.
 
 ## Shared files
 
-- `main_uxlc_estimate_atom_loc.py`
+- `py/_repo_path_setup.py`
+- `py/main_uxlc_estimate_atom_loc.py`
 - `data/lci_recs.json`
 - `data/lci_augrecs.json`
-- `py/my_tanakh_book_names.py`
-- `py/my_uxlc.py`
-- `py/my_uxlc_bibdist.py`
-- `py/my_uxlc_cvp.py`
-- `py/my_uxlc_location.py`
-- `py/my_uxlc_lci_augrec.py`
-- `py/my_uxlc_lci_rec.py`
-- `py/my_uxlc_lci_rec_flatten.py`
-- `py/my_uxlc_page_break_info.py`
-- `py/my_uxlc_verlen.py`
+- `py_misc/my_tanakh_book_names.py`
+- `py_misc/my_uxlc.py`
+- `py_misc/my_uxlc_bibdist.py`
+- `py_misc/my_uxlc_cvp.py`
+- `py_misc/my_uxlc_location.py`
+- `py_misc/my_uxlc_lci_augrec.py`
+- `py_misc/my_uxlc_lci_rec.py`
+- `py_misc/my_uxlc_lci_rec_flatten.py`
+- `py_misc/my_uxlc_page_break_info.py`
+- `py_misc/my_uxlc_verlen.py`

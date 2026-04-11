@@ -38338,7 +38338,7 @@
       "BHL has a meteg on the second nun. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -38369,7 +38369,7 @@
       "BHL has a paseq at the end of this word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Moshe Greenberg"
@@ -38399,7 +38399,7 @@
       "A previous change, 2023.10.19 - Changes.xml, 2023.06.10 - 43, intended to remove the maqaf but failed to do so. The maqaf is removed with this change. [The '!' is a special marker to ensure that the transcription note 'm' is properly placed.]",
       "BHL has a merkha under the lamed and no maqaf at the end of the word. BHLA has no entry for this verse."
     ],
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -38431,7 +38431,7 @@
       "BHL has a dagesh in the yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -38462,7 +38462,7 @@
       "BHL has a dagesh in the mem. BHLA has no dagesh in the mem."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38493,7 +38493,7 @@
       "BHL has a dehi on the yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38524,7 +38524,7 @@
       "BHL has a qamats under the second mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38551,11 +38551,11 @@
     "changetext": "א֤וֹ",
     "changeuni": "alef mahapakh vav holam",
     "notes": [
-      "The Accent is horizontally centered on the alef, making the accent a mahapakh rather than a dehi. The scribe had space before the alef for a dehi if intending to do so.",
+      "The accent is horizontally centered on the alef, making the accent a mahapakh rather than a dehi. The scribe had space before the alef for a dehi if intending to do so.",
       "BHL has a mahapakh under the alef. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38586,7 +38586,7 @@
       "BHL has a dehi slightly forward of the kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38617,7 +38617,7 @@
       "BHL has a dagesh acting as a mapiq in the he. BHLA has no dagesh acting as a mapiq in the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38648,7 +38648,7 @@
       "BHL has a dagesh acting as a mapiq in the he. BHLA has no dagesh acting as a mapiq in the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38679,7 +38679,7 @@
       "BHL has no dagesh acting as a mapiq. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38710,7 +38710,7 @@
       "BHL has no meteg between the dehi accent and the sheva vowel. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38741,7 +38741,7 @@
       "BHL has no dagesh in the lamed. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -38772,7 +38772,7 @@
       "BHL has no revia above the kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38803,7 +38803,7 @@
       "BHL has a merkha under the vav and no maqaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -38834,7 +38834,7 @@
       "BHL has a dehi on the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38865,7 +38865,7 @@
       "BHL has differing qere and ketivs for this word; both agree with the present text. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38896,7 +38896,7 @@
       "BHL has no accent on the preceding word and a meteg under the resh and a meteg under the kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -38927,7 +38927,7 @@
       "BHL has a merkha under the shin; otherwise, it agrees with BHL. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -38958,7 +38958,7 @@
       "BHL has no revia over the mem. BHLA has both a revia and a tipeha on this word."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -38989,7 +38989,7 @@
       "BHL has a meteg acting as a siluq after the segol. BHLA has a meteg acting as a siluq before the segol."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39020,7 +39020,7 @@
       "BHL has an ole above the alef. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39051,7 +39051,7 @@
       "BHL has a patah under the het. BHLA has a hataf-patah under the het."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39082,7 +39082,7 @@
       "BHL has a dagesh in the yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39113,7 +39113,7 @@
       "BHL has no revia over the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39144,7 +39144,7 @@
       "BHL has no dagesh acting as a shuruq in the vav. BHLA has a dagesh acting as a shuruq in the vav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39175,7 +39175,7 @@
       "BHL has a revia above the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -39202,11 +39202,11 @@
     "changetext": "ה֭וּא",
     "changeuni": "he dehi vav dagesh alef",
     "notes": [
-      "The accent mark appears before the centerline of the he and is therefore a dehi, rather than a tipeha,",
+      "The accent mark appears before the centerline of the he and is therefore a dehi, rather than a tipeha.",
       "BHL has a dehi accent. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39237,7 +39237,7 @@
       "BHL has a meteg under the yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -39268,7 +39268,7 @@
       "BHL has a dagesh in the pe. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39295,11 +39295,11 @@
     "changetext": "וְ֝נִפְלָא֗וֹת",
     "changeuni": "vav sheva geresh-muqdam nun hiriq pe sheva lamed qamats alef revia vav holam tav",
     "notes": [
-      "The text is chipped and of low quality for this word. Two parallel lines can be seen slightly to the top left of the vav. If filled, they would constitute a gersh-muqdam. The UXLC accepts the gersh-muqdam, but adds a transcription note 't'.",
+      "The text is chipped and of low quality for this word. Two parallel lines can be seen slightly to the top left of the vav. If filled, they would constitute a geresh-muqdam. The UXLC accepts the geresh-muqdam, but adds a transcription note 't'.",
       "BHL has no accent on the initial vav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39330,7 +39330,7 @@
       "BHL has a meteg under the mem. BHLA has a question mark in parentheses, \"(?)\", and no meteg under the mem."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39361,7 +39361,7 @@
       "BHL has a meteg acting as siluq under the pe. BHLA has a question mark in parentheses, \"(?)\", and no meteg acting as siluq."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39392,7 +39392,7 @@
       "BHL has dehi, sheva, meteg, and patah under the alef. The meteg breaks a possible hataf patah. BHLA has a dehi, patah, and meteg under the alef."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39423,7 +39423,7 @@
       "BHL has a revia over the resh. BHLA has a revia over the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39454,7 +39454,7 @@
       "BHL has a meteg under the vav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39485,7 +39485,7 @@
       "BHL has a hiriq, then meteg under the first yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -39513,10 +39513,10 @@
     "changeuni": "yod patah het hataf-patah resh hiriq etnachta yod shin shin-dot vav",
     "notes": [
       "No meteg acting as shuruq in the vav is apparent. The text quality is excellent.",
-      "BHL has a meteg acting as shuruq in vav. BHLA has no meteg acting as shureq in vav."
+      "BHL has a meteg acting as shuruq in vav. BHLA has no meteg acting as shuruq in vav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39547,7 +39547,7 @@
       "BHL has a dagesh acting as mapiq in the he. BHLA has no dagesh acting as mapiq in he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39578,7 +39578,7 @@
       "BHL has a dagesh acting as a mapiq in the he. BHLA has no dagesh acting as a mapiq in the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39609,7 +39609,7 @@
       "BHL has no revia over the tav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39640,7 +39640,7 @@
       "BHL has a maqaf following the tav. BHLA has no maqaf following the tav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39671,7 +39671,7 @@
       "BHL has no accent above the vav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39702,7 +39702,7 @@
       "BHL has no meteg on the tav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -39733,7 +39733,7 @@
       "BHL has a tipeha below the alef. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39760,11 +39760,11 @@
     "changetext": "מֵרֵ֣יַּח",
     "changeuni": "mem tsere resh tsere munah yod dagesh patah het",
     "notes": [
-      "The dagesh in the yod is clear. The patah is unusually forward of the het to be a furtive patah..",
+      "The dagesh in the yod is clear. The patah is unusually forward of the het to be a furtive patah.",
       "BHL has no dagesh in the yod; the patah belongs to the het (furtive patah). BHLA has a dagesh in the yod; the patah belongs to the yod."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39791,11 +39791,11 @@
     "changetext": "תָּ֤שִֽׁית",
     "changeuni": "tav dagesh qamats mahapakh shin shin-dot hiriq meteg yod tav",
     "notes": [
-      "The line below the shin is vertical, it lacks the southeast-to-northwest inclination to be a merkha. The UXLC acknowledges the possibility of a merkha with a note 'm'.",
+      "The line below the shin is vertical, it lacks the northeast-to-southwest inclination to be a merkha. The UXLC acknowledges the possibility of a merkha with a note 'm'.",
       "BHL has a merkha below the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39826,7 +39826,7 @@
       "BHL has a dagesh acting as a mapiq in the he. BHLA has no dagesh acting as mapiq in the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39857,7 +39857,7 @@
       "BHL has only a meteg on the shin. BHLA has a meteg then merkha on the shin."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39888,7 +39888,7 @@
       "BHL has a patah then munah under the yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39919,7 +39919,7 @@
       "BHL has no maqaf following the vav. BHLA has a maqaf following the vav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39950,7 +39950,7 @@
       "BHL has no dagesh in the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -39981,7 +39981,7 @@
       "BHL has a meteg acting as a siluq under the tav, NOT the resh. BHLA has a meteg acting as a siluq under the resh."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40012,7 +40012,7 @@
       "BHL has a dagesh in the he. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -40043,7 +40043,7 @@
       "BHL has a qamats under the ayin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -40074,7 +40074,7 @@
       "BHL has a dagesh in the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -40105,7 +40105,7 @@
       "BHL has no dagesh in the tav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -40136,7 +40136,7 @@
       "BHL has no dagesh in the second bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -40167,7 +40167,7 @@
       "BHL has a dehi then patah under the he. BHLA has dehi, hataf-patah under the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40198,7 +40198,7 @@
       "BHL has no dagesh in the mem. BHLA has no dagesh in the mem."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40225,11 +40225,11 @@
     "changetext": "א֖וֹר",
     "changeuni": "alef tipeha vav holam resh",
     "notes": [
-      "The northwest-to-southeast inclined line under the alef is either a dehi or tipeha, depending on horizontal positioning relative to the alef. The line is not sufficiently prepositive to be taken as a dehi, it will be transcribed as a tipeha. The UXLC has a transcription note 'd' on this letter.",
-      "BHL has a dehi under the alef . BHLA has a tipeha under the alef."
+      "The northwest-to-southeast inclined line under the alef is either a dehi or tipeha, deApproved on horizontal positioning relative to the alef. The line is not sufficiently prepositive to be taken as a dehi, it will be transcribed as a tipeha. The UXLC has a transcription note 'd' on this letter.",
+      "BHL has a dehi under the alef. BHLA has a tipeha under the alef."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40260,7 +40260,7 @@
       "BHL has no dagesh in ayin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -40291,7 +40291,7 @@
       "BHL has a dagesh in the kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40322,7 +40322,7 @@
       "BHL has no dagesh in the tav or resh; it doesn't normally display rafe marks. BHLA has a dagesh and a rafe on the tav and no dagesh on the resh."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -40353,7 +40353,7 @@
       "BHL has no dagesh in the qof. BHLA has a dagesh in the qof and a question mark in parentheses, \"(?)\"."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40384,7 +40384,7 @@
       "BHL has no accent above the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40404,7 +40404,7 @@
     "changeset": "2026.02.05",
     "n": 65,
     "citation": "Job 19:16.6",
-    "description": "Examine if pe has a gersh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'.",
+    "description": "Examine if pe has a geresh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'.",
     "lc": "Folio_402B 1:9",
     "reftext": "פִ֝֗י",
     "refuni": "pe hiriq geresh-muqdam revia yod",
@@ -40415,7 +40415,7 @@
       "BHL has a geresh-muqdam and a revia in that order. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -40446,7 +40446,7 @@
       "BHL has a dehi on the tav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -40477,7 +40477,7 @@
       "BHL has the meteg on the nun after the patah. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40504,11 +40504,11 @@
     "changetext": "בּ֭וֹ",
     "changeuni": "bet dagesh dehi vav holam",
     "notes": [
-      "The bet has two dots within it. the small, dark vertically-centered dot is the dagesh; the lighter, larger lower dot is likely an imperfection. The accent is pre-positive and; therefore, a dehi.",
+      "The bet has two dots within it. The small, dark vertically-centered dot is the dagesh; the lighter, larger lower dot is likely an imperfection. The accent is pre-positive and; therefore, a dehi.",
       "BHL has a dagesh in the bet and a dehi below it. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40539,7 +40539,7 @@
       "BHL has a munah under the dalet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40570,7 +40570,7 @@
       "BHL has no dagesh in the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40601,7 +40601,7 @@
       "BHL has no dagesh in the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40632,7 +40632,7 @@
       "BHL has a sheva under the vav. BHLA has a hiriq under the vav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40663,7 +40663,7 @@
       "BHL has a merkha under the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40694,7 +40694,7 @@
       "BHL has no accent on the final kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40721,11 +40721,11 @@
     "changetext": "רֹ֖אשׁ",
     "changeuni": "resh holam tipeha alef shin shin-dot",
     "notes": [
-      "The mark under the resh could be either a dehi or tipeha depending on its position relative to the resh. Space was available for the scribe to make the mark more pre-positive; hence, the accent is taken as a tipeha. Add note 't'.",
+      "The mark under the resh could be either a dehi or tipeha deApproved on its position relative to the resh. Space was available for the scribe to make the mark more pre-positive; hence, the accent is taken as a tipeha. Add note 't'.",
       "BHL has a tipeha under the resh. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -40756,7 +40756,7 @@
       "BHL has a dehi under the lamed. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40787,7 +40787,7 @@
       "BHL has a munah below the mem. BHLA has an etnachta below the mem and a question mark in parentheses, \"(?)\"."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40818,7 +40818,7 @@
       "BHL has an etnachta under the lamed. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40845,11 +40845,11 @@
     "changetext": "וּבְצ֖וּר",
     "changeuni": "vav dagesh bet sheva tsadi tipeha vav dagesh resh",
     "notes": [
-      "The text is of poor quality around this word. The second letter has the lower near-horizonal line protruding forward of the vertical line. The dagesh on the initial vav is very small, add note 't' to the initial vav.",
+      "The text is of poor quality around this word. The second letter has the lower near-horizontal line protruding forward of the vertical line. The dagesh on the initial vav is very small, add note 't' to the initial vav.",
       "BHL has a bet as the second letter; it has a dagesh in the initial vav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -40880,7 +40880,7 @@
       "BHL has a dehi below the alef. BHLA has a tipeha below the alef."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -40911,7 +40911,7 @@
       "BHL has a sheva without a preceding meteg under the yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -40942,7 +40942,7 @@
       "BHL has no dagesh in nun. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -40961,19 +40961,19 @@
     "release": "2026.04.01",
     "changeset": "2026.02.05",
     "n": 83,
-    "citation": "Job 23:5.5",
+    "citation": "Job 23:5.6",
     "description": "Examine for maqaf at end of word.",
     "lc": "Folio_403B 2:11",
-    "reftext": "מַה־",
-    "refuni": "mem patah he maqaf",
-    "changetext": "מַה־",
-    "changeuni": "mem patah he maqaf",
+    "reftext": "יֹּ֥אמַר",
+    "refuni": "yod dagesh holam merkha alef mem patah resh",
+    "changetext": "יֹּ֥אמַר",
+    "changeuni": "yod dagesh holam merkha alef mem patah resh",
     "notes": [
-      "The image shows this word and its successor. The maqaf between the he and the vav of the next word is clear.",
-      "BHL has a maqaf at the end of the word. BHLA has no entry for this verse."
+      "The image shows this word and its successor. No maqaf is present between resh and the lamed.",
+      "BHL has no maqaf at the end of the word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41004,7 +41004,7 @@
       "BHL has a dehi below the kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41031,11 +41031,11 @@
     "changetext": "מִ֭שַׁדַּי",
     "changeuni": "mem hiriq dehi shin shin-dot patah dalet dagesh patah yod",
     "notes": [
-      "The space between the fingers of the shin has assorted blemishes and a dot in the second gap. None of these feature are sufficiently well-formed or well-positioned to transcribe as a sheva.",
+      "The space between the fingers of the shin has assorted blemishes and a dot in the second gap. None of these features are sufficiently well-formed or well-positioned to transcribe as a sheva.",
       "BHL has no dagesh in the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41063,10 +41063,10 @@
     "changeuni": "bet dagesh patah merkha mem dagesh hiriq dalet sheva bet dagesh qamats revia resh",
     "notes": [
       "The patah then merkha below the bet are clear. The merkha has a slight northeast-to-southwest inclination adequate to be transcribed as a merkha.",
-      "BHL has a patah the merkha below the bet. BHLA has no entry for this verse."
+      "BHL has a patah then merkha below the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41097,7 +41097,7 @@
       "BHL has a maqaf at the end of this word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41128,7 +41128,7 @@
       "BHL has no dagesh in the dalet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -41159,7 +41159,7 @@
       "BHL has no revia over nun. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41190,7 +41190,7 @@
       "BHL has a segol under the ayin. BHLA has a tsere under the ayin and a question mark in parentheses, \"(?)\"."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
@@ -41221,7 +41221,7 @@
       "BHL qere has a vav between the resh and the tav, the vav has a holam dot, a yod is present between the tav and the vav. the BHL ketiv has no vav between the resh and the tav; it has no yod between the tav and the last letter, a vav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41252,7 +41252,7 @@
       "BHL has a maqaf at the end of this word. BHLA has no maqaf at the end of this word."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41283,7 +41283,7 @@
       "BHL has a patah under the he. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41314,7 +41314,7 @@
       "BHL has no dagesh in the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41341,11 +41341,11 @@
     "changetext": "הִדְרִיכֻ֥הוּ",
     "changeuni": "he hiriq dalet sheva resh hiriq yod kaf qubuts merkha he vav dagesh",
     "notes": [
-      "No vowel (or accent) appears under the resh. The dot at the lower border under the resh is a shin-dot from the following line. Its too far from the resh to be a vowel on the resh.",
+      "No vowel (or accent) appears under the resh. The dot at the lower border under the resh is a shin-dot from the following line. It's too far from the resh to be a vowel on the resh.",
       "BHL has a hiriq under the resh. BHLA has no hiriq under the resh."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41376,7 +41376,7 @@
       "BHL has a dehi on the he. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41407,7 +41407,7 @@
       "BHL has a holam dot on the sin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41427,7 +41427,7 @@
     "changeset": "2026.02.05",
     "n": 98,
     "citation": "Job 29:3.5",
-    "description": "Examine accent on the resh: geresh-muqdam.",
+    "description": "Examine possible revia on the resh.",
     "lc": "Folio_405A 1:7",
     "reftext": "לְ֝אוֹרוֹ",
     "refuni": "lamed sheva geresh-muqdam alef vav holam resh vav holam",
@@ -41438,7 +41438,7 @@
       "BHL has no accent on the resh; it has a geresh muqdam on the lamed. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41469,7 +41469,7 @@
       "BHL has no accent on the second shin; the vav has a geresh-muqdam, however. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41500,7 +41500,7 @@
       "BHL has a hiriq on the yod. BHLA has no hiriq on the yod."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41531,7 +41531,7 @@
       "BHL has hiriq then meteg below resh. BHLA has meteg then hiriq below resh."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41562,7 +41562,7 @@
       "BHL has a dehi under the kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41593,7 +41593,7 @@
       "BHL has a dehi under the resh. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41624,7 +41624,7 @@
       "BHL has a dehi under the ayin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41655,7 +41655,7 @@
       "BHL has a paseq following this word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41686,7 +41686,7 @@
       "BHL has a dehi under the he. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41717,7 +41717,7 @@
       "BHL has hiriq then meteg under the lamed. BHLA has a meteg then hiriq under the lamed."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41748,7 +41748,7 @@
       "BHL has no meteg under the vav. BHLA has a meteg under the vav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41768,19 +41768,19 @@
     "changeset": "2026.02.05",
     "n": 109,
     "citation": "Job 31:15.1",
-    "description": "Examine he for geresh-muqdam accent; examine order of markings below the he. Add note 't' as geresh-muqdam is ill-formed. Change the Unicode characters for the markings below the he to produce the same image without misusing the hataf-patah character.",
+    "description": "Examine he for geresh-muqdam accent; examine order of markings below the he. Add note 't' as geresh-muqdam is ill-formed.",
     "lc": "Folio_405B 2:4",
     "reftext": "הֲ‍ֽ֝לֹא־",
     "refuni": "he hataf-patah ZWJ meteg geresh-muqdam lamed holam alef maqaf",
-    "changetext": "הְֽ͏ַ֝לֹא־",
-    "changeuni": "he sheva meteg CGJ patah geresh-muqdam lamed holam alef maqaf",
+    "changetext": "הֲ‍ֽ֝לֹא־",
+    "changeuni": "he hataf-patah ZWJ meteg geresh-muqdam lamed holam alef maqaf",
     "notes": [
-      "The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah; no complete hataf-patah is present. Change the Unicode characters below the he to sheva then meteg then CGJ then patah to preserve appearance and eliminate the dubious use of the Unicode hataf patah character. Add a note 't' indicating transcription problem with geresh-muqdam marking. For technical reasons the change type must be set to vowel/accent to change the Unicode characters, even though the visible text under the he is unchanged.",
+      "The image shows somewhat lighter, yet distinct, vertical straight line arising from the top front of the he. It has a very odd shape for a geresh-muqdam. The order of the markings below the he is sheva then meteg then patah. Add a note 't' indicating transcription problem with geresh-muqdam marking.",
       "BHL has no geresh-muqdam on the he; the order of the markings below the he is sheva then meteg then patah. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
-    "type": "vowel/accent",
+    "status": "Approved",
+    "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
     ],
@@ -41790,7 +41790,7 @@
     "D2T": null,
     "T2D": null,
     "refuni_gen": "he hataf-patah zero-width-joiner meteg geresh-muqdam lamed holam alef maqaf",
-    "changeuni_gen": "he sheva meteg combining-grapheme-joiner patah geresh-muqdam lamed holam alef maqaf",
+    "changeuni_gen": "he hataf-patah zero-width-joiner meteg geresh-muqdam lamed holam alef maqaf",
     "changeuni_erbs": false,
     "bhla": false
   },
@@ -41810,7 +41810,7 @@
       "BHL has a dehi below the alef. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -41841,7 +41841,7 @@
       "BHL has no revia over the sin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41872,7 +41872,7 @@
       "BHL has a dehi under the he; it has a maqaf between this word and the preceding word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -41903,7 +41903,7 @@
       "BHL has a only a holam on the vav and a hiriq then meteg under the nun. BHLA has the meteg under the vav and a hiriq under the nun."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41934,7 +41934,7 @@
       "BHL has a dehi under the kaf. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41962,10 +41962,10 @@
     "changeuni": "yod sheva shin shin-dot hiriq yod shin shin-dot etnachta ZWJ hiriq yod final-mem",
     "notes": [
       "The etnachta precedes the hiriq under the shin.",
-      "BHL has hiriq then etnachta under the shin . BHLA has etnachta then hiriq under the shin."
+      "BHL has hiriq then etnachta under the shin. BHLA has etnachta then hiriq under the shin."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -41996,7 +41996,7 @@
       "BHL has no dagesh in the dalet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42027,7 +42027,7 @@
       "BHL has no paseq at the end of this word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42058,7 +42058,7 @@
       "BHL has a dagesh acting as a mapiq in the he. BHLA has no dagesh acting as a mapiq in the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42089,7 +42089,7 @@
       "BHL has no revia over the tav in the qere form in the left margin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42120,7 +42120,7 @@
       "BHL has a patah then meteg acting as a siluq under the he. It also has a meteg acting as a siluq after the hiriq under the first yod. BHLA has a patah then meteg acting as a siluq under the he. It has only a hiriq under the first yod."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42151,7 +42151,7 @@
       "BHL has a dehi on the alef and no accent on the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42182,7 +42182,7 @@
       "BHL has a merkha under the alef. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -42201,26 +42201,26 @@
     "release": "2026.04.01",
     "changeset": "2026.02.05",
     "n": 123,
-    "citation": "Job 34:19.3",
-    "description": "Examine for dagesh in nun.",
-    "lc": "Folio_406B 2:25",
-    "reftext": "נָשָׂ֨א ׀",
-    "refuni": "nun qamats shin sin-dot qamats qadma alef space paseq",
-    "changetext": "נָשָׂ֨א ׀",
-    "changeuni": "nun qamats shin sin-dot qamats qadma alef space paseq",
+    "citation": "Job 34:19.7",
+    "description": "Examine for dagesh in nun. Add dagesh to nun. Add note 't'.",
+    "lc": "Folio_406B 2:26",
+    "reftext": "נִכַּר־",
+    "refuni": "nun hiriq kaf dagesh patah resh maqaf",
+    "changetext": "נִּכַּר־",
+    "changeuni": "nun dagesh hiriq kaf dagesh patah resh maqaf",
     "notes": [
-      "No dagesh is apparent in the nun. The text quality is good.",
-      "BHL has no dagesh in the nun. BHLA has no entry for this verse."
+      "A light, well-positioned, but oddly-shaped dagesh is in the nun. Add dagesh and note 't'.",
+      "BHL has no dagesh in the nun. BHLA has a dagesh in the nun."
     ],
     "transnotes": null,
-    "status": "Pending",
-    "type": "NoAction",
+    "status": "Approved",
+    "type": "vowel",
     "authors": [
       "Ben Denckla"
     ],
     "lc_gen": null,
-    "aBHL": true,
-    "aBHLA": null,
+    "aBHL": null,
+    "aBHLA": true,
     "D2T": null,
     "T2D": null,
     "refuni_gen": null,
@@ -42240,11 +42240,11 @@
     "changetext": "שׁ֭וֹעַ",
     "changeuni": "shin shin-dot dehi vav holam ayin patah",
     "notes": [
-      "The accent below the shin could be either a dehi or a merkha, depending on its horizontal position. The accent is sufficiently pre-positive to be a dehi.",
+      "The accent below the shin could be either a dehi or a merkha, deApproved on its horizontal position. The accent is sufficiently pre-positive to be a dehi.",
       "BHL has a dehi on the shin. BHLA has an entry for this verse corresponding to the 7-th word (נִכַּר־)."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42271,11 +42271,11 @@
     "changetext": "חֹ֭שֶׁךְ",
     "changeuni": "het holam dehi shin shin-dot segol final-kaf sheva",
     "notes": [
-      "The accent on the het is a dehi or a tipeha depending on its horizontal position relative to the het. The tail of a lamed from the line below precludes the accent being centered on the het, which would make it a tipeha. Because the accent is slightly pre-positive, the accent will be transcribed as a dehi.",
+      "The accent on the het is a dehi or a tipeha deApproved on its horizontal position relative to the het. The tail of a lamed from the line below precludes the accent being centered on the het, which would make it a tipeha. Because the accent is slightly pre-positive, the accent will be transcribed as a dehi.",
       "BHL has a dehi on the het. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42306,7 +42306,7 @@
       "BHL has a patah then meteg under the he. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42337,7 +42337,7 @@
       "BHL has no dagesh in the lamed. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42368,7 +42368,7 @@
       "BHL has no paseq at the end of this word. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42399,7 +42399,7 @@
       "BHL has no dagesh in the yod. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42430,7 +42430,7 @@
       "BHL has a samekh as the second letter. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42461,7 +42461,7 @@
       "BHL has no dagesh in the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42492,7 +42492,7 @@
       "BHL has a dehi under the tav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42523,7 +42523,7 @@
       "BHL has the ole over the ayin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42554,7 +42554,7 @@
       "BHL has the first letter as a bet with a dagesh and hiriq. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42585,7 +42585,7 @@
       "BHL has a dehi on the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42616,7 +42616,7 @@
       "BHL has no meteg on the kaf. BHLA has a meteg on both the kaf and the tav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -42647,7 +42647,7 @@
       "BHL has a segol under the second lamed. BHLA has a patah under the second lamed."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42678,7 +42678,7 @@
       "BHL has a dehi on the he. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42709,7 +42709,7 @@
       "BHL has a merkha on the lamed. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42740,7 +42740,7 @@
       "BHL has a dehi on the lamed. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42768,10 +42768,10 @@
     "changeuni": "he sheva meteg dehi mem hiriq yod dagesh qamats mem segol yod final-kaf qamats",
     "notes": [
       "The text is of poor quality with chipped ink. The image shows a sufficiently pre-positive dehi then a sheva then a meteg, three very light markings.",
-      "BHL has a dehi then sheva then meteg then patah under the he; a hataf-patah does not fit the markings. BHLA has a dehi then sheva then meteg under the he,"
+      "BHL has a dehi then sheva then meteg then patah under the he; a hataf-patah does not fit the markings. BHLA has a dehi then sheva then meteg under the he."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42802,7 +42802,7 @@
       "BHL has a he after the tav in both the qere and ketiv for this word. The next word has an initial he added in the qere. BHLA has an entry for the first word in this verse, הְֽ֭מִיָּמֶיךָ , it does not comment on this word."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42833,7 +42833,7 @@
       "BHL has no dagesh in the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"
@@ -42864,7 +42864,7 @@
       "BHL has no revia above the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42895,7 +42895,7 @@
       "BHL has a dehi under the shin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -42926,7 +42926,7 @@
       "BHL has no revia over the mem. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -42957,7 +42957,7 @@
       "BHL has a revia over the tav. BHLA has a geresh over the tav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "accent",
     "authors": [
       "Ben Denckla"
@@ -42988,7 +42988,7 @@
       "BHL has a meteg acting as siluq under the het. BHLA has a meteg acting as a siluq under the lamed."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43016,10 +43016,10 @@
     "changeuni": "bet dagesh dehi vav holam",
     "notes": [
       "The accent under the bet is very slightly pre-positive, but will be taken as a dehi.",
-      "BHL has a dehi under the bet . BHLA has no entry for this verse."
+      "BHL has a dehi under the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43050,7 +43050,7 @@
       "BHL has a dehi under the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43081,7 +43081,7 @@
       "BHL has a revia over the resh. BHLA has no revia over the resh and has a question mark in parentheses, \"(?)\"."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43112,7 +43112,7 @@
       "BHL has a dagesh in the tav. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43143,7 +43143,7 @@
       "BHL has a dehi then sheva then meteg then patah under the he; 4 markings. BHLA has a dehi then sheva then meteg under the he; 3 markings."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43174,7 +43174,7 @@
       "BHL has no revia over the resh. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43194,7 +43194,7 @@
     "changeset": "2026.02.05",
     "n": 155,
     "citation": "Job 40:10.3",
-    "description": "Examine possible meteg after qamats on gimmel.",
+    "description": "Examine possible meteg after qamats on gimel.",
     "lc": "Folio_408B 2:14",
     "reftext": "גָֽא֣וֹן",
     "refuni": "gimel qamats meteg alef munah vav holam final-nun",
@@ -43205,7 +43205,7 @@
       "BHL has no meteg after qamats on gimel. BHLA has a meteg after the qamats on the gimel; the BHLA note has a question mark in parentheses, \"(?)\"."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43236,7 +43236,7 @@
       "BHL has a dehi under the he. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43267,7 +43267,7 @@
       "BHL has no revia over the sin. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43298,7 +43298,7 @@
       "BHL has a meteg after the segol on the lamed; it has a meteg under the vav, too. BHLA also has a meteg after the segol under the lamed; but no meteg under the vav."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43329,7 +43329,7 @@
       "BHL has a dehi under the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43357,10 +43357,10 @@
     "changeuni": "het qamats tav sof-pasuq",
     "notes": [
       "The image shows no meteg following the qamats. The UXLC has a transcription note 'c' on the het.",
-      "BHL has a meteg following the qamats under the het. BHLA has no meteg following the qamats under the bet."
+      "BHL has a meteg following the qamats under the het. BHLA has no meteg following the qamats under the het."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43391,7 +43391,7 @@
       "BHL has the darga under the vav immediately after the patah. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "NoAction",
     "authors": [
       "Ben Denckla"
@@ -43422,7 +43422,7 @@
       "BHL has a dagesh in the bet. BHLA has no entry for this verse."
     ],
     "transnotes": null,
-    "status": "Pending",
+    "status": "Approved",
     "type": "vowel",
     "authors": [
       "Ben Denckla"

@@ -486,7 +486,7 @@
     {
       "n": 83,
       "ref": "Job 23:5",
-      "pos": "5",
+      "pos": "6",
       "html": "2305.html"
     },
     {
@@ -726,7 +726,7 @@
     {
       "n": 123,
       "ref": "Job 34:19",
-      "pos": "3",
+      "pos": "7",
       "html": "3419-NKR0.html"
     },
     {
@@ -969,7 +969,7 @@
       "n": 65,
       "ref": "Job 19:16",
       "pos": "6",
-      "desc": "Examine if pe has a gersh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'."
+      "desc": "Examine if pe has a geresh-muqdam and a revia. [Part 2 of previous change] Change accent order to revia then geresh-muqdam; include ZWJ to achieve display or ordering. Add transcription note 't'."
     },
     {
       "n": 71,

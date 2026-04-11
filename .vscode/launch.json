@@ -16,35 +16,35 @@
             "name": "amb early mtg",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_amb_early_mtg.py",
+            "program": "py/main_amb_early_mtg.py",
             "console": "integratedTerminal"
         },
         {
             "name": "FOIs",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_fois.py",
+            "program": "py/main_fois.py",
             "console": "integratedTerminal"
         },
         {
             "name": "check changes",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_uxlc_check_changes.py",
+            "program": "py/main_uxlc_check_changes.py",
             "console": "integratedTerminal"
         },
 {
             "name": "download changes",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_uxlc_download_changes.py",
+            "program": "py/main_uxlc_download_changes.py",
             "console": "integratedTerminal"
         },
         {
             "name": "estimate atom location",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_uxlc_estimate_atom_loc.py",
+            "program": "py/main_uxlc_estimate_atom_loc.py",
             "args": ["Genesis", "24:24", "וַתֹּ֣אמֶר"],
             "console": "integratedTerminal"
         },
@@ -52,28 +52,28 @@
             "name": "word list",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_uxlc_word_list.py",
+            "program": "py/main_uxlc_word_list.py",
             "console": "integratedTerminal"
         },
         {
             "name": "WLC a-notes",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_wlc_a_notes.py",
+            "program": "py/main_wlc_a_notes.py",
             "console": "integratedTerminal"
         },
         {
             "name": "420422",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_word_diffs_420422.py",
+            "program": "py/main_word_diffs_420422.py",
             "console": "integratedTerminal"
         },
         {
             "name": "write page break info",
             "type": "debugpy",
             "request": "launch",
-            "program": "main_write_page_break_info.py",
+            "program": "py/main_write_page_break_info.py",
             "console": "integratedTerminal"
         }
     ]

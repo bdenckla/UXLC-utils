@@ -12781,13 +12781,13 @@
   },
   {
     "change_release": "2026.04.01",
-    "change_cite": "Job 23:5.5",
+    "change_cite": "Job 23:5.6",
     "change_page": "403B",
     "change_column": 2,
     "change_line": 11,
     "change_fline": 38,
-    "guess_fline": 37.32,
-    "fline_diff": -0.68
+    "guess_fline": 37.48,
+    "fline_diff": -0.52
   },
   {
     "change_release": "2026.04.01",
@@ -13181,13 +13181,13 @@
   },
   {
     "change_release": "2026.04.01",
-    "change_cite": "Job 34:19.3",
+    "change_cite": "Job 34:19.7",
     "change_page": "406B",
     "change_column": 2,
-    "change_line": 25,
-    "change_fline": 52,
-    "guess_fline": 52.33,
-    "fline_diff": 0.33
+    "change_line": 26,
+    "change_fline": 53,
+    "guess_fline": 52.99,
+    "fline_diff": -0.01
   },
   {
     "change_release": "2026.04.01",
