@@ -1,6 +1,6 @@
 """Exports write_html."""
 
-import py_misc.my_utils as my_utils
+from pycmn import my_utils
 import py_misc.my_html as my_html
 import py_misc.my_url_generator as urlg
 
@@ -46,7 +46,7 @@ def _get_anchors_to_full_and_ucp(record):
 
 
 def _rec_to_row(record):
-    row_cells = my_utils.ll_map(
+    row_cells = my_utils.sl_map(
         (_row_cell_for_hdr_str, record), _STRS_FOR_CELLS_FOR_HEADER
     )
     return my_html.table_row(row_cells)

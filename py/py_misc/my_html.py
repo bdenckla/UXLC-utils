@@ -5,10 +5,10 @@ from dataclasses import dataclass
 from typing import Union
 import html
 
+from pycmn import hebrew_punctuation as hpu
+from pycmn import my_utils
+from pycmn import str_defs as sd
 import py_misc.my_open as my_open
-import py_misc.my_utils as my_utils
-import py_misc.my_hebrew_punctuation as hpu
-import py_misc.my_str_defs as sd
 
 
 @dataclass

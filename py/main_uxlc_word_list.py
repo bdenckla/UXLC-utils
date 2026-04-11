@@ -8,13 +8,13 @@ https://tanach.us/Books/Tanach.xml.zip
 import unicodedata
 
 import _repo_path_setup
+from pycmn import hebrew_letters as hl
+from pycmn import hebrew_points as hpo
+from pycmn import uni_heb as uh
+from pycmn import uni_norm_fragile as unf
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_open as my_open
 import py_misc.my_tanakh_book_names as tbn
-import py_misc.my_hebrew_letters as hl
-import py_misc.my_hebrew_points as hpo
-import py_misc.my_uni_norm_fragile as unf
-import py_misc.my_uni_heb as uh
 
 
 def _is_uxlc_fragile(string):

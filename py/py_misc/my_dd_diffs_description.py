@@ -1,7 +1,7 @@
 """Exports get1 & get2"""
 
 import py_misc.my_unicode as diff_mm_uni_name
-import py_misc.my_diffs as my_diffs
+from pycmn import my_diffs
 import py_misc.my_dd_simplify_simple_diffs as ssd
 import py_misc.my_dd_lett_words as hlw
 from py_misc import uni_heb_char_classes as uhc

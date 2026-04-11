@@ -1,10 +1,10 @@
 """Exports find."""
 
 import re
+from pycmn import hebrew_points as hpo
+from pycmn import str_defs as sd
 import py_misc.my_tanakh_book_names as tbn
 import py_misc.my_uxlc as my_uxlc
-import py_misc.my_hebrew_points as hpo
-import py_misc.my_str_defs as sd
 import py_misc.my_uxlc_book_abbreviations as u_bk_abbr
 
 
@@ -32,7 +32,7 @@ def _has_early_mtg(atom):
         _LETT_NLETT_STAR
         + _LETT_NLETT_PLUS
         + _LETT_NLETT_STAR
-        + hpo.METEG
+        + hpo.MTGOSLQ
         + sd.CGJ
         + _NOT_XIRIQ
     )

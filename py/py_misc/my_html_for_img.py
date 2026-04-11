@@ -1,7 +1,7 @@
 """Exports img_html."""
 
+from pycmn import my_utils
 import py_misc.my_html as my_html
-import py_misc.my_utils as my_utils
 
 
 def html_for_imgs(record):
@@ -11,7 +11,7 @@ def html_for_imgs(record):
     if "imgs" in record:
         imgs_items = record["imgs"].items()
         list_of_lists = list(map(_html_for_imgs_item, imgs_items))
-        return my_utils.sum_of_lists(list_of_lists)
+        return my_utils.sum_of_seqs(list_of_lists)
     return []
 
 

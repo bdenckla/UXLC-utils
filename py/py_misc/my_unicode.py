@@ -1,9 +1,10 @@
 """Exports unicode_names, unicode_name"""
 
 import unicodedata
-import py_misc.my_hebrew_letters as hl
-import py_misc.my_hebrew_points as hpo
-import py_misc.my_hebrew_accents as ha
+
+from pycmn import hebrew_accents as ha
+from pycmn import hebrew_letters as hl
+from pycmn import hebrew_points as hpo
 
 
 def names(string, separator=" "):
@@ -62,8 +63,8 @@ _SHORT_NAMES = {
     hpo.XOLAM: "ḥolam",  # 05b9
     hpo.XOLAM_XFV: "ḥolam-ḥaser-for-vav",  # 05ba
     hpo.QUBUTS: "qubuts",  # 05bb
-    hpo.DAGESH_OM: "dagesh/mapiq/shuruq-dot",  # 05bc
-    hpo.METEG: "meteg/siluq",  # 05bd
+    hpo.DAGOMOSD: "dagesh/mapiq/shuruq-dot",  # 05bc
+    hpo.MTGOSLQ: "meteg/siluq",  # 05bd
     "\N{HEBREW PUNCTUATION MAQAF}": "maqaf",  # 05be
     hpo.RAFE: "rafeh",  # 05bf
     "\N{HEBREW PUNCTUATION PASEQ}": "paseq/legarmeih",  # 05c0
@@ -101,5 +102,5 @@ _SHORT_NAMES = {
     hl.RESH: "resh",  # 05e8
     hl.SHIN: "shin",  # 05e9
     hl.TAV: "tav",  # 05ea
-    hpo.JSVARIKA: "varika",
+    hpo.VARIKA: "varika",
 }

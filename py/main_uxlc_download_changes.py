@@ -9,9 +9,9 @@ import zipfile
 import requests
 
 import _repo_path_setup
+from pycmn import my_utils
 import py_misc.my_open as my_open
 import py_misc.my_uxlc as my_uxlc
-import py_misc.my_utils as my_utils
 import py_misc.my_uxlc_changes as my_uxlc_changes
 
 
@@ -34,7 +34,7 @@ def _do_one_download(date):
     url = f"https://hcanat.us/Changes/{date}%20-%20Changes/{filename_in_url}"
     filename_in_out_path = _filename(date, " ")
     out_path = f"in/UXLC-misc/{filename_in_out_path}"
-    my_utils.show_progress_g(__file__, out_path)
+    _show_progress(out_path)
     text = _read_url_as_text(url, timeout=10)
     my_open.with_tmp_openw(out_path, {"newline": ""}, _write_callback, text)
 
@@ -61,7 +61,7 @@ def _download_latest_uxlc():
     _UXLC_39_DIR.mkdir(parents=True, exist_ok=True)
     _UXLC_REST_DIR.mkdir(parents=True, exist_ok=True)
     _NOVC_DIR.mkdir(parents=True, exist_ok=True)
-    my_utils.show_progress_g(__file__, str(_UXLC_ZIP_PATH))
+    _show_progress(str(_UXLC_ZIP_PATH))
     with open(_UXLC_ZIP_PATH, "wb") as out_fp:
         out_fp.write(_read_url_as_bytes(_UXLC_ZIP_URL, timeout=30))
     _extract_uxlc_zip(_UXLC_ZIP_PATH)
@@ -77,7 +77,7 @@ def _extract_uxlc_zip(zip_path):
                 continue
             out_dir = _target_dir_for_member(member_name)
             out_path = out_dir / member_name
-            my_utils.show_progress_g(__file__, str(out_path))
+            _show_progress(str(out_path))
             with zip_fp.open(zip_info) as in_fp, open(out_path, "wb") as out_fp:
                 out_fp.write(in_fp.read())
 
@@ -86,6 +86,10 @@ def _target_dir_for_member(member_name):
     if member_name in my_uxlc.CANONICAL_XML_FILE_NAMES:
         return _UXLC_39_DIR
     return _UXLC_REST_DIR
+
+
+def _show_progress(path):
+    print(f"{Path(__file__).name} {path}")
 
 
 def main():

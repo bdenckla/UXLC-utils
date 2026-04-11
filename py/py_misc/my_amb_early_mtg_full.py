@@ -1,8 +1,8 @@
 """Exports write_xml."""
 
+from pycmn import hebrew_points as hpo
+from pycmn import str_defs as sd
 import py_misc.my_html as my_html
-import py_misc.my_str_defs as sd
-import py_misc.my_hebrew_points as hpo
 import py_misc.my_html_for_img as img
 import py_misc.my_url_generator as urlg
 
@@ -141,15 +141,15 @@ def _alternate(record, deml2):
     word123p = record["word123p"]
     assert "".join(word123p) == record["word"]
     pre, mid, post = word123p
-    assert mid[-3] == hpo.METEG
+    assert mid[-3] == hpo.MTGOSLQ
     assert mid[-2] == sd.CGJ
     assert mid[-1] in (hpo.PATAX, hpo.QAMATS, hpo.TSERE)
     mid_alt = mid[:-3] + mid[-1]
     if deml2 == "Better transcribed as a normal meteg on letter 2":
-        mid_alt += hpo.METEG
+        mid_alt += hpo.MTGOSLQ
         pre_alt = pre
     else:
-        pre_alt = pre + hpo.METEG
+        pre_alt = pre + hpo.MTGOSLQ
     return pre_alt + mid_alt + post
 
 
