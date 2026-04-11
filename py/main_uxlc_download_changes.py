@@ -8,6 +8,7 @@ import zipfile
 
 import requests
 
+import main_0_mega
 import _repo_path_setup
 from pycmn import my_utils
 import py_misc.my_open as my_open
@@ -93,13 +94,14 @@ def _show_progress(path):
 
 
 def main():
-    """Download Changes XML files and the latest UXLC XML corpus."""
+    """Download UXLC inputs, then rebuild downstream derived outputs."""
     _download_latest_uxlc()
     for filename in my_uxlc_changes.FILENAMES:
         if "fake" in filename:
             continue
         date = filename[:10]
         _do_one_download(date)
+    main_0_mega.main()
 
 
 if __name__ == "__main__":
