@@ -28,4 +28,4 @@ codex-index-leningrad the same path appears under `UXLC-utils-sparse/`.
 - `py/py_uxlc_lci/uxlc_lci_rec.py`
 - `py/py_uxlc_lci/uxlc_lci_rec_flatten.py`
 - `py/py_misc/my_uxlc_page_break_info.py`
-- `py/py_misc/my_uxlc_verlen.py`
+- `py/py_uxlc_lci/uxlc_lci_verlen.py`

@@ -5,7 +5,7 @@ from pathlib import Path
 import _repo_path_setup
 import main_fois
 import py_misc.my_uxlc as my_uxlc
-from py_misc import uni_heb_char_classes as ucc
+import py_fois.uni_heb_char_classes as ucc
 from pycmn import hebrew_points as hpo
 from pycmn import str_defs as sd
 

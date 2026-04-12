@@ -3,8 +3,8 @@
 from pycmn import hebrew_points as hpo
 from pycmn import str_defs as sd
 import py_misc.my_html as my_html
-import py_misc.my_html_for_img as img
-import py_misc.my_url_generator as urlg
+import py_amb_early_mtg.amb_early_mtg_html_for_img as img
+import py_amb_early_mtg.amb_early_mtg_url_generator as urlg
 
 
 def write(io_records):

@@ -1,16 +1,17 @@
 """Exports main"""
 
 import xml.etree.ElementTree
+
 import _repo_path_setup
-import py_misc.my_uxlc_misc_path as my_uxlc_misc_path
-import py_misc.my_uxlc_bhl_appendix_a as my_uxlc_bhl_appendix_a
-import py_misc.my_uxlc_page_break_info as page_break_info
-import py_misc.my_uxlc_changes_loc as changes_loc
-import py_misc.my_uxlc_change_prep as prep
-import py_misc.my_uxlc_changes as my_uxlc_changes
-import py_misc.my_uxlc_change_sanity as sanity
 import py_misc.my_open as my_open
-import py_misc.my_xml_node as my_xml_node
+import py_misc.my_uxlc_changes as my_uxlc_changes
+import py_misc.my_uxlc_page_break_info as page_break_info
+import py_uxlc_changes.uxlc_bhl_appendix_a as uxlc_bhl_appendix_a
+import py_uxlc_changes.uxlc_change_prep as prep
+import py_uxlc_changes.uxlc_change_sanity as sanity
+import py_uxlc_changes.uxlc_changes_loc as changes_loc
+import py_uxlc_changes.uxlc_misc_path as uxlc_misc_path
+import py_uxlc_changes.xml_node as xml_node
 
 _SANITY_PATH = "out/UXLC-misc/sanity_problems.json"
 
@@ -57,10 +58,10 @@ def _do_one_changes_file_core(filename):
     """
     Convert a Changes file to JSON format. (E.g., for import into Excel).
     """
-    xml_input_path = my_uxlc_misc_path.get(filename)
+    xml_input_path = uxlc_misc_path.get(filename)
     tree = xml.etree.ElementTree.parse(xml_input_path)
     root = tree.getroot()
-    root_dic = my_xml_node.to_dic(root)
+    root_dic = xml_node.to_dic(root)
     # release_major_dot_minor = root_dic['target']  # E.g. 'UXLC 1.2'
     release_date = root_dic["filedate"]
     changesets_list = _listify(root_dic["dates"]["date"])
@@ -82,7 +83,7 @@ def _join_bhla(bhla, change_record):
 
 
 def _get_all_changes():
-    bhla = my_uxlc_bhl_appendix_a.read()
+    bhla = uxlc_bhl_appendix_a.read()
     all_changes = []
     for filename in my_uxlc_changes.FILENAMES:
         changes = _do_one_changes_file(bhla, filename)

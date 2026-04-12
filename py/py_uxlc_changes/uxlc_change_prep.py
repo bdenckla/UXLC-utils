@@ -1,9 +1,10 @@
 """Exports date_qualify_and_reformat"""
 
 import re
-import py_misc.my_uxlc_unicode_names as my_uxlc_unicode_names
+
 import py_misc.my_uxlc_book_abbreviations as u_bk_abbr
-import py_misc.my_uxlc_authors as my_uxlc_authors
+import py_uxlc_changes.uxlc_authors as uxlc_authors
+import py_uxlc_changes.uxlc_unicode_names as uxlc_unicode_names
 
 
 def date_qualify_and_reformat(date, change):
@@ -53,7 +54,7 @@ def _collapse_author(author):
     mail = author["mail"]
     confirmed = author["confirmed"]
     mac = mail, confirmed
-    macn = my_uxlc_authors.MAIL_AND_CONFIRMED[name]
+    macn = uxlc_authors.MAIL_AND_CONFIRMED[name]
     assert mac == macn or mac in macn
     return name
 
@@ -174,7 +175,7 @@ def _uni_matches_text(change, ref_or_change):
     cp_str_ne = cp_str.replace("!", "")  # ne: no exclamation [mark]
     # Exclamation mark appears in str (but not in names) where
     # there is a pre-existing transcription note
-    cpnames_new = list(map(my_uxlc_unicode_names.name, cp_str_ne))
+    cpnames_new = list(map(uxlc_unicode_names.name, cp_str_ne))
     cpnames_str = cpnames_str.replace("etnachta", "etnahta")
     cpnames_str = cpnames_str.replace("gereshayim", "gershayim")
     cpnames_str = cpnames_str.replace("cgj", "combining-grapheme-joiner")

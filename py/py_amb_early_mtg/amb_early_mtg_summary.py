@@ -2,7 +2,7 @@
 
 from pycmn import my_utils
 import py_misc.my_html as my_html
-import py_misc.my_url_generator as urlg
+import py_amb_early_mtg.amb_early_mtg_url_generator as urlg
 
 
 def write(records, path, title, intro=None):

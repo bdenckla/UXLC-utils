@@ -4,7 +4,7 @@
 import unicodedata
 
 import py_misc.my_unicode as my_unicode
-from py_misc import uni_heb_char_classes as ucc
+import py_fois.uni_heb_char_classes as ucc
 from pycmn import hebrew_points as hpo
 from pycmn import str_defs as sd
 
