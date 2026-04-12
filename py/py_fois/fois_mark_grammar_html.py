@@ -101,6 +101,7 @@ def summary(mark_catalog):
 def write(mark_catalog, json_output_path, out_path):
     summary_counts = mark_catalog["summary-counts"]
     ordinary_page_notes = fois_mark_grammar_foi.ordinary_page_notes()
+    ordinary_override_rules = fois_mark_grammar_foi.ordinary_override_rules()
     body_contents = _body_wrapper(
         [
             my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
@@ -114,7 +115,10 @@ def write(mark_catalog, json_output_path, out_path):
             my_html.para(ordinary_page_notes["ordinary-prefixes"]),
             my_html.para(ordinary_page_notes["additional-patterns-intro"]),
             my_html.unordered_list(
-                fois_mark_grammar_foi.ordinary_pattern_descriptions()
+                tuple(
+                    ordinary_override_rule.description
+                    for ordinary_override_rule in ordinary_override_rules
+                )
             ),
             my_html.para(
                 "The three dually-cantillated passages are excluded: Exodus 20, Deuteronomy 5, and Genesis 35:22."
