@@ -8,6 +8,7 @@ import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HTML_PATH = REPO_ROOT / "gh-pages" / "fois" / "foi-mark-grammar.html"
+_ORDINARY_PATTERNS_INTRO_PREFIX = "Additional patterns treated as ordinary"
 
 
 class _OrdinaryPatternsParser(HTMLParser):
@@ -45,9 +46,8 @@ class _OrdinaryPatternsParser(HTMLParser):
         text = data.strip()
         if not text:
             return
-        if (
-            self._in_intro_paragraph
-            and text == "Additional patterns treated as ordinary:"
+        if self._in_intro_paragraph and text.startswith(
+            _ORDINARY_PATTERNS_INTRO_PREFIX
         ):
             self._capture_list = True
             return

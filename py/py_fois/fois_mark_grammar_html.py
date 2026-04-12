@@ -112,7 +112,6 @@ def write(mark_catalog, json_output_path, out_path):
             my_html.heading_level_2("Abbreviations"),
             _abbreviation_table(),
             my_html.para(ordinary_page_notes["stripped-marks"]),
-            my_html.para(ordinary_page_notes["ordinary-prefixes"]),
             my_html.para(ordinary_page_notes["additional-patterns-intro"]),
             my_html.unordered_list(
                 tuple(

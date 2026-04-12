@@ -55,11 +55,10 @@ _ORDINARY_PAGE_NOTES = {
         "Extraordinary upper dots and lower dots are stripped before clusters are "
         "classified on this page."
     ),
-    "ordinary-prefixes": (
-        "Ordinary clusters may also begin with shin-dot/sin-dot and dagesh/"
-        "mapiq/shuruq-dot or rafeh before the ordinary mark order."
+    "additional-patterns-intro": (
+        "Additional patterns treated as ordinary (after any optional shsi-dot "
+        "and optional dms-r):"
     ),
-    "additional-patterns-intro": "Additional patterns treated as ordinary:",
 }
 
 
