@@ -129,46 +129,44 @@ def summary(mark_catalog):
 
 def write(mark_catalog, json_output_path, out_path):
     summary_counts = mark_catalog["summary-counts"]
+    visible_class_keys = _visible_class_keys(mark_catalog)
     ordinary_page_notes = fois_mark_grammar_foi.ordinary_page_notes()
     page_exclusions = fois_mark_grammar_foi.page_exclusions()
     ordinary_pattern_display_items = (
         fois_mark_grammar_foi.ordinary_pattern_display_items()
     )
-    body_contents = _body_wrapper(
-        [
-            my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
-            my_html.para(
-                [
-                    my_html.anchor("FOI index", {"href": "index.html"}),
-                    " | ",
-                    *_json_link_contents(json_output_path),
-                ]
-            ),
-            my_html.para(
-                "This page classifies Hebrew letter clusters against the ordinary mark grammar:"
-            ),
-            _grammar_order_table(),
-            my_html.heading_level_2("Abbreviations"),
-            _abbreviation_table(),
-            my_html.para("Exclusions:"),
-            my_html.unordered_list(page_exclusions),
-            my_html.para(
-                _tooltipify_abbreviations(
-                    ordinary_page_notes["additional-patterns-intro"]
-                )
-            ),
-            _ordinary_pattern_display_list(ordinary_pattern_display_items),
-            my_html.para(
-                f"There are {_count_str(summary_counts['total-clusters'])} included "
-                f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
-                f"and {_count_str(summary_counts['total-clusters'] - summary_counts['ordinary'])} "
-                f"fall into the listed non-ordinary classes below."
-            ),
-            my_html.heading_level_2("Counts by class"),
-            _class_counts_table(mark_catalog),
-            *_sections(mark_catalog),
-        ]
-    )
+    body_items = [
+        my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
+        my_html.para(
+            [
+                my_html.anchor("FOI index", {"href": "index.html"}),
+                " | ",
+                *_json_link_contents(json_output_path),
+            ]
+        ),
+        my_html.para(
+            "This page classifies Hebrew letter clusters against the ordinary mark grammar:"
+        ),
+        _grammar_order_table(),
+        my_html.heading_level_2("Abbreviations"),
+        _abbreviation_table(),
+        my_html.para("Exclusions:"),
+        my_html.unordered_list(page_exclusions),
+        my_html.para(
+            _tooltipify_abbreviations(ordinary_page_notes["additional-patterns-intro"])
+        ),
+        _ordinary_pattern_display_list(ordinary_pattern_display_items),
+        my_html.para(_nonordinary_summary_text(summary_counts, visible_class_keys)),
+    ]
+    if visible_class_keys:
+        body_items.extend(
+            [
+                my_html.heading_level_2("Counts by class"),
+                _class_counts_table(mark_catalog, visible_class_keys),
+                *_sections(mark_catalog, visible_class_keys),
+            ]
+        )
+    body_contents = _body_wrapper(body_items)
     _write_html("mark-grammar (UXLC features of interest)", out_path, body_contents)
 
 
@@ -190,9 +188,29 @@ def _ordinary_pattern_display_list_item(display_item):
     return (*text, _ordinary_pattern_display_list(display_item.subitems))
 
 
-def _class_counts_table(mark_catalog):
+def _visible_class_keys(mark_catalog):
+    return tuple(
+        class_key
+        for class_key in _MARK_CLASS_ORDER[1:]
+        if mark_catalog["class-counts"][class_key] > 0
+    )
+
+
+def _nonordinary_summary_text(summary_counts, visible_class_keys):
+    nonordinary_count = summary_counts["total-clusters"] - summary_counts["ordinary"]
+    summary_text = (
+        f"There are {_count_str(summary_counts['total-clusters'])} included "
+        f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
+        f"and {_count_str(nonordinary_count)} fall into non-ordinary classes"
+    )
+    if visible_class_keys:
+        return f"{summary_text} listed below."
+    return f"{summary_text}."
+
+
+def _class_counts_table(mark_catalog, visible_class_keys):
     rows = [my_html.table_row_of_headers(("class", "count", "details"))]
-    for class_key in _MARK_CLASS_ORDER[1:]:
+    for class_key in visible_class_keys:
         rows.append(_class_count_row(class_key, mark_catalog))
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
@@ -212,9 +230,9 @@ def _class_count_row(class_key, mark_catalog):
     )
 
 
-def _sections(mark_catalog):
+def _sections(mark_catalog, visible_class_keys):
     sections = []
-    for class_key in _MARK_CLASS_ORDER[1:]:
+    for class_key in visible_class_keys:
         sections.extend(_section(class_key, mark_catalog))
     return sections
 
