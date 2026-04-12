@@ -2,14 +2,14 @@
   "summary-counts": {
     "total-clusters": 1200055,
     "excluded-atoms": 804,
-    "ordinary": 1200029,
-    "allowed-overrides": 11,
+    "ordinary": 1200032,
+    "allowed-overrides": 8,
     "exotic": 15
   },
   "class-counts": {
-    "ordinary": 1200029,
+    "ordinary": 1200032,
     "explicit-order": 5,
-    "initial-double-aom": 6,
+    "initial-double-aom": 3,
     "multi-vowel": 2,
     "noninitial-double-aom": 4,
     "unexpected-mark": 0,
@@ -33,18 +33,18 @@
       "sdva": 2055,
       "sa": 2327,
       "sda": 179,
+      "vaa": 321,
       "dav": 71,
       "ava": 15,
       "sav": 4,
       "sd": 89,
-      "vaa": 319,
       "vva": 221,
       "vav": 405,
       "vv": 10,
+      "svaa": 18,
       "dvaa": 67,
       "aa": 45,
       "daa": 16,
-      "svaa": 17,
       "saa": 2,
       "sdvaa": 1,
       "sdaa": 1
@@ -56,8 +56,8 @@
       "sav": 1
     },
     "initial-double-aom": {
-      "vaa": 4,
-      "svaa": 2
+      "vaa": 2,
+      "svaa": 1
     },
     "multi-vowel": {
       "dvva": 1,
@@ -132,36 +132,6 @@
       }
     ],
     "initial-double-aom": [
-      {
-        "bcvp": "Genesis 5:29.6",
-        "notes": "c",
-        "atom": "זֶ֞֠ה",
-        "atom-note-schematic": "ז.ה",
-        "cluster-index": 1,
-        "cluster": "זֶ֞֠",
-        "sequence": "vaa",
-        "mark-names": "segol-vowel, gershayim, telisha-gedola"
-      },
-      {
-        "bcvp": "2Kings 17:13.12",
-        "notes": "",
-        "atom": "שֻׁ֜֠בוּ",
-        "atom-note-schematic": null,
-        "cluster-index": 1,
-        "cluster": "שֻׁ֜֠",
-        "sequence": "svaa",
-        "mark-names": "shin-dot, qubuts, geresh, telisha-gedola"
-      },
-      {
-        "bcvp": "Tsefaniah 2:15.1",
-        "notes": "c",
-        "atom": "זֹ֞֠את",
-        "atom-note-schematic": "ז.את",
-        "cluster-index": 1,
-        "cluster": "זֹ֞֠",
-        "sequence": "vaa",
-        "mark-names": "ḥolam, gershayim, telisha-gedola"
-      },
       {
         "bcvp": "Psalms 56:10.1",
         "notes": "",

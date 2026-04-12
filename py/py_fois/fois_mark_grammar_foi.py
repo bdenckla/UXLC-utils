@@ -30,7 +30,9 @@ _INITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES = frozenset(
         (hpo.MTGOSLQ, ha.TEL_G),
         (hpo.MTGOSLQ, ha.DEX),
         (hpo.MTGOSLQ, ha.GER_M),
+        (ha.GER, ha.TEL_G),
         (ha.GER_M, ha.REV),
+        (ha.GER_2, ha.TEL_G),
     )
 )
 _NONINITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES = frozenset(((hpo.MTGOSLQ, ha.OLE),))
@@ -372,7 +374,7 @@ _ORDINARY_OVERRIDE_RULES = (
     ),
     OrdinaryOverrideRule(
         "initial-double-aom-suffix",
-        "On the first letter of a word only: same-letter accent pairs of munaḥ then deḥi; meteg then telisha gedolah, deḥi, or geresh muqdam; or geresh muqdam then revia.",
+        "On the first letter of a word only: same-letter accent pairs of munaḥ then deḥi; meteg then telisha gedolah, deḥi, or geresh muqdam; geresh or gershayim then telisha gedolah; or geresh muqdam then revia.",
         _matches_initial_double_aom_suffix,
     ),
     OrdinaryOverrideRule(
