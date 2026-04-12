@@ -2,12 +2,12 @@
 """Collect FOI data for mark grammar 2."""
 
 import py_misc.my_unicode as my_unicode
+import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 from pycmn import hebrew_points as hpo
 
 
 _TITLE = "mark grammar 2"
-_MAX_EXAMPLES_PER_BUCKET = 5
 _ADDITIONAL_PATTERNS_INTRO = (
     "Patterns treated as ordinary (after an optional shsi-dot and an optional "
     "dms-r):"
@@ -49,6 +49,7 @@ _ABBREVIATION_ROWS = (
     ("shsi-dot", "shin-dot or sin-dot"),
     ("dms-r", "dms (see below) or rafeh"),
     ("dms", "dagesh/mapiq/shuruq-dot"),
+    ("metuq", "meteg/siluq"),
     ("ba-is", "below-accent (including silluq)"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),
@@ -60,6 +61,8 @@ _ABBREVIATION_ROWS = (
         "prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam",
     ),
 )
+_SHSI_DOT_MARKS = frozenset((hpo.SHIND, hpo.SIND))
+_DMS_MARKS = frozenset((hpo.DAGOMOSD,))
 _RARE_BUCKET_SPEC = {
     "key": "rare-default-rafeh-sdva",
     "label": "Totally ordinary: optional shsi-dot, rafeh, vowel, aom.",
@@ -153,6 +156,17 @@ def init():
     }
 
 
+def finalize(catalog):
+    _finalize_bucket(catalog["rare-bucket"], catalog["rare-bucket"]["key"])
+    for spec in _LEAF_BUCKET_SPECS:
+        bucket = catalog["leaf-buckets"][spec["key"]]
+        _finalize_bucket(bucket, spec["key"])
+        if "fork-buckets" not in bucket:
+            continue
+        for fork_key, fork_bucket in bucket["fork-buckets"].items():
+            _finalize_bucket(fork_bucket, spec["key"], fork_key)
+
+
 def collect_for_verse(fois, bcv, verse):
     if fois_mark_grammar_foi.is_excluded(*bcv):
         return
@@ -193,6 +207,7 @@ def _init_bucket(spec):
         "label": spec["label"],
         "count": 0,
         "examples": [],
+        "_all-cases": [],
     }
     if "forks" not in spec:
         return bucket
@@ -202,6 +217,7 @@ def _init_bucket(spec):
             "label": fork_label,
             "count": 0,
             "examples": [],
+            "_all-cases": [],
         }
         for fork_key, fork_label in spec["forks"]
     }
@@ -210,9 +226,42 @@ def _init_bucket(spec):
 
 def _record_case(bucket, case_dic):
     bucket["count"] += 1
-    if len(bucket["examples"]) >= _MAX_EXAMPLES_PER_BUCKET:
-        return
-    bucket["examples"].append(case_dic)
+    bucket["_all-cases"].append(dict(case_dic))
+
+
+def _finalize_bucket(bucket, bucket_key, fork_key=None):
+    bucket["examples"] = [
+        _public_case_dic(case_dic)
+        for case_dic in _select_examples(bucket["_all-cases"], bucket_key, fork_key)
+    ]
+    del bucket["_all-cases"]
+
+
+def _select_examples(cases, bucket_key, fork_key):
+    del bucket_key, fork_key
+    counts_by_mark_names = {}
+    selected_by_mark_names = {}
+    for case_dic in cases:
+        display_mark_names = case_dic["_diversity-mark-names"]
+        counts_by_mark_names[display_mark_names] = (
+            counts_by_mark_names.get(display_mark_names, 0) + 1
+        )
+        if display_mark_names in selected_by_mark_names:
+            continue
+        representative = dict(case_dic)
+        representative["count"] = 0
+        selected_by_mark_names[display_mark_names] = representative
+    for display_mark_names, representative in selected_by_mark_names.items():
+        representative["count"] = counts_by_mark_names[display_mark_names]
+    return sorted(selected_by_mark_names.values(), key=_mark_names_sort_key)
+
+
+def _mark_names_sort_key(case_dic):
+    return tuple(case_dic["mark names"].split(", "))
+
+
+def _public_case_dic(case_dic):
+    return {key: value for key, value in case_dic.items() if not key.startswith("_")}
 
 
 def _is_rare_default_rafeh_sdva(cluster, ordinary_match):
@@ -224,14 +273,30 @@ def _is_rare_default_rafeh_sdva(cluster, ordinary_match):
 
 
 def _case_dic(bcvp, atom_text, atom_note_data, cluster_idx, cluster):
+    mark_names = ", ".join(my_unicode.name(mark) for mark in cluster["marks"])
+    diversity_marks = _marks_without_shsi_dot_and_dms(cluster["marks"])
+    diversity_mark_names = ", ".join(my_unicode.name(mark) for mark in diversity_marks)
     return {
         "bcvp": _bcvp_str(bcvp),
         "notes": _notes_str(atom_note_data),
         "atom": atom_text,
         "cluster-index": cluster_idx,
-        "sequence": fois_mark_grammar_foi.mark_sequence(cluster),
-        "mark names": ", ".join(my_unicode.name(mark) for mark in cluster["marks"]),
+        "sequence": fois_mark_grammar_foi.mark_sequence(diversity_marks),
+        "mark names": mark_names,
+        "count": 0,
+        "_diversity-mark-names": fois_mark_name_abbrev.abbreviate_mark_names(
+            diversity_mark_names
+        ),
     }
+
+
+def _marks_without_shsi_dot_and_dms(marks):
+    idx = 0
+    if idx < len(marks) and marks[idx] in _SHSI_DOT_MARKS:
+        idx += 1
+    if idx < len(marks) and marks[idx] in _DMS_MARKS:
+        idx += 1
+    return marks[idx:]
 
 
 def _atom_note_data(atom):

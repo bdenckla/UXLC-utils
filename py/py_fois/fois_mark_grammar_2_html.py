@@ -5,21 +5,24 @@ from pathlib import PurePosixPath
 import re
 
 import py_misc.my_html as my_html
+import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import py_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
 
-_CASE_HEADERS = ("bcvp", "notes", "atom", "sequence", "mark names")
+_CASE_HEADERS = ("bcvp", "notes", "atom", "sequence", "count", "mark names")
 _CASE_HEADER_LABELS = {
     "bcvp": "bcvp",
     "notes": "n",
     "atom": "atom",
     "sequence": "seq",
+    "count": "count",
     "mark names": "mark names",
 }
 _CASE_HEADER_TOOLTIPS = {
     "notes": "notes",
-    "sequence": "sequence",
+    "sequence": "sequence, ignoring shsi-dot and dms",
+    "count": "count with this mark names value in this category, ignoring shsi-dot and dms",
 }
 _ABBREVIATION_TOOLTIP_TITLES = {
     "aom": "accent or meteg",
@@ -168,8 +171,10 @@ def _bucket_section(bucket, bucket_key):
 def _bucket_example_intro(bucket):
     shown_count = len(bucket["examples"])
     return my_html.para(
-        f"Showing {shown_count} example{'s' if shown_count != 1 else ''} out of "
-        f"{_count_str(bucket['count'])} total."
+        f"Showing {shown_count} distinct mark-names value"
+        f"{'s' if shown_count != 1 else ''} across "
+        f"{_count_str(bucket['count'])} total clusters, ignoring shsi-dot and dms "
+        f"for diversity."
     )
 
 
@@ -204,8 +209,20 @@ def _case_row(case_dic):
                 )
             )
             continue
+        if field_name == "mark names":
+            row_cells.append(my_html.table_datum(_mark_names_cell_contents(case_dic)))
+            continue
+        if field_name == "count":
+            row_cells.append(my_html.table_datum(_count_str(case_dic[field_name])))
+            continue
         row_cells.append(my_html.table_datum(case_dic[field_name]))
     return my_html.table_row(tuple(row_cells))
+
+
+def _mark_names_cell_contents(case_dic):
+    return _tooltipify_abbreviations(
+        fois_mark_name_abbrev.abbreviate_mark_names(case_dic["mark names"])
+    )
 
 
 def _case_header_label(field_name):

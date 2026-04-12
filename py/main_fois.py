@@ -94,6 +94,7 @@ def main():
                 fois_mark_grammar_2_foi.collect_for_verse(
                     fois["mark-grammar-2"], bcv, verse
                 )
+    fois_mark_grammar_2_foi.finalize(fois["mark-grammar-2"])
     json_output_paths = {
         foi_key: f"gh-pages/fois/features_of_interest-{foi_key}.json"
         for foi_key in fois

@@ -6,6 +6,7 @@ from pathlib import PurePosixPath
 import re
 
 import py_misc.my_html as my_html
+import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
 
@@ -409,13 +410,9 @@ def _uxlc_change_url(release_and_id):
 
 
 def _abbreviate_mark_names(mark_names):
-    abbreviated = (
-        mark_names.replace("dagesh/mapiq/shuruq-dot", "dms")
-        .replace("meteg/siluq", "metuq")
-        .replace("combining-grapheme-joiner", "CGJ")
-        .replace("zero-width-joiner", "ZWJ")
+    return _tooltipify_abbreviations(
+        fois_mark_name_abbrev.abbreviate_mark_names(mark_names)
     )
-    return _tooltipify_abbreviations(abbreviated)
 
 
 def _tooltipify_abbreviations(text):
