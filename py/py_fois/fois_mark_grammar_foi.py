@@ -24,6 +24,7 @@ _DAGESH_MARKS = frozenset((hpo.DAGOMOSD, hpo.RAFE))
 _VOWEL_MARKS = frozenset(ucc.VOWEL_POINTS)
 _AOM_MARKS = frozenset(ucc.ACCENTS)
 _NON_METEG_AOM_MARKS = frozenset(mark for mark in ucc.ACCENTS if mark != hpo.MTGOSLQ)
+_HATAF_ZWJ_METEG_OPTIONAL_MARKS = frozenset((ha.DEX, ha.GER_M))
 _INITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES = frozenset(
     (
         (ha.MUN, ha.DEX),
@@ -256,7 +257,7 @@ def _is_expected_hataf_zwj_meteg(marks):
         return False
     trailing_marks = marks[idx + 3 :]
     return len(trailing_marks) <= 1 and all(
-        mark in _NON_METEG_AOM_MARKS for mark in trailing_marks
+        mark in _HATAF_ZWJ_METEG_OPTIONAL_MARKS for mark in trailing_marks
     )
 
 
@@ -396,7 +397,7 @@ _ORDINARY_OVERRIDE_RULES = (
     ),
     OrdinaryOverrideRule(
         "hataf-zwj-meteg",
-        "One of the three ḥataf vowels, then ZWJ, then meteg, with an optional trailing non-meteg accent.",
+        "One of the three ḥataf vowels, then ZWJ, then meteg, then, optionally, deḥi or geresh muqdam.",
         _matches_hataf_zwj_meteg,
     ),
     OrdinaryOverrideRule(
@@ -425,7 +426,7 @@ _ORDINARY_PATTERN_DISPLAY_ITEMS = (
         ),
     ),
     OrdinaryPatternDisplayItem(
-        "One of the three ḥataf vowels, then ZWJ, then meteg, with an optional trailing non-meteg accent."
+        "One of the three ḥataf vowels, then ZWJ, then meteg, then, optionally, deḥi or geresh muqdam."
     ),
     OrdinaryPatternDisplayItem(
         "On the first letter of a word only:",
