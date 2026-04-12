@@ -2,6 +2,7 @@
 """Exports write, summary."""
 
 from pathlib import PurePosixPath
+import re
 
 import py_misc.my_html as my_html
 
@@ -33,6 +34,50 @@ _ABBREVIATION_ROWS = (
     ("pq-vowel", "pataḥ or qamats"),
     ("xs-vowel", "ḥiriq or sheva"),
 )
+_BCVP_PATTERN = re.compile(
+    r"^(?P<book>.+) (?P<chapter>\d+):(?P<verse>\d+)\.(?P<atom>\d+)$"
+)
+_TANACH_US_BOOK_CODES = {
+    "Genesis": "Gen",
+    "Exodus": "Ex",
+    "Levit": "Lev",
+    "Numbers": "Num",
+    "Deuter": "Deut",
+    "Joshua": "Josh",
+    "Judges": "Judg",
+    "1Samuel": "1Sam",
+    "2Samuel": "2Sam",
+    "1Kings": "1Kings",
+    "2Kings": "2Kings",
+    "Isaiah": "Isa",
+    "Jeremiah": "Jer",
+    "Ezekiel": "Ezek",
+    "Hosea": "Hos",
+    "Joel": "Joel",
+    "Amos": "Am",
+    "Obadiah": "Ob",
+    "Jonah": "Jon",
+    "Micah": "Mic",
+    "Nahum": "Nah",
+    "Habakkuk": "Hab",
+    "Tsefaniah": "Zeph",
+    "Haggai": "Hag",
+    "Zechariah": "Zech",
+    "Malachi": "Mal",
+    "Psalms": "Ps",
+    "Proverbs": "Prov",
+    "Job": "Job",
+    "Song of Songs": "Song",
+    "Ruth": "Ruth",
+    "Lamentations": "Lam",
+    "Ecclesiastes": "Eccl",
+    "Esther": "Esth",
+    "Daniel": "Dan",
+    "Ezra": "Ezra",
+    "Nehemiah": "Neh",
+    "1Chronicles": "1Chr",
+    "2Chronicles": "2Chr",
+}
 
 
 def _count_str(value):
@@ -172,6 +217,9 @@ def _case_row(case_dic):
     row_cells = []
     for field_name in _MARK_CASE_HEADERS:
         cell_value = case_dic[field_name]
+        if field_name == "bcvp":
+            row_cells.append(my_html.table_datum(_linked_bcvp(cell_value)))
+            continue
         if field_name in ("atom", "cluster"):
             row_cells.append(
                 my_html.table_datum(cell_value, {"lang": "hbo", "dir": "rtl"})
@@ -190,6 +238,31 @@ def _case_row(case_dic):
 def _abbreviate_mark_names(mark_names):
     return mark_names.replace("dagesh/mapiq/shuruq-dot", "dms").replace(
         "meteg/siluq", "metuq"
+    )
+
+
+def _linked_bcvp(bcvp_str):
+    match = _BCVP_PATTERN.fullmatch(bcvp_str)
+    if match is None:
+        return bcvp_str
+    book = match.group("book")
+    chapter = match.group("chapter")
+    verse = match.group("verse")
+    atom = match.group("atom")
+    bcv_str = f"{book} {chapter}:{verse}"
+    return (
+        my_html.anchor(
+            bcv_str,
+            {"href": _tanach_us_bcv_url(book, chapter, verse)},
+        ),
+        f".{atom}",
+    )
+
+
+def _tanach_us_bcv_url(book, chapter, verse):
+    return (
+        f"https://tanach.us/Tanach.xml?"
+        f"{_TANACH_US_BOOK_CODES[book]}{chapter}:{verse}"
     )
 
 
