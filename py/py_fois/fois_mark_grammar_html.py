@@ -227,20 +227,8 @@ def _section(class_key, mark_catalog):
     )
     return [
         heading,
-        _sequence_counts_table(mark_catalog["sequence-counts-by-class"][class_key]),
         _cases_table(cases),
     ]
-
-
-def _sequence_counts_table(sequence_counts):
-    rows = [my_html.table_row_of_headers(("sequence", "count"))]
-    for sequence, count in sorted(
-        sequence_counts.items(), key=lambda item: (-item[1], item[0])
-    ):
-        rows.append(
-            my_html.table_row_of_data((_sequence_label(sequence), _count_str(count)))
-        )
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _abbreviation_table():
