@@ -1,0 +1,733 @@
+{
+  "summary-counts": {
+    "tracked-clusters": 1903,
+    "rare-default-rafeh-sdva": 1
+  },
+  "rare-bucket": {
+    "key": "rare-default-rafeh-sdva",
+    "label": "Totally ordinary: optional shsi-dot, rafeh, vowel, aom.",
+    "count": 1,
+    "examples": [
+      {
+        "bcvp": "Psalms 119:99.7",
+        "notes": "",
+        "atom": "לִֽֿי׃",
+        "cluster-index": 1,
+        "sequence": "dva",
+        "mark names": "rafeh, ḥiriq, meteg/siluq"
+      }
+    ]
+  },
+  "leaf-buckets": {
+    "meteg-cgj-vowel": {
+      "key": "meteg-cgj-vowel",
+      "label": "meteg, CGJ, vowel, optional pre-wm.",
+      "count": 720,
+      "examples": [
+        {
+          "bcvp": "Genesis 1:7.16",
+          "notes": "",
+          "atom": "וֽ͏ַיְהִי־",
+          "cluster-index": 1,
+          "sequence": "av",
+          "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+        },
+        {
+          "bcvp": "Genesis 1:13.1",
+          "notes": "",
+          "atom": "וֽ͏ַיְהִי־",
+          "cluster-index": 1,
+          "sequence": "av",
+          "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+        },
+        {
+          "bcvp": "Genesis 1:13.3",
+          "notes": "",
+          "atom": "וֽ͏ַיְהִי־",
+          "cluster-index": 1,
+          "sequence": "av",
+          "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+        },
+        {
+          "bcvp": "Genesis 1:15.8",
+          "notes": "",
+          "atom": "וֽ͏ַיְהִי־",
+          "cluster-index": 1,
+          "sequence": "av",
+          "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+        },
+        {
+          "bcvp": "Genesis 1:21.9",
+          "notes": "",
+          "atom": "הֽ͏ַחַיָּ֣ה ׀",
+          "cluster-index": 1,
+          "sequence": "av",
+          "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+        }
+      ],
+      "fork-buckets": {
+        "without-pre-wm": {
+          "key": "without-pre-wm",
+          "label": "without pre-wm",
+          "count": 630,
+          "examples": [
+            {
+              "bcvp": "Genesis 1:7.16",
+              "notes": "",
+              "atom": "וֽ͏ַיְהִי־",
+              "cluster-index": 1,
+              "sequence": "av",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 1:13.1",
+              "notes": "",
+              "atom": "וֽ͏ַיְהִי־",
+              "cluster-index": 1,
+              "sequence": "av",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 1:13.3",
+              "notes": "",
+              "atom": "וֽ͏ַיְהִי־",
+              "cluster-index": 1,
+              "sequence": "av",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 1:15.8",
+              "notes": "",
+              "atom": "וֽ͏ַיְהִי־",
+              "cluster-index": 1,
+              "sequence": "av",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 1:21.9",
+              "notes": "",
+              "atom": "הֽ͏ַחַיָּ֣ה ׀",
+              "cluster-index": 1,
+              "sequence": "av",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ"
+            }
+          ]
+        },
+        "with-pre-wm": {
+          "key": "with-pre-wm",
+          "label": "with pre-wm",
+          "count": 90,
+          "examples": [
+            {
+              "bcvp": "Genesis 6:14.7",
+              "notes": "",
+              "atom": "תּֽ͏ַעֲשֶׂ֣ה",
+              "cluster-index": 1,
+              "sequence": "dav",
+              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 6:16.2",
+              "notes": "",
+              "atom": "תּֽ͏ַעֲשֶׂ֣ה",
+              "cluster-index": 1,
+              "sequence": "dav",
+              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 6:16.15",
+              "notes": "",
+              "atom": "תּֽ͏ַעֲשֶֽׂהָ׃",
+              "cluster-index": 1,
+              "sequence": "dav",
+              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 7:9.10",
+              "notes": "",
+              "atom": "כּֽ͏ַאֲשֶׁ֛ר",
+              "cluster-index": 1,
+              "sequence": "dav",
+              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+            },
+            {
+              "bcvp": "Genesis 7:16.7",
+              "notes": "",
+              "atom": "כּֽ͏ַאֲשֶׁ֛ר",
+              "cluster-index": 1,
+              "sequence": "dav",
+              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+            }
+          ]
+        }
+      }
+    },
+    "lamed-pq-cgj-xs": {
+      "key": "lamed-pq-cgj-xs",
+      "label": "On lamed only: pq-vowel, optional ba-is, CGJ, xs-vowel.",
+      "count": 405,
+      "examples": [
+        {
+          "bcvp": "Joshua 15:8.11",
+          "notes": "",
+          "atom": "יְרֽוּשָׁלָ֑͏ִם",
+          "cluster-index": 5,
+          "sequence": "vav",
+          "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
+        },
+        {
+          "bcvp": "Judges 1:7.21",
+          "notes": "",
+          "atom": "יְרוּשָׁלַ֖͏ִם",
+          "cluster-index": 5,
+          "sequence": "vav",
+          "mark names": "pataḥ, tipeḥa/tarḥa, combining-grapheme-joiner, ḥiriq"
+        },
+        {
+          "bcvp": "Judges 19:10.12",
+          "notes": "",
+          "atom": "יְרוּשָׁלָ֑͏ִם",
+          "cluster-index": 5,
+          "sequence": "vav",
+          "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
+        },
+        {
+          "bcvp": "1Samuel 17:54.7",
+          "notes": "",
+          "atom": "יְרוּשָׁלָ֑͏ִם",
+          "cluster-index": 5,
+          "sequence": "vav",
+          "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
+        },
+        {
+          "bcvp": "2Samuel 5:5.9",
+          "notes": "",
+          "atom": "וּבִירוּשָׁלַ֣͏ִם",
+          "cluster-index": 7,
+          "sequence": "vav",
+          "mark names": "pataḥ, munaḥ, combining-grapheme-joiner, ḥiriq"
+        }
+      ],
+      "fork-buckets": {
+        "without-ba-is": {
+          "key": "without-ba-is",
+          "label": "without ba-is",
+          "count": 0,
+          "examples": []
+        },
+        "with-ba-is": {
+          "key": "with-ba-is",
+          "label": "with ba-is",
+          "count": 405,
+          "examples": [
+            {
+              "bcvp": "Joshua 15:8.11",
+              "notes": "",
+              "atom": "יְרֽוּשָׁלָ֑͏ִם",
+              "cluster-index": 5,
+              "sequence": "vav",
+              "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
+            },
+            {
+              "bcvp": "Judges 1:7.21",
+              "notes": "",
+              "atom": "יְרוּשָׁלַ֖͏ִם",
+              "cluster-index": 5,
+              "sequence": "vav",
+              "mark names": "pataḥ, tipeḥa/tarḥa, combining-grapheme-joiner, ḥiriq"
+            },
+            {
+              "bcvp": "Judges 19:10.12",
+              "notes": "",
+              "atom": "יְרוּשָׁלָ֑͏ִם",
+              "cluster-index": 5,
+              "sequence": "vav",
+              "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
+            },
+            {
+              "bcvp": "1Samuel 17:54.7",
+              "notes": "",
+              "atom": "יְרוּשָׁלָ֑͏ִם",
+              "cluster-index": 5,
+              "sequence": "vav",
+              "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
+            },
+            {
+              "bcvp": "2Samuel 5:5.9",
+              "notes": "",
+              "atom": "וּבִירוּשָׁלַ֣͏ִם",
+              "cluster-index": 7,
+              "sequence": "vav",
+              "mark names": "pataḥ, munaḥ, combining-grapheme-joiner, ḥiriq"
+            }
+          ]
+        }
+      }
+    },
+    "lamed-pq-xs-above-aom": {
+      "key": "lamed-pq-xs-above-aom",
+      "label": "On lamed only: pq-vowel, xs-vowel, optional above-accent.",
+      "count": 231,
+      "examples": [
+        {
+          "bcvp": "Joshua 10:1.6",
+          "notes": "",
+          "atom": "יְרוּשָׁלִַ֗ם",
+          "cluster-index": 5,
+          "sequence": "vva",
+          "mark names": "pataḥ, ḥiriq, revia"
+        },
+        {
+          "bcvp": "Joshua 10:3.5",
+          "notes": "",
+          "atom": "יְרוּשָׁלִַ֗ם",
+          "cluster-index": 5,
+          "sequence": "vva",
+          "mark names": "pataḥ, ḥiriq, revia"
+        },
+        {
+          "bcvp": "Joshua 10:5.7",
+          "notes": "",
+          "atom": "יְרוּשָׁלִַ֜ם",
+          "cluster-index": 5,
+          "sequence": "vva",
+          "mark names": "pataḥ, ḥiriq, geresh"
+        },
+        {
+          "bcvp": "Joshua 10:23.13",
+          "notes": "",
+          "atom": "יְרוּשָׁלִַ֗ם",
+          "cluster-index": 5,
+          "sequence": "vva",
+          "mark names": "pataḥ, ḥiriq, revia"
+        },
+        {
+          "bcvp": "Joshua 12:10.2",
+          "notes": "",
+          "atom": "יְרוּשָׁלִַ֙ם֙",
+          "cluster-index": 5,
+          "sequence": "vva",
+          "mark names": "pataḥ, ḥiriq, pashta"
+        }
+      ],
+      "fork-buckets": {
+        "without-above-accent": {
+          "key": "without-above-accent",
+          "label": "without above-accent",
+          "count": 10,
+          "examples": [
+            {
+              "bcvp": "2Samuel 20:3.5",
+              "notes": "",
+              "atom": "יְרֽוּשָׁלִַם֒",
+              "cluster-index": 5,
+              "sequence": "vv",
+              "mark names": "pataḥ, ḥiriq"
+            },
+            {
+              "bcvp": "1Kings 12:21.4",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַם֒",
+              "cluster-index": 5,
+              "sequence": "vv",
+              "mark names": "pataḥ, ḥiriq"
+            },
+            {
+              "bcvp": "2Kings 24:14.4",
+              "notes": "",
+              "atom": "יְ֠רוּשָׁלִַם",
+              "cluster-index": 5,
+              "sequence": "vv",
+              "mark names": "pataḥ, ḥiriq"
+            },
+            {
+              "bcvp": "Zechariah 14:2.6",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַם֮",
+              "cluster-index": 5,
+              "sequence": "vv",
+              "mark names": "pataḥ, ḥiriq"
+            },
+            {
+              "bcvp": "Zechariah 14:4.11",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַם֮",
+              "cluster-index": 5,
+              "sequence": "vv",
+              "mark names": "pataḥ, ḥiriq"
+            }
+          ]
+        },
+        "with-above-accent": {
+          "key": "with-above-accent",
+          "label": "with above-accent",
+          "count": 221,
+          "examples": [
+            {
+              "bcvp": "Joshua 10:1.6",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַ֗ם",
+              "cluster-index": 5,
+              "sequence": "vva",
+              "mark names": "pataḥ, ḥiriq, revia"
+            },
+            {
+              "bcvp": "Joshua 10:3.5",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַ֗ם",
+              "cluster-index": 5,
+              "sequence": "vva",
+              "mark names": "pataḥ, ḥiriq, revia"
+            },
+            {
+              "bcvp": "Joshua 10:5.7",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַ֜ם",
+              "cluster-index": 5,
+              "sequence": "vva",
+              "mark names": "pataḥ, ḥiriq, geresh"
+            },
+            {
+              "bcvp": "Joshua 10:23.13",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַ֗ם",
+              "cluster-index": 5,
+              "sequence": "vva",
+              "mark names": "pataḥ, ḥiriq, revia"
+            },
+            {
+              "bcvp": "Joshua 12:10.2",
+              "notes": "",
+              "atom": "יְרוּשָׁלִַ֙ם֙",
+              "cluster-index": 5,
+              "sequence": "vva",
+              "mark names": "pataḥ, ḥiriq, pashta"
+            }
+          ]
+        }
+      }
+    },
+    "hataf-zwj-meteg": {
+      "key": "hataf-zwj-meteg",
+      "label": "xataf, ZWJ, meteg, optional pre-wm.",
+      "count": 80,
+      "examples": [
+        {
+          "bcvp": "Levit 21:10.4",
+          "notes": "",
+          "atom": "אֲ‍ֽשֶׁר־",
+          "cluster-index": 1,
+          "sequence": "va",
+          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+        },
+        {
+          "bcvp": "Deuter 27:3.14",
+          "notes": "",
+          "atom": "אֲ‍ֽשֶׁר־",
+          "cluster-index": 1,
+          "sequence": "va",
+          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+        },
+        {
+          "bcvp": "Deuter 28:69.4",
+          "notes": "",
+          "atom": "אֲ‍ֽשֶׁר־",
+          "cluster-index": 1,
+          "sequence": "va",
+          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+        },
+        {
+          "bcvp": "Judges 9:27.11",
+          "notes": "",
+          "atom": "אֱ‍ֽלֹֽהֵיהֶ֔ם",
+          "cluster-index": 1,
+          "sequence": "va",
+          "mark names": "ḥataf-segol, zero-width-joiner, meteg/siluq"
+        },
+        {
+          "bcvp": "1Samuel 14:45.5",
+          "notes": "",
+          "atom": "הֲ‍ֽיוֹנָתָ֤ן ׀",
+          "cluster-index": 1,
+          "sequence": "va",
+          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+        }
+      ],
+      "fork-buckets": {
+        "without-pre-wm": {
+          "key": "without-pre-wm",
+          "label": "without pre-wm",
+          "count": 75,
+          "examples": [
+            {
+              "bcvp": "Levit 21:10.4",
+              "notes": "",
+              "atom": "אֲ‍ֽשֶׁר־",
+              "cluster-index": 1,
+              "sequence": "va",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+            },
+            {
+              "bcvp": "Deuter 27:3.14",
+              "notes": "",
+              "atom": "אֲ‍ֽשֶׁר־",
+              "cluster-index": 1,
+              "sequence": "va",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+            },
+            {
+              "bcvp": "Deuter 28:69.4",
+              "notes": "",
+              "atom": "אֲ‍ֽשֶׁר־",
+              "cluster-index": 1,
+              "sequence": "va",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+            },
+            {
+              "bcvp": "Judges 9:27.11",
+              "notes": "",
+              "atom": "אֱ‍ֽלֹֽהֵיהֶ֔ם",
+              "cluster-index": 1,
+              "sequence": "va",
+              "mark names": "ḥataf-segol, zero-width-joiner, meteg/siluq"
+            },
+            {
+              "bcvp": "1Samuel 14:45.5",
+              "notes": "",
+              "atom": "הֲ‍ֽיוֹנָתָ֤ן ׀",
+              "cluster-index": 1,
+              "sequence": "va",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq"
+            }
+          ]
+        },
+        "with-pre-wm": {
+          "key": "with-pre-wm",
+          "label": "with pre-wm",
+          "count": 5,
+          "examples": [
+            {
+              "bcvp": "Psalms 115:4.1",
+              "notes": "",
+              "atom": "עֲ‍ֽ֭צַבֵּיהֶם",
+              "cluster-index": 1,
+              "sequence": "vaa",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi"
+            },
+            {
+              "bcvp": "Job 7:11.6",
+              "notes": "",
+              "atom": "אֲ‍ֽ֭דַבְּרָה",
+              "cluster-index": 1,
+              "sequence": "vaa",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi"
+            },
+            {
+              "bcvp": "Job 31:15.1",
+              "notes": "t",
+              "atom": "הֲ‍ֽ֝לֹא־",
+              "cluster-index": 1,
+              "sequence": "vaa",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, geresh-muqdam"
+            },
+            {
+              "bcvp": "Job 39:26.1",
+              "notes": "",
+              "atom": "הֲ‍ֽ֭מִבִּינָ֣תְךָ",
+              "cluster-index": 1,
+              "sequence": "vaa",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi"
+            },
+            {
+              "bcvp": "Job 41:10.1",
+              "notes": "",
+              "atom": "עֲ‍ֽ֭טִישֹׁתָיו",
+              "cluster-index": 1,
+              "sequence": "vaa",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi"
+            }
+          ]
+        }
+      }
+    },
+    "initial-munah-dehi": {
+      "key": "initial-munah-dehi",
+      "label": "On the first letter of a word only (after an optional vowel): munaḥ, deḥi.",
+      "count": 2,
+      "examples": [
+        {
+          "bcvp": "Psalms 135:2.1",
+          "notes": "",
+          "atom": "שֶׁ֣֭עֹֽמְדִים",
+          "cluster-index": 1,
+          "sequence": "svaa",
+          "mark names": "shin-dot, segol-vowel, munaḥ, deḥi"
+        },
+        {
+          "bcvp": "Job 32:13.2",
+          "notes": "",
+          "atom": "תֹּ֣֭אמְרוּ",
+          "cluster-index": 1,
+          "sequence": "dvaa",
+          "mark names": "dagesh/mapiq/shuruq-dot, ḥolam, munaḥ, deḥi"
+        }
+      ]
+    },
+    "initial-meteg-pre-wm": {
+      "key": "initial-meteg-pre-wm",
+      "label": "On the first letter of a word only (after an optional vowel): meteg, pre-wm.",
+      "count": 220,
+      "examples": [
+        {
+          "bcvp": "Genesis 45:23.11",
+          "notes": "",
+          "atom": "נֹֽ֠שְׂאֹת",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "ḥolam, meteg/siluq, telisha-gedola"
+        },
+        {
+          "bcvp": "Exodus 13:5.7",
+          "notes": "",
+          "atom": "הַֽ֠כְּנַעֲנִי",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "pataḥ, meteg/siluq, telisha-gedola"
+        },
+        {
+          "bcvp": "Deuter 4:19.5",
+          "notes": "",
+          "atom": "וְֽ֠רָאִיתָ",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "sheva, meteg/siluq, telisha-gedola"
+        },
+        {
+          "bcvp": "Joshua 12:6.7",
+          "notes": "",
+          "atom": "וַֽ֠יִּתְּנָהּ",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "pataḥ, meteg/siluq, telisha-gedola"
+        },
+        {
+          "bcvp": "Judges 1:5.1",
+          "notes": "",
+          "atom": "וַֽ֠יִּמְצְאוּ",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "pataḥ, meteg/siluq, telisha-gedola"
+        }
+      ]
+    },
+    "initial-geresh-telisha-gedolah": {
+      "key": "initial-geresh-telisha-gedolah",
+      "label": "On the first letter of a word only (after an optional vowel): geresh or gershayim, telisha gedolah.",
+      "count": 3,
+      "examples": [
+        {
+          "bcvp": "Genesis 5:29.6",
+          "notes": "c",
+          "atom": "זֶ֞֠ה",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "segol-vowel, gershayim, telisha-gedola"
+        },
+        {
+          "bcvp": "2Kings 17:13.12",
+          "notes": "",
+          "atom": "שֻׁ֜֠בוּ",
+          "cluster-index": 1,
+          "sequence": "svaa",
+          "mark names": "shin-dot, qubuts, geresh, telisha-gedola"
+        },
+        {
+          "bcvp": "Tsefaniah 2:15.1",
+          "notes": "c",
+          "atom": "זֹ֞֠את",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "ḥolam, gershayim, telisha-gedola"
+        }
+      ]
+    },
+    "initial-geresh-muqdam-revia": {
+      "key": "initial-geresh-muqdam-revia",
+      "label": "On the first letter of a word only (after an optional vowel): geresh muqdam, revia.",
+      "count": 238,
+      "examples": [
+        {
+          "bcvp": "Psalms 7:1.8",
+          "notes": "",
+          "atom": "כ֝֗וּשׁ",
+          "cluster-index": 1,
+          "sequence": "aa",
+          "mark names": "geresh-muqdam, revia"
+        },
+        {
+          "bcvp": "Psalms 11:1.9",
+          "notes": "",
+          "atom": "נ֝֗וּדִי",
+          "cluster-index": 1,
+          "sequence": "aa",
+          "mark names": "geresh-muqdam, revia"
+        },
+        {
+          "bcvp": "Psalms 11:2.12",
+          "notes": "",
+          "atom": "אֹ֝֗פֶל",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "ḥolam, geresh-muqdam, revia"
+        },
+        {
+          "bcvp": "Psalms 14:3.8",
+          "notes": "",
+          "atom": "אֵ֝֗ין",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "tsere, geresh-muqdam, revia"
+        },
+        {
+          "bcvp": "Psalms 16:1.4",
+          "notes": "",
+          "atom": "אֵ֝֗ל",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "tsere, geresh-muqdam, revia"
+        }
+      ]
+    },
+    "noninitial-meteg-oleh": {
+      "key": "noninitial-meteg-oleh",
+      "label": "On any letter (after an optional vowel): meteg, oleh.",
+      "count": 3,
+      "examples": [
+        {
+          "bcvp": "Psalms 2:7.2",
+          "notes": "",
+          "atom": "אֶֽ֫ל",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "segol-vowel, meteg/siluq, ole"
+        },
+        {
+          "bcvp": "Psalms 80:15.3",
+          "notes": "",
+          "atom": "שֽׁ֫וּב־",
+          "cluster-index": 1,
+          "sequence": "saa",
+          "mark names": "shin-dot, meteg/siluq, ole"
+        },
+        {
+          "bcvp": "Proverbs 8:34.3",
+          "notes": "",
+          "atom": "שֹׁמֵ֢עַֽ֫",
+          "cluster-index": 3,
+          "sequence": "vaa",
+          "mark names": "pataḥ, meteg/siluq, ole"
+        }
+      ]
+    }
+  }
+}

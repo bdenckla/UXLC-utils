@@ -4,6 +4,7 @@
 from pathlib import PurePosixPath
 
 import py_misc.my_html as my_html
+import py_fois.fois_mark_grammar_2_html as fois_mark_grammar_2_html
 import py_fois.fois_mark_grammar_html as fois_mark_grammar_html
 
 
@@ -11,6 +12,10 @@ _OUT_DIR_PATH = "gh-pages/fois"
 _DETAIL_FILENAME_BY_KEY = {
     "kq": "foi-kq.html",
     "mark-grammar": "foi-mark-grammar.html",
+    "mark-grammar-2": "foi-mark-grammar-2.html",
+}
+_PAGE_LABEL_BY_KEY = {
+    "mark-grammar-2": "mark grammar 2",
 }
 _KQ_FIELD_HEADERS = ("bcvp", "k1", "k2", "q1", "q2")
 
@@ -29,6 +34,12 @@ def write(fois, json_output_paths):
             mark_catalog,
             json_output_paths["mark-grammar"],
             f"{_OUT_DIR_PATH}/{_DETAIL_FILENAME_BY_KEY['mark-grammar']}",
+        )
+    if mark_grammar_2_catalog := fois.get("mark-grammar-2"):
+        fois_mark_grammar_2_html.write(
+            mark_grammar_2_catalog,
+            json_output_paths["mark-grammar-2"],
+            f"{_OUT_DIR_PATH}/{_DETAIL_FILENAME_BY_KEY['mark-grammar-2']}",
         )
 
 
@@ -52,11 +63,12 @@ def _write_index(fois):
 
 def _index_row(foi_key, catalog):
     detail_filename = _DETAIL_FILENAME_BY_KEY.get(foi_key)
+    page_label = _PAGE_LABEL_BY_KEY.get(foi_key, foi_key)
     if detail_filename is None:
-        page_cell = my_html.table_datum(foi_key)
+        page_cell = my_html.table_datum(page_label)
     else:
         page_cell = my_html.table_datum(
-            my_html.anchor(foi_key, {"href": detail_filename})
+            my_html.anchor(page_label, {"href": detail_filename})
         )
     summary_cell = my_html.table_datum(_summary_for_catalog(foi_key, catalog))
     return my_html.table_row((page_cell, summary_cell))
@@ -73,6 +85,8 @@ def _summary_for_catalog(foi_key, catalog):
         )
     if foi_key == "mark-grammar":
         return fois_mark_grammar_html.summary(catalog)
+    if foi_key == "mark-grammar-2":
+        return fois_mark_grammar_2_html.summary(catalog)
     return "HTML summary not implemented"
 
 

@@ -96,6 +96,14 @@ class OrdinaryPatternDisplayItem:
     subitems: tuple["OrdinaryPatternDisplayItem", ...] = ()
 
 
+@dataclass(frozen=True)
+class OrdinaryPatternMatch:
+    rule_key: str | None
+    leaf_key: str | None
+    fork_key: str | None
+    is_default_ordinary: bool = False
+
+
 def init():
     return {
         "summary-counts": {
@@ -119,12 +127,37 @@ def page_exclusions():
     return _PAGE_EXCLUSIONS
 
 
+def is_excluded(bkid, chnu, vrnu):
+    return _is_excluded(bkid, chnu, vrnu)
+
+
 def ordinary_override_rules():
     return _ORDINARY_OVERRIDE_RULES
 
 
 def ordinary_pattern_display_items():
     return _ORDINARY_PATTERN_DISPLAY_ITEMS
+
+
+def ordinary_pattern_match(cluster, cluster_idx):
+    for ordinary_override_rule in _ORDINARY_OVERRIDE_RULES:
+        if ordinary_override_rule.matches(cluster, cluster_idx):
+            return _ordinary_override_pattern_match(
+                ordinary_override_rule.key, cluster, cluster_idx
+            )
+    marks = cluster["marks"]
+    if any(mark in _FORMAT_CONTROLS for mark in marks):
+        return None
+    sequence = _mark_sequence(marks)
+    if not _is_in_nondecreasing_order(sequence):
+        return None
+    if not all(sequence.count(mark_class) <= 1 for mark_class in "sdva"):
+        return None
+    return OrdinaryPatternMatch(None, None, None, is_default_ordinary=True)
+
+
+def mark_sequence(cluster_or_marks):
+    return _mark_sequence(cluster_or_marks)
 
 
 def collect_for_verse(fois, bcv, verse):
@@ -242,16 +275,7 @@ def _classify(cluster, cluster_idx):
 
 
 def _is_ordinary(cluster, cluster_idx):
-    for ordinary_override_rule in _ORDINARY_OVERRIDE_RULES:
-        if ordinary_override_rule.matches(cluster, cluster_idx):
-            return True
-    marks = cluster["marks"]
-    if any(mark in _FORMAT_CONTROLS for mark in marks):
-        return False
-    sequence = _mark_sequence(marks)
-    if not _is_in_nondecreasing_order(sequence):
-        return False
-    return all(sequence.count(mark_class) <= 1 for mark_class in "sdva")
+    return ordinary_pattern_match(cluster, cluster_idx) is not None
 
 
 def _marks_without_format_controls(marks):
@@ -387,6 +411,70 @@ def _matches_noninitial_double_aom_suffix(cluster, cluster_idx):
     if any(mark in _FORMAT_CONTROLS for mark in cluster["marks"]):
         return False
     return _is_expected_noninitial_double_aom_suffix(cluster["marks"])
+
+
+def _ordinary_override_pattern_match(rule_key, cluster, cluster_idx):
+    del cluster_idx
+    marks = cluster["marks"]
+    if rule_key == "meteg-cgj-vowel":
+        return OrdinaryPatternMatch(
+            rule_key,
+            "meteg-cgj-vowel",
+            _pre_wm_fork_key(marks[3:]),
+        )
+    if rule_key == "lamed-pq-cgj-xs":
+        return OrdinaryPatternMatch(
+            rule_key,
+            "lamed-pq-cgj-xs",
+            "without-ba-is",
+        )
+    if rule_key == "lamed-pq-below-aom-cgj-xs":
+        return OrdinaryPatternMatch(
+            rule_key,
+            "lamed-pq-cgj-xs",
+            "with-ba-is",
+        )
+    if rule_key == "lamed-pq-xs-maybe-above-aom":
+        return OrdinaryPatternMatch(
+            rule_key,
+            "lamed-pq-xs-above-aom",
+            "with-above-accent" if len(marks) == 3 else "without-above-accent",
+        )
+    if rule_key == "hataf-zwj-meteg":
+        return OrdinaryPatternMatch(
+            rule_key,
+            "hataf-zwj-meteg",
+            _pre_wm_fork_key(marks[3:]),
+        )
+    if rule_key == "initial-double-aom-suffix":
+        return OrdinaryPatternMatch(
+            rule_key,
+            _initial_double_aom_leaf_key(tuple(marks[-2:])),
+            None,
+        )
+    if rule_key == "noninitial-double-aom-suffix":
+        return OrdinaryPatternMatch(
+            rule_key,
+            "noninitial-meteg-oleh",
+            None,
+        )
+    return OrdinaryPatternMatch(rule_key, rule_key, None)
+
+
+def _pre_wm_fork_key(trailing_marks):
+    return "with-pre-wm" if trailing_marks else "without-pre-wm"
+
+
+def _initial_double_aom_leaf_key(suffix):
+    if suffix == (ha.MUN, ha.DEX):
+        return "initial-munah-dehi"
+    if suffix[0] == hpo.MTGOSLQ and suffix[1] in _PRE_WM_MARKS:
+        return "initial-meteg-pre-wm"
+    if suffix in ((ha.GER, ha.TEL_G), (ha.GER_2, ha.TEL_G)):
+        return "initial-geresh-telisha-gedolah"
+    if suffix == (ha.GER_M, ha.REV):
+        return "initial-geresh-muqdam-revia"
+    raise AssertionError(f"Unexpected initial ordinary suffix: {suffix!r}")
 
 
 _ORDINARY_OVERRIDE_RULES = (

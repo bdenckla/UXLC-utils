@@ -47,22 +47,9 @@ _GRAMMAR_ORDER_ROWS = (
 )
 _ABBREVIATION_ROWS = (
     ("dms", "dagesh/mapiq/shuruq-dot"),
-    ("ba-is", "below-accents including silluq"),
     ("metuq", "meteg/siluq"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),
-    ("xataf", "one of the three ḥataf vowels"),
-    ("pq-vowel", "pataḥ or qamats"),
-    ("xs-vowel", "ḥiriq or sheva"),
-)
-
-_PRE_WM_ABBREVIATION_ROW = (
-    "pre-wm",
-    (
-        "prepositive that can occur with meteg:",
-        my_html.line_break(),
-        "telisha gedolah, deḥi, geresh muqdam",
-    ),
 )
 _ABBREVIATION_TOOLTIP_TITLES = {
     "shsi-dot": "shin-dot or sin-dot",
@@ -147,11 +134,7 @@ def write(mark_catalog, json_output_path, out_path):
     summary_counts = mark_catalog["summary-counts"]
     visible_class_keys = _visible_class_keys(mark_catalog)
     latest_change_by_atom = _latest_change_by_atom()
-    ordinary_page_notes = fois_mark_grammar_foi.ordinary_page_notes()
     page_exclusions = fois_mark_grammar_foi.page_exclusions()
-    ordinary_pattern_display_items = (
-        fois_mark_grammar_foi.ordinary_pattern_display_items()
-    )
     body_items = [
         my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
         my_html.para(
@@ -170,9 +153,12 @@ def write(mark_catalog, json_output_path, out_path):
         my_html.para("Exclusions:"),
         my_html.unordered_list(page_exclusions),
         my_html.para(
-            _tooltipify_abbreviations(ordinary_page_notes["additional-patterns-intro"])
+            [
+                "Additional patterns treated as ordinary are described in ",
+                my_html.anchor("mark grammar 2", {"href": "foi-mark-grammar-2.html"}),
+                ".",
+            ]
         ),
-        _ordinary_pattern_display_list(ordinary_pattern_display_items),
         my_html.para(_nonordinary_summary_text(summary_counts, visible_class_keys)),
     ]
     if visible_class_keys:
@@ -269,7 +255,6 @@ def _section(class_key, mark_catalog, latest_change_by_atom):
 def _abbreviation_table():
     rows = [my_html.table_row_of_headers(("abbreviation", "meaning"))]
     rows.extend(my_html.table_row_of_data(row) for row in _ABBREVIATION_ROWS)
-    rows.append(my_html.table_row_of_data(_PRE_WM_ABBREVIATION_ROW))
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
