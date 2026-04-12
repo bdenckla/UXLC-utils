@@ -101,7 +101,9 @@ def write(mark_catalog, json_output_path, out_path):
     summary_counts = mark_catalog["summary-counts"]
     ordinary_page_notes = fois_mark_grammar_foi.ordinary_page_notes()
     page_exclusions = fois_mark_grammar_foi.page_exclusions()
-    ordinary_override_rules = fois_mark_grammar_foi.ordinary_override_rules()
+    ordinary_pattern_display_items = (
+        fois_mark_grammar_foi.ordinary_pattern_display_items()
+    )
     body_contents = _body_wrapper(
         [
             my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
@@ -121,12 +123,7 @@ def write(mark_catalog, json_output_path, out_path):
             my_html.para("Exclusions:"),
             my_html.unordered_list(page_exclusions),
             my_html.para(ordinary_page_notes["additional-patterns-intro"]),
-            my_html.unordered_list(
-                tuple(
-                    ordinary_override_rule.description
-                    for ordinary_override_rule in ordinary_override_rules
-                )
-            ),
+            _ordinary_pattern_display_list(ordinary_pattern_display_items),
             my_html.para(
                 f"There are {_count_str(summary_counts['total-clusters'])} included "
                 f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
@@ -139,6 +136,24 @@ def write(mark_catalog, json_output_path, out_path):
         ]
     )
     _write_html("mark-grammar (UXLC features of interest)", out_path, body_contents)
+
+
+def _ordinary_pattern_display_list(display_items):
+    return my_html.unordered_list(
+        tuple(
+            _ordinary_pattern_display_list_item(display_item)
+            for display_item in display_items
+        )
+    )
+
+
+def _ordinary_pattern_display_list_item(display_item):
+    if not display_item.subitems:
+        return display_item.text
+    return (
+        display_item.text,
+        _ordinary_pattern_display_list(display_item.subitems),
+    )
 
 
 def _class_counts_table(mark_catalog):

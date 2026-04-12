@@ -80,6 +80,12 @@ class OrdinaryOverrideRule:
         return self.matcher(cluster, cluster_idx)
 
 
+@dataclass(frozen=True)
+class OrdinaryPatternDisplayItem:
+    text: str
+    subitems: tuple["OrdinaryPatternDisplayItem", ...] = ()
+
+
 def init():
     return {
         "summary-counts": {
@@ -105,6 +111,10 @@ def page_exclusions():
 
 def ordinary_override_rules():
     return _ORDINARY_OVERRIDE_RULES
+
+
+def ordinary_pattern_display_items():
+    return _ORDINARY_PATTERN_DISPLAY_ITEMS
 
 
 def collect_for_verse(fois, bcv, verse):
@@ -399,6 +409,39 @@ _ORDINARY_OVERRIDE_RULES = (
         "On any letter: meteg followed by oleh.",
         _matches_noninitial_double_aom_suffix,
     ),
+)
+
+_ORDINARY_PATTERN_DISPLAY_ITEMS = (
+    OrdinaryPatternDisplayItem(
+        "meteg, CGJ, vowel, with an optional trailing non-meteg accent."
+    ),
+    OrdinaryPatternDisplayItem(
+        "On lamed only:",
+        (
+            OrdinaryPatternDisplayItem("pq-vowel, CGJ, xs-vowel."),
+            OrdinaryPatternDisplayItem(
+                "pq-vowel, below-accent (including Unicode meteg), CGJ, xs-vowel."
+            ),
+            OrdinaryPatternDisplayItem(
+                "pq-vowel, xs-vowel, with optional above-accent."
+            ),
+        ),
+    ),
+    OrdinaryPatternDisplayItem(
+        "One of the three ḥataf vowels, then ZWJ, then meteg, with an optional trailing non-meteg accent."
+    ),
+    OrdinaryPatternDisplayItem(
+        "On the first letter of a word only:",
+        (
+            OrdinaryPatternDisplayItem("same-letter accent pairs of munaḥ then deḥi."),
+            OrdinaryPatternDisplayItem(
+                "meteg then telisha gedolah, deḥi, or geresh muqdam."
+            ),
+            OrdinaryPatternDisplayItem("geresh or gershayim then telisha gedolah."),
+            OrdinaryPatternDisplayItem("geresh muqdam then revia."),
+        ),
+    ),
+    OrdinaryPatternDisplayItem("On any letter: meteg followed by oleh."),
 )
 
 
