@@ -15,6 +15,10 @@ _DETAIL_FILENAME_BY_KEY = {
 _KQ_FIELD_HEADERS = ("bcvp", "k1", "k2", "q1", "q2")
 
 
+def _count_str(value):
+    return f"{value:,}"
+
+
 def write(fois, json_output_paths):
     """Write HTML pages for the FOI catalog."""
     _write_index(fois, json_output_paths)
@@ -64,7 +68,10 @@ def _summary_for_catalog(foi_key, catalog):
         type_counts = catalog["type-counts"]
         total_cases = sum(type_counts.values())
         exotic_cases = len(catalog["exotic-cases-flat"])
-        return f"{total_cases} total cases; {exotic_cases} exotic cases"
+        return (
+            f"{_count_str(total_cases)} total cases; "
+            f"{_count_str(exotic_cases)} exotic cases"
+        )
     if foi_key == "mark-grammar":
         return fois_mark_grammar_html.summary(catalog)
     return "HTML summary not implemented"
@@ -78,8 +85,10 @@ def _write_kq_page(kq_catalog, json_output_path):
                 "Each kNqM label counts a contiguous kere/qere group with N ketiv atoms and M qere atoms."
             ),
             my_html.para(
-                f"There are {sum(kq_catalog['type-counts'].values())} total kq cases; "
-                f"{len(kq_catalog['exotic-cases-flat'])} are listed below as exotic."
+                f"There are {_count_str(sum(kq_catalog['type-counts'].values()))} "
+                f"total kq cases; "
+                f"{_count_str(len(kq_catalog['exotic-cases-flat']))} are listed below "
+                f"as exotic."
             ),
             my_html.para(
                 [
@@ -107,14 +116,15 @@ def _kq_count_row(kq_type, count, kq_catalog):
     cases = kq_catalog["exotic-cases-by-type"].get(kq_type, [])
     if cases:
         detail_contents = my_html.anchor(
-            f"{len(cases)} exotic cases", {"href": f"#{_section_id(kq_type)}"}
+            f"{_count_str(len(cases))} exotic cases",
+            {"href": f"#{_section_id(kq_type)}"},
         )
     elif kq_type == "k1q1":
         detail_contents = "Counted only; not listed below"
     else:
         detail_contents = "0 exotic cases"
     return my_html.table_row_of_data(
-        (_kq_type_label(kq_type), str(count), detail_contents)
+        (_kq_type_label(kq_type), _count_str(count), detail_contents)
     )
 
 
@@ -127,7 +137,8 @@ def _kq_sections(kq_catalog):
 
 def _kq_section(kq_type, cases):
     heading = my_html.heading_level_2(
-        f"{_kq_type_label(kq_type)} ({len(cases)} cases)", {"id": _section_id(kq_type)}
+        f"{_kq_type_label(kq_type)} ({_count_str(len(cases))} cases)",
+        {"id": _section_id(kq_type)},
     )
     return [heading, _kq_cases_table(cases)]
 

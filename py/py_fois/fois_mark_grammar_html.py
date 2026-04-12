@@ -25,12 +25,16 @@ _MARK_CASE_HEADERS = (
 )
 
 
+def _count_str(value):
+    return f"{value:,}"
+
+
 def summary(mark_catalog):
     summary_counts = mark_catalog["summary-counts"]
     return (
-        f"{summary_counts['total-clusters']} clusters; "
-        f"{summary_counts['allowed-overrides']} allowed overrides; "
-        f"{summary_counts['exotic']} exotic clusters"
+        f"{_count_str(summary_counts['total-clusters'])} clusters; "
+        f"{_count_str(summary_counts['allowed-overrides'])} allowed overrides; "
+        f"{_count_str(summary_counts['exotic'])} exotic clusters"
     )
 
 
@@ -46,10 +50,11 @@ def write(mark_catalog, json_output_path, out_path):
                 "The three dually-cantillated passages are excluded: Exodus 20, Deuteronomy 5, and Genesis 35:22."
             ),
             my_html.para(
-                f"There are {summary_counts['total-clusters']} included clusters; "
-                f"{summary_counts['ordinary']} are ordinary, "
-                f"{summary_counts['allowed-overrides']} are treated as allowed overrides, "
-                f"and {summary_counts['exotic']} remain exotic."
+                f"There are {_count_str(summary_counts['total-clusters'])} included "
+                f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
+                f"{_count_str(summary_counts['allowed-overrides'])} are treated as "
+                f"allowed overrides, and {_count_str(summary_counts['exotic'])} remain "
+                f"exotic."
             ),
             my_html.para(
                 [
@@ -79,14 +84,14 @@ def _class_count_row(class_key, mark_catalog):
         detail_contents = "Counted only; not listed below"
     else:
         detail_contents = my_html.anchor(
-            f"{len(mark_catalog['cases-by-class'][class_key])} cases",
+            f"{_count_str(len(mark_catalog['cases-by-class'][class_key]))} cases",
             {"href": f"#{_section_id(class_key)}"},
         )
     return my_html.table_row_of_data(
         (
             _class_label(class_key),
             _status_label(class_key),
-            str(count),
+            _count_str(count),
             detail_contents,
         )
     )
@@ -102,7 +107,7 @@ def _sections(mark_catalog):
 def _section(class_key, mark_catalog):
     cases = mark_catalog["cases-by-class"][class_key]
     heading = my_html.heading_level_2(
-        f"{_class_label(class_key)} ({len(cases)} cases)",
+        f"{_class_label(class_key)} ({_count_str(len(cases))} cases)",
         {"id": _section_id(class_key)},
     )
     return [
@@ -117,7 +122,9 @@ def _sequence_counts_table(sequence_counts):
     for sequence, count in sorted(
         sequence_counts.items(), key=lambda item: (-item[1], item[0])
     ):
-        rows.append(my_html.table_row_of_data((_sequence_label(sequence), str(count))))
+        rows.append(
+            my_html.table_row_of_data((_sequence_label(sequence), _count_str(count)))
+        )
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
