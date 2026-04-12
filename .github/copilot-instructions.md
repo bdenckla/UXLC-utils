@@ -8,8 +8,6 @@ Always use `.venv/` for Python work. **Never run bare `python`, `python3`, `pip`
 - **Windows:** `.venv\Scripts\python.exe` / `.venv\Scripts\pip.exe`
 - **Linux/macOS:** `.venv/bin/python` / `.venv/bin/pip`
 
-This rule applies everywhere — terminal, chat examples, documentation. No exceptions.
-
 ## No `python -c` — Use `py/novc_*.py` Scripts Instead
 
 **Never use `python -c`** for any reason. Shell escaping of multi-line strings and Hebrew Unicode text is unreliable. Write a temporary script in `py/` with a `novc_*.py` name and run it:
@@ -41,6 +39,16 @@ This project processes Hebrew text. On Windows, Python defaults to the system AN
    ```
 6. `$env:PYTHONUTF8="1"` is only for `.novc/` throwaway scripts where changing the code is not an option.
 
+## Path Style
+
+In git-tracked files, prefer repo-relative paths for files in this repository.
+
+For references to sibling repositories, prefer sibling-relative paths such as `../repo-name/`.
+
+Avoid hard-coded machine-specific absolute paths in tracked content unless the path is intentionally machine-specific.
+
+Transient commands, scratch scripts, and `.novc/` helpers are not subject to this path-style rule unless a section explicitly says otherwise.
+
 ## Syncing Shared Files with codex-index-leningrad
 
 A subset of this repo's files is peer-copied in the sibling repo
@@ -50,7 +58,7 @@ copy the change to the corresponding path in `../codex-index-leningrad/UXLC-util
 
 ## Running Scripts
 
-All `main_*.py` scripts are under `py/` and use data in `in/`, `data/`, and `out/`
+For execution, all `main_*.py` scripts are under `py/` and use data in `in/`, `data/`, and `out/`
 relative to the repo root. Always run from the repo root:
 
 ```
@@ -122,4 +130,4 @@ The owner is **bdenckla**. Use this for GitHub MCP queries. Confirm via `git rem
 
 ## Local Sibling Repositories
 
-Most repos are cloned as siblings at `../repo-name`. Use relative paths when referencing other repos — do not hard-code absolute paths.
+Most repos are cloned as siblings at `../repo-name`. In git-tracked files, use relative sibling paths when referencing other repos rather than hard-coded absolute paths.
