@@ -82,6 +82,13 @@ def _write_kq_page(kq_catalog, json_output_path):
         [
             my_html.heading_level_1("kq (UXLC features of interest)"),
             my_html.para(
+                [
+                    my_html.anchor("FOI index", {"href": "index.html"}),
+                    " | ",
+                    *_json_link_contents(json_output_path),
+                ]
+            ),
+            my_html.para(
                 "Each kNqM label counts a contiguous kere/qere group with N ketiv atoms and M qere atoms."
             ),
             my_html.para(
@@ -89,13 +96,6 @@ def _write_kq_page(kq_catalog, json_output_path):
                 f"total kq cases; "
                 f"{_count_str(len(kq_catalog['exotic-cases-flat']))} are listed below "
                 f"as exotic."
-            ),
-            my_html.para(
-                [
-                    my_html.anchor("FOI index", {"href": "index.html"}),
-                    " | ",
-                    *_json_link_contents(json_output_path),
-                ]
             ),
             my_html.heading_level_2("Counts by type"),
             _kq_counts_table(kq_catalog),

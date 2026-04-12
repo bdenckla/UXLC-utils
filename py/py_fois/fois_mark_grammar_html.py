@@ -107,6 +107,13 @@ def write(mark_catalog, json_output_path, out_path):
         [
             my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
             my_html.para(
+                [
+                    my_html.anchor("FOI index", {"href": "index.html"}),
+                    " | ",
+                    *_json_link_contents(json_output_path),
+                ]
+            ),
+            my_html.para(
                 "This page classifies Hebrew letter clusters against the ordinary mark grammar:"
             ),
             _grammar_order_table(),
@@ -126,13 +133,6 @@ def write(mark_catalog, json_output_path, out_path):
                 f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
                 f"and {_count_str(summary_counts['total-clusters'] - summary_counts['ordinary'])} "
                 f"fall into the listed non-ordinary classes below."
-            ),
-            my_html.para(
-                [
-                    my_html.anchor("FOI index", {"href": "index.html"}),
-                    " | ",
-                    *_json_link_contents(json_output_path),
-                ]
             ),
             my_html.heading_level_2("Counts by class"),
             _class_counts_table(mark_catalog),
