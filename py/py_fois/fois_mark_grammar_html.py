@@ -32,6 +32,7 @@ _GRAMMAR_ORDER_ROWS = (
 )
 _ABBREVIATION_ROWS = (
     ("dms", "dagesh/mapiq/shuruq-dot"),
+    ("ba-is", "below-accents including silluq"),
     ("metuq", "meteg/siluq"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),

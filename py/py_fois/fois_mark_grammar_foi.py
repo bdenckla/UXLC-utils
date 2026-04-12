@@ -386,7 +386,7 @@ _ORDINARY_OVERRIDE_RULES = (
     ),
     OrdinaryOverrideRule(
         "lamed-pq-below-aom-cgj-xs",
-        "On lamed only: pq-vowel, below-accent (including Unicode meteg), CGJ, xs-vowel.",
+        "On lamed only: pq-vowel, ba-is, CGJ, xs-vowel.",
         _matches_lamed_pq_below_aom_cgj_xs,
     ),
     OrdinaryOverrideRule(
@@ -401,7 +401,7 @@ _ORDINARY_OVERRIDE_RULES = (
     ),
     OrdinaryOverrideRule(
         "initial-double-aom-suffix",
-        "On the first letter of a word only: same-letter accent pairs of munaḥ then deḥi; meteg then telisha gedolah, deḥi, or geresh muqdam; geresh or gershayim then telisha gedolah; or geresh muqdam then revia.",
+        "On the first letter of a word only: munaḥ then deḥi; meteg then telisha gedolah, deḥi, or geresh muqdam; geresh or gershayim then telisha gedolah; or geresh muqdam then revia.",
         _matches_initial_double_aom_suffix,
     ),
     OrdinaryOverrideRule(
@@ -418,10 +418,7 @@ _ORDINARY_PATTERN_DISPLAY_ITEMS = (
     OrdinaryPatternDisplayItem(
         "On lamed only:",
         (
-            OrdinaryPatternDisplayItem("pq-vowel, CGJ, xs-vowel."),
-            OrdinaryPatternDisplayItem(
-                "pq-vowel, below-accent (including Unicode meteg), CGJ, xs-vowel."
-            ),
+            OrdinaryPatternDisplayItem("pq-vowel, optional ba-is, CGJ, xs-vowel."),
             OrdinaryPatternDisplayItem(
                 "pq-vowel, xs-vowel, with optional above-accent."
             ),
@@ -433,7 +430,7 @@ _ORDINARY_PATTERN_DISPLAY_ITEMS = (
     OrdinaryPatternDisplayItem(
         "On the first letter of a word only:",
         (
-            OrdinaryPatternDisplayItem("same-letter accent pairs of munaḥ then deḥi."),
+            OrdinaryPatternDisplayItem("munaḥ then deḥi."),
             OrdinaryPatternDisplayItem(
                 "meteg then telisha gedolah, deḥi, or geresh muqdam."
             ),
