@@ -8,11 +8,48 @@ from pycmn import hebrew_points as hpo
 
 _TITLE = "mark grammar 2"
 _MAX_EXAMPLES_PER_BUCKET = 5
+_ADDITIONAL_PATTERNS_INTRO = (
+    "Patterns treated as ordinary (after an optional shsi-dot and an optional "
+    "dms-r):"
+)
+_ADDITIONAL_PATTERN_DISPLAY_ITEMS = (
+    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+        "meteg, CGJ, vowel, optional pre-wm."
+    ),
+    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+        "On lamed only:",
+        (
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                "pq-vowel, ba-is, CGJ, xs-vowel."
+            ),
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                "pq-vowel, xs-vowel, optional above-accent."
+            ),
+        ),
+    ),
+    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+        "xataf, ZWJ, meteg, optional pre-wm."
+    ),
+    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+        "On the first letter of a word only (after an optional vowel):",
+        (
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem("munaḥ, deḥi."),
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem("meteg, pre-wm."),
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                "geresh or gershayim, telisha gedolah."
+            ),
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem("geresh muqdam, revia."),
+        ),
+    ),
+    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+        "On any letter (after an optional vowel): meteg, oleh."
+    ),
+)
 _ABBREVIATION_ROWS = (
     ("shsi-dot", "shin-dot or sin-dot"),
     ("dms-r", "dms (see below) or rafeh"),
     ("dms", "dagesh/mapiq/shuruq-dot"),
-    ("ba-is", "below-accents including silluq"),
+    ("ba-is", "below-accent (including silluq)"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),
     ("xataf", "one of the three ḥataf vowels"),
@@ -38,11 +75,7 @@ _LEAF_BUCKET_SPECS = (
     },
     {
         "key": "lamed-pq-cgj-xs",
-        "label": "On lamed only: pq-vowel, optional ba-is, CGJ, xs-vowel.",
-        "forks": (
-            ("without-ba-is", "without ba-is"),
-            ("with-ba-is", "with ba-is"),
-        ),
+        "label": "On lamed only: pq-vowel, ba-is, CGJ, xs-vowel.",
     },
     {
         "key": "lamed-pq-xs-above-aom",
@@ -88,11 +121,11 @@ def title():
 
 
 def additional_patterns_intro():
-    return fois_mark_grammar_foi.ordinary_page_notes()["additional-patterns-intro"]
+    return _ADDITIONAL_PATTERNS_INTRO
 
 
 def additional_pattern_display_items():
-    return fois_mark_grammar_foi.ordinary_pattern_display_items()
+    return _ADDITIONAL_PATTERN_DISPLAY_ITEMS
 
 
 def abbreviation_rows():
@@ -149,7 +182,7 @@ def collect_for_verse(fois, bcv, verse):
             bucket = fois["leaf-buckets"][ordinary_match.leaf_key]
             _record_case(bucket, case_dic)
             fois["summary-counts"]["tracked-clusters"] += 1
-            if ordinary_match.fork_key is None:
+            if ordinary_match.fork_key is None or "fork-buckets" not in bucket:
                 continue
             _record_case(bucket["fork-buckets"][ordinary_match.fork_key], case_dic)
 

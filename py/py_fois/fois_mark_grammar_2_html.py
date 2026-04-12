@@ -61,12 +61,13 @@ def write(catalog, json_output_path, out_path):
             ]
         ),
         my_html.para(
-            "This page continues mark grammar with ordinary patterns that are "
-            "treated as ordinary, plus one rare totally ordinary rafeh sequence."
+            "This page continues to 'study' mark grammar with patterns that are "
+            "treated as ordinary, plus one totally-ordinary-but-rare rafeh "
+            "sequence."
         ),
         my_html.heading_level_2("Abbreviations"),
         _abbreviation_table(),
-        my_html.heading_level_2("Additional patterns treated as ordinary"),
+        my_html.heading_level_2("Patterns treated as ordinary"),
         my_html.para(
             _tooltipify_abbreviations(
                 fois_mark_grammar_2_foi.additional_patterns_intro()
@@ -88,11 +89,25 @@ def write(catalog, json_output_path, out_path):
 def _abbreviation_table():
     rows = [my_html.table_row_of_headers(("abbreviation", "meaning"))]
     rows.extend(
-        my_html.table_row_of_data((abbreviation, meaning))
+        my_html.table_row(
+            (
+                my_html.table_datum(abbreviation),
+                my_html.table_datum(
+                    _abbreviation_meaning_contents(abbreviation, meaning)
+                ),
+            )
+        )
         for abbreviation, meaning in fois_mark_grammar_2_foi.abbreviation_rows()
     )
     rows.append(my_html.table_row_of_data(("aom", "accent or meteg")))
     return my_html.table(rows, {"class": "border-collapse limited-width"})
+
+
+def _abbreviation_meaning_contents(abbreviation, meaning):
+    if abbreviation != "pre-wm":
+        return meaning
+    prefix, suffix = meaning.split(": ", maxsplit=1)
+    return (prefix + ":", my_html.line_break(), suffix)
 
 
 def _ordinary_pattern_display_list(display_items):
@@ -137,15 +152,14 @@ def _bucket_section(bucket, bucket_key):
         my_html.heading_level_2(
             f"{bucket['label']} ({_count_str(bucket['count'])} total)",
             {"id": _section_id(bucket_key)},
-        ),
-        _bucket_example_intro(bucket),
-        _cases_table(bucket["examples"]),
+        )
     ]
     fork_buckets = bucket.get("fork-buckets")
     if not fork_buckets:
+        contents.extend(
+            (_bucket_example_intro(bucket), _cases_table(bucket["examples"]))
+        )
         return contents
-    contents.append(my_html.heading_level_3("Fork counts"))
-    contents.append(_fork_counts_table(fork_buckets, bucket_key))
     for fork_bucket in fork_buckets.values():
         contents.extend(_fork_section(fork_bucket, bucket_key))
     return contents
@@ -157,28 +171,6 @@ def _bucket_example_intro(bucket):
         f"Showing {shown_count} example{'s' if shown_count != 1 else ''} out of "
         f"{_count_str(bucket['count'])} total."
     )
-
-
-def _fork_counts_table(fork_buckets, bucket_key):
-    rows = [my_html.table_row_of_headers(("fork", "count", "details"))]
-    for fork_bucket in fork_buckets.values():
-        rows.append(
-            my_html.table_row_of_data(
-                (
-                    fork_bucket["label"],
-                    _count_str(fork_bucket["count"]),
-                    my_html.anchor(
-                        "details",
-                        {
-                            "href": (
-                                f"#{_fork_section_id(fork_bucket['key'], bucket_key)}"
-                            )
-                        },
-                    ),
-                )
-            )
-        )
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _fork_section(fork_bucket, bucket_key):

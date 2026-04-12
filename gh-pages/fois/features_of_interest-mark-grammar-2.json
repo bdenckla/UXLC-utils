@@ -164,7 +164,7 @@
     },
     "lamed-pq-cgj-xs": {
       "key": "lamed-pq-cgj-xs",
-      "label": "On lamed only: pq-vowel, optional ba-is, CGJ, xs-vowel.",
+      "label": "On lamed only: pq-vowel, ba-is, CGJ, xs-vowel.",
       "count": 405,
       "examples": [
         {
@@ -207,62 +207,7 @@
           "sequence": "vav",
           "mark names": "pataḥ, munaḥ, combining-grapheme-joiner, ḥiriq"
         }
-      ],
-      "fork-buckets": {
-        "without-ba-is": {
-          "key": "without-ba-is",
-          "label": "without ba-is",
-          "count": 0,
-          "examples": []
-        },
-        "with-ba-is": {
-          "key": "with-ba-is",
-          "label": "with ba-is",
-          "count": 405,
-          "examples": [
-            {
-              "bcvp": "Joshua 15:8.11",
-              "notes": "",
-              "atom": "יְרֽוּשָׁלָ֑͏ִם",
-              "cluster-index": 5,
-              "sequence": "vav",
-              "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
-            },
-            {
-              "bcvp": "Judges 1:7.21",
-              "notes": "",
-              "atom": "יְרוּשָׁלַ֖͏ִם",
-              "cluster-index": 5,
-              "sequence": "vav",
-              "mark names": "pataḥ, tipeḥa/tarḥa, combining-grapheme-joiner, ḥiriq"
-            },
-            {
-              "bcvp": "Judges 19:10.12",
-              "notes": "",
-              "atom": "יְרוּשָׁלָ֑͏ִם",
-              "cluster-index": 5,
-              "sequence": "vav",
-              "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
-            },
-            {
-              "bcvp": "1Samuel 17:54.7",
-              "notes": "",
-              "atom": "יְרוּשָׁלָ֑͏ִם",
-              "cluster-index": 5,
-              "sequence": "vav",
-              "mark names": "qamats, etnaḥta, combining-grapheme-joiner, ḥiriq"
-            },
-            {
-              "bcvp": "2Samuel 5:5.9",
-              "notes": "",
-              "atom": "וּבִירוּשָׁלַ֣͏ִם",
-              "cluster-index": 7,
-              "sequence": "vav",
-              "mark names": "pataḥ, munaḥ, combining-grapheme-joiner, ḥiriq"
-            }
-          ]
-        }
-      }
+      ]
     },
     "lamed-pq-xs-above-aom": {
       "key": "lamed-pq-xs-above-aom",
