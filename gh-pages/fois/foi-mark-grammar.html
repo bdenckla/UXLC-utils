@@ -15,7 +15,7 @@ mark-grammar (UXLC features of interest)</h1>
 <table class="border-collapse limited-width">
 <tr><th>item</th><th>meaning</th></tr>
 <tr><td>shsi-dot</td><td>shin-dot or sin-dot</td></tr>
-<tr><td>dms-r</td><td>dms (see below) or rafeh</td></tr>
+<tr><td>dms-r</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span> (see below) or rafeh</td></tr>
 <tr><td>vowel</td><td></td></tr>
 <tr><td>aom</td><td>accent or meteg</td></tr>
 </table>
@@ -28,8 +28,10 @@ Abbreviations</h2>
 <tr><td>metuq</td><td>meteg/siluq</td></tr>
 <tr><td>CGJ</td><td>combining grapheme joiner</td></tr>
 <tr><td>ZWJ</td><td>zero-width joiner</td></tr>
+<tr><td>xataf</td><td>one of the three ḥataf vowels</td></tr>
 <tr><td>pq-vowel</td><td>pataḥ or qamats</td></tr>
 <tr><td>xs-vowel</td><td>ḥiriq or sheva</td></tr>
+<tr><td>pre-wm</td><td>prepositive that can occur with meteg:<br>telisha gedolah, deḥi, geresh muqdam</td></tr>
 </table>
 <p>Exclusions:</p>
 <ul>
@@ -38,34 +40,34 @@ Extraordinary upper dots and lower dots are stripped before clusters are classif
 <li>
 The three dually-cantillated passages are excluded: Exodus 20, Deuteronomy 5, and Genesis 35:22.</li>
 </ul>
-<p>Additional patterns treated as ordinary (after any optional shsi-dot and optional dms-r):</p>
+<p>Additional patterns treated as ordinary (after any optional <span class="abbrev-tooltip" title="shin-dot or sin-dot">shsi-dot</span> and optional <span class="abbrev-tooltip" title="dms (see below) or rafeh">dms-r</span>):</p>
 <ul>
 <li>
-meteg, CGJ, vowel, with an optional trailing non-meteg accent.</li>
+meteg, <span class="abbrev-tooltip" title="combining grapheme joiner">CGJ</span>, vowel, optional <span class="abbrev-tooltip" title="prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam">pre-wm</span>.</li>
 <li>
 On lamed only:<ul>
 <li>
-pq-vowel, optional ba-is, CGJ, xs-vowel.</li>
+<span class="abbrev-tooltip" title="pataḥ or qamats">pq-vowel</span>, optional <span class="abbrev-tooltip" title="below-accents including silluq">ba-is</span>, <span class="abbrev-tooltip" title="combining grapheme joiner">CGJ</span>, <span class="abbrev-tooltip" title="ḥiriq or sheva">xs-vowel</span>.</li>
 <li>
-pq-vowel, xs-vowel, with optional above-accent.</li>
+<span class="abbrev-tooltip" title="pataḥ or qamats">pq-vowel</span>, <span class="abbrev-tooltip" title="ḥiriq or sheva">xs-vowel</span>, optional above-accent.</li>
 </ul>
 </li>
 <li>
-One of the three ḥataf vowels, then ZWJ, then meteg, then, optionally, deḥi or geresh muqdam.</li>
+<span class="abbrev-tooltip" title="one of the three ḥataf vowels">xataf</span>, <span class="abbrev-tooltip" title="zero-width joiner">ZWJ</span>, meteg, optional <span class="abbrev-tooltip" title="prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam">pre-wm</span>.</li>
 <li>
 On the first letter of a word only:<ul>
 <li>
-munaḥ then deḥi.</li>
+munaḥ, deḥi.</li>
 <li>
-meteg then telisha gedolah, deḥi, or geresh muqdam.</li>
+meteg, <span class="abbrev-tooltip" title="prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam">pre-wm</span>.</li>
 <li>
-geresh or gershayim then telisha gedolah.</li>
+geresh or gershayim, telisha gedolah.</li>
 <li>
-geresh muqdam then revia.</li>
+geresh muqdam, revia.</li>
 </ul>
 </li>
 <li>
-On any letter: meteg followed by oleh.</li>
+On any letter: meteg, oleh.</li>
 </ul>
 <p>There are 1,200,055 included clusters; 1,200,032 are ordinary, and 23 fall into the listed non-ordinary classes below.</p>
 <h2>
@@ -90,11 +92,11 @@ explicit-order (5 cases)</h2>
 </table>
 <table class="border-collapse limited-width">
 <tr><th>bcvp</th><th>notes</th><th>atom</th><th>sequence</th><th>mark-names</th></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Num7:60">Num 7:60</a>.5</td><td></td><td lang="hbo" dir="rtl">בִנְיָ<span class="cluster-highlight">מ֑͏ִ</span>ן</td><td>av</td><td>etnaḥta, CGJ, ḥiriq</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Deut3:22">Deut 3:22</a>.2</td><td></td><td lang="hbo" dir="rtl"><span class="cluster-highlight">תִּ͏ְ</span>ירָא֑וּם</td><td>dvv</td><td>dms, ḥiriq, CGJ, sheva</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Job10:15">Job 10:15</a>.12</td><td>c</td><td lang="hbo" dir="rtl">עָנְ<span class="cluster-highlight">י֥‍ִ</span>י׃</td><td>av</td><td>merkha/yored, ZWJ, ḥiriq</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Job19:16">Job 19:16</a>.6</td><td>t</td><td lang="hbo" dir="rtl"><span class="cluster-highlight">פִ֗‍֝</span>י</td><td>vaa</td><td>ḥiriq, revia, ZWJ, geresh-muqdam</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Job32:6">Job 32:6</a>.11</td><td></td><td lang="hbo" dir="rtl">יְשִׁי<span class="cluster-highlight">שׁ֑‍ִ</span>ים</td><td>sav</td><td>shin-dot, etnaḥta, ZWJ, ḥiriq</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Num7:60">Num 7:60</a>.5</td><td></td><td lang="hbo" dir="rtl">בִנְיָ<span class="cluster-highlight">מ֑͏ִ</span>ן</td><td>av</td><td>etnaḥta, <span class="abbrev-tooltip" title="combining grapheme joiner">CGJ</span>, ḥiriq</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Deut3:22">Deut 3:22</a>.2</td><td></td><td lang="hbo" dir="rtl"><span class="cluster-highlight">תִּ͏ְ</span>ירָא֑וּם</td><td>dvv</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, ḥiriq, <span class="abbrev-tooltip" title="combining grapheme joiner">CGJ</span>, sheva</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Job10:15">Job 10:15</a>.12</td><td>c</td><td lang="hbo" dir="rtl">עָנְ<span class="cluster-highlight">י֥‍ִ</span>י׃</td><td>av</td><td>merkha/yored, <span class="abbrev-tooltip" title="zero-width joiner">ZWJ</span>, ḥiriq</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Job19:16">Job 19:16</a>.6</td><td>t</td><td lang="hbo" dir="rtl"><span class="cluster-highlight">פִ֗‍֝</span>י</td><td>vaa</td><td>ḥiriq, revia, <span class="abbrev-tooltip" title="zero-width joiner">ZWJ</span>, geresh-muqdam</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Job32:6">Job 32:6</a>.11</td><td></td><td lang="hbo" dir="rtl">יְשִׁי<span class="cluster-highlight">שׁ֑‍ִ</span>ים</td><td>sav</td><td>shin-dot, etnaḥta, <span class="abbrev-tooltip" title="zero-width joiner">ZWJ</span>, ḥiriq</td></tr>
 </table>
 <h2 id="intro-initial-double-aom">
 initial-double-aom (3 cases)</h2>
@@ -107,7 +109,7 @@ initial-double-aom (3 cases)</h2>
 <tr><th>bcvp</th><th>notes</th><th>atom</th><th>sequence</th><th>mark-names</th></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?Ps56:10">Ps 56:10</a>.1</td><td></td><td lang="hbo" dir="rtl"><span class="cluster-highlight">אָ֥֨</span>ז</td><td>vaa</td><td>qamats, merkha/yored, qadma</td></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?Ps124:4">Ps 124:4</a>.4</td><td>c</td><td lang="hbo" dir="rtl"><span class="cluster-highlight">נַ֗֜</span>חְלָה</td><td>vaa</td><td>pataḥ, revia, geresh</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Job15:34">Job 15:34</a>.8</td><td></td><td lang="hbo" dir="rtl"><span class="cluster-highlight">שֹֽׁ֥</span>חַד׃</td><td>svaa</td><td>shin-dot, ḥolam, metuq, merkha/yored</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Job15:34">Job 15:34</a>.8</td><td></td><td lang="hbo" dir="rtl"><span class="cluster-highlight">שֹֽׁ֥</span>חַד׃</td><td>svaa</td><td>shin-dot, ḥolam, <span class="abbrev-tooltip" title="meteg/siluq">metuq</span>, merkha/yored</td></tr>
 </table>
 <h2 id="intro-multi-vowel">
 multi-vowel (2 cases)</h2>
@@ -118,7 +120,7 @@ multi-vowel (2 cases)</h2>
 </table>
 <table class="border-collapse limited-width">
 <tr><th>bcvp</th><th>notes</th><th>atom</th><th>sequence</th><th>mark-names</th></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?2Kings21:26">2Kings 21:26</a>.1</td><td>c</td><td lang="hbo" dir="rtl">וַיִּקְ<span class="cluster-highlight">בְֹּ֥</span>ר</td><td>dvva</td><td>dms, ḥolam, sheva, merkha/yored</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?2Kings21:26">2Kings 21:26</a>.1</td><td>c</td><td lang="hbo" dir="rtl">וַיִּקְ<span class="cluster-highlight">בְֹּ֥</span>ר</td><td>dvva</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, ḥolam, sheva, merkha/yored</td></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?Prov23:26">Prov 23:26</a>.8</td><td>q</td><td lang="hbo" dir="rtl">תִּצֽ<span class="cluster-highlight">רְֹ</span>נָה׃</td><td>vv</td><td>sheva, ḥolam</td></tr>
 </table>
 <h2 id="intro-noninitial-double-aom">
@@ -132,7 +134,7 @@ noninitial-double-aom (4 cases)</h2>
 <tr><th>bcvp</th><th>notes</th><th>atom</th><th>sequence</th><th>mark-names</th></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?Lev25:20">Lev 25:20</a>.4</td><td>c</td><td lang="hbo" dir="rtl">נֹּא<span class="cluster-highlight">כַ֤֖</span>ל</td><td>vaa</td><td>pataḥ, mahapakh, tipeḥa/tarḥa</td></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?Ezek20:31">Ezek 20:31</a>.7</td><td></td><td lang="hbo" dir="rtl">נִטְמְ<span class="cluster-highlight">אִ֤֨</span>ים</td><td>vaa</td><td>ḥiriq, mahapakh, qadma</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Ps75:11">Ps 75:11</a>.7</td><td>c</td><td lang="hbo" dir="rtl">צַ<span class="cluster-highlight">דִּֽ֥</span>יק׃</td><td>dvaa</td><td>dms, ḥiriq, metuq, merkha/yored</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Ps75:11">Ps 75:11</a>.7</td><td>c</td><td lang="hbo" dir="rtl">צַ<span class="cluster-highlight">דִּֽ֥</span>יק׃</td><td>dvaa</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, ḥiriq, <span class="abbrev-tooltip" title="meteg/siluq">metuq</span>, merkha/yored</td></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?Job7:1">Job 7:1</a>.7</td><td>c</td><td lang="hbo" dir="rtl">וְכִי<span class="cluster-highlight">מֵ֖֗</span>י</td><td>vaa</td><td>tsere, tipeḥa/tarḥa, revia</td></tr>
 </table>
 <h2 id="intro-unexpected-mark">
@@ -157,13 +159,13 @@ other-ordering (9 cases)</h2>
 </table>
 <table class="border-collapse limited-width">
 <tr><th>bcvp</th><th>notes</th><th>atom</th><th>sequence</th><th>mark-names</th></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Ex32:19">Ex 32:19</a>.18</td><td></td><td lang="hbo" dir="rtl">וַ<span class="cluster-highlight">יְּ</span>שַׁבֵּ֥ר</td><td>vd</td><td>sheva, dms</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Num32:16">Num 32:16</a>.3</td><td></td><td lang="hbo" dir="rtl">וַ<span class="cluster-highlight">יֹּ֣</span>אמְר֔וּ</td><td>dav</td><td>dms, munaḥ, ḥolam</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Josh10:24">Josh 10:24</a>.20</td><td></td><td lang="hbo" dir="rtl">הֶהָלְכ֣<span class="cluster-highlight">וְּּ</span></td><td>ddv</td><td>dms, dms, sheva</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Ezek1:25">Ezek 1:25</a>.8</td><td>c</td><td lang="hbo" dir="rtl">בְּעָמְ<span class="cluster-highlight">דָּֿ֖</span>ם</td><td>dvda</td><td>dms, qamats, rafeh, tipeḥa/tarḥa</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Ps119:14">Ps 119:14</a>.3</td><td>t</td><td lang="hbo" dir="rtl"><span class="cluster-highlight">שַּׂ֗</span>שְׂתִּי</td><td>dsva</td><td>dms, sin-dot, pataḥ, revia</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Job36:29">Job 36:29</a>.7</td><td>t</td><td lang="hbo" dir="rtl">סֻ<span class="cluster-highlight">כָּֽ</span>תֽוֹ׃</td><td>adv</td><td>metuq, dms, qamats</td></tr>
-<tr><td><a href="https://tanach.us/Tanach.xml?Job42:10">Job 42:10</a>.10</td><td></td><td lang="hbo" dir="rtl">וַ<span class="cluster-highlight">יֹּ֧</span>סֶף</td><td>dav</td><td>dms, darga, ḥolam</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Ex32:19">Ex 32:19</a>.18</td><td></td><td lang="hbo" dir="rtl">וַ<span class="cluster-highlight">יְּ</span>שַׁבֵּ֥ר</td><td>vd</td><td>sheva, <span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span></td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Num32:16">Num 32:16</a>.3</td><td></td><td lang="hbo" dir="rtl">וַ<span class="cluster-highlight">יֹּ֣</span>אמְר֔וּ</td><td>dav</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, munaḥ, ḥolam</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Josh10:24">Josh 10:24</a>.20</td><td></td><td lang="hbo" dir="rtl">הֶהָלְכ֣<span class="cluster-highlight">וְּּ</span></td><td>ddv</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, <span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, sheva</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Ezek1:25">Ezek 1:25</a>.8</td><td>c</td><td lang="hbo" dir="rtl">בְּעָמְ<span class="cluster-highlight">דָּֿ֖</span>ם</td><td>dvda</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, qamats, rafeh, tipeḥa/tarḥa</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Ps119:14">Ps 119:14</a>.3</td><td>t</td><td lang="hbo" dir="rtl"><span class="cluster-highlight">שַּׂ֗</span>שְׂתִּי</td><td>dsva</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, sin-dot, pataḥ, revia</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Job36:29">Job 36:29</a>.7</td><td>t</td><td lang="hbo" dir="rtl">סֻ<span class="cluster-highlight">כָּֽ</span>תֽוֹ׃</td><td>adv</td><td><span class="abbrev-tooltip" title="meteg/siluq">metuq</span>, <span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, qamats</td></tr>
+<tr><td><a href="https://tanach.us/Tanach.xml?Job42:10">Job 42:10</a>.10</td><td></td><td lang="hbo" dir="rtl">וַ<span class="cluster-highlight">יֹּ֧</span>סֶף</td><td>dav</td><td><span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>, darga, ḥolam</td></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?Dan3:15">Dan 3:15</a>.13</td><td></td><td lang="hbo" dir="rtl">קַתְ<span class="cluster-highlight">רֹ֣</span>ס</td><td>av</td><td>munaḥ, ḥolam</td></tr>
 <tr><td><a href="https://tanach.us/Tanach.xml?1Chr21:8">1Chr 21:8</a>.16</td><td></td><td lang="hbo" dir="rtl">עֲו<span class="cluster-highlight">וֹ֣</span>ן</td><td>av</td><td>munaḥ, ḥolam</td></tr>
 </table>

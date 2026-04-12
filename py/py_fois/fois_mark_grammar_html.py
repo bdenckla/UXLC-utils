@@ -36,8 +36,37 @@ _ABBREVIATION_ROWS = (
     ("metuq", "meteg/siluq"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),
+    ("xataf", "one of the three ḥataf vowels"),
     ("pq-vowel", "pataḥ or qamats"),
     ("xs-vowel", "ḥiriq or sheva"),
+)
+
+_PRE_WM_ABBREVIATION_ROW = (
+    "pre-wm",
+    (
+        "prepositive that can occur with meteg:",
+        my_html.line_break(),
+        "telisha gedolah, deḥi, geresh muqdam",
+    ),
+)
+_ABBREVIATION_TOOLTIP_TITLES = {
+    "shsi-dot": "shin-dot or sin-dot",
+    "dms-r": "dms (see below) or rafeh",
+    "dms": "dagesh/mapiq/shuruq-dot",
+    "ba-is": "below-accents including silluq",
+    "metuq": "meteg/siluq",
+    "CGJ": "combining grapheme joiner",
+    "ZWJ": "zero-width joiner",
+    "xataf": "one of the three ḥataf vowels",
+    "pq-vowel": "pataḥ or qamats",
+    "xs-vowel": "ḥiriq or sheva",
+    "pre-wm": "prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam",
+}
+_ABBREVIATION_TOOLTIP_PATTERN = re.compile(
+    "|".join(
+        re.escape(abbreviation)
+        for abbreviation in sorted(_ABBREVIATION_TOOLTIP_TITLES, key=len, reverse=True)
+    )
 )
 _BCVP_PATTERN = re.compile(
     r"^(?P<book>.+) (?P<chapter>\d+):(?P<verse>\d+)\.(?P<atom>\d+)$"
@@ -123,7 +152,11 @@ def write(mark_catalog, json_output_path, out_path):
             _abbreviation_table(),
             my_html.para("Exclusions:"),
             my_html.unordered_list(page_exclusions),
-            my_html.para(ordinary_page_notes["additional-patterns-intro"]),
+            my_html.para(
+                _tooltipify_abbreviations(
+                    ordinary_page_notes["additional-patterns-intro"]
+                )
+            ),
             _ordinary_pattern_display_list(ordinary_pattern_display_items),
             my_html.para(
                 f"There are {_count_str(summary_counts['total-clusters'])} included "
@@ -149,12 +182,12 @@ def _ordinary_pattern_display_list(display_items):
 
 
 def _ordinary_pattern_display_list_item(display_item):
+    text = _tooltipify_abbreviations(display_item.text)
     if not display_item.subitems:
-        return display_item.text
-    return (
-        display_item.text,
-        _ordinary_pattern_display_list(display_item.subitems),
-    )
+        return text
+    if isinstance(text, str):
+        return (text, _ordinary_pattern_display_list(display_item.subitems))
+    return (*text, _ordinary_pattern_display_list(display_item.subitems))
 
 
 def _class_counts_table(mark_catalog):
@@ -213,12 +246,21 @@ def _sequence_counts_table(sequence_counts):
 def _abbreviation_table():
     rows = [my_html.table_row_of_headers(("abbreviation", "meaning"))]
     rows.extend(my_html.table_row_of_data(row) for row in _ABBREVIATION_ROWS)
+    rows.append(my_html.table_row_of_data(_PRE_WM_ABBREVIATION_ROW))
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _grammar_order_table():
     rows = [my_html.table_row_of_headers(("item", "meaning"))]
-    rows.extend(my_html.table_row_of_data(row) for row in _GRAMMAR_ORDER_ROWS)
+    rows.extend(
+        my_html.table_row(
+            (
+                my_html.table_datum(item),
+                my_html.table_datum(_tooltipify_abbreviations(meaning)),
+            )
+        )
+        for item, meaning in _GRAMMAR_ORDER_ROWS
+    )
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
@@ -275,12 +317,37 @@ def _case_row(case_dic):
 
 
 def _abbreviate_mark_names(mark_names):
-    return (
+    abbreviated = (
         mark_names.replace("dagesh/mapiq/shuruq-dot", "dms")
         .replace("meteg/siluq", "metuq")
         .replace("combining-grapheme-joiner", "CGJ")
         .replace("zero-width-joiner", "ZWJ")
     )
+    return _tooltipify_abbreviations(abbreviated)
+
+
+def _tooltipify_abbreviations(text):
+    parts = []
+    last_end = 0
+    for match in _ABBREVIATION_TOOLTIP_PATTERN.finditer(text):
+        if last_end < match.start():
+            parts.append(text[last_end : match.start()])
+        abbreviation = match.group(0)
+        parts.append(
+            my_html.span(
+                abbreviation,
+                {
+                    "class": "abbrev-tooltip",
+                    "title": _ABBREVIATION_TOOLTIP_TITLES[abbreviation],
+                },
+            )
+        )
+        last_end = match.end()
+    if not parts:
+        return text
+    if last_end < len(text):
+        parts.append(text[last_end:])
+    return tuple(parts)
 
 
 def _linked_bcvp(bcvp_str):

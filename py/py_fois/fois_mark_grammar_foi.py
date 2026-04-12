@@ -23,14 +23,11 @@ _SHSI_DOT_MARKS = frozenset((hpo.SHIND, hpo.SIND))
 _DAGESH_MARKS = frozenset((hpo.DAGOMOSD, hpo.RAFE))
 _VOWEL_MARKS = frozenset(ucc.VOWEL_POINTS)
 _AOM_MARKS = frozenset(ucc.ACCENTS)
-_NON_METEG_AOM_MARKS = frozenset(mark for mark in ucc.ACCENTS if mark != hpo.MTGOSLQ)
-_HATAF_ZWJ_METEG_OPTIONAL_MARKS = frozenset((ha.DEX, ha.GER_M))
+_PRE_WM_MARKS = frozenset((ha.TEL_G, ha.DEX, ha.GER_M))
 _INITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES = frozenset(
     (
         (ha.MUN, ha.DEX),
-        (hpo.MTGOSLQ, ha.TEL_G),
-        (hpo.MTGOSLQ, ha.DEX),
-        (hpo.MTGOSLQ, ha.GER_M),
+        *((hpo.MTGOSLQ, mark) for mark in _PRE_WM_MARKS),
         (ha.GER, ha.TEL_G),
         (ha.GER_M, ha.REV),
         (ha.GER_2, ha.TEL_G),
@@ -257,7 +254,7 @@ def _is_expected_hataf_zwj_meteg(marks):
         return False
     trailing_marks = marks[idx + 3 :]
     return len(trailing_marks) <= 1 and all(
-        mark in _HATAF_ZWJ_METEG_OPTIONAL_MARKS for mark in trailing_marks
+        mark in _PRE_WM_MARKS for mark in trailing_marks
     )
 
 
@@ -275,7 +272,7 @@ def _is_expected_meteg_cgj_vowel(marks):
         return False
     trailing_marks = marks[idx + 3 :]
     return len(trailing_marks) <= 1 and all(
-        mark in _NON_METEG_AOM_MARKS for mark in trailing_marks
+        mark in _PRE_WM_MARKS for mark in trailing_marks
     )
 
 
@@ -377,7 +374,7 @@ def _matches_noninitial_double_aom_suffix(cluster, cluster_idx):
 _ORDINARY_OVERRIDE_RULES = (
     OrdinaryOverrideRule(
         "meteg-cgj-vowel",
-        "meteg, CGJ, vowel, with an optional trailing non-meteg accent.",
+        "meteg, CGJ, vowel, pre-wm.",
         _matches_meteg_cgj_vowel,
     ),
     OrdinaryOverrideRule(
@@ -392,54 +389,46 @@ _ORDINARY_OVERRIDE_RULES = (
     ),
     OrdinaryOverrideRule(
         "lamed-pq-xs-maybe-above-aom",
-        "On lamed only: pq-vowel, xs-vowel, with optional above-accent.",
+        "On lamed only: pq-vowel, xs-vowel, optional above-accent.",
         _matches_lamed_pq_xs_maybe_above_aom,
     ),
     OrdinaryOverrideRule(
         "hataf-zwj-meteg",
-        "One of the three ḥataf vowels, then ZWJ, then meteg, then, optionally, deḥi or geresh muqdam.",
+        "xataf, ZWJ, meteg, optional pre-wm.",
         _matches_hataf_zwj_meteg,
     ),
     OrdinaryOverrideRule(
         "initial-double-aom-suffix",
-        "On the first letter of a word only: munaḥ then deḥi; meteg then telisha gedolah, deḥi, or geresh muqdam; geresh or gershayim then telisha gedolah; or geresh muqdam then revia.",
+        "On the first letter of a word only: munaḥ, deḥi; meteg, pre-wm; geresh or gershayim, telisha gedolah; or geresh muqdam, revia.",
         _matches_initial_double_aom_suffix,
     ),
     OrdinaryOverrideRule(
         "noninitial-double-aom-suffix",
-        "On any letter: meteg followed by oleh.",
+        "On any letter: meteg, oleh.",
         _matches_noninitial_double_aom_suffix,
     ),
 )
 
 _ORDINARY_PATTERN_DISPLAY_ITEMS = (
-    OrdinaryPatternDisplayItem(
-        "meteg, CGJ, vowel, with an optional trailing non-meteg accent."
-    ),
+    OrdinaryPatternDisplayItem("meteg, CGJ, vowel, optional pre-wm."),
     OrdinaryPatternDisplayItem(
         "On lamed only:",
         (
             OrdinaryPatternDisplayItem("pq-vowel, optional ba-is, CGJ, xs-vowel."),
-            OrdinaryPatternDisplayItem(
-                "pq-vowel, xs-vowel, with optional above-accent."
-            ),
+            OrdinaryPatternDisplayItem("pq-vowel, xs-vowel, optional above-accent."),
         ),
     ),
-    OrdinaryPatternDisplayItem(
-        "One of the three ḥataf vowels, then ZWJ, then meteg, then, optionally, deḥi or geresh muqdam."
-    ),
+    OrdinaryPatternDisplayItem("xataf, ZWJ, meteg, optional pre-wm."),
     OrdinaryPatternDisplayItem(
         "On the first letter of a word only:",
         (
-            OrdinaryPatternDisplayItem("munaḥ then deḥi."),
-            OrdinaryPatternDisplayItem(
-                "meteg then telisha gedolah, deḥi, or geresh muqdam."
-            ),
-            OrdinaryPatternDisplayItem("geresh or gershayim then telisha gedolah."),
-            OrdinaryPatternDisplayItem("geresh muqdam then revia."),
+            OrdinaryPatternDisplayItem("munaḥ, deḥi."),
+            OrdinaryPatternDisplayItem("meteg, pre-wm."),
+            OrdinaryPatternDisplayItem("geresh or gershayim, telisha gedolah."),
+            OrdinaryPatternDisplayItem("geresh muqdam, revia."),
         ),
     ),
-    OrdinaryPatternDisplayItem("On any letter: meteg followed by oleh."),
+    OrdinaryPatternDisplayItem("On any letter: meteg, oleh."),
 )
 
 
