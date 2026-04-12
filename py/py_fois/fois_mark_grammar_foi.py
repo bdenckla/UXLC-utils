@@ -62,8 +62,8 @@ _PAGE_EXCLUSIONS = (
 )
 _ORDINARY_PAGE_NOTES = {
     "additional-patterns-intro": (
-        "Additional patterns treated as ordinary (after any optional shsi-dot "
-        "and optional dms-r):"
+        "Additional patterns treated as ordinary (after an optional shsi-dot "
+        "and an optional dms-r):"
     ),
 }
 _MARK_NAMES_COMMENTS_BY_BCVP = {
@@ -417,12 +417,12 @@ _ORDINARY_OVERRIDE_RULES = (
     ),
     OrdinaryOverrideRule(
         "initial-double-aom-suffix",
-        "On the first letter of a word only: munaḥ, deḥi; meteg, pre-wm; geresh or gershayim, telisha gedolah; or geresh muqdam, revia.",
+        "On the first letter of a word only (after an optional vowel): munaḥ, deḥi; meteg, pre-wm; geresh or gershayim, telisha gedolah; or geresh muqdam, revia.",
         _matches_initial_double_aom_suffix,
     ),
     OrdinaryOverrideRule(
         "noninitial-double-aom-suffix",
-        "On any letter: meteg, oleh.",
+        "On any letter (after an optional vowel): meteg, oleh.",
         _matches_noninitial_double_aom_suffix,
     ),
 )
@@ -438,7 +438,7 @@ _ORDINARY_PATTERN_DISPLAY_ITEMS = (
     ),
     OrdinaryPatternDisplayItem("xataf, ZWJ, meteg, optional pre-wm."),
     OrdinaryPatternDisplayItem(
-        "On the first letter of a word only:",
+        "On the first letter of a word only (after an optional vowel):",
         (
             OrdinaryPatternDisplayItem("munaḥ, deḥi."),
             OrdinaryPatternDisplayItem("meteg, pre-wm."),
@@ -446,7 +446,7 @@ _ORDINARY_PATTERN_DISPLAY_ITEMS = (
             OrdinaryPatternDisplayItem("geresh muqdam, revia."),
         ),
     ),
-    OrdinaryPatternDisplayItem("On any letter: meteg, oleh."),
+    OrdinaryPatternDisplayItem("On any letter (after an optional vowel): meteg, oleh."),
 )
 
 
