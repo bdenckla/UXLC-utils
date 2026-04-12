@@ -22,14 +22,14 @@ _MARK_CASE_HEADERS = (
     "notes",
     "atom",
     "sequence",
-    "mark-names",
+    "mark names",
 )
 _MARK_CASE_HEADER_LABELS = {
     "bcvp": "bcvp",
     "notes": "n",
     "atom": "atom",
     "sequence": "seq",
-    "mark-names": "mark-names",
+    "mark names": "mark names",
 }
 _MARK_CASE_HEADER_TOOLTIPS = {
     "notes": "notes",
@@ -307,9 +307,11 @@ def _mark_case_header_label(field_name):
 
 
 def _highlighted_atom(case_dic):
-    atom_text = case_dic["atom"]
+    return _highlighted_atom_contents(case_dic["atom"], case_dic["cluster-index"])
+
+
+def _highlighted_atom_contents(atom_text, target_cluster):
     cluster_ranges = fois_mark_grammar_foi.atom_cluster_ranges(atom_text)
-    target_cluster = case_dic["cluster-index"]
     row_contents = []
     cursor = 0
     for cluster_idx, (start, end) in enumerate(cluster_ranges, start=1):
@@ -326,6 +328,30 @@ def _highlighted_atom(case_dic):
     if cursor < len(atom_text):
         row_contents.append(atom_text[cursor:])
     return tuple(row_contents)
+
+
+def _as_contents(value):
+    if isinstance(value, tuple):
+        return value
+    return (value,)
+
+
+def _styled_comment_atom(comment):
+    return my_html.span(
+        _highlighted_atom_contents(comment["atom"], comment["cluster-index"]),
+        {"lang": "hbo", "dir": "rtl"},
+    )
+
+
+def _mark_names_cell_contents(case_dic):
+    contents = list(_as_contents(_abbreviate_mark_names(case_dic["mark names"])))
+    comment = case_dic.get("mark names comment")
+    if comment is None:
+        return tuple(contents)
+    contents.append(my_html.line_break())
+    contents.append(comment["prefix"])
+    contents.append(_styled_comment_atom(comment))
+    return tuple(contents)
 
 
 def _case_row(case_dic):
@@ -345,8 +371,8 @@ def _case_row(case_dic):
         if field_name == "sequence":
             row_cells.append(my_html.table_datum(_sequence_label(cell_value)))
             continue
-        if field_name == "mark-names":
-            row_cells.append(my_html.table_datum(_abbreviate_mark_names(cell_value)))
+        if field_name == "mark names":
+            row_cells.append(my_html.table_datum(_mark_names_cell_contents(case_dic)))
             continue
         row_cells.append(my_html.table_datum(cell_value))
     return my_html.table_row(tuple(row_cells))

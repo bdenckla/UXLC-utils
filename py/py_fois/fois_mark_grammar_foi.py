@@ -66,6 +66,18 @@ _ORDINARY_PAGE_NOTES = {
         "and optional dms-r):"
     ),
 }
+_MARK_NAMES_COMMENTS_BY_BCVP = {
+    "Job 19:16.6": {
+        "prefix": "cf. Ps 124:4 ",
+        "atom": "נַ֗֜חְלָה",
+        "cluster-index": 1,
+    },
+    "Psalms 124:4.4": {
+        "prefix": "cf. Job 19:16 ",
+        "atom": "פִ֗‍֝י",
+        "cluster-index": 1,
+    },
+}
 
 
 @dataclass(frozen=True)
@@ -150,6 +162,7 @@ def _is_excluded(bkid, chnu, vrnu):
 def _collect_for_cluster(
     fois, bcvp, atom_type, atom_text, atom_note_data, cluster_idx, cluster
 ):
+    bcvp_str = _bcvp_str(bcvp)
     summary_counts = fois["summary-counts"]
     summary_counts["total-clusters"] += 1
     cluster_class, status_key = _classify(cluster, cluster_idx)
@@ -162,16 +175,21 @@ def _collect_for_cluster(
         return
     fois["cases-by-class"][cluster_class].append(
         {
-            "bcvp": _bcvp_str(bcvp),
+            "bcvp": bcvp_str,
             "notes": _notes_str(atom_note_data),
             "atom": atom_text,
             "atom-note-schematic": _note_schematic(atom_note_data),
             "cluster-index": cluster_idx,
             "cluster": cluster["letter"] + "".join(cluster["marks"]),
             "sequence": sequence,
-            "mark-names": ", ".join(my_unicode.name(mark) for mark in cluster["marks"]),
+            "mark names": ", ".join(my_unicode.name(mark) for mark in cluster["marks"]),
+            "mark names comment": _mark_names_comment(bcvp_str),
         }
     )
+
+
+def _mark_names_comment(bcvp_str):
+    return _MARK_NAMES_COMMENTS_BY_BCVP.get(bcvp_str)
 
 
 def atom_cluster_ranges(atom_text):
