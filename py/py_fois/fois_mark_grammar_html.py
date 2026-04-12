@@ -274,8 +274,11 @@ def _case_row(case_dic):
 
 
 def _abbreviate_mark_names(mark_names):
-    return mark_names.replace("dagesh/mapiq/shuruq-dot", "dms").replace(
-        "meteg/siluq", "metuq"
+    return (
+        mark_names.replace("dagesh/mapiq/shuruq-dot", "dms")
+        .replace("meteg/siluq", "metuq")
+        .replace("combining-grapheme-joiner", "CGJ")
+        .replace("zero-width-joiner", "ZWJ")
     )
 
 
