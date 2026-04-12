@@ -69,7 +69,7 @@
         "without-pre-wm": {
           "key": "without-pre-wm",
           "label": "without pre-wm",
-          "count": 630,
+          "count": 705,
           "examples": [
             {
               "bcvp": "Genesis 1:7.16",
@@ -116,47 +116,47 @@
         "with-pre-wm": {
           "key": "with-pre-wm",
           "label": "with pre-wm",
-          "count": 90,
+          "count": 15,
           "examples": [
             {
-              "bcvp": "Genesis 6:14.7",
+              "bcvp": "Genesis 8:13.1",
               "notes": "",
-              "atom": "תּֽ͏ַעֲשֶׂ֣ה",
+              "atom": "וֽ͏ַ֠יְהִי",
               "cluster-index": 1,
-              "sequence": "dav",
-              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+              "sequence": "ava",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ, telisha-gedola"
             },
             {
-              "bcvp": "Genesis 6:16.2",
+              "bcvp": "Isaiah 24:18.1",
               "notes": "",
-              "atom": "תּֽ͏ַעֲשֶׂ֣ה",
+              "atom": "וֽ͏ְ֠הָיָה",
               "cluster-index": 1,
-              "sequence": "dav",
-              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+              "sequence": "ava",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, sheva, telisha-gedola"
             },
             {
-              "bcvp": "Genesis 6:16.15",
+              "bcvp": "Psalms 29:1.4",
               "notes": "",
-              "atom": "תּֽ͏ַעֲשֶֽׂהָ׃",
+              "atom": "לֽ͏ַ֭יהוָה",
               "cluster-index": 1,
-              "sequence": "dav",
-              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+              "sequence": "ava",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ, deḥi"
             },
             {
-              "bcvp": "Genesis 7:9.10",
+              "bcvp": "Psalms 34:1.7",
               "notes": "",
-              "atom": "כּֽ͏ַאֲשֶׁ֛ר",
+              "atom": "וֽ͏ַ֝יְגָרֲשֵׁ֗הוּ",
               "cluster-index": 1,
-              "sequence": "dav",
-              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+              "sequence": "ava",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, pataḥ, geresh-muqdam"
             },
             {
-              "bcvp": "Genesis 7:16.7",
+              "bcvp": "Psalms 42:12.8",
               "notes": "",
-              "atom": "כּֽ͏ַאֲשֶׁ֛ר",
+              "atom": "לֽ͏ֵ֭אלֹהִים",
               "cluster-index": 1,
-              "sequence": "dav",
-              "mark names": "dagesh/mapiq/shuruq-dot, meteg/siluq, combining-grapheme-joiner, pataḥ"
+              "sequence": "ava",
+              "mark names": "meteg/siluq, combining-grapheme-joiner, tsere, deḥi"
             }
           ]
         }

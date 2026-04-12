@@ -282,12 +282,17 @@ def _marks_without_format_controls(marks):
     return [mark for mark in marks if mark not in _FORMAT_CONTROLS]
 
 
-def _is_expected_hataf_zwj_meteg(marks):
+def _skip_optional_shsi_and_dagesh(marks):
     idx = 0
     if idx < len(marks) and marks[idx] in _SHSI_DOT_MARKS:
         idx += 1
     if idx < len(marks) and marks[idx] in _DAGESH_MARKS:
         idx += 1
+    return idx
+
+
+def _is_expected_hataf_zwj_meteg(marks):
+    idx = _skip_optional_shsi_and_dagesh(marks)
     if idx + 2 >= len(marks):
         return False
     if marks[idx] not in _HATAF_VOWELS:
@@ -301,11 +306,7 @@ def _is_expected_hataf_zwj_meteg(marks):
 
 
 def _is_expected_meteg_cgj_vowel(marks):
-    idx = 0
-    if idx < len(marks) and marks[idx] in _SHSI_DOT_MARKS:
-        idx += 1
-    if idx < len(marks) and marks[idx] in _DAGESH_MARKS:
-        idx += 1
+    idx = _skip_optional_shsi_and_dagesh(marks)
     if idx + 2 >= len(marks):
         return False
     if marks[idx] != hpo.MTGOSLQ:
@@ -417,10 +418,11 @@ def _ordinary_override_pattern_match(rule_key, cluster, cluster_idx):
     del cluster_idx
     marks = cluster["marks"]
     if rule_key == "meteg-cgj-vowel":
+        idx = _skip_optional_shsi_and_dagesh(marks)
         return OrdinaryPatternMatch(
             rule_key,
             "meteg-cgj-vowel",
-            _pre_wm_fork_key(marks[3:]),
+            _pre_wm_fork_key(marks[idx + 3 :]),
         )
     if rule_key == "lamed-pq-cgj-xs":
         return OrdinaryPatternMatch(
@@ -441,10 +443,11 @@ def _ordinary_override_pattern_match(rule_key, cluster, cluster_idx):
             "with-above-accent" if len(marks) == 3 else "without-above-accent",
         )
     if rule_key == "hataf-zwj-meteg":
+        idx = _skip_optional_shsi_and_dagesh(marks)
         return OrdinaryPatternMatch(
             rule_key,
             "hataf-zwj-meteg",
-            _pre_wm_fork_key(marks[3:]),
+            _pre_wm_fork_key(marks[idx + 3 :]),
         )
     if rule_key == "initial-double-aom-suffix":
         return OrdinaryPatternMatch(
