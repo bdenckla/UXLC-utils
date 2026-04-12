@@ -23,6 +23,16 @@ _MARK_CASE_HEADERS = (
     "sequence",
     "mark-names",
 )
+_ABBREVIATION_ROWS = (
+    ("sla", "shin-dot or sin-dot"),
+    ("dms", "dagesh/mapiq/shuruq-dot"),
+    ("metuq", "meteg/siluq"),
+    ("aom", "accent-or-meteg"),
+    ("CGJ", "combining grapheme joiner"),
+    ("ZWJ", "zero-width joiner"),
+    ("pq-vowel", "pataḥ or qamats"),
+    ("xs-vowel", "ḥiriq or sheva"),
+)
 
 
 def _count_str(value):
@@ -44,7 +54,25 @@ def write(mark_catalog, json_output_path, out_path):
         [
             my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
             my_html.para(
-                "This page classifies Hebrew letter clusters against the ordinary mark grammar sla -> dagesh -> vowel -> aom."
+                "This page classifies Hebrew letter clusters against the ordinary mark grammar sla -> dagesh/rafeh -> vowel -> aom."
+            ),
+            my_html.heading_level_2("Abbreviations"),
+            _abbreviation_table(),
+            my_html.para(
+                "Extraordinary upper dots and lower dots are stripped before clusters are classified on this page."
+            ),
+            my_html.para("Additional patterns treated as ordinary:"),
+            my_html.unordered_list(
+                (
+                    "meteg, CGJ, vowel.",
+                    "On lamed only: pq-vowel, CGJ, xs-vowel.",
+                    "On lamed only: pq-vowel, below-accent (including Unicode meteg), CGJ, xs-vowel.",
+                    "On lamed only: pq-vowel, xs-vowel, with optional above-accent.",
+                    "One of the three ḥataf vowels, then ZWJ, then meteg.",
+                    "On the first letter of a word only: meteg followed by telisha gedolah, deḥi, or geresh muqdam.",
+                    "On any letter: meteg followed by oleh.",
+                    "On the first letter of a word only: geresh muqdam followed by revia.",
+                )
             ),
             my_html.para(
                 "The three dually-cantillated passages are excluded: Exodus 20, Deuteronomy 5, and Genesis 35:22."
@@ -128,6 +156,12 @@ def _sequence_counts_table(sequence_counts):
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
+def _abbreviation_table():
+    rows = [my_html.table_row_of_headers(("abbreviation", "meaning"))]
+    rows.extend(my_html.table_row_of_data(row) for row in _ABBREVIATION_ROWS)
+    return my_html.table(rows, {"class": "border-collapse limited-width"})
+
+
 def _cases_table(cases):
     rows = [my_html.table_row_of_headers(_MARK_CASE_HEADERS)]
     rows.extend(_case_row(case_dic) for case_dic in cases)
@@ -146,8 +180,17 @@ def _case_row(case_dic):
         if field_name == "sequence":
             row_cells.append(my_html.table_datum(_sequence_label(cell_value)))
             continue
+        if field_name == "mark-names":
+            row_cells.append(my_html.table_datum(_abbreviate_mark_names(cell_value)))
+            continue
         row_cells.append(my_html.table_datum(cell_value))
     return my_html.table_row(tuple(row_cells))
+
+
+def _abbreviate_mark_names(mark_names):
+    return mark_names.replace("dagesh/mapiq/shuruq-dot", "dms").replace(
+        "meteg/siluq", "metuq"
+    )
 
 
 def _class_label(class_key):

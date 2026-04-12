@@ -5,7 +5,10 @@ import unicodedata
 
 import py_misc.my_unicode as my_unicode
 import py_fois.uni_heb_char_classes as ucc
+from pycmn import hebrew_letters as hl
+from pycmn import hebrew_accents as ha
 from pycmn import hebrew_points as hpo
+from pycmn import hebrew_punctuation as hpu
 from pycmn import str_defs as sd
 
 
@@ -15,9 +18,25 @@ _DUAL_CANTILLATION_LOCS = {
     ("Genesis", 35, 22),
 }
 _SLA_MARKS = frozenset((hpo.SHIND, hpo.SIND))
-_DAGESH_MARKS = frozenset((hpo.DAGOMOSD,))
+_DAGESH_MARKS = frozenset((hpo.DAGOMOSD, hpo.RAFE))
 _VOWEL_MARKS = frozenset(ucc.VOWEL_POINTS)
 _AOM_MARKS = frozenset(ucc.ACCENTS)
+_NON_METEG_AOM_MARKS = frozenset(mark for mark in ucc.ACCENTS if mark != hpo.MTGOSLQ)
+_INITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES = frozenset(
+    (
+        (hpo.MTGOSLQ, ha.TEL_G),
+        (hpo.MTGOSLQ, ha.DEX),
+        (hpo.MTGOSLQ, ha.GER_M),
+        (ha.GER_M, ha.REV),
+    )
+)
+_NONINITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES = frozenset(((hpo.MTGOSLQ, ha.OLE),))
+_HATAF_VOWELS = frozenset((hpo.XSEGOL, hpo.XPATAX, hpo.XQAMATS))
+_PQ_VOWELS = frozenset((hpo.PATAX, hpo.QAMATS))
+_XS_VOWELS = frozenset((hpo.XIRIQ, hpo.SHEVA))
+_LAMED_BELOW_AOM_MARKS = frozenset((*ha.UNI_UNDER_ACCENTS, hpo.MTGOSLQ))
+_CGJ_ONLY = frozenset((sd.CGJ,))
+_STRIPPED_MARKS = frozenset((hpu.UPDOT, hpu.LODOT))
 _FORMAT_CONTROLS = frozenset((sd.CGJ, sd.ZWJ))
 _CLASS_ORDER = (
     "ordinary",
@@ -101,6 +120,8 @@ def _split_clusters(atom_text):
         if current is None:
             continue
         if unicodedata.category(ch) in ("Mn", "Cf"):
+            if ch in _STRIPPED_MARKS:
+                continue
             current["marks"].append(ch)
     return clusters
 
@@ -109,7 +130,7 @@ def _classify(cluster, cluster_idx):
     marks = cluster["marks"]
     if _unexpected_marks(marks):
         return "unexpected-mark", "exotic"
-    if _is_ordinary(marks):
+    if _is_ordinary(cluster, cluster_idx):
         return "ordinary", "ordinary"
     if any(mark in _FORMAT_CONTROLS for mark in marks):
         return "explicit-order", "allowed-overrides"
@@ -122,13 +143,104 @@ def _classify(cluster, cluster_idx):
     return "other-ordering", "exotic"
 
 
-def _is_ordinary(marks):
+def _is_ordinary(cluster, cluster_idx):
+    marks = cluster["marks"]
+    if _is_expected_hataf_zwj_meteg(marks):
+        return True
+    if _is_expected_meteg_cgj_vowel(marks):
+        return True
+    if _is_expected_lamed_pq_maybe_accent_cgj_xs(cluster["letter"], marks):
+        return True
     if any(mark in _FORMAT_CONTROLS for mark in marks):
         return False
-    sequence = _mark_sequence(marks)
+    marks_without_format_controls = _marks_without_format_controls(marks)
+    if _is_expected_ordinary_double_aom_suffix(
+        marks_without_format_controls, cluster_idx
+    ):
+        return True
+    sequence = _mark_sequence(marks_without_format_controls)
     if not _is_in_nondecreasing_order(sequence):
         return False
     return all(sequence.count(mark_class) <= 1 for mark_class in "sdva")
+
+
+def _marks_without_format_controls(marks):
+    return [mark for mark in marks if mark not in _FORMAT_CONTROLS]
+
+
+def _is_expected_hataf_zwj_meteg(marks):
+    idx = 0
+    if idx < len(marks) and marks[idx] in _SLA_MARKS:
+        idx += 1
+    if idx < len(marks) and marks[idx] in _DAGESH_MARKS:
+        idx += 1
+    if idx + 2 >= len(marks):
+        return False
+    if marks[idx] not in _HATAF_VOWELS:
+        return False
+    if marks[idx + 1] != sd.ZWJ or marks[idx + 2] != hpo.MTGOSLQ:
+        return False
+    trailing_marks = marks[idx + 3 :]
+    return len(trailing_marks) <= 1 and all(
+        mark in _NON_METEG_AOM_MARKS for mark in trailing_marks
+    )
+
+
+def _is_expected_meteg_cgj_vowel(marks):
+    idx = 0
+    if idx < len(marks) and marks[idx] in _SLA_MARKS:
+        idx += 1
+    if idx < len(marks) and marks[idx] in _DAGESH_MARKS:
+        idx += 1
+    if idx + 2 >= len(marks):
+        return False
+    if marks[idx] != hpo.MTGOSLQ:
+        return False
+    if marks[idx + 1] not in _CGJ_ONLY or marks[idx + 2] not in _VOWEL_MARKS:
+        return False
+    trailing_marks = marks[idx + 3 :]
+    return len(trailing_marks) <= 1 and all(
+        mark in _NON_METEG_AOM_MARKS for mark in trailing_marks
+    )
+
+
+def _is_expected_lamed_pq_maybe_accent_cgj_xs(letter, marks):
+    if letter != hl.LAMED:
+        return False
+    if len(marks) == 2:
+        return marks[0] in _PQ_VOWELS and marks[1] in _XS_VOWELS
+    if len(marks) == 3:
+        if marks[0] in _PQ_VOWELS and marks[1] in _CGJ_ONLY and marks[2] in _XS_VOWELS:
+            return True
+        return (
+            marks[0] in _PQ_VOWELS
+            and marks[1] in _XS_VOWELS
+            and marks[2] in ha.UNI_OVER_ACCENTS
+        )
+    if len(marks) == 4:
+        return (
+            marks[0] in _PQ_VOWELS
+            and marks[1] in _LAMED_BELOW_AOM_MARKS
+            and marks[2] in _CGJ_ONLY
+            and marks[3] in _XS_VOWELS
+        )
+    return False
+
+
+def _is_expected_ordinary_double_aom_suffix(marks, cluster_idx):
+    if len(marks) < 2:
+        return False
+    suffix = tuple(marks[-2:])
+    if suffix in _INITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES:
+        if cluster_idx != 1:
+            return False
+    elif suffix not in _NONINITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES:
+        return False
+    prefix = marks[:-2]
+    sequence = _mark_sequence(prefix)
+    return _is_in_nondecreasing_order(sequence) and all(
+        sequence.count(mark_class) <= 1 for mark_class in "sdv"
+    )
 
 
 def _is_initial_double_aom(marks):
