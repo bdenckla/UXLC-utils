@@ -6,32 +6,36 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-REL_PATH = "out/UXLC-misc/features_of_interest.json"
+REL_PATHS = (
+    "gh-pages/fois/features_of_interest-kq.json",
+    "gh-pages/fois/features_of_interest-mark-grammar.json",
+)
 OUT_PATH = REPO_ROOT / ".novc" / "foi_unicode_diff.txt"
 
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     sys.stderr.reconfigure(encoding="utf-8")
-    old_obj = _load_committed_json()
-    new_obj = _load_worktree_json()
     lines = []
-    _compare(old_obj, new_obj, REL_PATH, lines)
+    for rel_path in REL_PATHS:
+        old_obj = _load_committed_json(rel_path)
+        new_obj = _load_worktree_json(rel_path)
+        _compare(old_obj, new_obj, rel_path, lines)
     OUT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Wrote {OUT_PATH}")
 
 
-def _load_committed_json():
+def _load_committed_json(rel_path):
     content = subprocess.check_output(
-        ["git", "show", f"HEAD:{REL_PATH}"],
+        ["git", "show", f"HEAD:{rel_path}"],
         cwd=REPO_ROOT,
         encoding="utf-8",
     )
     return json.loads(content)
 
 
-def _load_worktree_json():
-    return json.loads((REPO_ROOT / REL_PATH).read_text(encoding="utf-8"))
+def _load_worktree_json(rel_path):
+    return json.loads((REPO_ROOT / rel_path).read_text(encoding="utf-8"))
 
 
 def _compare(old_obj, new_obj, path, lines):
