@@ -4,7 +4,7 @@
 from pathlib import PurePosixPath
 
 import py_misc.my_html as my_html
-import py_misc.my_fois_mark_grammar_html as my_fois_mark_grammar_html
+import py_fois.fois_mark_grammar_html as fois_mark_grammar_html
 
 
 _OUT_DIR_PATH = "gh-pages/fois"
@@ -21,7 +21,7 @@ def write(fois, json_output_paths):
     if kq_catalog := fois.get("kq"):
         _write_kq_page(kq_catalog, json_output_paths["kq"])
     if mark_catalog := fois.get("mark-grammar"):
-        my_fois_mark_grammar_html.write(
+        fois_mark_grammar_html.write(
             mark_catalog,
             json_output_paths["mark-grammar"],
             f"{_OUT_DIR_PATH}/{_DETAIL_FILENAME_BY_KEY['mark-grammar']}",
@@ -66,7 +66,7 @@ def _summary_for_catalog(foi_key, catalog):
         exotic_cases = len(catalog["exotic-cases-flat"])
         return f"{total_cases} total cases; {exotic_cases} exotic cases"
     if foi_key == "mark-grammar":
-        return my_fois_mark_grammar_html.summary(catalog)
+        return fois_mark_grammar_html.summary(catalog)
     return "HTML summary not implemented"
 
 

@@ -3,9 +3,9 @@
 import _repo_path_setup
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_open as my_open
-import py_misc.my_fois_html as my_fois_html
-import py_misc.my_fois_kq_foi as my_fois_kq_foi
-import py_misc.my_fois_mark_grammar_foi as my_fois_mark_grammar_foi
+import py_fois.fois_html as fois_html
+import py_fois.fois_kq_foi as fois_kq_foi
+import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
 
 def _stripped_text(value):
@@ -65,15 +65,15 @@ def main():
     """Writes UXLC features of interest to per-FOI JSON files."""
     uxlc = my_uxlc.read_all_books(_VERSE_CHILD_HANDLERS)
     fois = {
-        "kq": my_fois_kq_foi.init(),
-        "mark-grammar": my_fois_mark_grammar_foi.init(),
+        "kq": fois_kq_foi.init(),
+        "mark-grammar": fois_mark_grammar_foi.init(),
     }
     for bkid, chapters in uxlc.items():
         for chidx, chapter in enumerate(chapters):
             for vridx, verse in enumerate(chapter):
                 bcv = bkid, chidx + 1, vridx + 1
-                my_fois_kq_foi.collect_for_verse(fois["kq"], bcv, verse)
-                my_fois_mark_grammar_foi.collect_for_verse(
+                fois_kq_foi.collect_for_verse(fois["kq"], bcv, verse)
+                fois_mark_grammar_foi.collect_for_verse(
                     fois["mark-grammar"], bcv, verse
                 )
     json_output_paths = {
@@ -82,7 +82,7 @@ def main():
     }
     for foi_key, catalog in fois.items():
         my_open.json_dump_to_file_path(catalog, json_output_paths[foi_key])
-    my_fois_html.write(fois, json_output_paths)
+    fois_html.write(fois, json_output_paths)
 
 
 if __name__ == "__main__":

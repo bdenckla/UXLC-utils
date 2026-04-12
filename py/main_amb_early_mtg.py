@@ -1,21 +1,21 @@
 """Exports main."""
 
 import _repo_path_setup
-import py_misc.my_amb_early_mtg as my_amb_early_mtg
-import py_misc.my_amb_early_mtg_full as my_amb_early_mtg_full
-import py_misc.my_amb_early_mtg_summary as my_amb_early_mtg_summary
-import py_misc.my_amb_early_mtg_extend as my_amb_early_mtg_extend
-import py_misc.my_amb_early_mtg_three_and_beyond as my_amb_early_mtg_three_and_beyond
+import py_amb_early_mtg.amb_early_mtg as amb_early_mtg
+import py_amb_early_mtg.amb_early_mtg_full as amb_early_mtg_full
+import py_amb_early_mtg.amb_early_mtg_summary as amb_early_mtg_summary
+import py_amb_early_mtg.amb_early_mtg_extend as amb_early_mtg_extend
+import py_amb_early_mtg.amb_early_mtg_three_and_beyond as amb_early_mtg_three_and_beyond
 import py_misc.my_html as my_html
 
 
 def main():
     """Writes amb-early-mtg records to HTML files."""
-    records = my_amb_early_mtg.RECORDS
+    records = amb_early_mtg.RECORDS
     #
-    my_amb_early_mtg_three_and_beyond.find()
+    amb_early_mtg_three_and_beyond.find()
     #
-    my_amb_early_mtg_extend.extend_records(records)  # mutates, i.e. modifies in-place
+    amb_early_mtg_extend.extend_records(records)  # mutates, i.e. modifies in-place
     #
     _set_prev_and_next(records, "prev", "next")
     #
@@ -25,15 +25,15 @@ def main():
     #
     # Now we write varies HTML files in a bottom-up (leaves first) fashion
     #
-    my_amb_early_mtg_full.write(records)  # fills in path-to-full fields
+    amb_early_mtg_full.write(records)  # fills in path-to-full fields
     #
     dubious_path = "dubious.html"
     dubious_title = "Words with dubious early meteg letter"
-    my_amb_early_mtg_summary.write(dubious_recs, dubious_path, dubious_title)
+    amb_early_mtg_summary.write(dubious_recs, dubious_path, dubious_title)
     #
     intro = _intro(records, dubious_recs, dubious_path, dubious_title)
     title = "Words with ambiguous early meteg"
-    my_amb_early_mtg_summary.write(records, "index.html", title, intro)
+    amb_early_mtg_summary.write(records, "index.html", title, intro)
 
 
 def _set_prev_and_next(io_records, prevkey, nextkey):

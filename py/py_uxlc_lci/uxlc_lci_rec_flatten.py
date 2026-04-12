@@ -1,6 +1,6 @@
 """Exports flatten_one"""
 
-import py_misc.my_uxlc_lci_rec as lci_rec
+import py_uxlc_lci.uxlc_lci_rec as lci_rec
 import py_misc.my_uxlc_cvp as cvp
 
 

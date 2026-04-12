@@ -4,8 +4,8 @@ import shutil
 import _repo_path_setup
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_uxlc_page_break_info as page_break_info
-import py_misc.my_uxlc_lci_augrec as lci_augrec
-import py_misc.my_uxlc_lci_rec_to_xml as lci_rec_to_xml
+import py_uxlc_lci.uxlc_lci_augrec as lci_augrec
+import py_uxlc_lci.uxlc_lci_rec_to_xml as lci_rec_to_xml
 import py_misc.my_open as my_open
 
 
