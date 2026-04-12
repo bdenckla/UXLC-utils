@@ -24,6 +24,17 @@ _MARK_CASE_HEADERS = (
     "sequence",
     "mark-names",
 )
+_MARK_CASE_HEADER_LABELS = {
+    "bcvp": "bcvp",
+    "notes": "n",
+    "atom": "atom",
+    "sequence": "seq",
+    "mark-names": "mark-names",
+}
+_MARK_CASE_HEADER_TOOLTIPS = {
+    "notes": "notes",
+    "sequence": "sequence",
+}
 _GRAMMAR_ORDER_ROWS = (
     ("shsi-dot", "shin-dot or sin-dot"),
     ("dms-r", "dms (see below) or rafeh"),
@@ -271,9 +282,28 @@ def _grammar_order_table():
 
 
 def _cases_table(cases):
-    rows = [my_html.table_row_of_headers(_MARK_CASE_HEADERS)]
+    rows = [
+        my_html.table_row_of_headers(
+            tuple(
+                _mark_case_header_label(field_name) for field_name in _MARK_CASE_HEADERS
+            )
+        )
+    ]
     rows.extend(_case_row(case_dic) for case_dic in cases)
     return my_html.table(rows, {"class": "border-collapse limited-width"})
+
+
+def _mark_case_header_label(field_name):
+    label = _MARK_CASE_HEADER_LABELS[field_name]
+    if field_name not in _MARK_CASE_HEADER_TOOLTIPS:
+        return label
+    return my_html.span(
+        label,
+        {
+            "class": "abbrev-tooltip",
+            "title": _MARK_CASE_HEADER_TOOLTIPS[field_name],
+        },
+    )
 
 
 def _highlighted_atom(case_dic):
