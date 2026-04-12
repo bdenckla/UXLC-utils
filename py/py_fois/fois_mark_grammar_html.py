@@ -21,7 +21,6 @@ _MARK_CASE_HEADERS = (
     "bcvp",
     "notes",
     "atom",
-    "cluster",
     "sequence",
     "mark-names",
 )
@@ -213,6 +212,28 @@ def _cases_table(cases):
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
+def _highlighted_atom(case_dic):
+    atom_text = case_dic["atom"]
+    cluster_ranges = fois_mark_grammar_foi.atom_cluster_ranges(atom_text)
+    target_cluster = case_dic["cluster-index"]
+    row_contents = []
+    cursor = 0
+    for cluster_idx, (start, end) in enumerate(cluster_ranges, start=1):
+        if cursor < start:
+            row_contents.append(atom_text[cursor:start])
+        cluster_text = atom_text[start:end]
+        if cluster_idx == target_cluster:
+            row_contents.append(
+                my_html.span(cluster_text, {"class": "cluster-highlight"})
+            )
+        else:
+            row_contents.append(cluster_text)
+        cursor = end
+    if cursor < len(atom_text):
+        row_contents.append(atom_text[cursor:])
+    return tuple(row_contents)
+
+
 def _case_row(case_dic):
     row_cells = []
     for field_name in _MARK_CASE_HEADERS:
@@ -220,9 +241,11 @@ def _case_row(case_dic):
         if field_name == "bcvp":
             row_cells.append(my_html.table_datum(_linked_bcvp(cell_value)))
             continue
-        if field_name in ("atom", "cluster"):
+        if field_name == "atom":
             row_cells.append(
-                my_html.table_datum(cell_value, {"lang": "hbo", "dir": "rtl"})
+                my_html.table_datum(
+                    _highlighted_atom(case_dic), {"lang": "hbo", "dir": "rtl"}
+                )
             )
             continue
         if field_name == "sequence":

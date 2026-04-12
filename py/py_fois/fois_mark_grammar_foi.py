@@ -117,7 +117,9 @@ def collect_for_verse(fois, bcv, verse):
         atom_type, atom_text = atom[:2]
         atom_note_data = _atom_note_data(atom)
         bcvp = *bcv, atidx
-        for cluster_idx, cluster in enumerate(_split_clusters(atom_text), start=1):
+        for cluster_idx, cluster in enumerate(
+            split_atom_clusters(atom_text, strip_marks=True), start=1
+        ):
             _collect_for_cluster(
                 fois,
                 bcvp,
@@ -164,20 +166,35 @@ def _collect_for_cluster(
     )
 
 
-def _split_clusters(atom_text):
-    clusters = []
-    current = None
-    for ch in atom_text:
+def atom_cluster_ranges(atom_text):
+    ranges = []
+    current_start = None
+    for idx, ch in enumerate(atom_text):
         if ch in ucc.LETTERS:
-            current = {"letter": ch, "marks": []}
-            clusters.append(current)
+            if current_start is not None:
+                ranges.append((current_start, idx))
+            current_start = idx
             continue
-        if current is None:
+        if current_start is not None and unicodedata.category(ch) in ("Mn", "Cf"):
             continue
-        if unicodedata.category(ch) in ("Mn", "Cf"):
-            if ch in _STRIPPED_MARKS:
+        if current_start is not None:
+            ranges.append((current_start, idx))
+            current_start = None
+    if current_start is not None:
+        ranges.append((current_start, len(atom_text)))
+    return tuple(ranges)
+
+
+def split_atom_clusters(atom_text, strip_marks=False):
+    clusters = []
+    for start, end in atom_cluster_ranges(atom_text):
+        cluster_text = atom_text[start:end]
+        cluster = {"letter": cluster_text[0], "marks": []}
+        for ch in cluster_text[1:]:
+            if strip_marks and ch in _STRIPPED_MARKS:
                 continue
-            current["marks"].append(ch)
+            cluster["marks"].append(ch)
+        clusters.append(cluster)
     return clusters
 
 
