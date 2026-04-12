@@ -17,13 +17,14 @@ _DUAL_CANTILLATION_LOCS = {
     ("Deuter", 5),
     ("Genesis", 35, 22),
 }
-_SLA_MARKS = frozenset((hpo.SHIND, hpo.SIND))
+_SHSI_DOT_MARKS = frozenset((hpo.SHIND, hpo.SIND))
 _DAGESH_MARKS = frozenset((hpo.DAGOMOSD, hpo.RAFE))
 _VOWEL_MARKS = frozenset(ucc.VOWEL_POINTS)
 _AOM_MARKS = frozenset(ucc.ACCENTS)
 _NON_METEG_AOM_MARKS = frozenset(mark for mark in ucc.ACCENTS if mark != hpo.MTGOSLQ)
 _INITIAL_ORDINARY_DOUBLE_AOM_SUFFIXES = frozenset(
     (
+        (ha.MUN, ha.DEX),
         (hpo.MTGOSLQ, ha.TEL_G),
         (hpo.MTGOSLQ, ha.DEX),
         (hpo.MTGOSLQ, ha.GER_M),
@@ -182,7 +183,7 @@ def _marks_without_format_controls(marks):
 
 def _is_expected_hataf_zwj_meteg(marks):
     idx = 0
-    if idx < len(marks) and marks[idx] in _SLA_MARKS:
+    if idx < len(marks) and marks[idx] in _SHSI_DOT_MARKS:
         idx += 1
     if idx < len(marks) and marks[idx] in _DAGESH_MARKS:
         idx += 1
@@ -200,7 +201,7 @@ def _is_expected_hataf_zwj_meteg(marks):
 
 def _is_expected_meteg_cgj_vowel(marks):
     idx = 0
-    if idx < len(marks) and marks[idx] in _SLA_MARKS:
+    if idx < len(marks) and marks[idx] in _SHSI_DOT_MARKS:
         idx += 1
     if idx < len(marks) and marks[idx] in _DAGESH_MARKS:
         idx += 1
@@ -290,7 +291,7 @@ def _mark_sequence(cluster_or_marks):
 
 
 def _mark_class(mark):
-    if mark in _SLA_MARKS:
+    if mark in _SHSI_DOT_MARKS:
         return "s"
     if mark in _DAGESH_MARKS:
         return "d"

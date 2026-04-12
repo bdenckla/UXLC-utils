@@ -17,7 +17,7 @@ DUAL_CANTILLATION_LOCS = {
     ("Deuter", 5),
     ("Genesis", 35, 22),
 }
-SLA_MARKS = {hpo.SHIND, hpo.SIND}
+SHSI_DOT_MARKS = {hpo.SHIND, hpo.SIND}
 DAGESH_MARKS = {hpo.DAGOMOSD}
 VOWEL_MARKS = set(ucc.VOWEL_POINTS)
 AOM_MARKS = set(ucc.ACCENTS)
@@ -142,7 +142,7 @@ def _mark_sequence(cluster):
 
 
 def _mark_class(mark):
-    if mark in SLA_MARKS:
+    if mark in SHSI_DOT_MARKS:
         return "s"
     if mark in DAGESH_MARKS:
         return "d"

@@ -2,14 +2,14 @@
   "summary-counts": {
     "total-clusters": 1200055,
     "excluded-atoms": 804,
-    "ordinary": 1200027,
-    "allowed-overrides": 13,
+    "ordinary": 1200029,
+    "allowed-overrides": 11,
     "exotic": 15
   },
   "class-counts": {
-    "ordinary": 1200027,
+    "ordinary": 1200029,
     "explicit-order": 5,
-    "initial-double-aom": 8,
+    "initial-double-aom": 6,
     "multi-vowel": 2,
     "noninitial-double-aom": 4,
     "unexpected-mark": 0,
@@ -41,10 +41,10 @@
       "vva": 221,
       "vav": 405,
       "vv": 10,
-      "dvaa": 66,
+      "dvaa": 67,
       "aa": 45,
       "daa": 16,
-      "svaa": 16,
+      "svaa": 17,
       "saa": 2,
       "sdvaa": 1,
       "sdaa": 1
@@ -57,8 +57,7 @@
     },
     "initial-double-aom": {
       "vaa": 4,
-      "svaa": 3,
-      "dvaa": 1
+      "svaa": 2
     },
     "multi-vowel": {
       "dvva": 1,
@@ -184,16 +183,6 @@
         "mark-names": "pataḥ, revia, geresh"
       },
       {
-        "bcvp": "Psalms 135:2.1",
-        "notes": "",
-        "atom": "שֶׁ֣֭עֹֽמְדִים",
-        "atom-note-schematic": null,
-        "cluster-index": 1,
-        "cluster": "שֶׁ֣֭",
-        "sequence": "svaa",
-        "mark-names": "shin-dot, segol-vowel, munaḥ, deḥi"
-      },
-      {
         "bcvp": "Job 15:34.8",
         "notes": "",
         "atom": "שֹֽׁ֥חַד׃",
@@ -202,16 +191,6 @@
         "cluster": "שֹֽׁ֥",
         "sequence": "svaa",
         "mark-names": "shin-dot, ḥolam, meteg/siluq, merkha/yored"
-      },
-      {
-        "bcvp": "Job 32:13.2",
-        "notes": "",
-        "atom": "תֹּ֣֭אמְרוּ",
-        "atom-note-schematic": null,
-        "cluster-index": 1,
-        "cluster": "תֹּ֣֭",
-        "sequence": "dvaa",
-        "mark-names": "dagesh/mapiq/shuruq-dot, ḥolam, munaḥ, deḥi"
       }
     ],
     "multi-vowel": [

@@ -25,10 +25,10 @@ _MARK_CASE_HEADERS = (
     "mark-names",
 )
 _GRAMMAR_ORDER_ROWS = (
-    ("sla", "shin-dot or sin-dot"),
-    ("dagesh/rafeh", ""),
+    ("shsi-dot", "shin-dot or sin-dot"),
+    ("dms-r", "dms (see below) or rafeh"),
     ("vowel", ""),
-    ("aom", "accent-or-meteg"),
+    ("aom", "accent or meteg"),
 )
 _ABBREVIATION_ROWS = (
     ("dms", "dagesh/mapiq/shuruq-dot"),
@@ -92,8 +92,8 @@ def summary(mark_catalog):
     summary_counts = mark_catalog["summary-counts"]
     return (
         f"{_count_str(summary_counts['total-clusters'])} clusters; "
-        f"{_count_str(summary_counts['allowed-overrides'])} likely legit; "
-        f"{_count_str(summary_counts['exotic'])} unlikely legit clusters"
+        f"{_count_str(summary_counts['ordinary'])} ordinary; "
+        f"{_count_str(summary_counts['total-clusters'] - summary_counts['ordinary'])} listed below"
     )
 
 
@@ -130,9 +130,8 @@ def write(mark_catalog, json_output_path, out_path):
             my_html.para(
                 f"There are {_count_str(summary_counts['total-clusters'])} included "
                 f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
-                f"{_count_str(summary_counts['allowed-overrides'])} are treated as "
-                f"likely legit, and {_count_str(summary_counts['exotic'])} remain "
-                f"unlikely legit."
+                f"and {_count_str(summary_counts['total-clusters'] - summary_counts['ordinary'])} "
+                f"fall into the listed non-ordinary classes below."
             ),
             my_html.para(
                 [
@@ -150,25 +149,21 @@ def write(mark_catalog, json_output_path, out_path):
 
 
 def _class_counts_table(mark_catalog):
-    rows = [my_html.table_row_of_headers(("class", "status", "count", "details"))]
-    for class_key in _MARK_CLASS_ORDER:
+    rows = [my_html.table_row_of_headers(("class", "count", "details"))]
+    for class_key in _MARK_CLASS_ORDER[1:]:
         rows.append(_class_count_row(class_key, mark_catalog))
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _class_count_row(class_key, mark_catalog):
     count = mark_catalog["class-counts"][class_key]
-    if class_key == "ordinary":
-        detail_contents = "Counted only; not listed below"
-    else:
-        detail_contents = my_html.anchor(
-            f"{_count_str(len(mark_catalog['cases-by-class'][class_key]))} cases",
-            {"href": f"#{_section_id(class_key)}"},
-        )
+    detail_contents = my_html.anchor(
+        f"{_count_str(len(mark_catalog['cases-by-class'][class_key]))} cases",
+        {"href": f"#{_section_id(class_key)}"},
+    )
     return my_html.table_row_of_data(
         (
             _class_label(class_key),
-            _status_label(class_key),
             _count_str(count),
             detail_contents,
         )
@@ -287,14 +282,6 @@ def _class_label(class_key):
         "unexpected-mark": "unexpected-mark",
         "other-ordering": "other-ordering",
     }[class_key]
-
-
-def _status_label(class_key):
-    if class_key == "ordinary":
-        return "ordinary"
-    if class_key in ("explicit-order", "initial-double-aom"):
-        return "likely legit"
-    return "unlikely legit"
 
 
 def _sequence_label(sequence):
