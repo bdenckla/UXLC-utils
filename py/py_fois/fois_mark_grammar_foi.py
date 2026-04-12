@@ -48,6 +48,27 @@ _CLASS_ORDER = (
     "unexpected-mark",
     "other-ordering",
 )
+_ORDINARY_PAGE_NOTES = {
+    "stripped-marks": (
+        "Extraordinary upper dots and lower dots are stripped before clusters are "
+        "classified on this page."
+    ),
+    "ordinary-prefixes": (
+        "Ordinary clusters may also begin with shin-dot/sin-dot and dagesh/"
+        "mapiq/shuruq-dot or rafeh before the ordinary mark order."
+    ),
+    "additional-patterns-intro": "Additional patterns treated as ordinary:",
+}
+_ORDINARY_PATTERN_DESCRIPTIONS = (
+    "meteg, CGJ, vowel, with an optional trailing non-meteg accent.",
+    "On lamed only: pq-vowel, CGJ, xs-vowel.",
+    "On lamed only: pq-vowel, below-accent (including Unicode meteg), CGJ, xs-vowel.",
+    "On lamed only: pq-vowel, xs-vowel, with optional above-accent.",
+    "One of the three ḥataf vowels, then ZWJ, then meteg, with an optional trailing non-meteg accent.",
+    "On the first letter of a word only: meteg followed by telisha gedolah, deḥi, or geresh muqdam.",
+    "On any letter: meteg followed by oleh.",
+    "On the first letter of a word only: geresh muqdam followed by revia.",
+)
 
 
 def init():
@@ -63,6 +84,14 @@ def init():
         "sequence-counts-by-class": {class_key: {} for class_key in _CLASS_ORDER},
         "cases-by-class": {class_key: [] for class_key in _CLASS_ORDER[1:]},
     }
+
+
+def ordinary_page_notes():
+    return _ORDINARY_PAGE_NOTES
+
+
+def ordinary_pattern_descriptions():
+    return _ORDINARY_PATTERN_DESCRIPTIONS
 
 
 def collect_for_verse(fois, bcv, verse):

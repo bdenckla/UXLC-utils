@@ -5,6 +5,7 @@ from pathlib import PurePosixPath
 import re
 
 import py_misc.my_html as my_html
+import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
 
 _MARK_CLASS_ORDER = (
@@ -99,6 +100,7 @@ def summary(mark_catalog):
 
 def write(mark_catalog, json_output_path, out_path):
     summary_counts = mark_catalog["summary-counts"]
+    ordinary_page_notes = fois_mark_grammar_foi.ordinary_page_notes()
     body_contents = _body_wrapper(
         [
             my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
@@ -108,21 +110,11 @@ def write(mark_catalog, json_output_path, out_path):
             _grammar_order_table(),
             my_html.heading_level_2("Abbreviations"),
             _abbreviation_table(),
-            my_html.para(
-                "Extraordinary upper dots and lower dots are stripped before clusters are classified on this page."
-            ),
-            my_html.para("Additional patterns treated as ordinary:"),
+            my_html.para(ordinary_page_notes["stripped-marks"]),
+            my_html.para(ordinary_page_notes["ordinary-prefixes"]),
+            my_html.para(ordinary_page_notes["additional-patterns-intro"]),
             my_html.unordered_list(
-                (
-                    "meteg, CGJ, vowel.",
-                    "On lamed only: pq-vowel, CGJ, xs-vowel.",
-                    "On lamed only: pq-vowel, below-accent (including Unicode meteg), CGJ, xs-vowel.",
-                    "On lamed only: pq-vowel, xs-vowel, with optional above-accent.",
-                    "One of the three ḥataf vowels, then ZWJ, then meteg.",
-                    "On the first letter of a word only: meteg followed by telisha gedolah, deḥi, or geresh muqdam.",
-                    "On any letter: meteg followed by oleh.",
-                    "On the first letter of a word only: geresh muqdam followed by revia.",
-                )
+                fois_mark_grammar_foi.ordinary_pattern_descriptions()
             ),
             my_html.para(
                 "The three dually-cantillated passages are excluded: Exodus 20, Deuteronomy 5, and Genesis 35:22."
