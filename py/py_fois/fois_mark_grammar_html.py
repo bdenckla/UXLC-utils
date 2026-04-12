@@ -88,8 +88,8 @@ def summary(mark_catalog):
     summary_counts = mark_catalog["summary-counts"]
     return (
         f"{_count_str(summary_counts['total-clusters'])} clusters; "
-        f"{_count_str(summary_counts['allowed-overrides'])} allowed overrides; "
-        f"{_count_str(summary_counts['exotic'])} exotic clusters"
+        f"{_count_str(summary_counts['allowed-overrides'])} likely legit; "
+        f"{_count_str(summary_counts['exotic'])} unlikely legit clusters"
     )
 
 
@@ -126,8 +126,8 @@ def write(mark_catalog, json_output_path, out_path):
                 f"There are {_count_str(summary_counts['total-clusters'])} included "
                 f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
                 f"{_count_str(summary_counts['allowed-overrides'])} are treated as "
-                f"allowed overrides, and {_count_str(summary_counts['exotic'])} remain "
-                f"exotic."
+                f"likely legit, and {_count_str(summary_counts['exotic'])} remain "
+                f"unlikely legit."
             ),
             my_html.para(
                 [
@@ -282,8 +282,8 @@ def _status_label(class_key):
     if class_key == "ordinary":
         return "ordinary"
     if class_key in ("explicit-order", "initial-double-aom"):
-        return "allowed override"
-    return "exotic"
+        return "likely legit"
+    return "unlikely legit"
 
 
 def _sequence_label(sequence):
