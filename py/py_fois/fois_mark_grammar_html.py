@@ -18,7 +18,7 @@ _MARK_CLASS_ORDER = (
 )
 _MARK_CASE_HEADERS = (
     "bcvp",
-    "atom-type",
+    "notes",
     "atom",
     "cluster",
     "sequence",

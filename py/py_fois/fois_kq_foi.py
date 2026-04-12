@@ -12,7 +12,7 @@ def collect_for_verse(fois, bcv, verse):
     state = {"k_stack": [], "q_stack": []}
     for atidx, atom in enumerate(verse):
         assert isinstance(atom, list)
-        assert len(atom) == 2
+        assert len(atom) >= 2
         assert atom[0] in ("w", "k", "q")
         bcvp = *bcv, atidx + 1
         _collect_for_atom(state, fois, bcvp, atom)

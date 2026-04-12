@@ -83,8 +83,9 @@
     "explicit-order": [
       {
         "bcvp": "Numbers 7:60.5",
-        "atom-type": "w",
+        "notes": "",
         "atom": "בִנְיָמ֑͏ִן",
+        "atom-note-schematic": null,
         "cluster-index": 4,
         "cluster": "מ֑͏ִ",
         "sequence": "av",
@@ -92,8 +93,9 @@
       },
       {
         "bcvp": "Deuter 3:22.2",
-        "atom-type": "w",
+        "notes": "",
         "atom": "תִּ͏ְירָא֑וּם",
+        "atom-note-schematic": null,
         "cluster-index": 1,
         "cluster": "תִּ͏ְ",
         "sequence": "dvv",
@@ -101,8 +103,9 @@
       },
       {
         "bcvp": "Job 10:15.12",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "עָנְי֥‍ִי׃",
+        "atom-note-schematic": "עני.י",
         "cluster-index": 3,
         "cluster": "י֥‍ִ",
         "sequence": "av",
@@ -110,8 +113,9 @@
       },
       {
         "bcvp": "Job 19:16.6",
-        "atom-type": "w",
+        "notes": "t",
         "atom": "פִ֗‍֝י",
+        "atom-note-schematic": "פ.י",
         "cluster-index": 1,
         "cluster": "פִ֗‍֝",
         "sequence": "vaa",
@@ -119,8 +123,9 @@
       },
       {
         "bcvp": "Job 32:6.11",
-        "atom-type": "w",
+        "notes": "",
         "atom": "יְשִׁישׁ֑‍ִים",
+        "atom-note-schematic": null,
         "cluster-index": 4,
         "cluster": "שׁ֑‍ִ",
         "sequence": "sav",
@@ -130,8 +135,9 @@
     "initial-double-aom": [
       {
         "bcvp": "Genesis 5:29.6",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "זֶ֞֠ה",
+        "atom-note-schematic": "ז.ה",
         "cluster-index": 1,
         "cluster": "זֶ֞֠",
         "sequence": "vaa",
@@ -139,8 +145,9 @@
       },
       {
         "bcvp": "2Kings 17:13.12",
-        "atom-type": "w",
+        "notes": "",
         "atom": "שֻׁ֜֠בוּ",
+        "atom-note-schematic": null,
         "cluster-index": 1,
         "cluster": "שֻׁ֜֠",
         "sequence": "svaa",
@@ -148,8 +155,9 @@
       },
       {
         "bcvp": "Tsefaniah 2:15.1",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "זֹ֞֠את",
+        "atom-note-schematic": "ז.את",
         "cluster-index": 1,
         "cluster": "זֹ֞֠",
         "sequence": "vaa",
@@ -157,8 +165,9 @@
       },
       {
         "bcvp": "Psalms 56:10.1",
-        "atom-type": "w",
+        "notes": "",
         "atom": "אָ֥֨ז",
+        "atom-note-schematic": null,
         "cluster-index": 1,
         "cluster": "אָ֥֨",
         "sequence": "vaa",
@@ -166,8 +175,9 @@
       },
       {
         "bcvp": "Psalms 124:4.4",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "נַ֗֜חְלָה",
+        "atom-note-schematic": "נ.חלה",
         "cluster-index": 1,
         "cluster": "נַ֗֜",
         "sequence": "vaa",
@@ -175,8 +185,9 @@
       },
       {
         "bcvp": "Psalms 135:2.1",
-        "atom-type": "w",
+        "notes": "",
         "atom": "שֶׁ֣֭עֹֽמְדִים",
+        "atom-note-schematic": null,
         "cluster-index": 1,
         "cluster": "שֶׁ֣֭",
         "sequence": "svaa",
@@ -184,8 +195,9 @@
       },
       {
         "bcvp": "Job 15:34.8",
-        "atom-type": "w",
+        "notes": "",
         "atom": "שֹֽׁ֥חַד׃",
+        "atom-note-schematic": null,
         "cluster-index": 1,
         "cluster": "שֹֽׁ֥",
         "sequence": "svaa",
@@ -193,8 +205,9 @@
       },
       {
         "bcvp": "Job 32:13.2",
-        "atom-type": "w",
+        "notes": "",
         "atom": "תֹּ֣֭אמְרוּ",
+        "atom-note-schematic": null,
         "cluster-index": 1,
         "cluster": "תֹּ֣֭",
         "sequence": "dvaa",
@@ -204,8 +217,9 @@
     "multi-vowel": [
       {
         "bcvp": "2Kings 21:26.1",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "וַיִּקְבְֹּ֥ר",
+        "atom-note-schematic": "ויקב.ר",
         "cluster-index": 4,
         "cluster": "בְֹּ֥",
         "sequence": "dvva",
@@ -213,8 +227,9 @@
       },
       {
         "bcvp": "Proverbs 23:26.8",
-        "atom-type": "q",
+        "notes": "q",
         "atom": "תִּצֽרְֹנָה׃",
+        "atom-note-schematic": "תצר.נה",
         "cluster-index": 3,
         "cluster": "רְֹ",
         "sequence": "vv",
@@ -224,8 +239,9 @@
     "noninitial-double-aom": [
       {
         "bcvp": "Levit 25:20.4",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "נֹּאכַ֤֖ל",
+        "atom-note-schematic": "נאכ.ל",
         "cluster-index": 3,
         "cluster": "כַ֤֖",
         "sequence": "vaa",
@@ -233,8 +249,9 @@
       },
       {
         "bcvp": "Ezekiel 20:31.7",
-        "atom-type": "w",
+        "notes": "",
         "atom": "נִטְמְאִ֤֨ים",
+        "atom-note-schematic": null,
         "cluster-index": 4,
         "cluster": "אִ֤֨",
         "sequence": "vaa",
@@ -242,8 +259,9 @@
       },
       {
         "bcvp": "Psalms 75:11.7",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "צַדִּֽ֥יק׃",
+        "atom-note-schematic": "צד.יק",
         "cluster-index": 2,
         "cluster": "דִּֽ֥",
         "sequence": "dvaa",
@@ -251,8 +269,9 @@
       },
       {
         "bcvp": "Job 7:1.7",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "וְכִימֵ֖֗י",
+        "atom-note-schematic": "וכימ.י",
         "cluster-index": 4,
         "cluster": "מֵ֖֗",
         "sequence": "vaa",
@@ -263,8 +282,9 @@
     "other-ordering": [
       {
         "bcvp": "Exodus 32:19.18",
-        "atom-type": "w",
+        "notes": "",
         "atom": "וַיְּשַׁבֵּ֥ר",
+        "atom-note-schematic": null,
         "cluster-index": 2,
         "cluster": "יְּ",
         "sequence": "vd",
@@ -272,8 +292,9 @@
       },
       {
         "bcvp": "Numbers 32:16.3",
-        "atom-type": "w",
+        "notes": "",
         "atom": "וַיֹּ֣אמְר֔וּ",
+        "atom-note-schematic": null,
         "cluster-index": 2,
         "cluster": "יֹּ֣",
         "sequence": "dav",
@@ -281,8 +302,9 @@
       },
       {
         "bcvp": "Joshua 10:24.20",
-        "atom-type": "q",
+        "notes": "",
         "atom": "הֶהָלְכ֣וְּּ",
+        "atom-note-schematic": null,
         "cluster-index": 5,
         "cluster": "וְּּ",
         "sequence": "ddv",
@@ -290,8 +312,9 @@
       },
       {
         "bcvp": "Ezekiel 1:25.8",
-        "atom-type": "w",
+        "notes": "c",
         "atom": "בְּעָמְדָּֿ֖ם",
+        "atom-note-schematic": "בעמד.ם",
         "cluster-index": 4,
         "cluster": "דָּֿ֖",
         "sequence": "dvda",
@@ -299,8 +322,9 @@
       },
       {
         "bcvp": "Psalms 119:14.3",
-        "atom-type": "w",
+        "notes": "t",
         "atom": "שַּׂ֗שְׂתִּי",
+        "atom-note-schematic": "ש.שתי",
         "cluster-index": 1,
         "cluster": "שַּׂ֗",
         "sequence": "dsva",
@@ -308,8 +332,9 @@
       },
       {
         "bcvp": "Job 36:29.7",
-        "atom-type": "w",
+        "notes": "t",
         "atom": "סֻכָּֽתֽוֹ׃",
+        "atom-note-schematic": "סכ.תו",
         "cluster-index": 2,
         "cluster": "כָּֽ",
         "sequence": "adv",
@@ -317,8 +342,9 @@
       },
       {
         "bcvp": "Job 42:10.10",
-        "atom-type": "w",
+        "notes": "",
         "atom": "וַיֹּ֧סֶף",
+        "atom-note-schematic": null,
         "cluster-index": 2,
         "cluster": "יֹּ֧",
         "sequence": "dav",
@@ -326,8 +352,9 @@
       },
       {
         "bcvp": "Daniel 3:15.13",
-        "atom-type": "q",
+        "notes": "",
         "atom": "קַתְרֹ֣ס",
+        "atom-note-schematic": null,
         "cluster-index": 3,
         "cluster": "רֹ֣",
         "sequence": "av",
@@ -335,8 +362,9 @@
       },
       {
         "bcvp": "1Chronicles 21:8.16",
-        "atom-type": "w",
+        "notes": "",
         "atom": "עֲווֹ֣ן",
+        "atom-note-schematic": null,
         "cluster-index": 3,
         "cluster": "וֹ֣",
         "sequence": "av",

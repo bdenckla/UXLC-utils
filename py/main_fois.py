@@ -6,21 +6,30 @@ import py_misc.my_open as my_open
 import py_fois.fois_html as fois_html
 import py_fois.fois_kq_foi as fois_kq_foi
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
+import py_fois.uni_heb_char_classes as ucc
 
 
 def _stripped_text(value):
     return value.strip() if value else ""
 
 
+def _append_text(atom, value):
+    text = _stripped_text(value)
+    if not text:
+        return
+    atom[1] += text
+    atom[2]["schematic"] += "".join(ch for ch in text if ch in ucc.LETTERS)
+
+
 def _append_inner_text(accum, xml_element, handlers):
-    accum[-1][1] += _stripped_text(xml_element.text)
+    _append_text(accum[-1], xml_element.text)
     for child in xml_element:
         my_uxlc.dispatch_on_tag(accum, child, handlers)
-        accum[-1][1] += _stripped_text(child.tail)
+        _append_text(accum[-1], child.tail)
 
 
 def _handle_vc_wqk(wqk, accum, verse_child):
-    accum.append([wqk, ""])
+    accum.append([wqk, "", {"schematic": "", "types": []}])
     _append_inner_text(accum, verse_child, _WORD_CHILD_HANDLERS)
 
 
@@ -43,7 +52,11 @@ def _handle_wc_s(accum, word_child_s):
 
 
 def _handle_wc_x(accum, word_child_x):
-    return
+    note_type = _stripped_text(word_child_x.text)
+    if not note_type:
+        return
+    accum[-1][2]["schematic"] += "."
+    accum[-1][2]["types"].append(note_type)
 
 
 _WORD_CHILD_HANDLERS = {

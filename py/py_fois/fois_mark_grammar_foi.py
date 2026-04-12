@@ -70,11 +70,20 @@ def collect_for_verse(fois, bcv, verse):
         return
     for atidx, atom in enumerate(verse, start=1):
         assert isinstance(atom, list)
-        assert len(atom) == 2
-        atom_type, atom_text = atom
+        assert len(atom) >= 2
+        atom_type, atom_text = atom[:2]
+        atom_note_data = _atom_note_data(atom)
         bcvp = *bcv, atidx
         for cluster_idx, cluster in enumerate(_split_clusters(atom_text), start=1):
-            _collect_for_cluster(fois, bcvp, atom_type, atom_text, cluster_idx, cluster)
+            _collect_for_cluster(
+                fois,
+                bcvp,
+                atom_type,
+                atom_text,
+                atom_note_data,
+                cluster_idx,
+                cluster,
+            )
 
 
 def _is_excluded(bkid, chnu, vrnu):
@@ -85,7 +94,9 @@ def _is_excluded(bkid, chnu, vrnu):
     ) in _DUAL_CANTILLATION_LOCS
 
 
-def _collect_for_cluster(fois, bcvp, atom_type, atom_text, cluster_idx, cluster):
+def _collect_for_cluster(
+    fois, bcvp, atom_type, atom_text, atom_note_data, cluster_idx, cluster
+):
     summary_counts = fois["summary-counts"]
     summary_counts["total-clusters"] += 1
     cluster_class, status_key = _classify(cluster, cluster_idx)
@@ -99,8 +110,9 @@ def _collect_for_cluster(fois, bcvp, atom_type, atom_text, cluster_idx, cluster)
     fois["cases-by-class"][cluster_class].append(
         {
             "bcvp": _bcvp_str(bcvp),
-            "atom-type": atom_type,
+            "notes": _notes_str(atom_note_data),
             "atom": atom_text,
+            "atom-note-schematic": _note_schematic(atom_note_data),
             "cluster-index": cluster_idx,
             "cluster": cluster["letter"] + "".join(cluster["marks"]),
             "sequence": sequence,
@@ -289,6 +301,27 @@ def _mark_class(mark):
     if mark in _FORMAT_CONTROLS:
         return "f"
     return "?"
+
+
+def _atom_note_data(atom):
+    if len(atom) < 3:
+        return None
+    note_data = atom[2]
+    if not note_data["types"]:
+        return None
+    return note_data
+
+
+def _notes_str(atom_note_data):
+    if atom_note_data is None:
+        return ""
+    return ",".join(atom_note_data["types"])
+
+
+def _note_schematic(atom_note_data):
+    if atom_note_data is None:
+        return None
+    return atom_note_data["schematic"]
 
 
 def _bcvp_str(bcvp):
