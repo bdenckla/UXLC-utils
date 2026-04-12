@@ -249,7 +249,7 @@ def _linked_bcvp(bcvp_str):
     chapter = match.group("chapter")
     verse = match.group("verse")
     atom = match.group("atom")
-    bcv_str = f"{book} {chapter}:{verse}"
+    bcv_str = f"{_tanach_us_book_code(book)} {chapter}:{verse}"
     return (
         my_html.anchor(
             bcv_str,
@@ -259,11 +259,12 @@ def _linked_bcvp(bcvp_str):
     )
 
 
+def _tanach_us_book_code(book):
+    return _TANACH_US_BOOK_CODES[book]
+
+
 def _tanach_us_bcv_url(book, chapter, verse):
-    return (
-        f"https://tanach.us/Tanach.xml?"
-        f"{_TANACH_US_BOOK_CODES[book]}{chapter}:{verse}"
-    )
+    return f"https://tanach.us/Tanach.xml?{_tanach_us_book_code(book)}{chapter}:{verse}"
 
 
 def _class_label(class_key):
