@@ -16,6 +16,7 @@ class _OrdinaryPatternsParser(HTMLParser):
         super().__init__()
         self._in_intro_paragraph = False
         self._capture_list = False
+        self._in_target_list = False
         self._in_list_item = False
         self._current_list_item_parts = []
         self.patterns = []
@@ -25,7 +26,8 @@ class _OrdinaryPatternsParser(HTMLParser):
             self._in_intro_paragraph = True
         elif tag == "ul" and self._capture_list:
             self._capture_list = False
-        elif tag == "li" and self.patterns is not None:
+            self._in_target_list = True
+        elif tag == "li" and self._in_target_list:
             self._in_list_item = True
             self._current_list_item_parts = []
 
@@ -39,8 +41,9 @@ class _OrdinaryPatternsParser(HTMLParser):
             self.patterns.append(text)
             self._in_list_item = False
             self._current_list_item_parts = []
-        elif tag == "ul" and self.patterns:
+        elif tag == "ul" and self._in_target_list:
             self.patterns = tuple(self.patterns)
+            self._in_target_list = False
 
     def handle_data(self, data):
         text = data.strip()

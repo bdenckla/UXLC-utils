@@ -101,6 +101,7 @@ def summary(mark_catalog):
 def write(mark_catalog, json_output_path, out_path):
     summary_counts = mark_catalog["summary-counts"]
     ordinary_page_notes = fois_mark_grammar_foi.ordinary_page_notes()
+    page_exclusions = fois_mark_grammar_foi.page_exclusions()
     ordinary_override_rules = fois_mark_grammar_foi.ordinary_override_rules()
     body_contents = _body_wrapper(
         [
@@ -111,16 +112,14 @@ def write(mark_catalog, json_output_path, out_path):
             _grammar_order_table(),
             my_html.heading_level_2("Abbreviations"),
             _abbreviation_table(),
-            my_html.para(ordinary_page_notes["stripped-marks"]),
+            my_html.para("Exclusions:"),
+            my_html.unordered_list(page_exclusions),
             my_html.para(ordinary_page_notes["additional-patterns-intro"]),
             my_html.unordered_list(
                 tuple(
                     ordinary_override_rule.description
                     for ordinary_override_rule in ordinary_override_rules
                 )
-            ),
-            my_html.para(
-                "The three dually-cantillated passages are excluded: Exodus 20, Deuteronomy 5, and Genesis 35:22."
             ),
             my_html.para(
                 f"There are {_count_str(summary_counts['total-clusters'])} included "

@@ -50,11 +50,17 @@ _CLASS_ORDER = (
     "unexpected-mark",
     "other-ordering",
 )
-_ORDINARY_PAGE_NOTES = {
-    "stripped-marks": (
+_PAGE_EXCLUSIONS = (
+    (
         "Extraordinary upper dots and lower dots are stripped before clusters are "
         "classified on this page."
     ),
+    (
+        "The three dually-cantillated passages are excluded: Exodus 20, "
+        "Deuteronomy 5, and Genesis 35:22."
+    ),
+)
+_ORDINARY_PAGE_NOTES = {
     "additional-patterns-intro": (
         "Additional patterns treated as ordinary (after any optional shsi-dot "
         "and optional dms-r):"
@@ -89,6 +95,10 @@ def init():
 
 def ordinary_page_notes():
     return _ORDINARY_PAGE_NOTES
+
+
+def page_exclusions():
+    return _PAGE_EXCLUSIONS
 
 
 def ordinary_override_rules():
