@@ -24,11 +24,15 @@ _MARK_CASE_HEADERS = (
     "sequence",
     "mark-names",
 )
-_ABBREVIATION_ROWS = (
+_GRAMMAR_ORDER_ROWS = (
     ("sla", "shin-dot or sin-dot"),
+    ("dagesh/rafeh", ""),
+    ("vowel", ""),
+    ("aom", "accent-or-meteg"),
+)
+_ABBREVIATION_ROWS = (
     ("dms", "dagesh/mapiq/shuruq-dot"),
     ("metuq", "meteg/siluq"),
-    ("aom", "accent-or-meteg"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),
     ("pq-vowel", "pataḥ or qamats"),
@@ -99,8 +103,9 @@ def write(mark_catalog, json_output_path, out_path):
         [
             my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
             my_html.para(
-                "This page classifies Hebrew letter clusters against the ordinary mark grammar sla -> dagesh/rafeh -> vowel -> aom."
+                "This page classifies Hebrew letter clusters against the ordinary mark grammar:"
             ),
+            _grammar_order_table(),
             my_html.heading_level_2("Abbreviations"),
             _abbreviation_table(),
             my_html.para(
@@ -204,6 +209,12 @@ def _sequence_counts_table(sequence_counts):
 def _abbreviation_table():
     rows = [my_html.table_row_of_headers(("abbreviation", "meaning"))]
     rows.extend(my_html.table_row_of_data(row) for row in _ABBREVIATION_ROWS)
+    return my_html.table(rows, {"class": "border-collapse limited-width"})
+
+
+def _grammar_order_table():
+    rows = [my_html.table_row_of_headers(("item", "meaning"))]
+    rows.extend(my_html.table_row_of_data(row) for row in _GRAMMAR_ORDER_ROWS)
     return my_html.table(rows, {"class": "border-collapse limited-width"})
 
 
