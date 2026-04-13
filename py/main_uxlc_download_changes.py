@@ -1,6 +1,6 @@
 """
 Base Usage:
-.venv\Scripts\python.exe py\main_uxlc_download_changes.py
+.venv/Scripts/python.exe py/main_uxlc_download_changes.py
 """
 
 from pathlib import Path
@@ -9,8 +9,6 @@ import zipfile
 import requests
 
 import main_0_mega
-import _repo_path_setup
-from pycmn import my_utils
 import py_misc.my_open as my_open
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_uxlc_changes as my_uxlc_changes

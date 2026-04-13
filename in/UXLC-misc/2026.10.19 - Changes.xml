@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl'  href='../../XSL/Changes.xsl.xml'?>
+
+<!--===================================================-->
+<Changes>
+    <ref>UXLC 2.5</ref>
+    <target>UXLC 2.6</target>
+    <filedate>2026.10.19</filedate>
+    <type>proposed</type>
+    <dates>
+        <!--===================================================-->
+        <date>
+            <date>2026.04.10</date>
+            <!--...................................................-->
+            <change>
+                <n>1</n>
+                <citation>
+                    <book>Josh</book>
+                    <c>10</c>
+                    <v>24</v>
+                    <position>20</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Remove sheva from vav; reduce doubled dagesh on vav to a single dagesh.</description>
+                <lc>
+                    <folio>Folio_127A</folio>
+                    <column>3</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הֶהָלְכ֣וְּּ</reftext>
+                <refuni>he     segol     he     qamats     lamed     sheva     kaf     munah     vav     dagesh     dagesh     sheva     </refuni>
+                <changetext>הֶהָלְכ֣וּ</changetext>
+                <changeuni>he     segol     he     qamats     lamed     sheva     kaf     munah     vav     dagesh     </changeuni>
+                <notes>
+                    <note>This a correction to the correction file of 2024.10.19 - Changes.xml file, change date 2024.07.08 - 3 that added the extra dagesh and sheva erroneously.</note>
+                    <note>BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>vowel</type>
+            </change>
+            <!--...................................................-->
+        </date>
+        <!--===================================================-->
+    </dates>
+</Changes>
+<!--===================================================-->
