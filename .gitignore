@@ -1,3 +1,4 @@
 ~BROMIUM/
 __pycache__/
 .novc/
+py/novc*.py
