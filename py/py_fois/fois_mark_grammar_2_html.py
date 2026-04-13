@@ -64,9 +64,8 @@ def write(catalog, json_output_path, out_path):
             ]
         ),
         my_html.para(
-            "This page continues to 'study' mark grammar by grouping clusters "
-            "that are treated as ordinary, including the rafeh sequence that is "
-            "only treated as ordinary."
+            "This page lists the Hebrew letter clusters that are not ordinary, "
+            "but treated as ordinary."
         ),
         my_html.heading_level_2("Abbreviations"),
         _abbreviation_table(),

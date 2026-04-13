@@ -147,23 +147,24 @@ def write(mark_catalog, json_output_path, out_path):
         my_html.para(
             "This page lists the weird Hebrew letter clusters: those that are neither ordinary nor treated as ordinary."
         ),
+        my_html.para("We define ordinary as follows:"),
         _grammar_order_table(),
-        my_html.heading_level_2("Abbreviations"),
-        _abbreviation_table(),
-        my_html.para("Exclusions:"),
-        my_html.unordered_list(page_exclusions),
         my_html.para(
             [
-                "Clusters treated as ordinary are listed in ",
+                "Clusters that are not ordinary, but treated as ordinary are listed in ",
                 my_html.anchor("mark grammar 2", {"href": "foi-mark-grammar-2.html"}),
                 ".",
             ]
         ),
+        my_html.para("Exclusions:"),
+        my_html.unordered_list(page_exclusions),
         my_html.para(_weird_summary_text(summary_counts, visible_class_keys)),
     ]
     if visible_class_keys:
         body_items.extend(
             [
+                my_html.heading_level_2("Abbreviations"),
+                _abbreviation_table(),
                 my_html.heading_level_2("Counts by weird class"),
                 _class_counts_table(mark_catalog, visible_class_keys),
                 *_sections(mark_catalog, visible_class_keys, latest_change_by_atom),
@@ -207,7 +208,8 @@ def _weird_summary_text(summary_counts, visible_class_keys):
         f"and {_count_str(summary_counts['weird'])} are weird"
     )
     if visible_class_keys:
-        return f"{summary_text} listed below."
+        weird_count = _count_str(summary_counts["weird"])
+        return f"{summary_text}. Those {weird_count} weird ones are listed below."
     return f"{summary_text}."
 
 
