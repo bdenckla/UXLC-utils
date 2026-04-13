@@ -44,13 +44,13 @@ def summary(catalog):
     tracked_clusters = catalog["summary-counts"]["tracked-clusters"]
     leaf_bucket_count = len(fois_mark_grammar_2_foi.leaf_bucket_specs())
     return (
-        f"{_count_str(tracked_clusters)} tracked ordinary clusters across "
+        f"{_count_str(tracked_clusters)} tracked treated-ordinary clusters across "
         f"{leaf_bucket_count + 1} buckets"
     )
 
 
 def write(catalog, json_output_path, out_path):
-    rare_bucket = catalog["rare-bucket"]
+    treated_ordinary_bucket = catalog["treated-ordinary-bucket"]
     leaf_buckets = catalog["leaf-buckets"]
     body_items = [
         my_html.heading_level_1("mark grammar 2 (UXLC features of interest)"),
@@ -64,9 +64,9 @@ def write(catalog, json_output_path, out_path):
             ]
         ),
         my_html.para(
-            "This page continues to 'study' mark grammar with patterns that are "
-            "treated as ordinary, plus one totally-ordinary-but-rare rafeh "
-            "sequence."
+            "This page continues to 'study' mark grammar by grouping clusters "
+            "that are treated as ordinary, including the rafeh sequence that is "
+            "only treated as ordinary."
         ),
         my_html.heading_level_2("Abbreviations"),
         _abbreviation_table(),
@@ -81,7 +81,10 @@ def write(catalog, json_output_path, out_path):
         ),
         my_html.heading_level_2("Counts"),
         _counts_table(catalog),
-        *_bucket_section(rare_bucket, "rare-default-rafeh-sdva"),
+        *_bucket_section(
+            treated_ordinary_bucket,
+            "treated-ordinary-rafeh",
+        ),
     ]
     for spec in fois_mark_grammar_2_foi.leaf_bucket_specs():
         body_items.extend(_bucket_section(leaf_buckets[spec["key"]], spec["key"]))
@@ -133,8 +136,8 @@ def _ordinary_pattern_display_list_item(display_item):
 
 def _counts_table(catalog):
     rows = [my_html.table_row_of_headers(("pattern", "count", "details"))]
-    rare_bucket = catalog["rare-bucket"]
-    rows.append(_count_row(rare_bucket))
+    treated_ordinary_bucket = catalog["treated-ordinary-bucket"]
+    rows.append(_count_row(treated_ordinary_bucket))
     for spec in fois_mark_grammar_2_foi.leaf_bucket_specs():
         rows.append(_count_row(catalog["leaf-buckets"][spec["key"]]))
     return my_html.table(rows, {"class": "border-collapse limited-width"})

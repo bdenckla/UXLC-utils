@@ -41,6 +41,9 @@ _LAMED_BELOW_AOM_MARKS = frozenset((*ha.UNI_UNDER_ACCENTS, hpo.MTGOSLQ))
 _CGJ_ONLY = frozenset((sd.CGJ,))
 _STRIPPED_MARKS = frozenset((hpu.UPDOT, hpu.LODOT))
 _FORMAT_CONTROLS = frozenset((sd.CGJ, sd.ZWJ))
+_TREATED_ORDINARY_RAFEH_SEQUENCES = frozenset(
+    ("d", "dv", "da", "dva", "sd", "sdv", "sda", "sdva")
+)
 _CLASS_ORDER = (
     "ordinary",
     "explicit-order",
@@ -63,7 +66,7 @@ _PAGE_EXCLUSIONS = (
 _ORDINARY_PAGE_NOTES = {
     "additional-patterns-intro": (
         "Additional patterns treated as ordinary (after an optional shsi-dot "
-        "and an optional dms-r):"
+        "and an optional dms):"
     ),
 }
 _MARK_NAMES_COMMENTS_BY_BCVP = {
@@ -110,8 +113,8 @@ def init():
             "total-clusters": 0,
             "excluded-atoms": 0,
             "ordinary": 0,
-            "allowed-overrides": 0,
-            "exotic": 0,
+            "treated-as-ordinary": 0,
+            "weird": 0,
         },
         "class-counts": {class_key: 0 for class_key in _CLASS_ORDER},
         "sequence-counts-by-class": {class_key: {} for class_key in _CLASS_ORDER},
@@ -140,11 +143,7 @@ def ordinary_pattern_display_items():
 
 
 def ordinary_pattern_match(cluster, cluster_idx):
-    for ordinary_override_rule in _ORDINARY_OVERRIDE_RULES:
-        if ordinary_override_rule.matches(cluster, cluster_idx):
-            return _ordinary_override_pattern_match(
-                ordinary_override_rule.key, cluster, cluster_idx
-            )
+    del cluster_idx
     marks = cluster["marks"]
     if any(mark in _FORMAT_CONTROLS for mark in marks):
         return None
@@ -153,7 +152,30 @@ def ordinary_pattern_match(cluster, cluster_idx):
         return None
     if not all(sequence.count(mark_class) <= 1 for mark_class in "sdva"):
         return None
+    if hpo.RAFE in marks:
+        return None
     return OrdinaryPatternMatch(None, None, None, is_default_ordinary=True)
+
+
+def treated_as_ordinary_pattern_match(cluster, cluster_idx):
+    for ordinary_override_rule in _ORDINARY_OVERRIDE_RULES:
+        if ordinary_override_rule.matches(cluster, cluster_idx):
+            return _ordinary_override_pattern_match(
+                ordinary_override_rule.key, cluster, cluster_idx
+            )
+    return None
+
+
+def is_treated_ordinary_rafeh(cluster):
+    return hpo.RAFE in cluster["marks"] and (
+        _mark_sequence(cluster) in _TREATED_ORDINARY_RAFEH_SEQUENCES
+    )
+
+
+def is_treated_as_ordinary(cluster, cluster_idx):
+    return treated_as_ordinary_pattern_match(cluster, cluster_idx) is not None or (
+        is_treated_ordinary_rafeh(cluster)
+    )
 
 
 def mark_sequence(cluster_or_marks):
@@ -198,14 +220,21 @@ def _collect_for_cluster(
     bcvp_str = _bcvp_str(bcvp)
     summary_counts = fois["summary-counts"]
     summary_counts["total-clusters"] += 1
-    cluster_class, status_key = _classify(cluster, cluster_idx)
-    summary_counts[status_key] += 1
-    fois["class-counts"][cluster_class] += 1
     sequence = _mark_sequence(cluster)
+    if _is_ordinary(cluster, cluster_idx):
+        summary_counts["ordinary"] += 1
+        fois["class-counts"]["ordinary"] += 1
+        seq_counts = fois["sequence-counts-by-class"]["ordinary"]
+        seq_counts[sequence] = seq_counts.get(sequence, 0) + 1
+        return
+    if is_treated_as_ordinary(cluster, cluster_idx):
+        summary_counts["treated-as-ordinary"] += 1
+        return
+    summary_counts["weird"] += 1
+    cluster_class = _weird_class(cluster, cluster_idx)
+    fois["class-counts"][cluster_class] += 1
     seq_counts = fois["sequence-counts-by-class"][cluster_class]
     seq_counts[sequence] = seq_counts.get(sequence, 0) + 1
-    if cluster_class == "ordinary":
-        return
     fois["cases-by-class"][cluster_class].append(
         {
             "bcvp": bcvp_str,
@@ -258,20 +287,23 @@ def split_atom_clusters(atom_text, strip_marks=False):
 
 
 def _classify(cluster, cluster_idx):
+    del cluster_idx
+    raise AssertionError("Use _is_ordinary, is_treated_as_ordinary, and _weird_class")
+
+
+def _weird_class(cluster, cluster_idx):
     marks = cluster["marks"]
     if _unexpected_marks(marks):
-        return "unexpected-mark", "exotic"
-    if _is_ordinary(cluster, cluster_idx):
-        return "ordinary", "ordinary"
+        return "unexpected-mark"
     if any(mark in _FORMAT_CONTROLS for mark in marks):
-        return "explicit-order", "allowed-overrides"
+        return "explicit-order"
     if cluster_idx == 1 and _is_initial_double_aom(marks):
-        return "initial-double-aom", "allowed-overrides"
+        return "initial-double-aom"
     if _mark_sequence(marks).count("v") > 1:
-        return "multi-vowel", "exotic"
+        return "multi-vowel"
     if _mark_sequence(marks).count("a") > 1:
-        return "noninitial-double-aom", "exotic"
-    return "other-ordering", "exotic"
+        return "noninitial-double-aom"
+    return "other-ordering"
 
 
 def _is_ordinary(cluster, cluster_idx):

@@ -42,19 +42,17 @@ _MARK_CASE_HEADER_TOOLTIPS = {
 }
 _GRAMMAR_ORDER_ROWS = (
     ("shsi-dot", "shin-dot or sin-dot"),
-    ("dms-r", "dms (see below) or rafeh"),
+    ("dms", "dagesh/mapiq/shuruq-dot"),
     ("vowel", ""),
     ("aom", "accent or meteg"),
 )
 _ABBREVIATION_ROWS = (
-    ("dms", "dagesh/mapiq/shuruq-dot"),
     ("metuq", "meteg/siluq"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),
 )
 _ABBREVIATION_TOOLTIP_TITLES = {
     "shsi-dot": "shin-dot or sin-dot",
-    "dms-r": "dms (see below) or rafeh",
     "dms": "dagesh/mapiq/shuruq-dot",
     "ba-is": "below-accents including silluq",
     "metuq": "meteg/siluq",
@@ -127,7 +125,8 @@ def summary(mark_catalog):
     return (
         f"{_count_str(summary_counts['total-clusters'])} clusters; "
         f"{_count_str(summary_counts['ordinary'])} ordinary; "
-        f"{_count_str(summary_counts['total-clusters'] - summary_counts['ordinary'])} listed below"
+        f"{_count_str(summary_counts['treated-as-ordinary'])} treated as ordinary; "
+        f"{_count_str(summary_counts['weird'])} weird listed below"
     )
 
 
@@ -146,7 +145,7 @@ def write(mark_catalog, json_output_path, out_path):
             ]
         ),
         my_html.para(
-            "This page classifies Hebrew letter clusters against the ordinary mark grammar:"
+            "This page lists the weird Hebrew letter clusters: those that are neither ordinary nor treated as ordinary."
         ),
         _grammar_order_table(),
         my_html.heading_level_2("Abbreviations"),
@@ -155,17 +154,17 @@ def write(mark_catalog, json_output_path, out_path):
         my_html.unordered_list(page_exclusions),
         my_html.para(
             [
-                "Additional patterns treated as ordinary are described in ",
+                "Clusters treated as ordinary are listed in ",
                 my_html.anchor("mark grammar 2", {"href": "foi-mark-grammar-2.html"}),
                 ".",
             ]
         ),
-        my_html.para(_nonordinary_summary_text(summary_counts, visible_class_keys)),
+        my_html.para(_weird_summary_text(summary_counts, visible_class_keys)),
     ]
     if visible_class_keys:
         body_items.extend(
             [
-                my_html.heading_level_2("Counts by class"),
+                my_html.heading_level_2("Counts by weird class"),
                 _class_counts_table(mark_catalog, visible_class_keys),
                 *_sections(mark_catalog, visible_class_keys, latest_change_by_atom),
             ]
@@ -200,12 +199,12 @@ def _visible_class_keys(mark_catalog):
     )
 
 
-def _nonordinary_summary_text(summary_counts, visible_class_keys):
-    nonordinary_count = summary_counts["total-clusters"] - summary_counts["ordinary"]
+def _weird_summary_text(summary_counts, visible_class_keys):
     summary_text = (
         f"There are {_count_str(summary_counts['total-clusters'])} included "
         f"clusters; {_count_str(summary_counts['ordinary'])} are ordinary, "
-        f"and {_count_str(nonordinary_count)} fall into non-ordinary classes"
+        f"{_count_str(summary_counts['treated-as-ordinary'])} are treated as ordinary, "
+        f"and {_count_str(summary_counts['weird'])} are weird"
     )
     if visible_class_keys:
         return f"{summary_text} listed below."

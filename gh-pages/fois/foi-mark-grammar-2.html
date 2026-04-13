@@ -11,13 +11,12 @@ mark grammar 2 (UXLC features of interest)</title>
 <h1>
 mark grammar 2 (UXLC features of interest)</h1>
 <p><a href="index.html">FOI index</a> | <a href="foi-mark-grammar.html">mark grammar</a> | JSON catalog: <a href="features_of_interest-mark-grammar-2.json">features_of_interest-mark-grammar-2.json</a></p>
-<p>This page continues to 'study' mark grammar with patterns that are treated as ordinary, plus one totally-ordinary-but-rare rafeh sequence.</p>
+<p>This page continues to 'study' mark grammar by grouping clusters that are treated as ordinary, including the rafeh sequence that is only treated as ordinary.</p>
 <h2>
 Abbreviations</h2>
 <table class="border-collapse limited-width">
 <tr><th>abbreviation</th><th>meaning</th></tr>
 <tr><td>shsi-dot</td><td>shin-dot or sin-dot</td></tr>
-<tr><td>dms-r</td><td>dms (see below) or rafeh</td></tr>
 <tr><td>dms</td><td>dagesh/mapiq/shuruq-dot</td></tr>
 <tr><td>metuq</td><td>meteg/siluq</td></tr>
 <tr><td>ba-is</td><td>below-accent (including silluq)</td></tr>
@@ -31,7 +30,7 @@ Abbreviations</h2>
 </table>
 <h2>
 Patterns treated as ordinary</h2>
-<p>Patterns treated as ordinary (after an optional <span class="abbrev-tooltip" title="shin-dot or sin-dot">shsi-dot</span> and an optional <span class="abbrev-tooltip" title="dms (see below) or rafeh">dms-r</span>):</p>
+<p>Patterns treated as ordinary (after an optional <span class="abbrev-tooltip" title="shin-dot or sin-dot">shsi-dot</span> and an optional <span class="abbrev-tooltip" title="dagesh/mapiq/shuruq-dot">dms</span>):</p>
 <ul>
 <li>
 meteg, <span class="abbrev-tooltip" title="combining grapheme joiner">CGJ</span>, vowel, optional <span class="abbrev-tooltip" title="prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam">pre-wm</span>.</li>
@@ -64,7 +63,7 @@ On any letter (after an optional vowel): meteg, oleh.</li>
 Counts</h2>
 <table class="border-collapse limited-width">
 <tr><th>pattern</th><th>count</th><th>details</th></tr>
-<tr><td>Totally ordinary: optional <span class="abbrev-tooltip" title="shin-dot or sin-dot">shsi-dot</span>, rafeh, vowel, <span class="abbrev-tooltip" title="accent or meteg">aom</span>.</td><td>1</td><td><a href="#bucket-rare-default-rafeh-sdva">details</a></td></tr>
+<tr><td>Treated as ordinary: optional <span class="abbrev-tooltip" title="shin-dot or sin-dot">shsi-dot</span>, rafeh, optional vowel, optional <span class="abbrev-tooltip" title="accent or meteg">aom</span>.</td><td>8</td><td><a href="#bucket-treated-ordinary-rafeh">details</a></td></tr>
 <tr><td>meteg, <span class="abbrev-tooltip" title="combining grapheme joiner">CGJ</span>, vowel, optional <span class="abbrev-tooltip" title="prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam">pre-wm</span>.</td><td>720</td><td><a href="#bucket-meteg-cgj-vowel">details</a></td></tr>
 <tr><td>On lamed only: <span class="abbrev-tooltip" title="pataḥ or qamats">pq-vowel</span>, <span class="abbrev-tooltip" title="below-accent (including silluq)">ba-is</span>, <span class="abbrev-tooltip" title="combining grapheme joiner">CGJ</span>, <span class="abbrev-tooltip" title="ḥiriq or sheva">xs-vowel</span>.</td><td>405</td><td><a href="#bucket-lamed-pq-cgj-xs">details</a></td></tr>
 <tr><td>On lamed only: <span class="abbrev-tooltip" title="pataḥ or qamats">pq-vowel</span>, <span class="abbrev-tooltip" title="ḥiriq or sheva">xs-vowel</span>, optional above-accent.</td><td>231</td><td><a href="#bucket-lamed-pq-xs-above-aom">details</a></td></tr>
@@ -75,11 +74,14 @@ Counts</h2>
 <tr><td>On the first letter of a word only (after an optional vowel): geresh muqdam, revia.</td><td>238</td><td><a href="#bucket-initial-geresh-muqdam-revia">details</a></td></tr>
 <tr><td>On any letter (after an optional vowel): meteg, oleh.</td><td>3</td><td><a href="#bucket-noninitial-meteg-oleh">details</a></td></tr>
 </table>
-<h2 id="bucket-rare-default-rafeh-sdva">
-Totally ordinary: optional shsi-dot, rafeh, vowel, aom. (1 total)</h2>
-<p>Showing 1 distinct mark-names value across 1 total clusters, ignoring shsi-dot and dms for diversity.</p>
+<h2 id="bucket-treated-ordinary-rafeh">
+Treated as ordinary: optional shsi-dot, rafeh, optional vowel, optional aom. (8 total)</h2>
+<p>Showing 4 distinct mark-names values across 8 total clusters, ignoring shsi-dot and dms for diversity.</p>
 <table class="border-collapse limited-width">
 <tr><th>bcvp</th><th><span class="abbrev-tooltip" title="notes">n</span></th><th>atom</th><th><span class="abbrev-tooltip" title="sequence, ignoring shsi-dot and dms">seq</span></th><th><span class="abbrev-tooltip" title="count with this mark names value in this category, ignoring shsi-dot and dms">count</span></th><th>mark names</th></tr>
+<tr><td>2Samuel 5:13.10</td><td></td><td lang="hbo" dir="rtl">וַיִוָּ֥לְ<span class="cluster-highlight">דֿ</span>וּ</td><td>d</td><td>5</td><td>rafeh</td></tr>
+<tr><td>Joshua 17:2.21</td><td></td><td lang="hbo" dir="rtl"><span class="cluster-highlight">בֶֿ</span>ן־</td><td>dv</td><td>1</td><td>rafeh, segol-vowel</td></tr>
+<tr><td>Isaiah 22:10.5</td><td></td><td lang="hbo" dir="rtl">וַתִּ<span class="cluster-highlight">תְֿ</span>צוּ֙</td><td>dv</td><td>1</td><td>rafeh, sheva</td></tr>
 <tr><td>Psalms 119:99.7</td><td></td><td lang="hbo" dir="rtl"><span class="cluster-highlight">לִֽֿ</span>י׃</td><td>dva</td><td>1</td><td>rafeh, ḥiriq, <span class="abbrev-tooltip" title="meteg/siluq">metuq</span></td></tr>
 </table>
 <h2 id="bucket-meteg-cgj-vowel">

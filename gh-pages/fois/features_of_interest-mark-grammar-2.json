@@ -1,13 +1,40 @@
 {
   "summary-counts": {
-    "tracked-clusters": 1903,
-    "rare-default-rafeh-sdva": 1
+    "tracked-clusters": 1910,
+    "treated-ordinary-rafeh": 8
   },
-  "rare-bucket": {
-    "key": "rare-default-rafeh-sdva",
-    "label": "Totally ordinary: optional shsi-dot, rafeh, vowel, aom.",
-    "count": 1,
+  "treated-ordinary-bucket": {
+    "key": "treated-ordinary-rafeh",
+    "label": "Treated as ordinary: optional shsi-dot, rafeh, optional vowel, optional aom.",
+    "count": 8,
     "examples": [
+      {
+        "bcvp": "2Samuel 5:13.10",
+        "notes": "",
+        "atom": "וַיִוָּ֥לְדֿוּ",
+        "cluster-index": 5,
+        "sequence": "d",
+        "mark names": "rafeh",
+        "count": 5
+      },
+      {
+        "bcvp": "Joshua 17:2.21",
+        "notes": "",
+        "atom": "בֶֿן־",
+        "cluster-index": 1,
+        "sequence": "dv",
+        "mark names": "rafeh, segol-vowel",
+        "count": 1
+      },
+      {
+        "bcvp": "Isaiah 22:10.5",
+        "notes": "",
+        "atom": "וַתִּתְֿצוּ֙",
+        "cluster-index": 3,
+        "sequence": "dv",
+        "mark names": "rafeh, sheva",
+        "count": 1
+      },
       {
         "bcvp": "Psalms 119:99.7",
         "notes": "",

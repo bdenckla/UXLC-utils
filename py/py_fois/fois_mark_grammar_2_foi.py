@@ -9,8 +9,7 @@ from pycmn import hebrew_points as hpo
 
 _TITLE = "mark grammar 2"
 _ADDITIONAL_PATTERNS_INTRO = (
-    "Patterns treated as ordinary (after an optional shsi-dot and an optional "
-    "dms-r):"
+    "Patterns treated as ordinary (after an optional shsi-dot and an optional " "dms):"
 )
 _ADDITIONAL_PATTERN_DISPLAY_ITEMS = (
     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
@@ -47,7 +46,6 @@ _ADDITIONAL_PATTERN_DISPLAY_ITEMS = (
 )
 _ABBREVIATION_ROWS = (
     ("shsi-dot", "shin-dot or sin-dot"),
-    ("dms-r", "dms (see below) or rafeh"),
     ("dms", "dagesh/mapiq/shuruq-dot"),
     ("metuq", "meteg/siluq"),
     ("ba-is", "below-accent (including silluq)"),
@@ -63,9 +61,9 @@ _ABBREVIATION_ROWS = (
 )
 _SHSI_DOT_MARKS = frozenset((hpo.SHIND, hpo.SIND))
 _DMS_MARKS = frozenset((hpo.DAGOMOSD,))
-_RARE_BUCKET_SPEC = {
-    "key": "rare-default-rafeh-sdva",
-    "label": "Totally ordinary: optional shsi-dot, rafeh, vowel, aom.",
+_TREATED_ORDINARY_BUCKET_SPEC = {
+    "key": "treated-ordinary-rafeh",
+    "label": "Treated as ordinary: optional shsi-dot, rafeh, optional vowel, optional aom.",
 }
 _LEAF_BUCKET_SPECS = (
     {
@@ -135,8 +133,8 @@ def abbreviation_rows():
     return _ABBREVIATION_ROWS
 
 
-def rare_bucket_spec():
-    return _RARE_BUCKET_SPEC
+def treated_ordinary_bucket_spec():
+    return _TREATED_ORDINARY_BUCKET_SPEC
 
 
 def leaf_bucket_specs():
@@ -147,9 +145,9 @@ def init():
     return {
         "summary-counts": {
             "tracked-clusters": 0,
-            "rare-default-rafeh-sdva": 0,
+            "treated-ordinary-rafeh": 0,
         },
-        "rare-bucket": _init_bucket(_RARE_BUCKET_SPEC),
+        "treated-ordinary-bucket": _init_bucket(_TREATED_ORDINARY_BUCKET_SPEC),
         "leaf-buckets": {
             spec["key"]: _init_bucket(spec) for spec in _LEAF_BUCKET_SPECS
         },
@@ -157,7 +155,10 @@ def init():
 
 
 def finalize(catalog):
-    _finalize_bucket(catalog["rare-bucket"], catalog["rare-bucket"]["key"])
+    _finalize_bucket(
+        catalog["treated-ordinary-bucket"],
+        catalog["treated-ordinary-bucket"]["key"],
+    )
     for spec in _LEAF_BUCKET_SPECS:
         bucket = catalog["leaf-buckets"][spec["key"]]
         _finalize_bucket(bucket, spec["key"])
@@ -180,17 +181,20 @@ def collect_for_verse(fois, bcv, verse):
             fois_mark_grammar_foi.split_atom_clusters(atom_text, strip_marks=True),
             start=1,
         ):
-            ordinary_match = fois_mark_grammar_foi.ordinary_pattern_match(
+            if fois_mark_grammar_foi.is_treated_ordinary_rafeh(cluster):
+                case_dic = _case_dic(
+                    bcvp, atom_text, atom_note_data, cluster_idx, cluster
+                )
+                _record_case(fois["treated-ordinary-bucket"], case_dic)
+                fois["summary-counts"]["tracked-clusters"] += 1
+                fois["summary-counts"]["treated-ordinary-rafeh"] += 1
+                continue
+            ordinary_match = fois_mark_grammar_foi.treated_as_ordinary_pattern_match(
                 cluster, cluster_idx
             )
             if ordinary_match is None:
                 continue
             case_dic = _case_dic(bcvp, atom_text, atom_note_data, cluster_idx, cluster)
-            if _is_rare_default_rafeh_sdva(cluster, ordinary_match):
-                _record_case(fois["rare-bucket"], case_dic)
-                fois["summary-counts"]["tracked-clusters"] += 1
-                fois["summary-counts"]["rare-default-rafeh-sdva"] += 1
-                continue
             if ordinary_match.leaf_key is None:
                 continue
             bucket = fois["leaf-buckets"][ordinary_match.leaf_key]
@@ -262,14 +266,6 @@ def _mark_names_sort_key(case_dic):
 
 def _public_case_dic(case_dic):
     return {key: value for key, value in case_dic.items() if not key.startswith("_")}
-
-
-def _is_rare_default_rafeh_sdva(cluster, ordinary_match):
-    return (
-        ordinary_match.is_default_ordinary
-        and hpo.RAFE in cluster["marks"]
-        and (fois_mark_grammar_foi.mark_sequence(cluster) in ("dva", "sdva"))
-    )
 
 
 def _case_dic(bcvp, atom_text, atom_note_data, cluster_idx, cluster):
