@@ -70,11 +70,6 @@ def write(catalog, json_output_path, out_path):
         my_html.heading_level_2("Abbreviations"),
         _abbreviation_table(),
         my_html.heading_level_2("Patterns treated as ordinary"),
-        my_html.para(
-            _tooltipify_abbreviations(
-                fois_mark_grammar_2_foi.additional_patterns_intro()
-            )
-        ),
         _ordinary_pattern_display_list(
             fois_mark_grammar_2_foi.additional_pattern_display_items()
         ),

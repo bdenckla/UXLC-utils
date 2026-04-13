@@ -8,40 +8,52 @@ from pycmn import hebrew_points as hpo
 
 
 _TITLE = "mark grammar 2"
-_ADDITIONAL_PATTERNS_INTRO = (
-    "Patterns treated as ordinary (after an optional shsi-dot and an optional " "dms):"
-)
 _ADDITIONAL_PATTERN_DISPLAY_ITEMS = (
     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "meteg, CGJ, vowel, optional pre-wm."
+        "optional shsi-dot, rafeh, optional vowel, optional aom."
     ),
     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "On lamed only:",
+        "optional shsi-dot, optional dms, and then:",
         (
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "pq-vowel, ba-is, CGJ, xs-vowel."
+                "meteg, CGJ, vowel, optional pre-wm."
             ),
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "pq-vowel, xs-vowel, optional above-accent."
+                "On lamed only:",
+                (
+                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                        "pq-vowel, ba-is, CGJ, xs-vowel."
+                    ),
+                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                        "pq-vowel, xs-vowel, optional above-accent."
+                    ),
+                ),
+            ),
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                "xataf, ZWJ, meteg, optional pre-wm."
             ),
         ),
     ),
     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "xataf, ZWJ, meteg, optional pre-wm."
-    ),
-    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "On the first letter of a word only (after an optional vowel):",
+        "optional shsi-dot, optional dms, optional vowel, and then:",
         (
-            fois_mark_grammar_foi.OrdinaryPatternDisplayItem("munaḥ, deḥi."),
-            fois_mark_grammar_foi.OrdinaryPatternDisplayItem("meteg, pre-wm."),
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "geresh or gershayim, telisha gedolah."
+                "On the first letter of a word only:",
+                (
+                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem("munaḥ, deḥi."),
+                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem("meteg, pre-wm."),
+                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                        "geresh or gershayim, telisha gedolah."
+                    ),
+                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                        "geresh muqdam, revia."
+                    ),
+                ),
             ),
-            fois_mark_grammar_foi.OrdinaryPatternDisplayItem("geresh muqdam, revia."),
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                "On any letter: meteg, oleh."
+            ),
         ),
-    ),
-    fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "On any letter (after an optional vowel): meteg, oleh."
     ),
 )
 _ABBREVIATION_ROWS = (
@@ -119,10 +131,6 @@ _LEAF_BUCKET_SPECS = (
 
 def title():
     return _TITLE
-
-
-def additional_patterns_intro():
-    return _ADDITIONAL_PATTERNS_INTRO
 
 
 def additional_pattern_display_items():
