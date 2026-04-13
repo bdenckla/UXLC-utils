@@ -309,7 +309,7 @@
     "hataf-zwj-meteg": {
       "key": "hataf-zwj-meteg",
       "label": "xataf, ZWJ, meteg, optional pre-wm.",
-      "count-label": "SD.ZWJ",
+      "count-label": "SD.Mid-meteg",
       "count": 80,
       "examples": [
         {

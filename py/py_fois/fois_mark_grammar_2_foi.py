@@ -19,7 +19,7 @@ _ADDITIONAL_PATTERN_DISPLAY_ITEMS = (
                 "Early-meteg. meteg, CGJ, vowel, optional pre-wm."
             ),
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "ZWJ. xataf, ZWJ, meteg, optional pre-wm."
+                "Mid-meteg. xataf, ZWJ, meteg, optional pre-wm."
             ),
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
                 "Lamed. On lamed only:",
@@ -91,7 +91,7 @@ _LEAF_BUCKET_SPECS = (
     {
         "key": "hataf-zwj-meteg",
         "label": "xataf, ZWJ, meteg, optional pre-wm.",
-        "count-label": "SD.ZWJ",
+        "count-label": "SD.Mid-meteg",
         "forks": (
             ("without-pre-wm", "without pre-wm"),
             ("with-pre-wm", "with pre-wm"),
