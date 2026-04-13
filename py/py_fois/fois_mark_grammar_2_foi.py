@@ -10,48 +10,48 @@ from pycmn import hebrew_points as hpo
 _TITLE = "mark grammar 2"
 _ADDITIONAL_PATTERN_DISPLAY_ITEMS = (
     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "optional shsi-dot, rafeh, optional vowel, optional aom."
+        "Rafeh. optional shsi-dot, rafeh, optional vowel, optional aom."
     ),
     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "optional shsi-dot, optional dms, and then:",
+        "SD. optional shsi-dot, optional dms, and then:",
         (
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "meteg, CGJ, vowel, optional pre-wm."
+                "Early-meteg. meteg, CGJ, vowel, optional pre-wm."
             ),
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "On lamed only:",
+                "ZWJ. xataf, ZWJ, meteg, optional pre-wm."
+            ),
+            fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
+                "Lamed. On lamed only:",
                 (
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                        "pq-vowel, ba-is, CGJ, xs-vowel."
+                        "Below. pq-vowel, ba-is, CGJ, xs-vowel."
                     ),
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                        "pq-vowel, xs-vowel, optional above-accent."
+                        "Above. pq-vowel, xs-vowel, optional above-accent."
                     ),
                 ),
-            ),
-            fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "xataf, ZWJ, meteg, optional pre-wm."
             ),
         ),
     ),
     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-        "optional shsi-dot, optional dms, optional vowel, and then:",
+        "SDV. optional shsi-dot, optional dms, optional vowel, and then:",
         (
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "On the first letter of a word only:",
+                "FL. On the first letter of a word only:",
                 (
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem("munaḥ, deḥi."),
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem("meteg, pre-wm."),
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                        "geresh or gershayim, telisha gedolah."
+                        "gerstar-tg. geresh or gershayim, telisha gedolah."
                     ),
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                        "geresh muqdam, revia."
+                        "rev-mug. geresh muqdam, revia."
                     ),
                 ),
             ),
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
-                "On any letter: meteg, oleh."
+                "meteg, oleh. On any letter: meteg, oleh."
             ),
         ),
     ),
@@ -76,11 +76,22 @@ _DMS_MARKS = frozenset((hpo.DAGOMOSD,))
 _TREATED_ORDINARY_BUCKET_SPEC = {
     "key": "treated-ordinary-rafeh",
     "label": "Treated as ordinary: optional shsi-dot, rafeh, optional vowel, optional aom.",
+    "count-label": "Rafeh",
 }
 _LEAF_BUCKET_SPECS = (
     {
         "key": "meteg-cgj-vowel",
         "label": "meteg, CGJ, vowel, optional pre-wm.",
+        "count-label": "SD.Early-meteg",
+        "forks": (
+            ("without-pre-wm", "without pre-wm"),
+            ("with-pre-wm", "with pre-wm"),
+        ),
+    },
+    {
+        "key": "hataf-zwj-meteg",
+        "label": "xataf, ZWJ, meteg, optional pre-wm.",
+        "count-label": "SD.ZWJ",
         "forks": (
             ("without-pre-wm", "without pre-wm"),
             ("with-pre-wm", "with pre-wm"),
@@ -89,44 +100,51 @@ _LEAF_BUCKET_SPECS = (
     {
         "key": "lamed-pq-cgj-xs",
         "label": "On lamed only: pq-vowel, ba-is, CGJ, xs-vowel.",
+        "count-label": "SD.Lamed.Below",
     },
     {
         "key": "lamed-pq-xs-above-aom",
         "label": "On lamed only: pq-vowel, xs-vowel, optional above-accent.",
+        "count-label": "SD.Lamed.Above",
         "forks": (
             ("without-above-accent", "without above-accent"),
             ("with-above-accent", "with above-accent"),
         ),
     },
     {
-        "key": "hataf-zwj-meteg",
-        "label": "xataf, ZWJ, meteg, optional pre-wm.",
-        "forks": (
-            ("without-pre-wm", "without pre-wm"),
-            ("with-pre-wm", "with pre-wm"),
-        ),
-    },
-    {
         "key": "initial-munah-dehi",
         "label": "On the first letter of a word only (after an optional vowel): munaḥ, deḥi.",
+        "count-label": "SDV.FL.munaḥ, deḥi.",
     },
     {
         "key": "initial-meteg-pre-wm",
         "label": "On the first letter of a word only (after an optional vowel): meteg, pre-wm.",
+        "count-label": "SDV.FL.meteg, pre-wm.",
     },
     {
         "key": "initial-geresh-telisha-gedolah",
         "label": "On the first letter of a word only (after an optional vowel): geresh or gershayim, telisha gedolah.",
+        "count-label": "SDV.FL.gerstar-tg",
     },
     {
         "key": "initial-geresh-muqdam-revia",
         "label": "On the first letter of a word only (after an optional vowel): geresh muqdam, revia.",
+        "count-label": "SDV.FL.rev-mug",
     },
     {
         "key": "noninitial-meteg-oleh",
         "label": "On any letter (after an optional vowel): meteg, oleh.",
+        "count-label": "SDV.meteg, oleh",
     },
 )
+
+
+def treated_ordinary_count_label():
+    return _TREATED_ORDINARY_BUCKET_SPEC["count-label"]
+
+
+def leaf_count_label_by_key():
+    return {spec["key"]: spec["count-label"] for spec in _LEAF_BUCKET_SPECS}
 
 
 def title():
@@ -217,6 +235,7 @@ def _init_bucket(spec):
     bucket = {
         "key": spec["key"],
         "label": spec["label"],
+        "count-label": spec.get("count-label"),
         "count": 0,
         "examples": [],
         "_all-cases": [],

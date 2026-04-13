@@ -12,6 +12,10 @@ span.cluster-highlight {
     background-color: #f3e3a4;
     border-radius: 0.15em;
 }
+span.bullet-label-highlight {
+    background-color: #f3e3a4;
+    border-radius: 0.15em;
+}
 span.abbrev-tooltip {
     cursor: help;
     text-decoration-line: underline;

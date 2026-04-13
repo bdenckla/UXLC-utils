@@ -120,12 +120,28 @@ def _ordinary_pattern_display_list(display_items):
 
 
 def _ordinary_pattern_display_list_item(display_item):
-    text = _tooltipify_abbreviations(display_item.text)
+    text = _highlighted_bullet_label(display_item.text)
     if not display_item.subitems:
         return text
     if isinstance(text, str):
         return (text, _ordinary_pattern_display_list(display_item.subitems))
     return (*text, _ordinary_pattern_display_list(display_item.subitems))
+
+
+def _highlighted_bullet_label(text):
+    label_text, separator, suffix_text = text.partition(".")
+    if not separator:
+        return _tooltipify_abbreviations(text)
+    label_contents = my_html.span(
+        _tooltipify_abbreviations(label_text + separator),
+        {"class": "bullet-label-highlight"},
+    )
+    if not suffix_text:
+        return (label_contents,)
+    suffix_contents = _tooltipify_abbreviations(suffix_text)
+    if isinstance(suffix_contents, str):
+        return (label_contents, suffix_contents)
+    return (label_contents, *suffix_contents)
 
 
 def _counts_table(catalog):
@@ -140,7 +156,7 @@ def _counts_table(catalog):
 def _count_row(bucket):
     return my_html.table_row_of_data(
         (
-            _tooltipify_abbreviations(bucket["label"]),
+            _tooltipify_abbreviations(bucket["count-label"]),
             _count_str(bucket["count"]),
             my_html.anchor("details", {"href": f"#{_section_id(bucket['key'])}"}),
         )
@@ -150,7 +166,7 @@ def _count_row(bucket):
 def _bucket_section(bucket, bucket_key):
     contents = [
         my_html.heading_level_2(
-            f"{bucket['label']} ({_count_str(bucket['count'])} total)",
+            f"{bucket['count-label']} ({_count_str(bucket['count'])} total)",
             {"id": _section_id(bucket_key)},
         )
     ]

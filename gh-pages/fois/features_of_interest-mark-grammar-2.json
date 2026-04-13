@@ -6,6 +6,7 @@
   "treated-ordinary-bucket": {
     "key": "treated-ordinary-rafeh",
     "label": "Treated as ordinary: optional shsi-dot, rafeh, optional vowel, optional aom.",
+    "count-label": "Rafeh",
     "count": 8,
     "examples": [
       {
@@ -50,6 +51,7 @@
     "meteg-cgj-vowel": {
       "key": "meteg-cgj-vowel",
       "label": "meteg, CGJ, vowel, optional pre-wm.",
+      "count-label": "SD.Early-meteg",
       "count": 720,
       "examples": [
         {
@@ -304,9 +306,106 @@
         }
       }
     },
+    "hataf-zwj-meteg": {
+      "key": "hataf-zwj-meteg",
+      "label": "xataf, ZWJ, meteg, optional pre-wm.",
+      "count-label": "SD.ZWJ",
+      "count": 80,
+      "examples": [
+        {
+          "bcvp": "Levit 21:10.4",
+          "notes": "",
+          "atom": "אֲ‍ֽשֶׁר־",
+          "cluster-index": 1,
+          "sequence": "va",
+          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq",
+          "count": 47
+        },
+        {
+          "bcvp": "Psalms 115:4.1",
+          "notes": "",
+          "atom": "עֲ‍ֽ֭צַבֵּיהֶם",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi",
+          "count": 4
+        },
+        {
+          "bcvp": "Job 31:15.1",
+          "notes": "t",
+          "atom": "הֲ‍ֽ֝לֹא־",
+          "cluster-index": 1,
+          "sequence": "vaa",
+          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, geresh-muqdam",
+          "count": 1
+        },
+        {
+          "bcvp": "Judges 9:27.11",
+          "notes": "",
+          "atom": "אֱ‍ֽלֹֽהֵיהֶ֔ם",
+          "cluster-index": 1,
+          "sequence": "va",
+          "mark names": "ḥataf-segol, zero-width-joiner, meteg/siluq",
+          "count": 28
+        }
+      ],
+      "fork-buckets": {
+        "without-pre-wm": {
+          "key": "without-pre-wm",
+          "label": "without pre-wm",
+          "count": 75,
+          "examples": [
+            {
+              "bcvp": "Levit 21:10.4",
+              "notes": "",
+              "atom": "אֲ‍ֽשֶׁר־",
+              "cluster-index": 1,
+              "sequence": "va",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq",
+              "count": 47
+            },
+            {
+              "bcvp": "Judges 9:27.11",
+              "notes": "",
+              "atom": "אֱ‍ֽלֹֽהֵיהֶ֔ם",
+              "cluster-index": 1,
+              "sequence": "va",
+              "mark names": "ḥataf-segol, zero-width-joiner, meteg/siluq",
+              "count": 28
+            }
+          ]
+        },
+        "with-pre-wm": {
+          "key": "with-pre-wm",
+          "label": "with pre-wm",
+          "count": 5,
+          "examples": [
+            {
+              "bcvp": "Psalms 115:4.1",
+              "notes": "",
+              "atom": "עֲ‍ֽ֭צַבֵּיהֶם",
+              "cluster-index": 1,
+              "sequence": "vaa",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi",
+              "count": 4
+            },
+            {
+              "bcvp": "Job 31:15.1",
+              "notes": "t",
+              "atom": "הֲ‍ֽ֝לֹא־",
+              "cluster-index": 1,
+              "sequence": "vaa",
+              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, geresh-muqdam",
+              "count": 1
+            }
+          ]
+        }
+      }
+    },
     "lamed-pq-cgj-xs": {
       "key": "lamed-pq-cgj-xs",
       "label": "On lamed only: pq-vowel, ba-is, CGJ, xs-vowel.",
+      "count-label": "SD.Lamed.Below",
       "count": 405,
       "examples": [
         {
@@ -422,6 +521,7 @@
     "lamed-pq-xs-above-aom": {
       "key": "lamed-pq-xs-above-aom",
       "label": "On lamed only: pq-vowel, xs-vowel, optional above-accent.",
+      "count-label": "SD.Lamed.Above",
       "count": 231,
       "examples": [
         {
@@ -604,104 +704,10 @@
         }
       }
     },
-    "hataf-zwj-meteg": {
-      "key": "hataf-zwj-meteg",
-      "label": "xataf, ZWJ, meteg, optional pre-wm.",
-      "count": 80,
-      "examples": [
-        {
-          "bcvp": "Levit 21:10.4",
-          "notes": "",
-          "atom": "אֲ‍ֽשֶׁר־",
-          "cluster-index": 1,
-          "sequence": "va",
-          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq",
-          "count": 47
-        },
-        {
-          "bcvp": "Psalms 115:4.1",
-          "notes": "",
-          "atom": "עֲ‍ֽ֭צַבֵּיהֶם",
-          "cluster-index": 1,
-          "sequence": "vaa",
-          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi",
-          "count": 4
-        },
-        {
-          "bcvp": "Job 31:15.1",
-          "notes": "t",
-          "atom": "הֲ‍ֽ֝לֹא־",
-          "cluster-index": 1,
-          "sequence": "vaa",
-          "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, geresh-muqdam",
-          "count": 1
-        },
-        {
-          "bcvp": "Judges 9:27.11",
-          "notes": "",
-          "atom": "אֱ‍ֽלֹֽהֵיהֶ֔ם",
-          "cluster-index": 1,
-          "sequence": "va",
-          "mark names": "ḥataf-segol, zero-width-joiner, meteg/siluq",
-          "count": 28
-        }
-      ],
-      "fork-buckets": {
-        "without-pre-wm": {
-          "key": "without-pre-wm",
-          "label": "without pre-wm",
-          "count": 75,
-          "examples": [
-            {
-              "bcvp": "Levit 21:10.4",
-              "notes": "",
-              "atom": "אֲ‍ֽשֶׁר־",
-              "cluster-index": 1,
-              "sequence": "va",
-              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq",
-              "count": 47
-            },
-            {
-              "bcvp": "Judges 9:27.11",
-              "notes": "",
-              "atom": "אֱ‍ֽלֹֽהֵיהֶ֔ם",
-              "cluster-index": 1,
-              "sequence": "va",
-              "mark names": "ḥataf-segol, zero-width-joiner, meteg/siluq",
-              "count": 28
-            }
-          ]
-        },
-        "with-pre-wm": {
-          "key": "with-pre-wm",
-          "label": "with pre-wm",
-          "count": 5,
-          "examples": [
-            {
-              "bcvp": "Psalms 115:4.1",
-              "notes": "",
-              "atom": "עֲ‍ֽ֭צַבֵּיהֶם",
-              "cluster-index": 1,
-              "sequence": "vaa",
-              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, deḥi",
-              "count": 4
-            },
-            {
-              "bcvp": "Job 31:15.1",
-              "notes": "t",
-              "atom": "הֲ‍ֽ֝לֹא־",
-              "cluster-index": 1,
-              "sequence": "vaa",
-              "mark names": "ḥataf-pataḥ, zero-width-joiner, meteg/siluq, geresh-muqdam",
-              "count": 1
-            }
-          ]
-        }
-      }
-    },
     "initial-munah-dehi": {
       "key": "initial-munah-dehi",
       "label": "On the first letter of a word only (after an optional vowel): munaḥ, deḥi.",
+      "count-label": "SDV.FL.munaḥ, deḥi.",
       "count": 2,
       "examples": [
         {
@@ -727,6 +733,7 @@
     "initial-meteg-pre-wm": {
       "key": "initial-meteg-pre-wm",
       "label": "On the first letter of a word only (after an optional vowel): meteg, pre-wm.",
+      "count-label": "SDV.FL.meteg, pre-wm.",
       "count": 220,
       "examples": [
         {
@@ -923,6 +930,7 @@
     "initial-geresh-telisha-gedolah": {
       "key": "initial-geresh-telisha-gedolah",
       "label": "On the first letter of a word only (after an optional vowel): geresh or gershayim, telisha gedolah.",
+      "count-label": "SDV.FL.gerstar-tg",
       "count": 3,
       "examples": [
         {
@@ -957,6 +965,7 @@
     "initial-geresh-muqdam-revia": {
       "key": "initial-geresh-muqdam-revia",
       "label": "On the first letter of a word only (after an optional vowel): geresh muqdam, revia.",
+      "count-label": "SDV.FL.rev-mug",
       "count": 238,
       "examples": [
         {
@@ -1027,6 +1036,7 @@
     "noninitial-meteg-oleh": {
       "key": "noninitial-meteg-oleh",
       "label": "On any letter (after an optional vowel): meteg, oleh.",
+      "count-label": "SDV.meteg, oleh",
       "count": 3,
       "examples": [
         {
