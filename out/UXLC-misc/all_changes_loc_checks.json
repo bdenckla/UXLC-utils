@@ -13578,5 +13578,15 @@
     "change_fline": 19,
     "guess_fline": 20.2,
     "fline_diff": 1.2
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Josh 10:24.20",
+    "change_page": "127A",
+    "change_column": 3,
+    "change_line": 23,
+    "change_fline": 77,
+    "guess_fline": 78.19,
+    "fline_diff": 1.19
   }
 ]

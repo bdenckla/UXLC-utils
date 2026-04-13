@@ -1,0 +1,3 @@
+Remove sheva from vav; reduce doubled dagesh on vav to a single dagesh.
+This a correction to the correction file of 2024.10.19 - Changes.xml file, change date 2024.07.08 - 3 that added the extra dagesh and sheva erroneously.
+BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse.

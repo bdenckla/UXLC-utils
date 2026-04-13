@@ -43436,5 +43436,36 @@
     "changeuni_gen": null,
     "changeuni_erbs": false,
     "bhla": false
+  },
+  {
+    "release": "2026.10.19",
+    "changeset": "2026.04.10",
+    "n": 1,
+    "citation": "Josh 10:24.20",
+    "description": "Remove sheva from vav; reduce doubled dagesh on vav to a single dagesh.",
+    "lc": "Folio_127A 3:23",
+    "reftext": "הֶהָלְכ֣וְּּ",
+    "refuni": "he segol he qamats lamed sheva kaf munah vav dagesh dagesh sheva",
+    "changetext": "הֶהָלְכ֣וּ",
+    "changeuni": "he segol he qamats lamed sheva kaf munah vav dagesh",
+    "notes": [
+      "This a correction to the correction file of 2024.10.19 - Changes.xml file, change date 2024.07.08 - 3 that added the extra dagesh and sheva erroneously.",
+      "BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "vowel",
+    "authors": [
+      "Ben Denckla"
+    ],
+    "lc_gen": null,
+    "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
   }
 ]
