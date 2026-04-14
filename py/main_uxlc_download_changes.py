@@ -30,7 +30,7 @@ _REQUEST_HEADERS = {
 
 def _do_one_download(date):
     filename_in_url = _filename(date, "%20")
-    url = f"https://hcanat.us/Changes/{date}%20-%20Changes/{filename_in_url}"
+    url = f"https://tanach.us/Changes/{date}%20-%20Changes/{filename_in_url}"
     filename_in_out_path = _filename(date, " ")
     out_path = f"in/UXLC-misc/{filename_in_out_path}"
     _show_progress(out_path)

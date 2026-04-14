@@ -407,7 +407,7 @@ def _latest_change_by_atom():
 def _uxlc_change_url(release_and_id):
     release_date, change_id = release_and_id
     release_str = f"{release_date}%20-%20Changes"
-    return f"https://hcanat.us/Changes/{release_str}/{release_str}.xml?{change_id}"
+    return f"https://tanach.us/Changes/{release_str}/{release_str}.xml?{change_id}"
 
 
 def _abbreviate_mark_names(mark_names):
