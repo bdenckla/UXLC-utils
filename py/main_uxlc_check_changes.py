@@ -2,7 +2,6 @@
 
 import xml.etree.ElementTree
 
-import _repo_path_setup
 import py_misc.my_open as my_open
 import py_misc.my_uxlc_changes as my_uxlc_changes
 import py_misc.my_uxlc_page_break_info as page_break_info

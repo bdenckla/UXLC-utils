@@ -1,6 +1,5 @@
 """Exports main."""
 
-import _repo_path_setup
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_open as my_open
 import py_fois.fois_html as fois_html

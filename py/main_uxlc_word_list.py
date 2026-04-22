@@ -7,7 +7,6 @@ https://tanach.us/Books/Tanach.xml.zip
 
 import unicodedata
 
-import _repo_path_setup
 from pycmn import hebrew_letters as hl
 from pycmn import hebrew_points as hpo
 from pycmn import uni_heb as uh

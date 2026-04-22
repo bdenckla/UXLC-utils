@@ -25,7 +25,6 @@ higher-level tools, while this script is a standalone CLI entry point.
 import io
 import sys
 import unicodedata
-import _repo_path_setup
 import py_misc.my_tanakh_book_names as tbn
 import py_misc.my_uxlc_location as my_uxlc_location
 

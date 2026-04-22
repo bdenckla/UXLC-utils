@@ -1,7 +1,6 @@
 """Exports main"""
 
 import shutil
-import _repo_path_setup
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_uxlc_page_break_info as page_break_info
 import py_uxlc_lci.uxlc_lci_augrec as lci_augrec
