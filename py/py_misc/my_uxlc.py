@@ -4,7 +4,6 @@ import xml.etree.ElementTree
 
 import py_misc.my_tanakh_book_names as tbn
 
-
 UXLC_CANONICAL_DIR = "in/UXLC-39"
 
 
