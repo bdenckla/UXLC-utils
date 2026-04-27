@@ -5,7 +5,7 @@ import json
 from pathlib import PurePosixPath
 import re
 
-import py_misc.my_html as my_html
+import py_misc.uxlc_utils_html as uxlc_utils_html
 import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
@@ -136,36 +136,36 @@ def write(mark_catalog, json_output_path, out_path):
     latest_change_by_atom = _latest_change_by_atom()
     page_exclusions = fois_mark_grammar_foi.page_exclusions()
     body_items = [
-        my_html.heading_level_1("mark-grammar (UXLC features of interest)"),
-        my_html.para(
+        uxlc_utils_html.heading_level_1("mark-grammar (UXLC features of interest)"),
+        uxlc_utils_html.para(
             [
-                my_html.anchor("FOI index", {"href": "index.html"}),
+                uxlc_utils_html.anchor("FOI index", {"href": "index.html"}),
                 " | ",
                 *_json_link_contents(json_output_path),
             ]
         ),
-        my_html.para(
+        uxlc_utils_html.para(
             "This page lists the weird Hebrew letter clusters: those that are neither ordinary nor treated as ordinary."
         ),
-        my_html.para("We define ordinary as follows:"),
+        uxlc_utils_html.para("We define ordinary as follows:"),
         _grammar_order_table(),
-        my_html.para(
+        uxlc_utils_html.para(
             [
                 "Clusters that are not ordinary, but treated as ordinary are listed in ",
-                my_html.anchor("mark grammar 2", {"href": "foi-mark-grammar-2.html"}),
+                uxlc_utils_html.anchor("mark grammar 2", {"href": "foi-mark-grammar-2.html"}),
                 ".",
             ]
         ),
-        my_html.para("Exclusions:"),
-        my_html.unordered_list(page_exclusions),
-        my_html.para(_weird_summary_text(summary_counts, visible_class_keys)),
+        uxlc_utils_html.para("Exclusions:"),
+        uxlc_utils_html.unordered_list(page_exclusions),
+        uxlc_utils_html.para(_weird_summary_text(summary_counts, visible_class_keys)),
     ]
     if visible_class_keys:
         body_items.extend(
             [
-                my_html.heading_level_2("Abbreviations"),
+                uxlc_utils_html.heading_level_2("Abbreviations"),
                 _abbreviation_table(),
-                my_html.heading_level_2("Counts by weird class"),
+                uxlc_utils_html.heading_level_2("Counts by weird class"),
                 _class_counts_table(mark_catalog, visible_class_keys),
                 *_sections(mark_catalog, visible_class_keys, latest_change_by_atom),
             ]
@@ -175,7 +175,7 @@ def write(mark_catalog, json_output_path, out_path):
 
 
 def _ordinary_pattern_display_list(display_items):
-    return my_html.unordered_list(
+    return uxlc_utils_html.unordered_list(
         tuple(
             _ordinary_pattern_display_list_item(display_item)
             for display_item in display_items
@@ -214,19 +214,19 @@ def _weird_summary_text(summary_counts, visible_class_keys):
 
 
 def _class_counts_table(mark_catalog, visible_class_keys):
-    rows = [my_html.table_row_of_headers(("class", "count", "details"))]
+    rows = [uxlc_utils_html.table_row_of_headers(("class", "count", "details"))]
     for class_key in visible_class_keys:
         rows.append(_class_count_row(class_key, mark_catalog))
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
+    return uxlc_utils_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _class_count_row(class_key, mark_catalog):
     count = mark_catalog["class-counts"][class_key]
-    detail_contents = my_html.anchor(
+    detail_contents = uxlc_utils_html.anchor(
         f"{_count_str(len(mark_catalog['cases-by-class'][class_key]))} cases",
         {"href": f"#{_section_id(class_key)}"},
     )
-    return my_html.table_row_of_data(
+    return uxlc_utils_html.table_row_of_data(
         (
             _class_label(class_key),
             _count_str(count),
@@ -244,7 +244,7 @@ def _sections(mark_catalog, visible_class_keys, latest_change_by_atom):
 
 def _section(class_key, mark_catalog, latest_change_by_atom):
     cases = mark_catalog["cases-by-class"][class_key]
-    heading = my_html.heading_level_2(
+    heading = uxlc_utils_html.heading_level_2(
         f"{_class_label(class_key)} ({_count_str(len(cases))} cases)",
         {"id": _section_id(class_key)},
     )
@@ -255,42 +255,42 @@ def _section(class_key, mark_catalog, latest_change_by_atom):
 
 
 def _abbreviation_table():
-    rows = [my_html.table_row_of_headers(("abbreviation", "meaning"))]
-    rows.extend(my_html.table_row_of_data(row) for row in _ABBREVIATION_ROWS)
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
+    rows = [uxlc_utils_html.table_row_of_headers(("abbreviation", "meaning"))]
+    rows.extend(uxlc_utils_html.table_row_of_data(row) for row in _ABBREVIATION_ROWS)
+    return uxlc_utils_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _grammar_order_table():
-    rows = [my_html.table_row_of_headers(("item", "meaning"))]
+    rows = [uxlc_utils_html.table_row_of_headers(("item", "meaning"))]
     rows.extend(
-        my_html.table_row(
+        uxlc_utils_html.table_row(
             (
-                my_html.table_datum(item),
-                my_html.table_datum(_tooltipify_abbreviations(meaning)),
+                uxlc_utils_html.table_datum(item),
+                uxlc_utils_html.table_datum(_tooltipify_abbreviations(meaning)),
             )
         )
         for item, meaning in _GRAMMAR_ORDER_ROWS
     )
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
+    return uxlc_utils_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _cases_table(cases, latest_change_by_atom):
     rows = [
-        my_html.table_row_of_headers(
+        uxlc_utils_html.table_row_of_headers(
             tuple(
                 _mark_case_header_label(field_name) for field_name in _MARK_CASE_HEADERS
             )
         )
     ]
     rows.extend(_case_row(case_dic, latest_change_by_atom) for case_dic in cases)
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
+    return uxlc_utils_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _mark_case_header_label(field_name):
     label = _MARK_CASE_HEADER_LABELS[field_name]
     if field_name not in _MARK_CASE_HEADER_TOOLTIPS:
         return label
-    return my_html.span(
+    return uxlc_utils_html.span(
         label,
         {
             "class": "abbrev-tooltip",
@@ -313,7 +313,7 @@ def _highlighted_atom_contents(atom_text, target_cluster):
         cluster_text = atom_text[start:end]
         if cluster_idx == target_cluster:
             row_contents.append(
-                my_html.span(cluster_text, {"class": "cluster-highlight"})
+                uxlc_utils_html.span(cluster_text, {"class": "cluster-highlight"})
             )
         else:
             row_contents.append(cluster_text)
@@ -330,7 +330,7 @@ def _as_contents(value):
 
 
 def _styled_comment_atom(comment):
-    return my_html.span(
+    return uxlc_utils_html.span(
         _highlighted_atom_contents(comment["atom"], comment["cluster-index"]),
         {"lang": "hbo", "dir": "rtl"},
     )
@@ -341,7 +341,7 @@ def _mark_names_cell_contents(case_dic):
     comment = case_dic.get("mark names comment")
     if comment is None:
         return tuple(contents)
-    contents.append(my_html.line_break())
+    contents.append(uxlc_utils_html.line_break())
     contents.append(comment["prefix"])
     contents.append(_styled_comment_atom(comment))
     return tuple(contents)
@@ -351,37 +351,37 @@ def _case_row(case_dic, latest_change_by_atom):
     row_cells = []
     for field_name in _MARK_CASE_HEADERS:
         if field_name == "bcvp":
-            row_cells.append(my_html.table_datum(_linked_bcvp(case_dic[field_name])))
+            row_cells.append(uxlc_utils_html.table_datum(_linked_bcvp(case_dic[field_name])))
             continue
         if field_name == "atom":
             row_cells.append(
-                my_html.table_datum(
+                uxlc_utils_html.table_datum(
                     _highlighted_atom(case_dic), {"lang": "hbo", "dir": "rtl"}
                 )
             )
             continue
         if field_name == "change":
             row_cells.append(
-                my_html.table_datum(
+                uxlc_utils_html.table_datum(
                     _change_record_link(case_dic, latest_change_by_atom)
                 )
             )
             continue
         if field_name == "sequence":
-            row_cells.append(my_html.table_datum(_sequence_label(case_dic[field_name])))
+            row_cells.append(uxlc_utils_html.table_datum(_sequence_label(case_dic[field_name])))
             continue
         if field_name == "mark names":
-            row_cells.append(my_html.table_datum(_mark_names_cell_contents(case_dic)))
+            row_cells.append(uxlc_utils_html.table_datum(_mark_names_cell_contents(case_dic)))
             continue
-        row_cells.append(my_html.table_datum(case_dic[field_name]))
-    return my_html.table_row(tuple(row_cells))
+        row_cells.append(uxlc_utils_html.table_datum(case_dic[field_name]))
+    return uxlc_utils_html.table_row(tuple(row_cells))
 
 
 def _change_record_link(case_dic, latest_change_by_atom):
     release_and_id = latest_change_by_atom.get(case_dic["atom"])
     if release_and_id is None:
         return ""
-    return my_html.anchor("•", {"href": _uxlc_change_url(release_and_id)})
+    return uxlc_utils_html.anchor("•", {"href": _uxlc_change_url(release_and_id)})
 
 
 def _latest_change_by_atom():
@@ -424,7 +424,7 @@ def _tooltipify_abbreviations(text):
             parts.append(text[last_end : match.start()])
         abbreviation = match.group(0)
         parts.append(
-            my_html.span(
+            uxlc_utils_html.span(
                 abbreviation,
                 {
                     "class": "abbrev-tooltip",
@@ -450,7 +450,7 @@ def _linked_bcvp(bcvp_str):
     atom = match.group("atom")
     bcv_str = f"{_tanach_us_book_code(book)} {chapter}:{verse}"
     return (
-        my_html.anchor(
+        uxlc_utils_html.anchor(
             bcv_str,
             {"href": _tanach_us_bcv_url(book, chapter, verse)},
         ),
@@ -489,7 +489,7 @@ def _section_id(class_key):
 def _json_link_contents(json_output_path):
     return [
         "JSON catalog: ",
-        my_html.anchor(
+        uxlc_utils_html.anchor(
             _json_basename(json_output_path),
             {"href": _json_basename(json_output_path)},
         ),
@@ -502,9 +502,9 @@ def _json_basename(json_output_path):
 
 def _body_wrapper(contents):
     style = "max-width: 50rem; margin-left: auto; margin-right: auto"
-    return [my_html.div(contents, {"style": style})]
+    return [uxlc_utils_html.div(contents, {"style": style})]
 
 
 def _write_html(title, out_path, body_contents):
-    write_ctx = my_html.WriteCtx(title, out_path)
-    my_html.write_html_to_file(body_contents, write_ctx, "../")
+    write_ctx = uxlc_utils_html.WriteCtx(title, out_path)
+    uxlc_utils_html.write_html_to_file(body_contents, write_ctx, "../")

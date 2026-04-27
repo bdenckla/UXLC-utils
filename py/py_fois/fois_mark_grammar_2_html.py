@@ -4,7 +4,7 @@
 from pathlib import PurePosixPath
 import re
 
-import py_misc.my_html as my_html
+import py_misc.uxlc_utils_html as uxlc_utils_html
 import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import py_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
@@ -53,27 +53,27 @@ def write(catalog, json_output_path, out_path):
     treated_ordinary_bucket = catalog["treated-ordinary-bucket"]
     leaf_buckets = catalog["leaf-buckets"]
     body_items = [
-        my_html.heading_level_1("mark grammar 2 (UXLC features of interest)"),
-        my_html.para(
+        uxlc_utils_html.heading_level_1("mark grammar 2 (UXLC features of interest)"),
+        uxlc_utils_html.para(
             [
-                my_html.anchor("FOI index", {"href": "index.html"}),
+                uxlc_utils_html.anchor("FOI index", {"href": "index.html"}),
                 " | ",
-                my_html.anchor("mark grammar", {"href": "foi-mark-grammar.html"}),
+                uxlc_utils_html.anchor("mark grammar", {"href": "foi-mark-grammar.html"}),
                 " | ",
                 *_json_link_contents(json_output_path),
             ]
         ),
-        my_html.para(
+        uxlc_utils_html.para(
             "This page lists the Hebrew letter clusters that are not ordinary, "
             "but treated as ordinary."
         ),
-        my_html.heading_level_2("Abbreviations"),
+        uxlc_utils_html.heading_level_2("Abbreviations"),
         _abbreviation_table(),
-        my_html.heading_level_2("Patterns treated as ordinary"),
+        uxlc_utils_html.heading_level_2("Patterns treated as ordinary"),
         _ordinary_pattern_display_list(
             fois_mark_grammar_2_foi.additional_pattern_display_items()
         ),
-        my_html.heading_level_2("Counts"),
+        uxlc_utils_html.heading_level_2("Counts"),
         _counts_table(catalog),
         *_bucket_section(
             treated_ordinary_bucket,
@@ -87,31 +87,31 @@ def write(catalog, json_output_path, out_path):
 
 
 def _abbreviation_table():
-    rows = [my_html.table_row_of_headers(("abbreviation", "meaning"))]
+    rows = [uxlc_utils_html.table_row_of_headers(("abbreviation", "meaning"))]
     rows.extend(
-        my_html.table_row(
+        uxlc_utils_html.table_row(
             (
-                my_html.table_datum(abbreviation),
-                my_html.table_datum(
+                uxlc_utils_html.table_datum(abbreviation),
+                uxlc_utils_html.table_datum(
                     _abbreviation_meaning_contents(abbreviation, meaning)
                 ),
             )
         )
         for abbreviation, meaning in fois_mark_grammar_2_foi.abbreviation_rows()
     )
-    rows.append(my_html.table_row_of_data(("aom", "accent or meteg")))
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
+    rows.append(uxlc_utils_html.table_row_of_data(("aom", "accent or meteg")))
+    return uxlc_utils_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _abbreviation_meaning_contents(abbreviation, meaning):
     if abbreviation != "pre-wm":
         return meaning
     prefix, suffix = meaning.split(": ", maxsplit=1)
-    return (prefix + ":", my_html.line_break(), suffix)
+    return (prefix + ":", uxlc_utils_html.line_break(), suffix)
 
 
 def _ordinary_pattern_display_list(display_items):
-    return my_html.unordered_list(
+    return uxlc_utils_html.unordered_list(
         tuple(
             _ordinary_pattern_display_list_item(display_item)
             for display_item in display_items
@@ -132,7 +132,7 @@ def _highlighted_bullet_label(text):
     label_text, separator, suffix_text = text.partition(".")
     if not separator:
         return _tooltipify_abbreviations(text)
-    label_contents = my_html.span(
+    label_contents = uxlc_utils_html.span(
         _tooltipify_abbreviations(label_text + separator),
         {"class": "bullet-label-highlight"},
     )
@@ -145,27 +145,27 @@ def _highlighted_bullet_label(text):
 
 
 def _counts_table(catalog):
-    rows = [my_html.table_row_of_headers(("pattern", "count", "details"))]
+    rows = [uxlc_utils_html.table_row_of_headers(("pattern", "count", "details"))]
     treated_ordinary_bucket = catalog["treated-ordinary-bucket"]
     rows.append(_count_row(treated_ordinary_bucket))
     for spec in fois_mark_grammar_2_foi.leaf_bucket_specs():
         rows.append(_count_row(catalog["leaf-buckets"][spec["key"]]))
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
+    return uxlc_utils_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _count_row(bucket):
-    return my_html.table_row_of_data(
+    return uxlc_utils_html.table_row_of_data(
         (
             _tooltipify_abbreviations(bucket["count-label"]),
             _count_str(bucket["count"]),
-            my_html.anchor("details", {"href": f"#{_section_id(bucket['key'])}"}),
+            uxlc_utils_html.anchor("details", {"href": f"#{_section_id(bucket['key'])}"}),
         )
     )
 
 
 def _bucket_section(bucket, bucket_key):
     contents = [
-        my_html.heading_level_2(
+        uxlc_utils_html.heading_level_2(
             f"{bucket['count-label']} ({_count_str(bucket['count'])} total)",
             {"id": _section_id(bucket_key)},
         )
@@ -183,7 +183,7 @@ def _bucket_section(bucket, bucket_key):
 
 def _bucket_example_intro(bucket):
     shown_count = len(bucket["examples"])
-    return my_html.para(
+    return uxlc_utils_html.para(
         f"Showing {shown_count} distinct mark-names value"
         f"{'s' if shown_count != 1 else ''} across "
         f"{_count_str(bucket['count'])} total clusters, ignoring shsi-dot and dms "
@@ -193,7 +193,7 @@ def _bucket_example_intro(bucket):
 
 def _fork_section(fork_bucket, bucket_key):
     return [
-        my_html.heading_level_3(
+        uxlc_utils_html.heading_level_3(
             f"{fork_bucket['label']} ({_count_str(fork_bucket['count'])} total)",
             {"id": _fork_section_id(fork_bucket["key"], bucket_key)},
         ),
@@ -204,12 +204,12 @@ def _fork_section(fork_bucket, bucket_key):
 
 def _cases_table(cases):
     rows = [
-        my_html.table_row_of_headers(
+        uxlc_utils_html.table_row_of_headers(
             tuple(_case_header_label(field_name) for field_name in _CASE_HEADERS)
         )
     ]
     rows.extend(_case_row(case_dic) for case_dic in cases)
-    return my_html.table(rows, {"class": "border-collapse limited-width"})
+    return uxlc_utils_html.table(rows, {"class": "border-collapse limited-width"})
 
 
 def _case_row(case_dic):
@@ -217,19 +217,19 @@ def _case_row(case_dic):
     for field_name in _CASE_HEADERS:
         if field_name == "atom":
             row_cells.append(
-                my_html.table_datum(
+                uxlc_utils_html.table_datum(
                     _highlighted_atom(case_dic), {"lang": "hbo", "dir": "rtl"}
                 )
             )
             continue
         if field_name == "mark names":
-            row_cells.append(my_html.table_datum(_mark_names_cell_contents(case_dic)))
+            row_cells.append(uxlc_utils_html.table_datum(_mark_names_cell_contents(case_dic)))
             continue
         if field_name == "count":
-            row_cells.append(my_html.table_datum(_count_str(case_dic[field_name])))
+            row_cells.append(uxlc_utils_html.table_datum(_count_str(case_dic[field_name])))
             continue
-        row_cells.append(my_html.table_datum(case_dic[field_name]))
-    return my_html.table_row(tuple(row_cells))
+        row_cells.append(uxlc_utils_html.table_datum(case_dic[field_name]))
+    return uxlc_utils_html.table_row(tuple(row_cells))
 
 
 def _mark_names_cell_contents(case_dic):
@@ -242,7 +242,7 @@ def _case_header_label(field_name):
     label = _CASE_HEADER_LABELS[field_name]
     if field_name not in _CASE_HEADER_TOOLTIPS:
         return label
-    return my_html.span(
+    return uxlc_utils_html.span(
         label,
         {
             "class": "abbrev-tooltip",
@@ -265,7 +265,7 @@ def _highlighted_atom_contents(atom_text, target_cluster):
         cluster_text = atom_text[start:end]
         if cluster_idx == target_cluster:
             row_contents.append(
-                my_html.span(cluster_text, {"class": "cluster-highlight"})
+                uxlc_utils_html.span(cluster_text, {"class": "cluster-highlight"})
             )
         else:
             row_contents.append(cluster_text)
@@ -283,7 +283,7 @@ def _tooltipify_abbreviations(text):
             parts.append(text[last_end : match.start()])
         abbreviation = match.group(0)
         parts.append(
-            my_html.span(
+            uxlc_utils_html.span(
                 abbreviation,
                 {
                     "class": "abbrev-tooltip",
@@ -312,7 +312,7 @@ def _fork_section_id(fork_key, bucket_key=None):
 def _json_link_contents(json_output_path):
     return [
         "JSON catalog: ",
-        my_html.anchor(
+        uxlc_utils_html.anchor(
             _json_basename(json_output_path),
             {"href": _json_basename(json_output_path)},
         ),
@@ -325,9 +325,9 @@ def _json_basename(json_output_path):
 
 def _body_wrapper(contents):
     style = "max-width: 50rem; margin-left: auto; margin-right: auto"
-    return [my_html.div(contents, {"style": style})]
+    return [uxlc_utils_html.div(contents, {"style": style})]
 
 
 def _write_html(title, out_path, body_contents):
-    write_ctx = my_html.WriteCtx(title, out_path)
-    my_html.write_html_to_file(body_contents, write_ctx, "../")
+    write_ctx = uxlc_utils_html.WriteCtx(title, out_path)
+    uxlc_utils_html.write_html_to_file(body_contents, write_ctx, "../")

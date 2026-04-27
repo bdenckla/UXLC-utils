@@ -1,7 +1,7 @@
 """Exports img_html."""
 
 from mb_cmn import my_utils
-import py_misc.my_html as my_html
+import py_misc.uxlc_utils_html as uxlc_utils_html
 
 
 def html_for_imgs(record):
@@ -16,10 +16,10 @@ def html_for_imgs(record):
 
 
 def html_for_single_img(img_path):
-    img_element = my_html.img({"src": f"../img/{img_path}"})
-    return my_html.para(img_element)
+    img_element = uxlc_utils_html.img({"src": f"../img/{img_path}"})
+    return uxlc_utils_html.para(img_element)
 
 
 def _html_for_imgs_item(imgs_item):
     img_label, img_path = imgs_item
-    return [my_html.para(img_label), html_for_single_img(img_path)]
+    return [uxlc_utils_html.para(img_label), html_for_single_img(img_path)]

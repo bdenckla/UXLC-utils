@@ -5,7 +5,7 @@ import py_amb_early_mtg.amb_early_mtg_full as amb_early_mtg_full
 import py_amb_early_mtg.amb_early_mtg_summary as amb_early_mtg_summary
 import py_amb_early_mtg.amb_early_mtg_extend as amb_early_mtg_extend
 import py_amb_early_mtg.amb_early_mtg_three_and_beyond as amb_early_mtg_three_and_beyond
-import py_misc.my_html as my_html
+import py_misc.uxlc_utils_html as uxlc_utils_html
 
 
 def main():
@@ -58,10 +58,10 @@ def _intro(records, dubious_recs, dubious_path, dubious_title):
     anch_contents = (
         f"a version of that list filtered down to the {ndrecs} cases that seem dubious"
     )
-    para2_contents = ["Here is ", my_html.anchor(anch_contents, anch_attr), "."]
+    para2_contents = ["Here is ", uxlc_utils_html.anchor(anch_contents, anch_attr), "."]
     return [
-        my_html.para(para1_contents),
-        my_html.para(para2_contents),
+        uxlc_utils_html.para(para1_contents),
+        uxlc_utils_html.para(para2_contents),
     ]
 
 

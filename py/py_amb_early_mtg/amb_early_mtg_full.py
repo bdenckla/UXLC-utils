@@ -2,7 +2,7 @@
 
 from mb_cmn import hebrew_points as hpo
 from mb_cmn import str_defs as sd
-import py_misc.my_html as my_html
+import py_misc.uxlc_utils_html as uxlc_utils_html
 import py_amb_early_mtg.amb_early_mtg_html_for_img as img
 import py_amb_early_mtg.amb_early_mtg_url_generator as urlg
 
@@ -17,17 +17,17 @@ _HBO_RTL_BIG_FOR_AEM = {"lang": "hbo", "dir": "rtl", "class": "big-for-amb-early
 
 
 def _make_key_value_row(key, value, big_hbo=False):
-    cell_for_key = my_html.table_datum(key)
+    cell_for_key = uxlc_utils_html.table_datum(key)
     attr = _HBO_RTL_BIG_FOR_AEM if big_hbo else None
-    cell_for_value = my_html.table_datum(value, attr)
-    return my_html.table_row([cell_for_key, cell_for_value])
+    cell_for_value = uxlc_utils_html.table_datum(value, attr)
+    return uxlc_utils_html.table_row([cell_for_key, cell_for_value])
 
 
 def _write_record(record):
     #
     body_contents = []
     #
-    body_contents.append(my_html.para(_navs(record)))
+    body_contents.append(uxlc_utils_html.para(_navs(record)))
     #
     if html_for_i := img.html_for_imgs(record):
         body_contents.extend(html_for_i)
@@ -37,7 +37,7 @@ def _write_record(record):
     if folio_row := _folio_row(record):
         rows.append(folio_row)
     #
-    body_contents.append(my_html.table(rows, {"class": "limited-width"}))
+    body_contents.append(uxlc_utils_html.table(rows, {"class": "limited-width"}))
     #
     _append_remarks_and_side_notes(body_contents, record)
     #
@@ -45,8 +45,8 @@ def _write_record(record):
     title = f"Ambiguous early meteg {orord}"
     filename = _filename(orord)
     path = f"full-record/{filename}"
-    write_ctx = my_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
-    my_html.write_html_to_file(body_contents, write_ctx, "../../")
+    write_ctx = uxlc_utils_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
+    uxlc_utils_html.write_html_to_file(body_contents, write_ctx, "../../")
     return path
 
 
@@ -68,7 +68,7 @@ def _maybe_append_nav(io_navs, record, key, human_readable):
 
 def _anchor_for_nav(pn_str, record):
     orord = record["original-order"]
-    return my_html.anchor(pn_str, {"href": _filename(orord)})
+    return uxlc_utils_html.anchor(pn_str, {"href": _filename(orord)})
 
 
 def _filename(orord):
@@ -78,13 +78,13 @@ def _filename(orord):
 def _append_remarks_and_side_notes(io_body_contents, record):
     if initial_remark := record.get("initial-remark"):
         assert not initial_remark.endswith(" ")
-        io_body_contents.append(my_html.para(initial_remark))
+        io_body_contents.append(uxlc_utils_html.para(initial_remark))
     #
     if further_remarks := record.get("further-remarks"):
         for fur_remark in further_remarks:
             assert not fur_remark.endswith(" ")
             hesp_fur = _hebrew_spanify(fur_remark)
-            io_body_contents.append(my_html.para(hesp_fur))
+            io_body_contents.append(uxlc_utils_html.para(hesp_fur))
 
 
 def _hebrew_spanify(string: str):
@@ -101,7 +101,7 @@ def _hebrew_spanify2(string: str):
     pre, sep, post = string.partition("#")
     assert sep
     assert sep == "#"
-    return [my_html.span(pre, {"lang": "hbo"}), *_hebrew_spanify(post)]
+    return [uxlc_utils_html.span(pre, {"lang": "hbo"}), *_hebrew_spanify(post)]
 
 
 def _initial_rows(record):
@@ -132,7 +132,7 @@ def _initial_rows(record):
 def _mam_status(record, mamsta):
     out = [mamsta]
     if diff_url := record.get("MAM-diff-URL"):
-        anchor = my_html.anchor("Wikisource diff", {"href": diff_url})
+        anchor = uxlc_utils_html.anchor("Wikisource diff", {"href": diff_url})
         out.extend([" ", anchor])
     return out
 
@@ -177,7 +177,7 @@ def _colg_and_lineg(record):
 def _page_with_link_to_img(record):
     page = record["page"]
     href = f"https://manuscripts.sefaria.org/leningrad-color/BIB_LENCDX_F{page}.jpg"
-    return my_html.anchor(page, {"href": href})
+    return uxlc_utils_html.anchor(page, {"href": href})
 
 
 def _line_str(record):

@@ -1,7 +1,7 @@
 """Exports write_html."""
 
 from mb_cmn import my_utils
-import py_misc.my_html as my_html
+import py_misc.uxlc_utils_html as uxlc_utils_html
 import py_amb_early_mtg.amb_early_mtg_url_generator as urlg
 
 
@@ -12,10 +12,10 @@ def write(records, path, title, intro=None):
     assert isinstance(intro, list)
     rows_for_data = list(map(_rec_to_row, records))
     rows = [_row_for_header(), *rows_for_data]
-    table = my_html.table(rows)
+    table = uxlc_utils_html.table(rows)
     body_contents = [*intro, table]
-    write_ctx = my_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
-    my_html.write_html_to_file(body_contents, write_ctx, "../")
+    write_ctx = uxlc_utils_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
+    uxlc_utils_html.write_html_to_file(body_contents, write_ctx, "../")
 
 
 def _row_cell_for_hdr_str(record, hdr_str):
@@ -26,22 +26,22 @@ def _row_cell_for_hdr_str(record, hdr_str):
             datum_contents = [*anchors, "; ", *initial_remark]
         else:
             datum_contents = anchors
-        return my_html.table_datum(datum_contents)
+        return uxlc_utils_html.table_datum(datum_contents)
     if hdr_str == "bcv":
         anchor = urlg.bcv_with_link_to_tdu(record)
-        return my_html.table_datum(anchor)
+        return uxlc_utils_html.table_datum(anchor)
     misc_field = record[hdr_str]
     assert isinstance(misc_field, str)
     if hdr_str in ("word",):
         attr = {"lang": "hbo", "dir": "rtl"}
     else:
         assert False
-    return my_html.table_datum(misc_field, attr)
+    return uxlc_utils_html.table_datum(misc_field, attr)
 
 
 def _get_anchors_to_full_and_ucp(record):
     path_to_full = record["path-to-full"]
-    anchor_to_full = my_html.anchor("full", {"href": path_to_full})
+    anchor_to_full = uxlc_utils_html.anchor("full", {"href": path_to_full})
     return [anchor_to_full]
 
 
@@ -49,12 +49,12 @@ def _rec_to_row(record):
     row_cells = my_utils.sl_map(
         (_row_cell_for_hdr_str, record), _STRS_FOR_CELLS_FOR_HEADER
     )
-    return my_html.table_row(row_cells)
+    return uxlc_utils_html.table_row(row_cells)
 
 
 def _row_for_header():
-    cells_for_header = list(map(my_html.table_header, _STRS_FOR_CELLS_FOR_HEADER))
-    return my_html.table_row(cells_for_header)
+    cells_for_header = list(map(uxlc_utils_html.table_header, _STRS_FOR_CELLS_FOR_HEADER))
+    return uxlc_utils_html.table_row(cells_for_header)
 
 
 _STRS_FOR_CELLS_FOR_HEADER = ["bcv", "word", "remark"]
