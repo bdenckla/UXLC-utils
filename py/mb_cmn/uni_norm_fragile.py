@@ -7,7 +7,7 @@ Exports:
 
 import unicodedata
 
-from pycmn import hebrew_points as hpo
+from mb_cmn import hebrew_points as hpo
 
 
 _DROP_TABLE = str.maketrans(

@@ -1,6 +1,6 @@
 """Exports write_html."""
 
-from pycmn import my_utils
+from mb_cmn import my_utils
 import py_misc.my_html as my_html
 import py_amb_early_mtg.amb_early_mtg_url_generator as urlg
 

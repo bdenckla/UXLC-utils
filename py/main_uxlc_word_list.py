@@ -7,10 +7,10 @@ https://tanach.us/Books/Tanach.xml.zip
 
 import unicodedata
 
-from pycmn import hebrew_letters as hl
-from pycmn import hebrew_points as hpo
-from pycmn import uni_heb as uh
-from pycmn import uni_norm_fragile as unf
+from mb_cmn import hebrew_letters as hl
+from mb_cmn import hebrew_points as hpo
+from mb_cmn import uni_heb as uh
+from mb_cmn import uni_norm_fragile as unf
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_open as my_open
 import py_misc.my_tanakh_book_names as tbn

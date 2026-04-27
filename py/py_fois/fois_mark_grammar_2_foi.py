@@ -4,7 +4,7 @@
 import py_misc.my_unicode as my_unicode
 import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
-from pycmn import hebrew_points as hpo
+from mb_cmn import hebrew_points as hpo
 
 
 _TITLE = "mark grammar 2"

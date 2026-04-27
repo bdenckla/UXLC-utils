@@ -5,9 +5,9 @@ from dataclasses import dataclass
 from typing import Union
 import html
 
-from pycmn import hebrew_punctuation as hpu
-from pycmn import my_utils
-from pycmn import str_defs as sd
+from mb_cmn import hebrew_punctuation as hpu
+from mb_cmn import my_utils
+from mb_cmn import str_defs as sd
 import py_misc.my_open as my_open
 
 

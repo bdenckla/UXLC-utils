@@ -7,11 +7,11 @@ import unicodedata
 
 import py_misc.my_unicode as my_unicode
 import py_fois.uni_heb_char_classes as ucc
-from pycmn import hebrew_letters as hl
-from pycmn import hebrew_accents as ha
-from pycmn import hebrew_points as hpo
-from pycmn import hebrew_punctuation as hpu
-from pycmn import str_defs as sd
+from mb_cmn import hebrew_letters as hl
+from mb_cmn import hebrew_accents as ha
+from mb_cmn import hebrew_points as hpo
+from mb_cmn import hebrew_punctuation as hpu
+from mb_cmn import str_defs as sd
 
 
 _DUAL_CANTILLATION_LOCS = {

@@ -1,8 +1,8 @@
 """Exports find."""
 
 import re
-from pycmn import hebrew_points as hpo
-from pycmn import str_defs as sd
+from mb_cmn import hebrew_points as hpo
+from mb_cmn import str_defs as sd
 import py_misc.my_tanakh_book_names as tbn
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_uxlc_book_abbreviations as u_bk_abbr

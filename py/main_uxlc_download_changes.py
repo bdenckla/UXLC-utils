@@ -7,7 +7,7 @@ from pathlib import Path
 import zipfile
 
 import main_0_mega
-from pycmn import polite_download
+from mb_cmn import polite_download
 import py_misc.my_open as my_open
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_uxlc_changes as my_uxlc_changes

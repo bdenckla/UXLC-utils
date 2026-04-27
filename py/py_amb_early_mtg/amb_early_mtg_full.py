@@ -1,7 +1,7 @@
 """Exports write_xml."""
 
-from pycmn import hebrew_points as hpo
-from pycmn import str_defs as sd
+from mb_cmn import hebrew_points as hpo
+from mb_cmn import str_defs as sd
 import py_misc.my_html as my_html
 import py_amb_early_mtg.amb_early_mtg_html_for_img as img
 import py_amb_early_mtg.amb_early_mtg_url_generator as urlg

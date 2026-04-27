@@ -1,6 +1,6 @@
 """Exports img_html."""
 
-from pycmn import my_utils
+from mb_cmn import my_utils
 import py_misc.my_html as my_html
 
 
