@@ -1,5 +1,13 @@
 """Exports RECORDS."""
 
+from mb_cmn.url_percent import pct_query
+
+
+def _mam_diff_url(title: str, diff: int, oldid: int) -> str:
+    query = pct_query({"title": title, "diff": diff, "oldid": oldid})
+    return f"https://he.wikisource.org/w/index.php?{query}"
+
+
 _MAM_STATUS_CNN_ALREADY_DONE = (
     "Change not needed since change already made on Wikisource."
 )
@@ -122,7 +130,7 @@ _RECORD_15 = {
     "existing UXLC change proposal": ("2024.04.01", "2024.01.29-4"),
     "MAM-word": "וַֽיַּעֲשׂ֖וּ",
     "MAM-status": _MAM_STATUS_CNN_ALREADY_DONE,
-    "MAM-diff-URL": "https://he.wikisource.org/w/index.php?title=%D7%A9%D7%9E%D7%95%D7%AA_%D7%99%D7%91%2F%D7%98%D7%A2%D7%9E%D7%99%D7%9D&diff=2839217&oldid=2815126",
+    "MAM-diff-URL": _mam_diff_url("שמות_יב/טעמים", 2839217, 2815126),
 }
 _RECORD_16 = {
     "word123p": ("וַ", "יּֽ͏ַ", "עֲשׂוּ־"),
@@ -183,7 +191,7 @@ _RECORD_22 = {
     "existing UXLC change proposal": ("2024.04.01", "2024.01.29-3"),
     "MAM-word": "וַֽיַּעֲל֖וּ",
     "MAM-status": _MAM_STATUS_CNN_ALREADY_DONE,
-    "MAM-diff-URL": "https://he.wikisource.org/w/index.php?title=%D7%A9%D7%9E%D7%95%D7%AA_%D7%9B%D7%93%2F%D7%98%D7%A2%D7%9E%D7%99%D7%9D&diff=2838019&oldid=2837894",
+    "MAM-diff-URL": _mam_diff_url("שמות_כד/טעמים", 2838019, 2837894),
 }
 _RECORD_23 = {
     "word123p": ("בְּ", "נֽ͏ֵ", "י־"),
