@@ -5,6 +5,7 @@ import json
 from pathlib import PurePosixPath
 import re
 
+from mb_cmn.uxlc_change_url import uxlc_change_url
 import py_misc.uxlc_utils_html as uxlc_utils_html
 import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
@@ -152,7 +153,9 @@ def write(mark_catalog, json_output_path, out_path):
         uxlc_utils_html.para(
             [
                 "Clusters that are not ordinary, but treated as ordinary are listed in ",
-                uxlc_utils_html.anchor("mark grammar 2", {"href": "foi-mark-grammar-2.html"}),
+                uxlc_utils_html.anchor(
+                    "mark grammar 2", {"href": "foi-mark-grammar-2.html"}
+                ),
                 ".",
             ]
         ),
@@ -351,7 +354,9 @@ def _case_row(case_dic, latest_change_by_atom):
     row_cells = []
     for field_name in _MARK_CASE_HEADERS:
         if field_name == "bcvp":
-            row_cells.append(uxlc_utils_html.table_datum(_linked_bcvp(case_dic[field_name])))
+            row_cells.append(
+                uxlc_utils_html.table_datum(_linked_bcvp(case_dic[field_name]))
+            )
             continue
         if field_name == "atom":
             row_cells.append(
@@ -368,10 +373,14 @@ def _case_row(case_dic, latest_change_by_atom):
             )
             continue
         if field_name == "sequence":
-            row_cells.append(uxlc_utils_html.table_datum(_sequence_label(case_dic[field_name])))
+            row_cells.append(
+                uxlc_utils_html.table_datum(_sequence_label(case_dic[field_name]))
+            )
             continue
         if field_name == "mark names":
-            row_cells.append(uxlc_utils_html.table_datum(_mark_names_cell_contents(case_dic)))
+            row_cells.append(
+                uxlc_utils_html.table_datum(_mark_names_cell_contents(case_dic))
+            )
             continue
         row_cells.append(uxlc_utils_html.table_datum(case_dic[field_name]))
     return uxlc_utils_html.table_row(tuple(row_cells))
@@ -406,8 +415,7 @@ def _latest_change_by_atom():
 
 def _uxlc_change_url(release_and_id):
     release_date, change_id = release_and_id
-    release_str = f"{release_date}%20-%20Changes"
-    return f"https://tanach.us/Changes/{release_str}/{release_str}.xml?{change_id}"
+    return uxlc_change_url(release_date, change_id)
 
 
 def _abbreviate_mark_names(mark_names):

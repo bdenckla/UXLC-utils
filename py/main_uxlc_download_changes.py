@@ -8,6 +8,7 @@ import zipfile
 
 import main_0_mega
 from mb_cmn import polite_download
+from mb_cmn.uxlc_change_url import uxlc_release_xml_filename, uxlc_release_xml_url
 import py_misc.my_open as my_open
 import py_misc.my_uxlc as my_uxlc
 import py_misc.my_uxlc_changes as my_uxlc_changes
@@ -33,10 +34,9 @@ _REQUEST_HEADERS = {
 
 
 def _do_one_download(session, date):
-    filename_in_url = _filename(date, "%20")
-    url = f"https://tanach.us/Changes/{date}%20-%20Changes/{filename_in_url}"
-    filename_in_out_path = _filename(date, " ")
-    out_path = f"in/UXLC-misc/{filename_in_out_path}"
+    filename = uxlc_release_xml_filename(date)
+    url = uxlc_release_xml_url(date)
+    out_path = f"in/UXLC-misc/{filename}"
     _show_progress(out_path)
     text = session.get_text(url, timeout=10, encoding="utf-8")
     my_open.with_tmp_openw(out_path, {"newline": ""}, _write_callback, text)
@@ -44,10 +44,6 @@ def _do_one_download(session, date):
 
 def _write_callback(text, out_fp):
     out_fp.write(text)
-
-
-def _filename(date, space):
-    return f"{date}{space}-{space}Changes.xml"
 
 
 def _download_latest_uxlc(session):
