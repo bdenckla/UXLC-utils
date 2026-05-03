@@ -1,11 +1,10 @@
 """Exports RECORDS."""
 
-from mb_cmn.url_percent import pct_query
+from mb_cmn.he_wikisource_url import he_diff_url
 
 
 def _mam_diff_url(title: str, diff: int, oldid: int) -> str:
-    query = pct_query({"title": title, "diff": diff, "oldid": oldid})
-    return f"https://he.wikisource.org/w/index.php?{query}"
+    return he_diff_url(title, diff, oldid)
 
 
 _MAM_STATUS_CNN_ALREADY_DONE = (
