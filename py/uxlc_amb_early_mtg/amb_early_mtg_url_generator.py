@@ -1,5 +1,5 @@
 import uxlc_misc.uxlc_utils_html as uxlc_utils_html
-import uxlc_misc.my_tanakh_book_names as tbn
+import mb_cmn.mb_cmn_bib_locales as tbn
 import uxlc_misc.my_uxlc_book_abbreviations as u_bk_abbr
 from mb_cmn.uxlc_change_url import uxlc_change_url
 

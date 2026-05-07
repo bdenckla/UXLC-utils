@@ -1,7 +1,7 @@
 """Exports main."""
 
 import uxlc_misc.my_uxlc as my_uxlc
-import uxlc_misc.my_open as my_open
+import mb_cmn.file_io as my_open
 import uxlc_fois.fois_html as fois_html
 import uxlc_fois.fois_kq_foi as fois_kq_foi
 import uxlc_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi

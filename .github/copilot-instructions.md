@@ -116,6 +116,14 @@ When generating a new version-controlled file (Python script, Markdown doc, etc.
 
 This does not apply to throwaway files matching `py/novc_*.py`.
 
+### Vendored File Exception
+
+For files vendored/copied from another repository, preserve upstream content exactly, including the first line.
+
+- Do **not** add a Copilot authorship line to a vendored file unless that line already exists upstream.
+- If local provenance is needed, record it in vendoring docs/metadata, not by altering the vendored file header.
+- The authorship-marking rule above applies to newly authored local files, not verbatim vendored copies.
+
 ## Screenshots
 
 When the user refers to "the most recent screenshot" or similar, this means the most recent file (by last-write time) in:

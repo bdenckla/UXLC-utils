@@ -2,7 +2,7 @@
 
 import xml.etree.ElementTree
 
-import uxlc_misc.my_tanakh_book_names as tbn
+import mb_cmn.mb_cmn_bib_locales as tbn
 
 UXLC_CANONICAL_DIR = "in/UXLC-39"
 

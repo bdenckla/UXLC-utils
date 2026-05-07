@@ -12,8 +12,8 @@ from mb_cmn import hebrew_points as hpo
 from mb_cmn import uni_heb as uh
 from mb_cmn import uni_norm_fragile as unf
 import uxlc_misc.my_uxlc as my_uxlc
-import uxlc_misc.my_open as my_open
-import uxlc_misc.my_tanakh_book_names as tbn
+import mb_cmn.file_io as my_open
+import mb_cmn.mb_cmn_bib_locales as tbn
 
 
 def _is_uxlc_fragile(string):

@@ -25,7 +25,7 @@ higher-level tools, while this script is a standalone CLI entry point.
 import io
 import sys
 import unicodedata
-import uxlc_misc.my_tanakh_book_names as tbn
+import mb_cmn.mb_cmn_bib_locales as tbn
 import uxlc_misc.my_uxlc_location as my_uxlc_location
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
