@@ -1,11 +1,11 @@
 """Exports main."""
 
-import py_amb_early_mtg.amb_early_mtg as amb_early_mtg
-import py_amb_early_mtg.amb_early_mtg_full as amb_early_mtg_full
-import py_amb_early_mtg.amb_early_mtg_summary as amb_early_mtg_summary
-import py_amb_early_mtg.amb_early_mtg_extend as amb_early_mtg_extend
-import py_amb_early_mtg.amb_early_mtg_three_and_beyond as amb_early_mtg_three_and_beyond
-import py_misc.uxlc_utils_html as uxlc_utils_html
+import uxlc_amb_early_mtg.amb_early_mtg as amb_early_mtg
+import uxlc_amb_early_mtg.amb_early_mtg_full as amb_early_mtg_full
+import uxlc_amb_early_mtg.amb_early_mtg_summary as amb_early_mtg_summary
+import uxlc_amb_early_mtg.amb_early_mtg_extend as amb_early_mtg_extend
+import uxlc_amb_early_mtg.amb_early_mtg_three_and_beyond as amb_early_mtg_three_and_beyond
+import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 
 
 def main():

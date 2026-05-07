@@ -9,9 +9,9 @@ import zipfile
 import main_0_mega
 from mb_cmn import polite_download
 from mb_cmn.uxlc_change_url import uxlc_release_xml_filename, uxlc_release_xml_url
-import py_misc.my_open as my_open
-import py_misc.my_uxlc as my_uxlc
-import py_misc.my_uxlc_changes as my_uxlc_changes
+import uxlc_misc.my_open as my_open
+import uxlc_misc.my_uxlc as my_uxlc
+import uxlc_misc.my_uxlc_changes as my_uxlc_changes
 
 
 _UXLC_ZIP_URL = "https://tanach.us/Books/Tanach.xml.zip"

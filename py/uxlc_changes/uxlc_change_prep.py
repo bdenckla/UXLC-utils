@@ -2,9 +2,9 @@
 
 import re
 
-import py_misc.my_uxlc_book_abbreviations as u_bk_abbr
-import py_uxlc_changes.uxlc_authors as uxlc_authors
-import py_uxlc_changes.uxlc_unicode_names as uxlc_unicode_names
+import uxlc_misc.my_uxlc_book_abbreviations as u_bk_abbr
+import uxlc_changes.uxlc_authors as uxlc_authors
+import uxlc_changes.uxlc_unicode_names as uxlc_unicode_names
 
 
 def date_qualify_and_reformat(date, change):

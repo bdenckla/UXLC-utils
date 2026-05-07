@@ -11,9 +11,9 @@ from mb_cmn import hebrew_letters as hl
 from mb_cmn import hebrew_points as hpo
 from mb_cmn import uni_heb as uh
 from mb_cmn import uni_norm_fragile as unf
-import py_misc.my_uxlc as my_uxlc
-import py_misc.my_open as my_open
-import py_misc.my_tanakh_book_names as tbn
+import uxlc_misc.my_uxlc as my_uxlc
+import uxlc_misc.my_open as my_open
+import uxlc_misc.my_tanakh_book_names as tbn
 
 
 def _is_uxlc_fragile(string):

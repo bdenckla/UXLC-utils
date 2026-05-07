@@ -2,9 +2,9 @@
 
 from mb_cmn import hebrew_points as hpo
 from mb_cmn import str_defs as sd
-import py_misc.uxlc_utils_html as uxlc_utils_html
-import py_amb_early_mtg.amb_early_mtg_html_for_img as img
-import py_amb_early_mtg.amb_early_mtg_url_generator as urlg
+import uxlc_misc.uxlc_utils_html as uxlc_utils_html
+import uxlc_amb_early_mtg.amb_early_mtg_html_for_img as img
+import uxlc_amb_early_mtg.amb_early_mtg_url_generator as urlg
 
 
 def write(io_records):

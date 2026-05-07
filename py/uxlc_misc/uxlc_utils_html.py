@@ -8,7 +8,7 @@ import html
 from mb_cmn import hebrew_punctuation as hpu
 from mb_cmn import my_utils
 from mb_cmn import str_defs as sd
-import py_misc.my_open as my_open
+import uxlc_misc.my_open as my_open
 
 
 @dataclass

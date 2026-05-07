@@ -1,6 +1,6 @@
-import py_misc.uxlc_utils_html as uxlc_utils_html
-import py_misc.my_tanakh_book_names as tbn
-import py_misc.my_uxlc_book_abbreviations as u_bk_abbr
+import uxlc_misc.uxlc_utils_html as uxlc_utils_html
+import uxlc_misc.my_tanakh_book_names as tbn
+import uxlc_misc.my_uxlc_book_abbreviations as u_bk_abbr
 from mb_cmn.uxlc_change_url import uxlc_change_url
 
 

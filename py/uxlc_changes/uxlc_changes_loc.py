@@ -1,8 +1,8 @@
 """Exports check."""
 
 import re
-import py_misc.my_uxlc_book_abbreviations as u_bk_abbr
-import py_misc.my_uxlc_location as my_uxlc_location
+import uxlc_misc.my_uxlc_book_abbreviations as u_bk_abbr
+import uxlc_misc.my_uxlc_location as my_uxlc_location
 
 
 def check(changes):

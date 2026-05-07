@@ -25,8 +25,8 @@ higher-level tools, while this script is a standalone CLI entry point.
 import io
 import sys
 import unicodedata
-import py_misc.my_tanakh_book_names as tbn
-import py_misc.my_uxlc_location as my_uxlc_location
+import uxlc_misc.my_tanakh_book_names as tbn
+import uxlc_misc.my_uxlc_location as my_uxlc_location
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")

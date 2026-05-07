@@ -1,12 +1,12 @@
 """Exports main."""
 
-import py_misc.my_uxlc as my_uxlc
-import py_misc.my_open as my_open
-import py_fois.fois_html as fois_html
-import py_fois.fois_kq_foi as fois_kq_foi
-import py_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
-import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
-import py_fois.uni_heb_char_classes as ucc
+import uxlc_misc.my_uxlc as my_uxlc
+import uxlc_misc.my_open as my_open
+import uxlc_fois.fois_html as fois_html
+import uxlc_fois.fois_kq_foi as fois_kq_foi
+import uxlc_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
+import uxlc_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
+import uxlc_fois.uni_heb_char_classes as ucc
 
 
 def _stripped_text(value):

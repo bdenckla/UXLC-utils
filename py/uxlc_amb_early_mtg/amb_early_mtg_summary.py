@@ -1,8 +1,8 @@
 """Exports write_html."""
 
 from mb_cmn import my_utils
-import py_misc.uxlc_utils_html as uxlc_utils_html
-import py_amb_early_mtg.amb_early_mtg_url_generator as urlg
+import uxlc_misc.uxlc_utils_html as uxlc_utils_html
+import uxlc_amb_early_mtg.amb_early_mtg_url_generator as urlg
 
 
 def write(records, path, title, intro=None):
@@ -53,7 +53,9 @@ def _rec_to_row(record):
 
 
 def _row_for_header():
-    cells_for_header = list(map(uxlc_utils_html.table_header, _STRS_FOR_CELLS_FOR_HEADER))
+    cells_for_header = list(
+        map(uxlc_utils_html.table_header, _STRS_FOR_CELLS_FOR_HEADER)
+    )
     return uxlc_utils_html.table_row(cells_for_header)
 
 

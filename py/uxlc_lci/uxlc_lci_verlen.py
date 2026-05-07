@@ -1,4 +1,4 @@
-import py_misc.my_uxlc_cvp as cvp
+import uxlc_misc.my_uxlc_cvp as cvp
 
 
 def get_verlen(uxlc, std_bkid, the_cvp):

@@ -1,7 +1,7 @@
 """Exports make, flatten_many1, ..."""
 
 import re
-import py_misc.my_uxlc_cvp as cvp
+import uxlc_misc.my_uxlc_cvp as cvp
 
 
 def make(pgid, bkid, cvp_range, note):

@@ -1,6 +1,6 @@
 """Exports check"""
 
-import py_misc.my_open as my_open
+import uxlc_misc.my_open as my_open
 
 
 def check(changeset_date, raw_changes, path):

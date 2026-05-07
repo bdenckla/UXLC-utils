@@ -1,6 +1,6 @@
 """Exports name, names."""
 
-import py_misc.my_unicode as my_unicode
+import uxlc_misc.my_unicode as my_unicode
 
 
 def names(string):

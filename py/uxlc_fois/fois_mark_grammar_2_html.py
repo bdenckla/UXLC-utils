@@ -4,10 +4,10 @@
 from pathlib import PurePosixPath
 import re
 
-import py_misc.uxlc_utils_html as uxlc_utils_html
-import py_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
-import py_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
-import py_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
+import uxlc_misc.uxlc_utils_html as uxlc_utils_html
+import uxlc_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
+import uxlc_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
+import uxlc_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
 
 _CASE_HEADERS = ("bcvp", "notes", "atom", "sequence", "count", "mark names")
@@ -58,7 +58,9 @@ def write(catalog, json_output_path, out_path):
             [
                 uxlc_utils_html.anchor("FOI index", {"href": "index.html"}),
                 " | ",
-                uxlc_utils_html.anchor("mark grammar", {"href": "foi-mark-grammar.html"}),
+                uxlc_utils_html.anchor(
+                    "mark grammar", {"href": "foi-mark-grammar.html"}
+                ),
                 " | ",
                 *_json_link_contents(json_output_path),
             ]
@@ -158,7 +160,9 @@ def _count_row(bucket):
         (
             _tooltipify_abbreviations(bucket["count-label"]),
             _count_str(bucket["count"]),
-            uxlc_utils_html.anchor("details", {"href": f"#{_section_id(bucket['key'])}"}),
+            uxlc_utils_html.anchor(
+                "details", {"href": f"#{_section_id(bucket['key'])}"}
+            ),
         )
     )
 
@@ -223,10 +227,14 @@ def _case_row(case_dic):
             )
             continue
         if field_name == "mark names":
-            row_cells.append(uxlc_utils_html.table_datum(_mark_names_cell_contents(case_dic)))
+            row_cells.append(
+                uxlc_utils_html.table_datum(_mark_names_cell_contents(case_dic))
+            )
             continue
         if field_name == "count":
-            row_cells.append(uxlc_utils_html.table_datum(_count_str(case_dic[field_name])))
+            row_cells.append(
+                uxlc_utils_html.table_datum(_count_str(case_dic[field_name]))
+            )
             continue
         row_cells.append(uxlc_utils_html.table_datum(case_dic[field_name]))
     return uxlc_utils_html.table_row(tuple(row_cells))

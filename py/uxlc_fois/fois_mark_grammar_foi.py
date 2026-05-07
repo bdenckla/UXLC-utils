@@ -5,8 +5,8 @@ from collections.abc import Callable
 from dataclasses import dataclass
 import unicodedata
 
-import py_misc.my_unicode as my_unicode
-import py_fois.uni_heb_char_classes as ucc
+import uxlc_misc.my_unicode as my_unicode
+import uxlc_fois.uni_heb_char_classes as ucc
 from mb_cmn import hebrew_letters as hl
 from mb_cmn import hebrew_accents as ha
 from mb_cmn import hebrew_points as hpo

@@ -1,11 +1,11 @@
 """Exports main"""
 
 import shutil
-import py_misc.my_uxlc as my_uxlc
-import py_misc.my_uxlc_page_break_info as page_break_info
-import py_uxlc_lci.uxlc_lci_augrec as lci_augrec
-import py_uxlc_lci.uxlc_lci_rec_to_xml as lci_rec_to_xml
-import py_misc.my_open as my_open
+import uxlc_misc.my_uxlc as my_uxlc
+import uxlc_misc.my_uxlc_page_break_info as page_break_info
+import uxlc_lci.uxlc_lci_augrec as lci_augrec
+import uxlc_lci.uxlc_lci_rec_to_xml as lci_rec_to_xml
+import uxlc_misc.my_open as my_open
 
 
 def _write_page_break_info(pbi):

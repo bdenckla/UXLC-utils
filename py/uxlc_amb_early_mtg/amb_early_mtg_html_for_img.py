@@ -1,7 +1,7 @@
 """Exports img_html."""
 
 from mb_cmn import my_utils
-import py_misc.uxlc_utils_html as uxlc_utils_html
+import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 
 
 def html_for_imgs(record):

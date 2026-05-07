@@ -2,15 +2,15 @@
 
 import xml.etree.ElementTree
 
-import py_misc.my_open as my_open
-import py_misc.my_uxlc_changes as my_uxlc_changes
-import py_misc.my_uxlc_page_break_info as page_break_info
-import py_uxlc_changes.uxlc_bhl_appendix_a as uxlc_bhl_appendix_a
-import py_uxlc_changes.uxlc_change_prep as prep
-import py_uxlc_changes.uxlc_change_sanity as sanity
-import py_uxlc_changes.uxlc_changes_loc as changes_loc
-import py_uxlc_changes.uxlc_misc_path as uxlc_misc_path
-import py_uxlc_changes.xml_node as xml_node
+import uxlc_misc.my_open as my_open
+import uxlc_misc.my_uxlc_changes as my_uxlc_changes
+import uxlc_misc.my_uxlc_page_break_info as page_break_info
+import uxlc_changes.uxlc_bhl_appendix_a as uxlc_bhl_appendix_a
+import uxlc_changes.uxlc_change_prep as prep
+import uxlc_changes.uxlc_change_sanity as sanity
+import uxlc_changes.uxlc_changes_loc as changes_loc
+import uxlc_changes.uxlc_misc_path as uxlc_misc_path
+import uxlc_changes.xml_node as xml_node
 
 _SANITY_PATH = "out/UXLC-misc/sanity_problems.json"
 

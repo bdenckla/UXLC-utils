@@ -9,7 +9,7 @@ Exports:
     rekey
 """
 
-import py_misc.my_uxlc_cvp as cvp
+import uxlc_misc.my_uxlc_cvp as cvp
 
 
 def calc(uxlc, std_bkid, cvp_range):

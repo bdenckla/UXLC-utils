@@ -1,7 +1,7 @@
 """Exports expand_citation and UXLC_BOOK_ABBREVIATIONS."""
 
 import re
-import py_misc.my_tanakh_book_names as tbn
+import uxlc_misc.my_tanakh_book_names as tbn
 
 
 def expand_citation(citation: str):
