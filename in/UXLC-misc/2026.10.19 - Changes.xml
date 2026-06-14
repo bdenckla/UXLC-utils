@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl'  href='/XSL/Changes.xsl.xml'?>
+
+<!--===================================================-->
+<Changes>
+    <ref>UXLC 2.5</ref>
+    <target>UXLC 2.6</target>
+    <filedate>2026.10.19</filedate>
+    <type>proposed</type>
+    <dates>
+        <!--===================================================-->
+        <date>
+            <date>2026.04.10</date>
+            <!--...................................................-->
+            <change>
+                <n>1</n>
+                <citation>
+                    <book>Josh</book>
+                    <c>10</c>
+                    <v>24</v>
+                    <position>20</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Remove sheva from vav; reduce doubled dagesh on vav to a single dagesh.</description>
+                <lc>
+                    <folio>Folio_127A</folio>
+                    <column>3</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>הֶהָלְכ֣וְּּ</reftext>
+                <refuni>he     segol     he     qamats     lamed     sheva     kaf     munah     vav     dagesh     dagesh     sheva     </refuni>
+                <changetext>הֶהָלְכ֣וּ</changetext>
+                <changeuni>he     segol     he     qamats     lamed     sheva     kaf     munah     vav     dagesh     </changeuni>
+                <notes>
+                    <note>This a correction to the correction file of 2024.10.19 - Changes.xml file, change date 2024.07.08 - 3 that added the extra dagesh and sheva erroneously.</note>
+                    <note>BHL has retains the final aleph and has no qere/ketive pair for this word. BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>vowel</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>2</n>
+                <citation>
+                    <book>Jer</book>
+                    <c>51</c>
+                    <v>9</v>
+                    <position>2</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Change munah to mahapakh under the pe.</description>
+                <lc>
+                    <folio>Folio_274B</folio>
+                    <column>2</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>רִפִּ֣ינוּ</reftext>
+                <refuni>resh     hiriq     pe     dagesh     hiriq     munah     yod     nun     vav     dagesh     </refuni>
+                <changetext>רִפִּ֤ינוּ</changetext>
+                <changeuni>resh     hiriq     pe     dagesh     hiriq     mahapakh     yod     nun     vav     dagesh     </changeuni>
+                <notes>
+                    <note>In the body text the last letter may appear to be a single ayin; however, the last two two letters of this word are nun, vav, as seen from the qere letters in the margin. The mahapakh is very clear.</note>
+                    <note>BHL has a mahapakh under the pe.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>3</n>
+                <citation>
+                    <book>Jer</book>
+                    <c>49</c>
+                    <v>19</v>
+                    <position>11</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Change qadma over tsadi to pashta.</description>
+                <lc>
+                    <folio>Folio_273A</folio>
+                    <column>2</column>
+                    <line>23</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>אֲרִיצֶ֨נּוּ֙</reftext>
+                <refuni>alef     hataf-patah     resh     hiriq     yod     tsadi     segol     qadma     nun     dagesh     vav     dagesh     pashta     </refuni>
+                <changetext>אֲרִיצֶ֙נּוּ֙</changetext>
+                <changeuni>alef     hataf-patah     resh     hiriq     yod     tsadi     segol     pashta     nun     dagesh     vav     dagesh     pashta     </changeuni>
+                <notes>
+                    <note>A pashta is a post-fix accent. When two post-fix accents occur in the same word the first post-fix accent is called an "accent helper" because it shows where the accent is actually to be placed in the word. The shift from a qadma accent to a pasha accent requires a leftward shift of the symbol by one half of the letter's width. It's NOT perceptible with some fonts.</note>
+                    <note>BHL has a distinct pashta over the tsadi.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>4</n>
+                <citation>
+                    <book>2 Sam</book>
+                    <c>11</c>
+                    <v>11</v>
+                    <position>10</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Remove qadma from nun, place pashta on yod.</description>
+                <lc>
+                    <folio>Folio_174A</folio>
+                    <column>1</column>
+                    <line>7</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וַאדֹנִ֨י</reftext>
+                <refuni>vav     patah     alef     dalet     holam     nun     hiriq     qadma     yod     </refuni>
+                <changetext>וַאדֹנִי֙</changetext>
+                <changeuni>vav     patah     alef     dalet     holam     nun     hiriq     yod     pashta     </changeuni>
+                <notes>
+                    <note>The accent is clearly on the yod, not the nun. The mark is post-positive and should be a pashta rather than a qadma.</note>
+                    <note>BHL has a qadma on the nun.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>5</n>
+                <citation>
+                    <book>Judg</book>
+                    <c>21</c>
+                    <v>16</v>
+                    <position>1</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Remove qadma on resh; place a pashta on the final vav.</description>
+                <lc>
+                    <folio>Folio_150A</folio>
+                    <column>1</column>
+                    <line>22</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>וַיֹּֽאמְר֨וּ</reftext>
+                <refuni>vav     patah     yod     dagesh     holam     meteg     alef     mem     sheva     resh     qadma     vav     dagesh     </refuni>
+                <changetext>וַיֹּֽאמְרוּ֙</changetext>
+                <changeuni>vav     patah     yod     dagesh     holam     meteg     alef     mem     sheva     resh     vav     dagesh     pashta     </changeuni>
+                <notes>
+                    <note>The accent is on the vav and must be a pashta. Do not mistake the tipeha of Judges 21:15.7 on the preceding line as being a pashta/qadma. This change proposal was suggested by results from a run of Richard Goerwitz's accent grammar checker on a recent (2020) Groves Center text. For more information, see Ben Denckla's "Goerwitz Run on WLC" at https://bdenckla.github.io/wlc-utils/accgram/goerwitz.html.</note>
+                    <note>BHL has a qadma over the resh.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <!--...................................................-->
+            <!--...................................................-->
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>6</n>
+                <citation>
+                    <book>2 Chr</book>
+                    <c>24</c>
+                    <v>27</v>
+                    <position>3</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Remove gershayim over the resh.</description>
+                <lc>
+                    <folio>Folio_357B</folio>
+                    <column>2</column>
+                    <line>6</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>יִ֧רֶ֞ב</reftext>
+                <refuni>yod     hiriq     darga     resh     segol     gereshayim     bet     </refuni>
+                <changetext>יִ֧רֶב</changetext>
+                <changeuni>yod     hiriq     darga     resh     segol     bet     </changeuni>
+                <notes>
+                    <note>The photo facsimile shows no accent over the resh.</note>
+                    <note>BHL has no gershayim in this word.  BHLA has no entry for this verse. This change proposal was suggested by results from a run of Richard Goerwitz's accent grammar checker on a recent (2020) Groves Center text. For more information, see Ben Denckla's "Goerwitz Run on WLC" at https://bdenckla.github.io/wlc-utils/accgram/goerwitz.html.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>7</n>
+                <citation>
+                    <book>Judg</book>
+                    <c>11</c>
+                    <v>24</v>
+                    <position>7</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Markings under the tav are indistinct.  Add note 't'.</description>
+                <lc>
+                    <folio>Folio_144A</folio>
+                    <column>1</column>
+                    <line>17</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>אוֹת֥וֹ</reftext>
+                <refuni>alef     vav     holam     tav     merkha     vav     holam     </refuni>
+                <changetext>אוֹת֥וֹ</changetext>
+                <changeuni>alef     vav     holam     tav     merkha     vav     holam     </changeuni>
+                <notes>
+                    <note>The text is of poor quality here. The darker northeast-to-southwest could be a merkha; however, it is a geresh from the following line, Judg 11:25.3.  With imagination, an extremely slight southeast-to-northwest line emerges from the upper portion of the putative merkha; this accent could be a munah. This change proposal was suggested by results from a run of Richard Goerwitz's accent grammar checker on a recent (2020) Groves Center text. For more information, see Ben Denckla's "Goerwitz Run on WLC" at https://bdenckla.github.io/wlc-utils/accgram/goerwitz.html.</note>
+                    <note>BHL has merkha under the tav.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>t</type>
+                        <beforetext>אוֹת֥</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>NoAction</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>8</n>
+                <citation>
+                    <book>Jer</book>
+                    <c>10</c>
+                    <v>3</v>
+                    <position>11</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Change merkha to meteg under the dalet. Add note 'm'.</description>
+                <lc>
+                    <folio>Folio_251A</folio>
+                    <column>3</column>
+                    <line>11</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>יְדֵ֥י־</reftext>
+                <refuni>yod     sheva     dalet     tsere     merkha     yod     maqaf     </refuni>
+                <changetext>יְדֵֽי־</changetext>
+                <changeuni>yod     sheva     dalet     tsere     meteg     yod     maqaf     </changeuni>
+                <notes>
+                    <note>The line beneath the dalet lacks the northeast-to-southwest inclination of a merkha. This change proposal was suggested by results from a run of Richard Goerwitz's accent grammar checker on a recent (2020) Groves Center text. For more information, see Ben Denckla's "Goerwitz Run on WLC" at https://bdenckla.github.io/wlc-utils/accgram/goerwitz.html.</note>
+                    <note>BHL has a meteg under the dalet.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type>m</type>
+                        <beforetext>יְדֵֽ</beforetext>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>9</n>
+                <citation>
+                    <book>Jer</book>
+                    <c>46</c>
+                    <v>4</v>
+                    <position>6</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Change merkha under kaf to meteg.</description>
+                <lc>
+                    <folio>Folio_271B</folio>
+                    <column>1</column>
+                    <line>5</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>בְּכ֥וֹבָעִ֑ים</reftext>
+                <refuni>bet     dagesh     sheva     kaf     merkha     vav     holam     bet     qamats     ayin     hiriq     etnachta     yod     final-mem     </refuni>
+                <changetext>בְּכֽוֹבָעִ֑ים</changetext>
+                <changeuni>bet     dagesh     sheva     kaf     meteg     vav     holam     bet     qamats     ayin     hiriq     etnachta     yod     final-mem     </changeuni>
+                <notes>
+                    <note>The line under the kaf lacks the northeast-to-southwest inclination of a merkha. Its shortness also suggests a meteg.  This change proposal was suggested by results from a run of Richard Goerwitz's accent grammar checker on a recent (2020) Groves Center text. For more information, see Ben Denckla's "Goerwitz Run on WLC" at https://bdenckla.github.io/wlc-utils/accgram/goerwitz.html.</note>
+                    <note>BHL has a meteg under the kaf.  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+        </date>
+        <!--===================================================-->
+    </dates>
+</Changes>
+<!--===================================================-->

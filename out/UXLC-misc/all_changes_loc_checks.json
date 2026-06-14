@@ -12781,13 +12781,13 @@
   },
   {
     "change_release": "2026.04.01",
-    "change_cite": "Job 23:5.5",
+    "change_cite": "Job 23:5.6",
     "change_page": "403B",
     "change_column": 2,
     "change_line": 11,
     "change_fline": 38,
-    "guess_fline": 37.32,
-    "fline_diff": -0.68
+    "guess_fline": 37.48,
+    "fline_diff": -0.52
   },
   {
     "change_release": "2026.04.01",
@@ -13181,13 +13181,13 @@
   },
   {
     "change_release": "2026.04.01",
-    "change_cite": "Job 34:19.3",
+    "change_cite": "Job 34:19.7",
     "change_page": "406B",
     "change_column": 2,
-    "change_line": 25,
-    "change_fline": 52,
-    "guess_fline": 52.33,
-    "fline_diff": 0.33
+    "change_line": 26,
+    "change_fline": 53,
+    "guess_fline": 52.99,
+    "fline_diff": -0.01
   },
   {
     "change_release": "2026.04.01",
@@ -13578,5 +13578,95 @@
     "change_fline": 19,
     "guess_fline": 20.2,
     "fline_diff": 1.2
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Josh 10:24.20",
+    "change_page": "127A",
+    "change_column": 3,
+    "change_line": 23,
+    "change_fline": 77,
+    "guess_fline": 78.19,
+    "fline_diff": 1.19
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Jer 51:9.2",
+    "change_page": "274B",
+    "change_column": 2,
+    "change_line": 23,
+    "change_fline": 50,
+    "guess_fline": 50.67,
+    "fline_diff": 0.67
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Jer 49:19.11",
+    "change_page": "273A",
+    "change_column": 2,
+    "change_line": 23,
+    "change_fline": 50,
+    "guess_fline": 50.69,
+    "fline_diff": 0.69
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "2Sam 11:11.10",
+    "change_page": "174A",
+    "change_column": 1,
+    "change_line": 7,
+    "change_fline": 7,
+    "guess_fline": 6.88,
+    "fline_diff": -0.12
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Judg 21:16.1",
+    "change_page": "150A",
+    "change_column": 1,
+    "change_line": 22,
+    "change_fline": 22,
+    "guess_fline": 24.45,
+    "fline_diff": 2.45
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "2Chr 24:27.3",
+    "change_page": "357B",
+    "change_column": 2,
+    "change_line": 6,
+    "change_fline": 33,
+    "guess_fline": 35.29,
+    "fline_diff": 2.29
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Judg 11:24.7",
+    "change_page": "144A",
+    "change_column": 1,
+    "change_line": 17,
+    "change_fline": 17,
+    "guess_fline": 17.25,
+    "fline_diff": 0.25
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Jer 10:3.11",
+    "change_page": "251A",
+    "change_column": 3,
+    "change_line": 11,
+    "change_fline": 65,
+    "guess_fline": 65.24,
+    "fline_diff": 0.24
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Jer 46:4.6",
+    "change_page": "271B",
+    "change_column": 1,
+    "change_line": 5,
+    "change_fline": 5,
+    "guess_fline": 4.96,
+    "fline_diff": -0.04
   }
 ]

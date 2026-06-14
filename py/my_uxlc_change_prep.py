@@ -62,7 +62,7 @@ def _collapse_citation(citation):
     keys = "book", "c", "v", "position"
     assert tuple(citation.keys()) == keys
     book_name = citation["book"]
-    assert book_name in u_bk_abbr.BKNA_MAP_UXLC_TO_STD
+    assert book_name in u_bk_abbr.BKNA_MAP_UXLC_TO_STD, book_name
     book_name_normalized = _normalize_book_name(book_name)
     int_keys = "c", "v", "position"
     chnu, vrnu, wpos = tuple(int(citation[k]) for k in int_keys)
@@ -130,10 +130,10 @@ def _parse_folio(folio):
         "Folio_142A (NOT Folio_141B)": "Folio_142A",
         "Folio_190AB": "Folio_190A",
     }
-    folio_norm1 = exceptions.get(folio)
+    folio_norm1 = exceptions.get(folio) or folio
     folio_patt = r"Folio_(F?)(0?\d\d?\d?)([AaBRrv])"
-    match = re.fullmatch(folio_patt, folio_norm1 or folio)
-    assert match
+    match = re.fullmatch(folio_patt, folio_norm1)
+    assert match, folio_norm1
     gr_digits = match.group(2)
     gr_recto_verso = match.group(3)
     leaf_int = int(gr_digits)
