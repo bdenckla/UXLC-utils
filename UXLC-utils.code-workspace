@@ -4,8 +4,7 @@
 			"path": "."
 		},
 		{
-			"name": "codex-index",
-			"path": "../codex-index"
+			"path": "../codex-index-leningrad"
 		}
 	],
 	"settings": {}

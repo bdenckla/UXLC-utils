@@ -24,12 +24,28 @@
     "fragile_word_n_with_drops": "w,_,y,i,q,:,v,:,o,(me),r"
   },
   {
+    "fragile_word_u": "סֻכָּֽתֽוֹ׃",
+    "fragile_word_n": "סֻכָּֽתֽוֹ׃",
+    "fragile_word_u_cs": "σ,u,k,𝓂,·,a,τ,𝓂,w,o,.",
+    "fragile_word_n_cs": "σ,u,k,a,·,𝓂,τ,𝓂,w,o,.",
+    "fragile_word_u_with_drops": "σ,u,k,𝓂,a,τ,𝓂,w,o,.",
+    "fragile_word_n_with_drops": "σ,u,k,a,𝓂,τ,𝓂,w,o,."
+  },
+  {
     "fragile_word_u": "עֲווֹ֣ן",
     "fragile_word_n": "עֲווֹ֣ן",
     "fragile_word_u_cs": "ʕ,:_,w,w,⅃,o,n.",
     "fragile_word_n_cs": "ʕ,:_,w,w,o,⅃,n.",
     "fragile_word_u_with_drops": "ʕ,:_,w,w,⅃,o,n.",
     "fragile_word_n_with_drops": "ʕ,:_,w,w,o,⅃,n."
+  },
+  {
+    "fragile_word_u": "קַתְרֹ֣ס",
+    "fragile_word_n": "קַתְרֹ֣ס",
+    "fragile_word_u_cs": "q,_,τ,:,r,⅃,o,σ",
+    "fragile_word_n_cs": "q,_,τ,:,r,o,⅃,σ",
+    "fragile_word_u_with_drops": "q,_,τ,:,r,⅃,o,σ",
+    "fragile_word_n_with_drops": "q,_,τ,:,r,o,⅃,σ"
   },
   {
     "fragile_word_u": "תַעֲשֶֽׂ֙ה־",

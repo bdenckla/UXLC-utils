@@ -14,7 +14,7 @@
             "startli": "start line (int or null)",
             "stopco": "stop column (int or null)",
             "stopli": "stop line (int or null)",
-            "bkid": "book ID, e.g. 'Levit' (see my_tanakh_book_names.py) (str or null)",
+            "bkid": "book ID, e.g. 'Levit' (see mb_cmn_bib_locales.py) (str or null)",
             "startc": "start chapter (int or null)",
             "startv": "start verse (int or null)",
             "startp": "start atom (int or null)",
