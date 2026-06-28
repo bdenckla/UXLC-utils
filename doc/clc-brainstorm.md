@@ -1,0 +1,430 @@
+# Charitable Leningrad Codex (CLC) — Brainstorm
+
+> **Status: brainstorm, not a spec or plan.** This is a scattered idea-capture for a new
+> diplomatic edition of the Leningrad Codex (LC), kin to UXLC. Sections are deliberately
+> loose; nothing here is committed. Open questions are flagged inline with **[TBD]**.
+
+---
+
+## 1. The thesis: "charity"
+
+**Name:** Charitable Leningrad Codex — **CLC**.
+
+The defining feature relative to UXLC: **where UXLC has an *uncharitable* transcription,
+CLC gives the *naqdan* (pointing-scribe) the benefit of the doubt.** All things being equal
+(or even slightly unequal), CLC prefers the **"least weird"** reading — the one that makes the
+naqdan look like he knew what he was doing, rather than the one that makes him look like he
+blundered.
+
+This is not "correcting" the LC and it is not "fixing" it to match a grammar. It is a
+transcription stance: when the image is ambiguous, decide the ambiguity in the direction that
+is internally coherent. UXLC, by contrast, often resolves the same ambiguities mechanically
+(e.g. by *mark angle*), which can manufacture weirdness that the scribe probably never intended.
+
+> Working tension to keep honest: charity must not become silent emendation. Every charitable
+> choice that departs from UXLC should be **recorded as a note** (see §7.3–7.5) so the reader
+> can see what we did and why. "Charitable but transparent." Two features carry the transparency
+> half: an **introductory essay** that *argues* the principle (§7.10), and a
+> **differences-from-UXLC index** that *shows the receipts* (§7.9).
+
+---
+
+## 2. The core ambiguity: the vertical under-bar
+
+The richest vein of charity is the **vertical (or near-vertical) bar written below a letter.**
+The same-ish glyph can be any of:
+
+- a **meteg** / gaʿya (metrical secondary stress; not an accent),
+- a **tipḥa** (prose) ≈ **tarḥa** (poetic) — a conjunctive/disjunctive *accent*,
+- a **merkha** (accent; occurs in *both* prose and poetic systems),
+- a **yored** (accent; *poetic only*).
+
+Two **distinct** sub-problems live under this heading. Keep them separate:
+
+### 2a. Identity ambiguity — *which mark is it?*
+A bar below the letter could be meteg vs. tipḥa/tarḥa vs. merkha vs. yored. UXLC leans on the
+**angle/position** of the stroke in the image to decide. CLC's stance: **resolve primarily by
+context — i.e. by accent grammar — not by mark angle.** If the accentuation of the verse makes
+only one of these grammatically possible (or overwhelmingly likely), transcribe *that*, even if
+the scribe's stroke is drawn at a slightly "wrong" angle.
+
+→ This is the genuinely *new* CLC work. It leans directly on an **accent-grammar engine that
+already exists** in the sibling repo `wlc-utils` (see §5).
+
+### 2b. Ownership ambiguity — *which letter does the meteg belong to?*
+When a meteg sits near a ḥaṭef vowel (the "early meteg" case), it is ambiguous whether the meteg
+belongs to letter 1 or letter 2. UXLC encodes the "early" reading via a ZWJ trick
+(`meteg + U+034F` → the `ֽ͏ַ` sequence). Often the "least weird" reading is a normal meteg on a
+different letter.
+
+→ This sub-problem is **already substantially built here** in UXLC-utils — see the
+`amb_early_mtg` machinery in §5. CLC can absorb and extend it.
+
+> So: **CLC's charity = (2a identity, resolved by accent grammar) + (2b ownership, already
+> catalogued) + the same stance applied wherever else the image is genuinely ambiguous.**
+
+---
+
+## 3. How accent grammar resolves identity (2a)
+
+The plan-shaped idea (kept brief because this is a brainstorm):
+
+1. For each word/verse, compute the **expected accentuation** under the relevant system
+   (the 21 prose books vs. the 3 poetic books — אמ״ת = Job, Proverbs, Psalms).
+2. Where the LC image shows an ambiguous under-bar, ask the grammar: *which of
+   {meteg, tipḥa/tarḥa, merkha, yored} is licit / expected here?*
+3. If exactly one is licit → transcribe it (charitable resolution).
+4. If more than one is licit → fall back to image evidence (angle, position), and **record a
+   note** that the case was genuinely ambiguous.
+5. If the grammar says *none* of them is licit → that is a candidate **anomaly** (possible scribal
+   error or possible transcription error upstream) — flag it, don't silently "fix" it.
+
+This mirrors, almost exactly, the "supplied marks vs. anomalies" output of the
+dual-cantillation detangler in `wlc-utils` (§5, §7.7): charitable supply where the grammar is
+confident, explicit anomaly where it is not.
+
+**[TBD]** Where does the accent-grammar engine live for CLC? Vendor `wlc-utils/py/accgram` in
+the way `mb_cmn` is already vendored, or call it cross-repo? (See §5 vendoring notes.)
+
+---
+
+## 4. Scope / relationship to UXLC
+
+- **Home (decided): CLC lives *in this repo*, not a separate one.** Python goes in **`py/clc/`**
+  and the HTML/CSS/JS output goes in **`gh-pages/clc/`** — alongside the existing
+  `gh-pages/amb-early-mtg/` and `gh-pages/fois/`. Consequence: the existing assets in §5 are
+  **directly importable** (e.g. `import uxlc_amb_early_mtg…`, `uxlc_fois…`, `uxlc_changes…`,
+  `uxlc_lci…`, `mb_cmn…`) rather than vendored. The only thing still arriving cross-repo is the
+  accent-grammar engine from `wlc-utils` (see §9 #1).
+- CLC stays **close to UXLC** — same base text, same book set, diplomatic intent. It is a
+  *re-reading of the ambiguous marks* plus a *richer notes/presentation layer*, not a new
+  collation from scratch.
+- Versification: **primary = `vtrad-BHS`.** Optionally also surface **`vtrad-MAM`** where it
+  differs (e.g. render the MAM verse boundary in a different color / as a secondary marker).
+  **[TBD]** exact mechanism; `mb_cmn` book-locale utilities are the likely home for vtrad logic.
+
+---
+
+## 5. What already exists (inventory of reusable assets)
+
+A pleasant surprise from exploring the repos: **most of CLC's plumbing already exists.** CLC is
+largely an act of *composition* over existing machinery, plus the new identity-resolution work.
+
+### In this repo (UXLC-utils)
+
+- **Ambiguous early meteg (the charity seed):**
+  [py/uxlc_amb_early_mtg/amb_early_mtg.py](py/uxlc_amb_early_mtg/amb_early_mtg.py) — a hand-curated
+  catalog of **77 words** with an ambiguous early meteg. Each record already carries exactly the
+  kind of charitable judgment CLC is about:
+  - verdicts: *"Better transcribed as a normal meteg on the first letter"* (`_BETTER_1`),
+    *"…on letter 2"* (`_BETTER_2`), *"Perhaps better…"* (`_PERHAPS_BETTER_1`), *"Unclear from the
+    LC image alone"* (`_UNCLEAR`);
+  - cross-references to **MAM** (with a status reason *and* a Wikisource diff URL), to **AC**
+    (Aleppo), to **Sassoon 1053**, to **BHS**, and to existing **UXLC change proposals**;
+  - image filenames per word (LC, and sometimes BHS/AC/Sassoon comparanda).
+  - Driver [py/main_amb_early_mtg.py](py/main_amb_early_mtg.py) → emits HTML to
+    `gh-pages/amb-early-mtg/` (`index.html`, `dubious.html`, `full-record/`, `img/`).
+  - Supporting modules: `amb_early_mtg_full.py`, `amb_early_mtg_summary.py`, `*_extend.py`,
+    `*_three_and_beyond.py`, `*_html_for_img.py`, `*_url_generator.py` (Sefaria image URL gen).
+  - Seed list also lives as [Possible false early meteg marks.csv](Possible%20false%20early%20meteg%20marks.csv)
+    and the matching `.code-search`.
+
+  → **This is the prototype of the whole CLC notes-with-charitable-verdicts model.** The record
+  shape (word, bcvp, verdict, remarks, comparanda images, MAM/AC/BHS cross-refs, change-proposal
+  links) is a candidate **CLC note schema**.
+
+- **Features of interest (FOIs):** [py/main_fois.py](py/main_fois.py) +
+  [py/uxlc_fois/](py/uxlc_fois/) — collects `kq` (ketiv/qere), `mark-grammar`, `mark-grammar-2`.
+  Outputs JSON + HTML to `gh-pages/fois/`.
+
+- **UXLC change records:** [py/uxlc_changes/](py/uxlc_changes/) (`uxlc_change_prep.py`,
+  `uxlc_authors.py`, `uxlc_bhl_appendix_a.py`, `uxlc_change_sanity.py`, `uxlc_changes_loc.py`).
+  The raw change data is the dated `* - Changes.xml` files in `in/UXLC-misc/` (2020 → 2026).
+  Download/refresh via [py/main_uxlc_download_changes.py](py/main_uxlc_download_changes.py);
+  check via [py/main_uxlc_check_changes.py](py/main_uxlc_check_changes.py).
+
+- **Image / atom-location guessing:**
+  [py/main_uxlc_estimate_atom_loc.py](py/main_uxlc_estimate_atom_loc.py) +
+  `uxlc_misc/my_uxlc_location.py` (`page_and_guesses`) + [py/uxlc_lci/](py/uxlc_lci/). Given
+  book/chapter/verse/atom, guesses the LC folio/column/line → which image to show.
+
+- **Page-break info:** [py/main_write_page_break_info.py](py/main_write_page_break_info.py)
+  (LC line/page boundaries; builds `data/lci_augrecs.json`).
+
+- **Existing site scaffold:** `gh-pages/` already has `index.html`, `style.css`, and a Hebrew
+  font `woff2/Taamey_D.woff2`.
+
+- **Vendored common code:** `py/mb_cmn/` (from `MAM-basics`) including `mb_cmn_bib_locales`
+  (book IDs/locales) and `he_wikisource_url.he_diff_url` (used to build MAM diff links).
+
+### In sibling repos
+
+- **`wlc-utils` — accent grammar + bracket notes + detangling (the heavy lifting for §2a, §7.2, §7.7):**
+  - WLC 4.22 in kq-u form: `wlc-utils/out/wlc422-kq-u/` (`0header.json` + `1verses_*.json` per
+    book group). **Bracket notes are embedded inline** in the Hebrew text strings as `]X` codes
+    (e.g. `]1`, `]c`, `]Q`).
+  - Bracket-note definitions: `wlc-utils/py/cmn/wlc_bracket_note_definitions.py` (~31 codes,
+    multi-source: Manual 4.22, the legacy WTS supplement, Amos.xml notes).
+  - Bracket-note parsing/HTML: `wlc-utils/py/accgram/rtmsr_bracket_notes.py`.
+  - **Accent-grammar engine:** `wlc-utils/py/accgram/` — the prose/poetic grammar checker.
+  - **Untangled Decalogues + Gen 35:22:** `wlc-utils/py/accgram/dual_cant_detangle.py`
+    (passages `gn 35:22` pashut/midrashit, `ex 20:2-17` & `dt 5:6-21` taḥton/elyon). Uses
+    MAM-simple as the oracle to split merged accents into two single-cantillation streams;
+    produces parse trees + **4 charitably "supplied" marks** + **1 anomaly** (Deut 5:8 תעשה).
+    Loader `wlc-utils/py/accgram/mam_simple_verse.py` (`vels_cant_alef` / `vels_cant_bet`).
+  - Vendoring: `wlc-utils` itself vendors `mb_cmn` from `MAM-basics` and `in/UXLC-*` from this
+    repo, refreshed by its `main_update_vendored_files.py`. So cross-repo vendoring is an
+    established pattern here.
+
+- **`MAM-with-doc` / `MAM-basics` — the notes presentation model (§7.3):**
+  - 3-column layout: **reference | text | documentation.** No word-interrupting callouts; the
+    text column stays readable.
+  - **Short notes (≤ 400 chars)** render *inline* in the doc column, target word colored blue
+    (`mam-doc-target-without-callout`), no marker.
+  - **Long notes (> 400 chars)** get a red asterisk callout (`mam-doc-callout`) after the word +
+    a link to a separate "big-doc" page with an anchor.
+  - Threshold logic: `MAM-basics/py/py_misc/mwd_utils.py` `html_for_ver_ndd()`
+    (`if not length_of_docs > 400`). Marking logic: `MAM-basics/py/py_misc/mam_doc_utils.py`
+    `mark_doc_targets()`. Book writer: `MAM-basics/py/mwd/mwd_write_book.py`.
+  - External links seen in MAM big-doc pages: NLI manuscripts, archive.org (Ginsburg), British
+    Library, mgketer.org. (No Sefaria/Wikisource/tanach.us links in MAM's own output.)
+
+---
+
+## 6. Resolved: the `data/` dir vs. `codex-index-leningrad`
+
+The brainstorm asked: *is the LC-index info vendored here in `data/`, or is `data/` the source
+and it's vendored into `codex-index-leningrad`?* Findings:
+
+- **`data/` here is a built artifact local to UXLC-utils, not vendored from codex-index-leningrad.**
+  - [data/lci_recs.json](data/lci_recs.json) is **copied** from `in/UXLC-misc/lci_recs.json` by
+    [main_write_page_break_info.py:17](py/main_write_page_break_info.py#L17). Its header says
+    `Derived-From: LCIndex` → `https://tanach.us/XSL/LCIndex.xml` → `USC-WSRP-Index`
+    (USC West Semitic Research Project). So the *ultimate* source is tanach.us's LCIndex, not a
+    local codex-index repo.
+  - [data/lci_augrecs.json](data/lci_augrecs.json) is **generated** here by
+    [main_write_page_break_info.py:16](py/main_write_page_break_info.py#L16) (augments each LCI
+    record with word counts and start/stop line numbers).
+- **The vendoring relationship with codex-index-leningrad runs the *other* direction.** Per
+  [shared-with-codex-index-leningrad.md](shared-with-codex-index-leningrad.md) and
+  `.github/copilot-instructions.md`: **UXLC-utils is canonical**, and
+  `codex-index-leningrad/UXLC-utils-sparse/` is a *sparse vendored copy of this repo* (refreshed
+  by that repo's `main_update_vendored_files.py`).
+- **`codex-index-leningrad` is not currently checked out** as a sibling (only `codex-index-aleppo`
+  is present in `GitRepos/`). The image-guessing machinery CLC needs (§5) **already lives here**.
+
+**So, for "higher-accuracy image guesses based on info in codex-index-leningrad":** the *current*
+guesser uses LCI data that already lives here (`data/` ← `in/UXLC-misc/lci_recs.json` ← tanach.us).
+If codex-index-leningrad holds *richer* per-line/per-column index data than tanach.us's LCIndex,
+that repo would need to be checked out and its index compared/merged. **[TBD]** — confirm what
+codex-index-leningrad actually adds over the LCIndex once it's available locally. (Note the same
+LCI data has also been vendored into `wlc-utils/data/lci_recs.json`.) Convenience: the
+`UXLC-utils.code-workspace` file already lists `../codex-index-leningrad` as a second workspace
+folder — but that path is **not cloned yet**, so it will show as missing until cloned.
+
+---
+
+## 7. Feature inventory
+
+Each is a feature the brainstorm named, organized with grounding + open questions.
+
+### 7.1 Charitable under-bar transcription *(the headline feature)*
+- Identity (2a) via accent grammar; ownership (2b) via the existing `amb_early_mtg` catalog.
+- Every departure from UXLC → a CLC note with a verdict and rationale (reuse the
+  `amb_early_mtg` record shape as the note schema).
+- **[TBD]** Source the grammar from `wlc-utils/py/accgram` (vendor vs. cross-call).
+- **[TBD]** Define the verdict vocabulary precisely (extend `_BETTER_1`/`_UNCLEAR`/… to cover
+  the identity cases: "grammar licenses only tipḥa here," etc.).
+
+### 7.2 Restoration of WLC bracket notes
+- Source: the vendored `wlc-utils/out/wlc422-kq-u/` (kq-u WLC 4.22), with definitions from
+  `wlc-utils/py/cmn/wlc_bracket_note_definitions.py`.
+- **Caution (from the brainstorm):** apply a bracket note to a word **only after careful
+  inspection** when that word **differs between UXLC and WLC** — the note may no longer apply.
+  → Implies a per-word UXLC-vs-WLC diff gate before attaching a bracket note. **[TBD]** build/
+  reuse that diff (wlc-utils already has 4.20-vs-4.22 diff tooling; a WLC-vs-UXLC diff may need
+  to be added).
+
+### 7.3 UXLC notes — MAM-style, no word-interrupting callouts
+- Adopt the MAM-with-doc presentation: text column stays clean; notes live in a side column /
+  apparatus. **Difference from MAM:** the brainstorm wants notes to be **always links**, whereas
+  MAM only links the *long* (> 400-char) notes and inlines the short ones. → CLC drops the
+  length threshold and links uniformly. **[TBD]** confirm "always links" vs. "inline short +
+  link long like MAM."
+- **Open problem (from the brainstorm): how do we get the UXLC note *text*?** UXLC's word-level
+  notes appear in the Tanach XML as `<x>` elements, but those carry a short *type/marker*, not
+  the full apparatus prose (cf. [py/main_fois.py](py/main_fois.py) `_handle_wc_x`, which reads
+  `<x>` text as a note *type*). The full note text rendered on tanach.us comes from elsewhere.
+  **[TBD]** locate the authoritative UXLC note-text source (WLC supplement? a tanach.us notes
+  file? scrape tanach.us?). The `wlc-utils` bracket-note definitions cover part of this.
+
+### 7.4 UXLC change records as a kind of note
+- We **have** the change text (the dated `* - Changes.xml` in `in/UXLC-misc/`, processed by
+  `uxlc_changes/`). Present a change record as just another note type attached to its word.
+- Cross-link to the existing change-proposal references already present in `amb_early_mtg`
+  records (e.g. `"existing UXLC change proposal": ("2024.04.01", "2024.01.29-4")`).
+
+### 7.5 FOIs as a kind of note
+- Surface FOIs (`kq`, `mark-grammar`, `mark-grammar-2`, …) as notes, **especially the rarer
+  ones**. Reuse [py/uxlc_fois/](py/uxlc_fois/).
+- **[TBD]** rarity ranking / which FOIs are worth showing inline vs. on demand.
+
+### 7.6 Images
+- **Sefaria + MAM links:** mirror UXLC's tanach.us presentation by linking each verse to its
+  Sefaria LC image and to MAM-with-doc. (The `amb_early_mtg_url_generator.py` already builds
+  Sefaria image URLs — reuse it.)
+- **Higher-accuracy image guesses:** §6 — current guesser uses LCI data already here; revisit if
+  codex-index-leningrad offers a finer index.
+- **B&W → color upgrade:** the relatively few black-and-white images embedded in notes / change
+  records should be upgraded to color. Likely **manual with automatic assistance** (batch-match a
+  B&W crop to the color Sefaria scan, propose the color replacement, human confirms). **[TBD]**
+  pipeline.
+- **Scraping:** images for changes/notes may need to be **scraped** (source **[TBD]** — tanach.us
+  change pages? Sefaria? NLI?). Respect source terms.
+
+### 7.7 Untangled Decalogues + Genesis 35:22
+- Build on `wlc-utils/py/accgram/dual_cant_detangle.py`: present Exod 20, Deut 5, and Gen 35:22
+  as **two clean single-cantillation streams** each (taḥton/elyon; pashut/midrashit) instead of
+  the merged tangle.
+- The detangler's **"supplied marks" are themselves charitable acts** (marks the scribe didn't
+  write because both threads share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
+  the kind of thing CLC should foot-note rather than hide. Strong fit with the CLC thesis.
+
+### 7.8 Versification
+- Primary `vtrad-BHS`; optionally show `vtrad-MAM` differences in a distinct color/marker (§4).
+
+### 7.9 Differences-from-UXLC index *(sortable / filterable)* — *important*
+A first-class **"what does CLC change vs. UXLC, and where"** index. This is the public face of
+"charitable but transparent" (§1): it makes every departure auditable in one place. Mechanically
+it is a **view over the CLC note schema** (§8) — every note that records a *departure* from UXLC
+becomes one row.
+
+Per-difference data (columns): location (book, ch:v, atom), the **UXLC reading vs. the CLC
+reading**, the **difference type**, prose/poetic, and a link out to the full note + image.
+
+**Filters:**
+- **by biblical book.**
+- **by prose vs. poetic — at the *verse* level, not book level**, because **Job mixes both.**
+  Already solvable with existing code: [mb_cmn/cantsys.py](py/mb_cmn/cantsys.py) (prose/poetic
+  system abstraction) + [`_is_prose_section_of_job`](py/mb_cmn/mb_cmn_bib_locales.py#L359), which
+  encodes Job 1–2, 3:1, and 42:7–17 as **prose** and the rest of Job as poetic. So: a verse is
+  poetic iff its book is Psalms/Proverbs/Job **and** it is not a Job prose section; the other 36
+  books are all prose. (Function is currently `_`-private — promote/wrap it for CLC.)
+- **by difference type** — `under-bar` is the headline type (§2); others **[TBD]**; keep a `misc`
+  bucket so nothing is ever unclassified.
+
+**Sorts:**
+- **by difference type.**
+- **by biblical order = LC *manuscript* order.** Because CLC is a **diplomatic** edition,
+  **manuscript order wins** over printed/standard order wherever they differ. ⚠️ **Gap:** the code
+  today encodes **standard printed order only** —
+  [`ordered_short`](py/mb_cmn/mb_cmn_bib_locales.py#L343) (`'A1'`…`'FD'`) and
+  [`get_bknu`](py/mb_cmn/mb_cmn_bib_locales.py#L63) (`1`…`39`, with 2 Chronicles **last**). L's
+  manuscript order differs — e.g. **Chronicles heads the Writings**, and the Latter Prophets run
+  **Jeremiah → Ezekiel → Isaiah**. So an **LC-manuscript-order key must be added** (see §9 #10).
+  ("MAM book order" likely tracks the printed order too, which is exactly why manuscript order has
+  to be its own thing here.)
+
+**Implementation sketch:** one generated page under `gh-pages/clc/`, backed by a JSON array of
+difference records, with **client-side JS** doing the sort/filter (this is the "JS" part of the
+gh-pages/clc output). Keep the records as plain data so the *same* JSON drives both this index and
+the per-verse note rendering.
+
+### 7.10 Introductory prose — editorial principles & feature tour *(front matter)*
+A human-facing **introduction** to the edition: an essay / landing page that lays out the
+**editorial principles** and tours the features. The **chief principle is charity** (§1) — it gets
+the most space and the clearest worked examples.
+
+Characteristics:
+- **Prose**, not just a feature list — explain *why* charity, and what "least weird" means in
+  practice; state plainly that charity is bounded by transparency (every departure is logged).
+- **Pointed Hebrew examples** inline (use the Taamey font already in `gh-pages/woff2/`), ideally
+  the very cases already curated in `amb_early_mtg` (e.g. וַיַּעֲשׂוּ, בְּנֵי־), each shown as
+  **UXLC reading vs. CLC reading** so the difference is concrete.
+- **Images**: LC crops — and comparanda (AC, Sassoon 1053, BHS) — beside the examples, so the
+  reader sees the ambiguous under-bar with their own eyes. Reuse the image assets/links from §7.6.
+- Also introduce the rest: the no-word-interrupting-callout notes model (§7.3), bracket-note
+  restoration (§7.2), change-records & FOIs as notes (§7.4–7.5), the detangled Decalogues + Gen
+  35:22 (§7.7), versification (§7.8) — and link prominently to the differences-from-UXLC index
+  (§7.9) as "see exactly what we changed."
+- Lives as the **`gh-pages/clc/` landing page** (`index.html`) — the front door of the edition.
+
+Pairs with §7.9: the intro **argues** charity; the index **shows the receipts**.
+
+### 7.11 BHL agreement: body vs. Appendix A *(a correctness fix, not a preference)*
+A reading that **agrees with the BHL body but is flagged in BHL Appendix A** should count as
+**not agreeing with BHL as a whole.** Appendix A is part of BHL's verdict, not a separable
+optional layer. The claim: **UXLC gets this wrong** — it presents agreement-with-body and
+agreement-with-appendix as if they were the *same level* of agreement (or at least does not rank
+them). CLC should model BHL agreement with that granularity:
+- agrees with body **and** clean in Appendix A → genuine agreement with BHL;
+- agrees with body **but** flagged in Appendix A → **not** agreement with BHL.
+
+This is framed as a **correctness** issue, not editorial taste — worth its own difference-type /
+note category in §7.9 / §8.
+
+Grounding: the repo already ingests **BHL Appendix A, but for Psalms only** so far —
+[uxlc_bhl_appendix_a.py](py/uxlc_changes/uxlc_bhl_appendix_a.py) reads
+`in/UXLC-misc/BHL Appendix A Psalms.csv` (book ch:v plus optional word-index locales). Extending
+Appendix A coverage beyond Psalms belongs to §7.12's long tail. **[TBD]** locate how UXLC encodes
+its BHL agreement, so CLC can show the corrected judgment precisely.
+
+### 7.12 Harvesting desirable changes from other editions
+Sources to mine for changes CLC might want to adopt. Each yields **candidate** notes / charitable
+diffs, **reviewed before adoption** (cf. the bracket-note caution in §7.2 — a suggestion is a
+candidate, not an automatic change):
+- **MAM ל= ("lamed equals", i.e. "L reads…") notes** — harvest from **`MAM-parsed/plus`** (or an
+  edition that renders notes, e.g. `MAM-with-doc/gh-pages`). These ל= notes point precisely at
+  what L actually has, i.e. often at exactly the changes CLC would like.
+- **`book-of-job`** (sibling repo; self-contained, with its own `gh-pages` + many check scripts) —
+  a **small, realistic, short-term** harvest set. Likely the first real harvesting target.
+- **All of BHL Appendix A** (beyond the current Psalms-only slice, §7.11) **+ Da'at Miqra** — a
+  comprehensive review would be ideal but is an explicit **long-term / "probably never get around
+  to it"** goal. Don't block on it.
+
+---
+
+## 8. Presentation / tech notes
+- Output is a static site under **`gh-pages/clc/`** (same pattern as `gh-pages/amb-early-mtg/`
+  and `gh-pages/fois/`, and as MAM).
+- Reuse the Taamey font (`gh-pages/woff2/Taamey_D.woff2`) + `style.css`.
+- Borrow MAM's 3-column CSS vocabulary (`mam-doc-*`) or define a parallel `clc-doc-*` set.
+- Note schema: generalize the `amb_early_mtg` record (word, bcvp, verdict, remarks, comparanda
+  images, cross-refs, links) into a single **CLC note** type that all sources (charitable
+  verdicts, bracket notes, UXLC notes, change records, FOIs) flow into. One renderer, many
+  sources. Fields the schema must carry for the difference index (§7.9): a **`diff_type`**
+  (`under-bar` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC reading vs. CLC
+  reading** pair. The difference index is then just "render the notes where `is_uxlc_departure`,
+  as a table."
+
+---
+
+## 9. Open questions (consolidated)
+1. **Accent grammar integration:** with CLC living here (§4), the choice narrows to: **vendor
+   `wlc-utils/py/accgram`** into this repo (the established `mb_cmn`-style pattern, via a
+   `main_update_vendored_files.py`-type refresh) **vs. cross-call** it. Vendoring is the more
+   likely fit. (The old "CLC as its own repo" option is now off the table — see §4.)
+2. **UXLC note text source** (§7.3) — the biggest data unknown.
+3. **codex-index-leningrad** — clone it (the `.code-workspace` already references it as a 2nd
+   folder, but it isn't on disk); then confirm whether it improves image guesses over the
+   tanach.us LCIndex already vendored here (§6).
+4. **Image scraping source & licensing** (§7.6).
+5. **B&W → color** upgrade pipeline — how much can be automated (§7.6).
+6. **"Always link" vs. MAM's inline-short/link-long** notes policy (§7.3).
+7. **Verdict vocabulary** for identity (2a) ambiguities (§7.1).
+8. **WLC-vs-UXLC per-word diff** to gate bracket-note application (§7.2).
+9. ~~**Where does CLC live?**~~ **Decided:** in this repo — `py/clc/` + `gh-pages/clc/` (§4).
+10. **LC manuscript book order** must be encoded for the difference-index sort (§7.9). The code
+    only has standard printed order today. *(Verse-level prose/poetic, by contrast, is **already**
+    available — `cantsys` + `_is_prose_section_of_job`; not an open question.)*
+
+## 10. Rough ordering (not a plan — just gravity)
+A loose sense of what unblocks what, without committing to phases:
+- The **note schema** (generalize `amb_early_mtg`) is the spine — most features are "a new note
+  source feeding one renderer."
+- The **accent-grammar integration** is the long pole for the headline charitable feature (2a).
+- The **UXLC-note-text source** is the long pole for the apparatus (7.3) — resolve early since
+  everything downstream depends on having the text.
+- Bracket notes, change records, FOIs, Sefaria/MAM links are comparatively cheap once the schema
+  and renderer exist (the data largely exists already).
+- Image color-upgrade and scraping are independent side quests.
