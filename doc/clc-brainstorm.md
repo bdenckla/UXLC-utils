@@ -35,14 +35,16 @@ The richest vein of charity is the **vertical (or near-vertical) bar written bel
 The same-ish glyph can be any of:
 
 - a **meteg** / gaʿya (metrical secondary stress; not an accent),
-- a **tipḥa** (prose) ≈ **tarḥa** (poetic) — a conjunctive/disjunctive *accent*,
+- a **tipeḥa** (accent; *prose only*),
+- a **tarḥa** (accent; *poetic only*),
 - a **merkha** (accent; occurs in *both* prose and poetic systems),
-- a **yored** (accent; *poetic only*).
+- a **yored** (accent; *poetic only*),
+- a **silluq** (accent; verse-final) — the easiest of these to distinguish, by context (it falls on the last word of the verse, before *sof pasuq*).
 
 Two **distinct** sub-problems live under this heading. Keep them separate:
 
 ### 2a. Identity ambiguity — *which mark is it?*
-A bar below the letter could be meteg vs. tipḥa/tarḥa vs. merkha vs. yored. UXLC leans on the
+A bar below the letter could be meteg vs. tipeḥa/tarḥa vs. merkha vs. yored. UXLC leans on the
 **angle/position** of the stroke in the image to decide. CLC's stance: **resolve primarily by
 context — i.e. by accent grammar — not by mark angle.** If the accentuation of the verse makes
 only one of these grammatically possible (or overwhelmingly likely), transcribe *that*, even if
@@ -51,17 +53,20 @@ the scribe's stroke is drawn at a slightly "wrong" angle.
 → This is the genuinely *new* CLC work. It leans directly on an **accent-grammar engine that
 already exists** in the sibling repo `wlc-utils` (see §5).
 
-### 2b. Ownership ambiguity — *which letter does the meteg belong to?*
-When a meteg sits near a ḥaṭef vowel (the "early meteg" case), it is ambiguous whether the meteg
-belongs to letter 1 or letter 2. UXLC encodes the "early" reading via a ZWJ trick
-(`meteg + U+034F` → the `ֽ͏ַ` sequence). Often the "least weird" reading is a normal meteg on a
-different letter.
+### 2b. Ownership ambiguity — *is a coded "early meteg" really just a normal meteg?* (narrow)
+A much smaller, rarer issue than 2a. UXLC sometimes codes a meteg on a ḥaṭef-bearing
+letter as an **early meteg** via a ZWJ trick (`meteg + U+034F` → the `ֽ͏ַ` sequence). In a **confirmed one or two cases**,
+the better reading is simply a **normal meteg on the previous letter**, not an early meteg at
+all. The program I wrote scans for *other* such candidates, to find out whether this happens
+anywhere else.
 
 → This sub-problem is **already substantially built here** in UXLC-utils — see the
-`amb_early_mtg` machinery in §5. CLC can absorb and extend it.
+`amb_early_mtg` machinery in §5. It is a mostly-finished side-investigation CLC can absorb,
+not a major open work item.
 
-> So: **CLC's charity = (2a identity, resolved by accent grammar) + (2b ownership, already
-> catalogued) + the same stance applied wherever else the image is genuinely ambiguous.**
+> So: **CLC's charity is, first and foremost, (2a) identity resolved by accent grammar — applied
+> wherever the image is genuinely ambiguous — with the narrow, already-catalogued (2b)
+> early-meteg cases folded in as a minor strand.**
 
 ---
 
@@ -72,10 +77,12 @@ The plan-shaped idea (kept brief because this is a brainstorm):
 1. For each word/verse, compute the **expected accentuation** under the relevant system
    (the 21 prose books vs. the 3 poetic books — אמ״ת = Job, Proverbs, Psalms).
 2. Where the LC image shows an ambiguous under-bar, ask the grammar: *which of
-   {meteg, tipḥa/tarḥa, merkha, yored} is licit / expected here?*
+   {meteg, tipeḥa/tarḥa, merkha, yored} is licit / expected here?*
 3. If exactly one is licit → transcribe it (charitable resolution).
-4. If more than one is licit → fall back to image evidence (angle, position), and **record a
-   note** that the case was genuinely ambiguous.
+4. If more than one is licit → use the grammar's **continuous grammaticality measure** to rank the legal options and
+   provisionally go with the most likely; where they remain close, also weigh image evidence
+   (angle, position). Either way, **record a note** disclosing the ambiguity — admitting our
+   uncertainty to the interested reader rather than feigning certainty.
 5. If the grammar says *none* of them is licit → that is a candidate **anomaly** (possible scribal
    error or possible transcription error upstream) — flag it, don't silently "fix" it.
 
@@ -168,7 +175,7 @@ largely an act of *composition* over existing machinery, plus the new identity-r
   - Bracket-note parsing/HTML: `wlc-utils/py/accgram/rtmsr_bracket_notes.py`.
   - **Accent-grammar engine:** `wlc-utils/py/accgram/` — the prose/poetic grammar checker.
   - **Untangled Decalogues + Gen 35:22:** `wlc-utils/py/accgram/dual_cant_detangle.py`
-    (passages `gn 35:22` pashut/midrashit, `ex 20:2-17` & `dt 5:6-21` taḥton/elyon). Uses
+    (passages `gn 35:22` pashut/midrashit, `ex 20:2-17` & `dt 5:6-21` taḥton/elyon). Uses
     MAM-simple as the oracle to split merged accents into two single-cantillation streams;
     produces parse trees + **4 charitably "supplied" marks** + **1 anomaly** (Deut 5:8 תעשה).
     Loader `wlc-utils/py/accgram/mam_simple_verse.py` (`vels_cant_alef` / `vels_cant_bet`).
@@ -234,7 +241,7 @@ Each is a feature the brainstorm named, organized with grounding + open question
   `amb_early_mtg` record shape as the note schema).
 - **[TBD]** Source the grammar from `wlc-utils/py/accgram` (vendor vs. cross-call).
 - **[TBD]** Define the verdict vocabulary precisely (extend `_BETTER_1`/`_UNCLEAR`/… to cover
-  the identity cases: "grammar licenses only tipḥa here," etc.).
+  the identity cases: "grammar licenses only tipeḥa here," etc.).
 
 ### 7.2 Restoration of WLC bracket notes
 - Source: the vendored `wlc-utils/out/wlc422-kq-u/` (kq-u WLC 4.22), with definitions from
@@ -284,7 +291,7 @@ Each is a feature the brainstorm named, organized with grounding + open question
 
 ### 7.7 Untangled Decalogues + Genesis 35:22
 - Build on `wlc-utils/py/accgram/dual_cant_detangle.py`: present Exod 20, Deut 5, and Gen 35:22
-  as **two clean single-cantillation streams** each (taḥton/elyon; pashut/midrashit) instead of
+  as **two clean single-cantillation streams** each (taḥton/elyon; pashut/midrashit) instead of
   the merged tangle.
 - The detangler's **"supplied marks" are themselves charitable acts** (marks the scribe didn't
   write because both threads share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
@@ -381,6 +388,36 @@ candidate, not an automatic change):
 - **All of BHL Appendix A** (beyond the current Psalms-only slice, §7.11) **+ Da'at Miqra** — a
   comprehensive review would be ideal but is an explicit **long-term / "probably never get around
   to it"** goal. Don't block on it.
+
+### 7.13 Don't encode early or medial meteg *(drop a BHS distinction now read as noise)*
+CLC **does not encode early or medial meteg**: it places meteg in its default position and drops
+the positional distinction. Faithfully preserving early/medial meteg placement is a **BHS feature
+that some 50 years of scholarship has reframed as closer to a bug** — there is **no evidence the
+placement is anything but scribal whim**, i.e. no evidence it means anything. So CLC treats meteg
+position as non-significant rather than reproducing it.
+- **Relationship to §2b:** declining to encode early/medial placement *largely dissolves* the 2b
+  "which letter owns the early meteg?" question — meteg simply goes in its default position. 2b's
+  value then shifts toward **evidence**: the candidates it surfaces are data points that the
+  placement is whimsical, which is the very justification for this policy.
+- Still a **logged departure** from UXLC (§1 transparency): each normalization → a note + a
+  difference-index row (§7.9), difference type e.g. `meteg-position`.
+- **[TBD]** pin down exactly how UXLC encodes early vs. medial meteg (the U+034F trick of §2b
+  covers the early case; confirm the medial one) so every instance can be detected and normalized.
+
+### 7.14 Remove questionable control-character use from UXLC
+CLC **strips control characters UXLC uses for non-semantic reasons.** The clear case: a **joiner
+used not to encode a meteg but to nudge most fonts into more felicitous spacing** — exploiting
+quirky font handling for a purely cosmetic result. That is a presentation hack riding on undefined
+behavior, not part of the text, so CLC removes it.
+- Two distinct uses to keep separate: (a) a joiner that **encodes medial/early meteg** — a
+  *legitimate* use of the joiner *if* you actually want medial meteg (but CLC drops medial meteg
+  anyway, §7.13); and (b) the **spacing hack** — no textual meaning, remove. Both disappear in CLC,
+  for different reasons.
+- **Codepoint precision matters:** §2b's early-meteg trick is actually **U+034F (combining grapheme
+  joiner)**, not a true ZWJ; the spacing hack may be an actual **ZWJ (U+200D)**. **[TBD]** audit
+  UXLC for *every* control-character use and classify each as semantic (keep/transform) vs. cosmetic
+  (drop); at least one spacing-hack joiner is known — find the rest.
+- Log each removal as a departure (§7.9), difference type e.g. `control-char`.
 
 ---
 
