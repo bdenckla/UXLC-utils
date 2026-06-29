@@ -13,6 +13,7 @@ to MAM's ``mam-doc-*`` (brainstorm §8); the rules live in gh-pages/style.css.
 
 import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
 import clc.clc_dual_cant as clc_dual_cant
+import clc.clc_kq as clc_kq
 import uxlc_misc.uxlc_utils_html as H
 
 _OUT_DIR = "gh-pages/clc"
@@ -100,15 +101,22 @@ def _strand_ref_attr(tooltip, pos, count):
 
 
 def _text_contents(ch, v, verse, notes_by_atom):
+    # Group ketiv/qere atoms into units (clc_kq) so each renders as one boxed
+    # ruby — qere on the baseline, ketiv above — and adjacent independent pairs
+    # stay visibly separate from a grouped multi-word unit. Plain words render
+    # exactly as before: an always-link if noted, otherwise bare text.
     pieces = []
-    for atidx, atom in enumerate(verse):
-        atom_text = atom["text"]
-        if (ch, v, atidx + 1) in notes_by_atom:
-            href = f"#{_anchor_id(ch, v, atidx + 1)}"
-            pieces.append(H.anchor(atom_text, {"href": href, "class": "clc-doc-target"}))
+    for item in clc_kq.iter_render_units(verse):
+        if isinstance(item, clc_kq.KqUnit):
+            pieces.append(clc_kq.kq_ruby(item, notes_by_atom, ch, v))
+            _append_join_space(pieces, clc_kq.join_text(item))
         else:
-            pieces.append(atom_text)
-        _append_join_space(pieces, atom_text)
+            if (ch, v, item.position) in notes_by_atom:
+                href = f"#{_anchor_id(ch, v, item.position)}"
+                pieces.append(H.anchor(item.text, {"href": href, "class": "clc-doc-target"}))
+            else:
+                pieces.append(item.text)
+            _append_join_space(pieces, item.text)
     return pieces
 
 

@@ -228,6 +228,21 @@ def span_c(contents, the_class=None):
     return span(contents, the_class and {"class": the_class})
 
 
+def ruby(contents, attr=None):
+    """Make a <ruby> element."""
+    return htel_mk_inline("ruby", attr, contents)
+
+
+def rt(contents, attr=None):
+    """Make an <rt> (ruby annotation text) element."""
+    return htel_mk_inline("rt", attr, contents)
+
+
+def rp(contents, attr=None):
+    """Make an <rp> (ruby fallback parenthesis) element."""
+    return htel_mk_inline("rp", attr, contents)
+
+
 def bold(contents, attr=None):
     """Make a <bold> element."""
     return htel_mk_inline("b", attr, contents)

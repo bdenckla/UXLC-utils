@@ -71,3 +71,23 @@ a.clc-doc-target:hover { text-decoration: underline; }
 div.clc-note { margin-bottom: 0.5em; }
 div.clc-note:target { background-color: light-dark(#f3e3a4, #5a4a1f); border-radius: 0.15em; }
 span.clc-note-code { font-weight: bold; }
+/* CLC ketiv/qere (clc_kq): one boxed <ruby> per K/Q unit — qere on the baseline
+   (the reading), ketiv as the annotation above. The per-unit box bounds each
+   apparatus unit, so two adjacent independent pairs read as two boxes while a
+   grouped multi-word unit reads as one box (the "kqkq" vs "kkqq" distinction).
+   The box lives on an inline-block wrapper, not the <ruby> itself: a border on
+   a <ruby> only hugs the base line, leaving the <rt> annotation outside it. */
+span.clc-kq-box {
+    display: inline-block;
+    border: 1px solid light-dark(#bbb, #555);
+    border-radius: 0.25em;
+    padding: 0 0.15em;
+    margin: 0 0.05em;
+}
+ruby.clc-kq { ruby-position: over; }
+/* Keep the ketiv full-size: it is set off by being unpointed and above, never by
+   smallness — so override the browser-default shrunk <rt>. */
+ruby.clc-kq rt { font-size: 100%; }
+/* Only the editorial "no qere" / "no ketiv" placeholder is small + muted (in
+   whichever slot the missing member would have occupied). */
+ruby.clc-kq span.clc-kq-none { font-size: 70%; color: light-dark(#777, #999); }
