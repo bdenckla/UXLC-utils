@@ -1,26 +1,27 @@
 """Exports note-page prose: the *actual* tanach.us note, fetched and parsed.
 
 UXLC's ``<x>`` code points at a per-(atom, code) note page on tanach.us, e.g.
-``https://tanach.us/Notes/Proverbs/Proverbs.5.19.4-m.html``. That page's ``<h2>``
-is the change-log *description* that added the note (what ``clc_changes`` indexes),
-but its body ``<p>`` paragraphs are the reader-facing *note* itself -- usually
-similar to, but not the same as, the change prose. This module fetches that page
-(politely, cached) and returns its note prose, so ``clc_collect`` can prefer the
-real note over the change-log description.
+``https://tanach.us/Notes/Proverbs/Proverbs.5.19.4-m.html``. Its reader-facing
+*note* prose is usually similar to, but not the same as, the change-log
+*description* that added it (what ``clc_changes`` indexes). This module fetches
+that page (politely, cached) and returns its note prose, so ``clc_collect`` can
+prefer the real note over the change-log description.
 
-Pages are NoteMaker-generated and highly regular:
+Two page formats are in the wild and must both be handled:
 
-    <h1>citation</h1>
-    <h2>change-log description</h2>
-    <table> image + credit </table>
-    <p>note prose ...</p>            (one or more, plain text)
-    <p><b><i>author</i></b></p>
-    <p align="right"><b><a ...>change link</a></b></p>
-    <table> "all 'x' notes" / note-index links </table>
+  * NoteMaker-generated (newer): prose is body-level ``<p>`` paragraphs; the
+    change-log description is an ``<h2>``; the author is ``<p><b><i>...</i></b></p>``
+    and the change link a ``<p align="right"><b><a>...</a></b></p>``.
 
-The note prose is exactly the body-level ``<p>`` that is plain text (no child
-elements, no ``align``): the author and change-link paragraphs carry inline
-markup, and the credit/index links live inside ``<table>``.
+  * Hand-authored (older, ~2021): the note's lead line is an ``<h4>`` and the rest
+    of the prose is *bare* body text split by self-closing ``<p/>`` separators (no
+    ``<p>...</p>`` wrappers at all); the author is a bare ``<b><i>...</i></b>``.
+
+Both formats share the same noise, so one rule covers them: the prose is the body
+text that is NOT inside a ``<table>`` (image credit / note index), NOT inside the
+``<h1>`` citation or ``<h2>`` change-log description, and NOT inside inline markup
+(``<b>``/``<i>``/``<a>``, which wrap the author and the change link). Everything
+else in the body -- ``<p>`` text, ``<h4>`` text, and bare text -- is note prose.
 """
 
 import html.parser
@@ -90,46 +91,74 @@ def _extract_prose_paragraphs(page_text):
     return parser.paragraphs
 
 
+# Inline markup that wraps non-prose (author byline, change link, image credit).
+# Text inside any of these is skipped in both page formats.
+_SKIP_TEXT_TAGS = frozenset({"b", "i", "a", "em", "strong"})
+# Headings that are not prose: the citation and the change-log description.
+_SKIP_HEADING_TAGS = frozenset({"h1", "h2"})
+# Block-level tags whose boundaries end one prose run and start the next.
+_BLOCK_TAGS = frozenset(
+    {"p", "br", "div", "center", "tr", "li", "h1", "h2", "h3", "h4", "h5", "h6"}
+)
+
+
 class _NoteProseExtractor(html.parser.HTMLParser):
-    """Collect body-level plain-text ``<p>`` paragraphs (the note prose)."""
+    """Collect the body note prose across both tanach.us note-page formats.
+
+    Prose is body text outside any ``<table>``, outside the ``<h1>``/``<h2>``
+    citation and change-log heading, and outside inline ``<b>``/``<i>``/``<a>``
+    author and change-link markup. Block boundaries split it into paragraphs.
+    """
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
+        self._in_body = False
         self._table_depth = 0
-        self._in_p = False
-        self._p_has_child = False
-        self._p_has_align = False
+        self._heading_depth = 0   # inside <h1>/<h2> (citation, change description)
+        self._inline_depth = 0    # inside <b>/<i>/<a> (author, link, credit)
         self._buf = []
         self.paragraphs = []
 
+    def _collecting(self):
+        return (
+            self._in_body
+            and not self._table_depth
+            and not self._heading_depth
+            and not self._inline_depth
+        )
+
+    def _flush(self):
+        text = _WS_RE.sub(" ", "".join(self._buf)).strip()
+        if text:
+            self.paragraphs.append(text)
+        self._buf = []
+
     def handle_starttag(self, tag, attrs):
+        if tag == "body":
+            self._in_body = True
+        elif tag in _BLOCK_TAGS:
+            self._flush()  # close any run before a block boundary
         if tag == "table":
             self._table_depth += 1
-        elif self._table_depth:
-            pass  # ignore everything inside the image-credit / note-index tables
-        elif tag == "p":
-            self._in_p = True
-            self._p_has_child = False
-            self._p_has_align = any(name == "align" for name, _ in attrs)
-            self._buf = []
-        elif self._in_p:
-            self._p_has_child = True  # author/link paragraphs carry inline markup
+        elif tag in _SKIP_HEADING_TAGS:
+            self._heading_depth += 1
+        elif tag in _SKIP_TEXT_TAGS:
+            self._inline_depth += 1
 
     def handle_startendtag(self, tag, attrs):
-        if self._table_depth == 0 and self._in_p:
-            self._p_has_child = True
+        if tag in _BLOCK_TAGS:
+            self._flush()  # self-closing <p/> and <br/> are paragraph separators
 
     def handle_endtag(self, tag):
+        if tag in _BLOCK_TAGS:
+            self._flush()
         if tag == "table":
             self._table_depth = max(self._table_depth - 1, 0)
-        elif self._table_depth:
-            pass
-        elif tag == "p" and self._in_p:
-            text = _WS_RE.sub(" ", "".join(self._buf)).strip()
-            if text and not self._p_has_child and not self._p_has_align:
-                self.paragraphs.append(text)
-            self._in_p = False
+        elif tag in _SKIP_HEADING_TAGS:
+            self._heading_depth = max(self._heading_depth - 1, 0)
+        elif tag in _SKIP_TEXT_TAGS:
+            self._inline_depth = max(self._inline_depth - 1, 0)
 
     def handle_data(self, data):
-        if self._table_depth == 0 and self._in_p:
+        if self._collecting():
             self._buf.append(data)
