@@ -1,20 +1,20 @@
-"""Exports load_descriptions: index UXLC change-log prose by noted-atom citation.
+"""Exports load_descriptions: index each noted atom's recorded letters by citation.
 
-UXLC's ``<x>`` element carries only a one-letter code; the human-readable prose
-for each lettered note lives in the ``<correction><description>`` of the change
-that added it (brainstorm §5, §7.3). We index those descriptions by the change's
-citation so clc_collect can join prose onto the noted atom.
+UXLC's ``<x>`` element carries only a one-letter code; the change that added the
+note records the word it applied to. clc_collect joins notes onto atoms by the
+integer ``position`` (1-based atom index within the verse, counting <w>/<q>/<k>),
+but that key is fragile: if atoms are ever merged or split, positions shift and
+the join would silently land on the wrong atom. So we index, per citation, the
+letter-only form of each change's word, which clc_collect asserts the current
+atom against (_check_atom_consistency). A collision needs *both* the position and
+the letter-string to match the wrong atom -- vanishingly unlikely outside an
+immediately-repeated identical word.
 
-The citation key is ``(book_id, chnu, vrnu, position)`` where ``position`` is the
-1-based atom index within the verse (counting <w>/<q>/<k>), matching UXLC's own
+The citation key is ``(book_id, chnu, vrnu, position)``, matching UXLC's own
 change-citation positions and the atom enumeration in clc_read.
 
-The integer position is the join key, but it is fragile: if atoms are ever merged
-or split, positions shift and the join would silently land on the wrong atom. So
-each descriptor also carries ``letters`` — the letter-only form of the change's
-word — as a backup the join can assert against (see clc_collect). A collision
-needs *both* the position and the letter-string to match the wrong atom, which is
-vanishingly unlikely outside of an immediately-repeated identical word.
+(The note *prose* shown to readers comes from the downloaded tanach.us note page,
+not from here -- see clc_note_pages.)
 """
 
 import os
@@ -28,10 +28,10 @@ _CHANGES_DIR = "in/UXLC-misc"
 
 
 def load_descriptions():
-    """Map (book_id, chnu, vrnu, position) -> list of change descriptors.
+    """Map (book_id, chnu, vrnu, position) -> list of ``{"letters": ...}``.
 
-    Each descriptor is ``{"text": <description prose>, "codes": [transnote type,
-    ...], "letters": <letter-only form of the change's word>}``.
+    ``letters`` is the letter-only form of the change's word, used by clc_collect
+    as the backup consistency check for the fragile position-based join.
     """
     index = {}
     for filename in my_uxlc_changes.FILENAMES:
@@ -47,11 +47,7 @@ def _index_one_file(index, path):
         key = _citation_key(change)
         if key is None:
             continue
-        descriptor = {
-            "text": change.findtext("description"),
-            "codes": [tn.findtext("type") for tn in change.iter("transnote")],
-            "letters": _word_letters(change),
-        }
+        descriptor = {"letters": _word_letters(change)}
         index.setdefault(key, []).append(descriptor)
 
 

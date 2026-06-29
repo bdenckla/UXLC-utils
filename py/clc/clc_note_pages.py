@@ -1,11 +1,14 @@
-"""Exports note-page prose: the *actual* tanach.us note, fetched and parsed.
+"""Exports note-page prose: the *actual* tanach.us note, read from a local copy.
 
 UXLC's ``<x>`` code points at a per-(atom, code) note page on tanach.us, e.g.
 ``https://tanach.us/Notes/Proverbs/Proverbs.5.19.4-m.html``. Its reader-facing
-*note* prose is usually similar to, but not the same as, the change-log
-*description* that added it (what ``clc_changes`` indexes). This module fetches
-that page (politely, cached) and returns its note prose, so ``clc_collect`` can
-prefer the real note over the change-log description.
+*note* prose is the manuscript note we want to render (not the change-log
+*description*, which is an imperative instruction to the editor).
+
+To keep the CLC build deterministic and offline, those pages are downloaded as a
+separate, non-default step (``main_clc_download_notes``) into committed files
+under ``in/UXLC-notes/``; this module only *reads* that local copy and extracts
+its prose. No network here -- a page missing locally just returns ``None``.
 
 Two page formats are in the wild and must both be handled:
 
@@ -25,63 +28,35 @@ else in the body -- ``<p>`` text, ``<h4>`` text, and bare text -- is note prose.
 """
 
 import html.parser
+import os
 import re
 
-import requests
-
-from mb_cmn import polite_download
-
-_CACHE_DIR = ".novc/http-cache/tanach-us"  # shared with main_uxlc_download_changes
-_USER_AGENT = (
-    "Mozilla/5.0 (compatible; uxlc-clc-notes/1.0; +educational/personal-study)"
-)
-_NOTES_CONFIG = polite_download.PoliteDownloadConfig(
-    user_agent=_USER_AGENT,
-    default_timeout_s=30.0,
-    accept_language="he,en;q=0.5",
-    referer="https://tanach.us/",
-    default_headers={
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Connection": "keep-alive",
-    },
-    throttle=polite_download.ThrottleConfig(min_delay_s=1.5, mean_delay_s=3.0),
-    retry=polite_download.RetryConfig(max_attempts=4),
-    cache=polite_download.CacheConfig(dir_path=_CACHE_DIR),
-    obey_robots_txt=True,
-)
+NOTES_DIR = "in/UXLC-notes"  # committed; populated by main_clc_download_notes
 
 _WS_RE = re.compile(r"\s+")
 
 
-def make_session():
-    """Return a PoliteDownloader for tanach.us note pages (use as a context manager)."""
-    return polite_download.PoliteDownloader(_NOTES_CONFIG)
+def local_page_path(book_id, ch, v, position, code):
+    """Committed local path of one (atom, code) note page.
 
-
-def note_page_url(book_id, ch, v, position, code):
-    """The tanach.us note-page URL for one (atom, code).
-
-    ``book_id`` is the bk39 id, which is also the tanach.us Notes folder/file name
-    for single-token book names (e.g. "Proverbs"). Numbered/multi-word books would
-    need a name map; until then a wrong URL simply 404s and the caller falls back.
+    Keyed by the CLC bk39 ``book_id`` (the downloader maps it to the canonical
+    tanach.us name for the remote URL; locally we keep the CLC id for uniformity).
     """
-    return f"https://tanach.us/Notes/{book_id}/{book_id}.{ch}.{v}.{position}-{code}.html"
+    return f"{NOTES_DIR}/{book_id}/{book_id}.{ch}.{v}.{position}-{code}.html"
 
 
-def fetch_note_prose(session, book_id, ch, v, position, code):
-    """Return the note page's prose (paragraphs joined), or None if unavailable.
+def local_note_prose(book_id, ch, v, position, code):
+    """Return the downloaded note page's prose (paragraphs joined), or None.
 
-    None means "no usable note page" -- a 404 (the note predates the change log,
-    or the URL's book name does not match tanach.us), a network failure after
-    retries, or a page with no plain-text prose paragraphs. The caller then falls
-    back to the change-log description.
+    None means no usable local page -- it was never downloaded (the note predates
+    the change log, or tanach.us has none), or the page carries no plain-text
+    prose. The build then shows the deterministic per-code marker (clc_collect).
     """
-    url = note_page_url(book_id, ch, v, position, code)
-    try:
-        text = session.get_text(url, timeout=20, encoding="utf-8")
-    except requests.RequestException:
+    path = local_page_path(book_id, ch, v, position, code)
+    if not os.path.exists(path):
         return None
-    paragraphs = _extract_prose_paragraphs(text)
+    with open(path, encoding="utf-8") as page_fp:
+        paragraphs = _extract_prose_paragraphs(page_fp.read())
     return " ".join(paragraphs) if paragraphs else None
 
 

@@ -6,10 +6,12 @@ there is no accent grammar and no charitable departure here, so every note has
 ``is_uxlc_departure=False`` and ``clc_reading == uxlc_reading``. Charity layers
 on later (brainstorm §3, §7.1).
 
-Each note's prose is the *actual* tanach.us note page (clc_note_pages), which is
-usually similar to but not the same as the change-log description that added the
-note. The change-log description (clc_changes) is kept only as a fallback for
-the few atoms whose note page is missing.
+Each note's prose is the *actual* tanach.us note page, read offline from the
+committed local copy (clc_note_pages; downloaded by main_clc_download_notes). The
+build never touches the network, so its output is deterministic. An atom with no
+local page shows a fixed per-code marker -- never the imperative change-log
+description, which is an instruction to the editor, not a note. clc_changes is
+kept only for the atom-letter consistency guard.
 """
 
 import mb_cmn.hebrew_letters as hl
@@ -22,8 +24,9 @@ import clc.clc_read as clc_read
 # merkha/meteg), d (poetic deḥi/tarḥa), and the catch-all t. Listed m/d/t first.
 UNDER_BAR_CODES = ("m", "d", "t")
 
-# Fallback note text for the few atoms whose code predates the change log and so
-# has no <description> prose (brainstorm §9 #2). Avoids borrowing unrelated prose.
+# Marker shown for an atom with no downloaded note page (e.g. its code predates
+# the change log, brainstorm §9 #2). A fixed per-code constant, so the output
+# stays deterministic; never the imperative change-log description.
 _CODE_MEANING = {
     "m": "possible merkha rather than meteg (prose under-bar)",
     "d": "possible deḥi re-read as tipeḥa/tarḥa (poetic under-bar)",
@@ -42,44 +45,51 @@ _KNOWN_ATOM_MISMATCHES = {
 }
 
 
+def iter_noted_atoms(book, codes=UNDER_BAR_CODES):
+    """Yield ``(ch, v, position, atom, code)`` for each atom carrying a code.
+
+    The single source of truth for which (atom, code) pairs are CLC notes, shared
+    by collect_for_book and the note-page downloader (main_clc_download_notes) so
+    the two cannot drift. ``position`` is the 1-based atom index within the verse.
+    """
+    for chidx, chapter in enumerate(book):
+        for vridx, verse in enumerate(chapter):
+            for atidx, atom in enumerate(verse):
+                for code in atom["types"]:
+                    if code in codes:
+                        yield chidx + 1, vridx + 1, atidx + 1, atom, code
+
+
 def collect_for_book(book_id, codes=UNDER_BAR_CODES):
     """Read book_id and emit ClcNotes for atoms carrying one of ``codes``.
 
     Returns ``(book, notes)`` where ``book`` is the read structure (chapters ->
-    verses -> atoms) and ``notes`` is a list of ClcNote.
+    verses -> atoms) and ``notes`` is a list of ClcNote. Reads note prose offline
+    from the committed local pages (clc_note_pages); never the network.
     """
     book = clc_read.read_book(book_id)
     descriptions = clc_changes.load_descriptions()
     notes = []
     page_prose_count = 0
-    with clc_note_pages.make_session() as session:
-        for chidx, chapter in enumerate(book):
-            for vridx, verse in enumerate(chapter):
-                for atidx, atom in enumerate(verse):
-                    position = atidx + 1
-                    for code in atom["types"]:
-                        if code in codes:
-                            ch, v = chidx + 1, vridx + 1
-                            prose = clc_note_pages.fetch_note_prose(
-                                session, book_id, ch, v, position, code
-                            )
-                            page_prose_count += prose is not None
-                            notes.append(
-                                _make_note(
-                                    book_id, ch, v, position,
-                                    atom, code, descriptions, prose,
-                                )
-                            )
+    for ch, v, position, atom, code in iter_noted_atoms(book, codes):
+        prose = clc_note_pages.local_note_prose(book_id, ch, v, position, code)
+        page_prose_count += prose is not None
+        notes.append(
+            _make_note(book_id, ch, v, position, atom, code, descriptions, prose)
+        )
     _report_prose_coverage(page_prose_count, len(notes))
     return book, notes
 
 
 def _report_prose_coverage(page_prose_count, total):
-    fallbacks = total - page_prose_count
-    print(
-        f"CLC notes: {page_prose_count}/{total} use tanach.us note-page prose; "
-        f"{fallbacks} fall back to the change-log description"
+    missing = total - page_prose_count
+    msg = (
+        f"CLC notes: {page_prose_count}/{total} use a downloaded note page; "
+        f"{missing} have no local page (generic per-code marker)."
     )
+    if missing:
+        msg += " Run main_clc_download_notes to fetch the missing pages."
+    print(msg)
 
 
 def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
@@ -93,21 +103,13 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
         atom_index=position,
         atom_text=atom_text,
         note_code=code,
-        note_text=page_prose or _change_log_text(records, code),
+        note_text=page_prose or _fallback_text(code),
         source=clc_note.SOURCE_UXLC_X_NOTE,
         diff_type=clc_note.DIFF_UNDER_BAR,
         is_uxlc_departure=False,    # skeleton only surfaces the ambiguity
         uxlc_reading=atom_text,
         clc_reading=atom_text,      # ... so CLC's reading == UXLC's for now
     )
-
-
-def _change_log_text(records, code):
-    """Fallback when no note page: the change-log description, else code meaning."""
-    matching = [r["text"] for r in records if code in (r["codes"] or []) and r["text"]]
-    if matching:
-        return matching[0]
-    return _fallback_text(code)
 
 
 def _fallback_text(code):

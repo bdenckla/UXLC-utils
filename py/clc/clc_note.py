@@ -12,9 +12,11 @@ from dataclasses import dataclass, asdict
 
 # --- source tags (the "source" field) ---
 SOURCE_UXLC_X_NOTE = "uxlc-x-note"  # UXLC <x> note + its change-log prose
+SOURCE_DUAL_CANT_ADDITION = "dual-cant-addition"  # punctuation supplied to clarify one strand
 
 # --- difference types (the "diff_type" field, for the §7.9 index) ---
 DIFF_UNDER_BAR = "under-bar"
+DIFF_DUAL_CANT_ADDED_PUNCT = "dual-cant-added-punct"  # charitable additive divergence mark (§7.7)
 
 
 @dataclass
@@ -27,7 +29,7 @@ class ClcNote:
     atom_index: int      # atom position within the verse (1-based; counts w/q/k)
     atom_text: str       # the pointed Hebrew atom text
     note_code: str       # UXLC one-letter <x> code, e.g. "m", "d", "t"
-    note_text: str       # the tanach.us note-page prose (change-log description as fallback)
+    note_text: str       # the tanach.us note-page prose (downloaded; see clc_note_pages)
     source: str          # provenance of the note (see SOURCE_* above)
     diff_type: str       # classification for the §7.9 index (see DIFF_* above)
     is_uxlc_departure: bool  # does CLC depart from UXLC here?

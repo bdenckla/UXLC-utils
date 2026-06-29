@@ -88,6 +88,13 @@ ruby.clc-kq { ruby-position: over; }
 /* Keep the ketiv full-size: it is set off by being unpointed and above, never by
    smallness — so override the browser-default shrunk <rt>. */
 ruby.clc-kq rt { font-size: 100%; }
+/* Dual-cant additive detangling (§7.7): a maqaf/sof-pasuq SUPPLIED to clarify ONE
+   strand (e.g. a sof-pasuq breaking pashuṭ into two chanted verses). Shown
+   bracketed; the mark is green to flag "added, not in the codex". Recolor the mark
+   everywhere (text column + synthesized note) via this one class. */
+span.clc-added-during-detangling { color: light-dark(#1a7f37, #3fb950); }
+span.clc-added-bracket { color: inherit; }   /* brackets stay running-text color */
+div.clc-added-note { font-size: 95%; color: light-dark(#555, #aaa); margin-top: 0.25em; }
 /* Only the editorial "no qere" / "no ketiv" placeholder is small + muted (in
    whichever slot the missing member would have occupied). */
 ruby.clc-kq span.clc-kq-none { font-size: 70%; color: light-dark(#777, #999); }

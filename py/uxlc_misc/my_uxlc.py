@@ -11,10 +11,20 @@ def read_all_books(handlers=None):
     return {bkid: read(bkid, handlers) for bkid in tbn.ALL_BOOK_IDS}
 
 
+def book_basename(book_id):
+    """The canonical UXLC/tanach.us file name for book_id, e.g. "Samuel_2".
+
+    This is the name tanach.us uses for the book in both its core-XML filenames
+    and its note-page URLs (``/Notes/<basename>/<basename>.c.v.pos-code.html``),
+    which is *not* always the CLC bk39 id (e.g. id "2Samuel" -> "Samuel_2").
+    """
+    return _UXLC_BOOK_FILE_NAMES[book_id]
+
+
 def read(book_id, handlers=None):
     """Read book with id book_id into a list of chapters."""
     handlers = handlers or _VERSE_CHILD_HANDLERS
-    basename = _UXLC_BOOK_FILE_NAMES[book_id]
+    basename = book_basename(book_id)
     xml_path = f"{UXLC_CANONICAL_DIR}/{basename}.xml"
     tree = xml.etree.ElementTree.parse(xml_path)
     root = tree.getroot()

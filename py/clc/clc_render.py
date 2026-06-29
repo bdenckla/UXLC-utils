@@ -82,11 +82,34 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
             text_cell = H.table_datum(
                 _plain_text_contents(view.atoms, verse), {**_HBO_ATTR, "class": "clc-text"}
             )
-            doc_cell = H.table_datum(
-                H.span(view.doc_label, {"class": "clc-strand-label"}), {"class": "clc-doc"}
-            )
+            doc_cell = H.table_datum(_strand_doc_contents(view), {"class": "clc-doc"})
         rows.append(H.table_row((text_cell, ref_cell, doc_cell)))
     return rows
+
+
+def _strand_doc_contents(view):
+    # The reading label, then one synthesized "added out of thin air" note per
+    # mark this strand supplies (clc_dual_cant._strand_added_notes).
+    contents = [H.span(view.doc_label, {"class": "clc-strand-label"})]
+    for note in view.added_notes:
+        contents.append(H.line_break())
+        contents.append(_added_note_block(note))
+    return contents
+
+
+def _added_note_block(note):
+    # "<name> in <strand word><[mark]> added out of thin air, to improve legibility"
+    # — snippet in rtl Hebrew, the supplied mark echoed in the bracketed/green
+    # style used in the text column.
+    return H.div(
+        [
+            f"{note['kind']} in ",
+            H.span(note["snippet"], _HBO_ATTR),
+            _added_span(note["char"]),
+            " added out of thin air, to improve legibility",
+        ],
+        {"class": "clc-added-note"},
+    )
 
 
 def _strand_ref_attr(tooltip, pos, count):
@@ -125,23 +148,40 @@ def _plain_text_contents(strand_atoms, combined_atoms):
     # strand rows of a dual-cant verse, whose notes/anchors live on the combined
     # row only (re-emitting them here would duplicate anchor ids). Each word
     # identical to the combined form is de-highlighted (clc-strand-same) so the
-    # few divergence words stand out by contrast.
+    # few divergence words stand out by contrast; a word carrying a SUPPLIED mark
+    # (clc_dual_cant additions) is never de-highlighted, and the mark is rendered
+    # bracketed/green right after it.
     pieces = []
     for strand_atom, combined_atom in zip(strand_atoms, combined_atoms):
         atom_text = strand_atom["text"]
-        if atom_text == combined_atom["text"]:
+        additions = strand_atom.get("additions", ())
+        if atom_text == combined_atom["text"] and not additions:
             pieces.append(H.span(atom_text, {"class": "clc-strand-same"}))
         else:
             pieces.append(atom_text)
-        _append_join_space(pieces, atom_text)
+        for added in additions:
+            pieces.append(_added_span(added))
+        _append_join_space(pieces, additions[-1] if additions else atom_text)
     return pieces
 
 
-def _append_join_space(pieces, atom_text):
-    # Smart-join: an atom ending in maqaf butts directly against the next atom
-    # (one hyphenated compound, e.g. אֶת־הָאָרֶץ); add_wbr still allows a line
-    # break at the maqaf. Only non-maqaf atoms get a separating space.
-    if not atom_text.endswith(hpu.MAQ):
+def _added_span(added_char):
+    # A maqaf/sof-pasuq SUPPLIED to this strand for legibility (clc_dual_cant):
+    # bracketed, the mark itself green (clc-added-during-detangling) to flag
+    # "added, not in the codex". Brackets stay in running-text color.
+    return H.span(
+        ["[", H.span(added_char, {"class": "clc-added-during-detangling"}), "]"],
+        {"class": "clc-added-bracket"},
+    )
+
+
+def _append_join_space(pieces, join_key):
+    # Smart-join: a unit ending in maqaf butts directly against the next (one
+    # hyphenated compound, e.g. אֶת־הָאָרֶץ); add_wbr still allows a line break at
+    # the maqaf. `join_key` is the unit's text — or, for a strand atom that
+    # SUPPLIES a trailing mark, that mark — so a supplied maqaf butts while a
+    # supplied sof-pasuq still gets a following space. Only non-maqaf units get one.
+    if not join_key.endswith(hpu.MAQ):
         pieces.append(" ")
 
 
