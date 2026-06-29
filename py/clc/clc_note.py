@@ -27,7 +27,7 @@ class ClcNote:
     atom_index: int      # atom position within the verse (1-based; counts w/q/k)
     atom_text: str       # the pointed Hebrew atom text
     note_code: str       # UXLC one-letter <x> code, e.g. "m", "d", "t"
-    note_text: str       # apparatus prose (from the change-log description)
+    note_text: str       # the tanach.us note-page prose (change-log description as fallback)
     source: str          # provenance of the note (see SOURCE_* above)
     diff_type: str       # classification for the §7.9 index (see DIFF_* above)
     is_uxlc_departure: bool  # does CLC depart from UXLC here?

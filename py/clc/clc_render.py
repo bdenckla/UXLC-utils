@@ -101,8 +101,9 @@ def _intro_para(notes):
             "CLC walking skeleton. This page surfaces UXLC's own ",
             H.code("<x>"),
             f" under-bar notes ({_code_counts_text(notes)}) as always-links, each "
-            "carrying the note prose from the UXLC change log. No accent grammar "
-            "and no charitable resolution yet — see doc/clc-brainstorm.md.",
+            "carrying its tanach.us note-page prose (the change-log description that "
+            "added the note is used only as a fallback). No accent grammar and no "
+            "charitable resolution yet — see doc/clc-brainstorm.md.",
         ]
     )
 

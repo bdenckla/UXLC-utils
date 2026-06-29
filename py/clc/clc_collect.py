@@ -1,15 +1,21 @@
-"""Exports collect_for_book: join UXLC <x> notes to change-log prose -> ClcNotes.
+"""Exports collect_for_book: UXLC <x> notes + their note-page prose -> ClcNotes.
 
 This is the skeleton's note source (build-order step 3). It surfaces the
 under-bar ambiguity UXLC already flags (m/d/t) but does NOT yet resolve it:
 there is no accent grammar and no charitable departure here, so every note has
 ``is_uxlc_departure=False`` and ``clc_reading == uxlc_reading``. Charity layers
 on later (brainstorm §3, §7.1).
+
+Each note's prose is the *actual* tanach.us note page (clc_note_pages), which is
+usually similar to but not the same as the change-log description that added the
+note. The change-log description (clc_changes) is kept only as a fallback for
+the few atoms whose note page is missing.
 """
 
 import mb_cmn.hebrew_letters as hl
 import clc.clc_changes as clc_changes
 import clc.clc_note as clc_note
+import clc.clc_note_pages as clc_note_pages
 import clc.clc_read as clc_read
 
 # The under-bar ambiguity codes that seed CLC (brainstorm §2): m (prose
@@ -45,21 +51,38 @@ def collect_for_book(book_id, codes=UNDER_BAR_CODES):
     book = clc_read.read_book(book_id)
     descriptions = clc_changes.load_descriptions()
     notes = []
-    for chidx, chapter in enumerate(book):
-        for vridx, verse in enumerate(chapter):
-            for atidx, atom in enumerate(verse):
-                position = atidx + 1
-                for code in atom["types"]:
-                    if code in codes:
-                        note = _make_note(
-                            book_id, chidx + 1, vridx + 1, position,
-                            atom, code, descriptions,
-                        )
-                        notes.append(note)
+    page_prose_count = 0
+    with clc_note_pages.make_session() as session:
+        for chidx, chapter in enumerate(book):
+            for vridx, verse in enumerate(chapter):
+                for atidx, atom in enumerate(verse):
+                    position = atidx + 1
+                    for code in atom["types"]:
+                        if code in codes:
+                            ch, v = chidx + 1, vridx + 1
+                            prose = clc_note_pages.fetch_note_prose(
+                                session, book_id, ch, v, position, code
+                            )
+                            page_prose_count += prose is not None
+                            notes.append(
+                                _make_note(
+                                    book_id, ch, v, position,
+                                    atom, code, descriptions, prose,
+                                )
+                            )
+    _report_prose_coverage(page_prose_count, len(notes))
     return book, notes
 
 
-def _make_note(book_id, ch, v, position, atom, code, descriptions):
+def _report_prose_coverage(page_prose_count, total):
+    fallbacks = total - page_prose_count
+    print(
+        f"CLC notes: {page_prose_count}/{total} use tanach.us note-page prose; "
+        f"{fallbacks} fall back to the change-log description"
+    )
+
+
+def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
     atom_text = atom["text"]
     records = descriptions.get((book_id, ch, v, position), [])
     _check_atom_consistency(book_id, ch, v, position, atom_text, records)
@@ -70,7 +93,7 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions):
         atom_index=position,
         atom_text=atom_text,
         note_code=code,
-        note_text=_note_text(records, code),
+        note_text=page_prose or _change_log_text(records, code),
         source=clc_note.SOURCE_UXLC_X_NOTE,
         diff_type=clc_note.DIFF_UNDER_BAR,
         is_uxlc_departure=False,    # skeleton only surfaces the ambiguity
@@ -79,7 +102,8 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions):
     )
 
 
-def _note_text(records, code):
+def _change_log_text(records, code):
+    """Fallback when no note page: the change-log description, else code meaning."""
     matching = [r["text"] for r in records if code in (r["codes"] or []) and r["text"]]
     if matching:
         return matching[0]
