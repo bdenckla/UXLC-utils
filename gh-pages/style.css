@@ -52,7 +52,7 @@ table.clc-3col td.clc-ref {
     border-top: 1px solid; border-bottom: 1px solid;
 }
 table.clc-3col tr:nth-of-type(odd) td { background-color: transparent; }
-td.clc-ref { white-space: nowrap; text-align: right; color: light-dark(#555, #aaa); font-size: 80%; }
+td.clc-ref { white-space: nowrap; text-align: center; color: light-dark(#555, #aaa); font-size: 80%; }
 td.clc-doc { max-width: 32em; font-size: 85%; }
 a.clc-doc-target { color: light-dark(#1a4fd6, #8ab4ff); text-decoration: none; }
 a.clc-doc-target:hover { text-decoration: underline; }

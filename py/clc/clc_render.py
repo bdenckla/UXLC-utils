@@ -1,9 +1,13 @@
 """Exports write_book: render a CLC book as a 3-column always-link page.
 
 Layout (brainstorm §7.3, build-order step 4): one row per verse, columns
-``ref | text | doc``. The text column is running verse text; every noted word is
-an always-link (no MAM short-inline / long-link threshold) to its note in the
-doc column of the same row. CLC defines its own ``clc-*`` CSS vocabulary parallel
+``text | ref | doc``. The verse-number (ref) is a narrow central spine with the
+Hebrew text on its left and the doc apparatus on its right; keeping the text
+adjacent to the ref means a short verse stays butted against its label (no need
+for zebra shading to tie the two together). The text column is running verse
+text; every noted word is an always-link (no MAM short-inline / long-link
+threshold) to its note in the doc column of the same row. CLC defines its own
+``clc-*`` CSS vocabulary parallel
 to MAM's ``mam-doc-*`` (brainstorm §8); the rules live in gh-pages/style.css.
 """
 
@@ -16,7 +20,7 @@ _HBO_ATTR = {"lang": "hbo", "dir": "rtl"}
 def write_book(book_id, book, notes):
     """Write gh-pages/clc/<book_id>.html and return its path."""
     notes_by_atom = _group_by_atom(notes)
-    rows = [H.table_row_of_headers(("ref", "text", "doc"))]
+    rows = [H.table_row_of_headers(("text", "ref", "doc"))]
     for chidx, chapter in enumerate(book):
         for vridx, verse in enumerate(chapter):
             rows.append(_verse_row(chidx + 1, vridx + 1, verse, notes_by_atom))
@@ -44,7 +48,7 @@ def _verse_row(ch, v, verse, notes_by_atom):
     doc_cell = H.table_datum(
         _doc_contents(ch, v, verse, notes_by_atom), {"class": "clc-doc"}
     )
-    return H.table_row((ref_cell, text_cell, doc_cell))
+    return H.table_row((text_cell, ref_cell, doc_cell))
 
 
 def _text_contents(ch, v, verse, notes_by_atom):
