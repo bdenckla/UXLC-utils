@@ -11,6 +11,7 @@ threshold) to its note in the doc column of the same row. CLC defines its own
 to MAM's ``mam-doc-*`` (brainstorm §8); the rules live in gh-pages/style.css.
 """
 
+import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
 import uxlc_misc.uxlc_utils_html as H
 
 _OUT_DIR = "gh-pages/clc"
@@ -60,7 +61,11 @@ def _text_contents(ch, v, verse, notes_by_atom):
             pieces.append(H.anchor(atom_text, {"href": href, "class": "clc-doc-target"}))
         else:
             pieces.append(atom_text)
-        pieces.append(" ")
+        # Smart-join: an atom ending in maqaf butts directly against the next
+        # atom (one hyphenated compound, e.g. אֶת־הָאָרֶץ); add_wbr still allows a
+        # line break at the maqaf. Only non-maqaf atoms get a separating space.
+        if not atom_text.endswith(hpu.MAQ):
+            pieces.append(" ")
     return pieces
 
 
@@ -75,7 +80,6 @@ def _doc_contents(ch, v, verse, notes_by_atom):
 
 def _note_block(ch, v, position, atom_notes):
     entries = [
-        H.span(f"{ch}:{v}.{position} ", {"class": "clc-note-ref"}),
         H.span(atom_notes[0].atom_text, _HBO_ATTR),
     ]
     for note in atom_notes:

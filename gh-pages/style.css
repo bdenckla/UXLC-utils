@@ -58,5 +58,4 @@ a.clc-doc-target { color: light-dark(#1a4fd6, #8ab4ff); text-decoration: none; }
 a.clc-doc-target:hover { text-decoration: underline; }
 div.clc-note { margin-bottom: 0.5em; }
 div.clc-note:target { background-color: light-dark(#f3e3a4, #5a4a1f); border-radius: 0.15em; }
-span.clc-note-ref { color: light-dark(#555, #aaa); font-size: 80%; }
 span.clc-note-code { font-weight: bold; }

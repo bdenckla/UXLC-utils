@@ -310,6 +310,16 @@ Each is a feature the brainstorm named, organized with grounding + open question
   ingested** by [py/uxlc_changes/](py/uxlc_changes/) and joinable by citation (§5, §9 #2). Coverage
   is near-total; only the 38 numeric/`X` notes lack prose. The `wlc-utils` bracket-note definitions
   cover the separate bracket-note layer (§7.2).
+- **Body placement is a *separate* axis from the link.** "Always link" (above) governs only the
+  affordance on the word — every note links, uniformly, no threshold. It does **not** dictate where
+  the note *body* renders. On *placement* CLC does keep MAM's length threshold (§5):
+  - **Now (skeleton):** every body renders **inline in the doc column** of the same verse row
+    ([`_note_block`](py/clc/clc_render.py#L76-L85)), regardless of length.
+  - **Intended:** keep short notes inline, but **relegate long notes to a separate "big-doc" page,
+    as in MAM-with-doc** (§5) — the always-link then points across to the anchored body on that page
+    instead of into the same-row doc cell. So the uniform link stays; only the long body moves
+    off-page. The stable anchor id (`clc-{ch}-{v}-{pos}`) makes this a render-time change only; the
+    note JSON (§8) is unaffected.
 
 ### 7.4 UXLC change records as a kind of note
 - We **have** the change text (the dated `* - Changes.xml` in `in/UXLC-misc/`, processed by
@@ -477,6 +487,30 @@ few `q` notes instead touch a maqaf, sheva, or yod, not a dagesh). Each restorat
 departure (§7.9), difference type e.g. `dagesh`. The data is in hand: the `q` note marks the atom and
 the change-log description names exactly what was removed (§5).
 
+### 7.16 Legarmeh vs. paseq distinction *(borrow MAM's calls)*
+A **second** ambiguous-vertical-bar problem, **distinct from the under-bar (§2)**: a vertical bar
+standing **after / between words** can be either an ordinary **paseq** (a separating stroke — *not*
+an accent) or the paseq that, together with a preceding conjunctive, forms the disjunctive
+**legarmeh** (in the prose books, *munaḥ legarmeh* = *munaḥ* + paseq; the poetic system has its own
+legarmeh forms over its own conjunctives — **[TBD]** pin down the poetic inventory). A word carrying
+a genuine *munaḥ* that merely *happens* to be followed by an independent paseq looks **identical** to
+*munaḥ legarmeh*; the difference is **grammatical, not graphical** — exactly the kind of ambiguity
+CLC exists to resolve charitably.
+
+**Goal: borrow MAM's legarmeh-vs-paseq distinctions.** MAM (Miqra according to the Masorah) already
+adjudicates this throughout, so — as with the ל= harvest (§7.12), the detangler's MAM-simple oracle
+(§7.7), and the vtrad-MAM overlay (§7.8) — CLC takes **MAM's call as the charitable oracle**,
+cross-checked by accent grammar where it's checkable. Same shape as the headline under-bar
+resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from UXLC is **logged**
+(§7.9) with a verdict + rationale.
+- **[TBD]** Does `wlc-utils/py/accgram` (§5) already distinguish legarmeh from paseq, or only the
+  under-bar accents? If yes, reuse; if no, lean on MAM-as-oracle (cf. §7.7).
+- **[TBD] Codepoint precision (cf. §2a).** There is **no dedicated "legarmeh" codepoint** — it is
+  *munaḥ* (U+05A3) + *paseq* (U+05C0), the same bytes as *munaḥ* followed by an ordinary paseq. So,
+  as with the §2a U+0596/U+05A5 collisions, a charitable re-reading may change only the **note prose
+  / labeling**, not the text bytes. Confirm whether UXLC nonetheless distinguishes them somehow.
+- Difference type for §7.9 / §8: **`legarmeh-paseq`**.
+
 ---
 
 ## 8. Presentation / tech notes
@@ -484,11 +518,14 @@ the change-log description names exactly what was removed (§5).
   and `gh-pages/fois/`, and as MAM).
 - Reuse the Taamey font (`gh-pages/woff2/Taamey_D.woff2`) + `style.css`.
 - Borrow MAM's 3-column CSS vocabulary (`mam-doc-*`) or define a parallel `clc-doc-*` set.
+- **Note-body placement (see §7.3):** short notes inline in the doc column, **long notes relegated
+  to a separate "big-doc" page** (MAM-with-doc model, §5); the always-link points to wherever the
+  body lives. The skeleton currently inlines *all* bodies — long-note off-loading is still to-do.
 - Note schema: a single **CLC note** type that all sources (charitable under-bar verdicts, bracket
   notes, UXLC `<x>` notes + their change-log prose, change records, FOIs, dagesh restorations) flow
   into — **one renderer, many sources**. Fields: atom text, bcvp, note text, source, plus for the
-  difference index (§7.9) a **`diff_type`** (`under-bar` | `dagesh` | `meteg-position` |
-  `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC
+  difference index (§7.9) a **`diff_type`** (`under-bar` | `legarmeh-paseq` | `dagesh` |
+  `meteg-position` | `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC
   reading vs. CLC reading** pair. The difference index is then just "render the notes where
   `is_uxlc_departure`, as a table." (The `amb_early_mtg` record is one prior example to borrow field
   ideas from — not the definition.)
