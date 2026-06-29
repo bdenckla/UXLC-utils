@@ -353,6 +353,27 @@ Each is a feature the brainstorm named, organized with grounding + open question
   write because both threads share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
   the kind of thing CLC should foot-note rather than hide. Strong fit with the CLC thesis.
 
+**Single-strand display.** Where a dual-cant verse is one row today, CLC shows **three**: the
+combined form plus its two strands — labeled e.g. `35:22-C`, `35:22-א` (pashuṭ), `35:22-ב`
+(midrashit), each ref label carrying a hover description, the three grouped as one verse block.
+**Genesis 35:22 is the first application** (`py/clc/clc_dual_cant.py`, rendered by
+`clc_render.py`); the Decalogues follow by adding their oracle entries.
+
+**Strict split — a deliberate departure from the detangler.** The accgram detangler is *charitable*
+about the strand *text*: it **supplies** omitted accents and **changes word division** (for
+Gen 35:22 it adds a sof-pasuq to break pashuṭ into two chanted verses). CLC's *displayed* strand
+text does **none** of that — it is **purely subtractive**: each strand is UXLC's own combined word
+with only the *other* strand's accent(s) removed; no mark supplied, no maqaf/sof-pasuq/vowel added
+or removed, no re-division. MAM (via the detangler) is consulted **only as the oracle** for *which*
+stacked accent belongs to which reading. The detangler's supplied-marks / anomalies stay valuable —
+but as **logged footnotes** (per the bullet above), never baked silently into the strand text.
+
+This is the same shape as the **legarmeh-vs-paseq** feature (§7.16): both *improve UXLC by importing
+MAM's auxiliary adjudication* of an ambiguity that is **grammatical, not graphical**, differing only
+in subject — which-accent-belongs-to-which-reading here, legarmeh-vs-paseq identity there. A
+dual-cant strand row gets its own `diff_type` (`dual-cant`) for the §7.9 index, though the first
+application is **display-only** (no ClcNote departure records yet).
+
 ### 7.8 Versification
 - Primary `vtrad-BHS`; optionally show `vtrad-MAM` differences in a distinct color/marker (§4).
 
@@ -498,8 +519,8 @@ a genuine *munaḥ* that merely *happens* to be followed by an independent paseq
 CLC exists to resolve charitably.
 
 **Goal: borrow MAM's legarmeh-vs-paseq distinctions.** MAM (Miqra according to the Masorah) already
-adjudicates this throughout, so — as with the ל= harvest (§7.12), the detangler's MAM-simple oracle
-(§7.7), and the vtrad-MAM overlay (§7.8) — CLC takes **MAM's call as the charitable oracle**,
+adjudicates this throughout, so — as with the ל= harvest (§7.12), the strict strand split's MAM
+oracle (§7.7), and the vtrad-MAM overlay (§7.8) — CLC takes **MAM's call as the charitable oracle**,
 cross-checked by accent grammar where it's checkable. Same shape as the headline under-bar
 resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from UXLC is **logged**
 (§7.9) with a verdict + rationale.

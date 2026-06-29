@@ -53,6 +53,15 @@ table.clc-3col td.clc-ref {
 }
 table.clc-3col tr:nth-of-type(odd) td { background-color: transparent; }
 td.clc-ref { white-space: nowrap; text-align: center; color: light-dark(#555, #aaa); font-size: 80%; }
+/* Dual-cantillation (brainstorm §7.7): render a verse's combined/alef/bet rows
+   as ONE grouped block — keep the outer divider pair, drop the rules between the
+   three strand rows. */
+table.clc-3col td.clc-ref-strand { border-top: none; border-bottom: none; }
+table.clc-3col td.clc-ref-strand.clc-strand-first { border-top: 1px solid; }
+table.clc-3col td.clc-ref-strand.clc-strand-last { border-bottom: 1px solid; }
+/* The ref label carries a hover description; show the help cursor. */
+td.clc-ref[title] { cursor: help; }
+span.clc-strand-label { font-style: italic; color: light-dark(#555, #aaa); }
 td.clc-doc { max-width: 32em; font-size: 85%; }
 a.clc-doc-target { color: light-dark(#1a4fd6, #8ab4ff); text-decoration: none; }
 a.clc-doc-target:hover { text-decoration: underline; }

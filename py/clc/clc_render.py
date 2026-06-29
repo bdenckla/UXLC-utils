@@ -12,6 +12,7 @@ to MAM's ``mam-doc-*`` (brainstorm §8); the rules live in gh-pages/style.css.
 """
 
 import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
+import clc.clc_dual_cant as clc_dual_cant
 import uxlc_misc.uxlc_utils_html as H
 
 _OUT_DIR = "gh-pages/clc"
@@ -24,7 +25,11 @@ def write_book(book_id, book, notes):
     rows = [H.table_row_of_headers(("text", "ref", "doc"))]
     for chidx, chapter in enumerate(book):
         for vridx, verse in enumerate(chapter):
-            rows.append(_verse_row(chidx + 1, vridx + 1, verse, notes_by_atom))
+            ch, v = chidx + 1, vridx + 1
+            if clc_dual_cant.is_dual_cant(book_id, ch, v):
+                rows.extend(_dual_cant_rows(book_id, ch, v, verse, notes_by_atom))
+            else:
+                rows.append(_verse_row(ch, v, verse, notes_by_atom))
     table = H.table(rows, {"class": "clc-3col border-collapse"})
     body = _body_wrapper(book_id, notes, table)
     out_path = f"{_OUT_DIR}/{book_id}.html"
@@ -52,6 +57,48 @@ def _verse_row(ch, v, verse, notes_by_atom):
     return H.table_row((text_cell, ref_cell, doc_cell))
 
 
+def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
+    # A dual-cantillation verse (e.g. Gen 35:22) becomes three grouped rows:
+    # combined (C), strand alef (א), strand bet (ב). The combined row keeps the
+    # full always-link behaviour (its notes/anchors); the strand rows show the
+    # strictly-split text plain, with only a short reading label in the doc
+    # column. CSS ties the three into one verse block (gh-pages/style.css).
+    views = clc_dual_cant.strand_views(book_id, ch, v, verse)
+    rows = []
+    for pos, view in enumerate(views):
+        ref_cell = H.table_datum(
+            f"{ch}:{v}-{view.suffix}", _strand_ref_attr(view.tooltip, pos, len(views))
+        )
+        if view.suffix == clc_dual_cant.SUFFIX_COMBINED:
+            text_cell = H.table_datum(
+                _text_contents(ch, v, view.atoms, notes_by_atom),
+                {**_HBO_ATTR, "class": "clc-text"},
+            )
+            doc_cell = H.table_datum(
+                _doc_contents(ch, v, view.atoms, notes_by_atom), {"class": "clc-doc"}
+            )
+        else:
+            text_cell = H.table_datum(
+                _plain_text_contents(view.atoms), {**_HBO_ATTR, "class": "clc-text"}
+            )
+            doc_cell = H.table_datum(
+                H.span(view.doc_label, {"class": "clc-strand-label"}), {"class": "clc-doc"}
+            )
+        rows.append(H.table_row((text_cell, ref_cell, doc_cell)))
+    return rows
+
+
+def _strand_ref_attr(tooltip, pos, count):
+    # Group the strand rows into one verse block: the first row keeps the top
+    # divider, the last keeps the bottom one, the middle rows drop both.
+    classes = ["clc-ref", "clc-ref-strand"]
+    if pos == 0:
+        classes.append("clc-strand-first")
+    if pos == count - 1:
+        classes.append("clc-strand-last")
+    return {"class": " ".join(classes), "title": tooltip}
+
+
 def _text_contents(ch, v, verse, notes_by_atom):
     pieces = []
     for atidx, atom in enumerate(verse):
@@ -61,12 +108,28 @@ def _text_contents(ch, v, verse, notes_by_atom):
             pieces.append(H.anchor(atom_text, {"href": href, "class": "clc-doc-target"}))
         else:
             pieces.append(atom_text)
-        # Smart-join: an atom ending in maqaf butts directly against the next
-        # atom (one hyphenated compound, e.g. אֶת־הָאָרֶץ); add_wbr still allows a
-        # line break at the maqaf. Only non-maqaf atoms get a separating space.
-        if not atom_text.endswith(hpu.MAQ):
-            pieces.append(" ")
+        _append_join_space(pieces, atom_text)
     return pieces
+
+
+def _plain_text_contents(verse):
+    # Like _text_contents but with no note always-links — used by the alef/bet
+    # strand rows of a dual-cant verse, whose notes/anchors live on the combined
+    # row only (re-emitting them here would duplicate anchor ids).
+    pieces = []
+    for atom in verse:
+        atom_text = atom["text"]
+        pieces.append(atom_text)
+        _append_join_space(pieces, atom_text)
+    return pieces
+
+
+def _append_join_space(pieces, atom_text):
+    # Smart-join: an atom ending in maqaf butts directly against the next atom
+    # (one hyphenated compound, e.g. אֶת־הָאָרֶץ); add_wbr still allows a line
+    # break at the maqaf. Only non-maqaf atoms get a separating space.
+    if not atom_text.endswith(hpu.MAQ):
+        pieces.append(" ")
 
 
 def _doc_contents(ch, v, verse, notes_by_atom):
