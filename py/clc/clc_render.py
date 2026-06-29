@@ -79,7 +79,7 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
             )
         else:
             text_cell = H.table_datum(
-                _plain_text_contents(view.atoms), {**_HBO_ATTR, "class": "clc-text"}
+                _plain_text_contents(view.atoms, verse), {**_HBO_ATTR, "class": "clc-text"}
             )
             doc_cell = H.table_datum(
                 H.span(view.doc_label, {"class": "clc-strand-label"}), {"class": "clc-doc"}
@@ -112,14 +112,19 @@ def _text_contents(ch, v, verse, notes_by_atom):
     return pieces
 
 
-def _plain_text_contents(verse):
+def _plain_text_contents(strand_atoms, combined_atoms):
     # Like _text_contents but with no note always-links — used by the alef/bet
     # strand rows of a dual-cant verse, whose notes/anchors live on the combined
-    # row only (re-emitting them here would duplicate anchor ids).
+    # row only (re-emitting them here would duplicate anchor ids). Each word
+    # identical to the combined form is de-highlighted (clc-strand-same) so the
+    # few divergence words stand out by contrast.
     pieces = []
-    for atom in verse:
-        atom_text = atom["text"]
-        pieces.append(atom_text)
+    for strand_atom, combined_atom in zip(strand_atoms, combined_atoms):
+        atom_text = strand_atom["text"]
+        if atom_text == combined_atom["text"]:
+            pieces.append(H.span(atom_text, {"class": "clc-strand-same"}))
+        else:
+            pieces.append(atom_text)
         _append_join_space(pieces, atom_text)
     return pieces
 
