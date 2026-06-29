@@ -41,6 +41,14 @@ The same-ish glyph can be any of:
 - a **yored** (accent; *poetic only*),
 - a **silluq** (accent; verse-final) — the easiest of these to distinguish, by context (it falls on the last word of the verse, before *sof pasuq*).
 
+**UXLC already flags many of these against itself.** Its one-letter `<x>` notes mark exactly this
+ambiguity in-text: **`m`** ("possible *merkha* rather than *meteg*", 42×, prose), **`d`** ("*deḥi*
+re-read as *tipeḥa/tarḥa*", 29×, poetic only), plus the catch-all **`t`** (among 233×, e.g. "examine
+mark below … as possible merkha"). That is **~70+ scribal under-bars UXLC itself is unsure about** —
+the natural in-text seed for CLC's charitable resolution (see §3, §5, §7.1). Tellingly, UXLC's own
+change log resolves them *by stroke angle* — *"the meteg … might be a merkha, but is not sufficiently
+inclined"* — which is precisely the method §2a proposes to replace with accent grammar.
+
 Two **distinct** sub-problems live under this heading. Keep them separate:
 
 ### 2a. Identity ambiguity — *which mark is it?*
@@ -53,20 +61,32 @@ the scribe's stroke is drawn at a slightly "wrong" angle.
 → This is the genuinely *new* CLC work. It leans directly on an **accent-grammar engine that
 already exists** in the sibling repo `wlc-utils` (see §5).
 
-### 2b. Ownership ambiguity — *is a coded "early meteg" really just a normal meteg?* (narrow)
+**CLC resolves more charitably than UXLC's own binary framing.** The candidate set is *every*
+under-bar mark the relevant system licenses, not just the two UXLC happened to name in a note:
+- an **`m`** case (prose) ranges over **{meteg, merkha, tipeḥa}** — not only UXLC's meteg/merkha.
+  (UXLC's change log already re-encodes both *merkha→meteg* and *tipeḥa→meteg* under the same `m`
+  note, so all three are empirically in play.)
+- a **`d`** case (poetic) ranges over **{tarḥa, deḥi, meteg, merkha, yored}** — never *tipeḥa*
+  (not a poetic accent, though moot at the codepoint level — see next).
+- **Codepoint collisions matter for the output.** These grammatical identities are not all distinct
+  in Unicode: *tipeḥa = tarḥa =* **U+0596** and *merkha = yored =* **U+05A5**. So a charitable
+  re-reading can change a mark's *identity* without changing its codepoint — meaning some
+  CLC-vs-UXLC departures live only in the **note prose / labeling** (the §8 "UXLC reading vs CLC
+  reading" pair, §7.9 diff), not in the text bytes.
+
+### 2b. Ownership ambiguity — *is a coded "early meteg" really just a normal meteg?* (minor footnote)
 A much smaller, rarer issue than 2a. UXLC sometimes codes a meteg on a ḥaṭef-bearing
 letter as an **early meteg** via a ZWJ trick (`meteg + U+034F` → the `ֽ͏ַ` sequence). In a **confirmed one or two cases**,
-the better reading is simply a **normal meteg on the previous letter**, not an early meteg at
-all. The program I wrote scans for *other* such candidates, to find out whether this happens
-anywhere else.
+the better reading is simply a **normal meteg on the previous letter**. An old, **likely-unfinished**
+exploratory program (`amb_early_mtg`) once scanned for other such candidates.
 
-→ This sub-problem is **already substantially built here** in UXLC-utils — see the
-`amb_early_mtg` machinery in §5. It is a mostly-finished side-investigation CLC can absorb,
-not a major open work item.
+→ This is a **minor footnote, not a pillar.** CLC mostly **dissolves** the question by *not encoding
+meteg position at all* (§7.13); what little remains of `amb_early_mtg` is just one "candidate UXLC
+issues" lead among several in §7.12 — **not** the prototype of the note schema or of anything else.
 
-> So: **CLC's charity is, first and foremost, (2a) identity resolved by accent grammar — applied
-> wherever the image is genuinely ambiguous — with the narrow, already-catalogued (2b)
-> early-meteg cases folded in as a minor strand.**
+> So: **CLC's charity is, first and foremost, (2a) under-bar identity resolved by accent grammar,
+> seeded by UXLC's own ~70+ `m`/`d`/`t` self-doubts (§2 intro), applied wherever the image is
+> genuinely ambiguous.** The early-meteg question (2b) is a minor footnote, largely dissolved by §7.13.
 
 ---
 
@@ -78,6 +98,8 @@ The plan-shaped idea (kept brief because this is a brainstorm):
    (the 21 prose books vs. the 3 poetic books — אמ״ת = Job, Proverbs, Psalms).
 2. Where the LC image shows an ambiguous under-bar, ask the grammar: *which of
    {meteg, tipeḥa/tarḥa, merkha, yored} is licit / expected here?*
+   (Start from UXLC's own `m`/`d`/`t` flags, §2. System-specific candidate sets: **prose →**
+   {meteg, merkha, tipeḥa}; **poetic →** {meteg, merkha, tarḥa, deḥi, yored}.)
 3. If exactly one is licit → transcribe it (charitable resolution).
 4. If more than one is licit → use the grammar's **continuous grammaticality measure** to rank the legal options and
    provisionally go with the most likely; where they remain close, also weigh image evidence
@@ -119,10 +141,30 @@ largely an act of *composition* over existing machinery, plus the new identity-r
 
 ### In this repo (UXLC-utils)
 
-- **Ambiguous early meteg (the charity seed):**
+- **UXLC's own `<x>` notes — the in-text charity seed (and most of the apparatus prose):**
+  UXLC tags ambiguous/edited atoms with a one-letter note in an `<x>` element, already parsed by
+  [`_handle_wc_x`](py/main_fois.py#L54-L59) into each atom's `types`. Corpus tally (39 books):
+
+  | code | n | meaning | prose in change log |
+  |---|---|---|---|
+  | `t` | 233 | transcription uncertainty (damaged/indistinct; "examine as possible merkha") | 207 |
+  | `c` | 103 | cantillation / word-division oddity | 90 |
+  | `m` | 42 | **under-bar: possible merkha vs meteg (prose)** — §2a seed | 39 |
+  | `y` | 36 | yatir ketiv | 36 |
+  | `q` | 35 | qere fix (mostly "removed unsupported dagesh" — §7.15) | 35 |
+  | `d` | 29 | **under-bar: deḥi↔tipeḥa/tarḥa (poetic)** — §2a seed | 28 |
+  | `4`–`8`, `X` | 38 | rarer transcription codes | 0 |
+
+  → **Note-text source (resolves most of §9 #2):** for the *lettered* notes the full prose lives in
+  the `<correction><description>` that added the note (e.g. *"Add note 'm' for possible merkha rather
+  than meteg under the gimel"*) — **already ingested** by [py/uxlc_changes/](py/uxlc_changes/),
+  joinable to the noted atom by citation (`ch:v.atom`). Coverage is near-total (see the table's last
+  column). Only the **38 numeric/`X`** notes carry a bare code with no prose (inherited from the
+  original WLC2XML transcription); those are the genuine remaining unknown.
+
+- **Ambiguous early meteg (`amb_early_mtg`) — a *minor*, likely-unfinished side-investigation:**
   [py/uxlc_amb_early_mtg/amb_early_mtg.py](py/uxlc_amb_early_mtg/amb_early_mtg.py) — a hand-curated
-  catalog of **77 words** with an ambiguous early meteg. Each record already carries exactly the
-  kind of charitable judgment CLC is about:
+  catalog of words with an ambiguous early meteg. Each record carries a charitable judgment:
   - verdicts: *"Better transcribed as a normal meteg on the first letter"* (`_BETTER_1`),
     *"…on letter 2"* (`_BETTER_2`), *"Perhaps better…"* (`_PERHAPS_BETTER_1`), *"Unclear from the
     LC image alone"* (`_UNCLEAR`);
@@ -136,9 +178,10 @@ largely an act of *composition* over existing machinery, plus the new identity-r
   - Seed list also lives as [Possible false early meteg marks.csv](Possible%20false%20early%20meteg%20marks.csv)
     and the matching `.code-search`.
 
-  → **This is the prototype of the whole CLC notes-with-charitable-verdicts model.** The record
-  shape (word, bcvp, verdict, remarks, comparanda images, MAM/AC/BHS cross-refs, change-proposal
-  links) is a candidate **CLC note schema**.
+  → It is **one harvesting lead among several** (§7.12), **not** a pillar and **not** the CLC note
+  schema; §7.13's "don't encode meteg position" largely moots it. Its record shape (word, bcvp,
+  verdict, comparanda images, cross-refs, links) is a *prior example* the §8 schema can borrow
+  from — nothing more.
 
 - **Features of interest (FOIs):** [py/main_fois.py](py/main_fois.py) +
   [py/uxlc_fois/](py/uxlc_fois/) — collects `kq` (ketiv/qere), `mark-grammar`, `mark-grammar-2`.
@@ -236,9 +279,12 @@ folder — but that path is **not cloned yet**, so it will show as missing until
 Each is a feature the brainstorm named, organized with grounding + open questions.
 
 ### 7.1 Charitable under-bar transcription *(the headline feature)*
-- Identity (2a) via accent grammar; ownership (2b) via the existing `amb_early_mtg` catalog.
-- Every departure from UXLC → a CLC note with a verdict and rationale (reuse the
-  `amb_early_mtg` record shape as the note schema).
+- Identity (2a) via accent grammar, **seeded by UXLC's own `m`/`d`/`t` notes** (§2, §5): start from
+  the ~70+ atoms UXLC already flags, resolve each over its system's candidate set (prose
+  {meteg, merkha, tipeḥa}; poetic {meteg, merkha, tarḥa, deḥi, yored}) by grammatical licitness,
+  charitably overriding UXLC's angle-based call where the grammar is confident.
+- Every departure from UXLC → a CLC note carrying a verdict + rationale (§8 schema). For the seeded
+  cases the rationale text is partly **free** from UXLC's own change-log description (§5).
 - **[TBD]** Source the grammar from `wlc-utils/py/accgram` (vendor vs. cross-call).
 - **[TBD]** Define the verdict vocabulary precisely (extend `_BETTER_1`/`_UNCLEAR`/… to cover
   the identity cases: "grammar licenses only tipeḥa here," etc.).
@@ -256,14 +302,14 @@ Each is a feature the brainstorm named, organized with grounding + open question
 - Adopt the MAM-with-doc presentation: text column stays clean; notes live in a side column /
   apparatus. **Difference from MAM:** the brainstorm wants notes to be **always links**, whereas
   MAM only links the *long* (> 400-char) notes and inlines the short ones. → CLC drops the
-  length threshold and links uniformly. **[TBD]** confirm "always links" vs. "inline short +
-  link long like MAM."
-- **Open problem (from the brainstorm): how do we get the UXLC note *text*?** UXLC's word-level
-  notes appear in the Tanach XML as `<x>` elements, but those carry a short *type/marker*, not
-  the full apparatus prose (cf. [py/main_fois.py](py/main_fois.py) `_handle_wc_x`, which reads
-  `<x>` text as a note *type*). The full note text rendered on tanach.us comes from elsewhere.
-  **[TBD]** locate the authoritative UXLC note-text source (WLC supplement? a tanach.us notes
-  file? scrape tanach.us?). The `wlc-utils` bracket-note definitions cover part of this.
+  length threshold and links uniformly. **Decided: always link** — uniform links, no MAM-style
+  inline-short / link-long threshold.
+- **Note text source — largely solved (was the brainstorm's biggest unknown).** The `<x>` element
+  carries only a one-letter *type* (cf. [`_handle_wc_x`](py/main_fois.py#L54-L59)), but the full
+  prose for the *lettered* notes is the `<correction><description>` that added them — **already
+  ingested** by [py/uxlc_changes/](py/uxlc_changes/) and joinable by citation (§5, §9 #2). Coverage
+  is near-total; only the 38 numeric/`X` notes lack prose. The `wlc-utils` bracket-note definitions
+  cover the separate bracket-note layer (§7.2).
 
 ### 7.4 UXLC change records as a kind of note
 - We **have** the change text (the dated `* - Changes.xml` in `in/UXLC-misc/`, processed by
@@ -385,6 +431,9 @@ candidate, not an automatic change):
   what L actually has, i.e. often at exactly the changes CLC would like.
 - **`book-of-job`** (sibling repo; self-contained, with its own `gh-pages` + many check scripts) —
   a **small, realistic, short-term** harvest set. Likely the first real harvesting target.
+- **`amb_early_mtg`** (the early-meteg catalog, §2b/§5) — a small, **likely-unfinished** local scan
+  for possible early-meteg mis-codings; a minor lead of the same flavor as the others here, mostly
+  mooted by §7.13. Listed for completeness, not prioritized.
 - **All of BHL Appendix A** (beyond the current Psalms-only slice, §7.11) **+ Da'at Miqra** — a
   comprehensive review would be ideal but is an explicit **long-term / "probably never get around
   to it"** goal. Don't block on it.
@@ -419,6 +468,15 @@ behavior, not part of the text, so CLC removes it.
   (drop); at least one spacing-hack joiner is known — find the rest.
 - Log each removal as a departure (§7.9), difference type e.g. `control-char`.
 
+### 7.15 Charitable restoration of "unsupported" dagesh (the `q` notes)
+UXLC's **`q` notes** (35×) are almost all UXLC *removing* an **"unsupported" dagesh** from a qere
+(or qere-without-ketiv) word — e.g. *"Remove unsupported dagesh in yod of qere word"*, *"… from bet
+in qere-without-ketiv word"*. In the spirit of charity, CLC will **supply (restore) the dagesh** in
+some or all of these — UXLC's removal is the *uncharitable* reading. **Manual review per case** (a
+few `q` notes instead touch a maqaf, sheva, or yod, not a dagesh). Each restoration → a logged
+departure (§7.9), difference type e.g. `dagesh`. The data is in hand: the `q` note marks the atom and
+the change-log description names exactly what was removed (§5).
+
 ---
 
 ## 8. Presentation / tech notes
@@ -426,13 +484,14 @@ behavior, not part of the text, so CLC removes it.
   and `gh-pages/fois/`, and as MAM).
 - Reuse the Taamey font (`gh-pages/woff2/Taamey_D.woff2`) + `style.css`.
 - Borrow MAM's 3-column CSS vocabulary (`mam-doc-*`) or define a parallel `clc-doc-*` set.
-- Note schema: generalize the `amb_early_mtg` record (word, bcvp, verdict, remarks, comparanda
-  images, cross-refs, links) into a single **CLC note** type that all sources (charitable
-  verdicts, bracket notes, UXLC notes, change records, FOIs) flow into. One renderer, many
-  sources. Fields the schema must carry for the difference index (§7.9): a **`diff_type`**
-  (`under-bar` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC reading vs. CLC
-  reading** pair. The difference index is then just "render the notes where `is_uxlc_departure`,
-  as a table."
+- Note schema: a single **CLC note** type that all sources (charitable under-bar verdicts, bracket
+  notes, UXLC `<x>` notes + their change-log prose, change records, FOIs, dagesh restorations) flow
+  into — **one renderer, many sources**. Fields: word, bcvp, note text, source, plus for the
+  difference index (§7.9) a **`diff_type`** (`under-bar` | `dagesh` | `meteg-position` |
+  `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC
+  reading vs. CLC reading** pair. The difference index is then just "render the notes where
+  `is_uxlc_departure`, as a table." (The `amb_early_mtg` record is one prior example to borrow field
+  ideas from — not the definition.)
 
 ---
 
@@ -441,13 +500,16 @@ behavior, not part of the text, so CLC removes it.
    `wlc-utils/py/accgram`** into this repo (the established `mb_cmn`-style pattern, via a
    `main_update_vendored_files.py`-type refresh) **vs. cross-call** it. Vendoring is the more
    likely fit. (The old "CLC as its own repo" option is now off the table — see §4.)
-2. **UXLC note text source** (§7.3) — the biggest data unknown.
+2. **UXLC note text source** (§7.3) — **largely resolved** (§5): for the lettered `<x>` notes the
+   prose is in the change-log `<correction><description>` already ingested by `uxlc_changes/`
+   (coverage ≈ t 207/233, c 90/103, m 39/42, y 36/36, q 35/35, d 28/29). Remaining unknown: the
+   **38 numeric/`X`** notes (bare code, no prose) and any tanach.us apparatus beyond the `<x>` notes.
 3. **codex-index-leningrad** — clone it (the `.code-workspace` already references it as a 2nd
    folder, but it isn't on disk); then confirm whether it improves image guesses over the
    tanach.us LCIndex already vendored here (§6).
 4. **Image scraping source & licensing** (§7.6).
 5. **B&W → color** upgrade pipeline — how much can be automated (§7.6).
-6. **"Always link" vs. MAM's inline-short/link-long** notes policy (§7.3).
+6. ~~**"Always link" vs. MAM's inline-short/link-long**~~ **Decided: always link** (§7.3).
 7. **Verdict vocabulary** for identity (2a) ambiguities (§7.1).
 8. **WLC-vs-UXLC per-word diff** to gate bracket-note application (§7.2).
 9. ~~**Where does CLC live?**~~ **Decided:** in this repo — `py/clc/` + `gh-pages/clc/` (§4).
@@ -457,11 +519,11 @@ behavior, not part of the text, so CLC removes it.
 
 ## 10. Rough ordering (not a plan — just gravity)
 A loose sense of what unblocks what, without committing to phases:
-- The **note schema** (generalize `amb_early_mtg`) is the spine — most features are "a new note
-  source feeding one renderer."
+- The **note schema + one renderer** is the spine — most features are "a new note source feeding
+  one renderer." (Define it from §8's requirements, not from `amb_early_mtg`.)
 - The **accent-grammar integration** is the long pole for the headline charitable feature (2a).
-- The **UXLC-note-text source** is the long pole for the apparatus (7.3) — resolve early since
-  everything downstream depends on having the text.
+- The **UXLC-note-text source** is **no longer a long pole** — it is largely in hand via the change
+  log (§5, §9 #2); only the 38 numeric/`X` notes remain without prose.
 - Bracket notes, change records, FOIs, Sefaria/MAM links are comparatively cheap once the schema
   and renderer exist (the data largely exists already).
 - Image color-upgrade and scraping are independent side quests.
