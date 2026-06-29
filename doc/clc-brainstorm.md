@@ -155,12 +155,18 @@ largely an act of *composition* over existing machinery, plus the new identity-r
   | `d` | 29 | **under-bar: deḥi↔tipeḥa/tarḥa (poetic)** — §2a seed | 28 |
   | `4`–`8`, `X` | 38 | rarer transcription codes | 0 |
 
-  → **Note-text source (resolves most of §9 #2):** for the *lettered* notes the full prose lives in
-  the `<correction><description>` that added the note (e.g. *"Add note 'm' for possible merkha rather
-  than meteg under the gimel"*) — **already ingested** by [py/uxlc_changes/](py/uxlc_changes/),
-  joinable to the noted atom by citation (`ch:v.atom`). Coverage is near-total (see the table's last
-  column). Only the **38 numeric/`X`** notes carry a bare code with no prose (inherited from the
-  original WLC2XML transcription); those are the genuine remaining unknown.
+  → **Note-text source (settled — see §7.3, §9 #2):** the rendered note prose is **the actual
+  tanach.us note page** for each `(atom, code)` (e.g. `Notes/Proverbs/Proverbs.5.19.4-m.html`),
+  downloaded by [py/main_clc_download_notes.py](py/main_clc_download_notes.py) into committed
+  [in/UXLC-notes/](in/UXLC-notes/) and read **offline** at build time by
+  [py/clc/clc_note_pages.py](py/clc/clc_note_pages.py) (the build never touches the network →
+  deterministic). The change-log `<correction><description>` (e.g. *"Add note 'm' for possible merkha
+  rather than meteg under the gimel"*), ingested by [py/uxlc_changes/](py/uxlc_changes/), is an
+  *imperative instruction to the editor*, **not** the reader-facing note — so it is **no longer the
+  prose source**; it survives only as the atom-letter **consistency guard** (the table's "prose in
+  change log" column is now just that guard's coverage, joinable by citation `ch:v.atom`). An atom
+  with no downloaded page — the **38 numeric/`X`** notes, or any not yet fetched — shows a fixed
+  **per-code marker** ([`_fallback_text`](py/clc/clc_collect.py)), never the change-log text.
 
 - **Ambiguous early meteg (`amb_early_mtg`) — a *minor*, likely-unfinished side-investigation:**
   [py/uxlc_amb_early_mtg/amb_early_mtg.py](py/uxlc_amb_early_mtg/amb_early_mtg.py) — a hand-curated
@@ -304,17 +310,20 @@ Each is a feature the brainstorm named, organized with grounding + open question
   MAM only links the *long* (> 400-char) notes and inlines the short ones. → CLC drops the
   length threshold and links uniformly. **Decided: always link** — uniform links, no MAM-style
   inline-short / link-long threshold.
-- **Note text source — largely solved (was the brainstorm's biggest unknown).** The `<x>` element
-  carries only a one-letter *type* (cf. [`_handle_wc_x`](py/main_fois.py#L54-L59)), but the full
-  prose for the *lettered* notes is the `<correction><description>` that added them — **already
-  ingested** by [py/uxlc_changes/](py/uxlc_changes/) and joinable by citation (§5, §9 #2). Coverage
-  is near-total; only the 38 numeric/`X` notes lack prose. The `wlc-utils` bracket-note definitions
-  cover the separate bracket-note layer (§7.2).
+- **Note text source — settled (was the brainstorm's biggest unknown).** The `<x>` element carries
+  only a one-letter *type* (cf. [`_handle_wc_x`](py/main_fois.py#L54-L59)); the rendered prose is the
+  **actual tanach.us note page**, downloaded **offline** into committed [in/UXLC-notes/](in/UXLC-notes/)
+  by [main_clc_download_notes](py/main_clc_download_notes.py) and read at build time by
+  [clc_note_pages](py/clc/clc_note_pages.py). The change-log `<correction><description>` (ingested by
+  [py/uxlc_changes/](py/uxlc_changes/)) turned out to be an editor-facing *instruction*, not the
+  note, so it is **demoted to the atom-letter consistency guard only**; an atom with no page shows a
+  fixed per-code marker (§5, §9 #2). The `wlc-utils` bracket-note definitions cover the separate
+  bracket-note layer (§7.2).
 - **Body placement is a *separate* axis from the link.** "Always link" (above) governs only the
   affordance on the word — every note links, uniformly, no threshold. It does **not** dictate where
   the note *body* renders. On *placement* CLC does keep MAM's length threshold (§5):
   - **Now (skeleton):** every body renders **inline in the doc column** of the same verse row
-    ([`_note_block`](py/clc/clc_render.py#L76-L85)), regardless of length.
+    ([`_note_block`](py/clc/clc_render.py#L197-L205)), regardless of length.
   - **Intended:** keep short notes inline, but **relegate long notes to a separate "big-doc" page,
     as in MAM-with-doc** (§5) — the always-link then points across to the anchored body on that page
     instead of into the same-row doc cell. So the uniform link stays; only the long body moves
@@ -331,6 +340,10 @@ Each is a feature the brainstorm named, organized with grounding + open question
 - Surface FOIs (`kq`, `mark-grammar`, `mark-grammar-2`, …) as notes, **especially the rarer
   ones**. Reuse [py/uxlc_fois/](py/uxlc_fois/).
 - **[TBD]** rarity ranking / which FOIs are worth showing inline vs. on demand.
+- **Done so far — ketiv/qere display.** The `kq` FOI is already surfaced — not (yet) as a side-note
+  but as the **text-column rendering itself**: each k/q unit is a boxed `<ruby>` (qere on the
+  baseline, ketiv above; small bracketed placeholders for the qere-without-ketiv / ketiv-without-qere
+  cases), [py/clc/clc_kq.py](py/clc/clc_kq.py). The other FOIs (`mark-grammar`, …) are **not** surfaced yet.
 
 ### 7.6 Images
 - **Sefaria + MAM links:** mirror UXLC's tanach.us presentation by linking each verse to its
@@ -351,7 +364,9 @@ Each is a feature the brainstorm named, organized with grounding + open question
   the merged tangle.
 - The detangler's **"supplied marks" are themselves charitable acts** (marks the scribe didn't
   write because both threads share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
-  the kind of thing CLC should foot-note rather than hide. Strong fit with the CLC thesis.
+  the kind of thing CLC should foot-note rather than hide. Strong fit with the CLC thesis — and CLC
+  now does this itself for the narrow **maqaf/sof-pasuq** subset, supplying them **bracketed, green,
+  and footnoted** rather than hidden (as raw UXLC) or silently baked in (as the detangler).
 
 **Single-strand display.** Where a dual-cant verse is one row today, CLC shows **three**: the
 combined form plus its two strands — labeled e.g. `35:22-C`, `35:22-א` (pashuṭ), `35:22-ב`
@@ -359,20 +374,33 @@ combined form plus its two strands — labeled e.g. `35:22-C`, `35:22-א` (pashu
 **Genesis 35:22 is the first application** (`py/clc/clc_dual_cant.py`, rendered by
 `clc_render.py`); the Decalogues follow by adding their oracle entries.
 
-**Strict split — a deliberate departure from the detangler.** The accgram detangler is *charitable*
-about the strand *text*: it **supplies** omitted accents and **changes word division** (for
-Gen 35:22 it adds a sof-pasuq to break pashuṭ into two chanted verses). CLC's *displayed* strand
-text does **none** of that — it is **purely subtractive**: each strand is UXLC's own combined word
-with only the *other* strand's accent(s) removed; no mark supplied, no maqaf/sof-pasuq/vowel added
-or removed, no re-division. MAM (via the detangler) is consulted **only as the oracle** for *which*
-stacked accent belongs to which reading. The detangler's supplied-marks / anomalies stay valuable —
-but as **logged footnotes** (per the bullet above), never baked silently into the strand text.
+**Near-subtractive split — a deliberate, *narrowed* departure from the detangler.** The accgram
+detangler is *charitable* about the strand *text*: it **supplies** omitted accents and freely
+**changes word division**. CLC's *displayed* strand text is far more restrained —
+**near-subtractive, with two narrowly-scoped, loudly-flagged charities**:
+- **Position-safe subtraction.** Each strand is UXLC's own combined word with only the *other*
+  strand's **divergence cluster** resolved: an accent, and — where the two readings stack them on
+  one letter — the other strand's **vowel** (a QUPO word's patax vs. qamats) or **rafe/dagesh**. The
+  cluster is replaced *by name at its exact site* (`str.replace(cluster, resolution, 1)`), so a mark
+  that recurs elsewhere in the word as a *shared* mark is never touched.
+- **Supplied punctuation, bracketed and footnoted.** A strand may have a **maqaf or sof-pasuq
+  supplied** — never anything else — only to improve legibility of that single reading (e.g. the
+  sof-pasuq that breaks Gen 35:22's pashuṭ into its two chanted verses). Every supplied mark is
+  rendered **bracketed and green** (CSS `clc-added-during-detangling`) and carries a synthesized
+  "added out of thin air" note — never baked silently into the text.
+
+No consonant is changed, no *shared* mark removed, no re-division. MAM (via the detangler) is
+consulted **only as the oracle** — for *which* of two stacked marks belongs to which reading, and
+*where* a supplied break falls. The detangler's remaining supplied-marks / anomalies stay valuable
+as **logged footnotes**, never silent edits.
 
 This is the same shape as the **legarmeh-vs-paseq** feature (§7.16): both *improve UXLC by importing
 MAM's auxiliary adjudication* of an ambiguity that is **grammatical, not graphical**, differing only
 in subject — which-accent-belongs-to-which-reading here, legarmeh-vs-paseq identity there. A
-dual-cant strand row gets its own `diff_type` (`dual-cant`) for the §7.9 index, though the first
-application is **display-only** (no ClcNote departure records yet).
+**supplied** mark already emits a synthesized note (`source` `dual-cant-addition`, `diff_type`
+`dual-cant-added-punct` — see `py/clc/clc_note.py`): a lightweight **per-strand** note, **not** yet a
+ClcNote / §7.9 index row. The subtractive divergences remain **display-only** (no ClcNote departure
+records yet).
 
 ### 7.8 Versification
 - Primary `vtrad-BHS`; optionally show `vtrad-MAM` differences in a distinct color/marker (§4).
@@ -434,6 +462,10 @@ Characteristics:
 - Lives as the **`gh-pages/clc/` landing page** (`index.html`) — the front door of the edition.
 
 Pairs with §7.9: the intro **argues** charity; the index **shows the receipts**.
+
+**Status: not started.** No `gh-pages/clc/index.html` exists yet. The only front-matter so far is a
+short **per-book intro paragraph** at the top of each generated page
+([`_intro_para`](py/clc/clc_render.py)) describing the skeleton — not the editorial-principles essay.
 
 ### 7.11 BHL agreement: body vs. Appendix A *(a correctness fix, not a preference)*
 A reading that **agrees with the BHL body but is flagged in BHL Appendix A** should count as
@@ -498,6 +530,11 @@ behavior, not part of the text, so CLC removes it.
   UXLC for *every* control-character use and classify each as semantic (keep/transform) vs. cosmetic
   (drop); at least one spacing-hack joiner is known — find the rest.
 - Log each removal as a departure (§7.9), difference type e.g. `control-char`.
+- **Done so far — only the dual-cant case.** The strand splitter already drops an **orphaned CGJ**
+  (U+034F) that the combined form used merely to *sequence* two stacked accents: once one accent is
+  removed it has nothing left to sequence, so the strand omits it
+  ([py/clc/clc_dual_cant.py](py/clc/clc_dual_cant.py), §7.7). The general control-character
+  **audit/strip** across UXLC (the spacing-hack ZWJ, etc.) is **not started**.
 
 ### 7.15 Charitable restoration of "unsupported" dagesh (the `q` notes)
 UXLC's **`q` notes** (35×) are almost all UXLC *removing* an **"unsupported" dagesh** from a qere
@@ -543,13 +580,17 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
   to a separate "big-doc" page** (MAM-with-doc model, §5); the always-link points to wherever the
   body lives. The skeleton currently inlines *all* bodies — long-note off-loading is still to-do.
 - Note schema: a single **CLC note** type that all sources (charitable under-bar verdicts, bracket
-  notes, UXLC `<x>` notes + their change-log prose, change records, FOIs, dagesh restorations) flow
-  into — **one renderer, many sources**. Fields: atom text, bcvp, note text, source, plus for the
-  difference index (§7.9) a **`diff_type`** (`under-bar` | `legarmeh-paseq` | `dagesh` |
-  `meteg-position` | `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC
-  reading vs. CLC reading** pair. The difference index is then just "render the notes where
-  `is_uxlc_departure`, as a table." (The `amb_early_mtg` record is one prior example to borrow field
-  ideas from — not the definition.)
+  notes, UXLC `<x>` notes + their tanach.us note-page prose, change records, FOIs, dagesh
+  restorations) flow into — **one renderer, many sources**. Fields: atom text, bcvp, note text,
+  source (e.g. `uxlc-x-note`, `dual-cant-addition`), plus for the difference index (§7.9) a
+  **`diff_type`** (`under-bar` | `dual-cant-added-punct` | `legarmeh-paseq` | `dagesh` |
+  `meteg-position` | `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag,
+  and the **UXLC reading vs. CLC reading** pair. The difference index is then just "render the notes
+  where `is_uxlc_departure`, as a table." (The `amb_early_mtg` record is one prior example to borrow
+  field ideas from — not the definition.) **Implemented so far:** `ClcNote` (py/clc/clc_note.py) with
+  sources `uxlc-x-note` and `dual-cant-addition` and diff types `under-bar` and
+  `dual-cant-added-punct`. The dual-cant **"added out of thin air"** notes (§7.7) are a *separate,
+  lightweight* per-strand dict — **not** a full `ClcNote` (strand rows carry no anchors / §7.9 row yet).
 
 ---
 
@@ -558,10 +599,12 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
    `wlc-utils/py/accgram`** into this repo (the established `mb_cmn`-style pattern, via a
    `main_update_vendored_files.py`-type refresh) **vs. cross-call** it. Vendoring is the more
    likely fit. (The old "CLC as its own repo" option is now off the table — see §4.)
-2. **UXLC note text source** (§7.3) — **largely resolved** (§5): for the lettered `<x>` notes the
-   prose is in the change-log `<correction><description>` already ingested by `uxlc_changes/`
-   (coverage ≈ t 207/233, c 90/103, m 39/42, y 36/36, q 35/35, d 28/29). Remaining unknown: the
-   **38 numeric/`X`** notes (bare code, no prose) and any tanach.us apparatus beyond the `<x>` notes.
+2. **UXLC note text source** (§7.3) — **settled** (§5): the rendered prose is the **tanach.us note
+   page**, downloaded offline into committed `in/UXLC-notes/` (`main_clc_download_notes`) and read by
+   `clc_note_pages`; the change-log `<correction><description>` is demoted to the atom-letter
+   consistency guard only. Remaining gap: atoms with **no note page** (the **38 numeric/`X`** notes,
+   or any not yet fetched) fall back to a fixed per-code marker; plus any tanach.us apparatus beyond
+   the `<x>` notes.
 3. **codex-index-leningrad** — clone it (the `.code-workspace` already references it as a 2nd
    folder, but it isn't on disk); then confirm whether it improves image guesses over the
    tanach.us LCIndex already vendored here (§6).
@@ -580,8 +623,52 @@ A loose sense of what unblocks what, without committing to phases:
 - The **note schema + one renderer** is the spine — most features are "a new note source feeding
   one renderer." (Define it from §8's requirements, not from `amb_early_mtg`.)
 - The **accent-grammar integration** is the long pole for the headline charitable feature (2a).
-- The **UXLC-note-text source** is **no longer a long pole** — it is largely in hand via the change
-  log (§5, §9 #2); only the 38 numeric/`X` notes remain without prose.
+- The **UXLC-note-text source** is **no longer a long pole** — the real tanach.us note pages are
+  downloaded offline into committed `in/UXLC-notes/` and read at build time (§5, §9 #2); atoms with
+  no page fall back to a fixed per-code marker.
 - Bracket notes, change records, FOIs, Sefaria/MAM links are comparatively cheap once the schema
   and renderer exist (the data largely exists already).
 - Image color-upgrade and scraping are independent side quests.
+
+---
+
+## 11. Implementation status (as of 2026-06-29)
+
+A snapshot of where the code (`py/clc/`, build driver `py/main_clc.py` + the separate offline
+note-downloader `py/main_clc_download_notes.py`) stands against the §7 feature list. The **walking
+skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists for three pilot books
+(Genesis, Proverbs, 2 Samuel) under `gh-pages/clc/`. Everything under the table is built but was
+**not** named in §7.
+
+| feature | status | where / note |
+|---|---|---|
+| §7.1 charitable under-bar | **seed only** | m/d/t notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False |
+| §7.2 bracket-note restoration | not started | — |
+| §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); all bodies inline — long-note big-doc page still TODO |
+| §7.4 change records as notes | not started | change log used only for the consistency guard, not as a note |
+| §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
+| §7.6 images / Sefaria links | not started | — |
+| §7.7 dual-cant strands | **partial** | Gen 35:22 done — near-subtractive + supplied-punct notes (clc_dual_cant); Decalogues + QUPO/rafe-dagesh await oracle data; no §7.9 departure rows |
+| §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
+| §7.9 differences-from-UXLC index | not started | needs `is_uxlc_departure` departures (none yet) + LC manuscript order (§9 #10) |
+| §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |
+| §7.11 BHL body vs. Appendix A | not started | Appendix A ingested for Psalms only (pre-CLC) |
+| §7.12 harvesting other editions | not started | — |
+| §7.13 drop early/medial meteg | not started | — |
+| §7.14 strip cosmetic control chars | **partial** | orphaned CGJ dropped in the strand splitter only; no general audit |
+| §7.15 restore "unsupported" dagesh (`q`) | not started | — |
+| §7.16 legarmeh vs. paseq | not started | doc only |
+
+**Ad-hoc / plumbing built (not in the §7 list):**
+- **Offline note download/build split** — `main_clc_download_notes` fetches tanach.us note pages into
+  committed `in/UXLC-notes/`; the build reads them locally and never hits the network (deterministic).
+  Fixes the multi-word/numbered-book URL bug via `my_uxlc.book_basename` (e.g. `2Samuel` → `Samuel_2`).
+- **`clc_collect.iter_noted_atoms`** — one source of truth for the noted `(atom, code)` pairs, shared
+  by the build and the downloader so the two cannot drift.
+- **Atom/change-log consistency guard** (`clc_collect._check_atom_consistency`,
+  `_KNOWN_ATOM_MISMATCHES`) — fails loudly if atomization drifts from the recorded change positions.
+- **Ketiv/qere boxed ruby** (clc_kq) and **smart-join of maqaf compounds** in running text (clc_render).
+- **Column order `text | ref | doc`** with the ref as a narrow central spine (not the originally
+  sketched `reference | text | doc`).
+- **`clc-*` / `clc-added-*` CSS** vocabulary in `gh-pages/style.css`.
+- **Unit tests:** `clc_dual_cant_test.py`, `clc_kq_test.py`.
