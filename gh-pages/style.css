@@ -38,3 +38,14 @@ tr:nth-of-type(odd) td {
 img {
     max-width: 100%;
 }
+
+/* CLC (Charitable Leningrad Codex) — 3-column always-link pages (gh-pages/clc) */
+table.clc-3col td { vertical-align: top; }
+td.clc-ref { white-space: nowrap; text-align: right; color: #555; font-size: 80%; }
+td.clc-doc { max-width: 32em; font-size: 85%; }
+a.clc-doc-target { color: #1a4fd6; text-decoration: none; }
+a.clc-doc-target:hover { text-decoration: underline; }
+div.clc-note { margin-bottom: 0.5em; }
+div.clc-note:target { background-color: #f3e3a4; border-radius: 0.15em; }
+span.clc-note-ref { color: #555; font-size: 80%; }
+span.clc-note-code { font-weight: bold; }
