@@ -486,7 +486,7 @@ the change-log description names exactly what was removed (§5).
 - Borrow MAM's 3-column CSS vocabulary (`mam-doc-*`) or define a parallel `clc-doc-*` set.
 - Note schema: a single **CLC note** type that all sources (charitable under-bar verdicts, bracket
   notes, UXLC `<x>` notes + their change-log prose, change records, FOIs, dagesh restorations) flow
-  into — **one renderer, many sources**. Fields: word, bcvp, note text, source, plus for the
+  into — **one renderer, many sources**. Fields: atom text, bcvp, note text, source, plus for the
   difference index (§7.9) a **`diff_type`** (`under-bar` | `dagesh` | `meteg-position` |
   `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC
   reading vs. CLC reading** pair. The difference index is then just "render the notes where

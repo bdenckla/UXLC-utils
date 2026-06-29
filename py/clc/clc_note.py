@@ -24,8 +24,8 @@ class ClcNote:
     book: str            # bk39 id, e.g. "Proverbs"
     ch: int              # chapter number (1-based)
     v: int               # verse number (1-based)
-    atom: int            # atom position within the verse (1-based; counts w/q/k)
-    word: str            # the pointed Hebrew atom text
+    atom_index: int      # atom position within the verse (1-based; counts w/q/k)
+    atom_text: str       # the pointed Hebrew atom text
     note_code: str       # UXLC one-letter <x> code, e.g. "m", "d", "t"
     note_text: str       # apparatus prose (from the change-log description)
     source: str          # provenance of the note (see SOURCE_* above)

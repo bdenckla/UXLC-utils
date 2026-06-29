@@ -31,7 +31,7 @@ def write_book(book_id, book, notes):
 def _group_by_atom(notes):
     grouped = {}
     for note in notes:
-        grouped.setdefault((note.ch, note.v, note.atom), []).append(note)
+        grouped.setdefault((note.ch, note.v, note.atom_index), []).append(note)
     return grouped
 
 
@@ -50,12 +50,12 @@ def _verse_row(ch, v, verse, notes_by_atom):
 def _text_contents(ch, v, verse, notes_by_atom):
     pieces = []
     for atidx, atom in enumerate(verse):
-        word = atom["text"]
+        atom_text = atom["text"]
         if (ch, v, atidx + 1) in notes_by_atom:
             href = f"#{_anchor_id(ch, v, atidx + 1)}"
-            pieces.append(H.anchor(word, {"href": href, "class": "clc-doc-target"}))
+            pieces.append(H.anchor(atom_text, {"href": href, "class": "clc-doc-target"}))
         else:
-            pieces.append(word)
+            pieces.append(atom_text)
         pieces.append(" ")
     return pieces
 
@@ -72,7 +72,7 @@ def _doc_contents(ch, v, verse, notes_by_atom):
 def _note_block(ch, v, position, atom_notes):
     entries = [
         H.span(f"{ch}:{v}.{position} ", {"class": "clc-note-ref"}),
-        H.span(atom_notes[0].word, _HBO_ATTR),
+        H.span(atom_notes[0].atom_text, _HBO_ATTR),
     ]
     for note in atom_notes:
         entries.append(H.line_break())

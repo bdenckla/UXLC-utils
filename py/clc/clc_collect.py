@@ -60,22 +60,22 @@ def collect_for_book(book_id, codes=UNDER_BAR_CODES):
 
 
 def _make_note(book_id, ch, v, position, atom, code, descriptions):
-    word = atom["text"]
+    atom_text = atom["text"]
     records = descriptions.get((book_id, ch, v, position), [])
-    _check_atom_consistency(book_id, ch, v, position, word, records)
+    _check_atom_consistency(book_id, ch, v, position, atom_text, records)
     return clc_note.ClcNote(
         book=book_id,
         ch=ch,
         v=v,
-        atom=position,
-        word=word,
+        atom_index=position,
+        atom_text=atom_text,
         note_code=code,
         note_text=_note_text(records, code),
         source=clc_note.SOURCE_UXLC_X_NOTE,
         diff_type=clc_note.DIFF_UNDER_BAR,
         is_uxlc_departure=False,    # skeleton only surfaces the ambiguity
-        uxlc_reading=word,
-        clc_reading=word,           # ... so CLC's reading == UXLC's for now
+        uxlc_reading=atom_text,
+        clc_reading=atom_text,      # ... so CLC's reading == UXLC's for now
     )
 
 
@@ -90,21 +90,21 @@ def _fallback_text(code):
     return f"UXLC ‘{code}’ note: {_CODE_MEANING.get(code, 'see UXLC')}."
 
 
-def _check_atom_consistency(book_id, ch, v, position, word, records):
+def _check_atom_consistency(book_id, ch, v, position, atom_text, records):
     """Backup guard for the fragile position-based join (see clc_changes).
 
-    The integer position is the join key; the letter-only word is the backup.
-    Every change cited at this position recorded the word(s) then present, so the
-    current atom should match one of them (a ketiv/qere pair contributes both
-    members). If it matches none, the atomization has drifted (atoms merged or
-    split) and the position no longer means what the change log meant — we fail
-    loudly rather than silently mislabel the atom. Reviewed exceptions that are
-    not merges/splits live in _KNOWN_ATOM_MISMATCHES.
+    The integer position is the join key; the letter-only atom text is the
+    backup. Every change cited at this position recorded the word(s) then
+    present, so the current atom should match one of them (a ketiv/qere pair
+    contributes both members). If it matches none, the atomization has drifted
+    (atoms merged or split) and the position no longer means what the change log
+    meant — we fail loudly rather than silently mislabel the atom. Reviewed
+    exceptions that are not merges/splits live in _KNOWN_ATOM_MISMATCHES.
     """
     expected = {r["letters"] for r in records if r["letters"]}
     if not expected:
-        return  # no recorded word to verify against
-    actual = hl.letters(word)
+        return  # no recorded letters to verify against
+    actual = hl.letters(atom_text)
     if actual in expected:
         return
     accepted = (book_id, ch, v, position) in _KNOWN_ATOM_MISMATCHES
