@@ -410,9 +410,9 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   תרצח here, but UXLC's combined text carries only the taḥton strand's tipḥa, and it is beyond the
   limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipḥa on אנכי + etnaḥta
   on אלהיך), **5:13** (taḥton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
-  sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). Still deferred: the QUPO vowel
-  splits (ex 20:3, dt 5:7) and the maqaf word-division / count-mismatch verses (ex 20:4, 10; dt 5:8,
-  12, 14, 15, 16).
+  sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). The remaining strand classes — the
+  QUPO vowel split and the maqaf word-division / count-mismatch verses — are tracked in
+  [#20](https://github.com/bdenckla/UXLC-utils/issues/20).
 
 No consonant is changed and no *shared* mark removed (a mark both strands keep stays in both); only
 the divergent marks — accent and the punctuation tracking it — are subtracted (subtraction, incl. of
@@ -677,7 +677,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.4 change records as notes | not started | change log used only for the consistency guard, not as a note |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
-| §7.7 dual-cant strands | **partial** | Gen 35:22 + most Decalogue verses done (clc_dual_cant `_ORACLE`: ex 20:2,5,6,8,9,13–15; dt 5:6,9,10,13,17,18,19) — pure-accent + sof-pasuq suppression, 3 supplied sof-pasuqs (Gen 35:22, ex 20:8/9), rafe/dagesh by the faithful policy, and omitted-accent notes (dt 5:6,13,17 — accents NOTED, never supplied: punctuation only). Deferred: QUPO vowel split (ex 20:3, dt 5:7), maqaf count-mismatch (ex 20:4,10; dt 5:8,12,14,15,16). No §7.9 departure rows |
+| §7.7 dual-cant strands | **partial** | Gen 35:22 + most Decalogue verses done (clc_dual_cant `_ORACLE`: ex 20:2,5,6,8,9,13–15; dt 5:6,9,10,13,17,18,19) — pure-accent + sof-pasuq suppression, 3 supplied sof-pasuqs (Gen 35:22, ex 20:8/9), rafe/dagesh by the faithful policy, and omitted-accent notes (dt 5:6,13,17 — accents NOTED, never supplied: punctuation only). Remaining classes tracked in [#20](https://github.com/bdenckla/UXLC-utils/issues/20). No §7.9 departure rows |
 | §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
 | §7.9 differences-from-UXLC index | not started | needs `is_uxlc_departure` departures (none yet) + LC manuscript order (§9 #10) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |
