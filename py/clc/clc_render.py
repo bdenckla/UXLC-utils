@@ -94,6 +94,7 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
     # strictly-split text plain, with only a short reading label in the doc
     # column. CSS ties the three into one verse block (gh-pages/style.css).
     views = clc_dual_cant.strand_views(book_id, ch, v, verse)
+    strands = [vw for vw in views if vw.suffix != clc_dual_cant.SUFFIX_COMBINED]
     rows = []
     for pos, view in enumerate(views):
         ref_cell = H.table_datum(
@@ -108,8 +109,12 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
                 _doc_contents(ch, v, view.atoms, notes_by_atom), {"class": "clc-doc"}
             )
         else:
+            # De-highlight against the OTHER strand (the two readings agree here),
+            # not the combined form — see _plain_text_contents.
+            other = next(vw for vw in strands if vw is not view)
             text_cell = H.table_datum(
-                _plain_text_contents(view.atoms, verse), {**_HBO_ATTR, "class": "clc-text"}
+                _plain_text_contents(view.atoms, other.atoms),
+                {**_HBO_ATTR, "class": "clc-text"},
             )
             doc_cell = H.table_datum(_strand_doc_contents(view), {"class": "clc-doc"})
         rows.append(H.table_row((text_cell, ref_cell, doc_cell)))
@@ -178,19 +183,25 @@ def _text_contents(ch, v, verse, notes_by_atom):
     return pieces
 
 
-def _plain_text_contents(strand_atoms, combined_atoms):
+def _plain_text_contents(strand_atoms, other_atoms):
     # Like _text_contents but with no note always-links — used by the alef/bet
     # strand rows of a dual-cant verse, whose notes/anchors live on the combined
     # row only (re-emitting them here would duplicate anchor ids). Each word
-    # identical to the combined form is de-highlighted (clc-strand-same) so the
-    # few divergence words stand out by contrast; a word carrying a SUPPLIED mark
-    # (clc_dual_cant additions) is never de-highlighted, and the mark is rendered
-    # bracketed/green right after it.
+    # identical across the two strands (taḥton == elyon — i.e. not a divergence
+    # atom) is de-highlighted (clc-strand-same) so the few divergence words stand
+    # out by contrast. A word that differs from the OTHER strand stays highlighted
+    # — including one equal to the combined form yet diverging from its sibling
+    # (e.g. ex 20:9 כל, whose taḥton keeps a dagesh elyon drops), and one carrying a
+    # SUPPLIED mark (clc_dual_cant additions) the other strand lacks; any supplied
+    # mark is rendered bracketed/green right after the word.
     pieces = []
-    for strand_atom, combined_atom in zip(strand_atoms, combined_atoms):
+    for strand_atom, other_atom in zip(strand_atoms, other_atoms):
         atom_text = strand_atom["text"]
         additions = strand_atom.get("additions", ())
-        if atom_text == combined_atom["text"] and not additions:
+        same_across_strands = atom_text == other_atom["text"] and tuple(
+            additions
+        ) == tuple(other_atom.get("additions", ()))
+        if same_across_strands:
             pieces.append(H.span(atom_text, {"class": "clc-strand-same"}))
         else:
             pieces.append(atom_text)

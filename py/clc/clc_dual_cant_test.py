@@ -223,11 +223,11 @@ def test_added_render():
 
     # The supplied sof-pasuq renders bracketed, the mark itself in the green
     # "added" class, in the alef strand's text column.
-    alef_html = _render(clc_render._plain_text_contents(alef_view.atoms, combined))
+    alef_html = _render(clc_render._plain_text_contents(alef_view.atoms, bet_view.atoms))
     assert "clc-added-during-detangling" in alef_html
     assert _SOF_PASUQ in alef_html and "[" in alef_html and "]" in alef_html
     # bet supplies nothing → no green span.
-    bet_html = _render(clc_render._plain_text_contents(bet_view.atoms, combined))
+    bet_html = _render(clc_render._plain_text_contents(bet_view.atoms, alef_view.atoms))
     assert "clc-added-during-detangling" not in bet_html
 
     # The synthesized doc-column note carries the exact template prose, the
@@ -302,9 +302,9 @@ def test_decalogue_supplied_sof_pasuq():
     assert bet.added_notes == ()
 
     # The supplied sof-pasuq renders bracketed/green in the alef text column; bet stays plain.
-    alef_html = _render(clc_render._plain_text_contents(alef.atoms, combined))
+    alef_html = _render(clc_render._plain_text_contents(alef.atoms, bet.atoms))
     assert "clc-added-during-detangling" in alef_html and _SOF_PASUQ in alef_html
-    bet_html = _render(clc_render._plain_text_contents(bet.atoms, combined))
+    bet_html = _render(clc_render._plain_text_contents(bet.atoms, alef.atoms))
     assert "clc-added-during-detangling" not in bet_html
 
 
@@ -337,6 +337,31 @@ def test_decalogue_rafe_dagesh():
     assert len(alef9.added_notes) == 1 and bet9.added_notes == ()
 
 
+def test_strand_same_highlighting():
+    # A strand word is de-highlighted (clc-strand-same) iff it is identical ACROSS
+    # the two strands (taḥton == elyon), not merely equal to the combined form.
+    # ex 20:9 atom 5 כָּל־: taḥton keeps the dagesh — so it EQUALS the combined form
+    # (the old strand-vs-combined rule grayed it) — while elyon drops it. That is a
+    # real divergence, so it must stay highlighted, not grayed.
+    combined9 = _read_atoms("Exodus.xml", 20, 9)
+    _c, alef9, bet9 = dc.strand_views("Exodus", 20, 9, combined9)
+    kol_alef, kol_bet = alef9.atoms[4]["text"], bet9.atoms[4]["text"]
+    assert kol_alef == combined9[4]["text"]   # taḥton == combined (would-be old gray)
+    assert kol_alef != kol_bet                # but taḥton != elyon → a divergence
+    alef9_html = _render(clc_render._plain_text_contents(alef9.atoms, bet9.atoms))
+    bet9_html = _render(clc_render._plain_text_contents(bet9.atoms, alef9.atoms))
+    assert f'clc-strand-same">{kol_alef}' not in alef9_html   # highlighted, not gray
+    assert f'clc-strand-same">{kol_bet}' not in bet9_html
+
+    # A genuinely shared word (absent from the oracle — identical in both readings)
+    # stays grayed. ex 20:8 atom 2 אֶת־ diverges in neither strand.
+    _c8, alef8, bet8 = dc.strand_views("Exodus", 20, 8, _read_atoms("Exodus.xml", 20, 8))
+    et = alef8.atoms[1]["text"]
+    assert et == bet8.atoms[1]["text"]
+    alef8_html = _render(clc_render._plain_text_contents(alef8.atoms, bet8.atoms))
+    assert f'clc-strand-same">{et}' in alef8_html
+
+
 def main():
     test_is_dual_cant()
     test_decalogue_sof_pasuq_suppression()
@@ -347,6 +372,7 @@ def main():
     test_split_word_position_safe_rafe_dagesh()
     test_strand_views_strict()
     test_added_render()
+    test_strand_same_highlighting()
     print("clc_dual_cant: OK")
 
 
