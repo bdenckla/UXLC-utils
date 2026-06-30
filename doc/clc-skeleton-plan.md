@@ -1,14 +1,14 @@
 # CLC skeleton — narrow build plan (for a fresh session)
 
 > **Purpose:** a small, self-contained plan to stand up the **CLC walking skeleton** in a fresh
-> session, without re-reading the whole brainstorm. Background and rationale live in
-> [doc/clc-brainstorm.md](clc-brainstorm.md); this file is just the build order. Keep it narrow —
+> session, without re-reading the whole design doc. Background and rationale live in
+> [doc/clc-design.md](clc-design.md); this file is just the build order. Keep it narrow —
 > the point is one end-to-end vertical slice, not the whole edition.
 
 ## Status: COMPLETE (as of 2026-06-29)
 
 The skeleton is **built and exceeded** — the definition of done below is met, and several
-later-phase features have already landed. (See the brainstorm's §11 status table for the full
+later-phase features have already landed. (See the design doc's §11 status table for the full
 picture.) Built: a `py/main_clc.py` driver writing `gh-pages/clc/<book>.html` (+ `<book>-notes.json`)
 for three pilot books — **Genesis, Proverbs, 2 Samuel**.
 
@@ -40,7 +40,7 @@ one renderer → `gh-pages/clc/`). Charity layers on later.
 ## Locked decisions (do not re-litigate)
 
 - **Home:** `py/clc/` (Python) + `gh-pages/clc/` (output). Existing repo modules are importable
-  directly (not vendored) — see brainstorm §4.
+  directly (not vendored) — see the design doc §4.
 - **Notes policy:** **always link** (uniform; no MAM short-inline / long-link threshold). §7.3.
 - **Versification:** primary `vtrad-BHS`. §7.8. (No MAM-boundary coloring in the skeleton.)
 - **First note source:** UXLC `<x>` notes, leading with the under-bar-ambiguity codes
@@ -56,7 +56,7 @@ one renderer → `gh-pages/clc/`). Charity layers on later.
 | note **prose** (the apparatus text) | **as built:** the tanach.us *note page*, downloaded offline by [py/main_clc_download_notes.py](../py/main_clc_download_notes.py) into committed `in/UXLC-notes/` and read by [py/clc/clc_note_pages.py](../py/clc/clc_note_pages.py). The change-log `<correction><description>` ([py/uxlc_changes/](../py/uxlc_changes/), joinable by citation `ch:v.atom`) is now only the **consistency guard**, not the prose. |
 | book ids / order / cant-system | `mb_cmn.mb_cmn_bib_locales` (`ALL_BOOK_IDS`), `mb_cmn.cantsys` (prose/poetic), `_is_prose_section_of_job` |
 | JSON / file output | `mb_cmn.file_io.json_dump_to_file_path` |
-| 3-column presentation model | MAM-with-doc: `MAM-basics/py/mwd/mwd_write_book.py`, `mam_doc_utils.mark_doc_targets`, `mwd_utils.html_for_ver_ndd` (brainstorm §5). Output examples in `MAM-with-doc/gh-pages/*.html` |
+| 3-column presentation model | MAM-with-doc: `MAM-basics/py/mwd/mwd_write_book.py`, `mam_doc_utils.mark_doc_targets`, `mwd_utils.html_for_ver_ndd` (design doc §5). Output examples in `MAM-with-doc/gh-pages/*.html` |
 | fonts / css | reuse `gh-pages/woff2/Taamey_D.woff2` + `gh-pages/style.css`; borrow `mam-doc-*` CSS or define `clc-doc-*` |
 
 ## Build order
@@ -65,7 +65,7 @@ one renderer → `gh-pages/clc/`). Charity layers on later.
    `gh-pages/clc/<book>.html`. Get an empty 3-column page rendering first.
 2. **CLC note schema** (one dict/dataclass): `book, ch, v, atom, word, note_code, note_text,
    source, diff_type, is_uxlc_departure, uxlc_reading, clc_reading`. Plain data (JSON-serializable)
-   so the same records can later feed the §7.9 difference index. (Schema fields per brainstorm §8.)
+   so the same records can later feed the §7.9 difference index. (Schema fields per design doc §8.)
 3. **Note source = `<x>` notes joined to note prose.** Collect per-atom `<x>` codes
    (`clc_collect.iter_noted_atoms`); for each, read the downloaded tanach.us note page
    (`clc_note_pages.local_note_prose`) to fill `note_text` — *as built*, replacing the original

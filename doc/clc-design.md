@@ -1,8 +1,10 @@
-# Charitable Leningrad Codex (CLC) — Brainstorm
+# Charitable Leningrad Codex (CLC) — Design
 
-> **Status: brainstorm, not a spec or plan.** This is a scattered idea-capture for a new
-> diplomatic edition of the Leningrad Codex (LC), kin to UXLC. Sections are deliberately
-> loose; nothing here is committed. Open questions are flagged inline with **[TBD]**.
+> **Living design doc for CLC.** Editorial principles, the feature set (at varying maturity — see the
+> §11 status table), decisions already made, and the open questions that remain — for a new
+> diplomatic edition of the Leningrad Codex (LC), kin to UXLC. Not an exhaustive spec, and not every
+> future item is captured. **[TBD]** flags open questions inline; §9 consolidates them; the companion
+> build plan is [doc/clc-skeleton-plan.md](clc-skeleton-plan.md).
 
 ---
 
@@ -92,7 +94,7 @@ issues" lead among several in §7.12 — **not** the prototype of the note schem
 
 ## 3. How accent grammar resolves identity (2a)
 
-The plan-shaped idea (kept brief because this is a brainstorm):
+The plan-shaped idea (kept deliberately brief):
 
 1. For each word/verse, compute the **expected accentuation** under the relevant system
    (the 21 prose books vs. the 3 poetic books — אמ״ת = Job, Proverbs, Psalms).
@@ -249,7 +251,7 @@ largely an act of *composition* over existing machinery, plus the new identity-r
 
 ## 6. Resolved: the `data/` dir vs. `codex-index-leningrad`
 
-The brainstorm asked: *is the LC-index info vendored here in `data/`, or is `data/` the source
+This doc originally asked: *is the LC-index info vendored here in `data/`, or is `data/` the source
 and it's vendored into `codex-index-leningrad`?* Findings:
 
 - **`data/` here is a built artifact local to UXLC-utils, not vendored from codex-index-leningrad.**
@@ -282,7 +284,7 @@ folder — but that path is **not cloned yet**, so it will show as missing until
 
 ## 7. Feature inventory
 
-Each is a feature the brainstorm named, organized with grounding + open questions.
+Each is a feature this doc names, organized with grounding + open questions.
 
 ### 7.1 Charitable under-bar transcription *(the headline feature)*
 - Identity (2a) via accent grammar, **seeded by UXLC's own `m`/`d`/`t` notes** (§2, §5): start from
@@ -298,7 +300,7 @@ Each is a feature the brainstorm named, organized with grounding + open question
 ### 7.2 Restoration of WLC bracket notes
 - Source: the vendored `wlc-utils/out/wlc422-kq-u/` (kq-u WLC 4.22), with definitions from
   `wlc-utils/py/cmn/wlc_bracket_note_definitions.py`.
-- **Caution (from the brainstorm):** apply a bracket note to a word **only after careful
+- **Caution:** apply a bracket note to a word **only after careful
   inspection** when that word **differs between UXLC and WLC** — the note may no longer apply.
   → Implies a per-word UXLC-vs-WLC diff gate before attaching a bracket note. **[TBD]** build/
   reuse that diff (wlc-utils already has 4.20-vs-4.22 diff tooling; a WLC-vs-UXLC diff may need
@@ -306,11 +308,11 @@ Each is a feature the brainstorm named, organized with grounding + open question
 
 ### 7.3 UXLC notes — MAM-style, no word-interrupting callouts
 - Adopt the MAM-with-doc presentation: text column stays clean; notes live in a side column /
-  apparatus. **Difference from MAM:** the brainstorm wants notes to be **always links**, whereas
+  apparatus. **Difference from MAM:** CLC wants notes to be **always links**, whereas
   MAM only links the *long* (> 400-char) notes and inlines the short ones. → CLC drops the
   length threshold and links uniformly. **Decided: always link** — uniform links, no MAM-style
   inline-short / link-long threshold.
-- **Note text source — settled (was the brainstorm's biggest unknown).** The `<x>` element carries
+- **Note text source — settled (once this doc's biggest unknown).** The `<x>` element carries
   only a one-letter *type* (cf. [`_handle_wc_x`](py/main_fois.py#L54-L59)); the rendered prose is the
   **actual tanach.us note page**, downloaded **offline** into committed [in/UXLC-notes/](in/UXLC-notes/)
   by [main_clc_download_notes](py/main_clc_download_notes.py) and read at build time by
