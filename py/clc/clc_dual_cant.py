@@ -51,6 +51,7 @@ improve UXLC by importing MAM's auxiliary adjudication of an ambiguity that is
 grammatical, not graphical.
 """
 
+import unicodedata
 from dataclasses import dataclass
 
 import mb_cmn.hebrew_accents as acc
@@ -78,11 +79,17 @@ _SUPPLIABLE = {hpu.MAQ, hpu.SOPA}
 # Display names for a supplied mark, used in the synthesized doc-column note.
 _ADDED_NAME = {hpu.MAQ: "maqaf", hpu.SOPA: "sof pasuq"}
 
-# Display names for an accent a strand wants but UXLC omitted (noted, not supplied).
-_OMITTABLE = {
+# Display names for accents NAMED in an omitted-accent note — both the accent a strand
+# wants and the accent UXLC actually has (the other strand's). Curated so the note reads
+# nicely ("munaḥ", not "munah"); an uncurated accent falls back to its cleaned Unicode name
+# (see _accent_name) so a note never crashes. The OMITTABLE subset (those a strand may want
+# supplied-but-noted) is validated against this map in _validate_oracle.
+_ACCENT_NAME = {
     acc.TIP: "tipḥa",
     acc.ATN: "etnaḥta",
     acc.PASH: "pashta",
+    acc.MUN: "munaḥ",
+    acc.ZAQ_Q: "zaqef",
     hpo.MTGOSLQ: "silluq",  # the meteg/silluq codepoint (U+05BD); verse-final here
 }
 
@@ -90,6 +97,15 @@ _OMITTABLE = {
 def _is_accent(ch):
     """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
     return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
+
+
+def _accent_name(ch):
+    """Display name of an accent for a note — curated where it matters, else a cleaned
+    Unicode name (so the note always says *which* accent, never an abstract placeholder)."""
+    if ch in _ACCENT_NAME:
+        return _ACCENT_NAME[ch]
+    return unicodedata.name(ch, "accent").replace("HEBREW ACCENT ", "").replace(
+        "HEBREW POINT ", "").lower()
 
 
 # Ref-label suffixes shown in the page (user-facing): combined / alef / bet.
@@ -396,11 +412,11 @@ def strand_views(book_id, ch, v, verse_atoms):
         StrandView(SUFFIX_COMBINED, TOOLTIP_COMBINED, "", verse_atoms),
         StrandView(
             SUFFIX_ALEF, alef_strand.tooltip, alef_strand.doc_label,
-            alef_atoms, _strand_notes(alef_atoms, alef_strand, bet_strand),
+            alef_atoms, _strand_notes(alef_atoms, bet_atoms, alef_strand, bet_strand),
         ),
         StrandView(
             SUFFIX_BET, bet_strand.tooltip, bet_strand.doc_label,
-            bet_atoms, _strand_notes(bet_atoms, bet_strand, alef_strand),
+            bet_atoms, _strand_notes(bet_atoms, alef_atoms, bet_strand, alef_strand),
         ),
     ]
 
@@ -423,21 +439,33 @@ def _split_atom(atom, atom_index, oracle, strand):
             "omitted_accents": list(omitted)}
 
 
-def _strand_notes(strand_atoms, strand, other_strand):
+def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand):
     """Synthesize this strand's notes: one per SUPPLIED mark and one per accent it
     wants but UXLC OMITTED, in atom order.
+
+    ``other_strand_atoms`` is the sibling strand's atoms — used to name the accent UXLC
+    *does* have at an omitted-accent atom (the one the other strand keeps and this one
+    lacks), so the note says which accent it is rather than an abstract placeholder.
 
     Lightweight, JSON-serializable dicts — NOT ClcNotes: strand rows own no
     anchors/always-links and no §7.9 departure record yet (design doc §7.7 keeps
     strands display-only). clc_render composes the prose around the snippet.
     """
     notes = []
-    for atom in strand_atoms:
+    for atom, other_atom in zip(strand_atoms, other_strand_atoms):
         for added_char in atom.get("additions", ()):
             notes.append(_added_note(atom["text"], added_char))
         for omitted_char in atom.get("omitted_accents", ()):
-            notes.append(_omitted_note(atom["text"], omitted_char, strand, other_strand))
+            present = _present_accent(atom["text"], other_atom["text"])
+            notes.append(_omitted_note(atom["text"], omitted_char, present, strand, other_strand))
     return tuple(notes)
+
+
+def _present_accent(this_text, other_text):
+    """The accent UXLC has at this atom: the (single) accent the OTHER strand keeps and
+    this strand lacks — i.e. the divergent accent present in UXLC. ``None`` if none."""
+    this_accents = {ch for ch in this_text if _is_accent(ch)}
+    return next((ch for ch in other_text if _is_accent(ch) and ch not in this_accents), None)
 
 
 def _added_note(snippet, added_char):
@@ -450,15 +478,18 @@ def _added_note(snippet, added_char):
     }
 
 
-def _omitted_note(snippet, accent_char, strand, other_strand):
-    """An accent this strand wants but UXLC omitted — noted, not supplied. The
-    snippet is the strand word AS SHOWN (that accent absent); no mark is rendered."""
+def _omitted_note(snippet, accent_char, present_char, strand, other_strand):
+    """An accent this strand wants but UXLC omitted — noted, not supplied. The snippet is
+    the strand word AS SHOWN (that accent absent); no mark is rendered. ``present_char`` is
+    the accent UXLC *does* have here (the other strand's), named in the note for concreteness."""
     return {
-        "kind": _OMITTABLE[accent_char],   # "tipḥa" / "etnaḥta" / "pashta" / "silluq"
-        "char": accent_char,               # the wanted accent (for reference; not rendered)
-        "snippet": snippet,                # the strand word, shown without the accent
-        "strand": strand.short,          # the strand that wants it ("elyon"/"taḥton"/…)
-        "other_strand": other_strand.short,  # the strand whose accent UXLC did write
+        "kind": _accent_name(accent_char),       # the wanted accent, e.g. "silluq"
+        "char": accent_char,                     # the wanted accent (for reference; not rendered)
+        "present_kind": _accent_name(present_char) if present_char else None,  # the accent UXLC has
+        "present_char": present_char,
+        "snippet": snippet,                      # the strand word, shown without the accent
+        "strand": strand.short,                  # the strand that wants it ("elyon"/"taḥton"/…)
+        "other_strand": other_strand.short,      # the strand whose accent UXLC does have
         "source": clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
         "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_ACCENT,
     }
@@ -481,8 +512,9 @@ def _validate_oracle():
                     assert ch in _SUPPLIABLE, ch  # only punctuation is ever supplied
             for omitted in entry.get("omit", {}).values():
                 for ch in omitted:
-                    # only ACCENTS are noted-as-omitted; punctuation would be supplied instead
-                    assert _is_accent(ch) and ch in _OMITTABLE, ch
+                    # only ACCENTS are noted-as-omitted; punctuation would be supplied instead.
+                    # Require a curated display name so the note reads cleanly (e.g. "silluq").
+                    assert _is_accent(ch) and ch in _ACCENT_NAME, ch
                     assert ch not in _SUPPLIABLE, ch
 
 

@@ -139,17 +139,19 @@ def _strand_doc_contents(view):
 
 def _omitted_note_block(note):
     # "the <strand> strand calls for a(n) <accent> on <word> here, but UXLC's combined text
-    # carries only the <other> strand's accent, and it is beyond the limits of CLC's charity
-    # to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark (nothing is
-    # added to the strand; cf. _added_note_block). Accents are noted, never supplied (§7.7).
+    # carries only the <other> strand's <present accent>, and it is beyond the limits of CLC's
+    # charity to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark
+    # (nothing is added to the strand; cf. _added_note_block). The accent UXLC *does* have is
+    # named, not abstracted. Accents are noted, never supplied (§7.7).
     article = "an" if note["kind"][:1] in "aeiou" else "a"
+    has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
+           if note.get("present_kind") else f"no accent for the {note['strand']} strand")
     return H.div(
         [
             f"the {note['strand']} strand calls for {article} {note['kind']} on ",
             H.span(note["snippet"], _HBO_ATTR),
-            f" here, but UXLC’s combined text carries only the {note['other_strand']}"
-            f" strand’s accent, and it is beyond the limits of CLC’s charity to supply"
-            f" the missing {note['kind']}",
+            f" here, but UXLC’s combined text carries {has}, and it is beyond the limits"
+            f" of CLC’s charity to supply the missing {note['kind']}",
         ],
         {"class": "clc-added-note"},
     )
