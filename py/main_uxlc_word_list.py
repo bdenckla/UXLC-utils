@@ -54,12 +54,12 @@ def _annotate_word(fragile_word):
     f_w = fragile_word
     f_w_n = unicodedata.normalize("NFC", f_w)
     fcs0 = unf.get_fragile_comps(fragile_word)
-    fcs1 = tuple(map(uh.comma_shunnas, fcs0))
+    fcs1 = tuple(map(uh.join_shunnas, fcs0))
     return {
         "fragile_word_u": f_w,
         "fragile_word_n": f_w_n,
-        "fragile_word_u_cs": uh.comma_shunnas(f_w),
-        "fragile_word_n_cs": uh.comma_shunnas(f_w_n),
+        "fragile_word_u_cs": uh.join_shunnas(f_w),
+        "fragile_word_n_cs": uh.join_shunnas(f_w_n),
         "fragile_word_u_with_drops": fcs1[0],
         "fragile_word_n_with_drops": fcs1[1],
     }

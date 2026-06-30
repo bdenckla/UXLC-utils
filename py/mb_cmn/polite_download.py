@@ -12,7 +12,6 @@ from urllib.robotparser import RobotFileParser
 
 import requests
 
-
 _RETRYABLE_STATUS_CODES = (408, 429, 500, 502, 503, 504)
 
 

@@ -350,6 +350,11 @@ def test_decalogue_omitted_accent():
     # nothing green/bracketed is added to the strand text.
     tipeha, etnahta, pashta, silluq = acc.TIP, acc.ATN, acc.PASH, _METEG
     OMIT = dc.clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT
+    # Names are asserted from the canonical authority, never hardcoded: the omitted/present
+    # accents must read exactly as describe_diff spells them ("tipeḥa", "zaqef-qatan", …).
+    # "silluq" is the lone exception — CLC's own override for U+05BD (which describe_diff knows
+    # only as "meteg"), so it is pinned as a literal.
+    canon = dc.describe_diff.accent_name
 
     def _omit_notes(view):  # the omitted-accent notes only
         return [n for n in view.notes if n["source"] == OMIT]
@@ -362,10 +367,10 @@ def test_decalogue_omitted_accent():
     assert pashta not in b1 and tipeha not in b1, b1          # elyon: accent-less (none supplied)
     assert alef.notes == ()                                   # taḥton omits nothing
     bnotes = _omit_notes(bet)
-    assert [n["kind"] for n in bnotes] == ["tipḥa", "etnaḥta"], bnotes
+    assert [n["kind"] for n in bnotes] == [canon(acc.TIP), canon(acc.ATN)], bnotes
     assert all(n["strand"] == "elyon" and n["other_strand"] == "taḥton" for n in bnotes)
-    # the note names the accent UXLC actually HAS (taḥton's pashta on אנכי, zaqef on אלהיך).
-    assert [n["present_kind"] for n in bnotes] == ["pashta", "zaqef"], bnotes
+    # the note names the accent UXLC actually HAS (taḥton's pashta on אנכי, zaqef-qatan on אלהיך).
+    assert [n["present_kind"] for n in bnotes] == [canon(acc.PASH), canon(acc.ZAQ_Q)], bnotes
     assert bet.atoms[0]["omitted_accents"] == [tipeha]
     assert bet.atoms[2]["omitted_accents"] == [etnahta]
 
@@ -376,8 +381,8 @@ def test_decalogue_omitted_accent():
     assert pashta not in a2 and acc.MUN not in a2, a2         # taḥton: accent-less (none supplied)
     assert acc.MUN in b2, b2                                  # elyon: keeps the munaḥ
     anotes = _omit_notes(alef)
-    assert [n["kind"] for n in anotes] == ["pashta"] and anotes[0]["strand"] == "taḥton"
-    assert anotes[0]["present_kind"] == "munaḥ"   # UXLC has the elyon munaḥ here
+    assert [n["kind"] for n in anotes] == [canon(acc.PASH)] and anotes[0]["strand"] == "taḥton"
+    assert anotes[0]["present_kind"] == canon(acc.MUN)   # UXLC has the elyon munaḥ here
     assert _omit_notes(bet) == []
 
     # dt 5:17 (תרצח): UXLC has the elyon verse-end's sof-pasuq but NOT its silluq, so elyon's
@@ -390,7 +395,7 @@ def test_decalogue_omitted_accent():
     assert silluq not in b and tipeha not in b, b                     # but its silluq is omitted
     bnotes = _omit_notes(bet)
     assert [n["kind"] for n in bnotes] == ["silluq"] and bnotes[0]["strand"] == "elyon"
-    assert bnotes[0]["present_kind"] == "tipḥa"   # UXLC has taḥton's tipḥa here
+    assert bnotes[0]["present_kind"] == canon(acc.TIP)   # UXLC has taḥton's tipeḥa here
     assert _omit_notes(alef) == []
 
     # Render: the omitted-accent note names BOTH accents — the one wanted (silluq) and the one
@@ -398,7 +403,7 @@ def test_decalogue_omitted_accent():
     # or bracketed (unlike a supplied mark). No abstract "the other strand's accent".
     note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(bnotes[0]))
     assert "elyon strand calls for a silluq" in note_html
-    assert "carries only the taḥton strand’s tipḥa" in note_html
+    assert f"carries only the taḥton strand’s {canon(acc.TIP)}" in note_html
     assert "beyond the limits of CLC’s charity to supply the missing silluq" in note_html
     assert "clc-added-during-detangling" not in note_html and "clc-added-bracket" not in note_html
     # and the strand TEXT column supplies no green mark for an omitted accent.

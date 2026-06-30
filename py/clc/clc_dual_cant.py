@@ -34,7 +34,7 @@ strand wants an accent UXLC omitted, a note in lieu of inventing one**:
     shows the word as UXLC has it (that accent absent) and synthesizes a per-strand
     **note** instead. This is the sharpened §7.7 departure from the wlc-utils
     *detangler*, which (being a grammar-checker) *supplies* the missing accent from
-    MAM so its strand parses. The Decalogue cases: Deut 5:6 (elyon's tipḥa on אנכי
+    MAM so its strand parses. The Decalogue cases: Deut 5:6 (elyon's tipeḥa on אנכי
     + etnaḥta on אלהיך), 5:13 (taḥton's pashta on ימים), 5:17 (elyon's silluq on
     תרצח — UXLC has the sof-pasuq but not its silluq).
 
@@ -51,13 +51,13 @@ improve UXLC by importing MAM's auxiliary adjudication of an ambiguity that is
 grammatical, not graphical.
 """
 
-import unicodedata
 from dataclasses import dataclass
 
 import mb_cmn.hebrew_accents as acc
 import mb_cmn.hebrew_letters as hl
 import mb_cmn.hebrew_points as hpo
 import mb_cmn.hebrew_punctuation as hpu
+import mb_diff_mpu.describe_diff as describe_diff
 import clc.clc_note as clc_note
 
 
@@ -79,33 +79,22 @@ _SUPPLIABLE = {hpu.MAQ, hpu.SOPA}
 # Display names for a supplied mark, used in the synthesized doc-column note.
 _ADDED_NAME = {hpu.MAQ: "maqaf", hpu.SOPA: "sof pasuq"}
 
-# Display names for accents NAMED in an omitted-accent note — both the accent a strand
-# wants and the accent UXLC actually has (the other strand's). Curated so the note reads
-# nicely ("munaḥ", not "munah"); an uncurated accent falls back to its cleaned Unicode name
-# (see _accent_name) so a note never crashes. The OMITTABLE subset (those a strand may want
-# supplied-but-noted) is validated against this map in _validate_oracle.
-_ACCENT_NAME = {
-    acc.TIP: "tipḥa",
-    acc.ATN: "etnaḥta",
-    acc.PASH: "pashta",
-    acc.MUN: "munaḥ",
-    acc.ZAQ_Q: "zaqef",
-    hpo.MTGOSLQ: "silluq",  # the meteg/silluq codepoint (U+05BD); verse-final here
-}
-
-
 def _is_accent(ch):
     """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
     return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
 
 
 def _accent_name(ch):
-    """Display name of an accent for a note — curated where it matters, else a cleaned
-    Unicode name (so the note always says *which* accent, never an abstract placeholder)."""
-    if ch in _ACCENT_NAME:
-        return _ACCENT_NAME[ch]
-    return unicodedata.name(ch, "accent").replace("HEBREW ACCENT ", "").replace(
-        "HEBREW POINT ", "").lower()
+    """Display name of an accent for an omitted-accent note, taken from the canonical
+    mb_diff_mpu authority (``describe_diff.accent_name`` — e.g. "tipeḥa", "zaqef-qatan",
+    "munaḥ") so CLC never reinvents a spelling. One CLC override: U+05BD is named "silluq"
+    — its verse-final reading here (design doc §2) — where describe_diff knows that
+    codepoint only as the mark "meteg" (its ``accent_name`` falls back to the raw Unicode
+    name there). ``_validate_oracle`` guarantees every omittable accent has a canonical
+    name, so this never returns a "HEBREW …" placeholder."""
+    if ch == hpo.MTGOSLQ:
+        return "silluq"
+    return describe_diff.accent_name(ch)
 
 
 # Ref-label suffixes shown in the page (user-facing): combined / alef / bet.
@@ -513,8 +502,11 @@ def _validate_oracle():
             for omitted in entry.get("omit", {}).values():
                 for ch in omitted:
                     # only ACCENTS are noted-as-omitted; punctuation would be supplied instead.
-                    # Require a curated display name so the note reads cleanly (e.g. "silluq").
-                    assert _is_accent(ch) and ch in _ACCENT_NAME, ch
+                    # Require a canonical display name so the note reads cleanly — either a
+                    # curated mb_diff_mpu name or CLC's silluq override for U+05BD — never a raw
+                    # "HEBREW …" Unicode fallback (see _accent_name).
+                    assert _is_accent(ch), ch
+                    assert ch == hpo.MTGOSLQ or ch in describe_diff.ACCENT_NAMES, ch
                     assert ch not in _SUPPLIABLE, ch
 
 
