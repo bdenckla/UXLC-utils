@@ -19,6 +19,7 @@ import clc.clc_changes as clc_changes
 import clc.clc_note as clc_note
 import clc.clc_note_pages as clc_note_pages
 import clc.clc_read as clc_read
+import uxlc_misc.my_uxlc as my_uxlc
 
 # The under-bar ambiguity codes that seed CLC (design doc §2): m (prose
 # merkha/meteg), d (poetic deḥi/tarḥa), and the catch-all t. Listed m/d/t first.
@@ -114,6 +115,9 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
         is_uxlc_departure=False,    # skeleton only surfaces the ambiguity
         uxlc_reading=atom_text,
         clc_reading=atom_text,      # ... so CLC's reading == UXLC's for now
+        source_url=my_uxlc.note_page_url(book_id, ch, v, position, code)
+        if page_prose
+        else "",
     )
 
 

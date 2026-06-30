@@ -11,7 +11,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "בְּעֵ֖דֶן",
-    "clc_reading": "בְּעֵ֖דֶן"
+    "clc_reading": "בְּעֵ֖דֶן",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.2.8.5-t.html"
   },
   {
     "book": "Genesis",
@@ -25,7 +26,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "וְנָהָר֙",
-    "clc_reading": "וְנָהָר֙"
+    "clc_reading": "וְנָהָר֙",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.2.10.1-t.html"
   },
   {
     "book": "Genesis",
@@ -39,7 +41,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "גָּֽבְר֛וּ",
-    "clc_reading": "גָּֽבְר֛וּ"
+    "clc_reading": "גָּֽבְר֛וּ",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.7.19.2-m.html"
   },
   {
     "book": "Genesis",
@@ -53,7 +56,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "וַיֹּ֥אמֶ֥ר ׀",
-    "clc_reading": "וַיֹּ֥אמֶ֥ר ׀"
+    "clc_reading": "וַיֹּ֥אמֶ֥ר ׀",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.18.15.8-t.html"
   },
   {
     "book": "Genesis",
@@ -67,7 +71,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "וַֽיַחֲבֹשׁ֙",
-    "clc_reading": "וַֽיַחֲבֹשׁ֙"
+    "clc_reading": "וַֽיַחֲבֹשׁ֙",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.22.3.4-t.html"
   },
   {
     "book": "Genesis",
@@ -81,7 +86,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "אֲבִימֶ֥לֶךְ",
-    "clc_reading": "אֲבִימֶ֥לֶךְ"
+    "clc_reading": "אֲבִימֶ֥לֶךְ",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.26.1.14-t.html"
   },
   {
     "book": "Genesis",
@@ -95,7 +101,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "פַּדֶּֽנָֽה",
-    "clc_reading": "פַּדֶּֽנָֽה"
+    "clc_reading": "פַּדֶּֽנָֽה",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.28.7.8-m.html"
   },
   {
     "book": "Genesis",
@@ -109,7 +116,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "חֲמֹרֵיהֶ֑ם",
-    "clc_reading": "חֲמֹרֵיהֶ֑ם"
+    "clc_reading": "חֲמֹרֵיהֶ֑ם",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.34.28.6-t.html"
   },
   {
     "book": "Genesis",
@@ -123,7 +131,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "עָ֥שָׂה",
-    "clc_reading": "עָ֥שָׂה"
+    "clc_reading": "עָ֥שָׂה",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.39.19.13-t.html"
   },
   {
     "book": "Genesis",
@@ -137,7 +146,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "חָ֥טְא֛וּ",
-    "clc_reading": "חָ֥טְא֛וּ"
+    "clc_reading": "חָ֥טְא֛וּ",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.40.1.5-t.html"
   },
   {
     "book": "Genesis",
@@ -151,7 +161,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "הַשִׁבֳּלִ֣ים",
-    "clc_reading": "הַשִׁבֳּלִ֣ים"
+    "clc_reading": "הַשִׁבֳּלִ֣ים",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.41.24.2-t.html"
   },
   {
     "book": "Genesis",
@@ -165,7 +176,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "אֵינֶ֙נּוּ֙",
-    "clc_reading": "אֵינֶ֙נּוּ֙"
+    "clc_reading": "אֵינֶ֙נּוּ֙",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.42.36.8-t.html"
   },
   {
     "book": "Genesis",
@@ -179,6 +191,7 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "וּפֻוָּ֖ה",
-    "clc_reading": "וּפֻוָּ֖ה"
+    "clc_reading": "וּפֻוָּ֖ה",
+    "source_url": "https://tanach.us/Notes/Genesis/Genesis.46.13.4-t.html"
   }
 ]

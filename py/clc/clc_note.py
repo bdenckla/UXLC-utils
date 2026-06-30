@@ -35,6 +35,7 @@ class ClcNote:
     is_uxlc_departure: bool  # does CLC depart from UXLC here?
     uxlc_reading: str    # what UXLC reads at this atom
     clc_reading: str     # what CLC reads at this atom
+    source_url: str = ""  # tanach.us note page this note's prose came from ("" if none)
 
     def as_dict(self):
         """Return a plain JSON-serializable dict of this note."""

@@ -36,19 +36,13 @@ import clc.clc_read as clc_read
 _DEFAULT_BOOK = tbn.BK_PROV
 
 
-def note_page_url(book_id, ch, v, position, code):
-    """The tanach.us note-page URL for one (atom, code), by canonical book name."""
-    name = my_uxlc.book_basename(book_id)
-    return f"https://tanach.us/Notes/{name}/{name}.{ch}.{v}.{position}-{code}.html"
-
-
 def _download_one(session, book_id, ch, v, position, code):
     """Fetch one note page and write it locally; return True on success.
 
     Returns False if the page is missing (404 -- the note predates the change log,
     or tanach.us has none) or the request fails after retries.
     """
-    url = note_page_url(book_id, ch, v, position, code)
+    url = my_uxlc.note_page_url(book_id, ch, v, position, code)
     try:
         text = session.get_text(url, timeout=20, encoding="utf-8")
     except requests.RequestException:

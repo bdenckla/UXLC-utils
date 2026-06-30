@@ -12,6 +12,7 @@ to MAM's ``mam-doc-*`` (design doc §8); the rules live in gh-pages/style.css.
 """
 
 import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
+import clc.clc_attribution as clc_attribution
 import clc.clc_dual_cant as clc_dual_cant
 import clc.clc_kq as clc_kq
 import uxlc_misc.uxlc_utils_html as H
@@ -248,6 +249,7 @@ def _note_block(ch, v, position, atom_notes):
         entries.append(H.line_break())
         entries.append(H.span(f"[{note.note_code}] ", {"class": "clc-note-code"}))
         entries.append(note.note_text)
+        entries.append(clc_attribution.note_cite(source_url=note.source_url or None))
     return H.div(entries, {"id": _anchor_id(ch, v, position), "class": "clc-note"})
 
 
@@ -259,6 +261,7 @@ def _body_wrapper(book_id, notes, table):
     style = "max-width: 60rem; margin-left: auto; margin-right: auto"
     contents = [
         H.heading_level_1(f"Charitable Leningrad Codex — {book_id}"),
+        clc_attribution.top_credit(),
         _intro_para(notes),
         table,
     ]

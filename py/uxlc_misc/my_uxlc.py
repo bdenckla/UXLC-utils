@@ -21,6 +21,12 @@ def book_basename(book_id):
     return _UXLC_BOOK_FILE_NAMES[book_id]
 
 
+def note_page_url(book_id, ch, v, position, code):
+    """The tanach.us note-page URL for one (atom, code), by canonical book name."""
+    name = book_basename(book_id)
+    return f"https://tanach.us/Notes/{name}/{name}.{ch}.{v}.{position}-{code}.html"
+
+
 def read(book_id, handlers=None):
     """Read book with id book_id into a list of chapters."""
     handlers = handlers or _VERSE_CHILD_HANDLERS
