@@ -267,9 +267,81 @@ def test_decalogue_sof_pasuq_suppression():
     assert all(v.added_notes == () for v in (alef, bet, alef5, bet5))
 
 
+def test_decalogue_supplied_sof_pasuq():
+    # ex 20:8 (זכור): the first SUPPLIED sof-pasuq in the Decalogues. Its last word
+    # לְקַדְּשֽׁ֗וֹ ends the taḥton (alef) prose verse — silluq, present in UXLC — while elyon
+    # (bet) keeps revia and reads on. UXLC wrote NO sof-pasuq there (unlike ex 20:5 atom 21,
+    # the same shape, where it did); MAM's cant-alef confirms one belongs, so taḥton supplies
+    # it — bracketed/green in atom["additions"], never folded into the subtracted text.
+    revia, silluq = acc.REV, _METEG
+    combined = _read_atoms("Exodus.xml", 20, 8)
+    assert len(combined) == 5, f"expected 5 atoms, got {len(combined)}"
+    _c, alef, bet = dc.strand_views("Exodus", 20, 8, combined)
+
+    a5, b5 = alef.atoms[4], bet.atoms[4]          # לקדשו, the supplied-supply word
+    # taḥton: keeps silluq, drops revia, and the supplied sof-pasuq is metadata only.
+    assert silluq in a5["text"] and revia not in a5["text"], a5["text"]
+    assert _SOF_PASUQ not in a5["text"], a5["text"]
+    assert a5["additions"] == [_SOF_PASUQ]
+    # elyon: keeps revia, drops silluq, supplies nothing.
+    assert revia in b5["text"] and silluq not in b5["text"], b5["text"]
+    assert _SOF_PASUQ not in b5["text"]
+    assert b5.get("additions", []) == []
+
+    # The SUBTRACTED text of neither strand invents a sof-pasuq — UXLC's ex 20:8 has none
+    # (the omission CLC restores), so both subtracted strands still have zero; only alef's
+    # rendered form (text + supplied) carries one.
+    whole_combined = "".join(a["text"] for a in combined)
+    assert _count(whole_combined, _SOF_PASUQ) == 0
+    for view, n_supplied in ((alef, 1), (bet, 0)):
+        whole_text = "".join(a["text"] for a in view.atoms)
+        assert _count(whole_text, _SOF_PASUQ) == 0
+        supplied = [ch for a in view.atoms for ch in a.get("additions", ())]
+        assert _count(whole_text + "".join(supplied), _SOF_PASUQ) == n_supplied
+    assert len(alef.added_notes) == 1 and alef.added_notes[0]["kind"] == "sof pasuq"
+    assert bet.added_notes == ()
+
+    # The supplied sof-pasuq renders bracketed/green in the alef text column; bet stays plain.
+    alef_html = _render(clc_render._plain_text_contents(alef.atoms, combined))
+    assert "clc-added-during-detangling" in alef_html and _SOF_PASUQ in alef_html
+    bet_html = _render(clc_render._plain_text_contents(bet.atoms, combined))
+    assert "clc-added-during-detangling" not in bet_html
+
+
+def test_decalogue_rafe_dagesh():
+    # A בגדכפת letter the two readings harden/soften differently. Policy 1 (faithful): the
+    # HARD reading keeps UXLC's dagesh, the SOFT reading keeps UXLC's rafe; each drops the
+    # other's mark. Where UXLC wrote no rafe, the soft letter stays bare (no rafe supplied).
+    tipeha = acc.TIP
+
+    # ex 20:13 (לא תרצח): UXLC stacks dagesh+rafe on the ת. taḥton (alef) is SOFT — it joins
+    # the next commandment (mid-unit tipḥa, no verse-end); elyon (bet) is HARD and ends its
+    # one-word verse (dagesh + silluq + sof-pasuq). Pure subtraction — no mark supplied.
+    _c, alef, bet = dc.strand_views("Exodus", 20, 13, _read_atoms("Exodus.xml", 20, 13))
+    a, b = alef.atoms[1]["text"], bet.atoms[1]["text"]          # תרצח
+    assert _RAFE in a and _DAGESH not in a, a                   # taḥton: soft (rafe kept)
+    assert tipeha in a and _METEG not in a and _SOF_PASUQ not in a, a  # mid-unit, reads on
+    assert _DAGESH in b and _RAFE not in b, b                   # elyon: hard (dagesh kept)
+    assert _METEG in b and _SOF_PASUQ in b and tipeha not in b, b      # silluq + sof-pasuq
+    assert all(v.added_notes == () for v in (alef, bet))        # nothing supplied here
+
+    # ex 20:9 (ששת...): atom 5 כָּל־ — taḥton HARD (keeps dagesh), elyon SOFT. UXLC wrote NO
+    # rafe on this כל, so elyon's kaf is bare (Policy 1 supplies none). Atom 6 still supplies
+    # the taḥton sof-pasuq, so the verse is otherwise the ex 20:8 shape.
+    _c9, alef9, bet9 = dc.strand_views("Exodus", 20, 9, _read_atoms("Exodus.xml", 20, 9))
+    a5, b5 = alef9.atoms[4]["text"], bet9.atoms[4]["text"]      # כל
+    assert _DAGESH in a5, a5                                    # taḥton: hard (dagesh kept)
+    assert _DAGESH not in b5 and _RAFE not in b5, b5            # elyon: bare (no rafe supplied)
+    assert _count(a5, hl.KAF) == _count(b5, hl.KAF) == 1        # consonant untouched
+    assert alef9.atoms[5]["additions"] == [_SOF_PASUQ]          # atom 6 supplies the sof-pasuq
+    assert len(alef9.added_notes) == 1 and bet9.added_notes == ()
+
+
 def main():
     test_is_dual_cant()
     test_decalogue_sof_pasuq_suppression()
+    test_decalogue_supplied_sof_pasuq()
+    test_decalogue_rafe_dagesh()
     test_split_word_core()
     test_split_word_position_safe_qupo()
     test_split_word_position_safe_rafe_dagesh()

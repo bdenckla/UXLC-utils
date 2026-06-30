@@ -385,15 +385,22 @@ detangler is *charitable* about the strand *text*: it **supplies** omitted accen
   it** (a maqaf / sof-pasuq / legarmeh belonging to that reading — so a sof-pasuq is *suppressed*
   when its silluq is, and never sits on a word whose last accent is e.g. etnaḥta), and — where the
   two readings stack them on one letter — the other strand's **vowel** (a QUPO word's patax vs.
-  qamats) or **rafe/dagesh**. The cluster is replaced *by name at its exact site*
+  qamats) or **rafe/dagesh**. For rafe/dagesh the policy is **faithful**: where the two readings
+  harden/soften a בגדכפת letter (driven by the previous word's accent — a disjunctive pause hardens,
+  a conjunctive juncture softens), the **hard** reading keeps UXLC's dagesh and the **soft** reading
+  keeps UXLC's rafe; where UXLC wrote no rafe (e.g. ex 20:9 כל) the soft letter stays **bare** — no
+  rafe is ever supplied. The cluster is replaced *by name at its exact site*
   (`str.replace(cluster, resolution, 1)`), so a mark that recurs elsewhere in the word as a *shared*
   mark is never touched.
 - **Marked supply, bracketed and footnoted — never silent.** A mark a reading needs but UXLC lacks
   may be **supplied** only to improve legibility (e.g. the sof-pasuq that breaks Gen 35:22's pashuṭ
   into its two chanted verses), rendered **bracketed and green** (CSS `clc-added-during-detangling`)
   with a synthesized "added out of thin air" note. The rule is *no punctuation supplied unless it is
-  clearly marked as supplied* (cf. the analogous green/bracketed additions in wlc-utils). For now
-  only the Gen 35:22 sof-pasuq is supplied; Decalogue verses needing a supplied mark are deferred.
+  clearly marked as supplied* (cf. the analogous green/bracketed additions in wlc-utils). Three
+  sof-pasuqs are supplied so far — Gen 35:22 (pashuṭ) and the taḥton verse-ends of Exod 20:8 (לקדשו)
+  and 20:9 (מלאכתך), where UXLC wrote none. Verses needing a *non*-sof-pasuq supplied mark (a supplied
+  accent / silluq — dt 5:6, 13, 17) remain deferred, as do the QUPO vowel splits (ex 20:3, dt 5:7) and
+  the maqaf word-division / count-mismatch verses (ex 20:4, 10; dt 5:8, 12, 14, 15, 16).
 
 No consonant is changed and no *shared* mark removed (a mark both readings keep stays in both); only
 the divergent marks — accent and the punctuation tracking it — are subtracted (subtraction, incl. of
@@ -656,7 +663,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.4 change records as notes | not started | change log used only for the consistency guard, not as a note |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
-| §7.7 dual-cant strands | **partial** | Gen 35:22 done — near-subtractive + supplied-punct notes (clc_dual_cant); Decalogues + QUPO/rafe-dagesh await oracle data; no §7.9 departure rows |
+| §7.7 dual-cant strands | **partial** | Gen 35:22 + most Decalogue verses done (clc_dual_cant `_ORACLE`: ex 20:2,5,6,8,9,13–15; dt 5:9,10,18,19) — pure-accent + sof-pasuq suppression, 3 supplied sof-pasuqs (Gen 35:22, ex 20:8/9), rafe/dagesh by the faithful policy. Deferred: supplied accent (dt 5:6,13,17), QUPO vowel split (ex 20:3, dt 5:7), maqaf count-mismatch (ex 20:4,10; dt 5:8,12,14,15,16). No §7.9 departure rows |
 | §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
 | §7.9 differences-from-UXLC index | not started | needs `is_uxlc_departure` departures (none yet) + LC manuscript order (§9 #10) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |

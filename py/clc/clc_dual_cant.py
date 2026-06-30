@@ -23,8 +23,10 @@ narrowly-scoped, always-marked charity**:
     never silently**: it is rendered **bracketed and green** (CSS
     ``clc-added-during-detangling``) with a synthesized "added out of thin air"
     note (e.g. a sof-pasuq breaking Gen 35:22's pashuṭ into its two chanted
-    verses). For now only the Gen 35:22 sof-pasuq is supplied; the Decalogue
-    verses that would need a supplied mark are deferred (none silently baked in).
+    verses). So far three sof-pasuqs are supplied — Gen 35:22 (pashuṭ) and the
+    taḥton verse-ends of Exod 20:8 (לקדשו) and 20:9 (מלאכתך), where UXLC wrote
+    none; the remaining Decalogue verses that would need a *non*-sof-pasuq supplied
+    mark (a supplied accent) are deferred (none silently baked in).
 
 No consonant is changed and no *shared* mark removed (a mark both readings keep
 stays in both); only the divergent marks — accent and the punctuation that tracks
@@ -175,9 +177,13 @@ _ORACLE = {
     # the other keeps silluq, the sof-pasuq is SUPPRESSED in the non-silluq reading — it
     # appears only on a silluq word (e.g. ex 20:2 atom 9: elyon keeps silluq + sof-pasuq,
     # taḥton keeps etnaḥta with the sof-pasuq removed; ex 20:5 atom 21 is the mirror).
-    # Only the pure-accent (+ sof-pasuq-suppression) verses are encoded so far; verses
-    # needing a SUPPLIED mark, a rafe/dagesh or QUPO split, or word-division (maqaf) changes
-    # are still TBD (see .novc/entries.txt for the full ENCODE/DEFER partition).
+    # Encoded so far: the pure-accent (+ sof-pasuq-suppression) verses; ex 20:8 / ex 20:9
+    # whose taḥton verse-end SUPPLIES a sof-pasuq UXLC omitted (the additive charity); and the
+    # rafe/dagesh verses (ex 20:9,13–15; dt 5:18,19) where the two readings harden/soften a
+    # בגדכפת letter — the hard reading keeps UXLC's dagesh, the soft keeps UXLC's rafe (faithful,
+    # Policy 1; bare where UXLC wrote no rafe, as in ex 20:9 כל). Still TBD: verses needing a
+    # non-sof-pasuq SUPPLIED mark (a supplied accent/silluq — dt 5:6,7,13,17; ex 20:3), a QUPO
+    # vowel split, or word-division (maqaf) changes (see .novc/entries.txt for the partition).
     "Exodus": {
         (20, 2): {
             1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},
@@ -196,6 +202,51 @@ _ORACLE = {
             2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
         },
+        # ex 20:8 — the first SUPPLIED sof-pasuq in the Decalogues (the additive charity,
+        # like Gen 35:22). Atom 5 לְקַדְּשֽׁ֗וֹ ends the Sabbath-commandment's *first* prose
+        # verse: taḥton (alef) chants a verse-end there — silluq, already in UXLC — while
+        # elyon (bet) keeps revia and reads on (its Sabbath verse runs vv.8–11). UXLC wrote
+        # no sof-pasuq here (cf. ex 20:5 atom 21, the same shape, where it DID); MAM's
+        # cant-alef confirms one belongs, so taḥton SUPPLIES it (bracketed/green). Atoms
+        # 1/3/4 are pure-accent. ex 20:9 / dt 5:12 also want a supplied sof-pasuq but are
+        # entangled with a rafe/dagesh (כָּל) and a maqaf count-mismatch respectively — TBD.
+        (20, 8): {
+            1: {"cluster": acc.TEV + hl.VAV + hpo.XOLAM + hl.RESH + acc.TEL_Q, "alef": acc.TEV + hl.VAV + hpo.XOLAM + hl.RESH, "bet": hl.VAV + hpo.XOLAM + hl.RESH + acc.TEL_Q},
+            3: {"cluster": acc.MER + acc.QOM, "alef": acc.MER, "bet": acc.QOM},
+            4: {"cluster": acc.TIP + acc.GER, "alef": acc.TIP, "bet": acc.GER},
+            5: {"cluster": hpo.MTGOSLQ + acc.REV, "alef": hpo.MTGOSLQ, "bet": acc.REV, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+        },
+        # ex 20:9 (ששת ימים תעבד): the first rafe/dagesh split. Atom 5 כָּל־ ("all") — taḥton
+        # keeps the dagesh (hard: ועשית took a disjunctive tipḥa, so כל opens after a pause),
+        # elyon drops it (soft: ועשית took a conjunctive munaḥ). UXLC wrote no rafe here, so
+        # the soft kaf stays bare (faithful — Policy 1). Atom 6 מלאכתך supplies a sof-pasuq
+        # (taḥton ends v.9; elyon keeps segolta and reads on).
+        (20, 9): {
+            1: {"cluster": acc.MAH + acc.MUN, "alef": acc.MAH, "bet": acc.MUN},
+            2: {"cluster": acc.MUN + hl.YOD + hl.FMEM + acc.PASH, "alef": hl.YOD + hl.FMEM + acc.PASH, "bet": acc.MUN + hl.YOD + hl.FMEM},
+            3: {"cluster": acc.ZAQ_Q + hl.DALET + acc.Z_OR_TSOR, "alef": acc.ZAQ_Q + hl.DALET, "bet": hl.DALET + acc.Z_OR_TSOR},
+            4: {"cluster": acc.TIP + acc.MUN, "alef": acc.TIP, "bet": acc.MUN},
+            5: {"cluster": hl.KAF + hpo.DAGOMOSD, "alef": hl.KAF + hpo.DAGOMOSD, "bet": hl.KAF},
+            6: {"cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A, "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS, "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+        },
+        # ex 20:13–15 (לא תרצח / תנאף / תגנב): here taḥton joins each short commandment to the
+        # next (לא takes a conjunctive merkha/munaḥ, so the verb opens SOFT) while elyon chants
+        # each as its own verse (לא takes a disjunctive tipḥa → verb HARD + silluq + sof-pasuq).
+        # UXLC stacks dagesh+rafe on the verb's first letter, so the split is pure subtraction:
+        # taḥton keeps the rafe (soft) + its mid-unit accent, elyon keeps the dagesh (hard) +
+        # silluq + sof-pasuq. (Faithful — Policy 1: the soft letter shows UXLC's own rafe.)
+        (20, 13): {
+            1: {"cluster": acc.MER + acc.TIP, "alef": acc.MER, "bet": acc.TIP},
+            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + _CGJ + hpo.MTGOSLQ + hl.XET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + hl.XET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + hpo.MTGOSLQ + hl.XET + hpu.SOPA},
+        },
+        (20, 14): {
+            1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
+            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + acc.ATN + _CGJ + hpo.MTGOSLQ + hl.FPE + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + acc.ATN + hl.FPE, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + hl.FPE + hpu.SOPA},
+        },
+        (20, 15): {
+            1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
+            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + acc.ZAQ_Q + hl.BET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + acc.ZAQ_Q + hl.BET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + hl.BET + hpu.SOPA},
+        },
     },
     "Deuter": {
         (5, 9): {
@@ -208,6 +259,18 @@ _ORACLE = {
             1: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
             2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
+        },
+        # dt 5:18–19 (לא תנאף / תגנב): the Deuteronomy twins of ex 20:14–15 — same rafe/dagesh
+        # split (taḥton soft via the rafe, elyon hard via the dagesh + silluq + sof-pasuq), all
+        # stacked in UXLC so it is pure subtraction. (dt 5:13 כל and dt 5:17 תרצח also diverge
+        # in dagesh but additionally need a SUPPLIED accent UXLC omitted — deferred to that group.)
+        (5, 18): {
+            1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
+            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + acc.ATN + hl.FPE + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + acc.ATN + hl.FPE, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + hl.FPE + hpu.SOPA},
+        },
+        (5, 19): {
+            1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
+            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + acc.ZAQ_Q + hl.BET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + acc.ZAQ_Q + hl.BET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + hl.BET + hpu.SOPA},
         },
     },
 }
