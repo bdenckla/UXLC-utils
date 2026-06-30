@@ -6,28 +6,32 @@ them as one *combined* form in which both readings' accents are stacked onto the
 same words (e.g. רְאוּבֵ֔֗ן carries both zaqef ``U+0594`` and revia ``U+0597``).
 
 This module splits that combined form into the two single-cantillation strands —
-alef and bet — for side-by-side display. The split is **near-subtractive, with
-two narrowly-scoped charities** — a deliberate, *loud* departure from a purely
-subtractive split (cf. ``wlc-utils/py/accgram/dual_cant_detangle.py``, which is
-charitable but silent):
+alef and bet — for side-by-side display. The split is **subtractive, with one
+narrowly-scoped, always-marked charity**:
 
   * **Position-safe subtraction.** Each strand is UXLC's own combined word with
-    only the *other* strand's **divergence cluster** resolved: an accent, and —
-    where the two readings stack them on one letter — the other strand's **vowel**
-    (a QUPO word's patax vs. qamats) or **rafe/dagesh**. The cluster is replaced
-    *by name at its exact site* (``str.replace(cluster, resolution, 1)``), so a
-    mark that recurs elsewhere in the word as a *shared* mark is never touched.
-  * **Supplied punctuation.** A strand may have a **maqaf or sof-pasuq supplied**
-    — never anything else — *only* to improve legibility of that single reading
-    (e.g. a sof-pasuq breaking Gen 35:22's pashuṭ into its two chanted verses).
-    Every supplied mark is rendered **bracketed and green** (CSS
-    ``clc-added-during-detangling``) and carries a synthesized "added out of thin
-    air" note; nothing is silently baked in (clc_render renders both).
+    only the *other* strand's **divergence cluster** resolved: an accent, its
+    intimately-tracking **word-division punctuation** (a maqaf / sof-pasuq /
+    legarmeh that goes only with that reading — so a sof-pasuq is *suppressed*
+    when its silluq is, and never lands on a word whose last accent is e.g.
+    etnaḥta), and — where the two readings stack them on one letter — the other
+    strand's **vowel** (a QUPO word's patax vs. qamats) or **rafe/dagesh**. The
+    cluster is replaced *by name at its exact site* (``str.replace(cluster,
+    resolution, 1)``), so a mark that recurs elsewhere in the word as a *shared*
+    mark is never touched.
+  * **Marked supply.** A mark a reading needs but UXLC lacks may be **supplied —
+    never silently**: it is rendered **bracketed and green** (CSS
+    ``clc-added-during-detangling``) with a synthesized "added out of thin air"
+    note (e.g. a sof-pasuq breaking Gen 35:22's pashuṭ into its two chanted
+    verses). For now only the Gen 35:22 sof-pasuq is supplied; the Decalogue
+    verses that would need a supplied mark are deferred (none silently baked in).
 
-No consonant is changed, no *shared* mark removed, no re-division. MAM (via the
-wlc-utils detangler) is consulted **only as the oracle** for *which* of two
-stacked marks belongs to which reading, and where a supplied break falls —
-encoded once, by hand, in ``_ORACLE`` below. Nothing of MAM's text is imported.
+No consonant is changed and no *shared* mark removed (a mark both readings keep
+stays in both); only the divergent marks — accent and the punctuation that tracks
+it — are subtracted. MAM (via the wlc-utils detangler) is consulted **only as the
+oracle** for *which* of two stacked marks belongs to which reading, and where a
+supplied break falls — encoded once, by hand, in ``_ORACLE`` below. Nothing of
+MAM's text is imported.
 
 This is the same charitable shape as the legarmeh-vs-paseq feature (§7.16): both
 improve UXLC by importing MAM's auxiliary adjudication of an ambiguity that is
@@ -62,24 +66,53 @@ SUFFIX_COMBINED = "C"
 SUFFIX_ALEF = "א"  # HEBREW LETTER ALEF
 SUFFIX_BET = "ב"   # HEBREW LETTER BET
 
-# Hover descriptions for each ref label.
+# Hover description for the combined ref label (book-independent).
 TOOLTIP_COMBINED = (
     "Combined cantillation — both readings' accents tangled together, "
     "as written in the Leningrad Codex."
 )
-TOOLTIP_ALEF = (
+
+
+# Each dual-cant book uses a different pair of reading traditions, so the alef/bet
+# doc-labels and tooltips are per-book: Genesis 35:22 is pashuṭ / midrashit; the
+# Decalogues (Exodus 20, Deuteronomy 5) are taḥton / elyon. The alef strand is always
+# the verse-by-verse reading, bet the grouped/alternative one.
+@dataclass(frozen=True)
+class _Reading:
+    doc_label: str  # short doc-column label
+    tooltip: str    # hover description for the ref label
+
+
+_PASHUT = _Reading(
+    "pashuṭ (simple) reading",
     "Reading א (pashuṭ / simple): the verse-by-verse accentuation, "
     "separated from the combined marks using MAM as oracle — no mark "
-    "subtracted but the other reading's, only a maqaf/sof-pasuq supplied."
+    "subtracted but the other reading's, only a maqaf/sof-pasuq supplied.",
 )
-TOOLTIP_BET = (
+_MIDRASHIT = _Reading(
+    "midrashit (interpretive) reading",
     "Reading ב (midrashit / interpretive): the alternative accentuation, "
-    "separated the same way."
+    "separated the same way.",
+)
+_TAXTON = _Reading(
+    "taḥton (lower) reading",
+    "Reading א (taḥton / lower): the verse-by-verse cantillation that divides the "
+    "Decalogue into its prose verses, separated from the combined marks using MAM as "
+    "oracle — only the other reading's accents and the punctuation tracking them are "
+    "subtracted (so a sof-pasuq is dropped where this reading does not end a verse).",
+)
+_ELYON = _Reading(
+    "elyon (upper) reading",
+    "Reading ב (elyon / upper): the cantillation that chants each commandment as one "
+    "verse, separated the same way.",
 )
 
-# Short doc-column label naming each strand's reading.
-DOC_LABEL_ALEF = "pashuṭ (simple) reading"
-DOC_LABEL_BET = "midrashit (interpretive) reading"
+# alef/bet readings per dual-cant book (bk39 id).
+_READINGS = {
+    "Genesis": (_PASHUT, _MIDRASHIT),
+    "Exodus": (_TAXTON, _ELYON),
+    "Deuter": (_TAXTON, _ELYON),
+}
 
 
 # The hardcoded oracle. For each dual-cant verse, map a 1-based atom index (only
@@ -135,6 +168,48 @@ _ORACLE = {
             },
         },
     },
+    # The Decalogues (Exodus 20, Deuteronomy 5), taḥton (alef) / elyon (bet). Derived from
+    # MAM-simple's cant-alef / cant-bet strands (the oracle) diffed against UXLC's combined
+    # atoms by .novc/gen_entry.py, then self-verified by simulating split_word. Punctuation
+    # tracks accents: where a reading keeps a NON-silluq final accent (e.g. etnaḥta) while
+    # the other keeps silluq, the sof-pasuq is SUPPRESSED in the non-silluq reading — it
+    # appears only on a silluq word (e.g. ex 20:2 atom 9: elyon keeps silluq + sof-pasuq,
+    # taḥton keeps etnaḥta with the sof-pasuq removed; ex 20:5 atom 21 is the mirror).
+    # Only the pure-accent (+ sof-pasuq-suppression) verses are encoded so far; verses
+    # needing a SUPPLIED mark, a rafe/dagesh or QUPO split, or word-division (maqaf) changes
+    # are still TBD (see .novc/entries.txt for the full ENCODE/DEFER partition).
+    "Exodus": {
+        (20, 2): {
+            1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},
+            3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": acc.ATN},
+            8: {"cluster": acc.MUN + acc.MER, "alef": acc.MUN, "bet": acc.MER},
+            9: {"cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA, "alef": acc.ATN + hl.YOD + hl.FMEM, "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA},
+        },
+        (20, 5): {
+            2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            3: {"cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR, "alef": acc.TIP + hl.FMEM, "bet": hl.FMEM + acc.Z_OR_TSOR},
+            5: {"cluster": acc.ATN + hl.FMEM + acc.SEG_A, "alef": acc.ATN + hl.FMEM, "bet": hl.FMEM + acc.SEG_A},
+            21: {"cluster": hpo.MTGOSLQ + acc.ATN + hl.YOD + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.YOD + hpu.SOPA, "bet": acc.ATN + hl.YOD},
+        },
+        (20, 6): {
+            1: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
+            2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
+            3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
+        },
+    },
+    "Deuter": {
+        (5, 9): {
+            2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            3: {"cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR, "alef": acc.TIP + hl.FMEM, "bet": hl.FMEM + acc.Z_OR_TSOR},
+            5: {"cluster": acc.ATN + hl.FMEM + acc.SEG_A, "alef": acc.ATN + hl.FMEM, "bet": hl.FMEM + acc.SEG_A},
+            21: {"cluster": hpo.MTGOSLQ + acc.ATN + hl.YOD + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.YOD + hpu.SOPA, "bet": acc.ATN + hl.YOD},
+        },
+        (5, 10): {
+            1: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
+            2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
+            3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
+        },
+    },
 }
 
 
@@ -179,16 +254,17 @@ def strand_views(book_id, ch, v, verse_atoms):
     supplies.
     """
     oracle = _ORACLE[book_id][(ch, v)]
+    alef_reading, bet_reading = _READINGS[book_id]
     alef_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_ALEF)
     bet_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_BET)
     return [
         StrandView(SUFFIX_COMBINED, TOOLTIP_COMBINED, "", verse_atoms),
         StrandView(
-            SUFFIX_ALEF, TOOLTIP_ALEF, DOC_LABEL_ALEF,
+            SUFFIX_ALEF, alef_reading.tooltip, alef_reading.doc_label,
             alef_atoms, _strand_added_notes(alef_atoms),
         ),
         StrandView(
-            SUFFIX_BET, TOOLTIP_BET, DOC_LABEL_BET,
+            SUFFIX_BET, bet_reading.tooltip, bet_reading.doc_label,
             bet_atoms, _strand_added_notes(bet_atoms),
         ),
     ]

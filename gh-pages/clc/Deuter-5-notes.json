@@ -1,0 +1,30 @@
+[
+  {
+    "book": "Deuter",
+    "ch": 5,
+    "v": 8,
+    "atom_index": 2,
+    "atom_text": "תַעֲשֶֽׂ֙ה־",
+    "note_code": "t",
+    "note_text": "UXLC ‘t’ note: transcription uncertainty — examine the mark below the letter.",
+    "source": "uxlc-x-note",
+    "diff_type": "under-bar",
+    "is_uxlc_departure": false,
+    "uxlc_reading": "תַעֲשֶֽׂ֙ה־",
+    "clc_reading": "תַעֲשֶֽׂ֙ה־"
+  },
+  {
+    "book": "Deuter",
+    "ch": 5,
+    "v": 13,
+    "atom_index": 2,
+    "atom_text": "יָמִ֣ים",
+    "note_code": "t",
+    "note_text": "UXLC ‘t’ note: transcription uncertainty — examine the mark below the letter.",
+    "source": "uxlc-x-note",
+    "diff_type": "under-bar",
+    "is_uxlc_departure": false,
+    "uxlc_reading": "יָמִ֣ים",
+    "clc_reading": "יָמִ֣ים"
+  }
+]

@@ -61,21 +61,27 @@ _OLD = {
 }
 
 
-def _read_combined_atoms():
-    """Gen 35:22 as clc_read-shaped atoms, parsed directly from the UXLC XML."""
-    root = ET.parse(_XML).getroot()
+def _read_atoms(xml_name, chnu, vrnu):
+    """One verse as clc_read-shaped atoms, parsed directly from a UXLC XML file."""
+    path = os.path.join(_REPO_ROOT, "in", "UXLC-39", xml_name)
+    root = ET.parse(path).getroot()
     for c in root.iter("c"):
-        if c.get("n") != "35":
+        if c.get("n") != str(chnu):
             continue
         for v in c.iter("v"):
-            if v.get("n") != "22":
+            if v.get("n") != str(vrnu):
                 continue
             return [
                 {"kind": "w", "text": (w.text or "").strip(), "types": []}
                 for w in v
                 if w.tag == "w"
             ]
-    raise AssertionError("Genesis 35:22 not found in UXLC XML")
+    raise AssertionError(f"{xml_name} {chnu}:{vrnu} not found in UXLC XML")
+
+
+def _read_combined_atoms():
+    """Gen 35:22 as clc_read-shaped atoms, parsed directly from the UXLC XML."""
+    return _read_atoms("Genesis.xml", 35, 22)
 
 
 def _old_split(text, atom_index, strand):
@@ -232,10 +238,38 @@ def test_added_render():
     assert "added out of thin air, to improve legibility" in note_html
     assert "clc-added-during-detangling" in note_html
     assert bet_view.added_notes == ()
+    # The snippet AND its bracketed mark sit inside one dir="rtl" wrapper (a span
+    # whose only attr is dir, distinct from the inner lang="hbo" dir="rtl" snippet
+    # span) so the whole <word>[mark] reorders as one RTL unit in the LTR note —
+    # rather than the [mark] floating to the wrong side.
+    i_wrap = note_html.index('<span dir="rtl">')
+    i_snippet = note_html.index('lang="hbo"', i_wrap)
+    i_mark = note_html.index("clc-added-bracket", i_wrap)
+    assert i_wrap < i_snippet < i_mark, note_html
+
+
+def test_decalogue_sof_pasuq_suppression():
+    # A sof-pasuq tracks its silluq: at a verse boundary one reading ends (silluq +
+    # sof-pasuq) while the other continues (etnaḥta), and the continuing reading drops
+    # the sof-pasuq — it never sits on a non-silluq word (Ben's rule).
+    etnahta = acc.ATN
+    # ex 20:2 עבדים (atom 9): elyon ends, taḥton continues.
+    _c, alef, bet = dc.strand_views("Exodus", 20, 2, _read_atoms("Exodus.xml", 20, 2))
+    a9, b9 = alef.atoms[8]["text"], bet.atoms[8]["text"]
+    assert _SOF_PASUQ not in a9 and _METEG not in a9 and etnahta in a9, a9  # taḥton: etnaḥta
+    assert _SOF_PASUQ in b9 and _METEG in b9 and etnahta not in b9, b9      # elyon: silluq+sof-pasuq
+    # ex 20:5 לשנאי (atom 21): the mirror — taḥton ends, elyon continues.
+    _c5, alef5, bet5 = dc.strand_views("Exodus", 20, 5, _read_atoms("Exodus.xml", 20, 5))
+    a21, b21 = alef5.atoms[20]["text"], bet5.atoms[20]["text"]
+    assert _SOF_PASUQ in a21 and _METEG in a21 and etnahta not in a21, a21  # taḥton: silluq+sof-pasuq
+    assert _SOF_PASUQ not in b21 and etnahta in b21, b21                    # elyon: etnaḥta
+    # No strand invents a sof-pasuq, and neither supplies one here (unlike Gen 35:22).
+    assert all(v.added_notes == () for v in (alef, bet, alef5, bet5))
 
 
 def main():
     test_is_dual_cant()
+    test_decalogue_sof_pasuq_suppression()
     test_split_word_core()
     test_split_word_position_safe_qupo()
     test_split_word_position_safe_rafe_dagesh()

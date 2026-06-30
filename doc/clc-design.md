@@ -381,20 +381,26 @@ detangler is *charitable* about the strand *text*: it **supplies** omitted accen
 **changes word division**. CLC's *displayed* strand text is far more restrained —
 **near-subtractive, with two narrowly-scoped, loudly-flagged charities**:
 - **Position-safe subtraction.** Each strand is UXLC's own combined word with only the *other*
-  strand's **divergence cluster** resolved: an accent, and — where the two readings stack them on
-  one letter — the other strand's **vowel** (a QUPO word's patax vs. qamats) or **rafe/dagesh**. The
-  cluster is replaced *by name at its exact site* (`str.replace(cluster, resolution, 1)`), so a mark
-  that recurs elsewhere in the word as a *shared* mark is never touched.
-- **Supplied punctuation, bracketed and footnoted.** A strand may have a **maqaf or sof-pasuq
-  supplied** — never anything else — only to improve legibility of that single reading (e.g. the
-  sof-pasuq that breaks Gen 35:22's pashuṭ into its two chanted verses). Every supplied mark is
-  rendered **bracketed and green** (CSS `clc-added-during-detangling`) and carries a synthesized
-  "added out of thin air" note — never baked silently into the text.
+  strand's **divergence cluster** resolved: an accent, the **word-division punctuation that tracks
+  it** (a maqaf / sof-pasuq / legarmeh belonging to that reading — so a sof-pasuq is *suppressed*
+  when its silluq is, and never sits on a word whose last accent is e.g. etnaḥta), and — where the
+  two readings stack them on one letter — the other strand's **vowel** (a QUPO word's patax vs.
+  qamats) or **rafe/dagesh**. The cluster is replaced *by name at its exact site*
+  (`str.replace(cluster, resolution, 1)`), so a mark that recurs elsewhere in the word as a *shared*
+  mark is never touched.
+- **Marked supply, bracketed and footnoted — never silent.** A mark a reading needs but UXLC lacks
+  may be **supplied** only to improve legibility (e.g. the sof-pasuq that breaks Gen 35:22's pashuṭ
+  into its two chanted verses), rendered **bracketed and green** (CSS `clc-added-during-detangling`)
+  with a synthesized "added out of thin air" note. The rule is *no punctuation supplied unless it is
+  clearly marked as supplied* (cf. the analogous green/bracketed additions in wlc-utils). For now
+  only the Gen 35:22 sof-pasuq is supplied; Decalogue verses needing a supplied mark are deferred.
 
-No consonant is changed, no *shared* mark removed, no re-division. MAM (via the detangler) is
-consulted **only as the oracle** — for *which* of two stacked marks belongs to which reading, and
-*where* a supplied break falls. The detangler's remaining supplied-marks / anomalies stay valuable
-as **logged footnotes**, never silent edits.
+No consonant is changed and no *shared* mark removed (a mark both readings keep stays in both); only
+the divergent marks — accent and the punctuation tracking it — are subtracted (subtraction, incl. of
+punctuation, is not re-division). MAM (via the detangler) is consulted **only as the oracle** — for
+*which* of two stacked marks belongs to which reading, and *where* a supplied break falls. The
+detangler's remaining supplied-marks / anomalies stay valuable as **logged footnotes**, never silent
+edits.
 
 This is the same shape as the **legarmeh-vs-paseq** feature (§7.16): both *improve UXLC by importing
 MAM's auxiliary adjudication* of an ambiguity that is **grammatical, not graphical**, differing only

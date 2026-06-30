@@ -20,21 +20,50 @@ _OUT_DIR = "gh-pages/clc"
 _HBO_ATTR = {"lang": "hbo", "dir": "rtl"}
 
 
-def write_book(book_id, book, notes):
-    """Write gh-pages/clc/<book_id>.html and return its path."""
+def out_label(book_id, chapters=None):
+    """Filename stem for a (possibly chapter-limited) book page.
+
+    Whole book -> "Exodus"; limited to chapter(s) -> "Exodus-20" so a focused
+    page never clobbers a future full-book "Exodus.html". ``chapters`` is a set of
+    1-based chapter numbers (or None / empty for the whole book).
+    """
+    if not chapters:
+        return book_id
+    return f"{book_id}-" + "-".join(str(c) for c in sorted(chapters))
+
+
+def _disp_label(book_id, chapters=None):
+    """Human label for title/heading: 'Exodus' or 'Exodus 20'."""
+    if not chapters:
+        return book_id
+    return f"{book_id} " + ", ".join(str(c) for c in sorted(chapters))
+
+
+def write_book(book_id, book, notes, chapters=None):
+    """Write gh-pages/clc/<label>.html and return its path.
+
+    ``chapters`` (a set of 1-based chapter numbers, or None) limits rendering to
+    those chapters; the page label/title carry the limit (see ``out_label``).
+    Numbering still comes from the enumerate index, so skipping keeps ch/v correct.
+    """
     notes_by_atom = _group_by_atom(notes)
     rows = [H.table_row_of_headers(("text", "ref", "doc"))]
     for chidx, chapter in enumerate(book):
+        ch = chidx + 1
+        if chapters is not None and ch not in chapters:
+            continue
         for vridx, verse in enumerate(chapter):
-            ch, v = chidx + 1, vridx + 1
+            v = vridx + 1
             if clc_dual_cant.is_dual_cant(book_id, ch, v):
                 rows.extend(_dual_cant_rows(book_id, ch, v, verse, notes_by_atom))
             else:
                 rows.append(_verse_row(ch, v, verse, notes_by_atom))
+    label = out_label(book_id, chapters)
+    disp = _disp_label(book_id, chapters)
     table = H.table(rows, {"class": "clc-3col border-collapse"})
-    body = _body_wrapper(book_id, notes, table)
-    out_path = f"{_OUT_DIR}/{book_id}.html"
-    write_ctx = H.WriteCtx(title=f"CLC — {book_id}", path=out_path, add_wbr=True)
+    body = _body_wrapper(disp, notes, table)
+    out_path = f"{_OUT_DIR}/{label}.html"
+    write_ctx = H.WriteCtx(title=f"CLC — {disp}", path=out_path, add_wbr=True)
     H.write_html_to_file(body, write_ctx, "../")
     return out_path
 
@@ -100,12 +129,18 @@ def _strand_doc_contents(view):
 def _added_note_block(note):
     # "<name> in <strand word><[mark]> added out of thin air, to improve legibility"
     # — snippet in rtl Hebrew, the supplied mark echoed in the bracketed/green
-    # style used in the text column.
+    # style used in the text column. The snippet and its bracketed mark share one
+    # dir="rtl" wrapper (so [dir] → unicode-bidi: isolate) — otherwise, in this
+    # LTR note, the isolated snippet reorders correctly but the trailing [mark]
+    # floats to the wrong (LTR) side. Wrapped, the whole <word>[mark] reorders as
+    # one RTL unit, matching the text column (whose td is itself dir="rtl").
     return H.div(
         [
             f"{note['kind']} in ",
-            H.span(note["snippet"], _HBO_ATTR),
-            _added_span(note["char"]),
+            H.span(
+                [H.span(note["snippet"], _HBO_ATTR), _added_span(note["char"])],
+                {"dir": "rtl"},
+            ),
             " added out of thin air, to improve legibility",
         ],
         {"class": "clc-added-note"},

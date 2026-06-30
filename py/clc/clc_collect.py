@@ -60,18 +60,23 @@ def iter_noted_atoms(book, codes=UNDER_BAR_CODES):
                         yield chidx + 1, vridx + 1, atidx + 1, atom, code
 
 
-def collect_for_book(book_id, codes=UNDER_BAR_CODES):
+def collect_for_book(book_id, codes=UNDER_BAR_CODES, chapters=None):
     """Read book_id and emit ClcNotes for atoms carrying one of ``codes``.
 
-    Returns ``(book, notes)`` where ``book`` is the read structure (chapters ->
-    verses -> atoms) and ``notes`` is a list of ClcNote. Reads note prose offline
-    from the committed local pages (clc_note_pages); never the network.
+    Returns ``(book, notes)`` where ``book`` is the full read structure (chapters
+    -> verses -> atoms) and ``notes`` is a list of ClcNote. Reads note prose
+    offline from the committed local pages (clc_note_pages); never the network.
+    ``chapters`` (a set of 1-based chapter numbers, or None) limits note
+    collection to those chapters; ``book`` is still the whole book, and the render
+    side applies the same limit.
     """
     book = clc_read.read_book(book_id)
     descriptions = clc_changes.load_descriptions()
     notes = []
     page_prose_count = 0
     for ch, v, position, atom, code in iter_noted_atoms(book, codes):
+        if chapters is not None and ch not in chapters:
+            continue
         prose = clc_note_pages.local_note_prose(book_id, ch, v, position, code)
         page_prose_count += prose is not None
         notes.append(
