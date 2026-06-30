@@ -4,7 +4,7 @@ This is the skeleton's note source (build-order step 3). It surfaces the
 under-bar ambiguity UXLC already flags (m/d/t) but does NOT yet resolve it:
 there is no accent grammar and no charitable departure here, so every note has
 ``is_uxlc_departure=False`` and ``clc_reading == uxlc_reading``. Charity layers
-on later (brainstorm §3, §7.1).
+on later (design doc §3, §7.1).
 
 Each note's prose is the *actual* tanach.us note page, read offline from the
 committed local copy (clc_note_pages; downloaded by main_clc_download_notes). The
@@ -20,12 +20,12 @@ import clc.clc_note as clc_note
 import clc.clc_note_pages as clc_note_pages
 import clc.clc_read as clc_read
 
-# The under-bar ambiguity codes that seed CLC (brainstorm §2): m (prose
+# The under-bar ambiguity codes that seed CLC (design doc §2): m (prose
 # merkha/meteg), d (poetic deḥi/tarḥa), and the catch-all t. Listed m/d/t first.
 UNDER_BAR_CODES = ("m", "d", "t")
 
 # Marker shown for an atom with no downloaded note page (e.g. its code predates
-# the change log, brainstorm §9 #2). A fixed per-code constant, so the output
+# the change log, design doc §9 #2). A fixed per-code constant, so the output
 # stays deterministic; never the imperative change-log description.
 _CODE_MEANING = {
     "m": "possible merkha rather than meteg (prose under-bar)",

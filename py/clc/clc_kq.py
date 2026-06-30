@@ -1,4 +1,4 @@
-"""Exports the CLC ketiv/qere ruby builder (brainstorm §7.5 K/Q display).
+"""Exports the CLC ketiv/qere ruby builder (design doc §7.5 K/Q display).
 
 UXLC encodes a ketiv/qere word as adjacent ``<k>`` (ketiv, the written form,
 left unpointed) and ``<q>`` (qere, the read form, pointed) atoms; clc_read tags

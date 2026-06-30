@@ -53,7 +53,7 @@ table.clc-3col td.clc-ref {
 }
 table.clc-3col tr:nth-of-type(odd) td { background-color: transparent; }
 td.clc-ref { white-space: nowrap; text-align: center; color: light-dark(#555, #aaa); font-size: 80%; }
-/* Dual-cantillation (brainstorm §7.7): render a verse's combined/alef/bet rows
+/* Dual-cantillation (design doc §7.7): render a verse's combined/alef/bet rows
    as ONE grouped block — keep the outer divider pair, drop the rules between the
    three strand rows. */
 table.clc-3col td.clc-ref-strand { border-top: none; border-bottom: none; }

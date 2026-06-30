@@ -1,4 +1,4 @@
-"""Exports the CLC dual-cantillation strand splitter (brainstorm §7.7).
+"""Exports the CLC dual-cantillation strand splitter (design doc §7.7).
 
 A few prose loci carry **two cantillation traditions at once** — the Decalogues
 (Exod 20, Deut 5) and **Genesis 35:22**, the first application here. UXLC stores
@@ -214,7 +214,7 @@ def _strand_added_notes(strand_atoms):
     """Synthesize one note per supplied mark across a strand's atoms.
 
     Lightweight, JSON-serializable dicts — NOT ClcNotes: strand rows own no
-    anchors/always-links and no §7.9 departure record yet (brainstorm §7.7 keeps
+    anchors/always-links and no §7.9 departure record yet (design doc §7.7 keeps
     strands display-only). clc_render composes the prose around the snippet.
     """
     notes = []

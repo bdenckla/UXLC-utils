@@ -2,7 +2,7 @@
 
 The skeleton only sources UXLC's own ``<x>`` under-bar notes (m/d/t), but the
 schema is deliberately source-agnostic: bracket notes, change records, FOIs,
-dagesh restorations, etc. all feed this same record (brainstorm §8, "one
+dagesh restorations, etc. all feed this same record (design doc §8, "one
 renderer, many sources"). Records are plain data (JSON-serializable) so the same
 notes can later drive the §7.9 differences-from-UXLC index.
 """
@@ -11,7 +11,7 @@ from dataclasses import dataclass, asdict
 
 
 # --- source tags (the "source" field) ---
-SOURCE_UXLC_X_NOTE = "uxlc-x-note"  # UXLC <x> note + its change-log prose
+SOURCE_UXLC_X_NOTE = "uxlc-x-note"  # UXLC <x> note + its tanach.us note-page prose
 SOURCE_DUAL_CANT_ADDITION = "dual-cant-addition"  # punctuation supplied to clarify one strand
 
 # --- difference types (the "diff_type" field, for the §7.9 index) ---
@@ -21,7 +21,7 @@ DIFF_DUAL_CANT_ADDED_PUNCT = "dual-cant-added-punct"  # charitable additive dive
 
 @dataclass
 class ClcNote:
-    """One CLC note about one atom. Plain data; see brainstorm §8 for fields."""
+    """One CLC note about one atom. Plain data; see design doc §8 for fields."""
 
     book: str            # bk39 id, e.g. "Proverbs"
     ch: int              # chapter number (1-based)

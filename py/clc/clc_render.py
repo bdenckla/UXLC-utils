@@ -1,6 +1,6 @@
 """Exports write_book: render a CLC book as a 3-column always-link page.
 
-Layout (brainstorm §7.3, build-order step 4): one row per verse, columns
+Layout (design doc §7.3, build-order step 4): one row per verse, columns
 ``text | ref | doc``. The verse-number (ref) is a narrow central spine with the
 Hebrew text on its left and the doc apparatus on its right; keeping the text
 adjacent to the ref means a short verse stays butted against its label (no need
@@ -8,7 +8,7 @@ for zebra shading to tie the two together). The text column is running verse
 text; every noted word is an always-link (no MAM short-inline / long-link
 threshold) to its note in the doc column of the same row. CLC defines its own
 ``clc-*`` CSS vocabulary parallel
-to MAM's ``mam-doc-*`` (brainstorm §8); the rules live in gh-pages/style.css.
+to MAM's ``mam-doc-*`` (design doc §8); the rules live in gh-pages/style.css.
 """
 
 import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
@@ -225,9 +225,9 @@ def _intro_para(notes):
             "CLC walking skeleton. This page surfaces UXLC's own ",
             H.code("<x>"),
             f" under-bar notes ({_code_counts_text(notes)}) as always-links, each "
-            "carrying its tanach.us note-page prose (the change-log description that "
-            "added the note is used only as a fallback). No accent grammar and no "
-            "charitable resolution yet — see doc/clc-brainstorm.md.",
+            "carrying its tanach.us note-page prose (atoms with no downloaded note "
+            "page fall back to a generic per-code marker). No accent grammar and no "
+            "charitable resolution yet — see doc/clc-design.md.",
         ]
     )
 
