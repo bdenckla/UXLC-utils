@@ -15,6 +15,7 @@ import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
 import clc.clc_attribution as clc_attribution
 import clc.clc_dual_cant as clc_dual_cant
 import clc.clc_kq as clc_kq
+import clc.clc_note as clc_note
 import uxlc_misc.uxlc_utils_html as H
 
 _OUT_DIR = "gh-pages/clc"
@@ -92,7 +93,7 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
     # A dual-cantillation verse (e.g. Gen 35:22) becomes three grouped rows:
     # combined (C), strand alef (א), strand bet (ב). The combined row keeps the
     # full always-link behaviour (its notes/anchors); the strand rows show the
-    # strictly-split text plain, with only a short reading label in the doc
+    # strictly-split text plain, with only a short strand label in the doc
     # column. CSS ties the three into one verse block (gh-pages/style.css).
     views = clc_dual_cant.strand_views(book_id, ch, v, verse)
     strands = [vw for vw in views if vw.suffix != clc_dual_cant.SUFFIX_COMBINED]
@@ -110,7 +111,7 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
                 _doc_contents(ch, v, view.atoms, notes_by_atom), {"class": "clc-doc"}
             )
         else:
-            # De-highlight against the OTHER strand (the two readings agree here),
+            # De-highlight against the OTHER strand (the two strands agree here),
             # not the combined form — see _plain_text_contents.
             other = next(vw for vw in strands if vw is not view)
             text_cell = H.table_datum(
@@ -123,13 +124,35 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
 
 
 def _strand_doc_contents(view):
-    # The reading label, then one synthesized "added out of thin air" note per
-    # mark this strand supplies (clc_dual_cant._strand_added_notes).
+    # The strand label, then this strand's synthesized notes (clc_dual_cant._strand_notes):
+    # one "added out of thin air" note per SUPPLIED punctuation mark, and one note per accent
+    # the strand wants but UXLC OMITTED (noted, never supplied — §7.7).
     contents = [H.span(view.doc_label, {"class": "clc-strand-label"})]
-    for note in view.added_notes:
+    for note in view.notes:
         contents.append(H.line_break())
-        contents.append(_added_note_block(note))
+        if note["source"] == clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT:
+            contents.append(_omitted_note_block(note))
+        else:
+            contents.append(_added_note_block(note))
     return contents
+
+
+def _omitted_note_block(note):
+    # "the <strand> strand calls for a(n) <accent> on <word> here, but UXLC's combined text
+    # carries only the <other> strand's accent, and it is beyond the limits of CLC's charity
+    # to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark (nothing is
+    # added to the strand; cf. _added_note_block). Accents are noted, never supplied (§7.7).
+    article = "an" if note["kind"][:1] in "aeiou" else "a"
+    return H.div(
+        [
+            f"the {note['strand']} strand calls for {article} {note['kind']} on ",
+            H.span(note["snippet"], _HBO_ATTR),
+            f" here, but UXLC’s combined text carries only the {note['other_strand']}"
+            f" strand’s accent, and it is beyond the limits of CLC’s charity to supply"
+            f" the missing {note['kind']}",
+        ],
+        {"class": "clc-added-note"},
+    )
 
 
 def _added_note_block(note):

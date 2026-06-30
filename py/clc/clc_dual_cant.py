@@ -2,38 +2,49 @@
 
 A few prose loci carry **two cantillation traditions at once** — the Decalogues
 (Exod 20, Deut 5) and **Genesis 35:22**, the first application here. UXLC stores
-them as one *combined* form in which both readings' accents are stacked onto the
+them as one *combined* form in which both strands' accents are stacked onto the
 same words (e.g. רְאוּבֵ֔֗ן carries both zaqef ``U+0594`` and revia ``U+0597``).
 
 This module splits that combined form into the two single-cantillation strands —
-alef and bet — for side-by-side display. The split is **subtractive, with one
-narrowly-scoped, always-marked charity**:
+alef and bet — for side-by-side display. The split is **near-subtractive, with one
+narrowly-scoped, always-marked charity (supplying punctuation only) plus, where a
+strand wants an accent UXLC omitted, a note in lieu of inventing one**:
 
   * **Position-safe subtraction.** Each strand is UXLC's own combined word with
     only the *other* strand's **divergence cluster** resolved: an accent, its
     intimately-tracking **word-division punctuation** (a maqaf / sof-pasuq /
-    legarmeh that goes only with that reading — so a sof-pasuq is *suppressed*
+    legarmeh that goes only with that strand — so a sof-pasuq is *suppressed*
     when its silluq is, and never lands on a word whose last accent is e.g.
-    etnaḥta), and — where the two readings stack them on one letter — the other
+    etnaḥta), and — where the two strands stack them on one letter — the other
     strand's **vowel** (a QUPO word's patax vs. qamats) or **rafe/dagesh**. The
     cluster is replaced *by name at its exact site* (``str.replace(cluster,
     resolution, 1)``), so a mark that recurs elsewhere in the word as a *shared*
     mark is never touched.
-  * **Marked supply.** A mark a reading needs but UXLC lacks may be **supplied —
-    never silently**: it is rendered **bracketed and green** (CSS
-    ``clc-added-during-detangling``) with a synthesized "added out of thin air"
-    note (e.g. a sof-pasuq breaking Gen 35:22's pashuṭ into its two chanted
-    verses). So far three sof-pasuqs are supplied — Gen 35:22 (pashuṭ) and the
-    taḥton verse-ends of Exod 20:8 (לקדשו) and 20:9 (מלאכתך), where UXLC wrote
-    none; the remaining Decalogue verses that would need a *non*-sof-pasuq supplied
-    mark (a supplied accent) are deferred (none silently baked in).
+  * **Marked supply — punctuation only.** A *word-division* mark a strand needs
+    but UXLC lacks may be **supplied — never silently**: it is rendered
+    **bracketed and green** (CSS ``clc-added-during-detangling``) with a
+    synthesized "added out of thin air" note (e.g. a sof-pasuq breaking Gen
+    35:22's pashuṭ into its two chanted verses). Only the three accent-coupled
+    punctuation marks — **maqaf / sof-pasuq / legarmeh** — are ever supplied; so
+    far three sof-pasuqs are (Gen 35:22 pashuṭ, and the taḥton verse-ends of Exod
+    20:8 לקדשו and 20:9 מלאכתך, where UXLC has none).
+  * **Omitted accent — noted, never supplied.** Where a strand's chanting calls
+    for an *accent* UXLC left untangled (it has only the other strand's accent
+    on that word), CLC — a *diplomatic* edition — does **not** invent one: it
+    shows the word as UXLC has it (that accent absent) and synthesizes a per-strand
+    **note** instead. This is the sharpened §7.7 departure from the wlc-utils
+    *detangler*, which (being a grammar-checker) *supplies* the missing accent from
+    MAM so its strand parses. The Decalogue cases: Deut 5:6 (elyon's tipḥa on אנכי
+    + etnaḥta on אלהיך), 5:13 (taḥton's pashta on ימים), 5:17 (elyon's silluq on
+    תרצח — UXLC has the sof-pasuq but not its silluq).
 
-No consonant is changed and no *shared* mark removed (a mark both readings keep
+No consonant is changed and no *shared* mark removed (a mark both strands keep
 stays in both); only the divergent marks — accent and the punctuation that tracks
 it — are subtracted. MAM (via the wlc-utils detangler) is consulted **only as the
-oracle** for *which* of two stacked marks belongs to which reading, and where a
-supplied break falls — encoded once, by hand, in ``_ORACLE`` below. Nothing of
-MAM's text is imported.
+oracle** for *which* of two stacked marks belongs to which strand, where a
+supplied break falls, and which accent a strand wants where UXLC has only the
+other's — encoded once, by hand, in ``_ORACLE`` below. Nothing of MAM's text is
+imported.
 
 This is the same charitable shape as the legarmeh-vs-paseq feature (§7.16): both
 improve UXLC by importing MAM's auxiliary adjudication of an ambiguity that is
@@ -58,10 +69,28 @@ _CGJ = "͏"
 _STRAND_ALEF = "alef"
 _STRAND_BET = "bet"
 
-# The closed set of marks a strand may have SUPPLIED (the additive charity).
+# The closed set of marks a strand may have SUPPLIED (the additive charity) — only
+# accent-coupled *word-division punctuation*. An accent UXLC omitted is NEVER supplied;
+# it is recorded as an omitted-accent note (see _OMITTABLE / _omitted_note). Legarmeh is
+# suppliable in principle (the third punctuation mark, §7.7) but never arises in the
+# Decalogues — there it is only ever suppressed — so it is not in this set yet.
 _SUPPLIABLE = {hpu.MAQ, hpu.SOPA}
 # Display names for a supplied mark, used in the synthesized doc-column note.
 _ADDED_NAME = {hpu.MAQ: "maqaf", hpu.SOPA: "sof pasuq"}
+
+# Display names for an accent a strand wants but UXLC omitted (noted, not supplied).
+_OMITTABLE = {
+    acc.TIP: "tipḥa",
+    acc.ATN: "etnaḥta",
+    acc.PASH: "pashta",
+    hpo.MTGOSLQ: "silluq",  # the meteg/silluq codepoint (U+05BD); verse-final here
+}
+
+
+def _is_accent(ch):
+    """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
+    return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
+
 
 # Ref-label suffixes shown in the page (user-facing): combined / alef / bet.
 SUFFIX_COMBINED = "C"
@@ -70,47 +99,52 @@ SUFFIX_BET = "ב"   # HEBREW LETTER BET
 
 # Hover description for the combined ref label (book-independent).
 TOOLTIP_COMBINED = (
-    "Combined cantillation — both readings' accents tangled together, "
+    "Combined cantillation — both strands' accents tangled together, "
     "as written in the Leningrad Codex."
 )
 
 
-# Each dual-cant book uses a different pair of reading traditions, so the alef/bet
+# Each dual-cant book uses a different pair of strand traditions, so the alef/bet
 # doc-labels and tooltips are per-book: Genesis 35:22 is pashuṭ / midrashit; the
 # Decalogues (Exodus 20, Deuteronomy 5) are taḥton / elyon. The alef strand is always
-# the verse-by-verse reading, bet the grouped/alternative one.
+# the verse-by-verse strand, bet the grouped/alternative one.
 @dataclass(frozen=True)
-class _Reading:
+class _Strand:
     doc_label: str  # short doc-column label
     tooltip: str    # hover description for the ref label
+    short: str      # bare strand name (e.g. "taḥton"), for the omitted-accent note prose
 
 
-_PASHUT = _Reading(
-    "pashuṭ (simple) reading",
-    "Reading א (pashuṭ / simple): the verse-by-verse accentuation, "
+_PASHUT = _Strand(
+    "pashuṭ (simple) strand",
+    "Strand א (pashuṭ / simple): the verse-by-verse accentuation, "
     "separated from the combined marks using MAM as oracle — no mark "
-    "subtracted but the other reading's, only a maqaf/sof-pasuq supplied.",
+    "subtracted but the other strand's, only a maqaf/sof-pasuq supplied.",
+    "pashuṭ",
 )
-_MIDRASHIT = _Reading(
-    "midrashit (interpretive) reading",
-    "Reading ב (midrashit / interpretive): the alternative accentuation, "
+_MIDRASHIT = _Strand(
+    "midrashit (interpretive) strand",
+    "Strand ב (midrashit / interpretive): the alternative accentuation, "
     "separated the same way.",
+    "midrashit",
 )
-_TAXTON = _Reading(
-    "taḥton (lower) reading",
-    "Reading א (taḥton / lower): the verse-by-verse cantillation that divides the "
+_TAXTON = _Strand(
+    "taḥton (lower) strand",
+    "Strand א (taḥton / lower): the verse-by-verse cantillation that divides the "
     "Decalogue into its prose verses, separated from the combined marks using MAM as "
-    "oracle — only the other reading's accents and the punctuation tracking them are "
-    "subtracted (so a sof-pasuq is dropped where this reading does not end a verse).",
+    "oracle — only the other strand's accents and the punctuation tracking them are "
+    "subtracted (so a sof-pasuq is dropped where this strand does not end a verse).",
+    "taḥton",
 )
-_ELYON = _Reading(
-    "elyon (upper) reading",
-    "Reading ב (elyon / upper): the cantillation that chants each commandment as one "
+_ELYON = _Strand(
+    "elyon (upper) strand",
+    "Strand ב (elyon / upper): the cantillation that chants each commandment as one "
     "verse, separated the same way.",
+    "elyon",
 )
 
-# alef/bet readings per dual-cant book (bk39 id).
-_READINGS = {
+# alef/bet strands per dual-cant book (bk39 id).
+_STRANDS = {
     "Genesis": (_PASHUT, _MIDRASHIT),
     "Exodus": (_TAXTON, _ELYON),
     "Deuter": (_TAXTON, _ELYON),
@@ -118,7 +152,7 @@ _READINGS = {
 
 
 # The hardcoded oracle. For each dual-cant verse, map a 1-based atom index (only
-# the *divergence* words, where the two readings stack marks) to a resolution:
+# the *divergence* words, where the two strands stack marks) to a resolution:
 #
 #   atom_index -> {
 #       "cluster": exact combined substring that diverges (incl. CGJ if present),
@@ -126,6 +160,9 @@ _READINGS = {
 #       "bet":     the cluster's bet  resolution (a subsequence of "cluster"),
 #       "add":     optional {strand: [char, ...]} of maqaf/sof-pasuq SUPPLIED to
 #                  that strand (rendered bracketed/green + a synthesized note),
+#       "omit":    optional {strand: [accent, ...]} an accent that strand's chanting
+#                  wants but UXLC omitted — NOTED, never supplied (so it is NOT in
+#                  the strand's text; just a synthesized note). Accents only.
 #   }
 #
 # Building a strand replaces "cluster" with that strand's resolution at its exact
@@ -173,17 +210,19 @@ _ORACLE = {
     # The Decalogues (Exodus 20, Deuteronomy 5), taḥton (alef) / elyon (bet). Derived from
     # MAM-simple's cant-alef / cant-bet strands (the oracle) diffed against UXLC's combined
     # atoms by .novc/gen_entry.py, then self-verified by simulating split_word. Punctuation
-    # tracks accents: where a reading keeps a NON-silluq final accent (e.g. etnaḥta) while
-    # the other keeps silluq, the sof-pasuq is SUPPRESSED in the non-silluq reading — it
+    # tracks accents: where a strand keeps a NON-silluq final accent (e.g. etnaḥta) while
+    # the other keeps silluq, the sof-pasuq is SUPPRESSED in the non-silluq strand — it
     # appears only on a silluq word (e.g. ex 20:2 atom 9: elyon keeps silluq + sof-pasuq,
     # taḥton keeps etnaḥta with the sof-pasuq removed; ex 20:5 atom 21 is the mirror).
     # Encoded so far: the pure-accent (+ sof-pasuq-suppression) verses; ex 20:8 / ex 20:9
-    # whose taḥton verse-end SUPPLIES a sof-pasuq UXLC omitted (the additive charity); and the
-    # rafe/dagesh verses (ex 20:9,13–15; dt 5:18,19) where the two readings harden/soften a
-    # בגדכפת letter — the hard reading keeps UXLC's dagesh, the soft keeps UXLC's rafe (faithful,
-    # Policy 1; bare where UXLC wrote no rafe, as in ex 20:9 כל). Still TBD: verses needing a
-    # non-sof-pasuq SUPPLIED mark (a supplied accent/silluq — dt 5:6,7,13,17; ex 20:3), a QUPO
-    # vowel split, or word-division (maqaf) changes (see .novc/entries.txt for the partition).
+    # whose taḥton verse-end SUPPLIES a sof-pasuq UXLC omitted (the additive charity); the
+    # rafe/dagesh verses (ex 20:9,13–15; dt 5:13,17,18,19) where the two strands harden/soften a
+    # בגדכפת letter — the hard strand keeps UXLC's dagesh, the soft keeps UXLC's rafe (faithful,
+    # Policy 1; bare where UXLC has no rafe, as in ex 20:9 כל); and the OMITTED-accent verses
+    # (dt 5:6,13,17) where UXLC has only one strand's accent and the other's is NOTED, never
+    # supplied (Ben's policy — see the "omit" field and _omitted_note). Still TBD: a QUPO vowel
+    # split (ex 20:3, dt 5:7) and the maqaf word-division / count-mismatch verses (ex 20:4,10;
+    # dt 5:8,12,14,15,16) — see .novc/entries.txt for the partition.
     "Exodus": {
         (20, 2): {
             1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},
@@ -205,7 +244,7 @@ _ORACLE = {
         # ex 20:8 — the first SUPPLIED sof-pasuq in the Decalogues (the additive charity,
         # like Gen 35:22). Atom 5 לְקַדְּשֽׁ֗וֹ ends the Sabbath-commandment's *first* prose
         # verse: taḥton (alef) chants a verse-end there — silluq, already in UXLC — while
-        # elyon (bet) keeps revia and reads on (its Sabbath verse runs vv.8–11). UXLC wrote
+        # elyon (bet) keeps revia and reads on (its Sabbath verse runs vv.8–11). UXLC has
         # no sof-pasuq here (cf. ex 20:5 atom 21, the same shape, where it DID); MAM's
         # cant-alef confirms one belongs, so taḥton SUPPLIES it (bracketed/green). Atoms
         # 1/3/4 are pure-accent. ex 20:9 / dt 5:12 also want a supplied sof-pasuq but are
@@ -218,7 +257,7 @@ _ORACLE = {
         },
         # ex 20:9 (ששת ימים תעבד): the first rafe/dagesh split. Atom 5 כָּל־ ("all") — taḥton
         # keeps the dagesh (hard: ועשית took a disjunctive tipḥa, so כל opens after a pause),
-        # elyon drops it (soft: ועשית took a conjunctive munaḥ). UXLC wrote no rafe here, so
+        # elyon drops it (soft: ועשית took a conjunctive munaḥ). UXLC has no rafe here, so
         # the soft kaf stays bare (faithful — Policy 1). Atom 6 מלאכתך supplies a sof-pasuq
         # (taḥton ends v.9; elyon keeps segolta and reads on).
         (20, 9): {
@@ -249,6 +288,18 @@ _ORACLE = {
         },
     },
     "Deuter": {
+        # dt 5:6 (אנכי...): the Deuteronomy twin of ex 20:2, but where UXLC there stacked BOTH
+        # strands' accents, here it has only the taḥton's — so elyon's are OMITTED, not present.
+        # Atom 1 אנכי: taḥton keeps its pashta; elyon wants a tipḥa UXLC left untangled (noted, not
+        # supplied) → elyon shows אנכי accent-less. Atom 3 אלהיך likewise: taḥton zaqef kept, elyon's
+        # etnaḥta omitted. Atoms 8/9 are the pure-subtraction shape of ex 20:2 (munaḥ/merkha; then
+        # etnaḥta vs. silluq+sof-pasuq at the verse end).
+        (5, 6): {
+            1: {"cluster": acc.PASH, "alef": acc.PASH, "bet": "", "omit": {_STRAND_BET: [acc.TIP]}},
+            3: {"cluster": acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": "", "omit": {_STRAND_BET: [acc.ATN]}},
+            8: {"cluster": acc.MUN + acc.MER, "alef": acc.MUN, "bet": acc.MER},
+            9: {"cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA, "alef": acc.ATN + hl.YOD + hl.FMEM, "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA},
+        },
         (5, 9): {
             2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
             3: {"cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR, "alef": acc.TIP + hl.FMEM, "bet": hl.FMEM + acc.Z_OR_TSOR},
@@ -260,10 +311,31 @@ _ORACLE = {
             2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
         },
+        # dt 5:13 (ששת ימים...): the Deuteronomy twin of ex 20:9, but UXLC has only the elyon
+        # munaḥ on ימים (atom 2), so the taḥton's PASHTA is OMITTED — noted, not supplied; taḥton
+        # shows ימים accent-less. Atom 5 כל is the mirror of ex 20:9's: here taḥton is HARD (dagesh)
+        # and UXLC DOES have a rafe, so elyon is soft (rafe kept) — faithful Policy 1. Atom 6 ends
+        # the taḥton verse (silluq + sof-pasuq, both in UXLC — no supply, unlike ex 20:9).
+        (5, 13): {
+            1: {"cluster": acc.MUN + acc.MAH, "alef": acc.MAH, "bet": acc.MUN},
+            2: {"cluster": acc.MUN, "alef": "", "bet": acc.MUN, "omit": {_STRAND_ALEF: [acc.PASH]}},
+            3: {"cluster": acc.ZAQ_Q + hl.DALET + acc.Z_OR_TSOR, "alef": acc.ZAQ_Q + hl.DALET, "bet": hl.DALET + acc.Z_OR_TSOR},
+            4: {"cluster": acc.TIP + acc.MUN, "alef": acc.TIP, "bet": acc.MUN},
+            5: {"cluster": hl.KAF + hpo.DAGOMOSD + hpo.RAFE, "alef": hl.KAF + hpo.DAGOMOSD, "bet": hl.KAF + hpo.RAFE},
+            6: {"cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + hpu.SOPA, "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A},
+        },
+        # dt 5:17 (לא תרצח): the Deuteronomy twin of ex 20:13, but UXLC has the elyon verse-end's
+        # sof-pasuq WITHOUT its silluq — so elyon's SILLUQ is OMITTED (noted, not supplied): elyon's
+        # תרצח keeps the dagesh (hard) + the lone sof-pasuq, with no accent shown. taḥton keeps the
+        # rafe (soft) + its mid-unit tipḥa and reads on (sof-pasuq suppressed).
+        (5, 17): {
+            1: {"cluster": acc.MER + acc.TIP, "alef": acc.MER, "bet": acc.TIP},
+            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + hl.XET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + hl.XET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + hl.XET + hpu.SOPA, "omit": {_STRAND_BET: [hpo.MTGOSLQ]}},
+        },
         # dt 5:18–19 (לא תנאף / תגנב): the Deuteronomy twins of ex 20:14–15 — same rafe/dagesh
         # split (taḥton soft via the rafe, elyon hard via the dagesh + silluq + sof-pasuq), all
-        # stacked in UXLC so it is pure subtraction. (dt 5:13 כל and dt 5:17 תרצח also diverge
-        # in dagesh but additionally need a SUPPLIED accent UXLC omitted — deferred to that group.)
+        # stacked in UXLC so it is pure subtraction. (Unlike dt 5:17, UXLC here DOES have the
+        # elyon silluq, so nothing is omitted.)
         (5, 18): {
             1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
             2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + acc.ATN + hl.FPE + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + acc.ATN + hl.FPE, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + hl.FPE + hpu.SOPA},
@@ -284,7 +356,7 @@ class StrandView:
     tooltip: str   # hover description for the ref label
     doc_label: str  # short doc-column label ("" for the combined form)
     atoms: list    # atom dicts (clc_read shape + "additions" on split atoms)
-    added_notes: tuple = ()  # synthesized "added out of thin air" notes (strand only)
+    notes: tuple = ()  # synthesized strand notes: supplied-mark + omitted-accent (strand only)
 
 
 def is_dual_cant(book_id, ch, v):
@@ -313,22 +385,22 @@ def strand_views(book_id, ch, v, verse_atoms):
     ``verse_atoms`` is the verse's atom list from clc_read. The combined view
     reuses those atoms unchanged; each alef/bet view holds fresh atom dicts whose
     text has the other strand's divergence cluster resolved (see ``split_word``)
-    plus an ``additions`` list, and a tuple of synthesized notes for any marks it
-    supplies.
+    plus an ``additions`` list, and a tuple of synthesized notes — one per mark it
+    supplies and one per accent it wants but UXLC omitted.
     """
     oracle = _ORACLE[book_id][(ch, v)]
-    alef_reading, bet_reading = _READINGS[book_id]
+    alef_strand, bet_strand = _STRANDS[book_id]
     alef_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_ALEF)
     bet_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_BET)
     return [
         StrandView(SUFFIX_COMBINED, TOOLTIP_COMBINED, "", verse_atoms),
         StrandView(
-            SUFFIX_ALEF, alef_reading.tooltip, alef_reading.doc_label,
-            alef_atoms, _strand_added_notes(alef_atoms),
+            SUFFIX_ALEF, alef_strand.tooltip, alef_strand.doc_label,
+            alef_atoms, _strand_notes(alef_atoms, alef_strand, bet_strand),
         ),
         StrandView(
-            SUFFIX_BET, bet_reading.tooltip, bet_reading.doc_label,
-            bet_atoms, _strand_added_notes(bet_atoms),
+            SUFFIX_BET, bet_strand.tooltip, bet_strand.doc_label,
+            bet_atoms, _strand_notes(bet_atoms, bet_strand, alef_strand),
         ),
     ]
 
@@ -346,11 +418,14 @@ def _split_atom(atom, atom_index, oracle, strand):
         return atom  # shared single mark (or no mark) — unchanged
     text = split_word(atom["text"], entry, strand)
     additions = entry.get("add", {}).get(strand, [])
-    return {**atom, "text": text, "additions": list(additions)}
+    omitted = entry.get("omit", {}).get(strand, [])
+    return {**atom, "text": text, "additions": list(additions),
+            "omitted_accents": list(omitted)}
 
 
-def _strand_added_notes(strand_atoms):
-    """Synthesize one note per supplied mark across a strand's atoms.
+def _strand_notes(strand_atoms, strand, other_strand):
+    """Synthesize this strand's notes: one per SUPPLIED mark and one per accent it
+    wants but UXLC OMITTED, in atom order.
 
     Lightweight, JSON-serializable dicts — NOT ClcNotes: strand rows own no
     anchors/always-links and no §7.9 departure record yet (design doc §7.7 keeps
@@ -360,6 +435,8 @@ def _strand_added_notes(strand_atoms):
     for atom in strand_atoms:
         for added_char in atom.get("additions", ()):
             notes.append(_added_note(atom["text"], added_char))
+        for omitted_char in atom.get("omitted_accents", ()):
+            notes.append(_omitted_note(atom["text"], omitted_char, strand, other_strand))
     return tuple(notes)
 
 
@@ -370,6 +447,20 @@ def _added_note(snippet, added_char):
         "snippet": snippet,                # the strand word that receives it
         "source": clc_note.SOURCE_DUAL_CANT_ADDITION,
         "diff_type": clc_note.DIFF_DUAL_CANT_ADDED_PUNCT,
+    }
+
+
+def _omitted_note(snippet, accent_char, strand, other_strand):
+    """An accent this strand wants but UXLC omitted — noted, not supplied. The
+    snippet is the strand word AS SHOWN (that accent absent); no mark is rendered."""
+    return {
+        "kind": _OMITTABLE[accent_char],   # "tipḥa" / "etnaḥta" / "pashta" / "silluq"
+        "char": accent_char,               # the wanted accent (for reference; not rendered)
+        "snippet": snippet,                # the strand word, shown without the accent
+        "strand": strand.short,          # the strand that wants it ("elyon"/"taḥton"/…)
+        "other_strand": other_strand.short,  # the strand whose accent UXLC did write
+        "source": clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
+        "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_ACCENT,
     }
 
 
@@ -387,7 +478,12 @@ def _validate_oracle():
                 assert _is_subsequence(entry[strand], cluster), (entry, strand)
             for added in entry.get("add", {}).values():
                 for ch in added:
-                    assert ch in _SUPPLIABLE, ch
+                    assert ch in _SUPPLIABLE, ch  # only punctuation is ever supplied
+            for omitted in entry.get("omit", {}).values():
+                for ch in omitted:
+                    # only ACCENTS are noted-as-omitted; punctuation would be supplied instead
+                    assert _is_accent(ch) and ch in _OMITTABLE, ch
+                    assert ch not in _SUPPLIABLE, ch
 
 
 _validate_oracle()

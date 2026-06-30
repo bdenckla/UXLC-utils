@@ -13,10 +13,15 @@ from dataclasses import dataclass, asdict
 # --- source tags (the "source" field) ---
 SOURCE_UXLC_X_NOTE = "uxlc-x-note"  # UXLC <x> note + its tanach.us note-page prose
 SOURCE_DUAL_CANT_ADDITION = "dual-cant-addition"  # punctuation supplied to clarify one strand
+SOURCE_DUAL_CANT_OMITTED_ACCENT = "dual-cant-omitted-accent"  # accent a strand wants but UXLC omitted
 
 # --- difference types (the "diff_type" field, for the §7.9 index) ---
 DIFF_UNDER_BAR = "under-bar"
 DIFF_DUAL_CANT_ADDED_PUNCT = "dual-cant-added-punct"  # charitable additive divergence mark (§7.7)
+# An accent a strand's chanting calls for but UXLC left untangled — NOTED, never supplied
+# (CLC supplies only punctuation; §7.7). Not a CLC departure from UXLC's text, just an
+# annotation, so it carries no green/bracketed mark.
+DIFF_DUAL_CANT_OMITTED_ACCENT = "dual-cant-omitted-accent"
 
 
 @dataclass

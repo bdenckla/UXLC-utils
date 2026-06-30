@@ -11,7 +11,8 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "תַעֲשֶֽׂ֙ה־",
-    "clc_reading": "תַעֲשֶֽׂ֙ה־"
+    "clc_reading": "תַעֲשֶֽׂ֙ה־",
+    "source_url": ""
   },
   {
     "book": "Deuter",
@@ -25,6 +26,7 @@
     "diff_type": "under-bar",
     "is_uxlc_departure": false,
     "uxlc_reading": "יָמִ֣ים",
-    "clc_reading": "יָמִ֣ים"
+    "clc_reading": "יָמִ֣ים",
+    "source_url": ""
   }
 ]

@@ -365,7 +365,7 @@ Each is a feature this doc names, organized with grounding + open questions.
   as **two clean single-cantillation streams** each (taḥton/elyon; pashut/midrashit) instead of
   the merged tangle.
 - The detangler's **"supplied marks" are themselves charitable acts** (marks the scribe didn't
-  write because both threads share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
+  write because both strands share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
   the kind of thing CLC should foot-note rather than hide. Strong fit with the CLC thesis — and CLC
   now does this itself for the narrow **maqaf/sof-pasuq** subset, supplying them **bracketed, green,
   and footnoted** rather than hidden (as raw UXLC) or silently baked in (as the detangler).
@@ -377,44 +377,56 @@ combined form plus its two strands — labeled e.g. `35:22-C`, `35:22-א` (pashu
 `clc_render.py`); the Decalogues follow by adding their oracle entries.
 
 **Near-subtractive split — a deliberate, *narrowed* departure from the detangler.** The accgram
-detangler is *charitable* about the strand *text*: it **supplies** omitted accents and freely
-**changes word division**. CLC's *displayed* strand text is far more restrained —
-**near-subtractive, with two narrowly-scoped, loudly-flagged charities**:
+detangler — a *grammar-checker* — is *charitable* about the strand *text*: it **supplies** omitted
+accents (so each strand parses) and freely **changes word division**. CLC, a *diplomatic* edition,
+is far more restrained: it shows UXLC's own marks, **supplies only punctuation**, and where a strand
+wants an *accent* UXLC omitted it **notes** the gap rather than inventing one. So the displayed strand
+text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, plus one annotation**:
 - **Position-safe subtraction.** Each strand is UXLC's own combined word with only the *other*
   strand's **divergence cluster** resolved: an accent, the **word-division punctuation that tracks
-  it** (a maqaf / sof-pasuq / legarmeh belonging to that reading — so a sof-pasuq is *suppressed*
+  it** (a maqaf / sof-pasuq / legarmeh belonging to that strand — so a sof-pasuq is *suppressed*
   when its silluq is, and never sits on a word whose last accent is e.g. etnaḥta), and — where the
-  two readings stack them on one letter — the other strand's **vowel** (a QUPO word's patax vs.
-  qamats) or **rafe/dagesh**. For rafe/dagesh the policy is **faithful**: where the two readings
+  two strands stack them on one letter — the other strand's **vowel** (a QUPO word's patax vs.
+  qamats) or **rafe/dagesh**. For rafe/dagesh the policy is **faithful**: where the two strands
   harden/soften a בגדכפת letter (driven by the previous word's accent — a disjunctive pause hardens,
-  a conjunctive juncture softens), the **hard** reading keeps UXLC's dagesh and the **soft** reading
-  keeps UXLC's rafe; where UXLC wrote no rafe (e.g. ex 20:9 כל) the soft letter stays **bare** — no
+  a conjunctive juncture softens), the **hard** strand keeps UXLC's dagesh and the **soft** strand
+  keeps UXLC's rafe; where UXLC has no rafe (e.g. ex 20:9 כל) the soft letter stays **bare** — no
   rafe is ever supplied. The cluster is replaced *by name at its exact site*
   (`str.replace(cluster, resolution, 1)`), so a mark that recurs elsewhere in the word as a *shared*
   mark is never touched.
-- **Marked supply, bracketed and footnoted — never silent.** A mark a reading needs but UXLC lacks
-  may be **supplied** only to improve legibility (e.g. the sof-pasuq that breaks Gen 35:22's pashuṭ
-  into its two chanted verses), rendered **bracketed and green** (CSS `clc-added-during-detangling`)
-  with a synthesized "added out of thin air" note. The rule is *no punctuation supplied unless it is
-  clearly marked as supplied* (cf. the analogous green/bracketed additions in wlc-utils). Three
-  sof-pasuqs are supplied so far — Gen 35:22 (pashuṭ) and the taḥton verse-ends of Exod 20:8 (לקדשו)
-  and 20:9 (מלאכתך), where UXLC wrote none. Verses needing a *non*-sof-pasuq supplied mark (a supplied
-  accent / silluq — dt 5:6, 13, 17) remain deferred, as do the QUPO vowel splits (ex 20:3, dt 5:7) and
-  the maqaf word-division / count-mismatch verses (ex 20:4, 10; dt 5:8, 12, 14, 15, 16).
+- **Marked supply — *punctuation only*, bracketed and footnoted, never silent.** Only an
+  accent-coupled **word-division** mark a strand needs but UXLC lacks may be **supplied**, and only
+  to improve legibility (e.g. the sof-pasuq that breaks Gen 35:22's pashuṭ into its two chanted
+  verses), rendered **bracketed and green** (CSS `clc-added-during-detangling`) with a synthesized
+  "added out of thin air" note. The closed suppliable set is **maqaf / sof-pasuq / legarmeh** (the
+  rule: *no punctuation supplied unless clearly marked as supplied* — cf. the green/bracketed
+  additions in wlc-utils). Three sof-pasuqs are supplied so far — Gen 35:22 (pashuṭ) and the taḥton
+  verse-ends of Exod 20:8 (לקדשו) and 20:9 (מלאכתך), where UXLC has none.
+- **Omitted accent — *noted, never supplied*.** Where a strand's chanting calls for an **accent**
+  UXLC left untangled (it has only the *other* strand's accent on that word), CLC does **not**
+  invent one — the sharpened departure from the detangler, which *does* supply it to parse. CLC shows
+  the word as UXLC has it (that accent simply absent) and emits a per-strand note: *"the elyon
+  strand calls for a silluq on תרצח here, but UXLC's combined text carries only the taḥton strand's
+  accent, and it is beyond the limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipḥa on אנכי + etnaḥta
+  on אלהיך), **5:13** (taḥton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
+  sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). Still deferred: the QUPO vowel
+  splits (ex 20:3, dt 5:7) and the maqaf word-division / count-mismatch verses (ex 20:4, 10; dt 5:8,
+  12, 14, 15, 16).
 
-No consonant is changed and no *shared* mark removed (a mark both readings keep stays in both); only
+No consonant is changed and no *shared* mark removed (a mark both strands keep stays in both); only
 the divergent marks — accent and the punctuation tracking it — are subtracted (subtraction, incl. of
 punctuation, is not re-division). MAM (via the detangler) is consulted **only as the oracle** — for
-*which* of two stacked marks belongs to which reading, and *where* a supplied break falls. The
-detangler's remaining supplied-marks / anomalies stay valuable as **logged footnotes**, never silent
-edits.
+*which* of two stacked marks belongs to which strand, *where* a supplied break falls, and *which*
+accent a strand wants where UXLC has only the other's. The detangler's remaining supplied-marks /
+anomalies stay valuable as **logged footnotes**, never silent edits.
 
 This is the same shape as the **legarmeh-vs-paseq** feature (§7.16): both *improve UXLC by importing
 MAM's auxiliary adjudication* of an ambiguity that is **grammatical, not graphical**, differing only
-in subject — which-accent-belongs-to-which-reading here, legarmeh-vs-paseq identity there. A
-**supplied** mark already emits a synthesized note (`source` `dual-cant-addition`, `diff_type`
-`dual-cant-added-punct` — see `py/clc/clc_note.py`): a lightweight **per-strand** note, **not** yet a
-ClcNote / §7.9 index row. The subtractive divergences remain **display-only** (no ClcNote departure
+in subject — which-accent-belongs-to-which-strand here, legarmeh-vs-paseq identity there. A
+**supplied** punctuation mark emits a synthesized note (`source` `dual-cant-addition`, `diff_type`
+`dual-cant-added-punct`); an **omitted** accent likewise emits one (`source`/`diff_type`
+`dual-cant-omitted-accent` — see `py/clc/clc_note.py`): lightweight **per-strand** notes, **not** yet
+ClcNotes / §7.9 index rows. The subtractive divergences remain **display-only** (no ClcNote departure
 records yet).
 
 ### 7.8 Versification
@@ -597,15 +609,16 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
 - Note schema: a single **CLC note** type that all sources (charitable under-bar verdicts, bracket
   notes, UXLC `<x>` notes + their tanach.us note-page prose, change records, FOIs, dagesh
   restorations) flow into — **one renderer, many sources**. Fields: atom text, bcvp, note text,
-  source (e.g. `uxlc-x-note`, `dual-cant-addition`), plus for the difference index (§7.9) a
-  **`diff_type`** (`under-bar` | `dual-cant-added-punct` | `legarmeh-paseq` | `dagesh` |
-  `meteg-position` | `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag,
-  and the **UXLC reading vs. CLC reading** pair. The difference index is then just "render the notes
-  where `is_uxlc_departure`, as a table." (The `amb_early_mtg` record is one prior example to borrow
-  field ideas from — not the definition.) **Implemented so far:** `ClcNote` (py/clc/clc_note.py) with
-  sources `uxlc-x-note` and `dual-cant-addition` and diff types `under-bar` and
-  `dual-cant-added-punct`. The dual-cant **"added out of thin air"** notes (§7.7) are a *separate,
-  lightweight* per-strand dict — **not** a full `ClcNote` (strand rows carry no anchors / §7.9 row yet).
+  source (e.g. `uxlc-x-note`, `dual-cant-addition`, `dual-cant-omitted-accent`), plus for the
+  difference index (§7.9) a **`diff_type`** (`under-bar` | `dual-cant-added-punct` |
+  `dual-cant-omitted-accent` | `legarmeh-paseq` | `dagesh` | `meteg-position` | `control-char` |
+  `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC reading vs. CLC
+  reading** pair. The difference index is then just "render the notes where `is_uxlc_departure`, as a
+  table." (The `amb_early_mtg` record is one prior example to borrow field ideas from — not the
+  definition.) **Implemented so far:** `ClcNote` (py/clc/clc_note.py) with sources `uxlc-x-note` and
+  `dual-cant-addition` and diff types `under-bar` and `dual-cant-added-punct`. The dual-cant **"added
+  out of thin air"** (supplied-punctuation) and **omitted-accent** notes (§7.7) are *separate,
+  lightweight* per-strand dicts — **not** full `ClcNote`s (strand rows carry no anchors / §7.9 row yet).
 
 ---
 
@@ -663,7 +676,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.4 change records as notes | not started | change log used only for the consistency guard, not as a note |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
-| §7.7 dual-cant strands | **partial** | Gen 35:22 + most Decalogue verses done (clc_dual_cant `_ORACLE`: ex 20:2,5,6,8,9,13–15; dt 5:9,10,18,19) — pure-accent + sof-pasuq suppression, 3 supplied sof-pasuqs (Gen 35:22, ex 20:8/9), rafe/dagesh by the faithful policy. Deferred: supplied accent (dt 5:6,13,17), QUPO vowel split (ex 20:3, dt 5:7), maqaf count-mismatch (ex 20:4,10; dt 5:8,12,14,15,16). No §7.9 departure rows |
+| §7.7 dual-cant strands | **partial** | Gen 35:22 + most Decalogue verses done (clc_dual_cant `_ORACLE`: ex 20:2,5,6,8,9,13–15; dt 5:6,9,10,13,17,18,19) — pure-accent + sof-pasuq suppression, 3 supplied sof-pasuqs (Gen 35:22, ex 20:8/9), rafe/dagesh by the faithful policy, and omitted-accent notes (dt 5:6,13,17 — accents NOTED, never supplied: punctuation only). Deferred: QUPO vowel split (ex 20:3, dt 5:7), maqaf count-mismatch (ex 20:4,10; dt 5:8,12,14,15,16). No §7.9 departure rows |
 | §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
 | §7.9 differences-from-UXLC index | not started | needs `is_uxlc_departure` departures (none yet) + LC manuscript order (§9 #10) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |
