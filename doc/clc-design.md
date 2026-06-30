@@ -407,8 +407,8 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   invent one — the sharpened departure from the detangler, which *does* supply it to parse. CLC shows
   the word as UXLC has it (that accent simply absent) and emits a per-strand note that names *both*
   accents — the one wanted and the one UXLC actually has: *"the elyon strand calls for a silluq on
-  תרצח here, but UXLC's combined text carries only the taḥton strand's tipḥa, and it is beyond the
-  limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipḥa on אנכי + etnaḥta
+  תרצח here, but UXLC's combined text carries only the taḥton strand's tipeḥa, and it is beyond the
+  limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipeḥa on אנכי + etnaḥta
   on אלהיך), **5:13** (taḥton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
   sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). The remaining strand classes — the
   QUPO vowel split and the maqaf word-division / count-mismatch verses — are tracked in
