@@ -23,9 +23,10 @@ import mb_cmn.hebrew_accents as acc  # noqa: E402
 import mb_cmn.hebrew_letters as hl  # noqa: E402
 import mb_cmn.hebrew_points as hpo  # noqa: E402
 import mb_cmn.hebrew_punctuation as hpu  # noqa: E402
+from mb_cmn import str_defs as sd  # noqa: E402
 
-_CGJ = "\N{COMBINING GRAPHEME JOINER}"
-_TSINNORIT = "\N{HEBREW ACCENT ZARQA}"
+_CGJ = sd.CGJ
+_TSINNORIT = acc.ZSH_OR_TSIT
 _PUNCT = {hpu.MAQ, hpu.SOPA, getattr(hpu, "PASOLEG", "׀")}
 # A divergent dagesh / rafe on a בגדכפת letter — the hard/soft alternation the two readings
 # disagree on (driven by the previous word's accent: disjunctive→hard/dagesh, conjunctive→soft).
@@ -84,7 +85,7 @@ def _mam_markset(word):
 
 def _is_accent(ch):
     """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
-    return 0x0591 <= ord(ch) <= 0x05AF or ch == "\N{HEBREW POINT METEG}"
+    return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
 
 
 def _build_atom_entry(uxlc, alef_word, bet_word):
@@ -187,13 +188,13 @@ def _build_atom_entry(uxlc, alef_word, bet_word):
     for strand_name, got in ((dc._STRAND_ALEF, got_a), (dc._STRAND_BET, got_b)):
         if hpu.SOPA in got and hpo.MTGOSLQ not in omitted.get(strand_name, []):
             accents = [c for c in got if _is_accent(c)]
-            assert accents and accents[-1] == "\N{HEBREW POINT METEG}", f"sof-pasuq not on a silluq word: {got!r}"
+            assert accents and accents[-1] == hpo.MTGOSLQ, f"sof-pasuq not on a silluq word: {got!r}"
     # ...and for a SUPPLIED sof-pasuq, the receiving strand's word ends in silluq.
     for strand, marks in supplied.items():
         if hpu.SOPA in marks:
             got = got_a if strand == dc._STRAND_ALEF else got_b
             accents = [c for c in got if _is_accent(c)]
-            assert accents and accents[-1] == "\N{HEBREW POINT METEG}", \
+            assert accents and accents[-1] == hpo.MTGOSLQ, \
                 f"supplied sof-pasuq not on a silluq word ({strand}): {got!r}"
     return entry, notes, False
 

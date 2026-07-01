@@ -20,8 +20,9 @@ import clc.clc_read as clc_read  # noqa: E402
 import mb_cmn.hebrew_accents as acc  # noqa: E402
 import mb_cmn.hebrew_points as hpo  # noqa: E402
 import mb_cmn.hebrew_punctuation as hpu  # noqa: E402
+from mb_cmn import str_defs as sd  # noqa: E402
 
-_CGJ = "\N{COMBINING GRAPHEME JOINER}"
+_CGJ = sd.CGJ
 _STRANDS = json.loads((_REPO / ".novc" / "mam_strands.json").read_text("utf-8"))
 
 # 1-char base letters (alef..tav, final forms included) — everything else on a word is a mark.

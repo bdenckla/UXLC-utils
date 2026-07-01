@@ -57,6 +57,7 @@ import mb_cmn.hebrew_accents as acc
 import mb_cmn.hebrew_letters as hl
 import mb_cmn.hebrew_points as hpo
 import mb_cmn.hebrew_punctuation as hpu
+from mb_cmn import str_defs as sd
 import mb_diff_mpu.describe_diff as describe_diff
 import clc.clc_note as clc_note
 
@@ -65,7 +66,7 @@ import clc.clc_note as clc_note
 # combined form only to sequence two stacked accents. Once a single accent
 # remains it has nothing to sequence, so a strand drops it (cf. §7.14). It lives
 # inside a divergence cluster (atom 14) and simply isn't in either resolution.
-_CGJ = "\N{COMBINING GRAPHEME JOINER}"
+_CGJ = sd.CGJ
 
 _STRAND_ALEF = "alef"
 _STRAND_BET = "bet"

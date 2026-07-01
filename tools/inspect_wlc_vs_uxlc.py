@@ -18,9 +18,10 @@ import mb_cmn.hebrew_accents as acc  # noqa: E402
 import mb_cmn.hebrew_letters as hl  # noqa: E402
 import mb_cmn.hebrew_points as hpo  # noqa: E402
 import mb_cmn.hebrew_punctuation as hpu  # noqa: E402
+from mb_cmn import str_defs as sd  # noqa: E402
 from accgram import rtms_data  # noqa: E402
 
-_CGJ = "\N{COMBINING GRAPHEME JOINER}"
+_CGJ = sd.CGJ
 _NAME = {}
 for _pfx, _mod in (("acc", acc), ("hpo", hpo), ("hpu", hpu), ("hl", hl)):
     for _n, _v in vars(_mod).items():
