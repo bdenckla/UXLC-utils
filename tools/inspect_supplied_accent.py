@@ -55,7 +55,7 @@ def _markset(word):
 
 # verses to adjudicate: the supplied-accent group + the dt5:8 anomaly.
 _VERSES = [
-    ("Deuter", "dt", 5, 6, "אנכי... (elyon chants vv.6-? as one; UXLC wrote taḥton accents)"),
+    ("Deuter", "dt", 5, 6, "אנכי... (elyon chants vv.6-? as one; UXLC wrote taḥton accents)"),
     ("Deuter", "dt", 5, 13, "שֵׁשֶׁת ימים... (Sabbath; alef PASHTA on ימים?)"),
     ("Deuter", "dt", 5, 17, "לא תרצח (elyon SILLUQ on תרצח?)"),
     ("Deuter", "dt", 5, 8, "ANOMALY: WLC merkha-for-qadma"),

@@ -181,7 +181,7 @@ def _build_atom_entry(uxlc, alef_word, bet_word):
     for ch in bset:
         assert ch in got_b and ch not in got_a, f"bet-only {hex(ord(ch))} leaked"
     # Guard: a sof-pasuq must sit on a word whose last accent is silluq (U+05BD), never
-    # etnaḥta etc. (Ben's rule) — for one already in the subtracted text. EXCEPTION: where
+    # etnaḥta etc. (Ben's rule) — for one already in the subtracted text. EXCEPTION: where
     # this strand's silluq is itself OMITTED (UXLC wrote the sof-pasuq but not its silluq —
     # dt 5:17 elyon), the sof-pasuq faithfully stands alone and the omit-note records the gap.
     for strand_name, got in ((dc._STRAND_ALEF, got_a), (dc._STRAND_BET, got_b)):

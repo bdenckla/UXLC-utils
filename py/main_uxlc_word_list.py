@@ -20,7 +20,7 @@ def _is_uxlc_fragile(string):
     # UXLC has a more lenient definition of fragile than we use for MAM
     #
     # TODO: consider וַיִּקְבְֹּ֥ר (w,_,y,·,i,q,:,v,·,o,:,(me),r) to be robust
-    # because (o,:) i.e., (ḥolam,sheva) is actualy UXLC-standard order.
+    # because (o,:) i.e., (ḥolam,sheva) is actualy UXLC-standard order.
     # I.e., it is extraordinary to have both of these vowels on a single
     # letter, but if we allow this to happen, this is actually the
     # UXLC-standard order for these vowel code points.
@@ -31,8 +31,8 @@ def _is_uxlc_fragile(string):
 
 
 def _lai_to_lia(string):
-    # "a" in lai & lia includes pataḥ & qamats
-    # "i" in lai & lia stands for ḥiriq & sheva
+    # "a" in lai & lia includes pataḥ & qamats
+    # "i" in lai & lia stands for ḥiriq & sheva
     # Not all 4 combinations occur. In particular
     # we don't need to handle qamats sheva, so we don't
     # handle it.

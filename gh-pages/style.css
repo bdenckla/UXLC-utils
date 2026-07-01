@@ -63,7 +63,7 @@ table.clc-3col td.clc-ref-strand.clc-strand-last { border-bottom: 1px solid; }
 td.clc-ref[title] { cursor: help; }
 span.clc-strand-label { font-style: italic; color: light-dark(#555, #aaa); }
 /* In an alef/bet strand row, de-highlight words identical across the two strands
-   (taḥton == elyon) so the few divergence words stand out
+   (taḥton == elyon) so the few divergence words stand out
    (clc_render._plain_text_contents). */
 span.clc-strand-same { color: light-dark(#999, #666); }
 td.clc-doc { max-width: 32em; font-size: 85%; }

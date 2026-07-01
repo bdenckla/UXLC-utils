@@ -73,7 +73,7 @@
         "cluster-index": 4,
         "cluster": "מ֑͏ִ",
         "sequence": "av",
-        "mark names": "etnaḥta, combining-grapheme-joiner, ḥiriq",
+        "mark names": "etnaḥta, combining-grapheme-joiner, ḥiriq",
         "mark names comment": null
       },
       {
@@ -84,7 +84,7 @@
         "cluster-index": 1,
         "cluster": "תִּ͏ְ",
         "sequence": "dvv",
-        "mark names": "dagesh/mapiq/shuruq-dot, ḥiriq, combining-grapheme-joiner, sheva",
+        "mark names": "dagesh/mapiq/shuruq-dot, ḥiriq, combining-grapheme-joiner, sheva",
         "mark names comment": null
       },
       {
@@ -95,7 +95,7 @@
         "cluster-index": 3,
         "cluster": "י֥‍ִ",
         "sequence": "av",
-        "mark names": "merkha/yored, zero-width-joiner, ḥiriq",
+        "mark names": "merkha/yored, zero-width-joiner, ḥiriq",
         "mark names comment": null
       },
       {
@@ -106,7 +106,7 @@
         "cluster-index": 1,
         "cluster": "פִ֗‍֝",
         "sequence": "vaa",
-        "mark names": "ḥiriq, revia, zero-width-joiner, geresh-muqdam",
+        "mark names": "ḥiriq, revia, zero-width-joiner, geresh-muqdam",
         "mark names comment": {
           "prefix": "cf. Ps 124:4 ",
           "atom": "נַ֗֜חְלָה",
@@ -121,7 +121,7 @@
         "cluster-index": 4,
         "cluster": "שׁ֑‍ִ",
         "sequence": "sav",
-        "mark names": "shin-dot, etnaḥta, zero-width-joiner, ḥiriq",
+        "mark names": "shin-dot, etnaḥta, zero-width-joiner, ḥiriq",
         "mark names comment": null
       }
     ],
@@ -145,7 +145,7 @@
         "cluster-index": 1,
         "cluster": "נַ֗֜",
         "sequence": "vaa",
-        "mark names": "pataḥ, revia, geresh",
+        "mark names": "pataḥ, revia, geresh",
         "mark names comment": {
           "prefix": "cf. Job 19:16 ",
           "atom": "פִ֗‍֝י",
@@ -160,7 +160,7 @@
         "cluster-index": 1,
         "cluster": "שֹֽׁ֥",
         "sequence": "svaa",
-        "mark names": "shin-dot, ḥolam, meteg/siluq, merkha/yored",
+        "mark names": "shin-dot, ḥolam, meteg/siluq, merkha/yored",
         "mark names comment": null
       }
     ],
@@ -173,7 +173,7 @@
         "cluster-index": 4,
         "cluster": "בְֹּ֥",
         "sequence": "dvva",
-        "mark names": "dagesh/mapiq/shuruq-dot, ḥolam, sheva, merkha/yored",
+        "mark names": "dagesh/mapiq/shuruq-dot, ḥolam, sheva, merkha/yored",
         "mark names comment": null
       },
       {
@@ -184,7 +184,7 @@
         "cluster-index": 3,
         "cluster": "רְֹ",
         "sequence": "vv",
-        "mark names": "sheva, ḥolam",
+        "mark names": "sheva, ḥolam",
         "mark names comment": null
       }
     ],
@@ -197,7 +197,7 @@
         "cluster-index": 3,
         "cluster": "כַ֤֖",
         "sequence": "vaa",
-        "mark names": "pataḥ, mahapakh, tipeḥa/tarḥa",
+        "mark names": "pataḥ, mahapakh, tipeḥa/tarḥa",
         "mark names comment": null
       },
       {
@@ -208,7 +208,7 @@
         "cluster-index": 4,
         "cluster": "אִ֤֨",
         "sequence": "vaa",
-        "mark names": "ḥiriq, mahapakh, qadma",
+        "mark names": "ḥiriq, mahapakh, qadma",
         "mark names comment": null
       },
       {
@@ -219,7 +219,7 @@
         "cluster-index": 2,
         "cluster": "דִּֽ֥",
         "sequence": "dvaa",
-        "mark names": "dagesh/mapiq/shuruq-dot, ḥiriq, meteg/siluq, merkha/yored",
+        "mark names": "dagesh/mapiq/shuruq-dot, ḥiriq, meteg/siluq, merkha/yored",
         "mark names comment": null
       },
       {
@@ -230,7 +230,7 @@
         "cluster-index": 4,
         "cluster": "מֵ֖֗",
         "sequence": "vaa",
-        "mark names": "tsere, tipeḥa/tarḥa, revia",
+        "mark names": "tsere, tipeḥa/tarḥa, revia",
         "mark names comment": null
       }
     ],
@@ -255,7 +255,7 @@
         "cluster-index": 2,
         "cluster": "יֹּ֣",
         "sequence": "dav",
-        "mark names": "dagesh/mapiq/shuruq-dot, munaḥ, ḥolam",
+        "mark names": "dagesh/mapiq/shuruq-dot, munaḥ, ḥolam",
         "mark names comment": null
       },
       {
@@ -277,7 +277,7 @@
         "cluster-index": 4,
         "cluster": "דָּֿ֖",
         "sequence": "dvda",
-        "mark names": "dagesh/mapiq/shuruq-dot, qamats, rafeh, tipeḥa/tarḥa",
+        "mark names": "dagesh/mapiq/shuruq-dot, qamats, rafeh, tipeḥa/tarḥa",
         "mark names comment": null
       },
       {
@@ -288,7 +288,7 @@
         "cluster-index": 1,
         "cluster": "שַּׂ֗",
         "sequence": "dsva",
-        "mark names": "dagesh/mapiq/shuruq-dot, sin-dot, pataḥ, revia",
+        "mark names": "dagesh/mapiq/shuruq-dot, sin-dot, pataḥ, revia",
         "mark names comment": null
       },
       {
@@ -310,7 +310,7 @@
         "cluster-index": 2,
         "cluster": "יֹּ֧",
         "sequence": "dav",
-        "mark names": "dagesh/mapiq/shuruq-dot, darga, ḥolam",
+        "mark names": "dagesh/mapiq/shuruq-dot, darga, ḥolam",
         "mark names comment": null
       },
       {
@@ -321,7 +321,7 @@
         "cluster-index": 3,
         "cluster": "רֹ֣",
         "sequence": "av",
-        "mark names": "munaḥ, ḥolam",
+        "mark names": "munaḥ, ḥolam",
         "mark names comment": null
       },
       {
@@ -332,7 +332,7 @@
         "cluster-index": 3,
         "cluster": "וֹ֣",
         "sequence": "av",
-        "mark names": "munaḥ, ḥolam",
+        "mark names": "munaḥ, ḥolam",
         "mark names comment": null
       }
     ]

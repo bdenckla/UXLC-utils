@@ -213,11 +213,11 @@ def _plain_text_contents(strand_atoms, other_atoms):
     # Like _text_contents but with no note always-links — used by the alef/bet
     # strand rows of a dual-cant verse, whose notes/anchors live on the combined
     # row only (re-emitting them here would duplicate anchor ids). Each word
-    # identical across the two strands (taḥton == elyon — i.e. not a divergence
+    # identical across the two strands (taḥton == elyon — i.e. not a divergence
     # atom) is de-highlighted (clc-strand-same) so the few divergence words stand
     # out by contrast. A word that differs from the OTHER strand stays highlighted
     # — including one equal to the combined form yet diverging from its sibling
-    # (e.g. ex 20:9 כל, whose taḥton keeps a dagesh elyon drops), and one carrying a
+    # (e.g. ex 20:9 כל, whose taḥton keeps a dagesh elyon drops), and one carrying a
     # SUPPLIED mark (clc_dual_cant additions) the other strand lacks; any supplied
     # mark is rendered bracketed/green right after the word.
     pieces = []

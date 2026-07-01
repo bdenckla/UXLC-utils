@@ -1,5 +1,7 @@
 """Exports name, names."""
 
+import unicodedata
+
 import uxlc_misc.my_unicode as my_unicode
 
 
@@ -15,8 +17,9 @@ def names(string):
 def name(string_len_1):
     """Return the UXLC name for the given Unicode code point."""
     my_un = my_unicode.name(string_len_1)
-    my_un_ndb = my_un.replace("ḥ", "h")  # ndb: no dot below [h]
-    # E.g. etnaḥta becomes just etnahta
+    # ndb: no dot below — strip the combining dot below (U+0323) so ḥ → h,
+    # robust to either normalization of the source name. E.g. etnaḥta → etnahta.
+    my_un_ndb = unicodedata.normalize("NFD", my_un).replace("̣", "")
     my_un_ndb_fn = my_un_ndb.split("/")[0]  # first name in a slash seq
     # E.g., meteg/siluq becomes just meteg
     uxlc_un = _UXLC_UNS.get(my_un_ndb_fn) or my_un_ndb_fn

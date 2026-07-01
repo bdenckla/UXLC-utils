@@ -22,7 +22,7 @@ import clc.clc_read as clc_read
 import uxlc_misc.my_uxlc as my_uxlc
 
 # The under-bar ambiguity codes that seed CLC (design doc §2): m (prose
-# merkha/meteg), d (poetic deḥi/tarḥa), and the catch-all t. Listed m/d/t first.
+# merkha/meteg), d (poetic deḥi/tarḥa), and the catch-all t. Listed m/d/t first.
 UNDER_BAR_CODES = ("m", "d", "t")
 
 # Marker shown for an atom with no downloaded note page (e.g. its code predates
@@ -30,7 +30,7 @@ UNDER_BAR_CODES = ("m", "d", "t")
 # stays deterministic; never the imperative change-log description.
 _CODE_MEANING = {
     "m": "possible merkha rather than meteg (prose under-bar)",
-    "d": "possible deḥi re-read as tipeḥa/tarḥa (poetic under-bar)",
+    "d": "possible deḥi re-read as tipeḥa/tarḥa (poetic under-bar)",
     "t": "transcription uncertainty — examine the mark below the letter",
 }
 

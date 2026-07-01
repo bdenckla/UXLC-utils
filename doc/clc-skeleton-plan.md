@@ -44,7 +44,7 @@ one renderer → `gh-pages/clc/`). Charity layers on later.
 - **Notes policy:** **always link** (uniform; no MAM short-inline / long-link threshold). §7.3.
 - **Versification:** primary `vtrad-BHS`. §7.8. (No MAM-boundary coloring in the skeleton.)
 - **First note source:** UXLC `<x>` notes, leading with the under-bar-ambiguity codes
-  **`m` (prose merkha/meteg/tipeḥa)** and **`d` (poetic deḥi/tarḥa/…)**, plus catch-all `t`. §2, §5.
+  **`m` (prose merkha/meteg/tipeḥa)** and **`d` (poetic deḥi/tarḥa/…)**, plus catch-all `t`. §2, §5.
 - **Note schema is defined from requirements (§8), NOT from the `amb_early_mtg` record.**
 
 ## Reusable assets (verified on disk)

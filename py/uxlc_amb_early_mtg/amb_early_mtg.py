@@ -84,7 +84,7 @@ _RECORD_09 = {
         "LC": "Deut25v11.png",
         "Sassoon 1053": "Deut25v11-Sassoon-1053-page-179-col-2-line-17.png",
     },
-    "initial-remark": "Ḥiriq-pataḥ would be the strict transcription (vs. sheva-qamats).",
+    "initial-remark": "Ḥiriq-pataḥ would be the strict transcription (vs. sheva-qamats).",
     "further-remarks": [
         "Seems like there was an erasure under the vav. "
         "IMO the evidence of a qamats dot is too faint to justify transcribing it.",
@@ -147,7 +147,7 @@ _RECORD_17 = {
     "line": 18,
     "img": "17-Ex14v19a14.png",
     "dubious early mtg": _BETTER_1,
-    "initial-remark": "The first two pataḥ marks are shifted “late”.",
+    "initial-remark": "The first two pataḥ marks are shifted “late”.",
     "further-remarks": [
         "Despite this shift, if we assume that the meteg tracks with this shift, "
         "the vav rather than the yod “owns” the meteg."
