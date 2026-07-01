@@ -32,8 +32,7 @@ with two loudly-flagged charities (§7.7, `clc_dual_cant`); ketiv/qere boxed-rub
 
 A driver `py/main_clc.py` that, for **one pilot book (or chapter)**, reads today's UXLC text and
 writes a static page under **`gh-pages/clc/`** in MAM-style **3 columns** (*as built:* `text | ref |
-doc`, ref a central spine), where the doc column shows **UXLC's own `<x>` notes** (start with
-`m`/`d`/`t`) **as always-links**, each carrying the note's prose (*as built:* the tanach.us note
+doc`, ref a central spine), where the doc column shows **UXLC's own `<x>` notes** (the under-bar `m`/`d`, plus the transcription-uncertainty `t`) **as always-links**, each carrying the note's prose (*as built:* the tanach.us note
 page, downloaded offline — see Status above; the change log is only the consistency guard, and a
 not-yet-downloaded page shows a `[note not yet downloaded]` placeholder). **No accent
 grammar, no charitable resolution yet** — the skeleton proves the pipeline (read → CLC note schema →
@@ -46,7 +45,7 @@ one renderer → `gh-pages/clc/`). Charity layers on later.
 - **Notes policy:** **always link** (uniform; no MAM short-inline / long-link threshold). §7.3.
 - **Versification:** primary `vtrad-BHS`. §7.8. (No MAM-boundary coloring in the skeleton.)
 - **First note source:** UXLC `<x>` notes, leading with the under-bar-ambiguity codes
-  **`m` (prose merkha/meteg/tipeḥa)** and **`d` (poetic deḥi/tarḥa/…)**, plus catch-all `t`. §2, §5.
+  **`m` (prose merkha/meteg/tipeḥa)** and **`d` (poetic deḥi/tarḥa/…)**, plus the general transcription-uncertainty catch-all `t` (surfaced, not under-bar). §2, §5, #18.
 - **Note schema is defined from requirements (§8), NOT from the `amb_early_mtg` record.**
 
 ## Reusable assets (verified on disk)
@@ -73,8 +72,8 @@ one renderer → `gh-pages/clc/`). Charity layers on later.
    (`clc_note_pages.local_note_prose`) to fill `note_text` — *as built*, replacing the original
    change-log-description plan; the change log now only backs the consistency guard, and a not-yet-
    downloaded page shows a `[note not yet downloaded]` placeholder (issue #19), never a fabricated
-   substitute. Emit CLC notes for the pilot, **`m`/`d`/`t` first**.
-   (Skeleton: `is_uxlc_departure=False`, `diff_type='under-bar'`, `clc_reading` = UXLC reading — we
+   substitute. Emit CLC notes for the pilot — the under-bar **`m`/`d`** first, then the transcription-uncertainty **`t`** (surfaced but not under-bar; §2, #18).
+   (Skeleton: `is_uxlc_departure=False`, `diff_type='under-bar'` (m/d) or `'transcription-uncertainty'` (t), `clc_reading` = UXLC reading — we
    are only *surfacing* the ambiguity, not yet resolving it.)
 4. **Always-link 3-column renderer.** Text column = running verse text; each noted word links to its
    note (anchor / per-note entry). Reference column = book ch:v(.atom).

@@ -1,7 +1,9 @@
 """Exports ClcNote, the single note schema all CLC note sources flow into.
 
-The skeleton only sources UXLC's own ``<x>`` under-bar notes (m/d/t), but the
-schema is deliberately source-agnostic: bracket notes, change records, FOIs,
+The skeleton only sources UXLC's own ``<x>`` self-flags (the under-bar codes m/d
+plus the general transcription-uncertainty catch-all t — see design doc §2, issue
+#18), but the schema is deliberately source-agnostic: bracket notes, change
+records, FOIs,
 dagesh restorations, etc. all feed this same record (design doc §8, "one
 renderer, many sources"). Records are plain data (JSON-serializable) so the same
 notes can later drive the §7.9 differences-from-UXLC index.
@@ -16,7 +18,11 @@ SOURCE_DUAL_CANT_ADDITION = "dual-cant-addition"  # punctuation supplied to clar
 SOURCE_DUAL_CANT_OMITTED_ACCENT = "dual-cant-omitted-accent"  # accent a strand wants but UXLC omitted
 
 # --- difference types (the "diff_type" field, for the §7.9 index) ---
-DIFF_UNDER_BAR = "under-bar"
+DIFF_UNDER_BAR = "under-bar"  # a vertical bar below the letter: m (prose), d (poetic)
+# UXLC's catch-all t <x> flag: general transcription uncertainty (damaged/indistinct;
+# any mark or letter — NOT inherently under-bar, design doc §2, issue #18). Surfaced
+# as a note but distinct from the genuinely under-bar m/d.
+DIFF_TRANSCRIPTION_UNCERTAINTY = "transcription-uncertainty"
 DIFF_DUAL_CANT_ADDED_PUNCT = "dual-cant-added-punct"  # charitable additive divergence mark (§7.7)
 # An accent a strand's chanting calls for but UXLC left untangled — NOTED, never supplied
 # (CLC supplies only punctuation; §7.7). Not a CLC departure from UXLC's text, just an

@@ -298,7 +298,8 @@ def _intro_para(notes):
         [
             "CLC walking skeleton. This page surfaces UXLC's own ",
             H.code("<x>"),
-            f" under-bar notes ({_code_counts_text(notes)}) as always-links, each "
+            f" notes ({_code_counts_text(notes)}) as always-links — the under-bar "
+            "codes m/d plus the general transcription-uncertainty catch-all t — each "
             "carrying its tanach.us note-page prose (an atom whose note page is not "
             "yet downloaded shows a bare [note not yet downloaded] placeholder, never "
             "invented text). No accent grammar and no charitable resolution yet — see "

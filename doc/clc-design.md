@@ -44,10 +44,14 @@ The same-ish glyph can be any of:
 - a **silluq** (accent; verse-final) — the easiest of these to distinguish, by context (it falls on the last word of the verse, before *sof pasuq*).
 
 **UXLC already flags many of these against itself.** Its one-letter `<x>` notes mark exactly this
-ambiguity in-text: **`m`** ("possible *merkha* rather than *meteg*", 42×, prose), **`d`** ("*deḥi*
-re-read as *tipeḥa/tarḥa*", 29×, poetic only), plus the catch-all **`t`** (among 233×, e.g. "examine
-mark below … as possible merkha"). That is **~70+ scribal under-bars UXLC itself is unsure about** —
-the natural in-text seed for CLC's charitable resolution (see §3, §5, §7.1). Tellingly, UXLC's own
+ambiguity in-text: **`m`** ("possible *merkha* rather than *meteg*", 42×, prose) and **`d`** ("*deḥi*
+re-read as *tipeḥa/tarḥa*", 29×, poetic only). That is **~70 scribal under-bars UXLC itself is unsure about** —
+the natural in-text seed for CLC's charitable resolution (see §3, §5, §7.1). UXLC's much larger
+catch-all **`t`** note (233×, the largest code) is *not* an under-bar flag: it marks general
+transcription uncertainty — any mark or letter, damaged or indistinct. A *few* `t` notes do concern a
+sub-letter mark (e.g. "examine mark below … as possible merkha"), but most do not (a dagesh, an erased
+upper accent, an artifact), so `t` is surfaced as a note yet seeds under-bar resolution only through a
+per-note prose filter, never wholesale (see §5, [#18](https://github.com/bdenckla/UXLC-utils/issues/18)). Tellingly, UXLC's own
 change log resolves them *by stroke angle* — *"the meteg … might be a merkha, but is not sufficiently
 inclined"* — which is precisely the method §2a proposes to replace with accent grammar.
 
@@ -87,7 +91,7 @@ meteg position at all* (§7.13); what little remains of `amb_early_mtg` is just 
 issues" lead among several in §7.12 — **not** the prototype of the note schema or of anything else.
 
 > So: **CLC's charity is, first and foremost, (2a) under-bar identity resolved by accent grammar,
-> seeded by UXLC's own ~70+ `m`/`d`/`t` self-doubts (§2 intro), applied wherever the image is
+> seeded by UXLC's own ~70 `m`/`d` self-doubts (§2 intro), applied wherever the image is
 > genuinely ambiguous.** The early-meteg question (2b) is a minor footnote, largely dissolved by §7.13.
 
 ---
@@ -100,7 +104,7 @@ The plan-shaped idea (kept deliberately brief):
    (the 21 prose books vs. the 3 poetic books — אמ״ת = Job, Proverbs, Psalms).
 2. Where the LC image shows an ambiguous under-bar, ask the grammar: *which of
    {meteg, tipeḥa/tarḥa, merkha, yored} is licit / expected here?*
-   (Start from UXLC's own `m`/`d`/`t` flags, §2. System-specific candidate sets: **prose →**
+   (Start from UXLC's own under-bar `m`/`d` flags, §2. System-specific candidate sets: **prose →**
    {meteg, merkha, tipeḥa}; **poetic →** {meteg, merkha, tarḥa, deḥi, yored}.)
 3. If exactly one is licit → transcribe it (charitable resolution).
 4. If more than one is licit → use the grammar's **continuous grammaticality measure** to rank the legal options and
@@ -149,7 +153,7 @@ largely an act of *composition* over existing machinery, plus the new identity-r
 
   | code | n | meaning | prose in change log |
   |---|---|---|---|
-  | `t` | 233 | transcription uncertainty (damaged/indistinct; "examine as possible merkha") | 207 |
+  | `t` | 233 | transcription uncertainty — general, **not** under-bar (any mark/letter; damaged/indistinct; §2, #18) | 207 |
   | `c` | 103 | cantillation / word-division oddity | 90 |
   | `m` | 42 | **under-bar: possible merkha vs meteg (prose)** — §2a seed | 39 |
   | `y` | 36 | yatir ketiv | 36 |
@@ -289,8 +293,8 @@ folder — but that path is **not cloned yet**, so it will show as missing until
 Each is a feature this doc names, organized with grounding + open questions.
 
 ### 7.1 Charitable under-bar transcription *(the headline feature)*
-- Identity (2a) via accent grammar, **seeded by UXLC's own `m`/`d`/`t` notes** (§2, §5): start from
-  the ~70+ atoms UXLC already flags, resolve each over its system's candidate set (prose
+- Identity (2a) via accent grammar, **seeded by UXLC's own under-bar `m`/`d` notes** (§2, §5): start from
+  the ~70 atoms UXLC already flags, resolve each over its system's candidate set (prose
   {meteg, merkha, tipeḥa}; poetic {meteg, merkha, tarḥa, deḥi, yored}) by grammatical licitness,
   charitably overriding UXLC's angle-based call where the grammar is confident.
 - Every departure from UXLC → a CLC note carrying a verdict + rationale (§8 schema). For the seeded
@@ -614,13 +618,15 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
   notes, UXLC `<x>` notes + their tanach.us note-page prose, change records, FOIs, dagesh
   restorations) flow into — **one renderer, many sources**. Fields: atom text, bcvp, note text,
   source (e.g. `uxlc-x-note`, `dual-cant-addition`, `dual-cant-omitted-accent`), plus for the
-  difference index (§7.9) a **`diff_type`** (`under-bar` | `dual-cant-added-punct` |
-  `dual-cant-omitted-accent` | `legarmeh-paseq` | `dagesh` | `meteg-position` | `control-char` |
-  `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag, and the **UXLC reading vs. CLC
+  difference index (§7.9) a **`diff_type`** (`under-bar` | `transcription-uncertainty` |
+  `dual-cant-added-punct` | `dual-cant-omitted-accent` | `legarmeh-paseq` | `dagesh` |
+  `meteg-position` | `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag,
+  and the **UXLC reading vs. CLC
   reading** pair. The difference index is then just "render the notes where `is_uxlc_departure`, as a
   table." (The `amb_early_mtg` record is one prior example to borrow field ideas from — not the
   definition.) **Implemented so far:** `ClcNote` (py/clc/clc_note.py) with sources `uxlc-x-note` and
-  `dual-cant-addition` and diff types `under-bar` and `dual-cant-added-punct`. The dual-cant **"added
+  `dual-cant-addition` and diff types `under-bar`, `transcription-uncertainty` (UXLC's `t` code, §2),
+and `dual-cant-added-punct`. The dual-cant **"added
   out of thin air"** (supplied-punctuation) and **omitted-accent** notes (§7.7) are *separate,
   lightweight* per-strand dicts — **not** full `ClcNote`s (strand rows carry no anchors / §7.9 row yet).
 
@@ -675,7 +681,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 
 | feature | status | where / note |
 |---|---|---|
-| §7.1 charitable under-bar | **seed only** | m/d/t notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False |
+| §7.1 charitable under-bar | **seed only** | m/d under-bar (+ t transcription-uncertainty) notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False |
 | §7.2 bracket-note restoration | not started | — |
 | §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); all bodies inline — long-note big-doc page still TODO |
 | §7.4 change records as notes | not started | change log used only for the consistency guard, not as a note |

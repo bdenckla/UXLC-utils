@@ -1,10 +1,12 @@
 """Exports collect_for_book: UXLC <x> notes + their note-page prose -> ClcNotes.
 
-This is the skeleton's note source (build-order step 3). It surfaces the
-under-bar ambiguity UXLC already flags (m/d/t) but does NOT yet resolve it:
-there is no accent grammar and no charitable departure here, so every note has
-``is_uxlc_departure=False`` and ``clc_reading == uxlc_reading``. Charity layers
-on later (design doc §3, §7.1).
+This is the skeleton's note source (build-order step 3). It surfaces UXLC's own
+``<x>`` self-flags but does NOT yet resolve them: the genuinely under-bar codes
+m/d (a vertical bar below the letter) plus the general transcription-uncertainty
+catch-all t (damaged/indistinct; any mark or letter — *not* inherently under-bar,
+design doc §2, issue #18). There is no accent grammar and no charitable departure
+here, so every note has ``is_uxlc_departure=False`` and ``clc_reading ==
+uxlc_reading``. Charity layers on later (design doc §3, §7.1).
 
 Each note's prose is the *actual* tanach.us note page, read offline from the
 committed local copy (clc_note_pages; downloaded by main_clc_download_notes). The
@@ -23,9 +25,22 @@ import clc.clc_note_pages as clc_note_pages
 import clc.clc_read as clc_read
 import uxlc_misc.my_uxlc as my_uxlc
 
-# The under-bar ambiguity codes that seed CLC (design doc §2): m (prose
-# merkha/meteg), d (poetic deḥi/tarḥa), and the catch-all t. Listed m/d/t first.
-UNDER_BAR_CODES = ("m", "d", "t")
+# The genuinely under-bar ambiguity codes — a vertical bar below the letter —
+# that seed CLC's charitable §2a resolution (design doc §2): m (prose
+# merkha/meteg) and d (poetic deḥi/tarḥa). NOT t: despite one
+# qualifying note ("examine mark below … as possible merkha"), t is a general
+# transcription-uncertainty flag (233×, the largest code) that mostly has
+# nothing to do with a sub-letter mark, so selecting every t atom over-includes
+# as under-bar (issue #18). A per-note prose filter could later promote the
+# genuinely under-bar subset of t.
+UNDER_BAR_CODES = ("m", "d")
+
+# All UXLC <x> codes CLC currently surfaces as notes: the under-bar pair leads
+# (design doc §2, §7.1), followed by the general transcription-uncertainty t. This
+# is the *note-surfacing* seed — a superset of the *under-bar* seed above; t is
+# surfaced (and downloaded) but classified as transcription-uncertainty, not
+# under-bar (see _diff_type_for).
+NOTED_CODES = UNDER_BAR_CODES + ("t",)
 
 # Placeholder shown for an atom whose tanach.us note page has not been downloaded
 # yet (design doc §9 #2). Deliberately NOT a description of the note: the prose
@@ -45,7 +60,7 @@ _KNOWN_ATOM_MISMATCHES = {
 }
 
 
-def iter_noted_atoms(book, codes=UNDER_BAR_CODES):
+def iter_noted_atoms(book, codes=NOTED_CODES):
     """Yield ``(ch, v, position, atom, code)`` for each atom carrying a code.
 
     The single source of truth for which (atom, code) pairs are CLC notes, shared
@@ -60,7 +75,7 @@ def iter_noted_atoms(book, codes=UNDER_BAR_CODES):
                         yield chidx + 1, vridx + 1, atidx + 1, atom, code
 
 
-def collect_for_book(book_id, codes=UNDER_BAR_CODES, chapters=None):
+def collect_for_book(book_id, codes=NOTED_CODES, chapters=None):
     """Read book_id and emit ClcNotes for atoms carrying one of ``codes``.
 
     Returns ``(book, notes)`` where ``book`` is the full read structure (chapters
@@ -112,7 +127,7 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
         # downloaded -- never an invented per-code gloss (issue #19).
         note_text=page_prose or _NOT_YET_DOWNLOADED,
         source=clc_note.SOURCE_UXLC_X_NOTE,
-        diff_type=clc_note.DIFF_UNDER_BAR,
+        diff_type=_diff_type_for(code),
         is_uxlc_departure=False,    # skeleton only surfaces the ambiguity
         uxlc_reading=atom_text,
         clc_reading=atom_text,      # ... so CLC's reading == UXLC's for now
@@ -120,6 +135,18 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
         # so even a not-yet-downloaded note links to where its prose lives.
         source_url=my_uxlc.note_page_url(book_id, ch, v, position, code),
     )
+
+
+def _diff_type_for(code):
+    """Classify a surfaced <x> note for the §7.9 index.
+
+    Only the genuinely under-bar codes (m/d) are ``under-bar``; the catch-all t is
+    general transcription-uncertainty, not a sub-letter mark (design doc §2, issue
+    #18). All notes are still ``is_uxlc_departure=False`` in the skeleton.
+    """
+    if code in UNDER_BAR_CODES:
+        return clc_note.DIFF_UNDER_BAR
+    return clc_note.DIFF_TRANSCRIPTION_UNCERTAINTY
 
 
 def _check_atom_consistency(book_id, ch, v, position, atom_text, records):
