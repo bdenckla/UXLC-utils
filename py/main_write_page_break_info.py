@@ -1,6 +1,7 @@
 """Exports main"""
 
 import shutil
+import sys
 import uxlc_misc.my_uxlc as my_uxlc
 import uxlc_misc.my_uxlc_page_break_info as page_break_info
 import uxlc_lci.uxlc_lci_augrec as lci_augrec
@@ -37,6 +38,8 @@ def main():
     """
     Write page break info to files.
     """
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     uxlc = my_uxlc.read_all_books()
     pbi = page_break_info.read_in(uxlc)
     _write_page_break_info(pbi)

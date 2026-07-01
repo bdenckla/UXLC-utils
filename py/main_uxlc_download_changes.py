@@ -3,6 +3,7 @@ Base Usage:
 .venv/Scripts/python.exe py/main_uxlc_download_changes.py
 """
 
+import sys
 from pathlib import Path
 import zipfile
 
@@ -83,6 +84,8 @@ def _show_progress(path):
 
 def main():
     """Download UXLC inputs, then rebuild downstream derived outputs."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     with polite_download.PoliteDownloader(_UXLC_DOWNLOAD_CONFIG) as session:
         _download_latest_uxlc(session)
         for filename in my_uxlc_changes.FILENAMES:

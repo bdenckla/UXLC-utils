@@ -5,6 +5,7 @@ You can download a fresh zip of XML files for all 39 books using the URL
 https://tanach.us/Books/Tanach.xml.zip
 """
 
+import sys
 import unicodedata
 
 from mb_cmn import hebrew_letters as hl
@@ -67,6 +68,8 @@ def _annotate_word(fragile_word):
 
 def main():
     """Extracts two word list files (all, fragile) from UXLC sources."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     words_all = set()
     for book_id in tbn.ALL_BOOK_IDS:
         for chapter in my_uxlc.read(book_id):

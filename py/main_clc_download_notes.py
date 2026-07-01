@@ -64,6 +64,8 @@ def _show_progress(path):
 
 def main():
     """Download note pages for one book into in/UXLC-notes/ (network step)."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     book_id = sys.argv[1] if len(sys.argv) > 1 else _DEFAULT_BOOK
     assert book_id in tbn.ALL_BOOK_IDS, f"unknown book id: {book_id!r}"
     book = clc_read.read_book(book_id)

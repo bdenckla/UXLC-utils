@@ -1,5 +1,7 @@
 """Exports main."""
 
+import sys
+
 import uxlc_misc.my_uxlc as my_uxlc
 import mb_cmn.file_io as my_open
 import uxlc_fois.fois_html as fois_html
@@ -76,6 +78,8 @@ _VERSE_CHILD_HANDLERS = {
 
 def main():
     """Writes UXLC features of interest to per-FOI JSON files."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     uxlc = my_uxlc.read_all_books(_VERSE_CHILD_HANDLERS)
     fois = {
         "kq": fois_kq_foi.init(),

@@ -22,14 +22,10 @@ callers.  That is because those modules are libraries consumed by
 higher-level tools, while this script is a standalone CLI entry point.
 """
 
-import io
 import sys
 import unicodedata
 import mb_cmn.mb_cmn_bib_locales as tbn
 import uxlc_misc.my_uxlc_location as my_uxlc_location
-
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
 
 
 def _strip_heb(s):
@@ -83,6 +79,8 @@ def main():
     Usage: .venv\Scripts\python.exe py\main_uxlc_estimate_atom_loc.py <book_id> <c:v> <word>
     Example: .venv\Scripts\python.exe py\main_uxlc_estimate_atom_loc.py Genes 27:7 "וַיָּבֵא"
     """
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     args = sys.argv[1:]
     if len(args) != 3:
         print(

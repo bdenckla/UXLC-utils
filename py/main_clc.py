@@ -28,6 +28,8 @@ _DEFAULT_BOOK = tbn.BK_PROV
 
 def main():
     """Build the CLC skeleton page + notes JSON for one pilot book."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     book_id = sys.argv[1] if len(sys.argv) > 1 else _DEFAULT_BOOK
     assert book_id in tbn.ALL_BOOK_IDS, f"unknown book id: {book_id!r}"
     chapters = {int(sys.argv[2])} if len(sys.argv) > 2 else None

@@ -1,5 +1,7 @@
 """Exports main."""
 
+import sys
+
 import uxlc_amb_early_mtg.amb_early_mtg as amb_early_mtg
 import uxlc_amb_early_mtg.amb_early_mtg_full as amb_early_mtg_full
 import uxlc_amb_early_mtg.amb_early_mtg_summary as amb_early_mtg_summary
@@ -10,6 +12,8 @@ import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 
 def main():
     """Writes amb-early-mtg records to HTML files."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     records = amb_early_mtg.RECORDS
     #
     amb_early_mtg_three_and_beyond.find()

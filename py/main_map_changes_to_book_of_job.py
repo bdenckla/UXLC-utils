@@ -391,6 +391,7 @@ def deep_compare(xml_entries, mapping, quirkrecs):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
 
     xml_entries = parse_xml_entries()
     html_entries = walk_html_chain()
