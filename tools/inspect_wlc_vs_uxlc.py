@@ -20,7 +20,7 @@ import mb_cmn.hebrew_points as hpo  # noqa: E402
 import mb_cmn.hebrew_punctuation as hpu  # noqa: E402
 from accgram import rtms_data  # noqa: E402
 
-_CGJ = "͏"
+_CGJ = "\N{COMBINING GRAPHEME JOINER}"
 _NAME = {}
 for _pfx, _mod in (("acc", acc), ("hpo", hpo), ("hpu", hpu), ("hl", hl)):
     for _n, _v in vars(_mod).items():

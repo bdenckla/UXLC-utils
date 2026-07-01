@@ -24,7 +24,7 @@ import mb_cmn.hebrew_letters as hl  # noqa: E402
 import mb_cmn.hebrew_points as hpo  # noqa: E402
 import mb_cmn.hebrew_punctuation as hpu  # noqa: E402
 
-_CGJ = "͏"
+_CGJ = "\N{COMBINING GRAPHEME JOINER}"
 _STRANDS = json.loads((_REPO / ".novc" / "mam_strands.json").read_text("utf-8"))
 
 # codepoint -> mb_cmn constant name, for legibility.

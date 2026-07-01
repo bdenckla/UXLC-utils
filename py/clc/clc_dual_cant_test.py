@@ -32,7 +32,7 @@ import uxlc_misc.uxlc_utils_html as H  # noqa: E402
 
 _XML = os.path.join(_REPO_ROOT, "in", "UXLC-39", "Genesis.xml")
 
-_CGJ = "͏"
+_CGJ = "\N{COMBINING GRAPHEME JOINER}"
 _METEG = hpo.MTGOSLQ
 _SOF_PASUQ = hpu.SOPA
 _MAQAF = hpu.MAQ
