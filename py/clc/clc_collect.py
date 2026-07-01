@@ -63,15 +63,19 @@ _KNOWN_ATOM_MISMATCHES = {
 def iter_noted_atoms(book, codes=NOTED_CODES):
     """Yield ``(ch, v, position, atom, code)`` for each atom carrying a code.
 
-    The single source of truth for which (atom, code) pairs are CLC notes, shared
-    by collect_for_book and the note-page downloader (main_clc_download_notes) so
-    the two cannot drift. ``position`` is the 1-based atom index within the verse.
+    The single source of truth for which (atom, code) pairs carry a UXLC ``<x>``
+    code, shared by collect_for_book (which keeps the ``codes=NOTED_CODES``
+    default -- the note-surfacing seed) and the note-page downloader
+    (main_clc_download_notes, which passes ``codes=None`` to fetch every code, not
+    just the seed) so the two cannot drift on the underlying atom/code pairs.
+    ``codes=None`` means no filtering: yield every ``<x>`` code an atom carries.
+    ``position`` is the 1-based atom index within the verse.
     """
     for chidx, chapter in enumerate(book):
         for vridx, verse in enumerate(chapter):
             for atidx, atom in enumerate(verse):
                 for code in atom["types"]:
-                    if code in codes:
+                    if codes is None or code in codes:
                         yield chidx + 1, vridx + 1, atidx + 1, atom, code
 
 

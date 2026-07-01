@@ -1,4 +1,4 @@
-"""Exports main: download a book's tanach.us note pages into committed files.
+"""Exports main: download tanach.us note pages into committed files.
 
 This is the *network* half of CLC notes, kept separate from the build on purpose
 (like py/main_uxlc_download_changes.py downloads the core UXLC XML): the CLC build
@@ -7,20 +7,26 @@ network, so its output is deterministic.
 
 Usage (run from the repo root, network required, NOT part of the default build):
 
-    python py/main_clc_download_notes.py [BookId]      # default: Proverbs
+    python py/main_clc_download_notes.py            # all 39 books
+    python py/main_clc_download_notes.py BookId      # just one book (dev/testing)
 
-For each of the book's noted atoms (the same (atom, code) pairs the build uses,
-via clc_collect.iter_noted_atoms), fetch
+For every atom carrying a UXLC ``<x>`` code -- every code, not just the note-
+surfacing seed the build reads (clc_collect.NOTED_CODES); issue #25 wants the
+complete note dataset on hand, including the codes (numeric / "X") that turn out
+to have no page at all -- fetch
 ``https://tanach.us/Notes/<name>/<name>.<ch>.<v>.<position>-<code>.html`` -- where
 ``<name>`` is the canonical UXLC book name (my_uxlc.book_basename; e.g. id
 "2Samuel" -> "Samuel_2"), the part that the build path historically got wrong --
 and write the HTML to the committed
-``in/UXLC-notes/<book_id>/<book_id>.<ch>.<v>.<position>-<code>.html``.
+``in/UXLC-notes/<book_id>/<book_id>.<ch>.<v>.<position>-<code>.html``. A page
+already present locally is left alone and not re-fetched -- this run is resumable
+and re-runnable without re-hitting tanach.us for pages already on hand.
 
 (The pages reference detail images, e.g. ``.../images/.../2-Detail.jpg``; pulling
 those down can be added here later -- see the note in the loop.)
 """
 
+import os
 import sys
 
 import requests
@@ -33,21 +39,22 @@ import clc.clc_collect as clc_collect
 import clc.clc_note_pages as clc_note_pages
 import clc.clc_read as clc_read
 
-_DEFAULT_BOOK = tbn.BK_PROV
-
 
 def _download_one(session, book_id, ch, v, position, code):
-    """Fetch one note page and write it locally; return True on success.
+    """Fetch one note page and write it locally; return True if now present.
 
+    Returns True without touching the network if the page is already committed.
     Returns False if the page is missing (404 -- the note predates the change log,
     or tanach.us has none) or the request fails after retries.
     """
+    out_path = clc_note_pages.local_page_path(book_id, ch, v, position, code)
+    if os.path.exists(out_path):
+        return True
     url = my_uxlc.note_page_url(book_id, ch, v, position, code)
     try:
         text = session.get_text(url, timeout=20, encoding="utf-8")
     except requests.RequestException:
         return False
-    out_path = clc_note_pages.local_page_path(book_id, ch, v, position, code)
     _show_progress(out_path)
     my_open.with_tmp_openw(out_path, {"newline": ""}, _write_callback, text)
     # (Future) parse <img src> from `text` and download referenced detail images.
@@ -63,23 +70,43 @@ def _show_progress(path):
 
 
 def main():
-    """Download note pages for one book into in/UXLC-notes/ (network step)."""
+    """Download note pages into in/UXLC-notes/ (network step).
+
+    Defaults to all 39 books; an optional BookId argv restricts to one book (for
+    dev/testing). Every ``<x>`` code is fetched (codes=None), not just the
+    note-surfacing seed clc_collect.NOTED_CODES -- see the module docstring.
+    """
     sys.stdout.reconfigure(encoding="utf-8")
     sys.stderr.reconfigure(encoding="utf-8")
-    book_id = sys.argv[1] if len(sys.argv) > 1 else _DEFAULT_BOOK
-    assert book_id in tbn.ALL_BOOK_IDS, f"unknown book id: {book_id!r}"
-    book = clc_read.read_book(book_id)
-    found = missing = 0
+    if len(sys.argv) > 1:
+        book_id = sys.argv[1]
+        assert book_id in tbn.ALL_BOOK_IDS, f"unknown book id: {book_id!r}"
+        book_ids = [book_id]
+    else:
+        book_ids = tbn.ALL_BOOK_IDS
+    total_found = total_missing = 0
     with polite_download.PoliteDownloader(_NOTES_CONFIG) as session:
-        for ch, v, position, _atom, code in clc_collect.iter_noted_atoms(book):
-            if _download_one(session, book_id, ch, v, position, code):
-                found += 1
-            else:
-                missing += 1
-    print(
-        f"CLC note pages for {book_id}: {found} downloaded, "
-        f"{missing} missing (404 / no page)"
-    )
+        for book_id in book_ids:
+            book = clc_read.read_book(book_id)
+            found = missing = 0
+            for ch, v, position, _atom, code in clc_collect.iter_noted_atoms(
+                book, codes=None
+            ):
+                if _download_one(session, book_id, ch, v, position, code):
+                    found += 1
+                else:
+                    missing += 1
+            print(
+                f"CLC note pages for {book_id}: {found} downloaded, "
+                f"{missing} missing (404 / no page)"
+            )
+            total_found += found
+            total_missing += missing
+    if len(book_ids) > 1:
+        print(
+            f"CLC note pages overall: {total_found} downloaded, "
+            f"{total_missing} missing (404 / no page)"
+        )
 
 
 _NOTES_CONFIG = polite_download.PoliteDownloadConfig(

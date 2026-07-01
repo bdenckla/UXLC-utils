@@ -1,4 +1,8 @@
-"""Confirm the committed UXLC note pages against the frozen Notes.zip (issue #24).
+"""Confirm the committed UXLC note pages against the frozen Notes.zip.
+
+Started for the 3-book pilot (issue #24); extended unchanged to the full 39-book
+corpus (issue #25) -- it already walks whatever is committed under
+``in/UXLC-notes/``, so no book-specific logic needed to change.
 
 http/download is the source of truth; ``Notes.zip`` (a ~1.1 MB snapshot of the
 tanach.us ``/Notes`` tree, captured 2026-06-30) is only a verification aid -- a
@@ -19,6 +23,12 @@ is ``my_uxlc.book_basename``) and classifies the pair:
   * PROSE-DIFFERS -- the extracted prose itself differs (real editorial drift, not
                      chrome). Dumps both sides so the discrepancy is auditable.
   * MISSING-IN-ZIP / MISSING-LOCAL -- coverage gaps either way.
+
+Independent of that zip cross-check, every committed page's *local* prose
+extraction is also confirmed non-empty (issue #25 step 2: every downloaded page
+must parse to usable prose). A committed page that extracts to nothing would mean
+``clc_note_pages`` failed to recognize its format -- that is reported separately
+as NO-PROSE-EXTRACTED, regardless of the page's zip verdict.
 
 Writes a full UTF-8 report to ``.novc/notes_zip_verify.txt`` and prints a summary.
 
@@ -56,13 +66,15 @@ def _prose(text):
 
 
 def _classify(local_bytes, zip_bytes):
-    if zip_bytes is None:
-        return "MISSING-IN-ZIP"
-    if local_bytes == zip_bytes:
-        return "IDENTICAL"
+    """Return ``(verdict, local_prose)`` -- local_prose is checked by the caller
+    for the independent issue #25 step-2 "parses to prose" confirmation."""
     lp = _prose(local_bytes.decode("utf-8"))
+    if zip_bytes is None:
+        return "MISSING-IN-ZIP", lp
+    if local_bytes == zip_bytes:
+        return "IDENTICAL", lp
     zp = _prose(zip_bytes.decode("utf-8"))
-    return "PROSE-EQUAL" if lp == zp else "PROSE-DIFFERS"
+    return ("PROSE-EQUAL" if lp == zp else "PROSE-DIFFERS"), lp
 
 
 def _iter_committed():
@@ -82,18 +94,21 @@ def main():
 
     counts = {}
     prose_differs = []
-    lines = [f"Notes.zip verification (issue #24) -- zip: {zip_path}", ""]
+    no_prose = []
+    lines = [f"Notes.zip verification (issues #24, #25) -- zip: {zip_path}", ""]
 
     for book_id, fname in _iter_committed():
         with open(_NOTES_DIR / book_id / fname, "rb") as fp:
             local_bytes = fp.read()
         entry = _zip_entry_for(book_id, fname)
         zip_bytes = zf.read(entry) if entry in zip_names else None
-        verdict = _classify(local_bytes, zip_bytes)
+        verdict, local_prose = _classify(local_bytes, zip_bytes)
         counts[verdict] = counts.get(verdict, 0) + 1
         lines.append(f"{verdict:<14} {book_id}/{fname}")
         if verdict == "PROSE-DIFFERS":
             prose_differs.append((book_id, fname, local_bytes, zip_bytes))
+        if not local_prose:
+            no_prose.append((book_id, fname))
 
     lines.append("")
     lines.append("Summary:")
@@ -109,12 +124,21 @@ def main():
         f"Prose confirmed for {substance_ok}/{total} committed pages; "
         f"{len(prose_differs)} carry prose the zip revised (see below)."
     )
+    lines.append(
+        f"Local prose extraction: {total - len(no_prose)}/{total} committed "
+        f"pages parse to non-empty prose (issue #25 step 2); "
+        f"{len(no_prose)} NO-PROSE-EXTRACTED (see below)."
+    )
 
     for book_id, fname, local_bytes, zip_bytes in prose_differs:
         lines.append("")
         lines.append(f"=== PROSE-DIFFERS: {book_id}/{fname}")
         lines.append(f"  committed: {_prose(local_bytes.decode('utf-8'))!r}")
         lines.append(f"  zip      : {_prose(zip_bytes.decode('utf-8'))!r}")
+
+    for book_id, fname in no_prose:
+        lines.append("")
+        lines.append(f"=== NO-PROSE-EXTRACTED: {book_id}/{fname}")
 
     _OUT.parent.mkdir(exist_ok=True)
     _OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -124,6 +148,7 @@ def main():
                     "MISSING-IN-ZIP", "MISSING-LOCAL"):
         if verdict in counts:
             print(f"  {verdict:<14} {counts[verdict]}")
+    print(f"  NO-PROSE-EXTRACTED {len(no_prose)}")
 
 
 if __name__ == "__main__":
