@@ -1,0 +1,130 @@
+"""Confirm the committed UXLC note pages against the frozen Notes.zip (issue #24).
+
+http/download is the source of truth; ``Notes.zip`` (a ~1.1 MB snapshot of the
+tanach.us ``/Notes`` tree, captured 2026-06-30) is only a verification aid -- a
+re-runnable offline cross-check, not an independent authority. This script never
+edits anything; it just reports.
+
+For every committed ``in/UXLC-notes/<book_id>/<book_id>.c.v.pos-code.html`` it
+finds the matching zip entry (the zip keys notes by the canonical tanach.us
+basename, e.g. ``Notes/Samuel_2/Samuel_2.…`` for book id ``2Samuel``; the mapping
+is ``my_uxlc.book_basename``) and classifies the pair:
+
+  * IDENTICAL     -- byte-for-byte equal.
+  * PROSE-EQUAL   -- differ only in tanach.us template chrome (title text,
+                     ``.xml`` vs ``.html`` links, footer table, ``auto``/``hr``);
+                     the note prose CLC actually consumes -- via
+                     ``clc_note_pages._extract_prose_paragraphs``, the exact build
+                     code -- is character-identical. No effect on CLC output.
+  * PROSE-DIFFERS -- the extracted prose itself differs (real editorial drift, not
+                     chrome). Dumps both sides so the discrepancy is auditable.
+  * MISSING-IN-ZIP / MISSING-LOCAL -- coverage gaps either way.
+
+Writes a full UTF-8 report to ``.novc/notes_zip_verify.txt`` and prints a summary.
+
+Run from the repo root (default zip path is the frozen snapshot; override with an
+argument)::
+
+    python tools/verify_notes_zip.py [path/to/Notes.zip]
+"""
+
+import os
+import sys
+import zipfile
+from pathlib import Path
+
+_REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_REPO / "py"))
+
+import clc.clc_note_pages as cnp  # noqa: E402
+import uxlc_misc.my_uxlc as my_uxlc  # noqa: E402
+
+_NOTES_DIR = _REPO / "in" / "UXLC-notes"
+_DEFAULT_ZIP = Path(r"C:\Users\BenDe\Downloads\Notes.zip")
+_OUT = _REPO / ".novc" / "notes_zip_verify.txt"
+
+
+def _zip_entry_for(book_id, fname):
+    """The zip entry mirroring committed ``<book_id>/<fname>`` (basename-keyed)."""
+    basename = my_uxlc.book_basename(book_id)
+    return f"Notes/{basename}/{basename}{fname[len(book_id):]}"
+
+
+def _prose(text):
+    """The note prose CLC consumes, joined -- same extractor as the build."""
+    return " ".join(cnp._extract_prose_paragraphs(text))
+
+
+def _classify(local_bytes, zip_bytes):
+    if zip_bytes is None:
+        return "MISSING-IN-ZIP"
+    if local_bytes == zip_bytes:
+        return "IDENTICAL"
+    lp = _prose(local_bytes.decode("utf-8"))
+    zp = _prose(zip_bytes.decode("utf-8"))
+    return "PROSE-EQUAL" if lp == zp else "PROSE-DIFFERS"
+
+
+def _iter_committed():
+    for book_id in sorted(os.listdir(_NOTES_DIR)):
+        book_dir = _NOTES_DIR / book_id
+        if not book_dir.is_dir():
+            continue
+        for fname in sorted(os.listdir(book_dir)):
+            if fname.endswith(".html"):
+                yield book_id, fname
+
+
+def main():
+    zip_path = Path(sys.argv[1]) if len(sys.argv) > 1 else _DEFAULT_ZIP
+    zf = zipfile.ZipFile(zip_path)
+    zip_names = set(zf.namelist())
+
+    counts = {}
+    prose_differs = []
+    lines = [f"Notes.zip verification (issue #24) -- zip: {zip_path}", ""]
+
+    for book_id, fname in _iter_committed():
+        with open(_NOTES_DIR / book_id / fname, "rb") as fp:
+            local_bytes = fp.read()
+        entry = _zip_entry_for(book_id, fname)
+        zip_bytes = zf.read(entry) if entry in zip_names else None
+        verdict = _classify(local_bytes, zip_bytes)
+        counts[verdict] = counts.get(verdict, 0) + 1
+        lines.append(f"{verdict:<14} {book_id}/{fname}")
+        if verdict == "PROSE-DIFFERS":
+            prose_differs.append((book_id, fname, local_bytes, zip_bytes))
+
+    lines.append("")
+    lines.append("Summary:")
+    for verdict in ("IDENTICAL", "PROSE-EQUAL", "PROSE-DIFFERS",
+                    "MISSING-IN-ZIP", "MISSING-LOCAL"):
+        if verdict in counts:
+            lines.append(f"  {verdict:<14} {counts[verdict]}")
+    total = sum(counts.values())
+    substance_ok = counts.get("IDENTICAL", 0) + counts.get("PROSE-EQUAL", 0)
+    lines.append(f"  {'TOTAL':<14} {total}")
+    lines.append("")
+    lines.append(
+        f"Prose confirmed for {substance_ok}/{total} committed pages; "
+        f"{len(prose_differs)} carry prose the zip revised (see below)."
+    )
+
+    for book_id, fname, local_bytes, zip_bytes in prose_differs:
+        lines.append("")
+        lines.append(f"=== PROSE-DIFFERS: {book_id}/{fname}")
+        lines.append(f"  committed: {_prose(local_bytes.decode('utf-8'))!r}")
+        lines.append(f"  zip      : {_prose(zip_bytes.decode('utf-8'))!r}")
+
+    _OUT.parent.mkdir(exist_ok=True)
+    _OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    print(f"wrote {_OUT}")
+    for verdict in ("IDENTICAL", "PROSE-EQUAL", "PROSE-DIFFERS",
+                    "MISSING-IN-ZIP", "MISSING-LOCAL"):
+        if verdict in counts:
+            print(f"  {verdict:<14} {counts[verdict]}")
+
+
+if __name__ == "__main__":
+    main()

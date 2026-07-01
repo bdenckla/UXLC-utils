@@ -33,3 +33,15 @@ These consult two sibling repos on disk under `C:\Users\BenDe\GitRepos`:
 - `inspect_supplied_accent.py` → `.novc/supplied_accent.txt` — the 3-source byte diff that adjudicated the dt 5:6/13/17 omitted accents.
 - `inspect_wlc_vs_uxlc.py` → `.novc/wlc_vs_uxlc.txt` — proves UXLC ≠ WLC at dt 5:13/17 (explains the detangler "discrepancy").
 - `inspect_dt517_xml.py` → `.novc/dt517_xml.txt` — dt 5:17 XML inspection.
+
+## Note-page verification (issue #24)
+
+Unrelated to the dual-cant oracle above — a standalone cross-check for the
+committed tanach.us note pages:
+
+- `verify_notes_zip.py` → `.novc/notes_zip_verify.txt` — confirms each committed
+  `in/UXLC-notes/<book>/*.html` against the frozen `Notes.zip` snapshot. Classifies
+  every page as byte-`IDENTICAL`, `PROSE-EQUAL` (differs only in tanach.us template
+  chrome; the prose CLC extracts is identical), or `PROSE-DIFFERS`, and dumps the
+  prose for any mismatch. Read-only; the zip path defaults to the frozen snapshot
+  and can be overridden with an argument.
