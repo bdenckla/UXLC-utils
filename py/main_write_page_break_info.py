@@ -26,7 +26,9 @@ def _write_page_break_info(pbi):
     xml_elementtree = lci_rec_to_xml.get_etree(lci_recs_dot_json)
 
     xml_out_path = "out/UXLC-misc/lci_recs.xml"
-    my_open.with_tmp_openw(xml_out_path, {}, _etree_write_callback, xml_elementtree)
+    my_open.with_tmp_openw(
+        xml_out_path, {"newline": ""}, _etree_write_callback, xml_elementtree
+    )
 
 
 def _etree_write_callback(xml_elementtree, out_fp):

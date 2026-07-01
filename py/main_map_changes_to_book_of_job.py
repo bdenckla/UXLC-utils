@@ -175,7 +175,9 @@ def write_mapping(matched, xml_only, html_only):
         "html_only": [{"html": he["file"], "ref": he["ref"]} for he in html_only],
     }
     MAP_OUT_PATH.write_text(
-        json.dumps(output, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+        newline="",
     )
     print(f"Wrote {MAP_OUT_PATH}")
     return output

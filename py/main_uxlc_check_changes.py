@@ -44,7 +44,7 @@ def _dump_txt_write_callback(lines, out_fp):
 def _dump_txt(changes, path):
     list_of_lists = list(map(_get_lines, changes))
     lines = sum(list_of_lists, [])
-    my_open.with_tmp_openw(path, {}, _dump_txt_write_callback, lines)
+    my_open.with_tmp_openw(path, {"newline": ""}, _dump_txt_write_callback, lines)
 
 
 def _do_one_changes_file(bhla, filename):
