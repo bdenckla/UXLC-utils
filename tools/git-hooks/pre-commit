@@ -1,0 +1,20 @@
+#!/bin/sh
+# Pre-commit guard (GitHub issue #22): block commits that introduce an orphan
+# combining mark -- a string literal whose raw source starts with a bare Unicode
+# combining mark. Runs the shared source-hygiene scanner over hand-authored
+# Python source (py/ + tools/, minus vendored packages).
+#
+# Enable once, from the repo root:
+#     git config core.hooksPath tools/git-hooks
+#
+# Reuses the repo's venv Python if present, else falls back to PATH `python`.
+# `exec` makes the scanner's exit code the hook's: non-zero blocks the commit and
+# prints each offender as `path:line  U+XXXX NAME`.
+if [ -x ".venv/Scripts/python.exe" ]; then
+	py=".venv/Scripts/python.exe"
+elif [ -x ".venv/bin/python" ]; then
+	py=".venv/bin/python"
+else
+	py="python"
+fi
+exec "$py" tools/source_hygiene.py

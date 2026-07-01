@@ -34,6 +34,28 @@ These consult two sibling repos on disk under `C:\Users\BenDe\GitRepos`:
 - `inspect_wlc_vs_uxlc.py` → `.novc/wlc_vs_uxlc.txt` — proves UXLC ≠ WLC at dt 5:13/17 (explains the detangler "discrepancy").
 - `inspect_dt517_xml.py` → `.novc/dt517_xml.txt` — dt 5:17 XML inspection.
 
+## Source-hygiene guard (issue #22)
+
+Unrelated to the dual-cant oracle above — a Unicode source-hygiene guard that
+fails on any **orphan combining mark**: a string literal whose raw source starts
+with a bare combining mark (the "floating diacritic on the opening quote"
+antipattern). The fix is a named escape, `"\N{UNICODE NAME}"`. It flags a *raw*
+mark but accepts every escape form, so already-fixed code stays clean.
+
+- `source_hygiene.py` — the shared scanner. Walks hand-authored `*.py` under `py/`
+  and `tools/` (pruning `__pycache__` and the vendored `mb_cmn` / `mb_diff_mpu`
+  packages), locates string literals via the AST, and tests each literal's **raw
+  source segment**. A pluggable `Check` tuple lets the sibling h-with-dot guard
+  (issues #21/#26) plug into the same harness. Run directly as the pre-commit
+  scanner: `python tools/source_hygiene.py` prints each offender as
+  `path:line  U+XXXX NAME` and exits non-zero when the tree is dirty.
+- `source_hygiene_test.py` — the standalone `*_test.py` guard: pins the live tree
+  clean plus synthetic positive/negative controls. `python tools/source_hygiene_test.py`.
+- `git-hooks/pre-commit` — a tracked hook that runs the scanner. Enable once, from
+  the repo root: `git config core.hooksPath tools/git-hooks`.
+
+Escape hatch: a trailing `# combining-ok` on the offending line suppresses it.
+
 ## Note-page verification (issue #24)
 
 Unrelated to the dual-cant oracle above — a standalone cross-check for the
