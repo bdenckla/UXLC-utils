@@ -310,14 +310,14 @@
                     </transnote>
                 </transnotes>
                 <status>Pending</status>
-                <type>NoAction</type>
+                <type>NoTextChange</type>
             </change>
             <!--...................................................-->
             <!--...................................................-->
             <change>
                 <n>8</n>
                 <citation>
-                    <book>jer</book>
+                    <book>Jer</book>
                     <c>10</c>
                     <v>3</v>
                     <position>11</position>
@@ -329,15 +329,15 @@
                 </author>
                 <description>Change merkha to meteg under the dalet. Add note 'm'.</description>
                 <lc>
-                    <folio>Folio_</folio>
+                    <folio>Folio_251A</folio>
                     <column>3</column>
                     <line>11</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
                 <reftext>יְדֵ֥י־</reftext>
                 <refuni>yod     sheva     dalet     tsere     merkha     yod     maqaf     </refuni>
-                <changetext>יְדֵֽי־</changetext>
-                <changeuni>yod     sheva     dalet     tsere     meteg     yod     maqaf     </changeuni>
+                <changetext>יְדֵ֥י־</changetext>
+                <changeuni>yod     sheva     dalet     tsere     merkha     yod     maqaf     </changeuni>
                 <notes>
                     <note>The line beneath the dalet lacks the northeast-to-southwest inclination of a merkha. This change proposal was suggested by results from a run of Richard Goerwitz's accent grammar checker on a recent (2020) Groves Center text. For more information, see Ben Denckla's "Goerwitz Run on WLC" at https://bdenckla.github.io/wlc-utils/accgram/goerwitz.html.</note>
                     <note>BHL has a meteg under the dalet.  BHLA has no entry for this verse.</note>
@@ -386,6 +386,49 @@
                     <note>BHL has a meteg under the kaf.  BHLA has no entry for this verse.</note>
                 </notes>
                 <analysistags/>
+                <transnotes>
+                    <transnote>
+                        <action>Add</action>
+                        <type/>
+                        <beforetext/>
+                    </transnote>
+                </transnotes>
+                <status>Pending</status>
+                <type>accent</type>
+            </change>
+            <!--...................................................-->
+            <!--...................................................-->
+            <change>
+                <n>10</n>
+                <citation>
+                    <book>Deut</book>
+                    <c>5</c>
+                    <v>8</v>
+                    <position>2</position>
+                </citation>
+                <author>
+                    <name>Ben Denckla</name>
+                    <mail>bdenckla@alum.mit.edu</mail>
+                    <confirmed>true</confirmed>
+                </author>
+                <description>Change pashta over sin to qadma.</description>
+                <lc>
+                    <folio>Folio_102A</folio>
+                    <column>3</column>
+                    <line>24</line>
+                    <credit>Credit: Sefaria.org.</credit>
+                </lc>
+                <reftext>תַעֲשֶֽׂ֙ה־</reftext>
+                <refuni>tav     patah     ayin     hataf-patah     shin     sin-dot     segol     pashta     meteg     he     maqaf     </refuni>
+                <changetext>תַעֲשֶֽׂ֨ה־</changetext>
+                <changeuni>tav     patah     ayin     hataf-patah     shin     sin-dot     segol     qadma     meteg     he     maqaf     </changeuni>
+                <notes>
+                    <note>This Decalogue text contains double accent, the text is also in poor condition. The mark in question is a broken line coming out of the rightmost leg of the sin. A pashta is post-positive and appears on the left side of the letter. One or two pashtas can occur on a word. If a word has a single pashta, it must occur on the final letter of the word. If a word has two pashtas, one occurs on the final letter and the other acts as an "accent helper" placed over the accented letter. This word has a single, pashta/qadma-like mark over the sin and no corresponding mark on the final letter. Therefore, the mark in question isn't a pashta, but a qadma,</note>
+                    <note>BHL has a qadma centered over the sin. (Dotan numbers the division differently than the UXLC and other modern texts. He combines UXLC verses 6 and 7 into a single verse so that UXLC verse 8 is BHL verse 7.)  BHLA has no entry for this verse.</note>
+                </notes>
+                <analysistags>
+                    <aBHL/>
+                </analysistags>
                 <transnotes>
                     <transnote>
                         <action>Add</action>

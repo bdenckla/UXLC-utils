@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type='text/xsl'  href='../../XSL/Changes.xsl.xml'?>
+<?xml-stylesheet type='text/xsl'  href='/XSL/Changes.xsl.xml'?>
 
 <!--===================================================-->
 <Changes>
@@ -10,13 +10,13 @@
     <reffiles>
         <reffile>
             <title>Comments on </title>
-            <linkname>qere and ketiv forms</linkname>
+            <linkname>&#x00a0;qere and ketiv forms&#x00a0;</linkname>
             <titleend> for these changes.</titleend>
             <link>Qere and ketiv forms.html</link>
         </reffile>
         <reffile>
             <title>Comments on </title>
-            <linkname>yatir forms</linkname>
+            <linkname>&#x00a0;yatir forms&#x00a0;</linkname>
             <titleend> for these changes.</titleend>
             <link>Yatir forms.html</link>
         </reffile>
