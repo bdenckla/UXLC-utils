@@ -1,8 +1,8 @@
 #!/bin/sh
-# Pre-commit guard (GitHub issue #22): block commits that introduce an orphan
-# combining mark -- a string literal whose raw source starts with a bare Unicode
-# combining mark. Runs the shared source-hygiene scanner over hand-authored
-# Python source (py/ + tools/, minus vendored packages).
+# Pre-commit guard (GitHub issues #22, #26): block commits that introduce an
+# orphan combining mark, or a decomposed base+combining-mark pair that should be
+# NFC-composed. Runs the shared source-hygiene scanner over hand-authored source
+# (py/ + tools/ + doc/, minus vendored packages).
 #
 # Enable once, from the repo root:
 #     git config core.hooksPath tools/git-hooks

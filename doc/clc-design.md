@@ -37,15 +37,15 @@ The richest vein of charity is the **vertical (or near-vertical) bar written bel
 The same-ish glyph can be any of:
 
 - a **meteg** / gaʿya (metrical secondary stress; not an accent),
-- a **tipeḥa** (accent; *prose only*),
-- a **tarḥa** (accent; *poetic only*),
+- a **tipexa** (accent; *prose only*),
+- a **tarxa** (accent; *poetic only*),
 - a **merkha** (accent; occurs in *both* prose and poetic systems),
 - a **yored** (accent; *poetic only*),
 - a **silluq** (accent; verse-final) — the easiest of these to distinguish, by context (it falls on the last word of the verse, before *sof pasuq*).
 
 **UXLC already flags many of these against itself.** Its one-letter `<x>` notes mark exactly this
-ambiguity in-text: **`m`** ("possible *merkha* rather than *meteg*", 42×, prose) and **`d`** ("*deḥi*
-re-read as *tipeḥa/tarḥa*", 29×, poetic only). That is **~70 scribal under-bars UXLC itself is unsure about** —
+ambiguity in-text: **`m`** ("possible *merkha* rather than *meteg*", 42×, prose) and **`d`** ("*dexi*
+re-read as *tipexa/tarxa*", 29×, poetic only). That is **~70 scribal under-bars UXLC itself is unsure about** —
 the natural in-text seed for CLC's charitable resolution (see §3, §5, §7.1). UXLC's much larger
 catch-all **`t`** note (233×, the largest code) is *not* an under-bar flag: it marks general
 transcription uncertainty — any mark or letter, damaged or indistinct. A *few* `t` notes do concern a
@@ -58,7 +58,7 @@ inclined"* — which is precisely the method §2a proposes to replace with accen
 Two **distinct** sub-problems live under this heading. Keep them separate:
 
 ### 2a. Identity ambiguity — *which mark is it?*
-A bar below the letter could be meteg vs. tipeḥa/tarḥa vs. merkha vs. yored. UXLC leans on the
+A bar below the letter could be meteg vs. tipexa/tarxa vs. merkha vs. yored. UXLC leans on the
 **angle/position** of the stroke in the image to decide. CLC's stance: **resolve primarily by
 context — i.e. by accent grammar — not by mark angle.** If the accentuation of the verse makes
 only one of these grammatically possible (or overwhelmingly likely), transcribe *that*, even if
@@ -69,19 +69,19 @@ already exists** in the sibling repo `wlc-utils` (see §5).
 
 **CLC resolves more charitably than UXLC's own binary framing.** The candidate set is *every*
 under-bar mark the relevant system licenses, not just the two UXLC happened to name in a note:
-- an **`m`** case (prose) ranges over **{meteg, merkha, tipeḥa}** — not only UXLC's meteg/merkha.
-  (UXLC's change log already re-encodes both *merkha→meteg* and *tipeḥa→meteg* under the same `m`
+- an **`m`** case (prose) ranges over **{meteg, merkha, tipexa}** — not only UXLC's meteg/merkha.
+  (UXLC's change log already re-encodes both *merkha→meteg* and *tipexa→meteg* under the same `m`
   note, so all three are empirically in play.)
-- a **`d`** case (poetic) ranges over **{tarḥa, deḥi, meteg, merkha, yored}** — never *tipeḥa*
+- a **`d`** case (poetic) ranges over **{tarxa, dexi, meteg, merkha, yored}** — never *tipexa*
   (not a poetic accent, though moot at the codepoint level — see next).
 - **Codepoint collisions matter for the output.** These grammatical identities are not all distinct
-  in Unicode: *tipeḥa = tarḥa =* **U+0596** and *merkha = yored =* **U+05A5**. So a charitable
+  in Unicode: *tipexa = tarxa =* **U+0596** and *merkha = yored =* **U+05A5**. So a charitable
   re-reading can change a mark's *identity* without changing its codepoint — meaning some
   CLC-vs-UXLC departures live only in the **note prose / labeling** (the §8 "UXLC reading vs CLC
   reading" pair, §7.9 diff), not in the text bytes.
 
 ### 2b. Ownership ambiguity — *is a coded "early meteg" really just a normal meteg?* (minor footnote)
-A much smaller, rarer issue than 2a. UXLC sometimes codes a meteg on a ḥaṭef-bearing
+A much smaller, rarer issue than 2a. UXLC sometimes codes a meteg on a xatef-bearing
 letter as an **early meteg** via a ZWJ trick (`meteg + U+034F` → the `ֽ͏ַ` sequence). In a **confirmed one or two cases**,
 the better reading is simply a **normal meteg on the previous letter**. An old, **likely-unfinished**
 exploratory program (`amb_early_mtg`) once scanned for other such candidates.
@@ -103,9 +103,9 @@ The plan-shaped idea (kept deliberately brief):
 1. For each word/verse, compute the **expected accentuation** under the relevant system
    (the 21 prose books vs. the 3 poetic books — אמ״ת = Job, Proverbs, Psalms).
 2. Where the LC image shows an ambiguous under-bar, ask the grammar: *which of
-   {meteg, tipeḥa/tarḥa, merkha, yored} is licit / expected here?*
+   {meteg, tipexa/tarxa, merkha, yored} is licit / expected here?*
    (Start from UXLC's own under-bar `m`/`d` flags, §2. System-specific candidate sets: **prose →**
-   {meteg, merkha, tipeḥa}; **poetic →** {meteg, merkha, tarḥa, deḥi, yored}.)
+   {meteg, merkha, tipexa}; **poetic →** {meteg, merkha, tarxa, dexi, yored}.)
 3. If exactly one is licit → transcribe it (charitable resolution).
 4. If more than one is licit → use the grammar's **continuous grammaticality measure** to rank the legal options and
    provisionally go with the most likely; where they remain close, also weigh image evidence
@@ -158,7 +158,7 @@ largely an act of *composition* over existing machinery, plus the new identity-r
   | `m` | 42 | **under-bar: possible merkha vs meteg (prose)** — §2a seed | 39 |
   | `y` | 36 | yatir ketiv | 36 |
   | `q` | 35 | qere fix (mostly "removed unsupported dagesh" — §7.15) | 35 |
-  | `d` | 29 | **under-bar: deḥi↔tipeḥa/tarḥa (poetic)** — §2a seed | 28 |
+  | `d` | 29 | **under-bar: dexi↔tipexa/tarxa (poetic)** — §2a seed | 28 |
   | `4`–`8`, `X` | 38 | rarer transcription codes | 0 |
 
   → **Note-text source (settled — see §7.3, §9 #2):** the rendered note prose is **the actual
@@ -232,7 +232,7 @@ largely an act of *composition* over existing machinery, plus the new identity-r
   - Bracket-note parsing/HTML: `wlc-utils/py/accgram/rtmsr_bracket_notes.py`.
   - **Accent-grammar engine:** `wlc-utils/py/accgram/` — the prose/poetic grammar checker.
   - **Untangled Decalogues + Gen 35:22:** `wlc-utils/py/accgram/dual_cant_detangle.py`
-    (passages `gn 35:22` pashut/midrashit, `ex 20:2-17` & `dt 5:6-21` taḥton/elyon). Uses
+    (passages `gn 35:22` pashut/midrashit, `ex 20:2-17` & `dt 5:6-21` taxton/elyon). Uses
     MAM-simple as the oracle to split merged accents into two single-cantillation streams;
     produces parse trees + **4 charitably "supplied" marks** + **1 anomaly** (Deut 5:8 תעשה).
     Loader `wlc-utils/py/accgram/mam_simple_verse.py` (`vels_cant_alef` / `vels_cant_bet`).
@@ -295,13 +295,13 @@ Each is a feature this doc names, organized with grounding + open questions.
 ### 7.1 Charitable under-bar transcription *(the headline feature)*
 - Identity (2a) via accent grammar, **seeded by UXLC's own under-bar `m`/`d` notes** (§2, §5): start from
   the ~70 atoms UXLC already flags, resolve each over its system's candidate set (prose
-  {meteg, merkha, tipeḥa}; poetic {meteg, merkha, tarḥa, deḥi, yored}) by grammatical licitness,
+  {meteg, merkha, tipexa}; poetic {meteg, merkha, tarxa, dexi, yored}) by grammatical licitness,
   charitably overriding UXLC's angle-based call where the grammar is confident.
 - Every departure from UXLC → a CLC note carrying a verdict + rationale (§8 schema). For the seeded
   cases the rationale text is partly **free** from UXLC's own change-log description (§5).
 - **[TBD]** Source the grammar from `wlc-utils/py/accgram` (vendor vs. cross-call).
 - **[TBD]** Define the verdict vocabulary precisely (extend `_BETTER_1`/`_UNCLEAR`/… to cover
-  the identity cases: "grammar licenses only tipeḥa here," etc.).
+  the identity cases: "grammar licenses only tipexa here," etc.).
 
 ### 7.2 Restoration of WLC bracket notes
 - Source: the vendored `wlc-utils/out/wlc422-kq-u/` (kq-u WLC 4.22), with definitions from
@@ -369,7 +369,7 @@ Each is a feature this doc names, organized with grounding + open questions.
 
 ### 7.7 Untangled Decalogues + Genesis 35:22
 - Build on `wlc-utils/py/accgram/dual_cant_detangle.py`: present Exod 20, Deut 5, and Gen 35:22
-  as **two clean single-cantillation streams** each (taḥton/elyon; pashut/midrashit) instead of
+  as **two clean single-cantillation streams** each (taxton/elyon; pashut/midrashit) instead of
   the merged tangle.
 - The detangler's **"supplied marks" are themselves charitable acts** (marks the scribe didn't
   write because both strands share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
@@ -378,7 +378,7 @@ Each is a feature this doc names, organized with grounding + open questions.
   and footnoted** rather than hidden (as raw UXLC) or silently baked in (as the detangler).
 
 **Single-strand display.** Where a dual-cant verse is one row today, CLC shows **three**: the
-combined form plus its two strands — labeled e.g. `35:22-C`, `35:22-א` (pashuṭ), `35:22-ב`
+combined form plus its two strands — labeled e.g. `35:22-C`, `35:22-א` (pashut), `35:22-ב`
 (midrashit), each ref label carrying a hover description, the three grouped as one verse block.
 **Genesis 35:22 is the first application** (`py/clc/clc_dual_cant.py`, rendered by
 `clc_render.py`); the Decalogues follow by adding their oracle entries.
@@ -392,7 +392,7 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
 - **Position-safe subtraction.** Each strand is UXLC's own combined word with only the *other*
   strand's **divergence cluster** resolved: an accent, the **word-division punctuation that tracks
   it** (a maqaf / sof-pasuq / legarmeh belonging to that strand — so a sof-pasuq is *suppressed*
-  when its silluq is, and never sits on a word whose last accent is e.g. etnaḥta), and — where the
+  when its silluq is, and never sits on a word whose last accent is e.g. etnaxta), and — where the
   two strands stack them on one letter — the other strand's **vowel** (a QUPO word's patax vs.
   qamats) or **rafe/dagesh**. For rafe/dagesh the policy is **faithful**: where the two strands
   harden/soften a בגדכפת letter (driven by the previous word's accent — a disjunctive pause hardens,
@@ -403,20 +403,20 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   mark is never touched.
 - **Marked supply — *punctuation only*, bracketed and footnoted, never silent.** Only an
   accent-coupled **word-division** mark a strand needs but UXLC lacks may be **supplied**, and only
-  to improve legibility (e.g. the sof-pasuq that breaks Gen 35:22's pashuṭ into its two chanted
+  to improve legibility (e.g. the sof-pasuq that breaks Gen 35:22's pashut into its two chanted
   verses), rendered **bracketed and green** (CSS `clc-added-during-detangling`) with a synthesized
   "added out of thin air" note. The closed suppliable set is **maqaf / sof-pasuq / legarmeh** (the
   rule: *no punctuation supplied unless clearly marked as supplied* — cf. the green/bracketed
-  additions in wlc-utils). Three sof-pasuqs are supplied so far — Gen 35:22 (pashuṭ) and the taḥton
+  additions in wlc-utils). Three sof-pasuqs are supplied so far — Gen 35:22 (pashut) and the taxton
   verse-ends of Exod 20:8 (לקדשו) and 20:9 (מלאכתך), where UXLC has none.
 - **Omitted accent — *noted, never supplied*.** Where a strand's chanting calls for an **accent**
   UXLC left untangled (it has only the *other* strand's accent on that word), CLC does **not**
   invent one — the sharpened departure from the detangler, which *does* supply it to parse. CLC shows
   the word as UXLC has it (that accent simply absent) and emits a per-strand note that names *both*
   accents — the one wanted and the one UXLC actually has: *"the elyon strand calls for a silluq on
-  תרצח here, but UXLC's combined text carries only the taḥton strand's tipeḥa, and it is beyond the
-  limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipeḥa on אנכי + etnaḥta
-  on אלהיך), **5:13** (taḥton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
+  תרצח here, but UXLC's combined text carries only the taxton strand's tipexa, and it is beyond the
+  limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta
+  on אלהיך), **5:13** (taxton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
   sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). The remaining strand classes — the
   QUPO vowel split and the maqaf word-division / count-mismatch verses — are tracked in
   [#20](https://github.com/bdenckla/UXLC-utils/issues/20).
@@ -584,10 +584,10 @@ the change-log description names exactly what was removed (§5).
 A **second** ambiguous-vertical-bar problem, **distinct from the under-bar (§2)**: a vertical bar
 standing **after / between words** can be either an ordinary **paseq** (a separating stroke — *not*
 an accent) or the paseq that, together with a preceding conjunctive, forms the disjunctive
-**legarmeh** (in the prose books, *munaḥ legarmeh* = *munaḥ* + paseq; the poetic system has its own
+**legarmeh** (in the prose books, *munax legarmeh* = *munax* + paseq; the poetic system has its own
 legarmeh forms over its own conjunctives — **[TBD]** pin down the poetic inventory). A word carrying
-a genuine *munaḥ* that merely *happens* to be followed by an independent paseq looks **identical** to
-*munaḥ legarmeh*; the difference is **grammatical, not graphical** — exactly the kind of ambiguity
+a genuine *munax* that merely *happens* to be followed by an independent paseq looks **identical** to
+*munax legarmeh*; the difference is **grammatical, not graphical** — exactly the kind of ambiguity
 CLC exists to resolve charitably.
 
 **Goal: borrow MAM's legarmeh-vs-paseq distinctions.** MAM (Miqra according to the Masorah) already
@@ -599,7 +599,7 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
 - **[TBD]** Does `wlc-utils/py/accgram` (§5) already distinguish legarmeh from paseq, or only the
   under-bar accents? If yes, reuse; if no, lean on MAM-as-oracle (cf. §7.7).
 - **[TBD] Codepoint precision (cf. §2a).** There is **no dedicated "legarmeh" codepoint** — it is
-  *munaḥ* (U+05A3) + *paseq* (U+05C0), the same bytes as *munaḥ* followed by an ordinary paseq. So,
+  *munax* (U+05A3) + *paseq* (U+05C0), the same bytes as *munax* followed by an ordinary paseq. So,
   as with the §2a U+0596/U+05A5 collisions, a charitable re-reading may change only the **note prose
   / labeling**, not the text bytes. Confirm whether UXLC nonetheless distinguishes them somehow.
 - Difference type for §7.9 / §8: **`legarmeh-paseq`**.

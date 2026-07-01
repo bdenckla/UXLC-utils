@@ -21,12 +21,12 @@ _SHORT_NAMES = {
     "\N{SPACE}": "space",  # 0020
     "\N{COMBINING GRAPHEME JOINER}": "combining-grapheme-joiner",  # 034f
     "\N{ZERO WIDTH JOINER}": "zero-width-joiner",  # 200d
-    ha.ATN: "etnaḥta",  # 0591
+    ha.ATN: "etnaḥta",  # 0591
     "\N{HEBREW ACCENT SEGOL}": "segol-accent",  # 0592
     "\N{HEBREW ACCENT SHALSHELET}": "shalshelet",  # 0593
     "\N{HEBREW ACCENT ZAQEF QATAN}": "zaqef-qatan",  # 0594
     "\N{HEBREW ACCENT ZAQEF GADOL}": "zaqef-gadol",  # 0595
-    ha.TIP: "tipeḥa/tarḥa",  # 0596
+    ha.TIP: "tipeḥa/tarḥa",  # 0596
     ha.REV: "revia",  # 0597
     "\N{HEBREW ACCENT ZARQA}": "zarqa-stress-helper/tsinorit",  # 0598
     "\N{HEBREW ACCENT PASHTA}": "pashta",  # 0599
@@ -38,30 +38,30 @@ _SHORT_NAMES = {
     "\N{HEBREW ACCENT QARNEY PARA}": "qarney-para",  # 059f
     ha.TEL_G: "telisha-gedola",  # 05a0
     "\N{HEBREW ACCENT PAZER}": "pazer",  # 05a1
-    ha.ATN_H: "atnaḥ-hafukh",  # 05a2
-    ha.MUN: "munaḥ",  # 05a3
+    ha.ATN_H: "atnaḥ-hafukh",  # 05a2
+    ha.MUN: "munaḥ",  # 05a3
     "\N{HEBREW ACCENT MAHAPAKH}": "mahapakh",  # 05a4
     ha.MER: "merkha/yored",  # 05a5
     "\N{HEBREW ACCENT MERKHA KEFULA}": "merkha-kefula",  # 05a6
     "\N{HEBREW ACCENT DARGA}": "darga",  # 05a7
     "\N{HEBREW ACCENT QADMA}": "qadma",  # 05a8
     "\N{HEBREW ACCENT TELISHA QETANA}": "telisha-qetana",  # 05a9
-    ha.YBY: "yeraḥ-ben-yomo",  # 05aa
+    ha.YBY: "yeraḥ-ben-yomo",  # 05aa
     ha.OLE: "ole",  # 05ab
     "\N{HEBREW ACCENT ILUY}": "iluy",  # 05ac
-    "\N{HEBREW ACCENT DEHI}": "deḥi",  # 05ad
+    "\N{HEBREW ACCENT DEHI}": "deḥi",  # 05ad
     "\N{HEBREW ACCENT ZINOR}": "tsinor",  # 05ae
     hpo.SHEVA: "sheva",  # 05b0
-    hpo.XSEGOL: "ḥataf-segol",  # 05b1
-    hpo.XPATAX: "ḥataf-pataḥ",  # 05b2
-    hpo.XQAMATS: "ḥataf-qamats",  # 05b3
-    hpo.XIRIQ: "ḥiriq",  # 05b4
+    hpo.XSEGOL: "ḥataf-segol",  # 05b1
+    hpo.XPATAX: "ḥataf-pataḥ",  # 05b2
+    hpo.XQAMATS: "ḥataf-qamats",  # 05b3
+    hpo.XIRIQ: "ḥiriq",  # 05b4
     hpo.TSERE: "tsere",  # 05b5
     hpo.SEGOL_V: "segol-vowel",  # 05b6
-    hpo.PATAX: "pataḥ",  # 05b7
+    hpo.PATAX: "pataḥ",  # 05b7
     hpo.QAMATS: "qamats",  # 05b8
-    hpo.XOLAM: "ḥolam",  # 05b9
-    hpo.XOLAM_XFV: "ḥolam-ḥaser-for-vav",  # 05ba
+    hpo.XOLAM: "ḥolam",  # 05b9
+    hpo.XOLAM_XFV: "ḥolam-ḥaser-for-vav",  # 05ba
     hpo.QUBUTS: "qubuts",  # 05bb
     hpo.DAGOMOSD: "dagesh/mapiq/shuruq-dot",  # 05bc
     hpo.MTGOSLQ: "meteg/siluq",  # 05bd
@@ -82,7 +82,7 @@ _SHORT_NAMES = {
     hl.HE: "he",  # 05d4
     hl.VAV: "vav",  # 05d5
     hl.ZAYIN: "zayin",  # 05d6
-    hl.XET: "ḥet",  # 05d7
+    hl.XET: "ḥet",  # 05d7
     hl.TET: "tet",  # 05d8
     hl.YOD: "yod",  # 05d9
     hl.FKAF: "final-kaf",  # 05da

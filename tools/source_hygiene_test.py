@@ -1,13 +1,15 @@
-"""Guard test: no orphan combining marks in hand-authored source (GitHub issue #22).
+"""Guard test: source hygiene in hand-authored source (GitHub issues #22, #26).
 
 Run from anywhere:  python tools/source_hygiene_test.py
 Prints "source_hygiene: OK" on success. On failure, raises AssertionError
-listing each offender as ``path:line  U+XXXX NAME``.
+listing each offender as ``path:line  U+XXXX NAME -- detail``.
 
 Pins the live tree (must stay clean) plus synthetic positive/negative controls
-for the detector. Every synthetic combining mark is built from a ``\\N{...}`` name
-at runtime and interpolated into a source *string* we hand to the scanner -- it is
-never written as an orphan literal, so this test file itself passes the guard.
+for both detectors: #22's orphan-combining-mark rule and #26's
+no-decomposed-composite rule. Every synthetic combining mark is built from a
+``\\N{...}`` name at runtime and interpolated into a source *string* we hand to
+the scanner -- it is never written as an orphan literal, so this test file
+itself passes the guard.
 """
 
 import os
@@ -73,6 +75,42 @@ def test_pragma_suppresses():
     assert list(sh.find_orphan_combining_marks("synthetic.py", src)) == []
 
 
+_PRECOMPOSED_H = "\N{LATIN SMALL LETTER H WITH DOT BELOW}"  # U+1E25, built by name
+
+
+def test_decomposed_composite_flags_decomposed_h():
+    # "h" + U+0323 is a decomposed canonical composite -- should compose to U+1E25.
+    src = f"x = {_Q}tah{_DOT_BELOW}ton{_Q}\n"
+    offenses = list(sh.find_decomposed_composites("synthetic.py", src))
+    assert len(offenses) == 1, offenses
+    assert offenses[0].codepoint == "U+0323"
+    assert offenses[0].uname == "COMBINING DOT BELOW"
+    assert "U+1E25" in offenses[0].detail
+    assert offenses[0].line == 1
+
+
+def test_decomposed_composite_accepts_precomposed():
+    # The already-composed form is clean -- nothing left to flag.
+    src = f"x = {_Q}ta{_PRECOMPOSED_H}ton{_Q}\n"
+    assert list(sh.find_decomposed_composites("synthetic.py", src)) == []
+
+
+def test_decomposed_composite_ignores_reordered_hebrew():
+    # A real Hebrew word with points in NON-canonical combining-class order: a
+    # letter, then DAGESH (ccc 21), then QAMATS (ccc 18) -- QAMATS should sort
+    # first under canonical ordering, so this sequence is reordered relative to
+    # NFC. Neither pair composes to a single codepoint (Hebrew letter+point
+    # pairs are all composition-excluded), so this must yield 0 offenses --
+    # proving the check requires composition, not canonical reordering.
+    word = (
+        "\N{HEBREW LETTER BET}"
+        + "\N{HEBREW POINT DAGESH OR MAPIQ}"
+        + "\N{HEBREW POINT QAMATS}"
+    )
+    src = f"x = {_Q}{word}{_Q}\n"
+    assert list(sh.find_decomposed_composites("synthetic.py", src)) == []
+
+
 def main():
     test_live_tree_is_clean()
     test_detector_flags_raw_orphan()
@@ -80,6 +118,9 @@ def main():
     test_detector_ignores_base_then_mark()
     test_detector_ignores_mark_in_comment()
     test_pragma_suppresses()
+    test_decomposed_composite_flags_decomposed_h()
+    test_decomposed_composite_accepts_precomposed()
+    test_decomposed_composite_ignores_reordered_hebrew()
     print("source_hygiene: OK")
 
 

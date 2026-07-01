@@ -1,31 +1,43 @@
-"""Source-hygiene guard for hand-authored Python source (GitHub issue #22).
+"""Source-hygiene guard for hand-authored source (GitHub issues #22, #26).
 
-Enforces one rule today -- **no orphan combining mark**: a string literal whose
-first character is a Unicode combining mark. Written raw, such a mark renders as
-an invisible or floating diacritic hanging off the opening quote -- unreadable in
-an editor, un-diffable in review, and easily reintroduced by hand. The fix is a
-named escape ``"\\N{UNICODE NAME}"`` (byte-identical at runtime, self-documenting,
-plain ASCII in the file).
+Enforces two rules over hand-authored ``py/`` + ``tools/`` + ``doc/``:
 
-Why raw source, not the decoded AST value: Python decodes ``\\N{...}`` / ``\\uXXXX``
-escapes when it builds the AST, so the *approved* escaped form and a *raw* orphan
-mark produce the identical ``ast.Constant.value``. The distinction survives only
-in the source bytes. So we locate string literals via the AST (precise: only real
-literals, never a mark inside a comment) but test each literal's **raw source
-segment** -- a leading escape ``\\`` is a base character and is accepted; a leading
-raw combining mark is flagged.
+1. **No orphan combining mark** (#22): a string literal whose first character is
+   a Unicode combining mark. Written raw, such a mark renders as an invisible or
+   floating diacritic hanging off the opening quote -- unreadable in an editor,
+   un-diffable in review, and easily reintroduced by hand. The fix is a named
+   escape ``"\\N{UNICODE NAME}"`` (byte-identical at runtime, self-documenting,
+   plain ASCII in the file).
 
-The "first character of the literal" test is deliberate: it catches the floating
-diacritic while leaving genuine Hebrew *text* data untouched. The one legitimate
-case in the tree is a word in ``py/uxlc_fois/fois_mark_grammar_foi.py`` whose
-combining accent follows a ZERO WIDTH JOINER mid-string -- the literal starts with
-a base letter, so it is not flagged.
+   Why raw source, not the decoded AST value: Python decodes ``\\N{...}`` /
+   ``\\uXXXX`` escapes when it builds the AST, so the *approved* escaped form and
+   a *raw* orphan mark produce the identical ``ast.Constant.value``. The
+   distinction survives only in the source bytes. So we locate string literals
+   via the AST (precise: only real literals, never a mark inside a comment) but
+   test each literal's **raw source segment** -- a leading escape ``\\`` is a
+   base character and is accepted; a leading raw combining mark is flagged.
+
+   The "first character of the literal" test is deliberate: it catches the
+   floating diacritic while leaving genuine Hebrew *text* data untouched. The one
+   legitimate case in the tree is a word in
+   ``py/uxlc_fois/fois_mark_grammar_foi.py`` whose combining accent follows a
+   ZERO WIDTH JOINER mid-string -- the literal starts with a base letter, so it
+   is not flagged.
+
+2. **No decomposed canonical composite** (#26): a base character immediately
+   followed by a combining mark that together have a single-codepoint NFC
+   composition (e.g. decomposed ``h`` + U+0323 -> precomposed U+1E25). Hand-
+   authored source standardizes on NFC for exactly this class of character (the
+   h-with-dot-below transliteration); tooling/paste-from-web defaults to NFC too,
+   so pinning it removes an edit/match-failure tax rather than fighting the
+   ecosystem default. Read over the *decoded* text (NFC is a property of decoded
+   text, unlike rule 1's raw-source distinction). Hebrew text is never flagged:
+   every Hebrew letter+point pair is on the NFC composition-exclusion list, so
+   nothing Hebrew ever composes -- this holds by construction, not by
+   special-casing.
 
 Shared harness: file discovery + a pluggable tuple of ``Check``s, each yielding
-``Offense(relpath, line, codepoint, uname, detail)``. The sibling Unicode-hygiene
-guard of issues #21/#26 (decomposed vs precomposed h-with-dot) plugs in as another
-``Check`` reusing ``Offense`` / ``format_offense`` / ``scan``; only the detector
-and the file set differ, not the mechanism.
+``Offense(relpath, line, codepoint, uname, detail)``.
 
 Two entry points, one scanner:
   * ``tools/source_hygiene_test.py``   -- the standalone ``*_test.py`` guard.
@@ -33,8 +45,8 @@ Two entry points, one scanner:
                                           each offender and exits non-zero when the
                                           tree is dirty.
 
-Escape hatch: a trailing ``# combining-ok`` on the offending line suppresses it,
-for the rare case where a bare combining mark is genuinely the clearest form.
+Escape hatch: a trailing ``# combining-ok`` on the offending line suppresses rule
+1, for the rare case where a bare combining mark is genuinely the clearest form.
 """
 
 import ast
@@ -49,10 +61,10 @@ Offense = namedtuple("Offense", "relpath line codepoint uname detail")
 # vendored packages (kept byte-identical to upstream; not ours to police).
 _PRUNED_DIRS = {"__pycache__", "mb_cmn", "mb_diff_mpu"}
 
-# Roots of hand-authored Python source, relative to the repo root. Data and
-# generated trees (in/, out/, gh-pages/, .novc/) are never under these, so they
-# are excluded by construction.
-_SOURCE_ROOTS = ("py", "tools")
+# Roots of hand-authored source, relative to the repo root: Python (py/,
+# tools/) plus prose (doc/). Data and generated trees (in/, out/, gh-pages/,
+# .novc/) are never under these, so they are excluded by construction.
+_SOURCE_ROOTS = ("py", "tools", "doc")
 
 # Legal string prefixes (r, b, f, u and case/combination variants) that may sit
 # between the start of a literal's source segment and its opening quote.
@@ -62,13 +74,13 @@ _PRAGMA = "# combining-ok"
 
 
 def iter_source_files(repo_root):
-    """Repo-relative paths of hand-authored ``*.py`` under ``py/`` and ``tools/``."""
+    """Repo-relative paths of hand-authored ``*.py``/``*.md``/``*.txt`` source."""
     for root_name in _SOURCE_ROOTS:
         root = os.path.join(repo_root, root_name)
         for dirpath, dirnames, filenames in os.walk(root):
             dirnames[:] = [d for d in dirnames if d not in _PRUNED_DIRS]
             for name in filenames:
-                if name.endswith(".py"):
+                if name.endswith((".py", ".md", ".txt")):
                     full = os.path.join(dirpath, name)
                     yield os.path.relpath(full, repo_root).replace(os.sep, "/")
 
@@ -122,14 +134,52 @@ def find_orphan_combining_marks(relpath, text):
         )
 
 
+def find_decomposed_composites(relpath, text):
+    """Yield an ``Offense`` per decomposed base+combining-mark pair that has a
+    single-codepoint NFC composition (GitHub issue #26).
+
+    Reads the *decoded* text (unlike ``find_orphan_combining_marks``, NFC is a
+    property of decoded text, not raw source). For each combining mark, checks
+    whether it composes with the immediately preceding character; if so, that
+    pair is a decomposed canonical composite and should be written precomposed.
+    Hebrew is never flagged: no Hebrew letter+point pair has a single-codepoint
+    NFC composition (all are on the composition-exclusion list), so this holds
+    by construction, not by special-casing.
+    """
+    line_no = 1
+    for i, ch in enumerate(text):
+        if ch == "\n":
+            line_no += 1
+            continue
+        if i == 0 or not unicodedata.combining(ch):
+            continue
+        comp = unicodedata.normalize("NFC", text[i - 1] + ch)
+        if len(comp) == 1:
+            yield Offense(
+                relpath=relpath,
+                line=line_no,
+                codepoint=f"U+{ord(ch):04X}",
+                uname=unicodedata.name(ch, f"<unnamed U+{ord(ch):04X}>"),
+                detail=(
+                    "decomposed composite; write precomposed "
+                    f"U+{ord(comp):04X} {unicodedata.name(comp, '?')}"
+                ),
+            )
+
+
 Check = namedtuple("Check", "name applies run")
 
-# The pluggable check tuple. Sibling guards (issues #21/#26) add entries here.
+# The pluggable check tuple.
 CHECKS = (
     Check(
         name="orphan-combining-mark",
         applies=lambda relpath: relpath.endswith(".py"),
         run=find_orphan_combining_marks,
+    ),
+    Check(
+        name="decomposed-composite",
+        applies=lambda relpath: relpath.endswith((".py", ".md", ".txt")),
+        run=find_decomposed_composites,
     ),
 )
 
@@ -153,8 +203,11 @@ def scan(repo_root, files=None, checks=CHECKS):
 
 
 def format_offense(offense):
-    """``path:line  U+XXXX NAME`` -- the actionable one-line report."""
-    return f"{offense.relpath}:{offense.line}  {offense.codepoint} {offense.uname}"
+    """``path:line  U+XXXX NAME -- detail`` -- the actionable one-line report."""
+    return (
+        f"{offense.relpath}:{offense.line}  {offense.codepoint} {offense.uname}"
+        f" -- {offense.detail}"
+    )
 
 
 def main():
@@ -163,10 +216,10 @@ def main():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     offenses = scan(repo_root)
     if offenses:
-        print("orphan combining marks in source (use \\N{NAME} escapes):")
+        print("source hygiene offenses (see GitHub issues #22, #26):")
         for offense in offenses:
             print("  " + format_offense(offense))
-        print(f"\n{len(offenses)} offender(s). See GitHub issue #22.")
+        print(f"\n{len(offenses)} offender(s).")
         return 1
     print("source_hygiene: OK")
     return 0

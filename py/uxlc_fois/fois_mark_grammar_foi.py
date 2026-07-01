@@ -540,7 +540,7 @@ _ORDINARY_OVERRIDE_RULES = (
     ),
     OrdinaryOverrideRule(
         "initial-double-aom-suffix",
-        "On the first letter of a word only (after an optional vowel): munaḥ, deḥi; meteg, pre-wm; geresh or gershayim, telisha gedolah; or geresh muqdam, revia.",
+        "On the first letter of a word only (after an optional vowel): munaḥ, deḥi; meteg, pre-wm; geresh or gershayim, telisha gedolah; or geresh muqdam, revia.",
         _matches_initial_double_aom_suffix,
     ),
     OrdinaryOverrideRule(
@@ -563,7 +563,7 @@ _ORDINARY_PATTERN_DISPLAY_ITEMS = (
     OrdinaryPatternDisplayItem(
         "On the first letter of a word only (after an optional vowel):",
         (
-            OrdinaryPatternDisplayItem("munaḥ, deḥi."),
+            OrdinaryPatternDisplayItem("munaḥ, deḥi."),
             OrdinaryPatternDisplayItem("meteg, pre-wm."),
             OrdinaryPatternDisplayItem("geresh or gershayim, telisha gedolah."),
             OrdinaryPatternDisplayItem("geresh muqdam, revia."),

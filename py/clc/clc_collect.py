@@ -27,7 +27,7 @@ import uxlc_misc.my_uxlc as my_uxlc
 
 # The genuinely under-bar ambiguity codes — a vertical bar below the letter —
 # that seed CLC's charitable §2a resolution (design doc §2): m (prose
-# merkha/meteg) and d (poetic deḥi/tarḥa). NOT t: despite one
+# merkha/meteg) and d (poetic dexi/tarxa). NOT t: despite one
 # qualifying note ("examine mark below … as possible merkha"), t is a general
 # transcription-uncertainty flag (233×, the largest code) that mostly has
 # nothing to do with a sub-letter mark, so selecting every t atom over-includes

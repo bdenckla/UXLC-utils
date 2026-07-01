@@ -40,7 +40,7 @@ _ADDITIONAL_PATTERN_DISPLAY_ITEMS = (
             fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
                 "FL. On the first letter of a word only:",
                 (
-                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem("munaḥ, deḥi."),
+                    fois_mark_grammar_foi.OrdinaryPatternDisplayItem("munaḥ, deḥi."),
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem("meteg, pre-wm."),
                     fois_mark_grammar_foi.OrdinaryPatternDisplayItem(
                         "gerstar-tg. geresh or gershayim, telisha gedolah."
@@ -63,12 +63,12 @@ _ABBREVIATION_ROWS = (
     ("ba-is", "below-accent (including silluq)"),
     ("CGJ", "combining grapheme joiner"),
     ("ZWJ", "zero-width joiner"),
-    ("xataf", "one of the three ḥataf vowels"),
-    ("pq-vowel", "pataḥ or qamats"),
-    ("xs-vowel", "ḥiriq or sheva"),
+    ("xataf", "one of the three ḥataf vowels"),
+    ("pq-vowel", "pataḥ or qamats"),
+    ("xs-vowel", "ḥiriq or sheva"),
     (
         "pre-wm",
-        "prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam",
+        "prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam",
     ),
 )
 _SHSI_DOT_MARKS = frozenset((hpo.SHIND, hpo.SIND))
@@ -113,8 +113,8 @@ _LEAF_BUCKET_SPECS = (
     },
     {
         "key": "initial-munah-dehi",
-        "label": "On the first letter of a word only (after an optional vowel): munaḥ, deḥi.",
-        "count-label": "SDV.FL.munaḥ, deḥi.",
+        "label": "On the first letter of a word only (after an optional vowel): munaḥ, deḥi.",
+        "count-label": "SDV.FL.munaḥ, deḥi.",
     },
     {
         "key": "initial-meteg-pre-wm",

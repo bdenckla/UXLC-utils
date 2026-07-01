@@ -59,10 +59,10 @@ _ABBREVIATION_TOOLTIP_TITLES = {
     "metuq": "meteg/siluq",
     "CGJ": "combining grapheme joiner",
     "ZWJ": "zero-width joiner",
-    "xataf": "one of the three ḥataf vowels",
-    "pq-vowel": "pataḥ or qamats",
-    "xs-vowel": "ḥiriq or sheva",
-    "pre-wm": "prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam",
+    "xataf": "one of the three ḥataf vowels",
+    "pq-vowel": "pataḥ or qamats",
+    "xs-vowel": "ḥiriq or sheva",
+    "pre-wm": "prepositive that can occur with meteg: telisha gedolah, deḥi, geresh muqdam",
 }
 _ABBREVIATION_TOOLTIP_PATTERN = re.compile(
     "|".join(

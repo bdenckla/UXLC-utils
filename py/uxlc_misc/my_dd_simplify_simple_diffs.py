@@ -43,7 +43,7 @@ def simplify_simple_diffs(diffs):
     E.g.:
         add merkha to bet
         add merkha to bet-2
-        remove tipeḥa from gimel
+        remove tipeḥa from gimel
         on dalet, replace darga with meteg
         move pazer forward from bet to shin
     """
