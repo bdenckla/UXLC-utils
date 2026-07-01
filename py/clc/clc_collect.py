@@ -8,10 +8,12 @@ on later (design doc §3, §7.1).
 
 Each note's prose is the *actual* tanach.us note page, read offline from the
 committed local copy (clc_note_pages; downloaded by main_clc_download_notes). The
-build never touches the network, so its output is deterministic. An atom with no
-local page shows a fixed per-code marker -- never the imperative change-log
-description, which is an instruction to the editor, not a note. clc_changes is
-kept only for the atom-letter consistency guard.
+build never touches the network, so its output is deterministic. There is no
+fabricated substitute for a missing page (issue #19): an atom whose note page has
+not been downloaded yet shows a bare ``[note not yet downloaded]`` placeholder --
+never the imperative change-log description (an instruction to the editor, not a
+note) and never an invented per-code gloss. clc_changes is kept only for the
+atom-letter consistency guard.
 """
 
 import mb_cmn.hebrew_letters as hl
@@ -25,14 +27,11 @@ import uxlc_misc.my_uxlc as my_uxlc
 # merkha/meteg), d (poetic deḥi/tarḥa), and the catch-all t. Listed m/d/t first.
 UNDER_BAR_CODES = ("m", "d", "t")
 
-# Marker shown for an atom with no downloaded note page (e.g. its code predates
-# the change log, design doc §9 #2). A fixed per-code constant, so the output
-# stays deterministic; never the imperative change-log description.
-_CODE_MEANING = {
-    "m": "possible merkha rather than meteg (prose under-bar)",
-    "d": "possible deḥi re-read as tipeḥa/tarḥa (poetic under-bar)",
-    "t": "transcription uncertainty — examine the mark below the letter",
-}
+# Placeholder shown for an atom whose tanach.us note page has not been downloaded
+# yet (design doc §9 #2). Deliberately NOT a description of the note: the prose
+# must come from the real page (issue #19), so this only marks where that prose
+# will appear once main_clc_download_notes has fetched the page. No invented text.
+_NOT_YET_DOWNLOADED = "[note not yet downloaded]"
 
 # Reviewed atom/change-log letter mismatches that are NOT atom merges/splits and
 # so are accepted rather than raised by _check_atom_consistency. Keyed by
@@ -91,7 +90,7 @@ def _report_prose_coverage(page_prose_count, total):
     missing = total - page_prose_count
     msg = (
         f"CLC notes: {page_prose_count}/{total} use a downloaded note page; "
-        f"{missing} have no local page (generic per-code marker)."
+        f"{missing} have no local page (shown as a placeholder)."
     )
     if missing:
         msg += " Run main_clc_download_notes to fetch the missing pages."
@@ -109,20 +108,18 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
         atom_index=position,
         atom_text=atom_text,
         note_code=code,
-        note_text=page_prose or _fallback_text(code),
+        # The real tanach.us prose, or a bare placeholder if the page is not yet
+        # downloaded -- never an invented per-code gloss (issue #19).
+        note_text=page_prose or _NOT_YET_DOWNLOADED,
         source=clc_note.SOURCE_UXLC_X_NOTE,
         diff_type=clc_note.DIFF_UNDER_BAR,
         is_uxlc_departure=False,    # skeleton only surfaces the ambiguity
         uxlc_reading=atom_text,
         clc_reading=atom_text,      # ... so CLC's reading == UXLC's for now
-        source_url=my_uxlc.note_page_url(book_id, ch, v, position, code)
-        if page_prose
-        else "",
+        # Always the real note-page URL: every m/d/t note has one on tanach.us,
+        # so even a not-yet-downloaded note links to where its prose lives.
+        source_url=my_uxlc.note_page_url(book_id, ch, v, position, code),
     )
-
-
-def _fallback_text(code):
-    return f"UXLC ‘{code}’ note: {_CODE_MEANING.get(code, 'see UXLC')}."
 
 
 def _check_atom_consistency(book_id, ch, v, position, atom_text, records):

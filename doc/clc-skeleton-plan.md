@@ -17,8 +17,9 @@ for three pilot books — **Genesis, Proverbs, 2 Samuel**.
   offline step (`py/main_clc_download_notes.py`) downloads the note pages into committed
   `in/UXLC-notes/`; the build reads them locally and never touches the network (deterministic). The
   change-log `<correction><description>` is kept **only** for the atom-letter consistency guard; an
-  atom with no page falls back to a fixed **per-code marker**. (Fixes a multi-word/numbered-book URL
-  bug via `my_uxlc.book_basename`, e.g. `2Samuel` → `Samuel_2`.)
+  atom whose page is not yet downloaded shows a **`[note not yet downloaded]`** placeholder, never a
+  fabricated substitute (issue #19). (Fixes a multi-word/numbered-book URL bug via
+  `my_uxlc.book_basename`, e.g. `2Samuel` → `Samuel_2`.)
 - **Column order is `text | ref | doc`** (the ref a narrow central spine), not `reference | text | doc`.
 - **Three pilot books**, not one.
 
@@ -33,7 +34,8 @@ A driver `py/main_clc.py` that, for **one pilot book (or chapter)**, reads today
 writes a static page under **`gh-pages/clc/`** in MAM-style **3 columns** (*as built:* `text | ref |
 doc`, ref a central spine), where the doc column shows **UXLC's own `<x>` notes** (start with
 `m`/`d`/`t`) **as always-links**, each carrying the note's prose (*as built:* the tanach.us note
-page, downloaded offline — see Status above; the change log is only a fallback/guard). **No accent
+page, downloaded offline — see Status above; the change log is only the consistency guard, and a
+not-yet-downloaded page shows a `[note not yet downloaded]` placeholder). **No accent
 grammar, no charitable resolution yet** — the skeleton proves the pipeline (read → CLC note schema →
 one renderer → `gh-pages/clc/`). Charity layers on later.
 
@@ -69,8 +71,9 @@ one renderer → `gh-pages/clc/`). Charity layers on later.
 3. **Note source = `<x>` notes joined to note prose.** Collect per-atom `<x>` codes
    (`clc_collect.iter_noted_atoms`); for each, read the downloaded tanach.us note page
    (`clc_note_pages.local_note_prose`) to fill `note_text` — *as built*, replacing the original
-   change-log-description plan; the change log now only backs the consistency guard, and a missing
-   page falls back to a per-code marker. Emit CLC notes for the pilot, **`m`/`d`/`t` first**.
+   change-log-description plan; the change log now only backs the consistency guard, and a not-yet-
+   downloaded page shows a `[note not yet downloaded]` placeholder (issue #19), never a fabricated
+   substitute. Emit CLC notes for the pilot, **`m`/`d`/`t` first**.
    (Skeleton: `is_uxlc_departure=False`, `diff_type='under-bar'`, `clc_reading` = UXLC reading — we
    are only *surfacing* the ambiguity, not yet resolving it.)
 4. **Always-link 3-column renderer.** Text column = running verse text; each noted word links to its

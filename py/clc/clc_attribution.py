@@ -66,18 +66,21 @@ def top_credit():
     )
 
 
-def note_cite(source_url=None):
-    """The per-note cite (htel): a small ``— UXLC 2.5`` linked to its source.
+def note_cite(source_url):
+    """The per-note cite (htel): a small ``— UXLC 2.5`` linked to its note page.
 
-    Links to the specific tanach.us note page when ``source_url`` is given, else
-    to the tanach.us home (fallback-marker notes have no downloaded page).
+    Links to the specific tanach.us note page the prose came from. Every m/d/t
+    note has such a page, so clc_collect always supplies its URL — even for a
+    not-yet-downloaded note whose prose is still a ``[note not yet downloaded]``
+    placeholder (issue #19): the link points at where that prose lives. There is
+    no home-page fallback.
     """
     return H.span(
         [
             " — ",
             H.anchor(
                 uxlc_version(),
-                {"href": source_url or TANACH_US_URL, "target": "_blank"},
+                {"href": source_url, "target": "_blank"},
             ),
         ],
         {"class": "clc-note-cite"},

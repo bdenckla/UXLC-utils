@@ -167,8 +167,10 @@ largely an act of *composition* over existing machinery, plus the new identity-r
   *imperative instruction to the editor*, **not** the reader-facing note — so it is **no longer the
   prose source**; it survives only as the atom-letter **consistency guard** (the table's "prose in
   change log" column is now just that guard's coverage, joinable by citation `ch:v.atom`). An atom
-  with no downloaded page — the **38 numeric/`X`** notes, or any not yet fetched — shows a fixed
-  **per-code marker** ([`_fallback_text`](py/clc/clc_collect.py)), never the change-log text.
+  whose note page has not been downloaded yet shows a bare **`[note not yet downloaded]`**
+  placeholder (issue #19) — **never** a fabricated per-code gloss and never the change-log text; the
+  prose must come from the real tanach.us page. The placeholder still links to that page, so it marks
+  exactly where the prose will appear once fetched.
 
 - **Ambiguous early meteg (`amb_early_mtg`) — a *minor*, likely-unfinished side-investigation:**
   [py/uxlc_amb_early_mtg/amb_early_mtg.py](py/uxlc_amb_early_mtg/amb_early_mtg.py) — a hand-curated
@@ -318,9 +320,10 @@ Each is a feature this doc names, organized with grounding + open questions.
   by [main_clc_download_notes](py/main_clc_download_notes.py) and read at build time by
   [clc_note_pages](py/clc/clc_note_pages.py). The change-log `<correction><description>` (ingested by
   [py/uxlc_changes/](py/uxlc_changes/)) turned out to be an editor-facing *instruction*, not the
-  note, so it is **demoted to the atom-letter consistency guard only**; an atom with no page shows a
-  fixed per-code marker (§5, §9 #2). The `wlc-utils` bracket-note definitions cover the separate
-  bracket-note layer (§7.2).
+  note, so it is **demoted to the atom-letter consistency guard only**; an atom whose page is not yet
+  downloaded shows a `[note not yet downloaded]` placeholder, never a fabricated substitute (§5, §9
+  #2; issue #19). The `wlc-utils` bracket-note definitions cover the separate bracket-note layer
+  (§7.2).
 - **Body placement is a *separate* axis from the link.** "Always link" (above) governs only the
   affordance on the word — every note links, uniformly, no threshold. It does **not** dictate where
   the note *body* renders. On *placement* CLC does keep MAM's length threshold (§5):
@@ -631,9 +634,10 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
 2. **UXLC note text source** (§7.3) — **settled** (§5): the rendered prose is the **tanach.us note
    page**, downloaded offline into committed `in/UXLC-notes/` (`main_clc_download_notes`) and read by
    `clc_note_pages`; the change-log `<correction><description>` is demoted to the atom-letter
-   consistency guard only. Remaining gap: atoms with **no note page** (the **38 numeric/`X`** notes,
-   or any not yet fetched) fall back to a fixed per-code marker; plus any tanach.us apparatus beyond
-   the `<x>` notes.
+   consistency guard only. An atom whose page is **not yet fetched** shows a `[note not yet
+   downloaded]` placeholder — no fabricated substitute (issue #19). Remaining gap: fetching those
+   pages (every `m`/`d`/`t` note has one) and any tanach.us apparatus beyond the `<x>` notes (e.g. the
+   **38 numeric/`X`** notes, which are outside the seed set).
 3. **codex-index-leningrad** — clone it (the `.code-workspace` already references it as a 2nd
    folder, but it isn't on disk); then confirm whether it improves image guesses over the
    tanach.us LCIndex already vendored here (§6).
@@ -653,8 +657,8 @@ A loose sense of what unblocks what, without committing to phases:
   one renderer." (Define it from §8's requirements, not from `amb_early_mtg`.)
 - The **accent-grammar integration** is the long pole for the headline charitable feature (2a).
 - The **UXLC-note-text source** is **no longer a long pole** — the real tanach.us note pages are
-  downloaded offline into committed `in/UXLC-notes/` and read at build time (§5, §9 #2); atoms with
-  no page fall back to a fixed per-code marker.
+  downloaded offline into committed `in/UXLC-notes/` and read at build time (§5, §9 #2); an atom
+  whose page is not yet fetched shows a `[note not yet downloaded]` placeholder, never invented text.
 - Bracket notes, change records, FOIs, Sefaria/MAM links are comparatively cheap once the schema
   and renderer exist (the data largely exists already).
 - Image color-upgrade and scraping are independent side quests.

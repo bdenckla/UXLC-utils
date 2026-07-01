@@ -48,9 +48,10 @@ def local_page_path(book_id, ch, v, position, code):
 def local_note_prose(book_id, ch, v, position, code):
     """Return the downloaded note page's prose (paragraphs joined), or None.
 
-    None means no usable local page -- it was never downloaded (the note predates
-    the change log, or tanach.us has none), or the page carries no plain-text
-    prose. The build then shows the deterministic per-code marker (clc_collect).
+    None means no usable local page -- it was never downloaded (not yet fetched,
+    or tanach.us has none), or the page carries no plain-text prose. The build
+    then shows a bare ``[note not yet downloaded]`` placeholder, never a
+    fabricated substitute (clc_collect; issue #19).
     """
     path = local_page_path(book_id, ch, v, position, code)
     if not os.path.exists(path):

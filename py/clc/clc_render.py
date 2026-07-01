@@ -274,7 +274,7 @@ def _note_block(ch, v, position, atom_notes):
         entries.append(H.line_break())
         entries.append(H.span(f"[{note.note_code}] ", {"class": "clc-note-code"}))
         entries.append(note.note_text)
-        entries.append(clc_attribution.note_cite(source_url=note.source_url or None))
+        entries.append(clc_attribution.note_cite(note.source_url))
     return H.div(entries, {"id": _anchor_id(ch, v, position), "class": "clc-note"})
 
 
@@ -299,9 +299,10 @@ def _intro_para(notes):
             "CLC walking skeleton. This page surfaces UXLC's own ",
             H.code("<x>"),
             f" under-bar notes ({_code_counts_text(notes)}) as always-links, each "
-            "carrying its tanach.us note-page prose (atoms with no downloaded note "
-            "page fall back to a generic per-code marker). No accent grammar and no "
-            "charitable resolution yet — see doc/clc-design.md.",
+            "carrying its tanach.us note-page prose (an atom whose note page is not "
+            "yet downloaded shows a bare [note not yet downloaded] placeholder, never "
+            "invented text). No accent grammar and no charitable resolution yet — see "
+            "doc/clc-design.md.",
         ]
     )
 

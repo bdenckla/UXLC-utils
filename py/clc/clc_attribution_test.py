@@ -47,10 +47,14 @@ def test_note_cite_specific_page():
     assert 'target="_blank"' in html
 
 
-def test_note_cite_fallback_home():
-    # Fallback-marker note (no downloaded page) -> link to tanach.us home, not a 404.
-    html = H.el_to_str_no_wbr(attribution.note_cite())
-    assert f'href="{attribution.TANACH_US_URL}"' in html
+def test_note_cite_requires_source_url():
+    # No home-page fallback (issue #19): every m/d/t note has a real note page, so
+    # the cite requires its URL rather than silently linking to the tanach.us home.
+    try:
+        attribution.note_cite()
+    except TypeError:
+        return
+    raise AssertionError("note_cite() must require a source_url (no home fallback)")
 
 
 def test_note_page_url_canonical_name():
@@ -66,7 +70,7 @@ def main():
     test_uxlc_version()
     test_top_credit()
     test_note_cite_specific_page()
-    test_note_cite_fallback_home()
+    test_note_cite_requires_source_url()
     test_note_page_url_canonical_name()
     print("clc_attribution: OK")
 
