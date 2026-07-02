@@ -47,6 +47,14 @@ class ClcNote:
     uxlc_reading: str    # what UXLC reads at this atom
     clc_reading: str     # what CLC reads at this atom
     source_url: str = ""  # tanach.us note page this note's prose came from ("" if none)
+    # (release_date, change_id) of a pending/accepted UXLC change record that
+    # supersedes this note's tanach.us prose, or () if none. Orthogonal to
+    # is_uxlc_departure/diff_type (those describe CLC's own charitable-reading
+    # decision; this describes UXLC's own change-log state). When set, clc_render
+    # links to the change record instead of showing note_text -- the real prose
+    # stays in note_text/source_url for provenance (issue #19 is about never
+    # fabricating note text, not about what gets displayed).
+    superseding_uxlc_change: tuple = ()
 
     def as_dict(self):
         """Return a plain JSON-serializable dict of this note."""

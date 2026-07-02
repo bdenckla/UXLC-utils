@@ -106,3 +106,6 @@ p.clc-attribution { font-size: 85%; color: light-dark(#555, #aaa); margin-top: 0
 span.clc-note-cite { font-size: 85%; color: light-dark(#777, #999); }
 span.clc-note-cite a { color: inherit; text-decoration: none; }
 span.clc-note-cite a:hover { text-decoration: underline; }
+span.clc-superseded-cite { font-size: 85%; color: light-dark(#777, #999); }
+span.clc-superseded-cite a { color: inherit; text-decoration: none; }
+span.clc-superseded-cite a:hover { text-decoration: underline; }

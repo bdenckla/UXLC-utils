@@ -12,7 +12,11 @@
     "is_uxlc_departure": false,
     "uxlc_reading": "תַעֲשֶֽׂ֙ה־",
     "clc_reading": "תַעֲשֶֽׂ֙ה־",
-    "source_url": "https://tanach.us/Notes/Deuteronomy/Deuteronomy.5.8.2-t.html"
+    "source_url": "https://tanach.us/Notes/Deuteronomy/Deuteronomy.5.8.2-t.html",
+    "superseding_uxlc_change": [
+      "2026.10.19",
+      "2026.04.10-10"
+    ]
   },
   {
     "book": "Deuter",
@@ -27,6 +31,7 @@
     "is_uxlc_departure": false,
     "uxlc_reading": "יָמִ֣ים",
     "clc_reading": "יָמִ֣ים",
-    "source_url": "https://tanach.us/Notes/Deuteronomy/Deuteronomy.5.13.2-t.html"
+    "source_url": "https://tanach.us/Notes/Deuteronomy/Deuteronomy.5.13.2-t.html",
+    "superseding_uxlc_change": []
   }
 ]

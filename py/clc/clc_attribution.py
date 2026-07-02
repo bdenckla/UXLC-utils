@@ -17,6 +17,7 @@ so the citations auto-update if UXLC bumps to 2.6.
 import xml.etree.ElementTree as ET
 
 import mb_cmn.mb_cmn_bib_locales as tbn
+import mb_cmn.uxlc_change_url as uxlc_change_url
 import uxlc_misc.my_uxlc as my_uxlc
 import uxlc_misc.uxlc_utils_html as H
 
@@ -84,4 +85,24 @@ def note_cite(source_url):
             ),
         ],
         {"class": "clc-note-cite"},
+    )
+
+
+def superseding_change_cite(release_and_id):
+    """Link to the UXLC change record that supersedes this note's prose.
+
+    Used instead of note_cite() when a note's tanach.us prose is superseded by
+    a later, more specific UXLC change record (clc_note.ClcNote.superseding_uxlc_change).
+    ``release_and_id`` is a (release_date, change_id) pair, e.g.
+    ("2026.10.19", "2026.04.10-10").
+    """
+    release_date, change_id = release_and_id
+    href = uxlc_change_url.uxlc_change_url(release_date, change_id)
+    return H.span(
+        [
+            "Superseded by pending UXLC change ",
+            H.anchor(change_id, {"href": href, "target": "_blank"}),
+            ".",
+        ],
+        {"class": "clc-superseded-cite"},
     )

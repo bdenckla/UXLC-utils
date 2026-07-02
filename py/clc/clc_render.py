@@ -273,8 +273,13 @@ def _note_block(ch, v, position, atom_notes):
     for note in atom_notes:
         entries.append(H.line_break())
         entries.append(H.span(f"[{note.note_code}] ", {"class": "clc-note-code"}))
-        entries.append(note.note_text)
-        entries.append(clc_attribution.note_cite(note.source_url))
+        if note.superseding_uxlc_change:
+            entries.append(
+                clc_attribution.superseding_change_cite(note.superseding_uxlc_change)
+            )
+        else:
+            entries.append(note.note_text)
+            entries.append(clc_attribution.note_cite(note.source_url))
     return H.div(entries, {"id": _anchor_id(ch, v, position), "class": "clc-note"})
 
 

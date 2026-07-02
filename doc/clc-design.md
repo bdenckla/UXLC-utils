@@ -344,6 +344,9 @@ Each is a feature this doc names, organized with grounding + open questions.
   `uxlc_changes/`). Present a change record as just another note type attached to its word.
 - Cross-link to the existing change-proposal references already present in `amb_early_mtg`
   records (e.g. `"existing UXLC change proposal": ("2024.04.01", "2024.01.29-4")`).
+- **First instance:** Deut 5:8.2 (`t` note) is superseded by 2026.10.19 change #10 ("Change
+  pashta over sin to qadma") — see `_NOTES_SUPERSEDED_BY_UXLC_CHANGE` in `py/clc/clc_collect.py`
+  and the `superseding_uxlc_change` field on `ClcNote`.
 
 ### 7.5 FOIs as a kind of note
 - Surface FOIs (`kq`, `mark-grammar`, `mark-grammar-2`, …) as notes, **especially the rarer
@@ -711,7 +714,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.1 charitable under-bar | **seed only** | m/d under-bar (+ t transcription-uncertainty) notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False |
 | §7.2 bracket-note restoration | not started | — |
 | §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); all bodies inline — long-note big-doc page still TODO |
-| §7.4 change records as notes | not started | change log used only for the consistency guard, not as a note |
+| §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
 | §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet |

@@ -57,6 +57,16 @@ def test_note_cite_requires_source_url():
     raise AssertionError("note_cite() must require a source_url (no home fallback)")
 
 
+def test_superseding_change_cite():
+    release_and_id = ("2026.10.19", "2026.04.10-10")
+    html = H.el_to_str_no_wbr(attribution.superseding_change_cite(release_and_id))
+    assert 'class="clc-superseded-cite"' in html
+    assert "2026.04.10-10" in html
+    expected_href = "https://tanach.us/Changes/2026.10.19%20-%20Changes/2026.10.19%20-%20Changes.xml?2026.04.10-10"
+    assert f'href="{expected_href}"' in html
+    assert 'target="_blank"' in html
+
+
 def test_note_page_url_canonical_name():
     # The moved builder still maps the bk39 id to the canonical tanach.us name.
     assert (
@@ -71,6 +81,7 @@ def main():
     test_top_credit()
     test_note_cite_specific_page()
     test_note_cite_requires_source_url()
+    test_superseding_change_cite()
     test_note_page_url_canonical_name()
     print("clc_attribution: OK")
 

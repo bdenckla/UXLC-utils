@@ -59,6 +59,21 @@ _KNOWN_ATOM_MISMATCHES = {
     ),
 }
 
+# Notes whose tanach.us prose is superseded by a later, more specific UXLC
+# change record: rather than show the (now-outdated) prose, clc_render links to
+# the change record instead (design doc §7.4). Keyed by (book, ch, v, position,
+# code) -- code is included because suppression is a per-note fact (one code on
+# an atom might need it while another code on the same atom doesn't), unlike
+# _KNOWN_ATOM_MISMATCHES's per-atom key. Value is a (release_date, change_id)
+# pair, the same shape amb_early_mtg's "existing UXLC change proposal" records
+# use (py/uxlc_amb_early_mtg/amb_early_mtg.py) -- reused for consistency, no
+# code dependency on that module.
+_NOTES_SUPERSEDED_BY_UXLC_CHANGE = {
+    # Deut 5:8.2-t: superseded by 2026.10.19 changes, change #10, "Change
+    # pashta over sin to qadma" (in/UXLC-misc/2026.10.19 - Changes.xml).
+    ("Deuter", 5, 8, 2, "t"): ("2026.10.19", "2026.04.10-10"),
+}
+
 
 def iter_noted_atoms(book, codes=NOTED_CODES):
     """Yield ``(ch, v, position, atom, code)`` for each atom carrying a code.
@@ -138,6 +153,9 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
         # Always the real note-page URL: every m/d/t note has one on tanach.us,
         # so even a not-yet-downloaded note links to where its prose lives.
         source_url=my_uxlc.note_page_url(book_id, ch, v, position, code),
+        superseding_uxlc_change=_NOTES_SUPERSEDED_BY_UXLC_CHANGE.get(
+            (book_id, ch, v, position, code), ()
+        ),
     )
 
 
