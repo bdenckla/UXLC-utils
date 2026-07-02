@@ -224,17 +224,42 @@ _ORACLE = {
     # whose taxton verse-end SUPPLIES a sof-pasuq UXLC omitted (the additive charity); the
     # rafe/dagesh verses (ex 20:9,13–15; dt 5:13,17,18,19) where the two strands harden/soften a
     # בגדכפת letter — the hard strand keeps UXLC's dagesh, the soft keeps UXLC's rafe (faithful,
-    # Policy 1; bare where UXLC has no rafe, as in ex 20:9 כל); and the OMITTED-accent verses
+    # Policy 1; bare where UXLC has no rafe, as in ex 20:9 כל); the OMITTED-accent verses
     # (dt 5:6,13,17) where UXLC has only one strand's accent and the other's is NOTED, never
-    # supplied (Ben's policy — see the "omit" field and _omitted_note). Still TBD: a QUPO vowel
-    # split (ex 20:3, dt 5:7) and the maqaf word-division / count-mismatch verses (ex 20:4,10;
-    # dt 5:8,12,14,15,16) — see .novc/entries.txt for the partition.
+    # supplied (Ben's policy — see the "omit" field and _omitted_note); and the QUPO vowel-split
+    # verses (ex 20:3, dt 5:7) where the two strands stack DIFFERENT vowels (patax vs. qamats) on
+    # one letter — the same position-safe subtraction bucket as rafe/dagesh (see ex 20:3's own
+    # comment below). Still TBD: the maqaf word-division / count-mismatch verses (ex 20:4,10;
+    # dt 5:8,12,14,15,16) — see .novc/entries.txt for the partition. (Open, out of scope for
+    # #28: whether מתחת in ex 20:4 / dt 5:8 is a second QUPO case or two separately-vocalized
+    # word tokens.)
     "Exodus": {
         (20, 2): {
             1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": acc.ATN},
             8: {"cluster": acc.MUN + acc.MER, "alef": acc.MUN, "bet": acc.MER},
             9: {"cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA, "alef": acc.ATN + hl.YOD + hl.FMEM, "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA},
+        },
+        # ex 20:3 — the QUPO vowel split, the last of the Decalogue's divergence mechanisms.
+        # Atom 7 פָּנָ֗י ("before me"): the נ carries both QAMATS and PATAX stacked, sequenced by a
+        # CGJ (same shape as Gen 35:22 atom 14) — taxton (alef) keeps qamats + meteg, elyon (bet)
+        # keeps patax + revia; pure position-safe subtraction, exactly like rafe/dagesh. Atom 7
+        # also SUPPLIES a sof-pasuq (taxton ends the verse here; UXLC has none). Atom 1 לא
+        # SUPPLIES the first-ever maqaf in the Decalogues: taxton joins it to the next word
+        # (לא־יהיה) where UXLC does not. Atom 2 יהיה: taxton's merkha is OMITTED (UXLC left it
+        # untangled, noted not supplied). Atoms 3–5 are pure-accent.
+        (20, 3): {
+            1: {"cluster": hpo.MTGOSLQ + acc.MUN, "alef": hpo.MTGOSLQ, "bet": acc.MUN, "add": {_STRAND_ALEF: [hpu.MAQ]}},
+            2: {"cluster": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "omit": {_STRAND_ALEF: [acc.MER]}},
+            3: {"cluster": acc.TEV + acc.TEL_Q, "alef": acc.TEV, "bet": acc.TEL_Q},
+            4: {"cluster": acc.MER + acc.QOM, "alef": acc.MER, "bet": acc.QOM},
+            5: {"cluster": acc.TIP + acc.GER, "alef": acc.TIP, "bet": acc.GER},
+            7: {
+                "cluster": hpo.QAMATS + hpo.MTGOSLQ + _CGJ + hpo.PATAX + acc.REV,
+                "alef": hpo.QAMATS + hpo.MTGOSLQ,
+                "bet": hpo.PATAX + acc.REV,
+                "add": {_STRAND_ALEF: [hpu.SOPA]},
+            },
         },
         (20, 5): {
             2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
@@ -305,6 +330,25 @@ _ORACLE = {
             3: {"cluster": acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": "", "omit": {_STRAND_BET: [acc.ATN]}},
             8: {"cluster": acc.MUN + acc.MER, "alef": acc.MUN, "bet": acc.MER},
             9: {"cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA, "alef": acc.ATN + hl.YOD + hl.FMEM, "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA},
+        },
+        # dt 5:7 — the Deuteronomy twin of ex 20:3, same QUPO vowel split at atom 7 פָּנָ֗י (see
+        # its comment there). Atom 1 לא here carries NO meteg at all (UXLC has only munax) — and
+        # taxton wants neither: it drops the munax entirely and instead SUPPLIES a maqaf, joining
+        # לא to the next word. Atom 2 יהיה is the mirror of ex 20:3's: here taxton keeps its own
+        # merkha (present in UXLC) while elyon's SILLUQ is OMITTED (UXLC's maqaf-joined יהיה־ has
+        # no meteg for elyon to keep). Atoms 3–5 are pure-accent, same shape as ex 20:3.
+        (5, 7): {
+            1: {"cluster": acc.MUN, "alef": "", "bet": acc.MUN, "add": {_STRAND_ALEF: [hpu.MAQ]}},
+            2: {"cluster": acc.MER + hl.HE + hpu.MAQ, "alef": acc.MER + hl.HE, "bet": hl.HE + hpu.MAQ, "omit": {_STRAND_BET: [hpo.MTGOSLQ]}},
+            3: {"cluster": acc.TEV + acc.TEL_Q, "alef": acc.TEV, "bet": acc.TEL_Q},
+            4: {"cluster": acc.MER + acc.QOM, "alef": acc.MER, "bet": acc.QOM},
+            5: {"cluster": acc.TIP + acc.GER, "alef": acc.TIP, "bet": acc.GER},
+            7: {
+                "cluster": hpo.QAMATS + hpo.MTGOSLQ + _CGJ + hpo.PATAX + acc.REV,
+                "alef": hpo.QAMATS + hpo.MTGOSLQ,
+                "bet": hpo.PATAX + acc.REV,
+                "add": {_STRAND_ALEF: [hpu.SOPA]},
+            },
         },
         (5, 9): {
             2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},

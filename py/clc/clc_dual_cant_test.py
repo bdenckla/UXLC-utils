@@ -10,7 +10,9 @@ with only the *other* strand's divergence cluster resolved — position-safely, 
 a mark that recurs elsewhere as a shared mark is never touched — plus, for the
 alef strand, a *supplied* sof-pasuq held in ``atom["additions"]`` (bracketed/green
 in the render), never folded into the strand text. Synthetic ``split_word`` cases
-pin the position-safety for QUPO (two vowels) and rafe+dagesh divergences.
+pin the position-safety for QUPO (two vowels) and rafe+dagesh divergences; the
+QUPO case is also now proven on real data (ex 20:3 / dt 5:7's atom 7 פני, the only
+QUPO-vowel Decalogue verses — see ``test_decalogue_qupo_vowel_split``).
 """
 
 import os
@@ -412,6 +414,90 @@ def test_decalogue_omitted_accent():
     assert "clc-added-during-detangling" not in bet_html
 
 
+def test_decalogue_qupo_vowel_split():
+    # ex 20:3 / dt 5:7 (לא יהיה־לך אלהים אחרים על־פני): the QUPO vowel split, the last of the
+    # Decalogue's divergence mechanisms. Atom 7 פני stacks patax vs. qamats on the SAME letter
+    # (the נ) — pure position-safe subtraction, exactly like rafe/dagesh: taxton keeps qamats +
+    # meteg, elyon keeps patax + revia. The word's OWN shared prefix vowel (פ's qamats) is a
+    # second, unrelated occurrence of the same mark type and must survive in BOTH strands —
+    # pinning the fix for the whole-word-markset trap a naive divergence scan falls into.
+    # Also exercises: a SUPPLIED maqaf (the first in the Decalogues, atom 1) and an OMITTED
+    # accent (atom 2) — both already-proven mechanisms, newly auto-derivable for maqaf.
+    canon = dc.describe_diff.accent_name
+    OMIT = dc.clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT
+    ADD = dc.clc_note.SOURCE_DUAL_CANT_ADDITION
+
+    def _omit_notes(view):
+        return [n for n in view.notes if n["source"] == OMIT]
+
+    # ex 20:3
+    combined = _read_atoms("Exodus.xml", 20, 3)
+    _c, alef, bet = dc.strand_views("Exodus", 20, 3, combined)
+
+    # atom 1 (לא): taxton drops the shared munax, keeps only meteg, and SUPPLIES a maqaf —
+    # the first-ever supplied maqaf in the Decalogues — joining it to the next word.
+    a1, b1 = alef.atoms[0]["text"], bet.atoms[0]["text"]
+    assert _METEG in a1 and acc.MUN not in a1, a1
+    assert acc.MUN in b1 and _METEG not in b1, b1
+    assert alef.atoms[0]["additions"] == [_MAQAF]
+    assert bet.atoms[0].get("additions", []) == []
+
+    # atom 2 (יהיה): taxton's own merkha is OMITTED (UXLC left it untangled) — taxton shows
+    # the word bare, with neither the merkha it wants nor elyon's meteg/maqaf; elyon keeps
+    # both (its own trailing meteg + the maqaf joining יהיה to לך).
+    a2, b2 = alef.atoms[1]["text"], bet.atoms[1]["text"]
+    assert acc.MER not in a2 and _METEG not in a2 and _MAQAF not in a2, a2
+    assert _METEG in b2 and _MAQAF in b2, b2
+    anotes = _omit_notes(alef)
+    assert [n["kind"] for n in anotes] == [canon(acc.MER)] and anotes[0]["strand"] == "taḥton"
+    assert _omit_notes(bet) == []
+
+    # atom 7 (פני): the QUPO split itself. taxton keeps qamats TWICE (its own, on the נ, plus
+    # the word's unrelated shared prefix qamats on פ) + meteg, drops patax/revia entirely;
+    # elyon keeps patax + revia plus the shared prefix qamats, drops the נ's own qamats + meteg.
+    a7, b7 = alef.atoms[6]["text"], bet.atoms[6]["text"]
+    assert _count(a7, _QAMATS) == 2 and _METEG in a7, a7
+    assert _PATAX not in a7 and acc.REV not in a7, a7
+    assert _count(b7, _QAMATS) == 1 and _PATAX in b7 and acc.REV in b7, b7
+    assert _METEG not in b7, b7
+    assert alef.atoms[6]["additions"] == [_SOF_PASUQ]
+    assert bet.atoms[6].get("additions", []) == []
+    assert _SOF_PASUQ not in a7 and _SOF_PASUQ not in b7  # supplied out-of-band, not in text
+
+    # taxton's notes, in atom order: supplied maqaf (atom 1), omitted merkha (atom 2),
+    # supplied sof-pasuq (atom 7). elyon supplies/omits nothing in this verse.
+    add_notes = [n for n in alef.notes if n["source"] == ADD]
+    assert [n["kind"] for n in add_notes] == ["maqaf", "sof pasuq"]
+    assert len(_omit_notes(alef)) == 1
+    assert bet.notes == ()
+
+    # dt 5:7 — same QUPO shape at atom 7, but atom 1/2 mirror the other way: taxton here has
+    # NO meteg to keep at all (UXLC's לא carries only munax), so it drops the munax outright
+    # and supplies a maqaf just the same; and it is ELYON's silluq that is omitted at atom 2
+    # (UXLC's maqaf-joined יהיה־ has no meteg for elyon to keep), while taxton keeps its own
+    # merkha, already present in UXLC (no omission on the taxton side here).
+    combined7 = _read_atoms("Deuteronomy.xml", 5, 7)
+    _c7, alef7, bet7 = dc.strand_views("Deuter", 5, 7, combined7)
+
+    a1d, b1d = alef7.atoms[0]["text"], bet7.atoms[0]["text"]
+    assert acc.MUN not in a1d and _METEG not in a1d, a1d
+    assert acc.MUN in b1d, b1d
+    assert alef7.atoms[0]["additions"] == [_MAQAF]
+
+    a2d, b2d = alef7.atoms[1]["text"], bet7.atoms[1]["text"]
+    assert acc.MER in a2d and _MAQAF not in a2d, a2d
+    assert _METEG not in b2d and _MAQAF in b2d, b2d
+    d_omit = _omit_notes(bet7)
+    assert [n["kind"] for n in d_omit] == ["silluq"] and d_omit[0]["strand"] == "elyon"
+    assert _omit_notes(alef7) == []
+
+    a7d, b7d = alef7.atoms[6]["text"], bet7.atoms[6]["text"]
+    assert _count(a7d, _QAMATS) == 2 and _METEG in a7d and _PATAX not in a7d, a7d
+    assert _count(b7d, _QAMATS) == 1 and _PATAX in b7d and acc.REV in b7d, b7d
+    assert alef7.atoms[6]["additions"] == [_SOF_PASUQ]
+    assert bet7.atoms[6].get("additions", []) == []
+
+
 def test_strand_same_highlighting():
     # A strand word is de-highlighted (clc-strand-same) iff it is identical ACROSS
     # the two strands (taxton == elyon), not merely equal to the combined form.
@@ -443,6 +529,7 @@ def main():
     test_decalogue_supplied_sof_pasuq()
     test_decalogue_rafe_dagesh()
     test_decalogue_omitted_accent()
+    test_decalogue_qupo_vowel_split()
     test_split_word_core()
     test_split_word_position_safe_qupo()
     test_split_word_position_safe_rafe_dagesh()
