@@ -380,8 +380,9 @@ def test_decalogue_omitted_accent():
     OMIT = dc.clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT
     # Names are asserted from the canonical authority, never hardcoded: the omitted/present
     # accents must read exactly as describe_diff spells them ("tipexa", "zaqef-qatan", …).
-    # "silluq" is the lone exception — CLC's own override for U+05BD (which describe_diff knows
-    # only as "meteg"), so it is pinned as a literal.
+    # U+05BD is the lone exception — CLC's own override, pinned as a literal "silluq" or
+    # "meteg" depending on verse-finality (see _accent_name; describe_diff itself knows that
+    # codepoint only as "meteg", never "silluq").
     canon = dc.describe_diff.accent_name
 
     def _omit_notes(view):  # the omitted-accent notes only
@@ -475,6 +476,9 @@ def test_decalogue_qupo_vowel_split():
     assert _METEG in b2 and _MAQAF in b2, b2
     anotes = _omit_notes(alef)
     assert [n["kind"] for n in anotes] == [canon(acc.MER)] and anotes[0]["strand"] == "taḥton"
+    # UXLC has elyon's own meteg here (its trailing meteg + maqaf, kept above at b2) — an
+    # ordinary meteg, never silluq: the word is maqaf-joined to the next word, not verse-final.
+    assert anotes[0]["present_kind"] == "meteg"
     assert _omit_notes(bet) == []
 
     # atom 7 (פני): the QUPO split itself. taxton keeps qamats TWICE (its own, on the נ, plus
@@ -498,9 +502,10 @@ def test_decalogue_qupo_vowel_split():
 
     # dt 5:7 — same QUPO shape at atom 7, but atom 1/2 mirror the other way: taxton here has
     # NO meteg to keep at all (UXLC's לא carries only munax), so it drops the munax outright
-    # and supplies a maqaf just the same; and it is ELYON's silluq that is omitted at atom 2
-    # (UXLC's maqaf-joined יהיה־ has no meteg for elyon to keep), while taxton keeps its own
-    # merkha, already present in UXLC (no omission on the taxton side here).
+    # and supplies a maqaf just the same; and it is ELYON's meteg that is omitted at atom 2 —
+    # an ordinary meteg, NOT silluq, since UXLC's maqaf-joined יהיה־ is mid-verse, not
+    # verse-final — while taxton keeps its own merkha, already present in UXLC (no omission
+    # on the taxton side here).
     combined7 = _read_atoms("Deuteronomy.xml", 5, 7)
     _c7, alef7, bet7 = dc.strand_views("Deuter", 5, 7, combined7)
 
@@ -513,7 +518,10 @@ def test_decalogue_qupo_vowel_split():
     assert acc.MER in a2d and _MAQAF not in a2d, a2d
     assert _METEG not in b2d and _MAQAF in b2d, b2d
     d_omit = _omit_notes(bet7)
-    assert [n["kind"] for n in d_omit] == ["silluq"] and d_omit[0]["strand"] == "elyon"
+    # "meteg", not "silluq": יהיה־ is maqaf-joined to the next word, not verse-final, so the
+    # meteg elyon wants here can never be silluq (contrast dt 5:17, genuinely verse-final).
+    assert [n["kind"] for n in d_omit] == ["meteg"] and d_omit[0]["strand"] == "elyon"
+    assert d_omit[0]["present_kind"] == canon(acc.MER)   # UXLC has taxton's own merkha here
     assert _omit_notes(alef7) == []
 
     a7d, b7d = alef7.atoms[6]["text"], bet7.atoms[6]["text"]
@@ -596,6 +604,8 @@ def test_decalogue_paseq_tokenization_deuteronomy():
     assert _count(a12, _PATAX) == 1 and _count(b12, _PATAX) == 1, (a12, b12)
     omit8 = [n for n in alef8.notes if n["source"] == OMIT]
     assert len(omit8) == 1 and omit8[0]["kind"] == dc.describe_diff.accent_name(acc.QOM)
+    # UXLC has elyon's own meteg here (maqaf-joined, not verse-final) — never silluq.
+    assert omit8[0]["present_kind"] == "meteg"
 
     # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8's supplied-sof-pasuq shape, plus a
     # paseq-tokenization atom (#29): atom 7 צוך ׀ — elyon keeps the paseq, taxton drops it.

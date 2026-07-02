@@ -85,16 +85,21 @@ def _is_accent(ch):
     return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
 
 
-def _accent_name(ch):
+def _accent_name(ch, verse_final):
     """Display name of an accent for an omitted-accent note, taken from the canonical
     mb_diff_mpu authority (``describe_diff.accent_name`` — e.g. "tipeḥa", "zaqef-qatan",
     "munaḥ") so CLC never reinvents a spelling. One CLC override: U+05BD is named "silluq"
-    — its verse-final reading here (design doc §2) — where describe_diff knows that
-    codepoint only as the mark "meteg" (its ``accent_name`` falls back to the raw Unicode
-    name there). ``_validate_oracle`` guarantees every omittable accent has a canonical
-    name, so this never returns a "HEBREW …" placeholder."""
+    only when ``verse_final`` is true — i.e. this occurrence sits on the verse's own last
+    word, immediately paired with (or, if omitted, standing in for) a sof-pasuq (design doc
+    §2). Silluq is defined by that verse-final position, nothing else; every other
+    occurrence of U+05BD is an ordinary meteg/gaʿya — a purely metrical mark, not part of
+    the cantillation system at all — which is what describe_diff already calls that
+    codepoint (its ``accent_name`` falls back to the raw Unicode name there). Same glyph,
+    two grammatical readings, distinguished only by context — the same shape as the
+    legarmeh-vs-paseq ambiguity (§7.16). ``_validate_oracle`` guarantees every omittable
+    accent has a canonical name, so this never returns a "HEBREW …" placeholder."""
     if ch == hpo.MTGOSLQ:
-        return "silluq"
+        return "silluq" if verse_final else "meteg"
     return describe_diff.accent_name(ch)
 
 
@@ -402,8 +407,10 @@ _ORACLE = {
         # its comment there). Atom 1 לא here carries NO meteg at all (UXLC has only munax) — and
         # taxton wants neither: it drops the munax entirely and instead SUPPLIES a maqaf, joining
         # לא to the next word. Atom 2 יהיה is the mirror of ex 20:3's: here taxton keeps its own
-        # merkha (present in UXLC) while elyon's SILLUQ is OMITTED (UXLC's maqaf-joined יהיה־ has
-        # no meteg for elyon to keep). Atoms 3–5 are pure-accent, same shape as ex 20:3.
+        # merkha (present in UXLC) while elyon's meteg is OMITTED — an ordinary meteg, NOT silluq,
+        # since UXLC's maqaf-joined יהיה־ is mid-verse, not verse-final (silluq is defined by
+        # verse-final position, not by the U+05BD codepoint alone — see _accent_name). Atoms 3–5
+        # are pure-accent, same shape as ex 20:3.
         (5, 7): {
             1: {"cluster": acc.MUN, "alef": "", "bet": acc.MUN, "add": {_STRAND_ALEF: [hpu.MAQ]}},
             2: {"cluster": acc.MER + hl.HE + hpu.MAQ, "alef": acc.MER + hl.HE, "bet": hl.HE + hpu.MAQ, "omit": {_STRAND_BET: [hpo.MTGOSLQ]}},
@@ -632,7 +639,9 @@ def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand):
             notes.append(_added_note(atom["text"], added_char))
         for omitted_char in atom.get("omitted_accents", ()):
             present = _present_accent(atom["text"], other_atom["text"])
-            notes.append(_omitted_note(atom["text"], omitted_char, present, strand, other_strand))
+            present_verse_final = hpu.SOPA in other_atom["text"]
+            notes.append(_omitted_note(atom["text"], omitted_char, present, present_verse_final,
+                                        strand, other_strand))
     return tuple(notes)
 
 
@@ -653,14 +662,23 @@ def _added_note(snippet, added_char):
     }
 
 
-def _omitted_note(snippet, accent_char, present_char, strand, other_strand):
+def _omitted_note(snippet, accent_char, present_char, present_verse_final, strand, other_strand):
     """An accent this strand wants but UXLC omitted — noted, not supplied. The snippet is
     the strand word AS SHOWN (that accent absent); no mark is rendered. ``present_char`` is
-    the accent UXLC *does* have here (the other strand's), named in the note for concreteness."""
+    the accent UXLC *does* have here (the other strand's), named in the note for concreteness.
+
+    Verse-finality for a U+05BD name (silluq vs. plain meteg, see ``_accent_name``) is read
+    off each side's own atom text, never assumed: for the *wanted* accent, ``snippet`` IS
+    this strand's own atom text, so a sof-pasuq already there (dt 5:17's elyon) means this
+    strand ends its verse here; for the *present* accent, that same check runs on the OTHER
+    strand's atom text, passed in as ``present_verse_final`` (dt 5:7's elyon meteg on יהיה־
+    fails it — the word is maqaf-joined, not verse-final — so it never wants a silluq)."""
+    wanted_verse_final = hpu.SOPA in snippet
     return {
-        "kind": _accent_name(accent_char),       # the wanted accent, e.g. "silluq"
+        "kind": _accent_name(accent_char, wanted_verse_final),  # the wanted accent, e.g. "silluq"
         "char": accent_char,                     # the wanted accent (for reference; not rendered)
-        "present_kind": _accent_name(present_char) if present_char else None,  # the accent UXLC has
+        "present_kind": (_accent_name(present_char, present_verse_final)
+                          if present_char else None),  # the accent UXLC has
         "present_char": present_char,
         "snippet": snippet,                      # the strand word, shown without the accent
         "strand": strand.short,                  # the strand that wants it ("elyon"/"taxton"/…)
@@ -689,8 +707,9 @@ def _validate_oracle():
                 for ch in omitted:
                     # only ACCENTS are noted-as-omitted; punctuation would be supplied instead.
                     # Require a canonical display name so the note reads cleanly — either a
-                    # curated mb_diff_mpu name or CLC's silluq override for U+05BD — never a raw
-                    # "HEBREW …" Unicode fallback (see _accent_name).
+                    # curated mb_diff_mpu name or CLC's silluq/meteg override for U+05BD (the name
+                    # picked at render time by verse-finality, not fixed here — see _accent_name)
+                    # — never a raw "HEBREW …" Unicode fallback.
                     assert _is_accent(ch), ch
                     assert ch == hpo.MTGOSLQ or ch in describe_diff.ACCENT_NAMES, ch
                     assert ch not in _SUPPLIABLE, ch
