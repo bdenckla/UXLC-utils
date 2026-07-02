@@ -313,12 +313,30 @@ Each is a feature this doc names, organized with grounding + open questions.
 
 ### 7.2 Restoration of WLC bracket notes
 - Source: the vendored `wlc-utils/out/wlc422-kq-u/` (kq-u WLC 4.22), with definitions from
-  `wlc-utils/py/cmn/wlc_bracket_note_definitions.py`.
+  `wlc-utils/py/cmn/wlc_bracket_note_definitions.py` (31 codes, up to 3 source-keyed prose
+  definitions per code: Manual 4.22 — generally fullest — the legacy WTS supplement, and
+  Amos.xml notes).
 - **Caution:** apply a bracket note to a word **only after careful
   inspection** when that word **differs between UXLC and WLC** — the note may no longer apply.
-  → Implies a per-word UXLC-vs-WLC diff gate before attaching a bracket note. **[TBD]** build/
-  reuse that diff (wlc-utils already has 4.20-vs-4.22 diff tooling; a WLC-vs-UXLC diff may need
-  to be added).
+  → a per-word UXLC-vs-WLC diff gate is required before attaching a bracket note (exact match
+  only; no note on any mismatch — see §9 #8). wlc-utils has 4.20-vs-4.22 diff tooling
+  (`py_wlc_diffs_420422/`, a different axis) and a WLC-vs-UXLC per-token diff
+  (`py/accgram/wlc_uxlc_diff.py`) that is not yet bracket-note-aware — the missing
+  per-atom eligibility decision is the new work.
+- **Tracked in [#33](https://github.com/bdenckla/UXLC-utils/issues/33)** — the full cold-start
+  plan: vendoring the WLC data + definitions (a first vendoring pair *from* wlc-utils *into*
+  this repo, mirroring the existing MAM-basics vendoring pattern, §5), the diff gate, a
+  `ClcNote` schema extension (`SOURCE_WLC_BRACKET_NOTE`), a new collector mirroring
+  `clc_collect.py`'s shape, and reuse of the existing always-link renderer (no renderer
+  changes needed). Most of the WLC-side data and code already exists (§5) — the diff gate is
+  the long pole.
+- **Follow-on, not a prerequisite: MAM enrichment ([#34](https://github.com/bdenckla/UXLC-utils/issues/34)).**
+  Most bracket-note definitions are terse (e.g. `]n` "an anomalous form" — anomalous *how*? —
+  is the canonical example). #34 cross-references MAM's ל= notes and doc-notes (§7.12) to
+  attach a fuller explanation alongside a bracket note once #33 attaches it — additive only,
+  depends on #33, and is a *different* use of MAM's ל= data than §7.12's charitable-diff
+  harvesting (annotation here, vs. candidate-adoption there — keep the two purposes distinct
+  even though the underlying MAM data overlaps).
 
 ### 7.3 UXLC notes — MAM-style, no word-interrupting callouts
 - Adopt the MAM-with-doc presentation: text column stays clean; notes live in a side column /
@@ -575,7 +593,12 @@ diffs, **reviewed before adoption** (cf. the bracket-note caution in §7.2 — a
 candidate, not an automatic change):
 - **MAM ל= ("lamed equals", i.e. "L reads…") notes** — harvest from **`MAM-parsed/plus`** (or an
   edition that renders notes, e.g. `MAM-with-doc/gh-pages`). These ל= notes point precisely at
-  what L actually has, i.e. often at exactly the changes CLC would like.
+  what L actually has, i.e. often at exactly the changes CLC would like. **Distinct from
+  [#34](https://github.com/bdenckla/UXLC-utils/issues/34)'s use of the same ל= data**: #34 only
+  *annotates* a WLC bracket note with MAM's commentary (read-only, no text change); this
+  harvest is about *adopting* MAM's reading as a candidate CLC diff. Same source data, different
+  purpose — an implementer touching one should be aware of the other so the MAM-alignment code
+  isn't built twice.
 - **`book-of-job`** (sibling repo; self-contained, with its own `gh-pages` + many check scripts) —
   a **small, realistic, short-term** harvest set. Likely the first real harvesting target.
 - **`amb_early_mtg`** (the early-meteg catalog, §2b/§5) — a small, **likely-unfinished** local scan
@@ -700,7 +723,9 @@ and `dual-cant-added-punct`. The dual-cant **"added
 5. **B&W → color** upgrade pipeline — how much can be automated (§7.6).
 6. ~~**"Always link" vs. MAM's inline-short/link-long**~~ **Decided: always link** (§7.3).
 7. **Verdict vocabulary** for identity (2a) ambiguities (§7.1).
-8. **WLC-vs-UXLC per-word diff** to gate bracket-note application (§7.2).
+8. **WLC-vs-UXLC per-word diff** to gate bracket-note application (§7.2) — tracked in
+   [#33](https://github.com/bdenckla/UXLC-utils/issues/33); `wlc-utils/py/accgram/wlc_uxlc_diff.py`
+   exists but needs a bracket-note-eligibility decision layer added on top (exact match only).
 9. ~~**Where does CLC live?**~~ **Decided:** in this repo — `py/clc/` + `gh-pages/clc/` (§4).
 10. **LC manuscript book order** must be encoded for the difference-index sort (§7.9). The code
     only has standard printed order today. *(Verse-level prose/poetic, by contrast, is **already**
@@ -731,7 +756,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | feature | status | where / note |
 |---|---|---|
 | §7.1 charitable under-bar | **seed only** | m/d under-bar (+ t transcription-uncertainty) notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False, except the one §7.4 pending-change instance (Deut 5:8.2) |
-| §7.2 bracket-note restoration | not started | — |
+| §7.2 bracket-note restoration | not started | plan written up: [#33](https://github.com/bdenckla/UXLC-utils/issues/33) (attachment + UXLC-vs-WLC diff gate), [#34](https://github.com/bdenckla/UXLC-utils/issues/34) (MAM enrichment, depends on #33) |
 | §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); all bodies inline — long-note big-doc page still TODO |
 | §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
