@@ -676,6 +676,26 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
   / labeling**, not the text bytes. Confirm whether UXLC nonetheless distinguishes them somehow.
 - Difference type for §7.9 / §8: **`legarmeh-paseq`**.
 
+### 7.17 LC-corroborated framing for omitted-accent notes
+- §7.7's omitted-accent notes currently read, e.g.: *"the elyon strand calls for a silluq on תרצח
+  here, but **UXLC's combined text** carries only the taxton strand's tipexa..."* — framing the
+  "carries only" clause around UXLC implies a UXLC transcription quirk. For some of these cases
+  it isn't one: `wlc-utils/py/accgram`'s dual-cantillation detangler already tags a subset of its
+  supplied accents (`SuppliedMark.source == "lc"`) as having genuine, if non-definitive, grounding
+  in a leftover mark the Leningrad Codex itself actually wrote — not just something every
+  transcription of it (UXLC, WLC, BHS, BHQ) happens to agree on. Where that grounding exists, the
+  note should say **"the LC carries only..."** instead; where it doesn't, keep today's UXLC-only
+  framing.
+- **Caution:** don't match cases by accent-name coincidence — a first pass turned up a case where
+  accgram's "missing" accent for one strand looks, by name, like CLC's own "present" accent for the
+  same strand at the same verse; they may describe different words. Verify by actual word text
+  before upgrading any note's wording (see the issue for the specific landmine).
+- **Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36)** — the full cold-start
+  plan: cross-referencing accgram's `SuppliedMark.source` field against CLC's own
+  `_omitted_note`/`_present_accent` output word-by-word, threading a corroboration flag through
+  `clc_dual_cant.py`/`clc_render.py`, and updating the affected tests. Wording-only refinement of
+  §7.7's mechanism — no new `diff_type`, no new ClcNote/§7.9 index rows.
+
 ---
 
 ## 8. Presentation / tech notes
@@ -730,6 +750,9 @@ and `dual-cant-added-punct`. The dual-cant **"added
 10. **LC manuscript book order** must be encoded for the difference-index sort (§7.9). The code
     only has standard printed order today. *(Verse-level prose/poetic, by contrast, is **already**
     available — `cantsys` + `_is_prose_section_of_job`; not an open question.)*
+11. **LC-corroborated omitted-accent wording** (§7.17, tracked in
+    [#36](https://github.com/bdenckla/UXLC-utils/issues/36)) — exact copy for the "the LC carries
+    only..." branch, and whether/how to cite `accgram`'s supplied-marks evidence from the note.
 
 ## 10. Rough ordering (not a plan — just gravity)
 A loose sense of what unblocks what, without committing to phases:

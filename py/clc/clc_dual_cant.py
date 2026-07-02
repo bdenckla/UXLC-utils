@@ -438,14 +438,16 @@ _ORACLE = {
         # cluster has no patax/CGJ (only qamats + two accents), an ordinary cross-book
         # difference from ex 20:4's atom 12 (see the module comment above). Atom 2's mid-word
         # pashta (grammatically impossible there — pashta must fall on a word's final letter)
-        # is corrected to the qadma taxton's own chant grammar independently wants, upstream in
-        # clc_collect (_UXLC_PENDING_CHANGES_APPLIED, applying UXLC's own pending change #10,
-        # design doc §7.4) — before this oracle ever runs. The corrected mark sits outside this
-        # atom's tracked cluster, so both strands simply inherit it as an ordinary shared mark;
-        # no omission, no oracle-level special case needed here anymore.
+        # is corrected to a qadma upstream in clc_collect (_UXLC_PENDING_CHANGES_APPLIED,
+        # applying UXLC's own pending change #10, design doc §7.4) — before this oracle ever
+        # runs. That qadma belongs to taxton alone: MAM's own cant-alef/cant-bet for this word
+        # (MAM-simple xml-vtrad-mam/Deut.xml, verse yeivinID "Dt 5:7") give alef a qadma and
+        # bet a plain meteg, never both on the same strand. So the cluster below tracks the
+        # qadma/meteg slot itself (not just the meteg-or-silluq + maqaf tail after it) — an
+        # ordinary position-safe subtraction, same as every other atom here, not an omission.
         (5, 8): {
             1: {"cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ, "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ, "bet": acc.MUN + hl.ALEF},
-            2: {"cluster": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ},
+            2: {"cluster": acc.QOM + hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": acc.QOM + hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ},
             3: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
             4: {"cluster": acc.MUN + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + chr(0x0020) + hpu.PASOLEG},
             6: {"cluster": acc.ZAQ_Q + acc.PAZ, "alef": acc.ZAQ_Q, "bet": acc.PAZ},

@@ -593,8 +593,9 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # taxton drops) and the same מתחת pair, but here NEITHER occurrence is QUPO — an ordinary
     # cross-book textual difference from ex 20:4 (see the module comment in clc_dual_cant.py).
     # Atom 2's mid-word pashta is corrected to a qadma upstream by clc_collect (simulated
-    # below), so it is no longer an omitted-accent case — both strands simply show the
-    # corrected qadma as an ordinary shared mark.
+    # below), so it is no longer an omitted-accent case — but the qadma still belongs to
+    # taxton alone (MAM's cant-alef has it, cant-bet has a plain meteg instead), so the
+    # oracle's cluster tracks it as an ordinary position-safe divergence, same as any other.
     OMIT = dc.clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT
     combined8 = _read_atoms("Deuteronomy.xml", 5, 8)
     assert len(combined8) == 16, f"expected 16 atoms, got {len(combined8)}"
@@ -610,10 +611,11 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # only ONCE in each strand (the ordinary shared trailing vowel on חַת), never stacked.
     a12, b12 = alef8.atoms[11]["text"], bet8.atoms[11]["text"]
     assert _count(a12, _PATAX) == 1 and _count(b12, _PATAX) == 1, (a12, b12)
-    assert acc.QOM in alef8.atoms[1]["text"] and acc.PASH not in alef8.atoms[1]["text"]
-    assert acc.QOM in bet8.atoms[1]["text"] and acc.PASH not in bet8.atoms[1]["text"]
+    a2, b2 = alef8.atoms[1]["text"], bet8.atoms[1]["text"]
+    assert acc.QOM in a2 and acc.PASH not in a2 and hpo.MTGOSLQ not in a2
+    assert acc.QOM not in b2 and acc.PASH not in b2 and hpo.MTGOSLQ in b2
     omit8 = [n for n in alef8.notes if n["source"] == OMIT]
-    assert omit8 == []  # no longer omitted -- qadma is present in both strands directly
+    assert omit8 == []  # no longer omitted -- qadma is present directly, alef only
 
     # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8's supplied-sof-pasuq shape, plus an
     # pasoleg-tokenization atom (#29): atom 7 צוך ׀ — elyon keeps the pasoleg, taxton drops it.

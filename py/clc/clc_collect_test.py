@@ -22,6 +22,7 @@ import clc.clc_dual_cant as clc_dual_cant  # noqa: E402
 import clc.clc_note as clc_note  # noqa: E402
 import clc.clc_render as clc_render  # noqa: E402
 import mb_cmn.hebrew_accents as acc  # noqa: E402
+import mb_cmn.hebrew_points as hpo  # noqa: E402
 import uxlc_misc.uxlc_utils_html as H  # noqa: E402
 
 
@@ -74,12 +75,14 @@ def test_render():
 
 
 def test_dual_cant_integration():
-    # Confirms clc_dual_cant._ORACLE's simplified dt 5:8 atom-2 entry (no more "omit")
-    # against *real* patched input, not just in isolation.
+    # Confirms clc_dual_cant._ORACLE's dt 5:8 atom-2 entry (no more "omit", and the qadma
+    # kept exclusive to taxton per MAM's cant-alef/cant-bet) against *real* patched input,
+    # not just in isolation.
     book, _notes = clc_collect.collect_for_book("Deuter", chapters={5})
     _c8, alef8, bet8 = clc_dual_cant.strand_views("Deuter", 5, 8, book[4][7])
-    assert acc.QOM in alef8.atoms[1]["text"] and acc.PASH not in alef8.atoms[1]["text"]
-    assert acc.QOM in bet8.atoms[1]["text"] and acc.PASH not in bet8.atoms[1]["text"]
+    a2, b2 = alef8.atoms[1]["text"], bet8.atoms[1]["text"]
+    assert acc.QOM in a2 and acc.PASH not in a2 and hpo.MTGOSLQ not in a2
+    assert acc.QOM not in b2 and acc.PASH not in b2 and hpo.MTGOSLQ in b2
     OMIT = clc_dual_cant.clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT
     assert [n for n in alef8.notes if n["source"] == OMIT] == []
     assert [n for n in bet8.notes if n["source"] == OMIT] == []
