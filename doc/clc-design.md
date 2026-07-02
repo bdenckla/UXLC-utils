@@ -675,6 +675,9 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
   as with the §2a U+0596/U+05A5 collisions, a charitable re-reading may change only the **note prose
   / labeling**, not the text bytes. Confirm whether UXLC nonetheless distinguishes them somehow.
 - Difference type for §7.9 / §8: **`legarmeh-paseq`**.
+- **[TBD] Visual representation, tracked in [#37](https://github.com/bdenckla/UXLC-utils/issues/37).**
+  Once identity is resolved, how should CLC's rendered output *show* the distinction to the reader,
+  given both share the identical glyph? Precedents and options are on the issue, not here.
 
 ### 7.17 LC-corroborated framing for omitted-accent notes
 - §7.7's omitted-accent notes currently read, e.g.: *"the elyon strand calls for a silluq on תרצח
