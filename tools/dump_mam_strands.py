@@ -17,12 +17,26 @@ sys.path.insert(0, str(_WLC_PY))
 
 from accgram.mam_simple_verse import load_mam_simple_for_refs  # noqa: E402
 import repo_paths  # noqa: E402
+from mb_cmn import hebrew_punctuation as hpu  # noqa: E402
 
 # wlc book codes (bb) -> the Decalogue refs, matching dual_cant_detangle.PASSAGES.
 REFS = {
     "ex": {(20, v) for v in range(2, 18)},
     "dt": {(5, v) for v in range(6, 22)},
 }
+
+
+def _fold_paseq(words):
+    """MAM-simple tokenizes a standalone paseq (a space then hpu.PASOLEG) as its own word;
+    UXLC embeds it directly in the preceding word's atom instead. Fold it the same way so
+    word counts line up with UXLC (issue #20's count-mismatch verses, issue #29)."""
+    out = []
+    for w in words:
+        if w == hpu.PASOLEG and out:
+            out[-1] += hpu.PASOLEG
+        else:
+            out.append(w)
+    return out
 
 
 def main():
@@ -34,8 +48,8 @@ def main():
         verse = info["mam_simple_verse"]
         out[bcv] = {
             "combined": verse.get("vels"),
-            "alef": verse.get("vels_cant_alef"),
-            "bet": verse.get("vels_cant_bet"),
+            "alef": _fold_paseq(verse.get("vels_cant_alef")),
+            "bet": _fold_paseq(verse.get("vels_cant_bet")),
         }
     out_path = Path(__file__).resolve().parent.parent / ".novc" / "mam_strands.json"
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")

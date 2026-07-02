@@ -307,9 +307,9 @@ def gen_verse(bk39, bb, ch, v):
 
 # All dual-cant verses with a per-atom mark divergence (from oracle_report.txt).
 _CANDIDATES = [
-    ("Exodus", "ex", 20, v) for v in (2, 3, 5, 6, 8, 9, 13, 14, 15)
+    ("Exodus", "ex", 20, v) for v in (2, 3, 4, 5, 6, 8, 9, 10, 13, 14, 15)
 ] + [
-    ("Deuter", "dt", 5, v) for v in (6, 7, 9, 10, 13, 17, 18, 19)
+    ("Deuter", "dt", 5, v) for v in (6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19)
 ]
 
 

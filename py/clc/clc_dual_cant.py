@@ -226,13 +226,24 @@ _ORACLE = {
     # בגדכפת letter — the hard strand keeps UXLC's dagesh, the soft keeps UXLC's rafe (faithful,
     # Policy 1; bare where UXLC has no rafe, as in ex 20:9 כל); the OMITTED-accent verses
     # (dt 5:6,13,17) where UXLC has only one strand's accent and the other's is NOTED, never
-    # supplied (Ben's policy — see the "omit" field and _omitted_note); and the QUPO vowel-split
+    # supplied (Ben's policy — see the "omit" field and _omitted_note); the QUPO vowel-split
     # verses (ex 20:3, dt 5:7) where the two strands stack DIFFERENT vowels (patax vs. qamats) on
     # one letter — the same position-safe subtraction bucket as rafe/dagesh (see ex 20:3's own
-    # comment below). Still TBD: the maqaf word-division / count-mismatch verses (ex 20:4,10;
-    # dt 5:8,12,14,15,16) — see .novc/entries.txt for the partition. (Open, out of scope for
-    # #28: whether מתחת in ex 20:4 / dt 5:8 is a second QUPO case or two separately-vocalized
-    # word tokens.)
+    # comment below); and the paseq-tokenization verses (ex 20:4,10; dt 5:8,12,14,15, #29) —
+    # MAM-simple tokenizes a standalone paseq as its own word where UXLC embeds it directly in
+    # the preceding word's atom, which looked like a real word-count divergence until
+    # tools/dump_mam_strands.py folded it the same way UXLC does; once folded, the paseq is an
+    # ordinary divergent mark (present in one strand's atom text, absent from the other) and
+    # flows through the same position-safe subtraction path as every other mark class — no new
+    # runtime mechanism. (#29 also closed #28's open מתחת question: the count mismatch in ex
+    # 20:4 / dt 5:8 comes from paseq elsewhere in the verse — atoms 4, 8, 14 — not from מתחת;
+    # ex 20:4's first מתחת occurrence, atom 12, IS a third QUPO vowel-split case, same shape as
+    # פני; its second occurrence, atom 15, is a plain two-accent divergence; dt 5:8's twin atom
+    # 12 is NOT QUPO there — an ordinary cross-book textual difference between the two verses.)
+    # dt 5:16 was also a paseq-tokenization count mismatch, but resolves to NO divergence at
+    # all: once folded, its taxton/elyon strands are byte-identical for every word (both keep
+    # the same lone paseq), so it correctly carries no oracle entry — is_dual_cant() is False
+    # for it, unlike its 6 siblings above.
     "Exodus": {
         (20, 2): {
             1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},
@@ -260,6 +271,33 @@ _ORACLE = {
                 "bet": hpo.PATAX + acc.REV,
                 "add": {_STRAND_ALEF: [hpu.SOPA]},
             },
+        },
+        # ex 20:4 — the first paseq-tokenization verse (#29). Atoms 4/8/14 (פסל/בשמים/במים)
+        # each end in a paseq that ONE strand keeps and the other drops (elyon keeps all
+        # three here; taxton drops all three) — the cluster spans from the nearest divergent
+        # accent through the trailing space to the paseq itself, so the space is shared
+        # (kept by both resolutions) and only the paseq mark itself is subtracted. Atom 1
+        # SUPPLIES a maqaf (taxton joins לא to the next word, like ex 20:3's atom 1); atom 16
+        # SUPPLIES the verse-end sof-pasuq (taxton ends the verse here; elyon reads on, like
+        # ex 20:8's atom 5). Atom 12 (מתחת, occurrence 1) IS a third QUPO vowel-split case —
+        # same patax/qamats-on-one-letter shape as ex 20:3's פני; atom 15 (מתחת, occurrence 2)
+        # is a plain two-accent divergence (#28's open מתחת question, resolved — see the
+        # module comment above).
+        (20, 4): {
+            1: {"cluster": hpo.MTGOSLQ + acc.MUN, "alef": hpo.MTGOSLQ, "bet": acc.MUN, "add": {_STRAND_ALEF: [hpu.MAQ]}},
+            2: {"cluster": hpo.MTGOSLQ + _CGJ + hpo.PATAX + hl.AYIN + hpo.XPATAX + hl.SHIN + hpo.SIND + hpo.SEGOL_V + acc.QOM + hl.HE + hpu.MAQ, "alef": hpo.PATAX + hl.AYIN + hpo.XPATAX + hl.SHIN + hpo.SIND + hpo.SEGOL_V + acc.QOM + hl.HE, "bet": hpo.MTGOSLQ + hpo.PATAX + hl.AYIN + hpo.XPATAX + hl.SHIN + hpo.SIND + hpo.SEGOL_V + hl.HE + hpu.MAQ},
+            3: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            4: {"cluster": acc.MUN + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + chr(0x0020) + hpu.PASOLEG},
+            6: {"cluster": acc.PAZ + acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
+            7: {"cluster": acc.MAH + acc.MUN, "alef": acc.MAH, "bet": acc.MUN},
+            8: {"cluster": acc.MUN + acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            9: {"cluster": acc.PAZ + acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
+            10: {"cluster": acc.MER + hl.RESH + acc.TEL_Q, "alef": acc.MER + hl.RESH, "bet": hl.RESH + acc.TEL_Q},
+            11: {"cluster": acc.TIP + acc.QOM, "alef": acc.TIP, "bet": acc.QOM},
+            12: {"cluster": hpo.QAMATS + acc.ATN + _CGJ + hpo.PATAX + acc.GER, "alef": hpo.QAMATS + acc.ATN, "bet": hpo.PATAX + acc.GER},
+            14: {"cluster": acc.TIP + acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            15: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            16: {"cluster": hpo.MTGOSLQ + acc.REV, "alef": hpo.MTGOSLQ, "bet": acc.REV, "add": {_STRAND_ALEF: [hpu.SOPA]}},
         },
         (20, 5): {
             2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
@@ -298,6 +336,35 @@ _ORACLE = {
             4: {"cluster": acc.TIP + acc.MUN, "alef": acc.TIP, "bet": acc.MUN},
             5: {"cluster": hl.KAF + hpo.DAGOMOSD, "alef": hl.KAF + hpo.DAGOMOSD, "bet": hl.KAF},
             6: {"cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A, "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS, "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+        },
+        # ex 20:10 (the Sabbath verse's back half, ...לא תעשה כל מלאכה): the second
+        # paseq-tokenization verse (#29). Atom 3 שבת ends in a paseq that elyon (bet) keeps
+        # and taxton (alef) drops — the mirror of ex 20:4's atoms 4/8/14, where taxton kept
+        # the paseq and elyon dropped it. Atom 10 אתה ׀ is the sharpest paseq case: this word
+        # carries no cantillation accent of its own at all, so the divergence cluster is the
+        # bare paseq character alone (not swept together with anything else) — taxton keeps
+        # it (a standalone word in MAM's alef list), elyon drops it entirely (its bet
+        # resolution is the empty string, like an omitted accent but for punctuation, since
+        # a lone paseq is never SUPPLIED, only ever suppressed like any other divergent mark
+        # already present in UXLC). Atom 18 SUPPLIES the verse-end sof-pasuq, same shape as
+        # ex 20:4's atom 16 / ex 20:8's atom 5.
+        (20, 10): {
+            1: {"cluster": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "alef": hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "bet": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM},
+            2: {"cluster": acc.ZAQ_Q + acc.GER, "alef": acc.ZAQ_Q, "bet": acc.GER},
+            3: {"cluster": acc.TIP + acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.TAV + chr(0x0020), "bet": acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG},
+            5: {"cluster": acc.ATN + acc.REV, "alef": acc.ATN, "bet": acc.REV},
+            6: {"cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ, "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ, "bet": acc.MUN + hl.ALEF},
+            7: {"cluster": acc.MUN + acc.QOM, "alef": acc.QOM, "bet": acc.MUN},
+            9: {"cluster": acc.PAZ + acc.GER, "alef": acc.GER, "bet": acc.PAZ},
+            10: {"cluster": hpu.PASOLEG, "alef": hpu.PASOLEG, "bet": ""},
+            11: {"cluster": hpo.MTGOSLQ + acc.MUN + hpu.MAQ, "alef": acc.MUN, "bet": hpo.MTGOSLQ + hpu.MAQ},
+            12: {"cluster": acc.TEL_G + hl.BET + hpo.XIRIQ + hl.TAV + hpo.DAGOMOSD + hpo.SEGOL_V + acc.REV, "alef": hl.BET + hpo.XIRIQ + hl.TAV + hpo.DAGOMOSD + hpo.SEGOL_V + acc.REV, "bet": acc.TEL_G + hl.BET + hpo.XIRIQ + hl.TAV + hpo.DAGOMOSD + hpo.SEGOL_V},
+            13: {"cluster": acc.MAH + acc.QOM, "alef": acc.MAH, "bet": acc.QOM},
+            14: {"cluster": acc.GER + acc.PASH, "alef": acc.PASH, "bet": acc.GER},
+            15: {"cluster": acc.ZAQ_Q + acc.REV, "alef": acc.ZAQ_Q, "bet": acc.REV},
+            16: {"cluster": acc.TIP + acc.PASH, "alef": acc.TIP, "bet": acc.PASH},
+            17: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            18: {"cluster": hpo.MTGOSLQ + acc.ZAQ_Q, "alef": hpo.MTGOSLQ, "bet": acc.ZAQ_Q, "add": {_STRAND_ALEF: [hpu.SOPA]}},
         },
         # ex 20:13–15 (לא תרצח / תנאף / תגנב): here taxton joins each short commandment to the
         # next (לא takes a conjunctive merkha/munax, so the verb opens SOFT) while elyon chants
@@ -350,6 +417,30 @@ _ORACLE = {
                 "add": {_STRAND_ALEF: [hpu.SOPA]},
             },
         },
+        # dt 5:8 — the Deuteronomy twin of ex 20:4 (#29's other paseq-tokenization verse),
+        # same three paseq atoms (4/8/14, פסל/בשמים/במים — elyon keeps, taxton drops) and the
+        # same מתחת pair at atoms 12/15 — but here NEITHER מתחת occurrence is QUPO: atom 12's
+        # cluster has no patax/CGJ (only qamats + two accents), an ordinary cross-book
+        # difference from ex 20:4's atom 12 (see the module comment above). Atom 2 also carries
+        # an OMITTED accent (taxton's qadma UXLC left untangled — noted, not supplied) stacked
+        # on the same word as the SUPPLIED maqaf of ex 20:4's twin atom 1... except here the
+        # maqaf is already in UXLC (atom 1), so only atom 2's accent is omitted, nothing supplied.
+        (5, 8): {
+            1: {"cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ, "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ, "bet": acc.MUN + hl.ALEF},
+            2: {"cluster": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "omit": {_STRAND_ALEF: [acc.QOM]}},
+            3: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            4: {"cluster": acc.MUN + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + chr(0x0020) + hpu.PASOLEG},
+            6: {"cluster": acc.ZAQ_Q + acc.PAZ, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
+            7: {"cluster": acc.MAH + acc.MUN, "alef": acc.MAH, "bet": acc.MUN},
+            8: {"cluster": acc.MUN + acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            9: {"cluster": acc.ZAQ_Q + acc.PAZ, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
+            10: {"cluster": acc.MER + hl.RESH + acc.TEL_Q, "alef": acc.MER + hl.RESH, "bet": hl.RESH + acc.TEL_Q},
+            11: {"cluster": acc.TIP + acc.QOM, "alef": acc.TIP, "bet": acc.QOM},
+            12: {"cluster": hpo.QAMATS + acc.ATN + acc.GER, "alef": hpo.QAMATS + acc.ATN, "bet": acc.GER},
+            14: {"cluster": acc.TIP + acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            15: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            16: {"cluster": hpo.MTGOSLQ + acc.REV + hl.RESH + hpo.SEGOL_V + hl.FTSADI + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.RESH + hpo.SEGOL_V + hl.FTSADI + hpu.SOPA, "bet": acc.REV + hl.RESH + hpo.SEGOL_V + hl.FTSADI},
+        },
         (5, 9): {
             2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
             3: {"cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR, "alef": acc.TIP + hl.FMEM, "bet": hl.FMEM + acc.Z_OR_TSOR},
@@ -360,6 +451,19 @@ _ORACLE = {
             1: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
             2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
+        },
+        # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8 — same shape (taxton's verse-end
+        # SUPPLIES a sof-pasuq UXLC omits, atom 9) plus a third paseq-tokenization atom (#29):
+        # atom 7 צוך ׀ ends in a paseq that elyon keeps and taxton drops, the same direction as
+        # ex 20:4/dt 5:8's atoms.
+        (5, 12): {
+            1: {"cluster": acc.TEV + acc.MUN, "alef": acc.TEV, "bet": acc.MUN},
+            3: {"cluster": acc.MER + hl.VAV + hpo.XOLAM + hl.FMEM + acc.TEL_Q, "alef": acc.MER + hl.VAV + hpo.XOLAM + hl.FMEM, "bet": hl.VAV + hpo.XOLAM + hl.FMEM + acc.TEL_Q},
+            4: {"cluster": acc.TIP + acc.QOM, "alef": acc.TIP, "bet": acc.QOM},
+            5: {"cluster": acc.ATN + acc.GER, "alef": acc.ATN, "bet": acc.GER},
+            7: {"cluster": acc.TIP + acc.MUN + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + chr(0x0020), "bet": acc.MUN + chr(0x0020) + hpu.PASOLEG},
+            8: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
+            9: {"cluster": hpo.MTGOSLQ + acc.REV, "alef": hpo.MTGOSLQ, "bet": acc.REV, "add": {_STRAND_ALEF: [hpu.SOPA]}},
         },
         # dt 5:13 (ששת ימים...): the Deuteronomy twin of ex 20:9, but UXLC has only the elyon
         # munax on ימים (atom 2), so the taxton's PASHTA is OMITTED — noted, not supplied; taxton
@@ -374,6 +478,43 @@ _ORACLE = {
             5: {"cluster": hl.KAF + hpo.DAGOMOSD + hpo.RAFE, "alef": hl.KAF + hpo.DAGOMOSD, "bet": hl.KAF + hpo.RAFE},
             6: {"cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + hpu.SOPA, "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A},
         },
+        # dt 5:14 — the Deuteronomy twin of ex 20:10's front half (both share the same
+        # ...יום השביעי שבת... opening), so atoms 1/2/3/5 repeat that pattern verbatim
+        # (atom 3's paseq: elyon keeps, taxton drops). dt 5:14 runs on to v.14's own ending
+        # (atom 26) instead of ex 20:10's continuation — pure accent divergence there, no
+        # paseq/QUPO/rafe. (Its own count mismatch (#29) was the same atom-3 paseq.)
+        (5, 14): {
+            1: {"cluster": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "alef": hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "bet": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM},
+            2: {"cluster": acc.ZAQ_Q + acc.GER, "alef": acc.ZAQ_Q, "bet": acc.GER},
+            3: {"cluster": acc.TIP + acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.TAV + chr(0x0020), "bet": acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG},
+            5: {"cluster": acc.ATN + acc.REV, "alef": acc.ATN, "bet": acc.REV},
+            26: {"cluster": hpo.MTGOSLQ + acc.ATN + hl.VAV + hpo.XOLAM + hl.FKAF + hpo.QAMATS + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.VAV + hpo.XOLAM + hl.FKAF + hpo.QAMATS + hpu.SOPA, "bet": acc.ATN + hl.VAV + hpo.XOLAM + hl.FKAF + hpo.QAMATS},
+        },
+        # dt 5:15 (וזכרת...): the "remember you were a slave" clause unique to Deuteronomy's
+        # Decalogue (no Exodus twin) — its own paseq-tokenization mismatch (#29) is atom 4
+        # היית ׀ (elyon keeps the paseq, taxton drops — same direction as every other paseq
+        # atom above). Otherwise pure-accent divergence throughout.
+        (5, 15): {
+            1: {"cluster": acc.REV + acc.GER_2, "alef": acc.REV, "bet": acc.GER_2},
+            2: {"cluster": acc.MUN + hl.YOD + hpu.MAQ, "alef": acc.MUN + hl.YOD, "bet": hl.YOD + hpu.MAQ},
+            3: {"cluster": acc.MAH + acc.MER, "alef": acc.MAH, "bet": acc.MER},
+            4: {"cluster": acc.MUN + acc.PASH + hl.YOD + hl.TAV + hpo.QAMATS + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.YOD + hl.TAV + hpo.QAMATS + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.YOD + hl.TAV + hpo.QAMATS + chr(0x0020) + hpu.PASOLEG},
+            6: {"cluster": acc.ZAQ_Q + acc.REV, "alef": acc.ZAQ_Q, "bet": acc.REV},
+            7: {"cluster": acc.QOM + hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.GER + acc.TEL_Q, "alef": acc.QOM + hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.GER, "bet": hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.TEL_Q},
+            8: {"cluster": acc.MAH + acc.QOM, "alef": acc.MAH, "bet": acc.QOM},
+            9: {"cluster": acc.MAH + acc.PASH + hl.YOD + hl.FKAF + hpo.QAMATS + acc.PASH, "alef": acc.PASH + hl.YOD + hl.FKAF + hpo.QAMATS + acc.PASH, "bet": acc.MAH + hl.YOD + hl.FKAF + hpo.QAMATS},
+            10: {"cluster": acc.ZAQ_Q + hl.FMEM + acc.PASH, "alef": acc.ZAQ_Q + hl.FMEM, "bet": hl.FMEM + acc.PASH},
+            11: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
+            12: {"cluster": acc.TIP + hl.HE + acc.PASH, "alef": acc.TIP + hl.HE, "bet": hl.HE + acc.PASH},
+            14: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
+        },
+        # dt 5:16 (כבד את אביך...): the seventh paseq-tokenization verse (#29) — and the one
+        # that turns out to carry NO divergence at all. Its atom 10 (למען ׀) has a lone paseq,
+        # but MAM's taxton AND elyon both keep it (fold to the same word), so once the fold
+        # fixes the count mismatch, every one of its 22 words is byte-identical between the
+        # two strands. Deliberately NOT an _ORACLE entry: is_dual_cant("Deuter", 5, 16) is
+        # False, and the verse renders as an ordinary single-cantillation row — the two
+        # traditions simply don't diverge here (see the module comment above).
         # dt 5:17 (לא תרצח): the Deuteronomy twin of ex 20:13, but UXLC has the elyon verse-end's
         # sof-pasuq WITHOUT its silluq — so elyon's SILLUQ is OMITTED (noted, not supplied): elyon's
         # תרצח keeps the dagesh (hard) + the lone sof-pasuq, with no accent shown. taxton keeps the

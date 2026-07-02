@@ -43,6 +43,7 @@ _RAFE = hpo.RAFE
 _DAGESH = hpo.DAGOMOSD
 _PATAX = hpo.PATAX
 _QAMATS = hpo.QAMATS
+_PASOLEG = hpu.PASOLEG
 
 # Codepoints a strict split may delete from a divergence cluster: cantillation
 # accents (U+0591–U+05AF), meteg, the CGJ, and — new with QUPO / rafe+dagesh —
@@ -126,6 +127,11 @@ def test_is_dual_cant():
     assert dc.is_dual_cant("Genesis", 35, 22)
     assert not dc.is_dual_cant("Genesis", 35, 21)
     assert not dc.is_dual_cant("Proverbs", 35, 22)
+    # dt 5:16 sits inside the Decalogue passage range and had a paseq-tokenization atom-count
+    # mismatch (#29) like its 6 siblings, but resolves to NO divergence at all: once MAM's
+    # paseq is folded the same way UXLC embeds it, taxton and elyon are byte-identical for
+    # every word, so it is correctly NOT registered as a dual-cant verse.
+    assert not dc.is_dual_cant("Deuter", 5, 16)
 
 
 def test_split_word_core():
@@ -176,6 +182,25 @@ def test_split_word_position_safe_rafe_dagesh():
     assert bet == hl.BET + _DAGESH + carrier + _RAFE + hl.HE
     assert _count(alef, _DAGESH) == 2 and _count(bet, _DAGESH) == 1  # shared dagesh safe
     assert _count(bet, _RAFE) == 1
+
+
+def test_split_word_position_safe_paseq():
+    # A word carries a SHARED paseq earlier (present in both readings — e.g. two paseq-marked
+    # clauses in one atom, an unrelated coincidence) and a second, DIVERGENT paseq later that
+    # only one strand keeps — mirroring UXLC's own convention of a preceding space before an
+    # embedded paseq (the paseq-tokenization class, #29). The cluster anchors on the divergent
+    # carrier letter + space + paseq, a substring unique to that site, so cluster-replace
+    # touches only that occurrence and leaves the earlier, shared one untouched.
+    carrier1, carrier2 = hl.LAMED, hl.MEM
+    shared = carrier1 + _PASOLEG  # unrelated, merely-coincidental shared paseq earlier in the word
+    cluster = carrier2 + " " + _PASOLEG
+    word = shared + cluster
+    entry = {"cluster": cluster, "alef": cluster, "bet": carrier2 + " "}
+    alef = dc.split_word(word, entry, "alef")
+    bet = dc.split_word(word, entry, "bet")
+    assert alef == word                        # taxton keeps both paseqs: nothing subtracted
+    assert bet == shared + carrier2 + " "       # elyon drops only the divergent (later) one
+    assert _count(alef, _PASOLEG) == 2 and _count(bet, _PASOLEG) == 1  # shared paseq safe
 
 
 def test_strand_views_strict():
@@ -498,6 +523,112 @@ def test_decalogue_qupo_vowel_split():
     assert bet7.atoms[6].get("additions", []) == []
 
 
+def test_decalogue_paseq_tokenization():
+    # ex 20:4 (לא תעשה לך פסל...): the first paseq-tokenization verse (#29) — MAM-simple
+    # tokenizes a standalone paseq as its own word where UXLC embeds it directly in the
+    # preceding word's atom, which looked like a real word-count mismatch until
+    # tools/dump_mam_strands.py's _fold_paseq folded it the same way. Once folded, the paseq
+    # is an ordinary divergent mark flowing through the same position-safe subtraction path
+    # as any other mark class: elyon keeps it, taxton drops it, at atoms 4/8/14 here.
+    combined4 = _read_atoms("Exodus.xml", 20, 4)
+    assert len(combined4) == 16, f"expected 16 atoms, got {len(combined4)}"
+    _c4, alef4, bet4 = dc.strand_views("Exodus", 20, 4, combined4)
+    for i in (3, 7, 13):  # atoms 4, 8, 14 (0-based): פסל / בשמים / במים
+        a, b = alef4.atoms[i]["text"], bet4.atoms[i]["text"]
+        assert _PASOLEG not in a and _PASOLEG in b, (i, a, b)
+
+    # atom 1 (לא): taxton SUPPLIES the first-ever maqaf of this verse's own kind (like ex
+    # 20:3's atom 1), joining it to the next word; atom 16 (לארץ) SUPPLIES the verse-end
+    # sof-pasuq (taxton ends the verse here; elyon reads on, like ex 20:8's atom 5).
+    assert alef4.atoms[0]["additions"] == [_MAQAF]
+    assert alef4.atoms[15]["additions"] == [_SOF_PASUQ]
+    assert bet4.atoms[0].get("additions", []) == [] and bet4.atoms[15].get("additions", []) == []
+
+    # atom 12 / atom 15 (מתחת, occurrences 1 and 2 — #28's open question, closed by #29): the
+    # count mismatch came from paseq elsewhere in the verse, NOT from מתחת. Occurrence 1 IS a
+    # third QUPO vowel-split case (patax vs. qamats stacked on one letter, same shape as ex
+    # 20:3's פני): taxton keeps its own qamats + atnach, plus the word's unrelated shared
+    # trailing patax (the ordinary vowel on חַת); elyon keeps patax (replacing the qamats) +
+    # gershayim, plus that same shared trailing patax — so patax appears once in taxton (the
+    # shared one only) but twice in elyon (its own divergent one plus the shared one).
+    # Occurrence 2 (atom 15) is a plain two-accent divergence.
+    a12, b12 = alef4.atoms[11]["text"], bet4.atoms[11]["text"]
+    assert _count(a12, _QAMATS) == 1 and _count(a12, _PATAX) == 1, a12
+    assert acc.ATN in a12 and acc.GER not in a12, a12
+    assert _count(b12, _QAMATS) == 0 and _count(b12, _PATAX) == 2, b12
+    assert acc.GER in b12 and acc.ATN not in b12, b12
+    a15, b15 = alef4.atoms[14]["text"], bet4.atoms[14]["text"]
+    assert acc.MER in a15 and acc.MUN not in a15, a15
+    assert acc.MUN in b15 and acc.MER not in b15, b15
+
+    # ex 20:10 (...לא תעשה כל מלאכה): the second paseq-tokenization verse — this time atom 3
+    # diverges in the SAME direction as ex 20:4 (elyon keeps, taxton drops), but atom 10 (אתה
+    # ׀) is the sharpest case: this word carries no accent of its own, so the divergence
+    # cluster is the bare paseq alone — taxton keeps it as a standalone word in MAM's alef
+    # list, elyon drops it outright (its resolution is "", like an omitted accent but for
+    # punctuation: never SUPPLIED, only ever suppressed, since UXLC already has the mark).
+    combined10 = _read_atoms("Exodus.xml", 20, 10)
+    assert len(combined10) == 18, f"expected 18 atoms, got {len(combined10)}"
+    _c10, alef10, bet10 = dc.strand_views("Exodus", 20, 10, combined10)
+    a3, b3 = alef10.atoms[2]["text"], bet10.atoms[2]["text"]
+    assert _PASOLEG not in a3 and _PASOLEG in b3, (a3, b3)
+    a10, b10 = alef10.atoms[9]["text"], bet10.atoms[9]["text"]
+    assert _PASOLEG in a10 and _PASOLEG not in b10, (a10, b10)
+    assert alef10.atoms[17]["additions"] == [_SOF_PASUQ]
+    assert bet10.atoms[17].get("additions", []) == []
+
+
+def test_decalogue_paseq_tokenization_deuteronomy():
+    # dt 5:8 — the Deuteronomy twin of ex 20:4 (#29). Same three paseq atoms (elyon keeps,
+    # taxton drops) and the same מתחת pair, but here NEITHER occurrence is QUPO — an ordinary
+    # cross-book textual difference from ex 20:4 (see the module comment in clc_dual_cant.py).
+    # Atom 2 also carries an OMITTED accent (taxton's qadma UXLC left untangled).
+    OMIT = dc.clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT
+    combined8 = _read_atoms("Deuteronomy.xml", 5, 8)
+    assert len(combined8) == 16, f"expected 16 atoms, got {len(combined8)}"
+    _c8, alef8, bet8 = dc.strand_views("Deuter", 5, 8, combined8)
+    for i in (3, 7, 13):  # atoms 4, 8, 14 (0-based): פסל / בשמים / במים
+        a, b = alef8.atoms[i]["text"], bet8.atoms[i]["text"]
+        assert _PASOLEG not in a and _PASOLEG in b, (i, a, b)
+    # atom 12 (מתחת, occurrence 1): NOT QUPO here (unlike ex 20:4's twin atom) — patax appears
+    # only ONCE in each strand (the ordinary shared trailing vowel on חַת), never stacked.
+    a12, b12 = alef8.atoms[11]["text"], bet8.atoms[11]["text"]
+    assert _count(a12, _PATAX) == 1 and _count(b12, _PATAX) == 1, (a12, b12)
+    omit8 = [n for n in alef8.notes if n["source"] == OMIT]
+    assert len(omit8) == 1 and omit8[0]["kind"] == dc.describe_diff.accent_name(acc.QOM)
+
+    # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8's supplied-sof-pasuq shape, plus a
+    # paseq-tokenization atom (#29): atom 7 צוך ׀ — elyon keeps the paseq, taxton drops it.
+    combined12 = _read_atoms("Deuteronomy.xml", 5, 12)
+    assert len(combined12) == 9, f"expected 9 atoms, got {len(combined12)}"
+    _c12, alef12, bet12 = dc.strand_views("Deuter", 5, 12, combined12)
+    a7, b7 = alef12.atoms[6]["text"], bet12.atoms[6]["text"]
+    assert _PASOLEG not in a7 and _PASOLEG in b7, (a7, b7)
+    assert alef12.atoms[8]["additions"] == [_SOF_PASUQ]
+    assert bet12.atoms[8].get("additions", []) == []
+
+    # dt 5:14 shares ex 20:10's front half verbatim (same ...יום השביעי שבת... opening,
+    # including atom 3's paseq divergence) before running on to its own verse-14 ending
+    # (atom 26) — pure accent divergence there, no paseq/QUPO/rafe.
+    combined14 = _read_atoms("Deuteronomy.xml", 5, 14)
+    assert len(combined14) == 26, f"expected 26 atoms, got {len(combined14)}"
+    _c14, alef14, bet14 = dc.strand_views("Deuter", 5, 14, combined14)
+    a3, b3 = alef14.atoms[2]["text"], bet14.atoms[2]["text"]
+    assert _PASOLEG not in a3 and _PASOLEG in b3, (a3, b3)
+    a26, b26 = alef14.atoms[25]["text"], bet14.atoms[25]["text"]
+    assert _SOF_PASUQ in a26 and _METEG in a26 and acc.ATN not in a26, a26  # taxton: verse-end
+    assert acc.ATN in b26 and _SOF_PASUQ not in b26, b26                    # elyon: reads on
+
+    # dt 5:15 (וזכרת...), unique to Deuteronomy's Decalogue (no Exodus twin): its own
+    # paseq-tokenization atom (#29) is atom 4 היית ׀ — elyon keeps it, taxton drops it, same
+    # direction as every other paseq atom above.
+    combined15 = _read_atoms("Deuteronomy.xml", 5, 15)
+    assert len(combined15) == 23, f"expected 23 atoms, got {len(combined15)}"
+    _c15, alef15, bet15 = dc.strand_views("Deuter", 5, 15, combined15)
+    a4, b4 = alef15.atoms[3]["text"], bet15.atoms[3]["text"]
+    assert _PASOLEG not in a4 and _PASOLEG in b4, (a4, b4)
+
+
 def test_strand_same_highlighting():
     # A strand word is de-highlighted (clc-strand-same) iff it is identical ACROSS
     # the two strands (taxton == elyon), not merely equal to the combined form.
@@ -530,9 +661,12 @@ def main():
     test_decalogue_rafe_dagesh()
     test_decalogue_omitted_accent()
     test_decalogue_qupo_vowel_split()
+    test_decalogue_paseq_tokenization()
+    test_decalogue_paseq_tokenization_deuteronomy()
     test_split_word_core()
     test_split_word_position_safe_qupo()
     test_split_word_position_safe_rafe_dagesh()
+    test_split_word_position_safe_paseq()
     test_strand_views_strict()
     test_added_render()
     test_strand_same_highlighting()
