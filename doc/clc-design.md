@@ -424,21 +424,24 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   *type* can also occur **twice** in one word, once as an unrelated *shared* vowel and once,
   divergently, as the QUPO letter's own — a flat whole-word markset diff cannot tell those two
   occurrences apart, so the derivation isolates the divergence *per letter*, not per mark type.
-- **Paseq-tokenization** (ex 20:4, 20:10; dt 5:8, 5:12, 5:14, 5:15): a paseq (׀) that one strand
-  chants and the other doesn't. This class looked architecturally harder than the others — MAM's
-  alef/bet strand word *counts* didn't match UXLC's own atom count, suggesting a real word-division
+- **Unicode-PASEQ tokenization** (ex 20:4, 20:10; dt 5:8, 5:12, 5:14, 5:15): a Unicode PASEQ (׀) —
+  the raw U+05C0 character, without regard to whether it functions as narrow-sense paseq or
+  legarmeh (§7.16; that grammatical distinction is irrelevant here) — that one strand chants and
+  the other doesn't. This class looked architecturally harder than the others — MAM's alef/bet
+  strand word *counts* didn't match UXLC's own atom count, suggesting a real word-division
   divergence needing a new atom-alignment mechanism. It wasn't: MAM-simple tokenizes a standalone
-  paseq as its own list entry, where UXLC always embeds it directly inside the *preceding* word's
-  atom — a tokenization-convention mismatch, not a word-count divergence. Folding MAM's standalone
-  paseq into its preceding word the same way (`tools/dump_mam_strands.py`'s `_fold_paseq`, applied
-  before the oracle derivation) fixed the count for all 7 affected verses; the paseq then flows
-  through the *same* position-safe subtraction path as any other divergent mark — **no new runtime
-  mechanism**. One of the 7, **dt 5:16**, resolves to *no divergence at all*: its taxton/elyon
-  strands are byte-identical once folded, so it correctly carries no `_ORACLE` entry (`is_dual_cant`
-  is False for it) — the two traditions simply don't diverge there.
+  Unicode PASEQ as its own list entry, where UXLC always embeds it directly inside the *preceding*
+  word's atom — a tokenization-convention mismatch, not a word-count divergence. Folding MAM's
+  standalone Unicode PASEQ into its preceding word the same way (`tools/dump_mam_strands.py`'s
+  `_fold_pasoleg`, applied before the oracle derivation) fixed the count for all 7 affected verses;
+  the Unicode PASEQ then flows through the *same* position-safe subtraction path as any other
+  divergent mark — **no new runtime mechanism**. One of the 7, **dt 5:16**, resolves to *no
+  divergence at all*: its taxton/elyon strands are byte-identical once folded, so it correctly
+  carries no `_ORACLE` entry (`is_dual_cant` is False for it) — the two traditions simply don't
+  diverge there.
 
 All four proven divergence mechanisms — rafe/dagesh, omitted-accent notes, the QUPO vowel split, and
-paseq-tokenization — plus pure-accent subtraction and supplied punctuation now cover **every**
+Unicode-PASEQ tokenization — plus pure-accent subtraction and supplied punctuation now cover **every**
 Decalogue dual-cant verse: `_ORACLE` holds an entry for all 23 verses (across Exod 20 and Deut 5)
 where the two traditions actually diverge; the other 9 verses in the two passage ranges (ex 20:7,
 11, 12, 16, 17; dt 5:11, 16, 20, 21) have identical taxton/elyon readings and correctly carry no
@@ -711,7 +714,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.4 change records as notes | not started | change log used only for the consistency guard, not as a note |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
-| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and paseq-tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet |
+| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet |
 | §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
 | §7.9 differences-from-UXLC index | not started | needs `is_uxlc_departure` departures (none yet) + LC manuscript order (§9 #10) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |

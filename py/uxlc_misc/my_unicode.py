@@ -67,7 +67,7 @@ _SHORT_NAMES = {
     hpo.MTGOSLQ: "meteg/siluq",  # 05bd
     "\N{HEBREW PUNCTUATION MAQAF}": "maqaf",  # 05be
     hpo.RAFE: "rafeh",  # 05bf
-    "\N{HEBREW PUNCTUATION PASEQ}": "paseq/legarmeih",  # 05c0
+    "\N{HEBREW PUNCTUATION PASEQ}": "paseq/legarmeh",  # 05c0
     hpo.SHIND: "shin-dot",  # 05c1
     hpo.SIND: "sin-dot",  # 05c2
     "\N{HEBREW PUNCTUATION SOF PASUQ}": "sof-pasuq",  # 05c3

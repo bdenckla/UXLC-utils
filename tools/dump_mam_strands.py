@@ -26,10 +26,15 @@ REFS = {
 }
 
 
-def _fold_paseq(words):
-    """MAM-simple tokenizes a standalone paseq (a space then hpu.PASOLEG) as its own word;
+def _fold_pasoleg(words):
+    """MAM-simple tokenizes a standalone pasoleg (a space then hpu.PASOLEG) as its own word;
     UXLC embeds it directly in the preceding word's atom instead. Fold it the same way so
-    word counts line up with UXLC (issue #20's count-mismatch verses, issue #29)."""
+    word counts line up with UXLC (issue #20's count-mismatch verses, issue #29).
+
+    "Pasoleg" (echoing the PASOLEG constant, a paseq+legarmeh portmanteau) means the raw
+    U+05C0 character regardless of whether it functions as narrow-sense paseq or legarmeh
+    (design doc §7.16) -- that grammatical distinction is irrelevant to tokenization, which
+    only cares about the codepoint."""
     out = []
     for w in words:
         if w == hpu.PASOLEG and out:
@@ -48,8 +53,8 @@ def main():
         verse = info["mam_simple_verse"]
         out[bcv] = {
             "combined": verse.get("vels"),
-            "alef": _fold_paseq(verse.get("vels_cant_alef")),
-            "bet": _fold_paseq(verse.get("vels_cant_bet")),
+            "alef": _fold_pasoleg(verse.get("vels_cant_alef")),
+            "bet": _fold_pasoleg(verse.get("vels_cant_bet")),
         }
     out_path = Path(__file__).resolve().parent.parent / ".novc" / "mam_strands.json"
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
