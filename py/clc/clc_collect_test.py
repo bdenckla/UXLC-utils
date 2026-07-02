@@ -62,8 +62,14 @@ def test_render():
     note = _deut_5_8_atom2_note(notes)
     html = H.el_to_str_no_wbr(clc_render._note_block(5, 8, 2, [note]))
     assert "clc-added-note" in html
-    assert 'class="clc-superseded-cite"' in html
-    assert "2026.04.10-10" in html
+    assert "pashta" in html and "qadma" in html
+    # No note-code prefix or superseding-change citation: those belong to showing
+    # the UXLC note itself, which this departure note deliberately doesn't. But
+    # "pending change" itself links to the change record.
+    assert 'class="clc-note-code"' not in html
+    assert 'class="clc-superseded-cite"' not in html
+    assert '>pending change</a>' in html
+    assert "2026.04.10-10" in html  # in the link's href, not as visible cite text
     assert note.note_text not in html  # still-suppressed stale prose never shown
 
 

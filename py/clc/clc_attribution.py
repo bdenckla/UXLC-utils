@@ -88,6 +88,20 @@ def note_cite(source_url):
     )
 
 
+def change_record_link(release_and_id, link_text):
+    """Anchor to a UXLC change record, for embedding mid-sentence.
+
+    ``release_and_id`` is a (release_date, change_id) pair (e.g.
+    ("2026.10.19", "2026.04.10-10")), as stored in
+    clc_note.ClcNote.superseding_uxlc_change. ``link_text`` is caller-chosen so
+    the same link can read as a change id (superseding_change_cite) or as a
+    phrase like "pending change" (clc_render._departure_note_block).
+    """
+    release_date, change_id = release_and_id
+    href = uxlc_change_url.uxlc_change_url(release_date, change_id)
+    return H.anchor(link_text, {"href": href, "target": "_blank"})
+
+
 def superseding_change_cite(release_and_id):
     """Link to the UXLC change record that supersedes this note's prose.
 
@@ -96,12 +110,11 @@ def superseding_change_cite(release_and_id):
     ``release_and_id`` is a (release_date, change_id) pair, e.g.
     ("2026.10.19", "2026.04.10-10").
     """
-    release_date, change_id = release_and_id
-    href = uxlc_change_url.uxlc_change_url(release_date, change_id)
+    _release_date, change_id = release_and_id
     return H.span(
         [
             "Superseded by pending UXLC change ",
-            H.anchor(change_id, {"href": href, "target": "_blank"}),
+            change_record_link(release_and_id, change_id),
             ".",
         ],
         {"class": "clc-superseded-cite"},

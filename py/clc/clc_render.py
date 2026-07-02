@@ -273,37 +273,36 @@ def _note_block(ch, v, position, atom_notes):
     ]
     for note in atom_notes:
         entries.append(H.line_break())
-        entries.append(H.span(f"[{note.note_code}] ", {"class": "clc-note-code"}))
         if note.is_uxlc_departure:
             entries.append(_departure_note_block(note))
-            if note.superseding_uxlc_change:
-                entries.append(" ")
-                entries.append(clc_attribution.superseding_change_cite(note.superseding_uxlc_change))
-        elif note.superseding_uxlc_change:
-            entries.append(
-                clc_attribution.superseding_change_cite(note.superseding_uxlc_change)
-            )
         else:
-            entries.append(note.note_text)
-            entries.append(clc_attribution.note_cite(note.source_url))
+            entries.append(H.span(f"[{note.note_code}] ", {"class": "clc-note-code"}))
+            if note.superseding_uxlc_change:
+                entries.append(
+                    clc_attribution.superseding_change_cite(note.superseding_uxlc_change)
+                )
+            else:
+                entries.append(note.note_text)
+                entries.append(clc_attribution.note_cite(note.source_url))
     return H.div(entries, {"id": _anchor_id(ch, v, position), "class": "clc-note"})
 
 
 def _departure_note_block(note):
-    # DRAFT prose -- flag for review. States plainly that CLC replaced UXLC's own
-    # reading (never "shared" -- that framing was rejected), quotes both readings in
-    # Hebrew (matching _omitted_note_block/_added_note_block's convention of showing
-    # actual text), and names the two marks via _accent_diff_names rather than
-    # hardcoding "pashta"/"qadma", so this reads correctly if reused for a different
-    # mark pair later.
+    # States plainly that CLC replaced UXLC's own reading (never "shared" -- that
+    # framing was rejected), naming the two marks via _accent_diff_names rather than
+    # hardcoding "pashta"/"qadma" so this reads correctly if reused for a different
+    # mark pair later. No note-code prefix or Hebrew snippets -- those belong to
+    # showing the UXLC note itself, which this note deliberately doesn't (its whole
+    # point is that CLC now departs from UXLC here) -- but "pending change" itself
+    # links to the UXLC change record, reusing clc_attribution's link builder.
     old_name, new_name = _accent_diff_names(note.uxlc_reading, note.clc_reading)
     return H.div(
         [
-            f"CLC replaces UXLC's {old_name} here with a {new_name}: UXLC's manuscript reads ",
-            H.span(note.uxlc_reading, _HBO_ATTR),
-            "; CLC reads ",
-            H.span(note.clc_reading, _HBO_ATTR),
-            ". UXLC's own pending change already proposes this identical correction.",
+            f"Here CLC replaces UXLC's {old_name} with a {new_name}. UXLC has a ",
+            clc_attribution.change_record_link(
+                note.superseding_uxlc_change, "pending change"
+            ),
+            " making this correction.",
         ],
         {"class": "clc-added-note"},
     )
