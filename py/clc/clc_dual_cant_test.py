@@ -592,10 +592,16 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # dt 5:8 — the Deuteronomy twin of ex 20:4 (#29). Same three pasoleg atoms (elyon keeps,
     # taxton drops) and the same מתחת pair, but here NEITHER occurrence is QUPO — an ordinary
     # cross-book textual difference from ex 20:4 (see the module comment in clc_dual_cant.py).
-    # Atom 2 also carries an OMITTED accent (taxton's qadma UXLC left untangled).
+    # Atom 2's mid-word pashta is corrected to a qadma upstream by clc_collect (simulated
+    # below), so it is no longer an omitted-accent case — both strands simply show the
+    # corrected qadma as an ordinary shared mark.
     OMIT = dc.clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT
     combined8 = _read_atoms("Deuteronomy.xml", 5, 8)
     assert len(combined8) == 16, f"expected 16 atoms, got {len(combined8)}"
+    # clc_collect._apply_pending_uxlc_changes patches this atom upstream in the real
+    # pipeline (Deut 5:8.2's pashta -> qadma, per UXLC's own pending change #10); this
+    # test reads raw XML directly, bypassing clc_collect, so simulate that patch here.
+    combined8[1] = {**combined8[1], "text": combined8[1]["text"].replace(acc.PASH, acc.QOM, 1)}
     _c8, alef8, bet8 = dc.strand_views("Deuter", 5, 8, combined8)
     for i in (3, 7, 13):  # atoms 4, 8, 14 (0-based): פסל / בשמים / במים
         a, b = alef8.atoms[i]["text"], bet8.atoms[i]["text"]
@@ -604,22 +610,10 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # only ONCE in each strand (the ordinary shared trailing vowel on חַת), never stacked.
     a12, b12 = alef8.atoms[11]["text"], bet8.atoms[11]["text"]
     assert _count(a12, _PATAX) == 1 and _count(b12, _PATAX) == 1, (a12, b12)
+    assert acc.QOM in alef8.atoms[1]["text"] and acc.PASH not in alef8.atoms[1]["text"]
+    assert acc.QOM in bet8.atoms[1]["text"] and acc.PASH not in bet8.atoms[1]["text"]
     omit8 = [n for n in alef8.notes if n["source"] == OMIT]
-    assert len(omit8) == 1 and omit8[0]["kind"] == dc.describe_diff.accent_name(acc.QOM)
-    # UXLC has elyon's own meteg here (maqaf-joined, not verse-final) — never silluq.
-    assert omit8[0]["present_kind"] == "meteg"
-    # this atom's shared pashta (untouched by the split — it sits just before the tracked
-    # cluster) is a suspected mistranscribed qadma, already filed as pending UXLC change #10
-    # (2026.10.19, citation Deut 5:8.2) — the note carries that citation so the reader isn't
-    # left to infer why a pashta glyph appears in the quoted snippet.
-    assert omit8[0]["superseding_uxlc_change"] == ("2026.10.19", "2026.04.10-10")
-    assert bet8.notes == ()  # the elyon row carries no note at all for this atom
-    omit8_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(omit8[0]))
-    assert "taḥton strand calls for a qadma" in omit8_html
-    assert "carries only the elyon strand’s meteg, plus a shared pashta" in omit8_html
-    assert "beyond the limits of CLC’s charity to supply the missing qadma" in omit8_html
-    assert 'class="clc-superseded-cite"' in omit8_html
-    assert "2026.04.10-10" in omit8_html
+    assert omit8 == []  # no longer omitted -- qadma is present in both strands directly
 
     # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8's supplied-sof-pasuq shape, plus an
     # pasoleg-tokenization atom (#29): atom 7 צוך ׀ — elyon keeps the pasoleg, taxton drops it.

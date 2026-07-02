@@ -12,6 +12,7 @@ to MAM's ``mam-doc-*`` (design doc §8); the rules live in gh-pages/style.css.
 """
 
 import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
+import mb_diff_mpu.describe_diff as describe_diff
 import clc.clc_attribution as clc_attribution
 import clc.clc_dual_cant as clc_dual_cant
 import clc.clc_kq as clc_kq
@@ -143,32 +144,18 @@ def _omitted_note_block(note):
     # charity to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark
     # (nothing is added to the strand; cf. _added_note_block). The accent UXLC *does* have is
     # named, not abstracted. Accents are noted, never supplied (§7.7).
-    #
-    # When the wanted accent is itself a UXLC mistranscription already flagged by a pending
-    # change record (clc_dual_cant's "superseded_by" -- so far only Dt 5:8's shared pashta,
-    # a suspected mistranscribed qadma), the "has" clause names that shared mark too -- so a
-    # reader isn't left to infer why an accent glyph appears in the snippet despite the "has"
-    # clause naming only the other strand's accent -- and the citation is appended, reusing
-    # the same clc_attribution call as a UXLC-X note's (_note_block).
     article = "an" if note["kind"][:1] in "aeiou" else "a"
     has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
            if note.get("present_kind") else f"no accent for the {note['strand']} strand")
-    superseded = note.get("superseding_uxlc_change")
-    if superseded:
-        has += (
-            f", plus a shared pashta that a pending UXLC change reads instead as this very"
-            f" {note['kind']}"
-        )
-    contents = [
-        f"the {note['strand']} strand calls for {article} {note['kind']} on ",
-        H.span(note["snippet"], _HBO_ATTR),
-        f" here, but UXLC’s combined text carries {has}, and it is beyond the limits"
-        f" of CLC’s charity to supply the missing {note['kind']}",
-    ]
-    if superseded:
-        contents.append(" ")
-        contents.append(clc_attribution.superseding_change_cite(superseded))
-    return H.div(contents, {"class": "clc-added-note"})
+    return H.div(
+        [
+            f"the {note['strand']} strand calls for {article} {note['kind']} on ",
+            H.span(note["snippet"], _HBO_ATTR),
+            f" here, but UXLC’s combined text carries {has}, and it is beyond the limits"
+            f" of CLC’s charity to supply the missing {note['kind']}",
+        ],
+        {"class": "clc-added-note"},
+    )
 
 
 def _added_note_block(note):
@@ -287,7 +274,12 @@ def _note_block(ch, v, position, atom_notes):
     for note in atom_notes:
         entries.append(H.line_break())
         entries.append(H.span(f"[{note.note_code}] ", {"class": "clc-note-code"}))
-        if note.superseding_uxlc_change:
+        if note.is_uxlc_departure:
+            entries.append(_departure_note_block(note))
+            if note.superseding_uxlc_change:
+                entries.append(" ")
+                entries.append(clc_attribution.superseding_change_cite(note.superseding_uxlc_change))
+        elif note.superseding_uxlc_change:
             entries.append(
                 clc_attribution.superseding_change_cite(note.superseding_uxlc_change)
             )
@@ -295,6 +287,38 @@ def _note_block(ch, v, position, atom_notes):
             entries.append(note.note_text)
             entries.append(clc_attribution.note_cite(note.source_url))
     return H.div(entries, {"id": _anchor_id(ch, v, position), "class": "clc-note"})
+
+
+def _departure_note_block(note):
+    # DRAFT prose -- flag for review. States plainly that CLC replaced UXLC's own
+    # reading (never "shared" -- that framing was rejected), quotes both readings in
+    # Hebrew (matching _omitted_note_block/_added_note_block's convention of showing
+    # actual text), and names the two marks via _accent_diff_names rather than
+    # hardcoding "pashta"/"qadma", so this reads correctly if reused for a different
+    # mark pair later.
+    old_name, new_name = _accent_diff_names(note.uxlc_reading, note.clc_reading)
+    return H.div(
+        [
+            f"CLC replaces UXLC's {old_name} here with a {new_name}: UXLC's manuscript reads ",
+            H.span(note.uxlc_reading, _HBO_ATTR),
+            "; CLC reads ",
+            H.span(note.clc_reading, _HBO_ATTR),
+            ". UXLC's own pending change already proposes this identical correction.",
+        ],
+        {"class": "clc-added-note"},
+    )
+
+
+def _accent_diff_names(uxlc_reading, clc_reading):
+    # Diff the two same-length readings at their single differing character, naming
+    # each via the canonical mb_diff_mpu authority (mirrors clc_dual_cant's own
+    # _accent_name/_present_accent pattern) -- so this note never hardcodes
+    # "pashta"/"qadma" and stays correct if reused for a different departure later.
+    assert len(uxlc_reading) == len(clc_reading), (uxlc_reading, clc_reading)
+    diffs = [(a, b) for a, b in zip(uxlc_reading, clc_reading) if a != b]
+    assert len(diffs) == 1, (uxlc_reading, clc_reading, diffs)
+    old_char, new_char = diffs[0]
+    return describe_diff.accent_name(old_char), describe_diff.accent_name(new_char)
 
 
 def _anchor_id(ch, v, position):

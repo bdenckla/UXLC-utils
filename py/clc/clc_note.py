@@ -23,6 +23,10 @@ DIFF_UNDER_BAR = "under-bar"  # a vertical bar below the letter: m (prose), d (p
 # any mark or letter — NOT inherently under-bar, design doc §2, issue #18). Surfaced
 # as a note but distinct from the genuinely under-bar m/d.
 DIFF_TRANSCRIPTION_UNCERTAINTY = "transcription-uncertainty"
+# UXLC's own change log already proposes this exact correction (a pending, not-yet-
+# applied change record) -- CLC applies it pre-emptively. Distinct from some future
+# departure with no UXLC change-log backing, which will need its own diff_type.
+DIFF_UXLC_PENDING_CHANGE_APPLIED = "uxlc-pending-change-applied"
 DIFF_DUAL_CANT_ADDED_PUNCT = "dual-cant-added-punct"  # charitable additive divergence mark (§7.7)
 # An accent a strand's chanting calls for but UXLC left untangled — NOTED, never supplied
 # (CLC supplies only punctuation; §7.7). Not a CLC departure from UXLC's text, just an

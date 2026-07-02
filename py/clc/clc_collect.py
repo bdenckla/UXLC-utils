@@ -18,6 +18,7 @@ note) and never an invented per-code gloss. clc_changes is kept only for the
 atom-letter consistency guard.
 """
 
+import mb_cmn.hebrew_accents as acc
 import mb_cmn.hebrew_letters as hl
 import clc.clc_changes as clc_changes
 import clc.clc_note as clc_note
@@ -74,6 +75,45 @@ _NOTES_SUPERSEDED_BY_UXLC_CHANGE = {
     ("Deuter", 5, 8, 2, "t"): ("2026.10.19", "2026.04.10-10"),
 }
 
+# Atoms where CLC pre-emptively applies a UXLC-authored PENDING correction to its own
+# reading -- CLC's first-ever real departure from UXLC's own manuscript text (design
+# doc §1: "charitable but transparent" -- every departure recorded as a note). Keyed
+# by (book, ch, v, position); value is (old_char, new_char, release_date, change_id).
+# old_char must appear in the atom's current text exactly once. Applied to the atom's
+# text in collect_for_book, immediately after clc_read.read_book(), so every
+# downstream consumer (rendering, clc_dual_cant's strand split) sees the corrected
+# reading automatically -- only this dict needs to change for a future such case.
+_UXLC_PENDING_CHANGES_APPLIED = {
+    # Deut 5:8.2 תעשה: UXLC's own pending change #10 (2026.10.19) already proposes
+    # correcting a pashta mid-word on the sin (grammatically impossible -- pashta
+    # must fall on a word's final letter) to a qadma, corroborated by BHL. CLC
+    # applies that correction now rather than waiting for UXLC to formally adopt it.
+    ("Deuter", 5, 8, 2): (acc.PASH, acc.QOM, "2026.10.19", "2026.04.10-10"),
+}
+
+
+def _apply_pending_uxlc_changes(book, book_id):
+    """Patch book per _UXLC_PENDING_CHANGES_APPLIED; return {(ch, v, position): original_text}
+    so _make_note can recover each patched atom's UXLC reading for its departure note."""
+    originals = {}
+    for (b, ch, v, position), (old_char, new_char, _release, _change_id) in (
+        _UXLC_PENDING_CHANGES_APPLIED.items()
+    ):
+        if b != book_id:
+            continue
+        atom = book[ch - 1][v - 1][position - 1]
+        original_text = atom["text"]
+        assert original_text.count(old_char) == 1, (
+            f"CLC pending-change patch at {book_id} {ch}:{v}.{position}: expected exactly "
+            f"one {old_char!r} in {original_text!r}. If UXLC has since applied this change "
+            "itself, remove this entry from _UXLC_PENDING_CHANGES_APPLIED."
+        )
+        book[ch - 1][v - 1][position - 1] = {
+            **atom, "text": original_text.replace(old_char, new_char, 1)
+        }
+        originals[(ch, v, position)] = original_text
+    return originals
+
 
 def iter_noted_atoms(book, codes=NOTED_CODES):
     """Yield ``(ch, v, position, atom, code)`` for each atom carrying a code.
@@ -105,6 +145,7 @@ def collect_for_book(book_id, codes=NOTED_CODES, chapters=None):
     side applies the same limit.
     """
     book = clc_read.read_book(book_id)
+    pending_change_originals = _apply_pending_uxlc_changes(book, book_id)
     descriptions = clc_changes.load_descriptions()
     notes = []
     page_prose_count = 0
@@ -114,7 +155,8 @@ def collect_for_book(book_id, codes=NOTED_CODES, chapters=None):
         prose = clc_note_pages.local_note_prose(book_id, ch, v, position, code)
         page_prose_count += prose is not None
         notes.append(
-            _make_note(book_id, ch, v, position, atom, code, descriptions, prose)
+            _make_note(book_id, ch, v, position, atom, code, descriptions, prose,
+                       pending_change_originals)
         )
     _report_prose_coverage(page_prose_count, len(notes))
     return book, notes
@@ -131,10 +173,13 @@ def _report_prose_coverage(page_prose_count, total):
     print(msg)
 
 
-def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
+def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose,
+                pending_change_originals):
     atom_text = atom["text"]
     records = descriptions.get((book_id, ch, v, position), [])
     _check_atom_consistency(book_id, ch, v, position, atom_text, records)
+    is_departure = (book_id, ch, v, position) in _UXLC_PENDING_CHANGES_APPLIED
+    uxlc_text = pending_change_originals[(ch, v, position)] if is_departure else atom_text
     return clc_note.ClcNote(
         book=book_id,
         ch=ch,
@@ -146,10 +191,11 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose):
         # downloaded -- never an invented per-code gloss (issue #19).
         note_text=page_prose or _NOT_YET_DOWNLOADED,
         source=clc_note.SOURCE_UXLC_X_NOTE,
-        diff_type=_diff_type_for(code),
-        is_uxlc_departure=False,    # skeleton only surfaces the ambiguity
-        uxlc_reading=atom_text,
-        clc_reading=atom_text,      # ... so CLC's reading == UXLC's for now
+        diff_type=(clc_note.DIFF_UXLC_PENDING_CHANGE_APPLIED if is_departure
+                    else _diff_type_for(code)),
+        is_uxlc_departure=is_departure,
+        uxlc_reading=uxlc_text,
+        clc_reading=atom_text,
         # Always the real note-page URL: every m/d/t note has one on tanach.us,
         # so even a not-yet-downloaded note links to where its prose lives.
         source_url=my_uxlc.note_page_url(book_id, ch, v, position, code),
