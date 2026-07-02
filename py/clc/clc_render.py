@@ -143,18 +143,32 @@ def _omitted_note_block(note):
     # charity to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark
     # (nothing is added to the strand; cf. _added_note_block). The accent UXLC *does* have is
     # named, not abstracted. Accents are noted, never supplied (§7.7).
+    #
+    # When the wanted accent is itself a UXLC mistranscription already flagged by a pending
+    # change record (clc_dual_cant's "superseded_by" -- so far only Dt 5:8's shared pashta,
+    # a suspected mistranscribed qadma), the "has" clause names that shared mark too -- so a
+    # reader isn't left to infer why an accent glyph appears in the snippet despite the "has"
+    # clause naming only the other strand's accent -- and the citation is appended, reusing
+    # the same clc_attribution call as a UXLC-X note's (_note_block).
     article = "an" if note["kind"][:1] in "aeiou" else "a"
     has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
            if note.get("present_kind") else f"no accent for the {note['strand']} strand")
-    return H.div(
-        [
-            f"the {note['strand']} strand calls for {article} {note['kind']} on ",
-            H.span(note["snippet"], _HBO_ATTR),
-            f" here, but UXLC’s combined text carries {has}, and it is beyond the limits"
-            f" of CLC’s charity to supply the missing {note['kind']}",
-        ],
-        {"class": "clc-added-note"},
-    )
+    superseded = note.get("superseding_uxlc_change")
+    if superseded:
+        has += (
+            f", plus a shared pashta that a pending UXLC change reads instead as this very"
+            f" {note['kind']}"
+        )
+    contents = [
+        f"the {note['strand']} strand calls for {article} {note['kind']} on ",
+        H.span(note["snippet"], _HBO_ATTR),
+        f" here, but UXLC’s combined text carries {has}, and it is beyond the limits"
+        f" of CLC’s charity to supply the missing {note['kind']}",
+    ]
+    if superseded:
+        contents.append(" ")
+        contents.append(clc_attribution.superseding_change_cite(superseded))
+    return H.div(contents, {"class": "clc-added-note"})
 
 
 def _added_note_block(note):

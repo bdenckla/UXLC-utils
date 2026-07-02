@@ -608,6 +608,18 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     assert len(omit8) == 1 and omit8[0]["kind"] == dc.describe_diff.accent_name(acc.QOM)
     # UXLC has elyon's own meteg here (maqaf-joined, not verse-final) — never silluq.
     assert omit8[0]["present_kind"] == "meteg"
+    # this atom's shared pashta (untouched by the split — it sits just before the tracked
+    # cluster) is a suspected mistranscribed qadma, already filed as pending UXLC change #10
+    # (2026.10.19, citation Deut 5:8.2) — the note carries that citation so the reader isn't
+    # left to infer why a pashta glyph appears in the quoted snippet.
+    assert omit8[0]["superseding_uxlc_change"] == ("2026.10.19", "2026.04.10-10")
+    assert bet8.notes == ()  # the elyon row carries no note at all for this atom
+    omit8_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(omit8[0]))
+    assert "taḥton strand calls for a qadma" in omit8_html
+    assert "carries only the elyon strand’s meteg, plus a shared pashta" in omit8_html
+    assert "beyond the limits of CLC’s charity to supply the missing qadma" in omit8_html
+    assert 'class="clc-superseded-cite"' in omit8_html
+    assert "2026.04.10-10" in omit8_html
 
     # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8's supplied-sof-pasuq shape, plus an
     # pasoleg-tokenization atom (#29): atom 7 צוך ׀ — elyon keeps the pasoleg, taxton drops it.

@@ -35,8 +35,11 @@ strand wants an accent UXLC omitted, a note in lieu of inventing one**:
     **note** instead. This is the sharpened §7.7 departure from the wlc-utils
     *detangler*, which (being a grammar-checker) *supplies* the missing accent from
     MAM so its strand parses. The Decalogue cases: Deut 5:6 (elyon's tipeḥa on אנכי
-    + etnaḥta on אלהיך), 5:13 (taḥton's pashta on ימים), 5:17 (elyon's silluq on
-    תרצח — UXLC has the sof-pasuq but not its silluq).
+    + etnaḥta on אלהיך), 5:8 (taḥton's qadma on תעשה — UXLC's combined text carries
+    only the elyon strand's meteg, plus a shared pashta that a pending UXLC change
+    record reads as this very qadma, so the note also cites that correction), 5:13
+    (taḥton's pashta on ימים), 5:17 (elyon's silluq on תרצח — UXLC has the sof-pasuq
+    but not its silluq).
 
 No consonant is changed and no *shared* mark removed (a mark both strands keep
 stays in both); only the divergent marks — accent and the punctuation that tracks
@@ -181,6 +184,13 @@ _STRANDS = {
 #       "omit":    optional {strand: [accent, ...]} an accent that strand's chanting
 #                  wants but UXLC omitted — NOTED, never supplied (so it is NOT in
 #                  the strand's text; just a synthesized note). Accents only.
+#       "superseded_by": optional (release_date, change_id) pair, same shape as
+#                  ClcNote.superseding_uxlc_change — set when an "omit" accent at
+#                  this atom is itself a UXLC mistranscription already flagged by a
+#                  pending UXLC change record (clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE).
+#                  Threaded onto the resulting omitted-accent note so clc_render can
+#                  cite the pending correction alongside the note (§7.7). So far:
+#                  Deut 5:8 atom 2 (the shared pashta is a suspected mistranscribed qadma).
 #   }
 #
 # Building a strand replaces "cluster" with that strand's resolution at its exact
@@ -440,9 +450,15 @@ _ORACLE = {
         # an OMITTED accent (taxton's qadma UXLC left untangled — noted, not supplied) stacked
         # on the same word as the SUPPLIED maqaf of ex 20:4's twin atom 1... except here the
         # maqaf is already in UXLC (atom 1), so only atom 2's accent is omitted, nothing supplied.
+        # The shared pashta this atom's cluster leaves untouched (it sits just before the
+        # cluster, so it passes through into both strands) is itself a suspected mistranscribed
+        # qadma — exactly the accent taxton wants — per Ben's own already-filed UXLC change
+        # #10 (2026.10.19, citation Deut 5:8.2); "superseded_by" cites that pending correction
+        # on the omitted-accent note (clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE tracks the
+        # matching UXLC-X "t" note on the *combined* row).
         (5, 8): {
             1: {"cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ, "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ, "bet": acc.MUN + hl.ALEF},
-            2: {"cluster": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "omit": {_STRAND_ALEF: [acc.QOM]}},
+            2: {"cluster": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "omit": {_STRAND_ALEF: [acc.QOM]}, "superseded_by": ("2026.10.19", "2026.04.10-10")},
             3: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
             4: {"cluster": acc.MUN + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + chr(0x0020) + hpu.PASOLEG},
             6: {"cluster": acc.ZAQ_Q + acc.PAZ, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
@@ -626,7 +642,8 @@ def _split_atom(atom, atom_index, oracle, strand):
     additions = entry.get("add", {}).get(strand, [])
     omitted = entry.get("omit", {}).get(strand, [])
     return {**atom, "text": text, "additions": list(additions),
-            "omitted_accents": list(omitted)}
+            "omitted_accents": list(omitted),
+            "superseded_by": entry.get("superseded_by")}
 
 
 def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand):
@@ -649,7 +666,7 @@ def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand):
             present = _present_accent(atom["text"], other_atom["text"])
             present_verse_final = hpu.SOPA in other_atom["text"]
             notes.append(_omitted_note(atom["text"], omitted_char, present, present_verse_final,
-                                        strand, other_strand))
+                                        strand, other_strand, atom.get("superseded_by")))
     return tuple(notes)
 
 
@@ -670,7 +687,8 @@ def _added_note(snippet, added_char):
     }
 
 
-def _omitted_note(snippet, accent_char, present_char, present_verse_final, strand, other_strand):
+def _omitted_note(snippet, accent_char, present_char, present_verse_final, strand, other_strand,
+                   superseded_by=None):
     """An accent this strand wants but UXLC omitted — noted, not supplied. The snippet is
     the strand word AS SHOWN (that accent absent); no mark is rendered. ``present_char`` is
     the accent UXLC *does* have here (the other strand's), named in the note for concreteness.
@@ -680,7 +698,12 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
     this strand's own atom text, so a sof-pasuq already there (dt 5:17's elyon) means this
     strand ends its verse here; for the *present* accent, that same check runs on the OTHER
     strand's atom text, passed in as ``present_verse_final`` (dt 5:7's elyon meteg on יהיה־
-    fails it — the word is maqaf-joined, not verse-final — so it never wants a silluq)."""
+    fails it — the word is maqaf-joined, not verse-final — so it never wants a silluq).
+
+    ``superseded_by`` (from the oracle's optional "superseded_by") is a (release_date,
+    change_id) pair when the wanted accent is itself a UXLC mistranscription already flagged
+    by a pending change record (so far: Dt 5:8 atom 2's qadma/pashta), else ``None`` — folded
+    into ``()`` here to match ``ClcNote.superseding_uxlc_change``'s own convention."""
     wanted_verse_final = hpu.SOPA in snippet
     return {
         "kind": _accent_name(accent_char, wanted_verse_final),  # the wanted accent, e.g. "silluq"
@@ -693,6 +716,7 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
         "other_strand": other_strand.short,      # the strand whose accent UXLC does have
         "source": clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
         "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_ACCENT,
+        "superseding_uxlc_change": superseded_by or (),
     }
 
 

@@ -174,7 +174,15 @@ largely an act of *composition* over existing machinery, plus the new identity-r
   whose note page has not been downloaded yet shows a bare **`[note not yet downloaded]`**
   placeholder (issue #19) — **never** a fabricated per-code gloss and never the change-log text; the
   prose must come from the real tanach.us page. The placeholder still links to that page, so it marks
-  exactly where the prose will appear once fetched.
+  exactly where the prose will appear once fetched. That real page's own `<h2>` change-summary heading
+  (e.g. *"Remove pashta from final mem. Add note 't'."*) is included **verbatim as the note's opening
+  sentence** ([#30](https://github.com/bdenckla/UXLC-utils/issues/30)) — however imperative-sounding, it
+  is content of this *same* downloaded, trust-boundary page, not a reintroduction of the separately-
+  ingested `uxlc_changes` XML description above; only the page's own `<h1>` citation heading is excluded
+  (redundant with the `ch:v.atom` context already shown alongside the note). Follow-ups, not yet done:
+  stripping the redundant trailing "Add note 'X'." clause
+  ([#31](https://github.com/bdenckla/UXLC-utils/issues/31)) and rephrasing the remaining imperative
+  wording into descriptive prose ([#32](https://github.com/bdenckla/UXLC-utils/issues/32)).
 
 - **Ambiguous early meteg (`amb_early_mtg`) — a *minor*, likely-unfinished side-investigation:**
   [py/uxlc_amb_early_mtg/amb_early_mtg.py](py/uxlc_amb_early_mtg/amb_early_mtg.py) — a hand-curated
@@ -326,8 +334,11 @@ Each is a feature this doc names, organized with grounding + open questions.
   [py/uxlc_changes/](py/uxlc_changes/)) turned out to be an editor-facing *instruction*, not the
   note, so it is **demoted to the atom-letter consistency guard only**; an atom whose page is not yet
   downloaded shows a `[note not yet downloaded]` placeholder, never a fabricated substitute (§5, §9
-  #2; issue #19). The `wlc-utils` bracket-note definitions cover the separate bracket-note layer
-  (§7.2).
+  #2; issue #19). That guard is a distinct thing from the tanach.us note page's *own* `<h2>`
+  change-summary heading, which — unlike the `uxlc_changes` description above — **is** rendered,
+  verbatim, as the note's opening sentence, since it is part of the same trusted downloaded page as
+  the `<p>` prose ([#30](https://github.com/bdenckla/UXLC-utils/issues/30)). The `wlc-utils`
+  bracket-note definitions cover the separate bracket-note layer (§7.2).
 - **Body placement is a *separate* axis from the link.** "Always link" (above) governs only the
   affordance on the word — every note links, uniformly, no threshold. It does **not** dictate where
   the note *body* renders. On *placement* CLC does keep MAM's length threshold (§5):
@@ -375,10 +386,13 @@ Each is a feature this doc names, organized with grounding + open questions.
   as **two clean single-cantillation streams** each (taxton/elyon; pashut/midrashit) instead of
   the merged tangle.
 - The detangler's **"supplied marks" are themselves charitable acts** (marks the scribe didn't
-  write because both strands share them) and its **anomalies** (e.g. Deut 5:8 תעשה) are exactly
-  the kind of thing CLC should foot-note rather than hide. Strong fit with the CLC thesis — and CLC
-  now does this itself for the narrow **maqaf/sof-pasuq** subset, supplying them **bracketed, green,
-  and footnoted** rather than hidden (as raw UXLC) or silently baked in (as the detangler).
+  write because both strands share them) and its **anomalies** are exactly the kind of thing CLC
+  should foot-note rather than hide. Strong fit with the CLC thesis — and CLC now does this itself
+  for the narrow **maqaf/sof-pasuq** subset, supplying them **bracketed, green, and footnoted**
+  rather than hidden (as raw UXLC) or silently baked in (as the detangler). **Deut 5:8 תעשה**, the
+  detangler's own headline anomaly, is resolved: its taḥton omitted-accent note (below) cites the
+  pending UXLC change that already flags the word's shared pashta as a suspected mistranscribed
+  qadma — the very accent the note says is missing.
 
 **Single-strand display.** Where a dual-cant verse is one row today, CLC shows **three**: the
 combined form plus its two strands — labeled e.g. `35:22-C`, `35:22-א` (pashut), `35:22-ב`
@@ -419,8 +433,15 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   accents — the one wanted and the one UXLC actually has: *"the elyon strand calls for a silluq on
   תרצח here, but UXLC's combined text carries only the taxton strand's tipexa, and it is beyond the
   limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta
-  on אלהיך), **5:13** (taxton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
-  sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq).
+  on אלהיך), **5:8** (taxton's qadma on תעשה), **5:13** (taxton's pashta on ימים), **5:17** (elyon's
+  silluq on תרצח — UXLC has the sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq).
+  An omitted-accent note may itself carry a `superseding_uxlc_change` citation — the same
+  (release_date, change_id) shape §7.4 gives `ClcNote`, threaded here via the oracle's optional
+  `"superseded_by"` field (`clc_dual_cant.py`) — when the wanted accent is itself a UXLC
+  mistranscription already flagged by a pending change record; `clc_render` appends the citation
+  the same way `_note_block` does for a UXLC-X note. So far: **Deut 5:8**, whose shared pashta
+  (untouched by the strand split, since it sits outside the divergence cluster) is flagged by
+  pending UXLC change #10 (2026.10.19) as a suspected mistranscription of that very qadma.
 - **QUPO vowel split** (ex 20:3, dt 5:7): where the two strands stack *different vowels* (patax vs.
   qamats) on one letter (עַל־פָּנָ֗י's נ), it is the same position-safe subtraction bucket as
   rafe/dagesh — each strand keeps its own vowel, drops the other's. The one subtlety: the same vowel

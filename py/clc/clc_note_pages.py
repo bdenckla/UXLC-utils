@@ -2,8 +2,15 @@
 
 UXLC's ``<x>`` code points at a per-(atom, code) note page on tanach.us, e.g.
 ``https://tanach.us/Notes/Proverbs/Proverbs.5.19.4-m.html``. Its reader-facing
-*note* prose is the manuscript note we want to render (not the change-log
-*description*, which is an imperative instruction to the editor).
+*note* prose is the manuscript note we want to render, plus (issue #30) the
+page's own ``<h2>`` change-summary line, included verbatim as the note's opening
+sentence -- however imperative-sounding, it is real content of this same
+downloaded page, same trust boundary as the ``<p>`` prose. This is unrelated to
+the *separately-ingested* local UXLC changes XML (``in/UXLC-misc/*.xml``, parsed
+by ``py/uxlc_changes/``), whose ``<correction><description>`` is an imperative
+instruction to the editor and is never used as note prose (issue #19) -- it
+survives only as the atom-letter consistency guard
+(``clc_collect._check_atom_consistency``).
 
 To keep the CLC build deterministic and offline, those pages are downloaded as a
 separate, non-default step (``main_clc_download_notes``) into committed files
@@ -12,9 +19,10 @@ its prose. No network here -- a page missing locally just returns ``None``.
 
 Two page formats are in the wild and must both be handled:
 
-  * NoteMaker-generated (newer): prose is body-level ``<p>`` paragraphs; the
-    change-log description is an ``<h2>``; the author is ``<p><b><i>...</i></b></p>``
-    and the change link a ``<p align="right"><b><a>...</a></b></p>``.
+  * NoteMaker-generated (newer): prose is the ``<h2>`` change-summary line
+    followed by body-level ``<p>`` paragraphs; the author is
+    ``<p><b><i>...</i></b></p>`` and the change link a
+    ``<p align="right"><b><a>...</a></b></p>``.
 
   * Hand-authored (older, ~2021): the note's lead line is an ``<h4>`` and the rest
     of the prose is *bare* body text split by self-closing ``<p/>`` separators (no
@@ -22,9 +30,9 @@ Two page formats are in the wild and must both be handled:
 
 Both formats share the same noise, so one rule covers them: the prose is the body
 text that is NOT inside a ``<table>`` (image credit / note index), NOT inside the
-``<h1>`` citation or ``<h2>`` change-log description, and NOT inside inline markup
-(``<b>``/``<i>``/``<a>``, which wrap the author and the change link). Everything
-else in the body -- ``<p>`` text, ``<h4>`` text, and bare text -- is note prose.
+``<h1>`` citation, and NOT inside inline markup (``<b>``/``<i>``/``<a>``, which
+wrap the author and the change link). Everything else in the body -- ``<h2>``
+text, ``<p>`` text, ``<h4>`` text, and bare text -- is note prose.
 """
 
 import html.parser
@@ -70,8 +78,10 @@ def _extract_prose_paragraphs(page_text):
 # Inline markup that wraps non-prose (author byline, change link, image credit).
 # Text inside any of these is skipped in both page formats.
 _SKIP_TEXT_TAGS = frozenset({"b", "i", "a", "em", "strong"})
-# Headings that are not prose: the citation and the change-log description.
-_SKIP_HEADING_TAGS = frozenset({"h1", "h2"})
+# Heading that is not prose: the citation (redundant with the ch:v.pos context
+# already shown alongside the note). The <h2> change-summary heading is prose --
+# see the module docstring -- and is deliberately NOT in this set.
+_SKIP_HEADING_TAGS = frozenset({"h1"})
 # Block-level tags whose boundaries end one prose run and start the next.
 _BLOCK_TAGS = frozenset(
     {"p", "br", "div", "center", "tr", "li", "h1", "h2", "h3", "h4", "h5", "h6"}
@@ -81,16 +91,16 @@ _BLOCK_TAGS = frozenset(
 class _NoteProseExtractor(html.parser.HTMLParser):
     """Collect the body note prose across both tanach.us note-page formats.
 
-    Prose is body text outside any ``<table>``, outside the ``<h1>``/``<h2>``
-    citation and change-log heading, and outside inline ``<b>``/``<i>``/``<a>``
-    author and change-link markup. Block boundaries split it into paragraphs.
+    Prose is body text outside any ``<table>``, outside the ``<h1>`` citation
+    heading, and outside inline ``<b>``/``<i>``/``<a>`` author and change-link
+    markup. Block boundaries split it into paragraphs.
     """
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self._in_body = False
         self._table_depth = 0
-        self._heading_depth = 0   # inside <h1>/<h2> (citation, change description)
+        self._heading_depth = 0   # inside <h1> (citation heading)
         self._inline_depth = 0    # inside <b>/<i>/<a> (author, link, credit)
         self._buf = []
         self.paragraphs = []
