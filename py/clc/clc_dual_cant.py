@@ -87,6 +87,22 @@ _SUPPLIABLE = {hpu.MAQ, hpu.SOPA}
 # Display names for a supplied mark, used in the synthesized doc-column note.
 _ADDED_NAME = {hpu.MAQ: "maqaf", hpu.SOPA: "sof pasuq"}
 
+# Omitted-accent notes for which independent manuscript grounding exists (issue #36):
+# Ben's own editorial judgment, landed as prose in wlc-utils's supplied-marks.html
+# (py/accgram/dual_cant_detangle.py's _supply_reason), that WLC's differing reading at
+# this (book, chapter, verse, strand, wanted-accent) is a *reasonable transcription* of
+# the LC, not a mis-transcription. Keyed by (book_id, ch, v, strand.short, kind) since a
+# verse may have more than one omitted-accent note (e.g. Deut 5:6 has two). Deuteronomy
+# 5:7 and 5:13 are NOT here — accgram's detangler never needed to supply anything for
+# them (their strand parses clean by other means), so no wlc-utils basis exists yet.
+_LC_CORROBORATED = {
+    ("Exodus", 20, 3, "taḥton", "merkha"),
+    ("Deuter", 5, 6, "elyon", "tipeḥa"),
+    ("Deuter", 5, 6, "elyon", "etnaḥta"),
+    ("Deuter", 5, 17, "elyon", "silluq"),
+}
+
+
 def _is_accent(ch):
     """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
     return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
@@ -603,15 +619,18 @@ def strand_views(book_id, ch, v, verse_atoms):
     alef_strand, bet_strand = _STRANDS[book_id]
     alef_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_ALEF)
     bet_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_BET)
+    verse_loc = (book_id, ch, v)
     return [
         StrandView(SUFFIX_COMBINED, TOOLTIP_COMBINED, "", verse_atoms),
         StrandView(
             SUFFIX_ALEF, alef_strand.tooltip, alef_strand.doc_label,
-            alef_atoms, _strand_notes(alef_atoms, bet_atoms, alef_strand, bet_strand),
+            alef_atoms,
+            _strand_notes(alef_atoms, bet_atoms, alef_strand, bet_strand, verse_loc),
         ),
         StrandView(
             SUFFIX_BET, bet_strand.tooltip, bet_strand.doc_label,
-            bet_atoms, _strand_notes(bet_atoms, alef_atoms, bet_strand, alef_strand),
+            bet_atoms,
+            _strand_notes(bet_atoms, alef_atoms, bet_strand, alef_strand, verse_loc),
         ),
     ]
 
@@ -634,13 +653,15 @@ def _split_atom(atom, atom_index, oracle, strand):
             "omitted_accents": list(omitted)}
 
 
-def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand):
+def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand, verse_loc):
     """Synthesize this strand's notes: one per SUPPLIED mark and one per accent it
     wants but UXLC OMITTED, in atom order.
 
     ``other_strand_atoms`` is the sibling strand's atoms — used to name the accent UXLC
     *does* have at an omitted-accent atom (the one the other strand keeps and this one
     lacks), so the note says which accent it is rather than an abstract placeholder.
+    ``verse_loc`` is this verse's ``(book_id, ch, v)``, used only to look up
+    ``_LC_CORROBORATED`` for an omitted-accent note.
 
     Lightweight, JSON-serializable dicts — NOT ClcNotes: strand rows own no
     anchors/always-links and no §7.9 departure record yet (design doc §7.7 keeps
@@ -654,7 +675,7 @@ def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand):
             present = _present_accent(atom["text"], other_atom["text"])
             present_verse_final = hpu.SOPA in other_atom["text"]
             notes.append(_omitted_note(atom["text"], omitted_char, present, present_verse_final,
-                                        strand, other_strand))
+                                        strand, other_strand, verse_loc))
     return tuple(notes)
 
 
@@ -675,7 +696,8 @@ def _added_note(snippet, added_char):
     }
 
 
-def _omitted_note(snippet, accent_char, present_char, present_verse_final, strand, other_strand):
+def _omitted_note(snippet, accent_char, present_char, present_verse_final, strand, other_strand,
+                   verse_loc):
     """An accent this strand wants but UXLC omitted — noted, not supplied. The snippet is
     the strand word AS SHOWN (that accent absent); no mark is rendered. ``present_char`` is
     the accent UXLC *does* have here (the other strand's), named in the note for concreteness.
@@ -685,10 +707,15 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
     this strand's own atom text, so a sof-pasuq already there (dt 5:17's elyon) means this
     strand ends its verse here; for the *present* accent, that same check runs on the OTHER
     strand's atom text, passed in as ``present_verse_final`` (dt 5:7's elyon meteg on יהיה־
-    fails it — the word is maqaf-joined, not verse-final — so it never wants a silluq)."""
+    fails it — the word is maqaf-joined, not verse-final — so it never wants a silluq).
+
+    ``verse_loc`` is this verse's ``(book_id, ch, v)`` — looked up in ``_LC_CORROBORATED``
+    (issue #36) to flag whether independent manuscript grounding exists for this note."""
     wanted_verse_final = hpu.SOPA in snippet
+    kind = _accent_name(accent_char, wanted_verse_final)
+    book_id, ch, v = verse_loc
     return {
-        "kind": _accent_name(accent_char, wanted_verse_final),  # the wanted accent, e.g. "silluq"
+        "kind": kind,                            # the wanted accent, e.g. "silluq"
         "char": accent_char,                     # the wanted accent (for reference; not rendered)
         "present_kind": (_accent_name(present_char, present_verse_final)
                           if present_char else None),  # the accent UXLC has
@@ -696,6 +723,7 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
         "snippet": snippet,                      # the strand word, shown without the accent
         "strand": strand.short,                  # the strand that wants it ("elyon"/"taxton"/…)
         "other_strand": other_strand.short,      # the strand whose accent UXLC does have
+        "lc_corroborated": (book_id, ch, v, strand.short, kind) in _LC_CORROBORATED,
         "source": clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
         "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_ACCENT,
     }

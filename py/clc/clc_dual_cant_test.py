@@ -414,6 +414,13 @@ def test_decalogue_omitted_accent():
     assert [n["kind"] for n in anotes] == [canon(acc.PASH)] and anotes[0]["strand"] == "taḥton"
     assert anotes[0]["present_kind"] == canon(acc.MUN)   # UXLC has the elyon munax here
     assert _omit_notes(bet) == []
+    # dt 5:13's taḥton pashta has NO wlc-utils basis (accgram's detangler never needed to
+    # supply anything for it — issue #36) — the two wording paths must not silently collapse.
+    assert anotes[0]["lc_corroborated"] is False
+    note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(anotes[0]))
+    assert f"UXLC’s combined text carries only the elyon strand’s {canon(acc.MUN)}" in note_html
+    assert "the LC has" not in note_html
+    assert "supplied-marks.html" not in note_html
 
     # dt 5:17 (תרצח): UXLC has the elyon verse-end's sof-pasuq but NOT its silluq, so elyon's
     # silluq is omitted: elyon keeps dagesh (hard) + the lone sof-pasuq, no accent shown; taxton
@@ -427,15 +434,22 @@ def test_decalogue_omitted_accent():
     assert [n["kind"] for n in bnotes] == ["silluq"] and bnotes[0]["strand"] == "elyon"
     assert bnotes[0]["present_kind"] == canon(acc.TIP)   # UXLC has taxton's tipexa here
     assert _omit_notes(alef) == []
+    # dt 5:17's elyon silluq is one of the four notes with independent wlc-utils grounding
+    # (issue #36) — Ben's own judgment that WLC's own taḥton/tipexa transcription here is
+    # reasonable, not a mis-transcription (dual_cant_detangle._supply_reason).
+    assert bnotes[0]["lc_corroborated"] is True
 
     # Render: the omitted-accent note names BOTH accents — the one wanted (silluq) and the one
     # UXLC actually has (the taxton strand's tipxa) — shows the bare word, and adds NOTHING green
-    # or bracketed (unlike a supplied mark). No abstract "the other strand's accent".
+    # or bracketed (unlike a supplied mark). No abstract "the other strand's accent". Since this
+    # note is lc_corroborated, it credits "the LC" (not "UXLC's combined text") and links to
+    # wlc-utils's corroborating page (issue #36).
     note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(bnotes[0]))
     assert "elyon strand calls for a silluq" in note_html
-    assert f"carries only the taḥton strand’s {canon(acc.TIP)}" in note_html
+    assert f"the LC has only the taḥton strand’s {canon(acc.TIP)}" in note_html
     assert "beyond the limits of CLC’s charity to supply the missing silluq" in note_html
     assert "clc-added-during-detangling" not in note_html and "clc-added-bracket" not in note_html
+    assert 'href="https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"' in note_html
     # and the strand TEXT column supplies no green mark for an omitted accent.
     bet_html = _render(clc_render._plain_text_contents(bet.atoms, alef.atoms))
     assert "clc-added-during-detangling" not in bet_html

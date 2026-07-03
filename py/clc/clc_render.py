@@ -138,24 +138,41 @@ def _strand_doc_contents(view):
     return contents
 
 
+_LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
+
+
 def _omitted_note_block(note):
     # "the <strand> strand calls for a(n) <accent> on <word> here, but UXLC's combined text
     # carries only the <other> strand's <present accent>, and it is beyond the limits of CLC's
     # charity to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark
     # (nothing is added to the strand; cf. _added_note_block). The accent UXLC *does* have is
     # named, not abstracted. Accents are noted, never supplied (§7.7).
+    #
+    # Where independent manuscript grounding exists (issue #36 — clc_dual_cant._LC_CORROBORATED,
+    # Ben's own judgment call landed as prose in wlc-utils's supplied-marks.html), the note
+    # instead says "the LC has only...", crediting the manuscript rather than UXLC's own
+    # transcription of it, and links to wlc-utils's corroborating page.
     article = "an" if note["kind"][:1] in "aeiou" else "a"
+    corroborated = note.get("lc_corroborated", False)
+    carries = "the LC has" if corroborated else "UXLC’s combined text carries"
     has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
            if note.get("present_kind") else f"no accent for the {note['strand']} strand")
-    return H.div(
-        [
-            f"the {note['strand']} strand calls for {article} {note['kind']} on ",
-            H.span(note["snippet"], _HBO_ATTR),
-            f" here, but UXLC’s combined text carries {has}, and it is beyond the limits"
-            f" of CLC’s charity to supply the missing {note['kind']}",
-        ],
-        {"class": "clc-added-note"},
-    )
+    contents = [
+        f"The {note['strand']} strand calls for {article} {note['kind']} on ",
+        H.span(note["snippet"], _HBO_ATTR),
+        f" here, but {carries} {has}, and it is beyond the limits"
+        f" of CLC’s charity to supply the missing {note['kind']}"
+        + ("" if corroborated else "."),
+    ]
+    if corroborated:
+        contents.extend(
+            [
+                " — see the grammar checker’s ",
+                H.anchor("supplied accents", {"href": _LC_CORROBORATED_LINK}),
+                " page.",
+            ]
+        )
+    return H.div(contents, {"class": "clc-added-note"})
 
 
 def _added_note_block(note):

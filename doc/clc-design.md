@@ -453,11 +453,13 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   UXLC left untangled (it has only the *other* strand's accent on that word), CLC does **not**
   invent one — the sharpened departure from the detangler, which *does* supply it to parse. CLC shows
   the word as UXLC has it (that accent simply absent) and emits a per-strand note that names *both*
-  accents — the one wanted and the one UXLC actually has: *"the elyon strand calls for a silluq on
-  תרצח here, but UXLC's combined text carries only the taxton strand's tipexa, and it is beyond the
-  limits of CLC's charity to supply the missing silluq."* The Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta
+  accents — the one wanted and the one UXLC actually has: *"The taḥton strand calls for a pashta on
+  ימים here, but UXLC's combined text carries only the elyon strand's munaḥ, and it is beyond the
+  limits of CLC's charity to supply the missing pashta."* The Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta
   on אלהיך), **5:13** (taxton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
-  sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq).
+  sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). Four of these six — Exod 20:3,
+  Deut 5:6 ×2, Deut 5:17 — have independent wlc-utils grounding and are worded and linked
+  differently; see §7.17.
 - **QUPO vowel split** (ex 20:3, dt 5:7): where the two strands stack *different vowels* (patax vs.
   qamats) on one letter (עַל־פָּנָ֗י's נ), it is the same position-safe subtraction bucket as
   rafe/dagesh — each strand keeps its own vowel, drops the other's. The one subtlety: the same vowel
@@ -679,25 +681,32 @@ resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from
   Once identity is resolved, how should CLC's rendered output *show* the distinction to the reader,
   given both share the identical glyph? Precedents and options are on the issue, not here.
 
-### 7.17 LC-corroborated framing for omitted-accent notes
-- §7.7's omitted-accent notes currently read, e.g.: *"the elyon strand calls for a silluq on תרצח
-  here, but **UXLC's combined text** carries only the taxton strand's tipexa..."* — framing the
-  "carries only" clause around UXLC implies a UXLC transcription quirk. For some of these cases
-  it isn't one: `wlc-utils/py/accgram`'s dual-cantillation detangler already tags a subset of its
-  supplied accents (`SuppliedMark.source == "lc"`) as having genuine, if non-definitive, grounding
-  in a leftover mark the Leningrad Codex itself actually wrote — not just something every
-  transcription of it (UXLC, WLC, BHS, BHQ) happens to agree on. Where that grounding exists, the
-  note should say **"the LC carries only..."** instead; where it doesn't, keep today's UXLC-only
-  framing.
-- **Caution:** don't match cases by accent-name coincidence — a first pass turned up a case where
-  accgram's "missing" accent for one strand looks, by name, like CLC's own "present" accent for the
-  same strand at the same verse; they may describe different words. Verify by actual word text
-  before upgrading any note's wording (see the issue for the specific landmine).
-- **Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36)** — the full cold-start
-  plan: cross-referencing accgram's `SuppliedMark.source` field against CLC's own
-  `_omitted_note`/`_present_accent` output word-by-word, threading a corroboration flag through
-  `clc_dual_cant.py`/`clc_render.py`, and updating the affected tests. Wording-only refinement of
-  §7.7's mechanism — no new `diff_type`, no new ClcNote/§7.9 index rows.
+### 7.17 LC-corroborated framing for omitted-accent notes — **done**
+§7.7's omitted-accent notes framed the "carries only" clause around **UXLC**, implying a UXLC
+transcription quirk even where that isn't the case. The originally-planned mechanism — matching
+against `wlc-utils`'s `SuppliedMark.source == "lc"` flag — turned out to be a dead end (it fires
+for a leftover-mark case that isn't a live CLC omission at all, and doesn't fire for any of the
+six live cases). What worked instead: Ben's own editorial judgment, word by word, on whether
+WLC's differing reading at each `wlc-utils` supplied-accent case is a *reasonable transcription*
+of the LC or a *mis-transcription* — landed as prose in `wlc-utils/py/accgram/dual_cant_detangle.py`'s
+`_supply_reason` (`wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53), closed). Four of
+CLC's six live omitted-accent notes match a "reasonable transcription" case by word: **Exodus
+20:3**, **Deuteronomy 5:6** ×2, **Deuteronomy 5:17**. For those four, the note now reads *"the LC
+has only..."* instead of *"UXLC's combined text carries only..."*, with a trailing link to
+`wlc-utils`'s [supplied accents](https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html)
+page as the evidentiary basis. **Deuteronomy 5:7** and **5:13** never appear in `wlc-utils`'s
+supplied-accent inventory (their strand parses clean by other means, so the detangler never needed
+to supply anything for them) and keep today's UXLC-only framing — no basis exists yet to upgrade
+them.
+
+Implementation: `clc_dual_cant.py`'s `_LC_CORROBORATED` is a hardcoded set keyed by
+`(book_id, ch, v, strand.short, kind)`, checked in `_omitted_note` to set a `lc_corroborated` bool
+on the note dict (threaded down from `strand_views` via a new `verse_loc` parameter).
+`clc_render.py`'s `_omitted_note_block` branches wording and appends the citation link on that
+flag. Wording-only refinement of §7.7's mechanism — no new `diff_type`, no new ClcNote/§7.9 index
+rows; `clc_dual_cant_test.py`'s `test_decalogue_omitted_accent` pins both the corroborated (dt
+5:17) and non-corroborated (dt 5:13) wording so the two paths can't silently collapse into one.
+Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36).
 
 ---
 
@@ -753,9 +762,9 @@ and `dual-cant-added-punct`. The dual-cant **"added
 10. **LC manuscript book order** must be encoded for the difference-index sort (§7.9). The code
     only has standard printed order today. *(Verse-level prose/poetic, by contrast, is **already**
     available — `cantsys` + `_is_prose_section_of_job`; not an open question.)*
-11. **LC-corroborated omitted-accent wording** (§7.17, tracked in
-    [#36](https://github.com/bdenckla/UXLC-utils/issues/36)) — exact copy for the "the LC carries
-    only..." branch, and whether/how to cite `accgram`'s supplied-marks evidence from the note.
+11. ~~**LC-corroborated omitted-accent wording**~~ **Decided and done** (§7.17,
+    [#36](https://github.com/bdenckla/UXLC-utils/issues/36)): "the LC has only..." plus a link to
+    `wlc-utils`'s supplied-marks page, for the four notes with independent grounding.
 
 ## 10. Rough ordering (not a plan — just gravity)
 A loose sense of what unblocks what, without committing to phases:
@@ -797,6 +806,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.14 strip cosmetic control chars | **partial** | orphaned CGJ dropped in the strand splitter only; no general audit |
 | §7.15 restore "unsupported" dagesh (`q`) | not started | — |
 | §7.16 legarmeh vs. paseq | not started | doc only |
+| §7.17 LC-corroborated omitted-accent wording | **done** | 4 of 6 live omitted-accent notes (Exod 20:3, Deut 5:6 ×2, Deut 5:17) say "the LC has only..." + a link to `wlc-utils`'s supplied-marks page (`clc_dual_cant._LC_CORROBORATED`, `clc_render._omitted_note_block`); dt 5:7/5:13 keep UXLC-only framing. `wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53) (the prerequisite) is committed and closed. [#36](https://github.com/bdenckla/UXLC-utils/issues/36) not yet closed |
 
 **Ad-hoc / plumbing built (not in the §7 list):**
 - **Offline note download/build split** — `main_clc_download_notes` fetches tanach.us note pages into
