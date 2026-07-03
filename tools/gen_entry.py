@@ -121,7 +121,7 @@ def _mam_divergence(alef_word, bet_word):
 
 
 def _is_accent(ch):
-    """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
+    """An accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
     return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
 
 

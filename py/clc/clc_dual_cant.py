@@ -103,22 +103,29 @@ _LC_CORROBORATED = {
 }
 
 # Omitted-accent notes with an editor-attached long note on the separate long-notes
-# page (design doc §7.3, clc_long_note) -- a SEPARATE grounding pathway from
-# _LC_CORROBORATED above (that one is specifically wlc-utils's grammar-checker
-# corroboration; this one is whatever the long note itself cites -- e.g. Deut 5:13's
-# taḥton pashta cites UXLC's own note, which in turn cites BHL Appendix A). Either
-# pathway licenses clc_render's "the LC has" wording (crediting the manuscript, not
-# just CLC's own synthesis) -- see _accent_name's sibling reasoning in clc_render's
-# _omitted_note_sentence. Keyed the same as _LC_CORROBORATED: (book_id, ch, v,
-# strand.short, kind). The actual page content lives in clc_render._LONG_NOTE_SPECS
-# (this module stays render-agnostic, pure data/logic only).
+# page (design doc §7.3, clc_long_note). Two things this flag can do, per case:
+#   * License clc_render's "the LC has" wording for an *accent* note (crediting the
+#     manuscript, not just CLC's own synthesis) when the long note cites independent
+#     grounding -- a SEPARATE pathway from _LC_CORROBORATED above (that one is
+#     specifically wlc-utils's grammar-checker corroboration; this one is whatever the
+#     long note itself cites -- e.g. Deut 5:13's taḥton pashta cites UXLC's own note,
+#     which in turn cites BHL Appendix A). See _accent_name's sibling reasoning in
+#     clc_render's _omitted_note_sentence.
+#   * Simply attach a "further discussion" note with no grounding role -- e.g. Deut 5:7's
+#     elyon *meteg*, whose long note cites Yeivin's ITM §355 on the special gaʿya of
+#     יהיה-type verbs. That note already takes softened, self-grounding wording
+#     (clc_render._omitted_meteg_sentence), so this flag only adds the cross-link.
+# Keyed the same as _LC_CORROBORATED: (book_id, ch, v, strand.short, kind). The actual
+# page content lives in clc_render._LONG_NOTE_SPECS (this module stays render-agnostic,
+# pure data/logic only).
 _HAS_LONG_NOTE = {
     ("Deuter", 5, 13, "taḥton", "pashta"),
+    ("Deuter", 5, 7, "elyon", "meteg"),
 }
 
 
 def _is_accent(ch):
-    """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
+    """An accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
     return 0x0591 <= ord(ch) <= 0x05AF or ch == hpo.MTGOSLQ
 
 
@@ -384,7 +391,7 @@ _ORACLE = {
         # pasoleg-tokenization verse (#29). Atom 3 שבת ends in a pasoleg that elyon (bet) keeps
         # and taxton (alef) drops — the mirror of ex 20:4's atoms 4/8/14, where taxton kept
         # the pasoleg and elyon dropped it. Atom 10 אתה ׀ is the sharpest pasoleg case: this word
-        # carries no cantillation accent of its own at all, so the divergence cluster is the
+        # carries no accent of its own at all, so the divergence cluster is the
         # bare pasoleg character alone (not swept together with anything else) — taxton keeps
         # it (a standalone word in MAM's alef list), elyon drops it entirely (its bet
         # resolution is the empty string, like an omitted accent but for punctuation, since

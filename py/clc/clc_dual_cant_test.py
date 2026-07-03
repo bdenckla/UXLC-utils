@@ -546,6 +546,22 @@ def test_decalogue_qupo_vowel_split():
     assert d_omit[0]["present_kind"] == canon(acc.MER)   # UXLC has taxton's own merkha here
     assert _omit_notes(alef7) == []
 
+    # Render: an omitted *meteg* takes SOFTENED wording (clc_render._omitted_meteg_sentence),
+    # NOT the "calls for … / beyond the limits of CLC's charity to supply" framing used for a
+    # true accent — a meteg is metrical, not an accent, and this special gaʿya of
+    # יהיה-type verbs is not reliably obligatory (cf. Yeivin, ITM §355). Instead: the LC has a
+    # single mark, best transcribed as the taxton's merkha (which the chant actually needs).
+    meteg_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(d_omit[0]))
+    assert "A meteg might be expected in the elyon strand here on" in meteg_html
+    assert (f"the LC has only a single mark, which is best transcribed as a {canon(acc.MER)}"
+            f" since, unlike the meteg, the {canon(acc.MER)} is truly needed") in meteg_html
+    assert "calls for" not in meteg_html and "charity to supply" not in meteg_html
+    assert "clc-added-during-detangling" not in meteg_html  # nothing supplied to the strand
+    # It carries an editor-attached further-discussion long note (clc_dual_cant._HAS_LONG_NOTE
+    # / clc_render._LONG_NOTE_SPECS) linking to Yeivin's ITM §355.
+    assert d_omit[0]["has_long_note"] is True
+    assert 'href="long-notes.html#long-Deuter-5-7-elyon"' in meteg_html
+
     a7d, b7d = alef7.atoms[6]["text"], bet7.atoms[6]["text"]
     assert _count(a7d, _QAMATS) == 2 and _METEG in a7d and _PATAX not in a7d, a7d
     assert _count(b7d, _QAMATS) == 1 and _PATAX in b7d and acc.REV in b7d, b7d

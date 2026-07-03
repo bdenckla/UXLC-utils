@@ -159,8 +159,14 @@ def _omitted_note_sentence(note):
     # UXLC's own note citing BHL Appendix A. A long note attached here is expected to itself
     # justify that stronger claim, not just restate CLC's own reasoning at length.
     #
+    # A missing *meteg* takes softened wording (_omitted_meteg_sentence) instead: a meteg is
+    # not an accent, so the "calls for … / charity to supply" framing — which treats the wanted
+    # mark as genuinely wanted — over-claims. See that helper for the reasoning.
+    #
     # Factored out of _omitted_note_block so the long-notes page (clc_long_note, via
     # clc_render.build_long_notes) can recap the exact same sentence, never a paraphrase.
+    if note["kind"] == "meteg" and note.get("present_kind"):
+        return _omitted_meteg_sentence(note)
     article = "an" if note["kind"][:1] in "aeiou" else "a"
     lc_corroborated = note.get("lc_corroborated", False)
     grounded = lc_corroborated or note.get("has_long_note", False)
@@ -173,6 +179,28 @@ def _omitted_note_sentence(note):
         f" here, but {carries} {has}, and it is beyond the limits"
         f" of CLC’s charity to supply the missing {note['kind']}"
         + ("" if lc_corroborated else "."),
+    ]
+
+
+def _omitted_meteg_sentence(note):
+    # Softened wording for an omitted *meteg* (the strand wants a meteg U+05BD where UXLC's
+    # single mark is the OTHER strand's accent). Unlike the accent path in _omitted_note_
+    # sentence, this does NOT say the strand "calls for" the mark, nor that CLC's charity
+    # declines to "supply the missing meteg." A meteg (gaʿya) is metrical, not part of the
+    # cantillation/trope system, and even the gaʿyot usually deemed obligatory are not
+    # consistently written in the manuscripts; the special gaʿya on יהיה-type verbs (Deut
+    # 5:7's יִהְיֶה־) is not clearly of the obligatory kind at all (cf. Yeivin, ITM). So the
+    # situation is not a wanted-but-withheld accent but a single manuscript mark that CLC must
+    # transcribe one way or the other: it reads that mark as the OTHER strand's accent, which
+    # — unlike the meteg — the chant truly needs. Where an editor attaches a long note (§7.3,
+    # clc_dual_cant._HAS_LONG_NOTE), _omitted_note_block links to its further discussion.
+    present = note["present_kind"]
+    article = "an" if present[:1] in "aeiou" else "a"
+    return [
+        f"A meteg might be expected in the {note['strand']} strand here on ",
+        H.span(note["snippet"], _HBO_ATTR),
+        f", but the LC has only a single mark, which is best transcribed as {article} {present}"
+        f" since, unlike the meteg, the {present} is truly needed.",
     ]
 
 
@@ -417,6 +445,73 @@ def _dt_5_13_taxton_extra(_book, notes):
     ]
 
 
+# Yeivin, Introduction to the Tiberian Masorah §355 (the special "phonetic" gaʿya of
+# היה/חיה-root forms), in Ben's adaptation on phonetic-hbo. House style for such deep
+# links is a "section NNN" anchor (cf. MAM-basics rocc_4_mid_word_ga3ya_with_shewa).
+_YEIVIN_ITM_355_URL = "https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"
+
+
+def _dt_5_7_elyon_meteg_extra(_book, _notes):
+    # Why the elyon's missing mark here is treated as an optional meteg, not a wanted
+    # accent (see _omitted_meteg_sentence for the short-note wording this expands on):
+    # the mark is the special gaʿya of היה/חיה-root forms, whose marking Yeivin (ITM §355)
+    # calls inconsistent across manuscripts and absent from the ḥillufim lists.
+    #
+    # The one caveat Yeivin adds — this gaʿya IS "as a rule" marked when the word is joined by
+    # maqqef to an *initially-stressed* following word — may or may not cover Deut 5:7 (יהיה־לך).
+    # Do NOT adjudicate it: an earlier draft claimed לך is "final-stressed, not initial," so the
+    # exception fails — but whether Yeivin counts לך as initially stressed is genuinely unclear
+    # (it turns on whether he reckons syllable/stress in modern or Masoretic terms — e.g. a vocal
+    # shewa forming no syllable of its own would make לְךָ pattern with his monosyllables). Per
+    # Ben, we do NOT litigate that: the note only flags the uncertainty in passing. Either way
+    # CLC's move stands: a gaʿya is metrical (not an accent), "as a rule" is not "always," and —
+    # decisively — the one mark the LC actually carries is the taxton's merkha, which the chant
+    # needs; CLC reads the mark as that merkha and invents no second one for the gaʿya. No inline
+    # UXLC x-note is relegated for this one.
+    #
+    # Closing aside (paired with the LC folio-102A detail image this spec carries): the mark
+    # is this note's main subject, but the word's own initial yod is a separate act of
+    # charity — most of its top has flaked from the parchment, and it is read from the faint
+    # surviving remnants together with the context. Charity is CLC's central principle, so
+    # it is worth surfacing even where the mark, not the letter, is the occasion for the note.
+    return [
+        "The mark the elyon strand wants here is not an accent but the special"
+        " gaʿya (meteg) that Tiberian pointing places on the first syllable of forms built"
+        " on the roots ",
+        H.span("היה", _HBO_ATTR),
+        " and ",
+        H.span("חיה", _HBO_ATTR),
+        " — ",
+        H.span("יִהְיֶה", _HBO_ATTR),
+        ", ",
+        H.span("וַיְהִי", _HBO_ATTR),
+        ", and the like — to keep the following ",
+        H.span("ה", _HBO_ATTR),
+        " or ",
+        H.span("ח", _HBO_ATTR),
+        " with shewa from being slurred over. Yeivin, in ",
+        H.anchor("section 355", {"href": _YEIVIN_ITM_355_URL, "target": "_blank"}),
+        " of his Introduction to the Tiberian Masorah, notes that the tendency to mark this"
+        " gaʿya varies from form to form and “is not consistent in individual manuscripts,"
+        " nor is its use uniform in any group of manuscripts, and it is not in the lists of"
+        " ḥillufim.” Yeivin does add that it is “as a rule” marked in one narrower setting —"
+        " a word joined by maqqef to an initially-stressed following word — which may or may"
+        " not cover the elyon’s ",
+        H.span("יִהְיֶה־", _HBO_ATTR),
+        " here (whether the following ",
+        H.span("לְךָ", _HBO_ATTR),
+        " counts as initially stressed turns on unsettled questions of how syllable and stress"
+        " are reckoned, which we leave aside). Either way, a gaʿya is metrical, not an accent,"
+        " and “as a rule” is not “always”; and, decisively, the single mark the LC does"
+        " carry is the taḥton strand’s merkha, which the chant genuinely needs — so CLC reads that"
+        " mark as the merkha and invents no second one for the gaʿya. As an aside — the mark"
+        " is this note’s main subject, but the word’s initial yod is itself a charitable"
+        " reading: most of its top seems to have flaked from the parchment (visible in the"
+        " detail above), and it is restored from the faint remnants that survive together with"
+        " the surrounding context.",
+    ]
+
+
 @dataclass(frozen=True)
 class _LongNoteSpec:
     """One editor-opted-in long note (design doc §7.3) -- case-by-case, never an
@@ -424,20 +519,21 @@ class _LongNoteSpec:
     accent note this long note expands on (see clc_dual_cant._HAS_LONG_NOTE, which
     must independently list the same case); ``relegated_position``/``relegated_code``
     is the UXLC x-note this long note's own citation subsumes, so it is suppressed
-    from its usual same-row doc-cell block instead of showing twice. ``image_filename``
-    is a file under gh-pages/img/ (empty string for no image) -- fetched by hand, once,
-    from the UXLC note's own detail image (see .novc/fetch_dt_5_13_2_t_image.py) and
-    committed as a static asset, never re-downloaded at build time; ``image_credit`` is
-    that source page's own credit line, carried forward alongside it. ``extra_blocks``
-    is ``(book, notes) -> [H pieces]``, this note's own added content beyond the
-    verse/short-note recap every long note gets automatically."""
+    from its usual same-row doc-cell block instead of showing twice -- ``None``/``""``
+    when this long note relegates no inline UXLC note (e.g. Deut 5:7's elyon meteg, pure
+    further discussion). ``image_filename`` is a file under gh-pages/img/ (empty string
+    for no image) -- fetched by hand, once, from the UXLC note's own detail image (see
+    .novc/fetch_dt_5_13_2_t_image.py) and committed as a static asset, never re-downloaded
+    at build time; ``image_credit`` is that source page's own credit line, carried forward
+    alongside it. ``extra_blocks`` is ``(book, notes) -> [H pieces]``, this note's own added
+    content beyond the verse/short-note recap every long note gets automatically."""
 
     book_id: str
     ch: int
     v: int
     strand: str
     kind: str
-    relegated_position: int
+    relegated_position: object  # int, or None when no inline UXLC note is relegated
     relegated_code: str
     image_filename: str
     image_credit: str
@@ -450,15 +546,23 @@ _LONG_NOTE_SPECS = (
         "Deuter.5.13.2-t.jpg", "Sefaria.org",
         _dt_5_13_taxton_extra,
     ),
+    _LongNoteSpec(
+        "Deuter", 5, 7, "elyon", "meteg", None, "",
+        "Deuter.5.7.2.LC-102A-col3-line22.jpg", "Sefaria.org",
+        _dt_5_7_elyon_meteg_extra,
+    ),
 )
 
 # Derived from _LONG_NOTE_SPECS: (book, ch, v, atom_index, note_code) -> long-note
 # anchor id, consulted by _relegated_anchor/_note_href/_doc_contents to suppress a
-# relegated UXLC x-note's inline block and redirect its always-link.
+# relegated UXLC x-note's inline block and redirect its always-link. Only specs that
+# actually relegate an inline UXLC note participate (relegated_position is not None) --
+# a pure-further-discussion long note like Deut 5:7's elyon meteg subsumes nothing.
 _UXLC_NOTES_RELEGATED = {
     (spec.book_id, spec.ch, spec.v, spec.relegated_position, spec.relegated_code):
         clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand)
     for spec in _LONG_NOTE_SPECS
+    if spec.relegated_position is not None
 }
 
 

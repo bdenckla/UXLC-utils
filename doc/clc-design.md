@@ -376,7 +376,13 @@ Each is a feature this doc names, organized with grounding + open questions.
     which in turn cites BHL Appendix A as independent grounding for saying "the LC has" rather than
     "UXLC's combined text carries" (`clc_dual_cant._HAS_LONG_NOTE`, alongside the pre-existing
     `_LC_CORROBORATED`/issue #36 pathway to the same wording). The stable anchor id scheme means
-    this stays a render-time-only mechanism; the note JSON (§8) is unaffected.
+    this stays a render-time-only mechanism; the note JSON (§8) is unaffected. **Second instance:**
+    Deut 5:7's elyon meteg (§7.7) — *further discussion* with no grounding role: it relegates no
+    inline UXLC note (`relegated_position` is `None`, so it stays out of `_UXLC_NOTES_RELEGATED`),
+    but it does carry an LC folio-102A (col 3, line 22) detail image of יהיה, credited like the
+    5:13 image to Sefaria.org. It expands the softened short note with a Yeivin ITM §355 citation on
+    the special gaʿya of יהיה-type verbs, closing with an aside that the word's initial yod is itself
+    a charitable reading (most of its top has flaked from the parchment).
 
 ### 7.4 UXLC change records as a kind of note
 - We **have** the change text (the dated `* - Changes.xml` in `in/UXLC-misc/`, processed by
@@ -470,6 +476,19 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). Four of these six — Exod 20:3,
   Deut 5:6 ×2, Deut 5:17 — have independent wlc-utils grounding and are worded and linked
   differently; see §7.17.
+  - **Omitted *meteg* — softened, not "charity-limited".** The same divergence can leave a strand
+    wanting a **meteg** (U+05BD) rather than an accent — **Deut 5:7** (elyon's gaʿya on
+    יהיה, where UXLC's single mark is the taxton's merkha). A meteg is *not* an accent (§2): it is
+    metrical, even the "obligatory" gaʿyot are written inconsistently, and this special gaʿya of
+    יהיה-type verbs is, by Yeivin's own account (ITM §355), marked only inconsistently (its one
+    "as a rule" setting — a maqqef-joined initially-stressed following word — may or may not cover
+    יהיה־לך, an unsettled point the long note flags but leaves open). So the "calls for … / beyond
+    the limits of CLC's charity to supply" framing — which treats the wanted mark as genuinely wanted —
+    would over-claim. CLC instead reframes it as a transcription choice over a *single* extant mark
+    (`clc_render._omitted_meteg_sentence`): *"A meteg might be expected in the elyon strand here on
+    יִהְיֶה־, but the LC has only a single mark, which is best transcribed as a merkha since, unlike
+    the meteg, the merkha is truly needed."* This case carries a further-discussion long note (§7.3)
+    citing Yeivin's ITM §355 on that gaʿya.
 - **QUPO vowel split** (ex 20:3, dt 5:7): where the two strands stack *different vowels* (patax vs.
   qamats) on one letter (עַל־פָּנָ֗י's נ), it is the same position-safe subtraction bucket as
   rafe/dagesh — each strand keeps its own vowel, drops the other's. The one subtlety: the same vowel

@@ -104,9 +104,12 @@ def test_long_note_relegation():
     href = clc_render._note_href(5, 13, 2, notes_by_atom.get((5, 13, 2)))
     assert href == "long-notes.html#long-Deuter-5-13-tahton", href
 
+    # Chapter 5 has two long notes: 5:13's taḥton pashta (this one, which relegates an inline
+    # UXLC note and carries an image) and 5:7's elyon meteg (pure further discussion, below).
     long_notes = clc_render.build_long_notes("Deuter", book, notes, chapters={5})
-    assert len(long_notes) == 1
-    section_html = H.el_to_str_no_wbr(clc_long_note._section(long_notes[0]))
+    by_anchor = {e["anchor"]: e for e in long_notes}
+    assert set(by_anchor) == {"long-Deuter-5-13-tahton", "long-Deuter-5-7-elyon"}, by_anchor
+    section_html = H.el_to_str_no_wbr(clc_long_note._section(by_anchor["long-Deuter-5-13-tahton"]))
     assert 'id="long-Deuter-5-13-tahton"' in section_html
     # The short note's own recap and the added content are each labeled, so a reader
     # can tell which part just repeats the main page vs. what's new here.
@@ -125,6 +128,24 @@ def test_long_note_relegation():
     i_credit = section_html.index("Credit: Sefaria.org.")
     i_further = section_html.index("Further discussion:")
     assert i_short < i_img < i_credit < i_further, section_html
+
+    # Deut 5:7's elyon meteg is a further-discussion long note (§7.3): softened recap, a Yeivin
+    # ITM §355 citation, an LC folio-102A detail image, a closing aside on the charitably-read
+    # initial yod, and — unlike 5:13 — it relegates no inline UXLC x-note (relegated_position is
+    # None, so it never joins _UXLC_NOTES_RELEGATED).
+    meteg_html = H.el_to_str_no_wbr(clc_long_note._section(by_anchor["long-Deuter-5-7-elyon"]))
+    assert "Inline note (repeated from main page): A meteg might be expected in the elyon" in meteg_html
+    assert "best transcribed as a" in meteg_html
+    assert "Further discussion:" in meteg_html
+    assert 'href="https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"' in meteg_html
+    assert 'src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"' in meteg_html
+    assert "Credit: Sefaria.org." in meteg_html
+    assert "initial yod is itself a charitable reading" in meteg_html
+    # Image sits between the short-note recap and the further discussion it illustrates.
+    assert (meteg_html.index("Inline note (repeated from main page)")
+            < meteg_html.index('src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"')
+            < meteg_html.index("Further discussion:")), meteg_html
+    assert list(clc_render._UXLC_NOTES_RELEGATED) == [("Deuter", 5, 13, 2, "t")]
 
 
 def main():
