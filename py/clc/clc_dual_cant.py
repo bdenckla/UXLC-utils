@@ -94,7 +94,10 @@ _ADDED_NAME = {hpu.MAQ: "maqaf", hpu.SOPA: "sof pasuq"}
 # the LC, not a mis-transcription. Keyed by (book_id, ch, v, strand.short, kind) since a
 # verse may have more than one omitted-accent note (e.g. Deut 5:6 has two). Deuteronomy
 # 5:7 and 5:13 are NOT here — accgram's detangler never needed to supply anything for
-# them (their strand parses clean by other means), so no wlc-utils basis exists yet.
+# them, so no wlc-utils basis exists yet. For 5:13's taḥton pashta specifically, the
+# detangler had nothing to supply because that pashta is already present in WLC —
+# erroneously, presumably carried over from BHS, though not yet verified (see the long
+# note in clc_render._dt_5_13_taxton_extra); 5:7's elyon meteg parses clean by other means.
 _LC_CORROBORATED = {
     ("Exodus", 20, 3, "taḥton", "merkha"),
     ("Deuter", 5, 6, "elyon", "tipeḥa"),

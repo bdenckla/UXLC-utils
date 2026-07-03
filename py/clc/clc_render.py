@@ -424,6 +424,8 @@ def _anchor_id(ch, v, position):
 
 
 _BHL_TITLE = "Dotan’s Biblia Hebraica Leningradensia"
+_WLC_TITLE = "Westminster Leningrad Codex"
+_BHS_TITLE = "Biblia Hebraica Stuttgartensia"
 
 
 def _dt_5_13_taxton_extra(_book, notes):
@@ -432,18 +434,34 @@ def _dt_5_13_taxton_extra(_book, notes):
     # _UXLC_NOTES_RELEGATED below) already says as much ("BHL Appendix A has no
     # pashta on the final mem."); this just surfaces that citation instead of
     # reproducing the note's full text a second time.
+    #
+    # Second paragraph: the flip side of that same absence. wlc-utils's grammar checker
+    # (the accgram detangler) supplies a strand's missing accent so it parses -- but it
+    # never had to for this pashta, because WLC already carries it (wrongly). Named
+    # generically as "the grammar checker" per Ben; the BHS-origin guess stays hedged.
     uxlc_note = next(
         n for n in notes
         if (n.book, n.ch, n.v, n.atom_index, n.note_code) == ("Deuter", 5, 13, 2, "t")
     )
-    # A list of paragraphs (each a list of inline pieces); this note is a single paragraph.
-    return [[
-        "See the ",
-        H.anchor("UXLC note", {"href": uxlc_note.source_url, "target": "_blank"}),
-        " on this word. The lack of this pashta is noted in ",
-        H.abbr("BHL", {"title": _BHL_TITLE}),
-        " Appendix A.",
-    ]]
+    # A list of paragraphs (each a list of inline pieces).
+    return [
+        [
+            "See the ",
+            H.anchor("UXLC note", {"href": uxlc_note.source_url, "target": "_blank"}),
+            " on this word. The lack of this pashta is noted in ",
+            H.abbr("BHL", {"title": _BHL_TITLE}),
+            " Appendix A.",
+        ],
+        [
+            "This pashta is also not among the accents the grammar checker has to supply"
+            " to ",
+            H.abbr("WLC", {"title": _WLC_TITLE}),
+            " when detangling the two strands: unlike a genuine omission, it is already"
+            " present in WLC — erroneously, presumably carried over from ",
+            H.abbr("BHS", {"title": _BHS_TITLE}),
+            ", though this has not yet been verified.",
+        ],
+    ]
 
 
 # Yeivin, Introduction to the Tiberian Masorah §355 (the special "phonetic" gaʿya of
