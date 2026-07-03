@@ -1,5 +1,9 @@
 :root { color-scheme: light dark; }
 body {
+    max-width: 40em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 14pt;
     color: light-dark(black, white);
     background-color: light-dark(white, black);
@@ -115,5 +119,6 @@ span.clc-superseded-cite a:hover { text-decoration: underline; }
 div.clc-long-note { margin-bottom: 2em; }
 div.clc-long-note:target { background-color: light-dark(#f3e3a4, #5a4a1f); border-radius: 0.15em; }
 abbr[title] { cursor: help; }
+div.clc-long-note-img-wrap { text-align: center; }
 img.clc-long-note-img { max-width: 100%; border: 1px solid light-dark(#ccc, #444); }
-p.clc-long-note-img-credit { font-size: 85%; color: light-dark(#777, #999); margin-top: 0.25em; }
+p.clc-long-note-img-credit { font-size: 85%; color: light-dark(#777, #999); margin-top: 0.25em; text-align: center; }
