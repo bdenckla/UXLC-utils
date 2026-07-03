@@ -469,13 +469,16 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   UXLC left untangled (it has only the *other* strand's accent on that word), CLC does **not**
   invent one — the sharpened departure from the detangler, which *does* supply it to parse. CLC shows
   the word as UXLC has it (that accent simply absent) and emits a per-strand note that names *both*
-  accents — the one wanted and the one UXLC actually has: *"The taḥton strand calls for a pashta on
-  ימים here, but UXLC's combined text carries only the elyon strand's munaḥ, and it is beyond the
-  limits of CLC's charity to supply the missing pashta."* The Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta
-  on אלהיך), **5:13** (taxton's pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the
-  sof-pasuq but not its silluq, so elyon shows a lone sof-pasuq). Four of these six — Exod 20:3,
-  Deut 5:6 ×2, Deut 5:17 — have independent wlc-utils grounding and are worded and linked
-  differently; see §7.17.
+  accents — the one wanted and the one UXLC actually has, in the mechanism's base template: *"The
+  taḥton strand calls for a pashta on ימים here, but UXLC's combined text carries only the elyon
+  strand's munaḥ, and it is beyond the limits of CLC's charity to supply the missing pashta."* The
+  Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta on אלהיך), **5:13** (taxton's
+  pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the sof-pasuq but not its silluq, so
+  elyon shows a lone sof-pasuq). That base wording is no longer live anywhere, though: **every one
+  of these six now credits the LC** ("the LC has only...") instead of UXLC, via three separate
+  grounding paths — four (Exod 20:3, Deut 5:6 ×2, Deut 5:17) via independent wlc-utils corroboration,
+  5:13's via its own editor-attached long note, both detailed in §7.17; 5:7's meteg note is reframed
+  further still (below).
   - **Omitted *meteg* — softened, not "charity-limited".** The same divergence can leave a strand
     wanting a **meteg** (U+05BD) rather than an accent — **Deut 5:7** (elyon's gaʿya on
     יהיה, where UXLC's single mark is the taxton's merkha). A meteg is *not* an accent (§2): it is
@@ -725,17 +728,25 @@ has only..."* instead of *"UXLC's combined text carries only..."*, with a traili
 `wlc-utils`'s [supplied accents](https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html)
 page as the evidentiary basis. **Deuteronomy 5:7** and **5:13** never appear in `wlc-utils`'s
 supplied-accent inventory (their strand parses clean by other means, so the detangler never needed
-to supply anything for them) and keep today's UXLC-only framing — no basis exists yet to upgrade
-them.
+to supply anything for them), so neither qualifies for this corroboration path —
+`_LC_CORROBORATED` excludes both. Both were separately credited to the LC anyway, shortly after,
+through the unrelated §7.3 long-notes mechanism (`_HAS_LONG_NOTE`): 5:13's pashta note now also
+reads "the LC has only...", grounded in UXLC's own note's citation of BHL Appendix A rather than in
+wlc-utils; 5:7's meteg note is reframed still further, as a transcription choice rather than a
+withheld accent (§7.7 above). As of the latest commit, no live omitted-accent note uses the
+original "UXLC's combined text carries only..." wording — every one credits the LC, just via a
+different evidentiary basis per case.
 
 Implementation: `clc_dual_cant.py`'s `_LC_CORROBORATED` is a hardcoded set keyed by
 `(book_id, ch, v, strand.short, kind)`, checked in `_omitted_note` to set a `lc_corroborated` bool
 on the note dict (threaded down from `strand_views` via a new `verse_loc` parameter).
-`clc_render.py`'s `_omitted_note_block` branches wording and appends the citation link on that
-flag. Wording-only refinement of §7.7's mechanism — no new `diff_type`, no new ClcNote/§7.9 index
-rows; `clc_dual_cant_test.py`'s `test_decalogue_omitted_accent` pins both the corroborated (dt
-5:17) and non-corroborated (dt 5:13) wording so the two paths can't silently collapse into one.
-Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36).
+`clc_render.py`'s `_omitted_note_block` branches the citation link on that flag (wlc-utils's
+supplied-marks page vs. an editor-attached long note, per `_HAS_LONG_NOTE` — §7.3). Wording-only
+refinement of §7.7's mechanism — no new `diff_type`, no new ClcNote/§7.9 index rows;
+`clc_dual_cant_test.py`'s `test_decalogue_omitted_accent` pins both the `lc_corroborated` (dt 5:17,
+linking to wlc-utils) and non-corroborated-but-long-noted (dt 5:13, linking to the long note
+instead) wording, so the two citation paths can't silently collapse into one.
+Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36), closed.
 
 ---
 
@@ -835,7 +846,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.14 strip cosmetic control chars | **partial** | orphaned CGJ dropped in the strand splitter only; no general audit |
 | §7.15 restore "unsupported" dagesh (`q`) | not started | — |
 | §7.16 legarmeh vs. paseq | not started | doc only |
-| §7.17 LC-corroborated omitted-accent wording | **done** | 4 of 6 live omitted-accent notes (Exod 20:3, Deut 5:6 ×2, Deut 5:17) say "the LC has only..." + a link to `wlc-utils`'s supplied-marks page (`clc_dual_cant._LC_CORROBORATED`, `clc_render._omitted_note_block`); dt 5:7/5:13 keep UXLC-only framing. `wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53) (the prerequisite) is committed and closed. [#36](https://github.com/bdenckla/UXLC-utils/issues/36) not yet closed |
+| §7.17 LC-corroborated omitted-accent wording | **done** | 4 of 6 live omitted-accent notes (Exod 20:3, Deut 5:6 ×2, Deut 5:17) say "the LC has only..." + a link to `wlc-utils`'s supplied-marks page (`clc_dual_cant._LC_CORROBORATED`, `clc_render._omitted_note_block`). The other two (dt 5:7, 5:13) also credit the LC now, but via the separate §7.3 long-notes mechanism, not this corroboration path — no live note still uses the original UXLC-only framing. `wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53) (the prerequisite) is committed and closed. [#36](https://github.com/bdenckla/UXLC-utils/issues/36) closed |
 
 **Ad-hoc / plumbing built (not in the §7 list):**
 - **Offline note download/build split** — `main_clc_download_notes` fetches tanach.us note pages into
