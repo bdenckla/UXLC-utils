@@ -629,6 +629,19 @@ them). CLC should model BHL agreement with that granularity:
 - agrees with body **and** clean in Appendix A → genuine agreement with BHL;
 - agrees with body **but** flagged in Appendix A → **not** agreement with BHL.
 
+**What Appendix A *is* (and a naming caveat).** The BHL *body* is a **general-purpose** edition, so
+where L's actual contents are unsuitable for such an edition the body departs from L; **Appendix A
+records L's actual contents in exactly those cases** — it tells you *what L itself reads*, and nothing
+about other witnesses. Terminology: "BHL" is used **broadly** (the whole book) or **narrowly** (the
+body, as opposed to other parts — chiefly Appendix A). This doc writes "BHL body" for the narrow
+sense, but **UXLC change records/notes are *not* careful about the distinction** — an unqualified
+"BHL" there may mean either, so disambiguate by context. Relatedly, when a **MAM doc-note says
+"Dotan"** it means Dotan's judgment of L's contents = **the Appendix A entry if one is present,
+otherwise the BHL body** — so a MAM "Dotan" tag on a case that has an Appendix A entry points at that
+*same* Appendix A reading, not an independent witness (its added value is the *collation* of the other
+witnesses it lists alongside; see #39). And note BHL is **not** BHS: MAM's own sigil documentation
+records that BHS preserves L less accurately than Dotan/BHL and BHQ.
+
 This is framed as a **correctness** issue, not editorial taste — worth its own difference-type /
 note category in §7.9 / §8.
 
@@ -650,6 +663,22 @@ candidate, not an automatic change):
   harvest is about *adopting* MAM's reading as a candidate CLC diff. Same source data, different
   purpose — an implementer touching one should be aware of the other so the MAM-alignment code
   isn't built twice.
+  - **Decalogue doc-notes are the first, best-aligned slice of this harvest.** MAM's own doc-notes on
+    Exod 20 / Deut 5 are *pre-aligned to CLC's dual-cant divergence sites* (§7.7): they flag, atom by
+    atom, where L diverges from the other witnesses (MAM's `ל`/`ל!=` sigil — `X!=Y` means "X
+    *surprisingly* reads Y", **not** "not-equal"), and they carry legarmeh, sof-pasuq-per-witness,
+    two-marks-on-one-letter, and Breuer-vs-Dotan calls that map onto specific CLC features. Tracked in
+    a family of issues: **[#38](https://github.com/bdenckla/UXLC-utils/issues/38)** (doc-note "See
+    also" links + wording), **[#39](https://github.com/bdenckla/UXLC-utils/issues/39)** (Deut 5:13
+    grounding), **[#40](https://github.com/bdenckla/UXLC-utils/issues/40)** (qadma, §7.4),
+    **[#41](https://github.com/bdenckla/UXLC-utils/issues/41)** (Breuer-vs-Dotan gaʿya position, §7.13/§2a),
+    **[#42](https://github.com/bdenckla/UXLC-utils/issues/42)** (legarmeh + pisqah, §7.16/§7.7),
+    **[#43](https://github.com/bdenckla/UXLC-utils/issues/43)** (supplied sof-pasuqs, §7.7),
+    **[#44](https://github.com/bdenckla/UXLC-utils/issues/44)** (QUPO vowel split, §7.7),
+    **[#45](https://github.com/bdenckla/UXLC-utils/issues/45)** (vtrad-MAM versification, §7.8).
+    Decode MAM sigla/operators via `MAM-basics/doc/sigil-decoding.md`; and beware MAM's Decalogue verse
+    numbering (merged *elyon*) runs ~1 behind CLC's `vtrad-BHS`, so a CLC→MAM verse-map is needed (built
+    once, shared by #38 and #45).
 - **`book-of-job`** (sibling repo; self-contained, with its own `gh-pages` + many check scripts) —
   a **small, realistic, short-term** harvest set. Likely the first real harvesting target.
 - **`amb_early_mtg`** (the early-meteg catalog, §2b/§5) — a small, **likely-unfinished** local scan
