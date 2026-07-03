@@ -382,7 +382,24 @@ Each is a feature this doc names, organized with grounding + open questions.
     but it does carry an LC folio-102A (col 3, line 22) detail image of יהיה, credited like the
     5:13 image to Sefaria.org. It is a one-sentence pointer to Yeivin ITM §355 on the special gaʿya
     of יהיה-type verbs, closing with an aside that the word's initial yod is itself a charitable
-    reading (most of its top has flaked off).
+    reading (most of its top has flaked off). **Third through sixth instances:** the four
+    `_LC_CORROBORATED` cases (Exod 20:3, Deut 5:6 ×2, Deut 5:17 — §7.17) each gained their own long
+    note too, all sharing one boilerplate paragraph (`clc_render._lc_corroborated_extra`): the
+    `wlc-utils` grammar-checker citation that used to end the inline note directly (*"— see the
+    grammar checker's supplied accents page"*) now lives *only* on the long-notes page, with just a
+    "See more details in this longer note" pointer left inline. **The "and it is beyond the limits
+    of CLC's charity to supply the missing X" clause itself relegates the same way, for every
+    `has_long_note` case, not just these four** — including the *first* instance, Deut 5:13's
+    pashta, retroactively: `clc_render._omitted_note_core` is the shared opening every non-meteg
+    omitted-accent note has, with `_omitted_note_sentence` (core + the "beyond the limits" clause)
+    now reserved for wherever the full explanation is wanted in one place — the long-notes page
+    (`_charity_limit_paragraph`, its own paragraph there) and the main page's own inline note *only*
+    when no long note exists to relegate it to. `_omitted_note_inline_pieces` is what actually
+    renders inline (and what the long-notes page's own "repeated from main page" recap echoes
+    verbatim), so the two never drift apart. Since a single (book, ch, v, strand) can now carry
+    more than one long note (Deut 5:6's elyon wants both a tipeḥa and an etnaḥta),
+    `clc_long_note.anchor_id` takes the omitted accent's `kind` too, and each section's heading
+    carries `(kind)` so two same-verse-same-strand entries never look identical.
 
 ### 7.4 UXLC change records as a kind of note
 - We **have** the change text (the dated `* - Changes.xml` in `in/UXLC-misc/`, processed by
@@ -724,9 +741,12 @@ of the LC or a *mis-transcription* — landed as prose in `wlc-utils/py/accgram/
 `_supply_reason` (`wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53), closed). Four of
 CLC's six live omitted-accent notes match a "reasonable transcription" case by word: **Exodus
 20:3**, **Deuteronomy 5:6** ×2, **Deuteronomy 5:17**. For those four, the note now reads *"the LC
-has only..."* instead of *"UXLC's combined text carries only..."*, with a trailing link to
+has only..."* instead of *"UXLC's combined text carries only..."*. The evidentiary link to
 `wlc-utils`'s [supplied accents](https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html)
-page as the evidentiary basis. **Deuteronomy 5:7** and **5:13** never appear in `wlc-utils`'s
+page used to trail the inline note directly; each of these four now instead carries its own
+long note (§7.3's `_HAS_LONG_NOTE` mechanism, joined by `_LC_CORROBORATED` for this reason), and
+that link lives there — the inline note just points across via "See more details in this longer
+note." **Deuteronomy 5:7** and **5:13** never appear in `wlc-utils`'s
 supplied-accent inventory (their strand parses clean by other means, so the detangler never needed
 to supply anything for them), so neither qualifies for this corroboration path —
 `_LC_CORROBORATED` excludes both. Both were separately credited to the LC anyway, shortly after,
@@ -739,13 +759,15 @@ different evidentiary basis per case.
 
 Implementation: `clc_dual_cant.py`'s `_LC_CORROBORATED` is a hardcoded set keyed by
 `(book_id, ch, v, strand.short, kind)`, checked in `_omitted_note` to set a `lc_corroborated` bool
-on the note dict (threaded down from `strand_views` via a new `verse_loc` parameter).
-`clc_render.py`'s `_omitted_note_block` branches the citation link on that flag (wlc-utils's
-supplied-marks page vs. an editor-attached long note, per `_HAS_LONG_NOTE` — §7.3). Wording-only
-refinement of §7.7's mechanism — no new `diff_type`, no new ClcNote/§7.9 index rows;
-`clc_dual_cant_test.py`'s `test_decalogue_omitted_accent` pins both the `lc_corroborated` (dt 5:17,
-linking to wlc-utils) and non-corroborated-but-long-noted (dt 5:13, linking to the long note
-instead) wording, so the two citation paths can't silently collapse into one.
+on the note dict (threaded down from `strand_views` via a new `verse_loc` parameter). That flag now
+only feeds the "the LC has" vs. "UXLC's combined text carries" wording choice (`grounded` in
+`clc_render._omitted_note_sentence`); the citation link itself is entirely `_HAS_LONG_NOTE`'s
+concern (§7.3) — all four `_LC_CORROBORATED` cases are also in `_HAS_LONG_NOTE`, so
+`_omitted_note_block` always renders their citation on the long-notes page, never inline. Wording-
+only refinement of §7.7's mechanism — no new `diff_type`, no new ClcNote/§7.9 index rows;
+`clc_dual_cant_test.py`'s `test_decalogue_omitted_accent` pins both the `lc_corroborated` (dt 5:17)
+and non-corroborated-but-long-noted (dt 5:13) wording, each linking to its own long note, so the
+two grounding paths can't silently collapse into one.
 Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36), closed.
 
 ---
@@ -758,6 +780,16 @@ Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36), closed.
 - **Note-body placement (see §7.3):** short notes inline in the doc column, **long notes relegated
   to a separate "big-doc" page** (MAM-with-doc model, §5); the always-link points to wherever the
   body lives. The skeleton currently inlines *all* bodies — long-note off-loading is still to-do.
+- **Main-page width — done.** A main page's `<body>` (`clc_render._body_wrapper`) carries a
+  `clc-main-page` class that `style.css` uses (`body:has(> div.clc-main-page)`) to widen it past
+  the site-wide 40em cap to 60rem — real room for `td.clc-doc`'s own wider cap (45em, up from 32em)
+  to render without narrowing the text/ref columns. The long-notes page carries no such class, so
+  it stays at the site-wide width, deliberately narrower than the main pages (its content is
+  running prose, not a 3-column table).
+- **Long-notes → main-page back-link — done.** Each long-note entry's "Inline note (repeated from
+  main page)" label — the one place the long-notes page names "the main page" for a specific entry
+  — has "main page" itself link back to that entry's originating page (`out_label(book_id,
+  chapters)` + `.html`, the same label scheme `write_book` uses for its own filename).
 - Note schema: a single **CLC note** type that all sources (charitable under-bar verdicts, bracket
   notes, UXLC `<x>` notes + their tanach.us note-page prose, change records, FOIs, dagesh
   restorations) flow into — **one renderer, many sources**. Fields: atom text, bcvp, note text,
@@ -832,7 +864,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 |---|---|---|
 | §7.1 charitable under-bar | **seed only** | m/d under-bar (+ t transcription-uncertainty) notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False, except the one §7.4 pending-change instance (Deut 5:8.2) |
 | §7.2 bracket-note restoration | not started | plan written up: [#33](https://github.com/bdenckla/UXLC-utils/issues/33) (attachment + UXLC-vs-WLC diff gate), [#34](https://github.com/bdenckla/UXLC-utils/issues/34) (MAM enrichment, depends on #33) |
-| §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); all bodies inline — long-note big-doc page still TODO |
+| §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); most bodies inline, six case-by-case relegated to the shared long-notes page (`clc_render._LONG_NOTE_SPECS`, `gh-pages/clc/long-notes.html`) |
 | §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
@@ -846,7 +878,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.14 strip cosmetic control chars | **partial** | orphaned CGJ dropped in the strand splitter only; no general audit |
 | §7.15 restore "unsupported" dagesh (`q`) | not started | — |
 | §7.16 legarmeh vs. paseq | not started | doc only |
-| §7.17 LC-corroborated omitted-accent wording | **done** | 4 of 6 live omitted-accent notes (Exod 20:3, Deut 5:6 ×2, Deut 5:17) say "the LC has only..." + a link to `wlc-utils`'s supplied-marks page (`clc_dual_cant._LC_CORROBORATED`, `clc_render._omitted_note_block`). The other two (dt 5:7, 5:13) also credit the LC now, but via the separate §7.3 long-notes mechanism, not this corroboration path — no live note still uses the original UXLC-only framing. `wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53) (the prerequisite) is committed and closed. [#36](https://github.com/bdenckla/UXLC-utils/issues/36) closed |
+| §7.17 LC-corroborated omitted-accent wording | **done** | 4 of 6 live omitted-accent notes (Exod 20:3, Deut 5:6 ×2, Deut 5:17) say "the LC has only..." (`clc_dual_cant._LC_CORROBORATED`), with the `wlc-utils` supplied-marks citation itself now living on each one's own §7.3 long note, not inline. The other two (dt 5:7, 5:13) also credit the LC now, via that same long-notes mechanism but a different citation — no live note still uses the original UXLC-only framing. All six now carry a long note. `wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53) (the prerequisite) is committed and closed. [#36](https://github.com/bdenckla/UXLC-utils/issues/36) closed |
 
 **Ad-hoc / plumbing built (not in the §7 list):**
 - **Offline note download/build split** — `main_clc_download_notes` fetches tanach.us note pages into

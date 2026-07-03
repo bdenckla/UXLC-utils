@@ -49,6 +49,10 @@ img {
 }
 
 /* CLC (Charitable Leningrad Codex) — 3-column always-link pages (gh-pages/clc) */
+/* Main pages (clc_render._body_wrapper) get a wider body than the site-wide 40em cap, so
+   td.clc-doc below has real room to grow without narrowing the text/ref columns. The
+   long-notes page carries no div.clc-main-page, so it stays at the site-wide width. */
+body:has(> div.clc-main-page) { max-width: 60rem; }
 table.clc-3col td { vertical-align: top; }
 /* Delineate verses with thin rules anchored at the ref column (à la MAM-with-doc),
    not the site-wide zebra shading. currentColor adapts to light/dark automatically. */
@@ -70,7 +74,7 @@ span.clc-strand-label { font-style: italic; color: light-dark(#555, #aaa); }
    (taḥton == elyon) so the few divergence words stand out
    (clc_render._plain_text_contents). */
 span.clc-strand-same { color: light-dark(#999, #666); }
-td.clc-doc { max-width: 32em; font-size: 85%; }
+td.clc-doc { max-width: 45em; font-size: 85%; }
 a.clc-doc-target { color: light-dark(#1a4fd6, #8ab4ff); text-decoration: none; }
 a.clc-doc-target:hover { text-decoration: underline; }
 div.clc-note { margin-bottom: 0.5em; }

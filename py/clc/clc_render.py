@@ -144,12 +144,19 @@ def _strand_doc_contents(view):
 _LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
 
 
-def _omitted_note_sentence(note):
-    # "the <strand> strand calls for a(n) <accent> on <word> here, but UXLC's combined text
-    # carries only the <other> strand's <present accent>, and it is beyond the limits of CLC's
-    # charity to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark
-    # (nothing is added to the strand; cf. _added_note_block). The accent UXLC *does* have is
-    # named, not abstracted. Accents are noted, never supplied (§7.7).
+def _is_softened_meteg(note):
+    # True for the Deut 5:7-shaped case: an omitted *meteg* takes softened wording
+    # (_omitted_meteg_sentence), which never carries a "beyond the limits of CLC's
+    # charity" clause to begin with (see that helper for why) -- so it is exempt from
+    # the relegation _charity_limit_paragraph/_omitted_note_inline_pieces do below.
+    return note["kind"] == "meteg" and note.get("present_kind")
+
+
+def _omitted_note_core(note):
+    # "The <strand> strand calls for a(n) <accent> on <word> here, but UXLC's combined text
+    # carries only the <other> strand's <present accent>" — the word in rtl Hebrew, NO
+    # bracketed mark (nothing is added to the strand; cf. _added_note_block). The accent
+    # UXLC *does* have is named, not abstracted. Accents are noted, never supplied (§7.7).
     #
     # "the LC has only..." (crediting the manuscript, not just UXLC's own transcription of it)
     # replaces "UXLC's combined text carries" whenever this note is grounded beyond CLC's own
@@ -159,26 +166,35 @@ def _omitted_note_sentence(note):
     # UXLC's own note citing BHL Appendix A. A long note attached here is expected to itself
     # justify that stronger claim, not just restate CLC's own reasoning at length.
     #
-    # A missing *meteg* takes softened wording (_omitted_meteg_sentence) instead: a meteg is
-    # not an accent, so the "calls for … / charity to supply" framing — which treats the wanted
-    # mark as genuinely wanted — over-claims. See that helper for the reasoning.
-    #
-    # Factored out of _omitted_note_block so the long-notes page (clc_long_note, via
-    # clc_render.build_long_notes) can recap the exact same sentence, never a paraphrase.
-    if note["kind"] == "meteg" and note.get("present_kind"):
-        return _omitted_meteg_sentence(note)
+    # This is the shared opening every *non-meteg* omitted-accent note has, split out from the
+    # "and it is beyond the limits of CLC's charity to supply the missing X" clause that used to
+    # always follow it (_omitted_note_sentence) so that clause can be relegated to the long-notes
+    # page on its own (_charity_limit_paragraph) whenever a long note is attached, while this core
+    # keeps showing inline (_omitted_note_inline_pieces).
     article = "an" if note["kind"][:1] in "aeiou" else "a"
-    lc_corroborated = note.get("lc_corroborated", False)
-    grounded = lc_corroborated or note.get("has_long_note", False)
+    grounded = note.get("lc_corroborated", False) or note.get("has_long_note", False)
     carries = "the LC has" if grounded else "UXLC’s combined text carries"
     has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
            if note.get("present_kind") else f"no accent for the {note['strand']} strand")
     return [
         f"The {note['strand']} strand calls for {article} {note['kind']} on ",
         H.span(note["snippet"], _HBO_ATTR),
-        f" here, but {carries} {has}, and it is beyond the limits"
-        f" of CLC’s charity to supply the missing {note['kind']}"
-        + ("" if lc_corroborated else "."),
+        f" here, but {carries} {has}",
+    ]
+
+
+def _omitted_note_sentence(note):
+    # The FULL sentence — core + "and it is beyond the limits of CLC's charity to supply the
+    # missing <accent>" — used wherever that full reasoning is wanted in one place: the
+    # long-notes page always shows it (_charity_limit_paragraph), and so does the main page's
+    # own inline note when no long note exists to relegate it to
+    # (_omitted_note_inline_pieces). A missing *meteg* takes different, already-full,
+    # softened wording (_omitted_meteg_sentence) instead — see _is_softened_meteg.
+    if _is_softened_meteg(note):
+        return _omitted_meteg_sentence(note)
+    return [
+        *_omitted_note_core(note),
+        f", and it is beyond the limits of CLC’s charity to supply the missing {note['kind']}.",
     ]
 
 
@@ -204,23 +220,39 @@ def _omitted_meteg_sentence(note):
     ]
 
 
+def _omitted_note_inline_pieces(note):
+    # What actually renders inline (main-page doc column, and the long-notes page's own
+    # verbatim recap of it — _build_long_note_entry). Once a long note is attached
+    # (has_long_note), the "and it is beyond the limits of CLC's charity to supply the
+    # missing X" clause relegates there ENTIRELY (_charity_limit_paragraph) — this returns
+    # just the truncated core instead. The softened meteg wording never had that clause to
+    # begin with, so it renders in full regardless of has_long_note.
+    if note.get("has_long_note") and not _is_softened_meteg(note):
+        return [*_omitted_note_core(note), "."]
+    return list(_omitted_note_sentence(note))
+
+
+def _charity_limit_paragraph(note):
+    # The "and it is beyond the limits of CLC's charity to supply the missing X" clause,
+    # relegated here in full once a long note exists to hold it (design doc §7.3) — None
+    # for the softened meteg wording, which never phrased it that way (_is_softened_meteg).
+    if _is_softened_meteg(note):
+        return None
+    return H.para(
+        [f"It is beyond the limits of CLC’s charity to supply the missing {note['kind']}."]
+    )
+
+
 def _omitted_note_block(note):
-    # Wraps _omitted_note_sentence with whatever tail(s) this note's grounding calls for:
-    # the wlc-utils link (lc_corroborated) and/or a link to this note's own long-notes-page
-    # entry (has_long_note) — see clc_dual_cant._LC_CORROBORATED / _HAS_LONG_NOTE. Either,
-    # neither, or (in principle) both may apply; each appends its own trailing sentence.
-    contents = list(_omitted_note_sentence(note))
-    if note.get("lc_corroborated"):
-        contents.extend(
-            [
-                " — see the grammar checker’s ",
-                H.anchor("supplied accents", {"href": _LC_CORROBORATED_LINK}),
-                " page.",
-            ]
-        )
+    # Wraps the inline pieces with a link to this note's own long-notes-page entry,
+    # whenever one is attached (clc_dual_cant._HAS_LONG_NOTE) -- e.g. an lc_corroborated
+    # note's wlc-utils grammar-checker citation, and now also its "beyond the limits of
+    # CLC's charity" clause, live ONLY on that page (§7.3), never inline; this pointer is
+    # all that remains here.
+    contents = _omitted_note_inline_pieces(note)
     if note.get("has_long_note"):
         book_id, ch, v = note["verse_loc"]
-        anchor = clc_long_note.anchor_id(book_id, ch, v, note["strand"])
+        anchor = clc_long_note.anchor_id(book_id, ch, v, note["strand"], note["kind"])
         contents.extend(
             [
                 " See more details in ",
@@ -544,6 +576,24 @@ class _LongNoteSpec:
     extra_blocks: object
 
 
+def _lc_corroborated_extra(_book, _notes):
+    # Shared by all four _LC_CORROBORATED cases below (Exod 20:3, Deut 5:6 ×2, Deut 5:17):
+    # the same wlc-utils grammar-checker citation (issue #36) grounds every one of them
+    # identically, so one boilerplate paragraph serves all four rather than bespoke
+    # per-verse prose like 5:13's/5:7's. This citation used to be an inline "— see the
+    # grammar checker's supplied accents page" link on the main page; it now lives here
+    # only, with just a "See more details in this longer note" pointer left inline
+    # (clc_render._omitted_note_block).
+    return [
+        [
+            "This omitted accent is independently corroborated by wlc-utils’s grammar"
+            " checker — see its ",
+            H.anchor("supplied accents", {"href": _LC_CORROBORATED_LINK}),
+            " page.",
+        ]
+    ]
+
+
 _LONG_NOTE_SPECS = (
     _LongNoteSpec(
         "Deuter", 5, 13, "taḥton", "pashta", 2, "t",
@@ -555,6 +605,26 @@ _LONG_NOTE_SPECS = (
         "Deuter.5.7.2.LC-102A-col3-line22.jpg", "Sefaria.org",
         _dt_5_7_elyon_meteg_extra,
     ),
+    _LongNoteSpec(
+        "Exodus", 20, 3, "taḥton", "merkha", None, "",
+        "", "",
+        _lc_corroborated_extra,
+    ),
+    _LongNoteSpec(
+        "Deuter", 5, 6, "elyon", "tipeḥa", None, "",
+        "", "",
+        _lc_corroborated_extra,
+    ),
+    _LongNoteSpec(
+        "Deuter", 5, 6, "elyon", "etnaḥta", None, "",
+        "", "",
+        _lc_corroborated_extra,
+    ),
+    _LongNoteSpec(
+        "Deuter", 5, 17, "elyon", "silluq", None, "",
+        "", "",
+        _lc_corroborated_extra,
+    ),
 )
 
 # Derived from _LONG_NOTE_SPECS: (book, ch, v, atom_index, note_code) -> long-note
@@ -564,7 +634,7 @@ _LONG_NOTE_SPECS = (
 # a pure-further-discussion long note like Deut 5:7's elyon meteg subsumes nothing.
 _UXLC_NOTES_RELEGATED = {
     (spec.book_id, spec.ch, spec.v, spec.relegated_position, spec.relegated_code):
-        clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand)
+        clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)
     for spec in _LONG_NOTE_SPECS
     if spec.relegated_position is not None
 }
@@ -581,29 +651,46 @@ def build_long_notes(book_id, book, notes, chapters=None):
             continue
         if chapters is not None and spec.ch not in chapters:
             continue
-        entries.append(_build_long_note_entry(spec, book, notes))
+        entries.append(_build_long_note_entry(spec, book, notes, chapters))
     return entries
 
 
-def _build_long_note_entry(spec, book, notes):
+def _build_long_note_entry(spec, book, notes, chapters):
     verse_atoms = book[spec.ch - 1][spec.v - 1]
     views = clc_dual_cant.strand_views(spec.book_id, spec.ch, spec.v, verse_atoms)
     strands = [vw for vw in views if vw.suffix != clc_dual_cant.SUFFIX_COMBINED]
     view, note = _find_strand_note(strands, spec.strand, spec.kind)
     other = next(vw for vw in strands if vw is not view)
-    anchor = clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand)
-    heading = f"{spec.book_id} {spec.ch}:{spec.v} — {view.doc_label}"
+    anchor = clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)
+    # The kind suffix disambiguates a verse+strand with more than one long note (Deut
+    # 5:6's elyon wants both a tipeḥa and an etnaḥta) -- without it, both would show the
+    # identical heading "Deuter 5:6 — elyon strand" with nothing to tell them apart.
+    heading = f"{spec.book_id} {spec.ch}:{spec.v} — {view.doc_label} ({spec.kind})"
     verse_recap = H.para([H.span(_plain_text_contents(view.atoms, other.atoms), _HBO_ATTR)])
     # Labeled so a reader landing here from the always-link (not from the short note's
     # own "see more details" link) can tell which part is a verbatim recap of what the
-    # main page already says, versus the content that's new to this page.
-    short_recap = H.para(["Inline note (repeated from main page): ", *_omitted_note_sentence(note)])
+    # main page already says, versus the content that's new to this page. "main page"
+    # itself is the back-link to that page -- same label/href scheme write_book uses to
+    # name its own output file (out_label), so this always matches the file actually built
+    # for spec's book/chapters, whether or not it happens to be chapter-limited.
+    main_page_href = f"{out_label(spec.book_id, chapters)}.html"
+    short_recap = H.para(
+        [
+            "Inline note (repeated from ",
+            H.anchor("main page", {"href": main_page_href}),
+            "): ",
+            *_omitted_note_inline_pieces(note),
+        ]
+    )
     # extra_blocks returns a list of paragraphs (each a list of inline pieces); the
     # "Further discussion:" label leads the first, the rest (e.g. Deut 5:7's aside) follow.
     para_contents = spec.extra_blocks(book, notes)
     extra_paras = [H.para(["Further discussion: ", *para_contents[0]])]
     extra_paras += [H.para(pc) for pc in para_contents[1:]]
     blocks = [verse_recap, short_recap]
+    charity_para = _charity_limit_paragraph(note)
+    if charity_para is not None:
+        blocks.append(charity_para)
     if spec.image_filename:
         blocks.append(_long_note_image(spec))
     blocks.extend(extra_paras)
@@ -637,6 +724,11 @@ def _find_strand_note(strands, strand, kind):
 
 
 def _body_wrapper(book_id, notes, table):
+    # The "clc-main-page" class is a hook for gh-pages/style.css to widen <body> itself
+    # (past its site-wide 40em cap) on these pages only -- the long-notes page carries no
+    # such class, so it stays at the site-wide width. Widening the page is what actually
+    # lets td.clc-doc's own wider max-width (gh-pages/style.css) render wider, instead of
+    # squeezing the text/ref columns to make room.
     style = "max-width: 60rem; margin-left: auto; margin-right: auto"
     contents = [
         H.heading_level_1(f"Charitable Leningrad Codex — {book_id}"),
@@ -644,7 +736,7 @@ def _body_wrapper(book_id, notes, table):
         _intro_para(notes),
         table,
     ]
-    return [H.div(contents, {"style": style})]
+    return [H.div(contents, {"style": style, "class": "clc-main-page"})]
 
 
 def _intro_para(notes):

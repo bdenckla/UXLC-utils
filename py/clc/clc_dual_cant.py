@@ -106,24 +106,31 @@ _LC_CORROBORATED = {
 }
 
 # Omitted-accent notes with an editor-attached long note on the separate long-notes
-# page (design doc §7.3, clc_long_note). Two things this flag can do, per case:
+# page (design doc §7.3, clc_long_note). Three things this flag can do, per case:
 #   * License clc_render's "the LC has" wording for an *accent* note (crediting the
 #     manuscript, not just CLC's own synthesis) when the long note cites independent
-#     grounding -- a SEPARATE pathway from _LC_CORROBORATED above (that one is
-#     specifically wlc-utils's grammar-checker corroboration; this one is whatever the
-#     long note itself cites -- e.g. Deut 5:13's taḥton pashta cites UXLC's own note,
-#     which in turn cites BHL Appendix A). See _accent_name's sibling reasoning in
-#     clc_render's _omitted_note_sentence.
+#     grounding -- e.g. Deut 5:13's taḥton pashta cites UXLC's own note, which in turn
+#     cites BHL Appendix A. See _accent_name's sibling reasoning in clc_render's
+#     _omitted_note_sentence.
 #   * Simply attach a "further discussion" note with no grounding role -- e.g. Deut 5:7's
 #     elyon *meteg*, whose long note cites Yeivin's ITM §355 on the special gaʿya of
 #     יהיה-type verbs. That note already takes softened, self-grounding wording
 #     (clc_render._omitted_meteg_sentence), so this flag only adds the cross-link.
+#   * Relegate a note's wlc-utils grammar-checker citation (_LC_CORROBORATED above) off
+#     the main page -- the four _LC_CORROBORATED cases are ALSO here: the inline note
+#     used to end with a direct "see the grammar checker's supplied accents page" link;
+#     that citation now lives solely in these cases' long note, with just a "See more
+#     details in this longer note" pointer left inline (clc_render._omitted_note_block).
 # Keyed the same as _LC_CORROBORATED: (book_id, ch, v, strand.short, kind). The actual
 # page content lives in clc_render._LONG_NOTE_SPECS (this module stays render-agnostic,
 # pure data/logic only).
 _HAS_LONG_NOTE = {
     ("Deuter", 5, 13, "taḥton", "pashta"),
     ("Deuter", 5, 7, "elyon", "meteg"),
+    ("Exodus", 20, 3, "taḥton", "merkha"),
+    ("Deuter", 5, 6, "elyon", "tipeḥa"),
+    ("Deuter", 5, 6, "elyon", "etnaḥta"),
+    ("Deuter", 5, 17, "elyon", "silluq"),
 }
 
 
@@ -187,16 +194,16 @@ _MIDRASHIT = _Strand(
     "midrashit",
 )
 _TAXTON = _Strand(
-    "taḥton (lower) strand",
-    "Strand א (taḥton / lower): the verse-by-verse cantillation that divides the "
+    "taḥton strand",
+    "Strand א (taḥton): the verse-by-verse cantillation that divides the "
     "Decalogue into its prose verses, separated from the combined marks using MAM as "
     "oracle — only the other strand's accents and the punctuation tracking them are "
     "subtracted (so a sof-pasuq is dropped where this strand does not end a verse).",
     "taḥton",
 )
 _ELYON = _Strand(
-    "elyon (upper) strand",
-    "Strand ב (elyon / upper): the cantillation that chants each commandment as one "
+    "elyon strand",
+    "Strand ב (elyon): the cantillation that chants each commandment as one "
     "verse, separated the same way.",
     "elyon",
 )

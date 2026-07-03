@@ -102,18 +102,31 @@ def test_long_note_relegation():
     assert not any('id="clc-5-13-2"' in H.el_to_str_no_wbr(b) for b in doc_blocks), doc_blocks
 
     href = clc_render._note_href(5, 13, 2, notes_by_atom.get((5, 13, 2)))
-    assert href == "long-notes.html#long-Deuter-5-13-tahton", href
+    assert href == "long-notes.html#long-Deuter-5-13-tahton-pashta", href
 
-    # Chapter 5 has two long notes: 5:13's taḥton pashta (this one, which relegates an inline
-    # UXLC note and carries an image) and 5:7's elyon meteg (pure further discussion, below).
+    # Chapter 5 has five long notes: 5:13's taḥton pashta (this one, which relegates an inline
+    # UXLC note and carries an image), 5:7's elyon meteg (pure further discussion, below), and
+    # three more wlc-utils-corroborated cases (5:6's elyon tipeḥa/etnaḥta, 5:17's elyon silluq)
+    # whose "See the grammar checker's supplied accents page" citation now lives only here,
+    # not inline (see clc_dual_cant_test.py for their own content coverage).
     long_notes = clc_render.build_long_notes("Deuter", book, notes, chapters={5})
     by_anchor = {e["anchor"]: e for e in long_notes}
-    assert set(by_anchor) == {"long-Deuter-5-13-tahton", "long-Deuter-5-7-elyon"}, by_anchor
-    section_html = H.el_to_str_no_wbr(clc_long_note._section(by_anchor["long-Deuter-5-13-tahton"]))
-    assert 'id="long-Deuter-5-13-tahton"' in section_html
+    assert set(by_anchor) == {
+        "long-Deuter-5-13-tahton-pashta",
+        "long-Deuter-5-7-elyon-meteg",
+        "long-Deuter-5-6-elyon-tipeha",
+        "long-Deuter-5-6-elyon-etnahta",
+        "long-Deuter-5-17-elyon-silluq",
+    }, by_anchor
+    section_html = H.el_to_str_no_wbr(
+        clc_long_note._section(by_anchor["long-Deuter-5-13-tahton-pashta"])
+    )
+    assert 'id="long-Deuter-5-13-tahton-pashta"' in section_html
     # The short note's own recap and the added content are each labeled, so a reader
-    # can tell which part just repeats the main page vs. what's new here.
-    assert "Inline note (repeated from main page): The taḥton strand calls for" in section_html
+    # can tell which part just repeats the main page vs. what's new here. "main page"
+    # is itself a back-link to the page this note was relegated from.
+    assert 'Inline note (repeated from <a href="Deuter-5.html">main page</a>): The taḥton' \
+        " strand calls for" in section_html
     assert "beyond the limits" in section_html
     assert "the LC has only the elyon" in section_html
     assert "Further discussion: See the " in section_html
@@ -123,7 +136,7 @@ def test_long_note_relegation():
     assert "Appendix A" in section_html
     # The manuscript detail image sits between the short-note recap and the further
     # discussion it illustrates, with its source's own credit line carried forward.
-    i_short = section_html.index("Inline note (repeated from main page)")
+    i_short = section_html.index("Inline note (repeated from")
     i_img = section_html.index('src="../img/Deuter.5.13.2-t.jpg"')
     i_credit = section_html.index("Credit: Sefaria.org.")
     i_further = section_html.index("Further discussion:")
@@ -133,8 +146,11 @@ def test_long_note_relegation():
     # ITM §355 citation, an LC folio-102A detail image, a closing aside on the charitably-read
     # initial yod, and — unlike 5:13 — it relegates no inline UXLC x-note (relegated_position is
     # None, so it never joins _UXLC_NOTES_RELEGATED).
-    meteg_html = H.el_to_str_no_wbr(clc_long_note._section(by_anchor["long-Deuter-5-7-elyon"]))
-    assert "Inline note (repeated from main page): A meteg might be expected in the elyon" in meteg_html
+    meteg_html = H.el_to_str_no_wbr(
+        clc_long_note._section(by_anchor["long-Deuter-5-7-elyon-meteg"])
+    )
+    assert 'Inline note (repeated from <a href="Deuter-5.html">main page</a>): A meteg might' \
+        " be expected in the elyon" in meteg_html
     assert "best transcribed as a" in meteg_html
     assert "Further discussion: Regarding the meteg that might be expected on" in meteg_html
     assert 'href="https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"' in meteg_html
@@ -148,11 +164,24 @@ def test_long_note_relegation():
     assert "initial yod is a charitable transcription" in meteg_html
     assert "</p>" in meteg_html[meteg_html.index("Further discussion:"):meteg_html.index("Aside:")]
     # Image sits between the short-note recap and the further discussion it illustrates.
-    assert (meteg_html.index("Inline note (repeated from main page)")
+    assert (meteg_html.index("Inline note (repeated from")
             < meteg_html.index('src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"')
             < meteg_html.index("Further discussion:")
             < meteg_html.index("Aside:")), meteg_html
     assert list(clc_render._UXLC_NOTES_RELEGATED) == [("Deuter", 5, 13, 2, "t")]
+
+    # The three wlc-utils-corroborated entries (5:6 x2, 5:17) share one boilerplate
+    # "Further discussion" paragraph -- the grammar-checker citation itself, no longer
+    # inline on the main page (clc_dual_cant_test.py covers each note's own content).
+    for anchor in (
+        "long-Deuter-5-6-elyon-tipeha",
+        "long-Deuter-5-6-elyon-etnahta",
+        "long-Deuter-5-17-elyon-silluq",
+    ):
+        html = H.el_to_str_no_wbr(clc_long_note._section(by_anchor[anchor]))
+        assert "Inline note (repeated from" in html
+        assert "independently corroborated by wlc-utils’s grammar checker" in html
+        assert 'href="https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"' in html
 
 
 def main():

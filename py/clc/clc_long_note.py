@@ -27,10 +27,23 @@ _STRAND_SLUG = {
     "midrashit": "midrashit",
 }
 
+# Same idea as _STRAND_SLUG, for an omitted-accent note's "kind" (clc_dual_cant's
+# describe_diff.accent_name spelling) -- needed since one (book, ch, v, strand) can carry
+# more than one omitted-accent long note (e.g. Deut 5:6's elyon wants both a tipeḥa and an
+# etnaḥta), so kind must join strand in the anchor id to keep it unique.
+_KIND_SLUG = {
+    "pashta": "pashta",
+    "meteg": "meteg",
+    "merkha": "merkha",
+    "tipeḥa": "tipeha",
+    "etnaḥta": "etnahta",
+    "silluq": "silluq",
+}
 
-def anchor_id(book_id, ch, v, strand):
-    """The long-notes page anchor id for one (book, ch, v, strand) case."""
-    return f"long-{book_id}-{ch}-{v}-{_STRAND_SLUG[strand]}"
+
+def anchor_id(book_id, ch, v, strand, kind):
+    """The long-notes page anchor id for one (book, ch, v, strand, kind) case."""
+    return f"long-{book_id}-{ch}-{v}-{_STRAND_SLUG[strand]}-{_KIND_SLUG[kind]}"
 
 
 def page_href(anchor):
