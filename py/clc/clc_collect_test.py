@@ -136,15 +136,22 @@ def test_long_note_relegation():
     meteg_html = H.el_to_str_no_wbr(clc_long_note._section(by_anchor["long-Deuter-5-7-elyon"]))
     assert "Inline note (repeated from main page): A meteg might be expected in the elyon" in meteg_html
     assert "best transcribed as a" in meteg_html
-    assert "Further discussion:" in meteg_html
+    assert "Further discussion: Regarding the meteg that might be expected on" in meteg_html
     assert 'href="https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"' in meteg_html
     assert 'src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"' in meteg_html
     assert "Credit: Sefaria.org." in meteg_html
-    assert "initial yod is itself a charitable reading" in meteg_html
+    # The radically-shortened note keeps only a Yeivin pointer + the yod aside; the old
+    # in-prose précis (roots, "slurred over", the initially-stressed litigation) is gone.
+    assert "slurred over" not in meteg_html
+    assert "initially-stressed" not in meteg_html
+    # The aside is promoted to its own paragraph, after the "Further discussion:" one.
+    assert "initial yod is a charitable transcription" in meteg_html
+    assert "</p>" in meteg_html[meteg_html.index("Further discussion:"):meteg_html.index("Aside:")]
     # Image sits between the short-note recap and the further discussion it illustrates.
     assert (meteg_html.index("Inline note (repeated from main page)")
             < meteg_html.index('src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"')
-            < meteg_html.index("Further discussion:")), meteg_html
+            < meteg_html.index("Further discussion:")
+            < meteg_html.index("Aside:")), meteg_html
     assert list(clc_render._UXLC_NOTES_RELEGATED) == [("Deuter", 5, 13, 2, "t")]
 
 

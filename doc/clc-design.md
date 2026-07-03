@@ -380,9 +380,9 @@ Each is a feature this doc names, organized with grounding + open questions.
     Deut 5:7's elyon meteg (§7.7) — *further discussion* with no grounding role: it relegates no
     inline UXLC note (`relegated_position` is `None`, so it stays out of `_UXLC_NOTES_RELEGATED`),
     but it does carry an LC folio-102A (col 3, line 22) detail image of יהיה, credited like the
-    5:13 image to Sefaria.org. It expands the softened short note with a Yeivin ITM §355 citation on
-    the special gaʿya of יהיה-type verbs, closing with an aside that the word's initial yod is itself
-    a charitable reading (most of its top has flaked from the parchment).
+    5:13 image to Sefaria.org. It is a one-sentence pointer to Yeivin ITM §355 on the special gaʿya
+    of יהיה-type verbs, closing with an aside that the word's initial yod is itself a charitable
+    reading (most of its top has flaked off).
 
 ### 7.4 UXLC change records as a kind of note
 - We **have** the change text (the dated `* - Changes.xml` in `in/UXLC-misc/`, processed by
@@ -482,7 +482,7 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
     metrical, even the "obligatory" gaʿyot are written inconsistently, and this special gaʿya of
     יהיה-type verbs is, by Yeivin's own account (ITM §355), marked only inconsistently (its one
     "as a rule" setting — a maqqef-joined initially-stressed following word — may or may not cover
-    יהיה־לך, an unsettled point the long note flags but leaves open). So the "calls for … / beyond
+    יהיה־לך, an unsettled point the long note leaves to Yeivin rather than adjudicating). So the "calls for … / beyond
     the limits of CLC's charity to supply" framing — which treats the wanted mark as genuinely wanted —
     would over-claim. CLC instead reframes it as a transcription choice over a *single* extant mark
     (`clc_render._omitted_meteg_sentence`): *"A meteg might be expected in the elyon strand here on

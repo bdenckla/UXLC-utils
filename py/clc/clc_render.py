@@ -436,13 +436,14 @@ def _dt_5_13_taxton_extra(_book, notes):
         n for n in notes
         if (n.book, n.ch, n.v, n.atom_index, n.note_code) == ("Deuter", 5, 13, 2, "t")
     )
-    return [
+    # A list of paragraphs (each a list of inline pieces); this note is a single paragraph.
+    return [[
         "See the ",
         H.anchor("UXLC note", {"href": uxlc_note.source_url, "target": "_blank"}),
         " on this word. The lack of this pashta is noted in ",
         H.abbr("BHL", {"title": _BHL_TITLE}),
         " Appendix A.",
-    ]
+    ]]
 
 
 # Yeivin, Introduction to the Tiberian Masorah §355 (the special "phonetic" gaʿya of
@@ -463,52 +464,37 @@ def _dt_5_7_elyon_meteg_extra(_book, _notes):
     # exception fails — but whether Yeivin counts לך as initially stressed is genuinely unclear
     # (it turns on whether he reckons syllable/stress in modern or Masoretic terms — e.g. a vocal
     # shewa forming no syllable of its own would make לְךָ pattern with his monosyllables). Per
-    # Ben, we do NOT litigate that: the note only flags the uncertainty in passing. Either way
-    # CLC's move stands: a gaʿya is metrical (not an accent), "as a rule" is not "always," and —
-    # decisively — the one mark the LC actually carries is the taxton's merkha, which the chant
-    # needs; CLC reads the mark as that merkha and invents no second one for the gaʿya. No inline
-    # UXLC x-note is relegated for this one.
+    # Ben, we do NOT litigate that in the note. Either way CLC's move stands: a gaʿya is metrical
+    # (not an accent), "as a rule" is not "always," and — decisively — the one mark the LC
+    # actually carries is the taxton's merkha, which the chant needs; CLC reads the mark as that
+    # merkha and invents no second one for the gaʿya. No inline UXLC x-note is relegated for this
+    # one. The rendered note keeps none of this argument in prose: it is just a one-sentence
+    # pointer to Yeivin ITM §355 (where his own "as a rule" caveat lives) plus the aside below.
     #
     # Closing aside (paired with the LC folio-102A detail image this spec carries): the mark
     # is this note's main subject, but the word's own initial yod is a separate act of
-    # charity — most of its top has flaked from the parchment, and it is read from the faint
+    # charity — most of its top has flaked off, and it is read from the faint
     # surviving remnants together with the context. Charity is CLC's central principle, so
     # it is worth surfacing even where the mark, not the letter, is the occasion for the note.
+    #
+    # Returns a list of paragraphs (each a list of inline pieces); see _build_long_note_entry.
     return [
-        "The mark the elyon strand wants here is not an accent but the special"
-        " gaʿya (meteg) that Tiberian pointing places on the first syllable of forms built"
-        " on the roots ",
-        H.span("היה", _HBO_ATTR),
-        " and ",
-        H.span("חיה", _HBO_ATTR),
-        " — ",
-        H.span("יִהְיֶה", _HBO_ATTR),
-        ", ",
-        H.span("וַיְהִי", _HBO_ATTR),
-        ", and the like — to keep the following ",
-        H.span("ה", _HBO_ATTR),
-        " or ",
-        H.span("ח", _HBO_ATTR),
-        " with shewa from being slurred over. Yeivin, in ",
-        H.anchor("section 355", {"href": _YEIVIN_ITM_355_URL, "target": "_blank"}),
-        " of his Introduction to the Tiberian Masorah, notes that the tendency to mark this"
-        " gaʿya varies from form to form and “is not consistent in individual manuscripts,"
-        " nor is its use uniform in any group of manuscripts, and it is not in the lists of"
-        " ḥillufim.” Yeivin does add that it is “as a rule” marked in one narrower setting —"
-        " a word joined by maqqef to an initially-stressed following word — which may or may"
-        " not cover the elyon’s ",
-        H.span("יִהְיֶה־", _HBO_ATTR),
-        " here (whether the following ",
-        H.span("לְךָ", _HBO_ATTR),
-        " counts as initially stressed turns on unsettled questions of how syllable and stress"
-        " are reckoned, which we leave aside). Either way, a gaʿya is metrical, not an accent,"
-        " and “as a rule” is not “always”; and, decisively, the single mark the LC does"
-        " carry is the taḥton strand’s merkha, which the chant genuinely needs — so CLC reads that"
-        " mark as the merkha and invents no second one for the gaʿya. As an aside — the mark"
-        " is this note’s main subject, but the word’s initial yod is itself a charitable"
-        " reading: most of its top seems to have flaked from the parchment (visible in the"
-        " detail above), and it is restored from the faint remnants that survive together with"
-        " the surrounding context.",
+        [
+            "Regarding the meteg that might be expected on ",
+            H.span("יִהְיֶה־", _HBO_ATTR),
+            ", see ",
+            H.anchor("section 355", {"href": _YEIVIN_ITM_355_URL, "target": "_blank"}),
+            " of Yeivin’s Introduction to the Tiberian Masorah.",
+        ],
+        [
+            "Aside: the mark transcribed as merkha is this note’s main subject,"
+            " but it should be noted that the word’s initial yod is a charitable transcription,"
+            " since most of the top of the yod seems to have flaked off."
+            " This yod is transcribed as present based on"
+            " expectation combined with"
+            " the tail that did not flake off,"
+            " plus the faint remnants that seem to have remained even after flaking.",
+        ],
     ]
 
 
@@ -594,11 +580,15 @@ def _build_long_note_entry(spec, book, notes):
     # own "see more details" link) can tell which part is a verbatim recap of what the
     # main page already says, versus the content that's new to this page.
     short_recap = H.para(["Inline note (repeated from main page): ", *_omitted_note_sentence(note)])
-    extra = H.para(["Further discussion: ", *spec.extra_blocks(book, notes)])
+    # extra_blocks returns a list of paragraphs (each a list of inline pieces); the
+    # "Further discussion:" label leads the first, the rest (e.g. Deut 5:7's aside) follow.
+    para_contents = spec.extra_blocks(book, notes)
+    extra_paras = [H.para(["Further discussion: ", *para_contents[0]])]
+    extra_paras += [H.para(pc) for pc in para_contents[1:]]
     blocks = [verse_recap, short_recap]
     if spec.image_filename:
         blocks.append(_long_note_image(spec))
-    blocks.append(extra)
+    blocks.extend(extra_paras)
     return clc_long_note.entry(anchor, heading, blocks)
 
 
