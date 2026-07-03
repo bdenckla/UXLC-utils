@@ -11,11 +11,14 @@ threshold) to its note in the doc column of the same row. CLC defines its own
 to MAM's ``mam-doc-*`` (design doc §8); the rules live in gh-pages/style.css.
 """
 
+from dataclasses import dataclass
+
 import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
 import mb_diff_mpu.describe_diff as describe_diff
 import clc.clc_attribution as clc_attribution
 import clc.clc_dual_cant as clc_dual_cant
 import clc.clc_kq as clc_kq
+import clc.clc_long_note as clc_long_note
 import clc.clc_note as clc_note
 import uxlc_misc.uxlc_utils_html as H
 
@@ -141,35 +144,60 @@ def _strand_doc_contents(view):
 _LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
 
 
-def _omitted_note_block(note):
+def _omitted_note_sentence(note):
     # "the <strand> strand calls for a(n) <accent> on <word> here, but UXLC's combined text
     # carries only the <other> strand's <present accent>, and it is beyond the limits of CLC's
     # charity to supply the missing <accent>" — the word in rtl Hebrew, NO bracketed mark
     # (nothing is added to the strand; cf. _added_note_block). The accent UXLC *does* have is
     # named, not abstracted. Accents are noted, never supplied (§7.7).
     #
-    # Where independent manuscript grounding exists (issue #36 — clc_dual_cant._LC_CORROBORATED,
-    # Ben's own judgment call landed as prose in wlc-utils's supplied-marks.html), the note
-    # instead says "the LC has only...", crediting the manuscript rather than UXLC's own
-    # transcription of it, and links to wlc-utils's corroborating page.
+    # "the LC has only..." (crediting the manuscript, not just UXLC's own transcription of it)
+    # replaces "UXLC's combined text carries" whenever this note is grounded beyond CLC's own
+    # synthesis: either wlc-utils's grammar-checker corroboration (issue #36,
+    # clc_dual_cant._LC_CORROBORATED) or an editor-attached long note making its own independent
+    # case (clc_dual_cant._HAS_LONG_NOTE) — e.g. Deut 5:13's taḥton pashta, whose long note cites
+    # UXLC's own note citing BHL Appendix A. A long note attached here is expected to itself
+    # justify that stronger claim, not just restate CLC's own reasoning at length.
+    #
+    # Factored out of _omitted_note_block so the long-notes page (clc_long_note, via
+    # clc_render.build_long_notes) can recap the exact same sentence, never a paraphrase.
     article = "an" if note["kind"][:1] in "aeiou" else "a"
-    corroborated = note.get("lc_corroborated", False)
-    carries = "the LC has" if corroborated else "UXLC’s combined text carries"
+    lc_corroborated = note.get("lc_corroborated", False)
+    grounded = lc_corroborated or note.get("has_long_note", False)
+    carries = "the LC has" if grounded else "UXLC’s combined text carries"
     has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
            if note.get("present_kind") else f"no accent for the {note['strand']} strand")
-    contents = [
+    return [
         f"The {note['strand']} strand calls for {article} {note['kind']} on ",
         H.span(note["snippet"], _HBO_ATTR),
         f" here, but {carries} {has}, and it is beyond the limits"
         f" of CLC’s charity to supply the missing {note['kind']}"
-        + ("" if corroborated else "."),
+        + ("" if lc_corroborated else "."),
     ]
-    if corroborated:
+
+
+def _omitted_note_block(note):
+    # Wraps _omitted_note_sentence with whatever tail(s) this note's grounding calls for:
+    # the wlc-utils link (lc_corroborated) and/or a link to this note's own long-notes-page
+    # entry (has_long_note) — see clc_dual_cant._LC_CORROBORATED / _HAS_LONG_NOTE. Either,
+    # neither, or (in principle) both may apply; each appends its own trailing sentence.
+    contents = list(_omitted_note_sentence(note))
+    if note.get("lc_corroborated"):
         contents.extend(
             [
                 " — see the grammar checker’s ",
                 H.anchor("supplied accents", {"href": _LC_CORROBORATED_LINK}),
                 " page.",
+            ]
+        )
+    if note.get("has_long_note"):
+        book_id, ch, v = note["verse_loc"]
+        anchor = clc_long_note.anchor_id(book_id, ch, v, note["strand"])
+        contents.extend(
+            [
+                " See more details in ",
+                H.anchor("this longer note", {"href": clc_long_note.page_href(anchor)}),
+                ".",
             ]
         )
     return H.div(contents, {"class": "clc-added-note"})
@@ -218,13 +246,35 @@ def _text_contents(ch, v, verse, notes_by_atom):
             pieces.append(clc_kq.kq_ruby(item, notes_by_atom, ch, v))
             _append_join_space(pieces, clc_kq.join_text(item))
         else:
-            if (ch, v, item.position) in notes_by_atom:
-                href = f"#{_anchor_id(ch, v, item.position)}"
+            href = _note_href(ch, v, item.position, notes_by_atom.get((ch, v, item.position)))
+            if href:
                 pieces.append(H.anchor(item.text, {"href": href, "class": "clc-doc-target"}))
             else:
                 pieces.append(item.text)
             _append_join_space(pieces, item.text)
     return pieces
+
+
+def _relegated_anchor(note):
+    # Non-None iff this UXLC x-note is relegated to the long-notes page instead of an
+    # inline same-row block (design doc §7.3, case-by-case — see _LONG_NOTE_SPECS).
+    return _UXLC_NOTES_RELEGATED.get((note.book, note.ch, note.v, note.atom_index, note.note_code))
+
+
+def _note_href(ch, v, position, atom_notes):
+    # The word's always-link target: the local same-row anchor if it has any note that
+    # still renders there, else — if EVERY note on this atom is relegated (above) — the
+    # long-notes page anchor instead (design doc §7.3's "the always-link then points
+    # across to the anchored body on that page instead of into the same-row doc cell"),
+    # else None (unnoted word, no link).
+    if not atom_notes:
+        return None
+    if any(_relegated_anchor(n) is None for n in atom_notes):
+        return f"#{_anchor_id(ch, v, position)}"
+    anchors = {_relegated_anchor(n) for n in atom_notes}
+    assert len(anchors) == 1, (ch, v, position, anchors)  # one atom, one long note, for now
+    (anchor,) = anchors
+    return clc_long_note.page_href(anchor)
 
 
 def _plain_text_contents(strand_atoms, other_atoms):
@@ -278,9 +328,13 @@ def _append_join_space(pieces, join_key):
 def _doc_contents(ch, v, verse, notes_by_atom):
     blocks = []
     for atidx, _atom in enumerate(verse):
-        atom_notes = notes_by_atom.get((ch, v, atidx + 1))
-        if atom_notes:
-            blocks.append(_note_block(ch, v, atidx + 1, atom_notes))
+        position = atidx + 1
+        atom_notes = notes_by_atom.get((ch, v, position))
+        if not atom_notes:
+            continue
+        visible = [n for n in atom_notes if _relegated_anchor(n) is None]
+        if visible:
+            blocks.append(_note_block(ch, v, position, visible))
     return blocks
 
 
@@ -339,6 +393,135 @@ def _accent_diff_names(uxlc_reading, clc_reading):
 
 def _anchor_id(ch, v, position):
     return f"clc-{ch}-{v}-{position}"
+
+
+_BHL_TITLE = "Dotan’s Biblia Hebraica Leningradensia"
+
+
+def _dt_5_13_taxton_extra(_book, notes):
+    # "See the UXLC note on this word. The lack of this pashta is noted in BHL
+    # Appendix A." -- UXLC's own Deut 5:13.2-t note (suppressed inline, see
+    # _UXLC_NOTES_RELEGATED below) already says as much ("BHL Appendix A has no
+    # pashta on the final mem."); this just surfaces that citation instead of
+    # reproducing the note's full text a second time.
+    uxlc_note = next(
+        n for n in notes
+        if (n.book, n.ch, n.v, n.atom_index, n.note_code) == ("Deuter", 5, 13, 2, "t")
+    )
+    return [
+        "See the ",
+        H.anchor("UXLC note", {"href": uxlc_note.source_url, "target": "_blank"}),
+        " on this word. The lack of this pashta is noted in ",
+        H.abbr("BHL", {"title": _BHL_TITLE}),
+        " Appendix A.",
+    ]
+
+
+@dataclass(frozen=True)
+class _LongNoteSpec:
+    """One editor-opted-in long note (design doc §7.3) -- case-by-case, never an
+    automatic length threshold. ``strand``/``kind`` locate the clc_dual_cant omitted-
+    accent note this long note expands on (see clc_dual_cant._HAS_LONG_NOTE, which
+    must independently list the same case); ``relegated_position``/``relegated_code``
+    is the UXLC x-note this long note's own citation subsumes, so it is suppressed
+    from its usual same-row doc-cell block instead of showing twice. ``image_filename``
+    is a file under gh-pages/img/ (empty string for no image) -- fetched by hand, once,
+    from the UXLC note's own detail image (see .novc/fetch_dt_5_13_2_t_image.py) and
+    committed as a static asset, never re-downloaded at build time; ``image_credit`` is
+    that source page's own credit line, carried forward alongside it. ``extra_blocks``
+    is ``(book, notes) -> [H pieces]``, this note's own added content beyond the
+    verse/short-note recap every long note gets automatically."""
+
+    book_id: str
+    ch: int
+    v: int
+    strand: str
+    kind: str
+    relegated_position: int
+    relegated_code: str
+    image_filename: str
+    image_credit: str
+    extra_blocks: object
+
+
+_LONG_NOTE_SPECS = (
+    _LongNoteSpec(
+        "Deuter", 5, 13, "taḥton", "pashta", 2, "t",
+        "Deuter.5.13.2-t.jpg", "Sefaria.org",
+        _dt_5_13_taxton_extra,
+    ),
+)
+
+# Derived from _LONG_NOTE_SPECS: (book, ch, v, atom_index, note_code) -> long-note
+# anchor id, consulted by _relegated_anchor/_note_href/_doc_contents to suppress a
+# relegated UXLC x-note's inline block and redirect its always-link.
+_UXLC_NOTES_RELEGATED = {
+    (spec.book_id, spec.ch, spec.v, spec.relegated_position, spec.relegated_code):
+        clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand)
+    for spec in _LONG_NOTE_SPECS
+}
+
+
+def build_long_notes(book_id, book, notes, chapters=None):
+    """Build this build job's long-note page entries (design doc §7.3), for the
+    caller (main_clc.py) to accumulate across jobs and hand to clc_long_note.write_page
+    once. ``book``/``notes`` are collect_for_book's own return values -- reused here,
+    never re-read from disk. ``chapters`` mirrors write_book's own chapter limit."""
+    entries = []
+    for spec in _LONG_NOTE_SPECS:
+        if spec.book_id != book_id:
+            continue
+        if chapters is not None and spec.ch not in chapters:
+            continue
+        entries.append(_build_long_note_entry(spec, book, notes))
+    return entries
+
+
+def _build_long_note_entry(spec, book, notes):
+    verse_atoms = book[spec.ch - 1][spec.v - 1]
+    views = clc_dual_cant.strand_views(spec.book_id, spec.ch, spec.v, verse_atoms)
+    strands = [vw for vw in views if vw.suffix != clc_dual_cant.SUFFIX_COMBINED]
+    view, note = _find_strand_note(strands, spec.strand, spec.kind)
+    other = next(vw for vw in strands if vw is not view)
+    anchor = clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand)
+    heading = f"{spec.book_id} {spec.ch}:{spec.v} — {view.doc_label}"
+    verse_recap = H.para([H.span(_plain_text_contents(view.atoms, other.atoms), _HBO_ATTR)])
+    # Labeled so a reader landing here from the always-link (not from the short note's
+    # own "see more details" link) can tell which part is a verbatim recap of what the
+    # main page already says, versus the content that's new to this page.
+    short_recap = H.para(["Inline note (repeated from main page): ", *_omitted_note_sentence(note)])
+    extra = H.para(["Further discussion: ", *spec.extra_blocks(book, notes)])
+    blocks = [verse_recap, short_recap]
+    if spec.image_filename:
+        blocks.append(_long_note_image(spec))
+    blocks.append(extra)
+    return clc_long_note.entry(anchor, heading, blocks)
+
+
+def _long_note_image(spec):
+    # The image sits between the short-note recap and the further discussion it
+    # illustrates. gh-pages/clc/long-notes.html -> gh-pages/img/ is one level up.
+    return H.div(
+        [
+            H.img(
+                {
+                    "src": f"../img/{spec.image_filename}",
+                    "alt": f"Manuscript detail for {spec.book_id} {spec.ch}:{spec.v}",
+                    "class": "clc-long-note-img",
+                }
+            ),
+            H.para([f"Credit: {spec.image_credit}."], {"class": "clc-long-note-img-credit"}),
+        ],
+        {"class": "clc-long-note-img-wrap"},
+    )
+
+
+def _find_strand_note(strands, strand, kind):
+    for view in strands:
+        for note in view.notes:
+            if note.get("strand") == strand and note.get("kind") == kind:
+                return view, note
+    raise LookupError((strand, kind))
 
 
 def _body_wrapper(book_id, notes, table):

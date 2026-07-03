@@ -359,14 +359,24 @@ Each is a feature this doc names, organized with grounding + open questions.
   bracket-note definitions cover the separate bracket-note layer (§7.2).
 - **Body placement is a *separate* axis from the link.** "Always link" (above) governs only the
   affordance on the word — every note links, uniformly, no threshold. It does **not** dictate where
-  the note *body* renders. On *placement* CLC does keep MAM's length threshold (§5):
+  the note *body* renders.
   - **Now (skeleton):** every body renders **inline in the doc column** of the same verse row
     ([`_note_block`](py/clc/clc_render.py#L197-L205)), regardless of length.
-  - **Intended:** keep short notes inline, but **relegate long notes to a separate "big-doc" page,
-    as in MAM-with-doc** (§5) — the always-link then points across to the anchored body on that page
-    instead of into the same-row doc cell. So the uniform link stays; only the long body moves
-    off-page. The stable anchor id (`clc-{ch}-{v}-{pos}`) makes this a render-time change only; the
-    note JSON (§8) is unaffected.
+  - **Landed, case-by-case (not MAM's length threshold):** a note can be relegated to the shared
+    long-notes page ([`clc_long_note.py`](py/clc/clc_long_note.py),
+    [`gh-pages/clc/long-notes.html`](gh-pages/clc/long-notes.html)) instead of rendering inline —
+    the always-link then points across to that page's anchored body instead of into the same-row
+    doc cell, exactly as originally sketched below. **Deliberate deviation from MAM-with-doc:**
+    MAM decides this automatically by a > 400-char length threshold; CLC never does — an editor
+    opts a specific note in by hand (`clc_render._LONG_NOTE_SPECS`), so length is never inspected.
+    Each long note recaps its verse (the relevant strand only) and its own short note, then adds
+    whatever extra content justifies the relegation. **First instance:** Deut 5:13's taḥton pashta
+    (an omitted-accent note, §7.7) — its long note cites UXLC's own Deut 5:13.2-t note (suppressed
+    from its usual inline block, `clc_render._UXLC_NOTES_RELEGATED`, so it isn't shown twice),
+    which in turn cites BHL Appendix A as independent grounding for saying "the LC has" rather than
+    "UXLC's combined text carries" (`clc_dual_cant._HAS_LONG_NOTE`, alongside the pre-existing
+    `_LC_CORROBORATED`/issue #36 pathway to the same wording). The stable anchor id scheme means
+    this stays a render-time-only mechanism; the note JSON (§8) is unaffected.
 
 ### 7.4 UXLC change records as a kind of note
 - We **have** the change text (the dated `* - Changes.xml` in `in/UXLC-misc/`, processed by

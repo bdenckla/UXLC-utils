@@ -416,11 +416,18 @@ def test_decalogue_omitted_accent():
     assert _omit_notes(bet) == []
     # dt 5:13's taḥton pashta has NO wlc-utils basis (accgram's detangler never needed to
     # supply anything for it — issue #36) — the two wording paths must not silently collapse.
+    # It DOES have an editor-attached long note (clc_dual_cant._HAS_LONG_NOTE, design doc
+    # §7.3) grounded in UXLC's own note citing BHL Appendix A, which independently licenses
+    # the same "the LC has" wording without borrowing lc_corroborated's wlc-utils basis or link.
     assert anotes[0]["lc_corroborated"] is False
+    assert anotes[0]["has_long_note"] is True
+    assert anotes[0]["verse_loc"] == ("Deuter", 5, 13)
     note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(anotes[0]))
-    assert f"UXLC’s combined text carries only the elyon strand’s {canon(acc.MUN)}" in note_html
-    assert "the LC has" not in note_html
+    assert f"the LC has only the elyon strand’s {canon(acc.MUN)}" in note_html
+    assert "UXLC’s combined text carries" not in note_html
     assert "supplied-marks.html" not in note_html
+    assert "missing pashta. See more details in " in note_html
+    assert 'href="long-notes.html#long-Deuter-5-13-tahton"' in note_html
 
     # dt 5:17 (תרצח): UXLC has the elyon verse-end's sof-pasuq but NOT its silluq, so elyon's
     # silluq is omitted: elyon keeps dagesh (hard) + the lone sof-pasuq, no accent shown; taxton

@@ -126,8 +126,8 @@ def blockquote(contents, attr=None):
 
 
 def img(attr=None):
-    """Make an <img> element."""
-    return htel_mk_nlb1("img", attr)
+    """Make an <img> element (a void element -- no closing tag, like <br>/<col>)."""
+    return htel_mk_nlb1_nc("img", attr)
 
 
 def caption(contents):
@@ -246,6 +246,11 @@ def rp(contents, attr=None):
 def bold(contents, attr=None):
     """Make a <bold> element."""
     return htel_mk_inline("b", attr, contents)
+
+
+def abbr(contents, attr=None):
+    """Make an <abbr> element (e.g. {"title": "expansion"} for a hover tooltip)."""
+    return htel_mk_inline("abbr", attr, contents)
 
 
 def small(contents, attr=None):

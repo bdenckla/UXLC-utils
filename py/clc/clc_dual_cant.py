@@ -102,6 +102,20 @@ _LC_CORROBORATED = {
     ("Deuter", 5, 17, "elyon", "silluq"),
 }
 
+# Omitted-accent notes with an editor-attached long note on the separate long-notes
+# page (design doc §7.3, clc_long_note) -- a SEPARATE grounding pathway from
+# _LC_CORROBORATED above (that one is specifically wlc-utils's grammar-checker
+# corroboration; this one is whatever the long note itself cites -- e.g. Deut 5:13's
+# taḥton pashta cites UXLC's own note, which in turn cites BHL Appendix A). Either
+# pathway licenses clc_render's "the LC has" wording (crediting the manuscript, not
+# just CLC's own synthesis) -- see _accent_name's sibling reasoning in clc_render's
+# _omitted_note_sentence. Keyed the same as _LC_CORROBORATED: (book_id, ch, v,
+# strand.short, kind). The actual page content lives in clc_render._LONG_NOTE_SPECS
+# (this module stays render-agnostic, pure data/logic only).
+_HAS_LONG_NOTE = {
+    ("Deuter", 5, 13, "taḥton", "pashta"),
+}
+
 
 def _is_accent(ch):
     """A cantillation accent (U+0591–U+05AF) or the meteg/silluq mark (U+05BD)."""
@@ -710,7 +724,11 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
     fails it — the word is maqaf-joined, not verse-final — so it never wants a silluq).
 
     ``verse_loc`` is this verse's ``(book_id, ch, v)`` — looked up in ``_LC_CORROBORATED``
-    (issue #36) to flag whether independent manuscript grounding exists for this note."""
+    (issue #36) and ``_HAS_LONG_NOTE`` (design doc §7.3) to flag, respectively, whether
+    independent manuscript grounding exists for this note and whether an editor has
+    attached a long note on the separate long-notes page; also carried through as-is
+    (``verse_loc``) so clc_render can build that long note's anchor without re-deriving
+    book/ch/v from elsewhere."""
     wanted_verse_final = hpu.SOPA in snippet
     kind = _accent_name(accent_char, wanted_verse_final)
     book_id, ch, v = verse_loc
@@ -723,7 +741,9 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
         "snippet": snippet,                      # the strand word, shown without the accent
         "strand": strand.short,                  # the strand that wants it ("elyon"/"taxton"/…)
         "other_strand": other_strand.short,      # the strand whose accent UXLC does have
+        "verse_loc": verse_loc,                  # (book_id, ch, v), for clc_render's long-note anchor
         "lc_corroborated": (book_id, ch, v, strand.short, kind) in _LC_CORROBORATED,
+        "has_long_note": (book_id, ch, v, strand.short, kind) in _HAS_LONG_NOTE,
         "source": clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
         "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_ACCENT,
     }

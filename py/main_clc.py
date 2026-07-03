@@ -21,6 +21,7 @@ import sys
 import mb_cmn.file_io as my_open
 import mb_cmn.mb_cmn_bib_locales as tbn
 import clc.clc_collect as clc_collect
+import clc.clc_long_note as clc_long_note
 import clc.clc_render as clc_render
 
 # The pilot pages currently checked into gh-pages/clc/: three whole pilot books
@@ -46,19 +47,24 @@ def _build_one(book_id, chapters):
     print(f"CLC skeleton: {len(notes)} notes for {label}")
     print(f"  wrote {html_path}")
     print(f"  wrote {notes_path}")
+    return clc_render.build_long_notes(book_id, book, notes, chapters=chapters)
 
 
 def main():
-    """Build the CLC skeleton page(s) + notes JSON."""
+    """Build the CLC skeleton page(s) + notes JSON, then the shared long-notes page
+    (design doc §7.3) from whatever this run's job(s) opted into it."""
     sys.stdout.reconfigure(encoding="utf-8")
     sys.stderr.reconfigure(encoding="utf-8")
+    long_notes = []
     if len(sys.argv) <= 1 or sys.argv[1] == "all":
         for book_id, chapters in _ALL_JOBS:
-            _build_one(book_id, chapters)
-        return
-    book_id = sys.argv[1]
-    chapters = {int(sys.argv[2])} if len(sys.argv) > 2 else None
-    _build_one(book_id, chapters)
+            long_notes.extend(_build_one(book_id, chapters))
+    else:
+        book_id = sys.argv[1]
+        chapters = {int(sys.argv[2])} if len(sys.argv) > 2 else None
+        long_notes.extend(_build_one(book_id, chapters))
+    long_notes_path = clc_long_note.write_page(long_notes)
+    print(f"  wrote {long_notes_path} ({len(long_notes)} long note(s))")
 
 
 if __name__ == "__main__":

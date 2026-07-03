@@ -19,6 +19,7 @@ sys.path.insert(0, _PY_ROOT)
 
 import clc.clc_collect as clc_collect  # noqa: E402
 import clc.clc_dual_cant as clc_dual_cant  # noqa: E402
+import clc.clc_long_note as clc_long_note  # noqa: E402
 import clc.clc_note as clc_note  # noqa: E402
 import clc.clc_render as clc_render  # noqa: E402
 import mb_cmn.hebrew_accents as acc  # noqa: E402
@@ -88,12 +89,51 @@ def test_dual_cant_integration():
     assert [n for n in bet8.notes if n["source"] == OMIT] == []
 
 
+def test_long_note_relegation():
+    # Deut 5:13.2-t's UXLC note (design doc §7.3) is relegated to the long-notes page:
+    # no inline same-row doc-cell block, and the word's always-link points at the long
+    # note instead of the local #clc-5-13-2 anchor. This exercises the real
+    # clc_collect.collect_for_book pipeline, not the synthetic clc_dual_cant_test path.
+    book, notes = clc_collect.collect_for_book("Deuter", chapters={5})
+    notes_by_atom = clc_render._group_by_atom(notes)
+    verse13 = book[4][12]  # ch5 (0-based 4), v13 (0-based 12)
+
+    doc_blocks = clc_render._doc_contents(5, 13, verse13, notes_by_atom)
+    assert not any('id="clc-5-13-2"' in H.el_to_str_no_wbr(b) for b in doc_blocks), doc_blocks
+
+    href = clc_render._note_href(5, 13, 2, notes_by_atom.get((5, 13, 2)))
+    assert href == "long-notes.html#long-Deuter-5-13-tahton", href
+
+    long_notes = clc_render.build_long_notes("Deuter", book, notes, chapters={5})
+    assert len(long_notes) == 1
+    section_html = H.el_to_str_no_wbr(clc_long_note._section(long_notes[0]))
+    assert 'id="long-Deuter-5-13-tahton"' in section_html
+    # The short note's own recap and the added content are each labeled, so a reader
+    # can tell which part just repeats the main page vs. what's new here.
+    assert "Inline note (repeated from main page): The taḥton strand calls for" in section_html
+    assert "beyond the limits" in section_html
+    assert "the LC has only the elyon" in section_html
+    assert "Further discussion: See the " in section_html
+    assert ">UXLC note</a>" in section_html
+    assert "https://tanach.us/Notes/Deuteronomy/Deuteronomy.5.13.2-t.html" in section_html
+    assert '<abbr title="Dotan’s Biblia Hebraica Leningradensia">BHL</abbr>' in section_html
+    assert "Appendix A" in section_html
+    # The manuscript detail image sits between the short-note recap and the further
+    # discussion it illustrates, with its source's own credit line carried forward.
+    i_short = section_html.index("Inline note (repeated from main page)")
+    i_img = section_html.index('src="../img/Deuter.5.13.2-t.jpg"')
+    i_credit = section_html.index("Credit: Sefaria.org.")
+    i_further = section_html.index("Further discussion:")
+    assert i_short < i_img < i_credit < i_further, section_html
+
+
 def main():
     test_text_patch()
     test_note_fields()
     test_no_leakage()
     test_render()
     test_dual_cant_integration()
+    test_long_note_relegation()
     print("clc_collect: OK")
 
 
