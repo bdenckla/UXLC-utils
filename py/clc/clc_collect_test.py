@@ -173,15 +173,20 @@ def test_long_note_relegation():
     # The three wlc-utils-corroborated entries (5:6 x2, 5:17) share one boilerplate
     # "Further discussion" paragraph -- the grammar-checker citation itself, no longer
     # inline on the main page (clc_dual_cant_test.py covers each note's own content).
-    for anchor in (
-        "long-Deuter-5-6-elyon-tipeha",
-        "long-Deuter-5-6-elyon-etnahta",
-        "long-Deuter-5-17-elyon-silluq",
+    # Each links to its OWN block on the supplied-marks page via a #fragment
+    # (clc_render._SUPPLIED_MARKS_ANCHOR), not just the page top -- and the fragment is
+    # wlc-utils's supplied-side naming, which inverts CLC's omitted-side naming (5:17's
+    # "elyon silluq" is there the "taḥton tipeḥa" it supplied: ...-alef-tipexa).
+    _SUPPLIED = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
+    for anchor, fragment in (
+        ("long-Deuter-5-6-elyon-tipeha", "supplied-dt5v6-bet-tipexa"),
+        ("long-Deuter-5-6-elyon-etnahta", "supplied-dt5v6-bet-atnax"),
+        ("long-Deuter-5-17-elyon-silluq", "supplied-dt5v17-alef-tipexa"),
     ):
         html = H.el_to_str_no_wbr(clc_long_note._section(by_anchor[anchor]))
         assert "Inline note (repeated from" in html
         assert "independently corroborated by wlc-utils’s grammar checker" in html
-        assert 'href="https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"' in html
+        assert f'href="{_SUPPLIED}#{fragment}"' in html
 
 
 def main():

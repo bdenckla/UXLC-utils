@@ -143,6 +143,20 @@ def _strand_doc_contents(view):
 
 _LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
 
+# The exact URL-fragment on that page for each corroborated case's own "Supplied accents"
+# block (wlc-utils supplied_marks._anchor_id), so the long-note deep-links straight to it
+# rather than the page top. The fragment CANNOT be derived from CLC's own (strand, kind):
+# the two repos frame the same under-bar oppositely -- wlc-utils names the accent it
+# *supplied*, CLC the accent UXLC *omitted* -- so both differ. Deut 5:17 is the stark case:
+# CLC's "elyon silluq" (omitted) is wlc-utils's "taḥton tipeḥa" (supplied), hence its
+# ...-alef-tipexa fragment, not ...-bet-silluq. Keyed like _LC_CORROBORATED / _HAS_LONG_NOTE.
+_SUPPLIED_MARKS_ANCHOR = {
+    ("Exodus", 20, 3, "taḥton", "merkha"): "supplied-ex20v3-alef-merkha",
+    ("Deuter", 5, 6, "elyon", "tipeḥa"): "supplied-dt5v6-bet-tipexa",
+    ("Deuter", 5, 6, "elyon", "etnaḥta"): "supplied-dt5v6-bet-atnax",
+    ("Deuter", 5, 17, "elyon", "silluq"): "supplied-dt5v17-alef-tipexa",
+}
+
 
 def _is_softened_meteg(note):
     # True for the Deut 5:7-shaped case: an omitted *meteg* takes softened wording
@@ -460,7 +474,7 @@ _WLC_TITLE = "Westminster Leningrad Codex"
 _BHS_TITLE = "Biblia Hebraica Stuttgartensia"
 
 
-def _dt_5_13_taxton_extra(_book, notes):
+def _dt_5_13_taxton_extra(_spec, _book, notes):
     # "See the UXLC note on this word. The lack of this pashta is noted in BHL
     # Appendix A." -- UXLC's own Deut 5:13.2-t note (suppressed inline, see
     # _UXLC_NOTES_RELEGATED below) already says as much ("BHL Appendix A has no
@@ -485,10 +499,10 @@ def _dt_5_13_taxton_extra(_book, notes):
             " Appendix A.",
         ],
         [
-            "This pashta is also not among the accents the grammar checker has to supply"
+            "This pashta is not among the accents the grammar checker has to supply"
             " to ",
             H.abbr("WLC", {"title": _WLC_TITLE}),
-            " when detangling the two strands: unlike a genuine omission, it is already"
+            " when detangling the two strands: it is already"
             " present in WLC — erroneously, presumably carried over from ",
             H.abbr("BHS", {"title": _BHS_TITLE}),
             ", though this has not yet been verified.",
@@ -502,7 +516,7 @@ def _dt_5_13_taxton_extra(_book, notes):
 _YEIVIN_ITM_355_URL = "https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"
 
 
-def _dt_5_7_elyon_meteg_extra(_book, _notes):
+def _dt_5_7_elyon_meteg_extra(_spec, _book, _notes):
     # Why the elyon's missing mark here is treated as an optional meteg, not a wanted
     # accent (see _omitted_meteg_sentence for the short-note wording this expands on):
     # the mark is the special gaʿya of היה/חיה-root forms, whose marking Yeivin (ITM §355)
@@ -561,8 +575,9 @@ class _LongNoteSpec:
     for no image) -- fetched by hand, once, from the UXLC note's own detail image (see
     .novc/fetch_dt_5_13_2_t_image.py) and committed as a static asset, never re-downloaded
     at build time; ``image_credit`` is that source page's own credit line, carried forward
-    alongside it. ``extra_blocks`` is ``(book, notes) -> [H pieces]``, this note's own added
-    content beyond the verse/short-note recap every long note gets automatically."""
+    alongside it. ``extra_blocks`` is ``(spec, book, notes) -> [H pieces]``, this note's own
+    added content beyond the verse/short-note recap every long note gets automatically (it
+    gets ``spec`` so e.g. _lc_corroborated_extra can pick its own supplied-marks #fragment)."""
 
     book_id: str
     ch: int
@@ -576,19 +591,21 @@ class _LongNoteSpec:
     extra_blocks: object
 
 
-def _lc_corroborated_extra(_book, _notes):
+def _lc_corroborated_extra(spec, _book, _notes):
     # Shared by all four _LC_CORROBORATED cases below (Exod 20:3, Deut 5:6 ×2, Deut 5:17):
     # the same wlc-utils grammar-checker citation (issue #36) grounds every one of them
     # identically, so one boilerplate paragraph serves all four rather than bespoke
     # per-verse prose like 5:13's/5:7's. This citation used to be an inline "— see the
     # grammar checker's supplied accents page" link on the main page; it now lives here
     # only, with just a "See more details in this longer note" pointer left inline
-    # (clc_render._omitted_note_block).
+    # (clc_render._omitted_note_block). The link carries a #fragment (per spec, via
+    # _SUPPLIED_MARKS_ANCHOR) so it lands on this very case's block, not the page top.
+    fragment = _SUPPLIED_MARKS_ANCHOR[(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)]
     return [
         [
             "This omitted accent is independently corroborated by wlc-utils’s grammar"
             " checker — see its ",
-            H.anchor("supplied accents", {"href": _LC_CORROBORATED_LINK}),
+            H.anchor("supplied accents", {"href": f"{_LC_CORROBORATED_LINK}#{fragment}"}),
             " page.",
         ]
     ]
@@ -684,7 +701,7 @@ def _build_long_note_entry(spec, book, notes, chapters):
     )
     # extra_blocks returns a list of paragraphs (each a list of inline pieces); the
     # "Further discussion:" label leads the first, the rest (e.g. Deut 5:7's aside) follow.
-    para_contents = spec.extra_blocks(book, notes)
+    para_contents = spec.extra_blocks(spec, book, notes)
     extra_paras = [H.para(["Further discussion: ", *para_contents[0]])]
     extra_paras += [H.para(pc) for pc in para_contents[1:]]
     blocks = [verse_recap, short_recap]
