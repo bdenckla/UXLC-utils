@@ -362,11 +362,14 @@ Each is a feature this doc names, organized with grounding + open questions.
   the note *body* renders.
   - **Now (skeleton):** every body renders **inline in the doc column** of the same verse row
     ([`_note_block`](py/clc/clc_render.py#L197-L205)), regardless of length.
-  - **Landed, case-by-case (not MAM's length threshold):** a note can be relegated to the shared
-    long-notes page ([`clc_long_note.py`](py/clc/clc_long_note.py),
-    [`gh-pages/clc/long-notes.html`](gh-pages/clc/long-notes.html)) instead of rendering inline —
-    the always-link then points across to that page's anchored body instead of into the same-row
-    doc cell, exactly as originally sketched below. **Deliberate deviation from MAM-with-doc:**
+  - **Landed, case-by-case (not MAM's length threshold):** a note can be relegated to a long-notes
+    page ([`clc_long_note.py`](py/clc/clc_long_note.py)) instead of rendering inline — one per main
+    page (`gh-pages/clc/<label>-long-notes.html`, e.g.
+    [`gh-pages/clc/Deuter-5-long-notes.html`](gh-pages/clc/Deuter-5-long-notes.html)), written only
+    for a job with any long notes to hold, so its own intro can link back to that one main page
+    unambiguously. The always-link then points across to that page's anchored body instead of into
+    the same-row doc cell, exactly as originally sketched below. **Deliberate deviation from
+    MAM-with-doc:**
     MAM decides this automatically by a > 400-char length threshold; CLC never does — an editor
     opts a specific note in by hand (`clc_render._LONG_NOTE_SPECS`), so length is never inspected.
     Each long note recaps its verse (the relevant strand only) and its own short note, then adds
@@ -893,7 +896,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 |---|---|---|
 | §7.1 charitable under-bar | **seed only** | m/d under-bar (+ t transcription-uncertainty) notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False, except the one §7.4 pending-change instance (Deut 5:8.2) |
 | §7.2 bracket-note restoration | not started | plan written up: [#33](https://github.com/bdenckla/UXLC-utils/issues/33) (attachment + UXLC-vs-WLC diff gate), [#34](https://github.com/bdenckla/UXLC-utils/issues/34) (MAM enrichment, depends on #33) |
-| §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); most bodies inline, six case-by-case relegated to the shared long-notes page (`clc_render._LONG_NOTE_SPECS`, `gh-pages/clc/long-notes.html`) |
+| §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); most bodies inline, six case-by-case relegated to a long-notes page, one per main page (`clc_render._LONG_NOTE_SPECS`, `gh-pages/clc/<label>-long-notes.html`) |
 | §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |

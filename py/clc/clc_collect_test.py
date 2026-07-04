@@ -101,8 +101,8 @@ def test_long_note_relegation():
     doc_blocks = clc_render._doc_contents(5, 13, verse13, notes_by_atom)
     assert not any('id="clc-5-13-2"' in H.el_to_str_no_wbr(b) for b in doc_blocks), doc_blocks
 
-    href = clc_render._note_href(5, 13, 2, notes_by_atom.get((5, 13, 2)))
-    assert href == "long-notes.html#long-Deuter-5-13-tahton-pashta", href
+    href = clc_render._note_href(5, 13, 2, notes_by_atom.get((5, 13, 2)), "Deuter-5")
+    assert href == "Deuter-5-long-notes.html#long-Deuter-5-13-tahton-pashta", href
 
     # Chapter 5 has five long notes: 5:13's taḥton pashta (this one, which relegates an inline
     # UXLC note and carries an image), 5:7's elyon meteg (pure further discussion, below), and

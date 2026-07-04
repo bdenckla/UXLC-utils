@@ -38,7 +38,7 @@ def out_label(book_id, chapters=None):
     return f"{book_id}-" + "-".join(str(c) for c in sorted(chapters))
 
 
-def _disp_label(book_id, chapters=None):
+def disp_label(book_id, chapters=None):
     """Human label for title/heading: 'Exodus' or 'Exodus 20'."""
     if not chapters:
         return book_id
@@ -53,6 +53,7 @@ def write_book(book_id, book, notes, chapters=None):
     Numbering still comes from the enumerate index, so skipping keeps ch/v correct.
     """
     notes_by_atom = _group_by_atom(notes)
+    label = out_label(book_id, chapters)
     rows = [H.table_row_of_headers(("text", "ref", "doc"))]
     for chidx, chapter in enumerate(book):
         ch = chidx + 1
@@ -61,11 +62,10 @@ def write_book(book_id, book, notes, chapters=None):
         for vridx, verse in enumerate(chapter):
             v = vridx + 1
             if clc_dual_cant.is_dual_cant(book_id, ch, v):
-                rows.extend(_dual_cant_rows(book_id, ch, v, verse, notes_by_atom))
+                rows.extend(_dual_cant_rows(book_id, ch, v, verse, notes_by_atom, label))
             else:
-                rows.append(_verse_row(ch, v, verse, notes_by_atom))
-    label = out_label(book_id, chapters)
-    disp = _disp_label(book_id, chapters)
+                rows.append(_verse_row(ch, v, verse, notes_by_atom, label))
+    disp = disp_label(book_id, chapters)
     table = H.table(rows, {"class": "clc-3col border-collapse"})
     body = _body_wrapper(disp, notes, table)
     out_path = f"{_OUT_DIR}/{label}.html"
@@ -81,10 +81,10 @@ def _group_by_atom(notes):
     return grouped
 
 
-def _verse_row(ch, v, verse, notes_by_atom):
+def _verse_row(ch, v, verse, notes_by_atom, page_label):
     ref_cell = H.table_datum(f"{ch}:{v}", {"class": "clc-ref"})
     text_cell = H.table_datum(
-        _text_contents(ch, v, verse, notes_by_atom),
+        _text_contents(ch, v, verse, notes_by_atom, page_label),
         {**_HBO_ATTR, "class": "clc-text"},
     )
     doc_cell = H.table_datum(
@@ -93,7 +93,7 @@ def _verse_row(ch, v, verse, notes_by_atom):
     return H.table_row((text_cell, ref_cell, doc_cell))
 
 
-def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
+def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, page_label):
     # A dual-cantillation verse (e.g. Gen 35:22) becomes three grouped rows:
     # combined (C), strand alef (א), strand bet (ב). The combined row keeps the
     # full always-link behaviour (its notes/anchors); the strand rows show the
@@ -108,7 +108,7 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
         )
         if view.suffix == clc_dual_cant.SUFFIX_COMBINED:
             text_cell = H.table_datum(
-                _text_contents(ch, v, view.atoms, notes_by_atom),
+                _text_contents(ch, v, view.atoms, notes_by_atom, page_label),
                 {**_HBO_ATTR, "class": "clc-text"},
             )
             doc_cell = H.table_datum(
@@ -122,12 +122,14 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom):
                 _plain_text_contents(view.atoms, other.atoms),
                 {**_HBO_ATTR, "class": "clc-text"},
             )
-            doc_cell = H.table_datum(_strand_doc_contents(view), {"class": "clc-doc"})
+            doc_cell = H.table_datum(
+                _strand_doc_contents(view, page_label), {"class": "clc-doc"}
+            )
         rows.append(H.table_row((text_cell, ref_cell, doc_cell)))
     return rows
 
 
-def _strand_doc_contents(view):
+def _strand_doc_contents(view, page_label):
     # The strand label, then this strand's synthesized notes (clc_dual_cant._strand_notes):
     # one "added out of thin air" note per SUPPLIED punctuation mark, and one note per accent
     # the strand wants but UXLC OMITTED (noted, never supplied — §7.7).
@@ -135,7 +137,7 @@ def _strand_doc_contents(view):
     for note in view.notes:
         contents.append(H.line_break())
         if note["source"] == clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT:
-            contents.append(_omitted_note_block(note))
+            contents.append(_omitted_note_block(note, page_label))
         else:
             contents.append(_added_note_block(note))
     return contents
@@ -257,7 +259,7 @@ def _charity_limit_paragraph(note):
     )
 
 
-def _omitted_note_block(note):
+def _omitted_note_block(note, page_label):
     # Wraps the inline pieces with a link to this note's own long-notes-page entry,
     # whenever one is attached (clc_dual_cant._HAS_LONG_NOTE) -- e.g. an lc_corroborated
     # note's wlc-utils grammar-checker citation, and now also its "beyond the limits of
@@ -270,7 +272,10 @@ def _omitted_note_block(note):
         contents.extend(
             [
                 " See more details in ",
-                H.anchor("this longer note", {"href": clc_long_note.page_href(anchor)}),
+                H.anchor(
+                    "this longer note",
+                    {"href": clc_long_note.page_href(page_label, anchor)},
+                ),
                 ".",
             ]
         )
@@ -309,7 +314,7 @@ def _strand_ref_attr(tooltip, pos, count):
     return {"class": " ".join(classes), "title": tooltip}
 
 
-def _text_contents(ch, v, verse, notes_by_atom):
+def _text_contents(ch, v, verse, notes_by_atom, page_label):
     # Group ketiv/qere atoms into units (clc_kq) so each renders as one boxed
     # ruby — qere on the baseline, ketiv above — and adjacent independent pairs
     # stay visibly separate from a grouped multi-word unit. Plain words render
@@ -320,7 +325,9 @@ def _text_contents(ch, v, verse, notes_by_atom):
             pieces.append(clc_kq.kq_ruby(item, notes_by_atom, ch, v))
             _append_join_space(pieces, clc_kq.join_text(item))
         else:
-            href = _note_href(ch, v, item.position, notes_by_atom.get((ch, v, item.position)))
+            href = _note_href(
+                ch, v, item.position, notes_by_atom.get((ch, v, item.position)), page_label
+            )
             if href:
                 pieces.append(H.anchor(item.text, {"href": href, "class": "clc-doc-target"}))
             else:
@@ -335,7 +342,7 @@ def _relegated_anchor(note):
     return _UXLC_NOTES_RELEGATED.get((note.book, note.ch, note.v, note.atom_index, note.note_code))
 
 
-def _note_href(ch, v, position, atom_notes):
+def _note_href(ch, v, position, atom_notes, page_label):
     # The word's always-link target: the local same-row anchor if it has any note that
     # still renders there, else — if EVERY note on this atom is relegated (above) — the
     # long-notes page anchor instead (design doc §7.3's "the always-link then points
@@ -348,7 +355,7 @@ def _note_href(ch, v, position, atom_notes):
     anchors = {_relegated_anchor(n) for n in atom_notes}
     assert len(anchors) == 1, (ch, v, position, anchors)  # one atom, one long note, for now
     (anchor,) = anchors
-    return clc_long_note.page_href(anchor)
+    return clc_long_note.page_href(page_label, anchor)
 
 
 def _plain_text_contents(strand_atoms, other_atoms):
@@ -659,9 +666,10 @@ _UXLC_NOTES_RELEGATED = {
 
 def build_long_notes(book_id, book, notes, chapters=None):
     """Build this build job's long-note page entries (design doc §7.3), for the
-    caller (main_clc.py) to accumulate across jobs and hand to clc_long_note.write_page
-    once. ``book``/``notes`` are collect_for_book's own return values -- reused here,
-    never re-read from disk. ``chapters`` mirrors write_book's own chapter limit."""
+    caller (main_clc.py) to hand straight to clc_long_note.write_page as this job's
+    own long-notes page. ``book``/``notes`` are collect_for_book's own return values --
+    reused here, never re-read from disk. ``chapters`` mirrors write_book's own
+    chapter limit."""
     entries = []
     for spec in _LONG_NOTE_SPECS:
         if spec.book_id != book_id:
@@ -716,7 +724,7 @@ def _build_long_note_entry(spec, book, notes, chapters):
 
 def _long_note_image(spec):
     # The image sits between the short-note recap and the further discussion it
-    # illustrates. gh-pages/clc/long-notes.html -> gh-pages/img/ is one level up.
+    # illustrates. gh-pages/clc/<label>-long-notes.html -> gh-pages/img/ is one level up.
     return H.div(
         [
             H.img(

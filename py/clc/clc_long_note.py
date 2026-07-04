@@ -1,4 +1,4 @@
-"""Exports write_page: the shared "long notes" apparatus page (design doc §7.3).
+"""Exports write_page: one "long notes" apparatus page per main page (design doc §7.3).
 
 Design doc §7.3 sketches an "intended" MAM-with-doc-style split: short notes inline
 in the doc column, long ones relegated to a separate page. MAM-with-doc decides that
@@ -7,15 +7,15 @@ does NOT reuse that threshold: an editor opts a specific note in by hand (clc_re
 ``_LONG_NOTE_SPECS``), so this module never inspects note length or decides anything
 itself -- it only lays out whatever entries it is handed.
 
-Every long note lives in this one shared page (not split per-book, unlike MAM's
-per-book "big-doc" pages) since there is, for now, exactly one; splitting can happen
-once there are enough entries to warrant it. Each entry keeps its own anchor so a
-short inline note can link straight to its expanded body.
+Each main page (one per main_clc.py build job, i.e. one per ``clc_render.out_label``)
+gets its own long-notes page, so it has exactly one main page to link back to -- unlike
+MAM's per-book "big-doc" pages, this is one-per-job rather than one-per-book, matching
+write_book's own chapter-limited granularity. A job with no long notes gets no page at
+all (write_page returns None). Each entry keeps its own anchor so a short inline note
+can link straight to its expanded body.
 """
 
 import uxlc_misc.uxlc_utils_html as H
-
-OUT_PATH = "gh-pages/clc/long-notes.html"
 
 # ASCII slug for each dual-cant strand's display short name (clc_dual_cant's own
 # Strand.short values), used only to keep the anchor id / URL fragment plain ASCII --
@@ -46,9 +46,9 @@ def anchor_id(book_id, ch, v, strand, kind):
     return f"long-{book_id}-{ch}-{v}-{_STRAND_SLUG[strand]}-{_KIND_SLUG[kind]}"
 
 
-def page_href(anchor):
+def page_href(page_label, anchor):
     """Relative link to one entry, from any page in the same gh-pages/clc/ directory."""
-    return f"long-notes.html#{anchor}"
+    return f"{page_label}-long-notes.html#{anchor}"
 
 
 def entry(anchor, heading, blocks):
@@ -56,22 +56,28 @@ def entry(anchor, heading, blocks):
     return {"anchor": anchor, "heading": heading, "blocks": blocks}
 
 
-def write_page(entries):
-    """Write OUT_PATH from ``entries`` (as built by clc_render.build_long_notes)."""
+def write_page(page_label, disp, entries, main_page_href):
+    """Write gh-pages/clc/<page_label>-long-notes.html from ``entries`` (as built by
+    clc_render.build_long_notes), linking its intro back to ``main_page_href`` (that
+    job's own main page, e.g. "Deuter-5.html"). Writes nothing and returns None if
+    ``entries`` is empty -- a job with no long notes gets no apparatus page."""
+    if not entries:
+        return None
     body = [
-        H.heading_level_1("Charitable Leningrad Codex — longer notes"),
+        H.heading_level_1(f"Charitable Leningrad Codex — {disp} — longer notes"),
         H.para(
             [
-                "Notes relegated here from a main page’s doc column — opted in "
-                "case-by-case by an editor, never by an automatic length threshold "
-                "(see doc/clc-design.md §7.3)."
+                "Notes relegated here from the ",
+                H.anchor("main page", {"href": main_page_href}),
+                "’s doc column.",
             ]
         ),
         *[_section(e) for e in entries],
     ]
-    write_ctx = H.WriteCtx(title="CLC — longer notes", path=OUT_PATH, add_wbr=True)
+    out_path = f"gh-pages/clc/{page_label}-long-notes.html"
+    write_ctx = H.WriteCtx(title=f"CLC — {disp} — longer notes", path=out_path, add_wbr=True)
     H.write_html_to_file(body, write_ctx, "../")
-    return OUT_PATH
+    return out_path
 
 
 def _section(e):

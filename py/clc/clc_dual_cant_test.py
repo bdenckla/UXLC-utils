@@ -422,14 +422,14 @@ def test_decalogue_omitted_accent():
     assert anotes[0]["lc_corroborated"] is False
     assert anotes[0]["has_long_note"] is True
     assert anotes[0]["verse_loc"] == ("Deuter", 5, 13)
-    note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(anotes[0]))
+    note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(anotes[0], "Deuter-5"))
     assert f"the LC has only the elyon strand’s {canon(acc.MUN)}. See more details in " in note_html
     assert "UXLC’s combined text carries" not in note_html
     assert "supplied-marks.html" not in note_html
     # The "beyond the limits of CLC's charity" clause itself relegates to the long note too
     # (not just the wlc-utils citation) -- nothing of it survives inline once has_long_note.
     assert "beyond the limits" not in note_html and "missing pashta" not in note_html
-    assert 'href="long-notes.html#long-Deuter-5-13-tahton-pashta"' in note_html
+    assert 'href="Deuter-5-long-notes.html#long-Deuter-5-13-tahton-pashta"' in note_html
 
     # dt 5:17 (תרצח): UXLC has the elyon verse-end's sof-pasuq but NOT its silluq, so elyon's
     # silluq is omitted: elyon keeps dagesh (hard) + the lone sof-pasuq, no accent shown; taxton
@@ -456,13 +456,13 @@ def test_decalogue_omitted_accent():
     # wlc-utils citation AND the "beyond the limits of CLC's charity" clause itself now live only
     # there — this inline block is just the truncated core plus a pointer to it.
     assert bnotes[0]["has_long_note"] is True
-    note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(bnotes[0]))
+    note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(bnotes[0], "Deuter-5"))
     assert "elyon strand calls for a silluq" in note_html
     assert f"the LC has only the taḥton strand’s {canon(acc.TIP)}. See more details in " in note_html
     assert "beyond the limits" not in note_html and "missing silluq" not in note_html
     assert "clc-added-during-detangling" not in note_html and "clc-added-bracket" not in note_html
     assert "supplied-marks.html" not in note_html
-    assert 'href="long-notes.html#long-Deuter-5-17-elyon-silluq"' in note_html
+    assert 'href="Deuter-5-long-notes.html#long-Deuter-5-17-elyon-silluq"' in note_html
     # and the strand TEXT column supplies no green mark for an omitted accent.
     bet_html = _render(clc_render._plain_text_contents(bet.atoms, alef.atoms))
     assert "clc-added-during-detangling" not in bet_html
@@ -557,7 +557,7 @@ def test_decalogue_qupo_vowel_split():
     # true accent — a meteg is metrical, not an accent, and this special gaʿya of
     # יהיה-type verbs is not reliably obligatory (cf. Yeivin, ITM §355). Instead: the LC has a
     # single mark, best transcribed as the taxton's merkha (which the chant actually needs).
-    meteg_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(d_omit[0]))
+    meteg_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(d_omit[0], "Deuter-5"))
     assert "A meteg might be expected in the elyon strand here on" in meteg_html
     assert (f"the LC has only a single mark, which is best transcribed as a {canon(acc.MER)}"
             f" since, unlike the meteg, the {canon(acc.MER)} is truly needed") in meteg_html
@@ -566,7 +566,7 @@ def test_decalogue_qupo_vowel_split():
     # It carries an editor-attached further-discussion long note (clc_dual_cant._HAS_LONG_NOTE
     # / clc_render._LONG_NOTE_SPECS) linking to Yeivin's ITM §355.
     assert d_omit[0]["has_long_note"] is True
-    assert 'href="long-notes.html#long-Deuter-5-7-elyon-meteg"' in meteg_html
+    assert 'href="Deuter-5-long-notes.html#long-Deuter-5-7-elyon-meteg"' in meteg_html
 
     a7d, b7d = alef7.atoms[6]["text"], bet7.atoms[6]["text"]
     assert _count(a7d, _QAMATS) == 2 and _METEG in a7d and _PATAX not in a7d, a7d
