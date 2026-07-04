@@ -103,9 +103,14 @@ ruby.clc-kq rt { font-size: 100%; }
 /* Dual-cant additive detangling (§7.7): a maqaf/sof-pasuq SUPPLIED to clarify ONE
    strand (e.g. a sof-pasuq breaking pashut into two chanted verses). Shown
    bracketed; the mark is green to flag "added, not in the codex". Recolor the mark
-   everywhere (text column + synthesized note) via this one class. */
+   everywhere (text column + synthesized note) via this one class.
+   When a supplied mark sits inside a highlighted note target (clc-doc-target wraps the
+   whole atom, word + brackets — see clc_render._plain_text_contents), this explicit green
+   is what keeps the mark GLYPH green: it wins over the highlight color, which the word and
+   the (color:inherit) brackets take. Keep this an explicit color, not `inherit`, or the
+   mark would silently adopt the highlight color. */
 span.clc-added-during-detangling { color: light-dark(#1a7f37, #3fb950); }
-span.clc-added-bracket { color: inherit; }   /* brackets stay running-text color */
+span.clc-added-bracket { color: inherit; }   /* brackets stay running-text color (or the enclosing highlight's) */
 div.clc-added-note { font-size: 95%; color: light-dark(#555, #aaa); margin-top: 0.25em; }
 /* Only the editorial "no qere" / "no ketiv" placeholder is small + muted (in
    whichever slot the missing member would have occupied). */

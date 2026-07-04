@@ -423,10 +423,22 @@ def _plain_text_contents(strand_atoms, other_atoms, noted_indices=()):
         same_across_strands = atom_text == other_atom["text"] and tuple(
             additions
         ) == tuple(other_atom.get("additions", ()))
+        if index in noted_indices and not same_across_strands:
+            # One clc-doc-target span over the WHOLE atom — the word AND its bracketed supplied
+            # marks — so the highlight reads as a single unit (conceptually all of "לֹא[־]").
+            # The supplied mark GLYPH keeps its green (clc-added-during-detangling sets an
+            # explicit color, which wins over the inherited highlight color); its brackets
+            # (clc-added-bracket: color inherit) and the word take the highlight color.
+            pieces.append(
+                H.span(
+                    [atom_text, *(_added_span(added) for added in additions)],
+                    {"class": "clc-doc-target"},
+                )
+            )
+            _append_join_space(pieces, additions[-1] if additions else atom_text)
+            continue
         if same_across_strands:
             pieces.append(H.span(atom_text, {"class": "clc-strand-same"}))
-        elif index in noted_indices:
-            pieces.append(H.span(atom_text, {"class": "clc-doc-target"}))
         else:
             pieces.append(atom_text)
         for added in additions:
@@ -436,15 +448,14 @@ def _plain_text_contents(strand_atoms, other_atoms, noted_indices=()):
 
 
 def _strand_noted_indices(view):
-    # 1-based atom positions of ``view``'s OMITTED-ACCENT strand notes — the words to
-    # highlight (clc-doc-target) as note targets in this strand's text column (clc_dual_cant
-    # tags each note with atom_index). A SUPPLIED-mark note is deliberately EXCLUDED: its added
-    # mark already renders bracketed/green in the text column, which is its own flag, so the
-    # word takes no blue target highlight on top of it — there is no meaningful "highlighted
-    # green" (Ben's call). Only the omitted-accent notes, which add nothing visible to the
-    # word, need the highlight to show the word is annotated.
-    return {note["atom_index"] for note in view.notes
-            if note["source"] == clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT}
+    # 1-based atom positions of ALL of ``view``'s strand notes — the words to highlight
+    # (clc-doc-target) as note targets in this strand's text column (clc_dual_cant tags each
+    # note with atom_index), both omitted-accent and supplied-mark. A supplied-mark note is
+    # included too: its whole atom (word + brackets) takes the highlight as one unit, while the
+    # supplied mark GLYPH itself stays green — the cascade lets clc-added-during-detangling's
+    # explicit green win over the inherited highlight color (see _plain_text_contents). So it
+    # is the literal maqaf/sof-pasuq that stays green, not the surrounding brackets or word.
+    return {note["atom_index"] for note in view.notes}
 
 
 def _added_span(added_char):

@@ -265,18 +265,23 @@ def test_added_render():
     # bet supplies nothing → no green span.
     bet_html = _render(clc_render._plain_text_contents(bet_view.atoms, alef_view.atoms))
     assert "clc-added-during-detangling" not in bet_html
-    # A SUPPLIED-mark note gets NO blue clc-doc-target highlight on its word: the green
-    # bracketed mark is already its own flag, and there is no meaningful "highlighted green"
-    # (Ben's call). _strand_noted_indices therefore excludes supplied-mark notes, so the alef
-    # strand (whose only note is the supplied sof-pasuq) yields no highlight indices at all.
-    assert clc_render._strand_noted_indices(alef_view) == set()
+    # A SUPPLIED-mark note's whole atom (word + brackets) IS highlighted as one clc-doc-target
+    # unit, but the supplied mark GLYPH keeps its green (the cascade lets its explicit green
+    # win over the inherited highlight color). So the note-target atom is in the highlight set,
+    # the highlight span opens before the bracketed mark, and the green class survives inside.
+    assert clc_render._strand_noted_indices(alef_view) == {alef_view.notes[0]["atom_index"]}
     alef_targeted = _render(
         clc_render._plain_text_contents(
             alef_view.atoms, bet_view.atoms, clc_render._strand_noted_indices(alef_view)
         )
     )
-    assert "clc-doc-target" not in alef_targeted           # word not blue-highlighted
-    assert "clc-added-during-detangling" in alef_targeted  # but its green mark stays green
+    assert 'class="clc-doc-target">' in alef_targeted        # the atom is highlighted
+    assert "clc-added-during-detangling" in alef_targeted    # and the mark glyph stays green
+    # the added mark's bracket span sits INSIDE the highlight span (highlight opens first),
+    # so the word + brackets read as one highlighted unit around the still-green mark.
+    assert alef_targeted.index('class="clc-doc-target"') < alef_targeted.index(
+        'class="clc-added-bracket"'
+    )
 
     # The supplied-mark note is now a first-class TARGETED note (§7.7): the target word and
     # its bracketed/green mark are pulled out into the note HEADER (_strand_note_header), and
