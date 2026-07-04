@@ -266,22 +266,33 @@ def test_added_render():
     bet_html = _render(clc_render._plain_text_contents(bet_view.atoms, alef_view.atoms))
     assert "clc-added-during-detangling" not in bet_html
 
-    # The synthesized doc-column note carries the exact template prose, the
-    # snippet, and the bracketed/green mark.
+    # The supplied-mark note is now a first-class TARGETED note (§7.7): the target word and
+    # its bracketed/green mark are pulled out into the note HEADER (_strand_note_header), and
+    # the body no longer names the word inline — it just says "<name> added to improve
+    # legibility".
     assert len(alef_view.notes) == 1
-    note_html = H.el_to_str_no_wbr(clc_render._added_note_block(alef_view.notes[0]))
-    assert "sof pasuq in " in note_html
-    assert "added to improve legibility" in note_html
-    assert "clc-added-during-detangling" in note_html
+    note = alef_view.notes[0]
+    body_html = H.el_to_str_no_wbr(clc_render._added_note_block(note))
+    assert body_html.count("sof pasuq added to improve legibility") == 1
+    assert " in " not in body_html                       # word no longer named inline
+    assert "clc-added-during-detangling" not in body_html  # mark lives in the header now
     assert bet_view.notes == ()
-    # The snippet AND its bracketed mark sit inside one dir="rtl" wrapper (a span
-    # whose only attr is dir, distinct from the inner lang="hbo" dir="rtl" snippet
-    # span) so the whole <word>[mark] reorders as one RTL unit in the LTR note —
-    # rather than the [mark] floating to the wrong side.
-    i_wrap = note_html.index('<span dir="rtl">')
-    i_snippet = note_html.index('lang="hbo"', i_wrap)
-    i_mark = note_html.index("clc-added-bracket", i_wrap)
-    assert i_wrap < i_snippet < i_mark, note_html
+    # The header repeats the word AS CLC SHOWS IT: the snippet AND its bracketed mark inside
+    # one dir="rtl" wrapper (a span whose only attr is dir, distinct from the inner lang="hbo"
+    # dir="rtl" snippet span) so the whole <word>[mark] reorders as one RTL unit in this LTR
+    # column — rather than the [mark] floating to the wrong side.
+    header_html = H.el_to_str_no_wbr(clc_render._strand_note_header(note))
+    assert "clc-added-during-detangling" in header_html
+    i_wrap = header_html.index('<span dir="rtl">')
+    i_snippet = header_html.index('lang="hbo"', i_wrap)
+    i_mark = header_html.index("clc-added-bracket", i_wrap)
+    assert i_wrap < i_snippet < i_mark, header_html
+    # The whole strand note block wraps the header + body in one clc-note div, like a normal
+    # verse's _note_block.
+    block_html = H.el_to_str_no_wbr(clc_render._strand_note_block([note], "Genesis-35"))
+    assert 'class="clc-note"' in block_html
+    assert "sof pasuq added to improve legibility" in block_html
+    assert "clc-added-during-detangling" in block_html
 
 
 def test_decalogue_sof_pasuq_suppression():
@@ -457,8 +468,17 @@ def test_decalogue_omitted_accent():
     # there — this inline block is just the truncated core plus a pointer to it.
     assert bnotes[0]["has_long_note"] is True
     note_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(bnotes[0], "Deuter-5"))
-    assert "elyon strand calls for a silluq" in note_html
+    # The word is now the note's HEADER, not named inline: "The elyon strand calls for a silluq
+    # here, but …" — the body carries no Hebrew snippet at all (§7.7).
+    assert "elyon strand calls for a silluq here, but" in note_html
+    assert 'lang="hbo"' not in note_html                 # body no longer embeds the target word
     assert f"the LC has only the taḥton strand’s {canon(acc.TIP)}. See more details in " in note_html
+    # The word IS pulled out into a first-class header (_strand_note_header), and the whole
+    # thing wraps in a clc-note div like a normal verse's _note_block.
+    header_html = H.el_to_str_no_wbr(clc_render._strand_note_header(bnotes[0]))
+    assert 'lang="hbo"' in header_html and _DAGESH in header_html  # the word as CLC shows it
+    block_html = H.el_to_str_no_wbr(clc_render._strand_note_block([bnotes[0]], "Deuter-5"))
+    assert 'class="clc-note"' in block_html and "elyon strand calls for a silluq here" in block_html
     assert "beyond the limits" not in note_html and "missing silluq" not in note_html
     assert "clc-added-during-detangling" not in note_html and "clc-added-bracket" not in note_html
     assert "supplied-marks.html" not in note_html
@@ -558,7 +578,8 @@ def test_decalogue_qupo_vowel_split():
     # יהיה-type verbs is not reliably obligatory (cf. Yeivin, ITM §355). Instead: the LC has a
     # single mark, best transcribed as the taxton's merkha (which the chant actually needs).
     meteg_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(d_omit[0], "Deuter-5"))
-    assert "A meteg might be expected in the elyon strand here on" in meteg_html
+    # The word is no longer named inline (§7.7): "… here, but the LC has …", not "… here on <word> …".
+    assert "A meteg might be expected in the elyon strand here, but the LC has" in meteg_html
     assert (f"the LC has only a single mark, which is best transcribed as a {canon(acc.MER)}"
             f" since, unlike the meteg, the {canon(acc.MER)} is truly needed") in meteg_html
     assert "calls for" not in meteg_html and "charity to supply" not in meteg_html

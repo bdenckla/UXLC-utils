@@ -132,15 +132,52 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, page_label):
 def _strand_doc_contents(view, page_label):
     # The strand label, then this strand's synthesized notes (clc_dual_cant._strand_notes):
     # one "added out of thin air" note per SUPPLIED punctuation mark, and one note per accent
-    # the strand wants but UXLC OMITTED (noted, never supplied — §7.7).
+    # the strand wants but UXLC OMITTED (noted, never supplied — §7.7). Each is now a
+    # first-class TARGETED note like a normal verse's (_note_block): a header repeating the
+    # target word, then the note prose (which no longer names the word inline — §7.7). Notes
+    # are grouped by atom so an atom with more than one note shares a single header.
     contents = [H.span(view.doc_label, {"class": "clc-strand-label"})]
-    for note in view.notes:
+    for atom_notes in _group_strand_notes(view.notes):
         contents.append(H.line_break())
-        if note["source"] == clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT:
-            contents.append(_omitted_note_block(note, page_label))
-        else:
-            contents.append(_added_note_block(note))
+        contents.append(_strand_note_block(atom_notes, page_label))
     return contents
+
+
+def _group_strand_notes(notes):
+    # Group a strand's synthesized notes by their target atom, preserving atom order, so all
+    # notes on one word render under one header (mirrors _group_by_atom for normal verses).
+    grouped = {}
+    for note in notes:
+        grouped.setdefault(note["atom_index"], []).append(note)
+    return [grouped[k] for k in sorted(grouped)]
+
+
+def _strand_note_block(atom_notes, page_label):
+    # A dual-cant strand note, promoted to the same headed shape a normal verse note has
+    # (_note_block): the target word as a heading, then each note body beneath it. The word
+    # is pulled out of the prose here, so the bodies read "The elyon strand calls for a silluq
+    # here …" rather than "… on תרצח here …" (design doc §7.7).
+    entries = [_strand_note_header(atom_notes[0])]
+    for note in atom_notes:
+        entries.append(H.line_break())
+        if note["source"] == clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT:
+            entries.append(_omitted_note_block(note, page_label))
+        else:
+            entries.append(_added_note_block(note))
+    return H.div(entries, {"class": "clc-note"})
+
+
+def _strand_note_header(note):
+    # The target word repeated as the note's heading (like _note_block's atom-text heading).
+    # For a SUPPLIED-mark note the header echoes the word AS CLC SHOWS IT — with the supplied
+    # mark bracketed/green right after it, exactly as the text column renders it; the word and
+    # its bracketed mark share one dir="rtl" wrapper so the whole <word>[mark] reorders as one
+    # RTL unit in this LTR column (cf. the old _added_note_block wrapper). An omitted-accent
+    # note adds nothing, so its header is the bare word.
+    snippet_span = H.span(note["snippet"], _HBO_ATTR)
+    if note["source"] == clc_note.SOURCE_DUAL_CANT_ADDITION:
+        return H.span([snippet_span, _added_span(note["char"])], {"dir": "rtl"})
+    return snippet_span
 
 
 _LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
@@ -169,10 +206,12 @@ def _is_softened_meteg(note):
 
 
 def _omitted_note_core(note):
-    # "The <strand> strand calls for a(n) <accent> on <word> here, but UXLC's combined text
-    # carries only the <other> strand's <present accent>" — the word in rtl Hebrew, NO
-    # bracketed mark (nothing is added to the strand; cf. _added_note_block). The accent
-    # UXLC *does* have is named, not abstracted. Accents are noted, never supplied (§7.7).
+    # "The <strand> strand calls for a(n) <accent> here, but UXLC's combined text carries only
+    # the <other> strand's <present accent>" — NO bracketed mark (nothing is added to the
+    # strand; cf. _added_note_block). The target word is NOT named inline: it is repeated as
+    # this note's own header instead (_strand_note_header), making the note a first-class
+    # targeted note like a normal verse's (§7.7). The accent UXLC *does* have is named, not
+    # abstracted. Accents are noted, never supplied (§7.7).
     #
     # "the LC has only..." (crediting the manuscript, not just UXLC's own transcription of it)
     # replaces "UXLC's combined text carries" whenever this note is grounded beyond CLC's own
@@ -193,9 +232,7 @@ def _omitted_note_core(note):
     has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
            if note.get("present_kind") else f"no accent for the {note['strand']} strand")
     return [
-        f"The {note['strand']} strand calls for {article} {note['kind']} on ",
-        H.span(note["snippet"], _HBO_ATTR),
-        f" here, but {carries} {has}",
+        f"The {note['strand']} strand calls for {article} {note['kind']} here, but {carries} {has}",
     ]
 
 
@@ -228,11 +265,12 @@ def _omitted_meteg_sentence(note):
     # clc_dual_cant._HAS_LONG_NOTE), _omitted_note_block links to its further discussion.
     present = note["present_kind"]
     article = "an" if present[:1] in "aeiou" else "a"
+    # The word is not named inline — it is this note's header (_strand_note_header) — so the
+    # sentence reads "… here, but the LC has only a single mark …" (§7.7).
     return [
-        f"A meteg might be expected in the {note['strand']} strand here on ",
-        H.span(note["snippet"], _HBO_ATTR),
-        f", but the LC has only a single mark, which is best transcribed as {article} {present}"
-        f" since, unlike the meteg, the {present} is truly needed.",
+        f"A meteg might be expected in the {note['strand']} strand here, but the LC has only a"
+        f" single mark, which is best transcribed as {article} {present} since, unlike the"
+        f" meteg, the {present} is truly needed.",
     ]
 
 
@@ -283,22 +321,12 @@ def _omitted_note_block(note, page_label):
 
 
 def _added_note_block(note):
-    # "<name> in <strand word><[mark]> added to improve legibility"
-    # — snippet in rtl Hebrew, the supplied mark echoed in the bracketed/green
-    # style used in the text column. The snippet and its bracketed mark share one
-    # dir="rtl" wrapper (so [dir] → unicode-bidi: isolate) — otherwise, in this
-    # LTR note, the isolated snippet reorders correctly but the trailing [mark]
-    # floats to the wrong (LTR) side. Wrapped, the whole <word>[mark] reorders as
-    # one RTL unit, matching the text column (whose td is itself dir="rtl").
+    # "<name> added to improve legibility" — the target word and its supplied bracketed/green
+    # mark are pulled out into this note's header (_strand_note_header), so the body no longer
+    # names the word inline (§7.7). This makes the supplied-mark note a first-class targeted
+    # note like a normal verse's, matching the omitted-accent notes beside it.
     return H.div(
-        [
-            f"{note['kind']} in ",
-            H.span(
-                [H.span(note["snippet"], _HBO_ATTR), _added_span(note["char"])],
-                {"dir": "rtl"},
-            ),
-            " added to improve legibility",
-        ],
+        [f"{note['kind']} added to improve legibility"],
         {"class": "clc-added-note"},
     )
 

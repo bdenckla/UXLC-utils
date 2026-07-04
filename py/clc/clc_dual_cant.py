@@ -699,14 +699,16 @@ def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand, verse_
     strands display-only). clc_render composes the prose around the snippet.
     """
     notes = []
-    for atom, other_atom in zip(strand_atoms, other_strand_atoms):
+    for atom_index, (atom, other_atom) in enumerate(
+        zip(strand_atoms, other_strand_atoms), start=1
+    ):
         for added_char in atom.get("additions", ()):
-            notes.append(_added_note(atom["text"], added_char))
+            notes.append(_added_note(atom["text"], added_char, atom_index))
         for omitted_char in atom.get("omitted_accents", ()):
             present = _present_accent(atom["text"], other_atom["text"])
             present_verse_final = hpu.SOPA in other_atom["text"]
             notes.append(_omitted_note(atom["text"], omitted_char, present, present_verse_final,
-                                        strand, other_strand, verse_loc))
+                                        strand, other_strand, verse_loc, atom_index))
     return tuple(notes)
 
 
@@ -717,18 +719,19 @@ def _present_accent(this_text, other_text):
     return next((ch for ch in other_text if _is_accent(ch) and ch not in this_accents), None)
 
 
-def _added_note(snippet, added_char):
+def _added_note(snippet, added_char, atom_index):
     return {
         "kind": _ADDED_NAME[added_char],   # "maqaf" / "sof pasuq"
         "char": added_char,                # the supplied mark itself
         "snippet": snippet,                # the strand word that receives it
+        "atom_index": atom_index,          # 1-based atom position, for grouping in clc_render
         "source": clc_note.SOURCE_DUAL_CANT_ADDITION,
         "diff_type": clc_note.DIFF_DUAL_CANT_ADDED_PUNCT,
     }
 
 
 def _omitted_note(snippet, accent_char, present_char, present_verse_final, strand, other_strand,
-                   verse_loc):
+                   verse_loc, atom_index):
     """An accent this strand wants but UXLC omitted — noted, not supplied. The snippet is
     the strand word AS SHOWN (that accent absent); no mark is rendered. ``present_char`` is
     the accent UXLC *does* have here (the other strand's), named in the note for concreteness.
@@ -756,6 +759,7 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
                           if present_char else None),  # the accent UXLC has
         "present_char": present_char,
         "snippet": snippet,                      # the strand word, shown without the accent
+        "atom_index": atom_index,                # 1-based atom position, for grouping in clc_render
         "strand": strand.short,                  # the strand that wants it ("elyon"/"taxton"/…)
         "other_strand": other_strand.short,      # the strand whose accent UXLC does have
         "verse_loc": verse_loc,                  # (book_id, ch, v), for clc_render's long-note anchor

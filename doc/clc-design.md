@@ -499,7 +499,7 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   invent one — the sharpened departure from the detangler, which *does* supply it to parse. CLC shows
   the word as UXLC has it (that accent simply absent) and emits a per-strand note that names *both*
   accents — the one wanted and the one UXLC actually has, in the mechanism's base template: *"The
-  taḥton strand calls for a pashta on ימים here, but UXLC's combined text carries only the elyon
+  taḥton strand calls for a pashta here, but UXLC's combined text carries only the elyon
   strand's munaḥ, and it is beyond the limits of CLC's charity to supply the missing pashta."* The
   Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta on אלהיך), **5:13** (taxton's
   pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the sof-pasuq but not its silluq, so
@@ -521,6 +521,17 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
     יִהְיֶה־, but the LC has only a single mark, which is best transcribed as a merkha since, unlike
     the meteg, the merkha is truly needed."* This case carries a further-discussion long note (§7.3)
     citing Yeivin's ITM §355 on that gaʿya.
+- **First-class targeted notes — the word is a header, not inline prose.** A strand note (both the
+  omitted-accent notes above and the supplied-punctuation "added out of thin air" notes) is
+  rendered like a normal verse's note (§7.3, `clc_render._note_block`): the target word is repeated
+  as the note's own **header**, and the prose beneath no longer names the word inline — so a note
+  reads *"The elyon strand calls for a silluq here …"* under a תִּרְצָח׃ header, not *"… on תרצח here
+  …"*. A supplied-mark note's header echoes the word **as CLC shows it**, with the bracketed/green
+  supplied mark right after it (matching the text column); its body is just *"maqaf added to improve
+  legibility."* `clc_render._strand_note_block` / `_strand_note_header` build this from the
+  atom-grouped strand notes (`clc_dual_cant._strand_notes` now tags each note with its `atom_index`);
+  the snippet-free prose is the single source for both the main page and the long-notes-page recap,
+  the latter staying running prose (its verse recap already shows the word) rather than re-headering.
 - **QUPO vowel split** (ex 20:3, dt 5:7): where the two strands stack *different vowels* (patax vs.
   qamats) on one letter (עַל־פָּנָ֗י's נ), it is the same position-safe subtraction bucket as
   rafe/dagesh — each strand keeps its own vowel, drops the other's. The one subtlety: the same vowel
