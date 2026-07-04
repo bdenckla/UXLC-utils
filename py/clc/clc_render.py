@@ -119,7 +119,7 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, page_label):
             # not the combined form — see _plain_text_contents.
             other = next(vw for vw in strands if vw is not view)
             text_cell = H.table_datum(
-                _plain_text_contents(view.atoms, other.atoms),
+                _plain_text_contents(view.atoms, other.atoms, _strand_noted_indices(view)),
                 {**_HBO_ATTR, "class": "clc-text"},
             )
             doc_cell = H.table_datum(
@@ -396,7 +396,7 @@ def _relegated_page_href(atom_notes, page_label):
     return clc_long_note.page_href(page_label, anchor)
 
 
-def _plain_text_contents(strand_atoms, other_atoms):
+def _plain_text_contents(strand_atoms, other_atoms, noted_indices=()):
     # Like _text_contents but with no note always-links — used by the alef/bet
     # strand rows of a dual-cant verse, whose notes/anchors live on the combined
     # row only (re-emitting them here would duplicate anchor ids). Each word
@@ -407,8 +407,16 @@ def _plain_text_contents(strand_atoms, other_atoms):
     # (e.g. ex 20:9 כל, whose taxton keeps a dagesh elyon drops), and one carrying a
     # SUPPLIED mark (clc_dual_cant additions) the other strand lacks; any supplied
     # mark is rendered bracketed/green right after the word.
+    #
+    # A word carrying a strand note (its 1-based atom position is in ``noted_indices``)
+    # is additionally given the clc-doc-target highlight, exactly like a noted word in a
+    # normal verse (_noted_word) — so the reader can see which strand words are annotated,
+    # not just which diverge. It is a plain span, not a link: a strand note always keeps an
+    # inline block in the same row's doc cell, so there is nothing to jump to (design doc
+    # §7.3/§7.7). Dropping same-page note anchors — issue #6 — is what removed the
+    # id-collision constraint that previously kept these strand words unhighlighted.
     pieces = []
-    for strand_atom, other_atom in zip(strand_atoms, other_atoms):
+    for index, (strand_atom, other_atom) in enumerate(zip(strand_atoms, other_atoms), start=1):
         atom_text = strand_atom["text"]
         additions = strand_atom.get("additions", ())
         same_across_strands = atom_text == other_atom["text"] and tuple(
@@ -416,12 +424,20 @@ def _plain_text_contents(strand_atoms, other_atoms):
         ) == tuple(other_atom.get("additions", ()))
         if same_across_strands:
             pieces.append(H.span(atom_text, {"class": "clc-strand-same"}))
+        elif index in noted_indices:
+            pieces.append(H.span(atom_text, {"class": "clc-doc-target"}))
         else:
             pieces.append(atom_text)
         for added in additions:
             pieces.append(_added_span(added))
         _append_join_space(pieces, additions[-1] if additions else atom_text)
     return pieces
+
+
+def _strand_noted_indices(view):
+    # 1-based atom positions of ``view``'s strand notes — the words to highlight as
+    # note targets in this strand's text column (clc_dual_cant tags each note with atom_index).
+    return {note["atom_index"] for note in view.notes}
 
 
 def _added_span(added_char):
@@ -729,7 +745,9 @@ def _build_long_note_entry(spec, book, notes, chapters):
     # 5:6's elyon wants both a tipeḥa and an etnaḥta) -- without it, both would show the
     # identical heading "Deuter 5:6 — elyon strand" with nothing to tell them apart.
     heading = f"{spec.book_id} {spec.ch}:{spec.v} — {view.doc_label} ({spec.kind})"
-    verse_recap = H.para([H.span(_plain_text_contents(view.atoms, other.atoms), _HBO_ATTR)])
+    verse_recap = H.para(
+        [H.span(_plain_text_contents(view.atoms, other.atoms, _strand_noted_indices(view)), _HBO_ATTR)]
+    )
     # Labeled so a reader landing here from the always-link (not from the short note's
     # own "see more details" link) can tell which part is a verbatim recap of what the
     # main page already says, versus the content that's new to this page. "main page"

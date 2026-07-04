@@ -265,6 +265,14 @@ def test_added_render():
     # bet supplies nothing → no green span.
     bet_html = _render(clc_render._plain_text_contents(bet_view.atoms, alef_view.atoms))
     assert "clc-added-during-detangling" not in bet_html
+    # The supplied-mark note's target word is highlighted (clc-doc-target) in the text
+    # column too — like any noted word — when its atom index is passed in.
+    alef_targeted = _render(
+        clc_render._plain_text_contents(
+            alef_view.atoms, bet_view.atoms, clc_render._strand_noted_indices(alef_view)
+        )
+    )
+    assert f'class="clc-doc-target">{alef_view.notes[0]["snippet"]}' in alef_targeted
 
     # The supplied-mark note is now a first-class TARGETED note (§7.7): the target word and
     # its bracketed/green mark are pulled out into the note HEADER (_strand_note_header), and
@@ -486,6 +494,14 @@ def test_decalogue_omitted_accent():
     # and the strand TEXT column supplies no green mark for an omitted accent.
     bet_html = _render(clc_render._plain_text_contents(bet.atoms, alef.atoms))
     assert "clc-added-during-detangling" not in bet_html
+    assert "clc-doc-target" not in bet_html               # no highlight without noted_indices
+    # But given the note's target atom, that word gets the clc-doc-target highlight in the
+    # strand text column — like a noted word in a normal verse — as a plain span, no link.
+    bet_targeted = _render(
+        clc_render._plain_text_contents(bet.atoms, alef.atoms, clc_render._strand_noted_indices(bet))
+    )
+    assert f'class="clc-doc-target">{b}' in bet_targeted   # תרצח (atom 2) highlighted
+    assert "href" not in bet_targeted                      # inline note; nothing to jump to
 
 
 def test_decalogue_qupo_vowel_split():
