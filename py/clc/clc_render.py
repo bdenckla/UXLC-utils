@@ -67,7 +67,7 @@ def write_book(book_id, book, notes, chapters=None):
                 rows.append(_verse_row(ch, v, verse, notes_by_atom, label))
     disp = disp_label(book_id, chapters)
     table = H.table(rows, {"class": "clc-3col border-collapse"})
-    body = _body_wrapper(disp, notes, table)
+    body = _body_wrapper(disp, table)
     out_path = f"{_OUT_DIR}/{label}.html"
     write_ctx = H.WriteCtx(title=f"CLC — {disp}", path=out_path, add_wbr=True)
     H.write_html_to_file(body, write_ctx, "../")
@@ -283,7 +283,7 @@ def _omitted_note_block(note, page_label):
 
 
 def _added_note_block(note):
-    # "<name> in <strand word><[mark]> added out of thin air, to improve legibility"
+    # "<name> in <strand word><[mark]> added to improve legibility"
     # — snippet in rtl Hebrew, the supplied mark echoed in the bracketed/green
     # style used in the text column. The snippet and its bracketed mark share one
     # dir="rtl" wrapper (so [dir] → unicode-bidi: isolate) — otherwise, in this
@@ -297,7 +297,7 @@ def _added_note_block(note):
                 [H.span(note["snippet"], _HBO_ATTR), _added_span(note["char"])],
                 {"dir": "rtl"},
             ),
-            " added out of thin air, to improve legibility",
+            " added to improve legibility",
         ],
         {"class": "clc-added-note"},
     )
@@ -748,7 +748,7 @@ def _find_strand_note(strands, strand, kind):
     raise LookupError((strand, kind))
 
 
-def _body_wrapper(book_id, notes, table):
+def _body_wrapper(book_id, table):
     # The "clc-main-page" class is a hook for gh-pages/style.css to widen <body> itself
     # (past its site-wide 40em cap) on these pages only -- the long-notes page carries no
     # such class, so it stays at the site-wide width. Widening the page is what actually
@@ -758,30 +758,6 @@ def _body_wrapper(book_id, notes, table):
     contents = [
         H.heading_level_1(f"Charitable Leningrad Codex — {book_id}"),
         clc_attribution.top_credit(),
-        _intro_para(notes),
         table,
     ]
     return [H.div(contents, {"style": style, "class": "clc-main-page"})]
-
-
-def _intro_para(notes):
-    return H.para(
-        [
-            "CLC walking skeleton. This page surfaces UXLC's own ",
-            H.code("<x>"),
-            f" notes ({_code_counts_text(notes)}) as always-links — the under-bar "
-            "codes m/d plus the general transcription-uncertainty catch-all t — each "
-            "carrying its tanach.us note-page prose (an atom whose note page is not "
-            "yet downloaded shows a bare [note not yet downloaded] placeholder, never "
-            "invented text). No accent grammar and no charitable resolution yet — see "
-            "doc/clc-design.md.",
-        ]
-    )
-
-
-def _code_counts_text(notes):
-    counts = {}
-    for note in notes:
-        counts[note.note_code] = counts.get(note.note_code, 0) + 1
-    parts = [f"{counts[code]}×{code}" for code in ("m", "d", "t") if code in counts]
-    return ", ".join(parts) if parts else "none"

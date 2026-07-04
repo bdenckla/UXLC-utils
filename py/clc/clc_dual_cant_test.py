@@ -271,7 +271,7 @@ def test_added_render():
     assert len(alef_view.notes) == 1
     note_html = H.el_to_str_no_wbr(clc_render._added_note_block(alef_view.notes[0]))
     assert "sof pasuq in " in note_html
-    assert "added out of thin air, to improve legibility" in note_html
+    assert "added to improve legibility" in note_html
     assert "clc-added-during-detangling" in note_html
     assert bet_view.notes == ()
     # The snippet AND its bracketed mark sit inside one dir="rtl" wrapper (a span
