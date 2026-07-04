@@ -265,14 +265,18 @@ def test_added_render():
     # bet supplies nothing → no green span.
     bet_html = _render(clc_render._plain_text_contents(bet_view.atoms, alef_view.atoms))
     assert "clc-added-during-detangling" not in bet_html
-    # The supplied-mark note's target word is highlighted (clc-doc-target) in the text
-    # column too — like any noted word — when its atom index is passed in.
+    # A SUPPLIED-mark note gets NO blue clc-doc-target highlight on its word: the green
+    # bracketed mark is already its own flag, and there is no meaningful "highlighted green"
+    # (Ben's call). _strand_noted_indices therefore excludes supplied-mark notes, so the alef
+    # strand (whose only note is the supplied sof-pasuq) yields no highlight indices at all.
+    assert clc_render._strand_noted_indices(alef_view) == set()
     alef_targeted = _render(
         clc_render._plain_text_contents(
             alef_view.atoms, bet_view.atoms, clc_render._strand_noted_indices(alef_view)
         )
     )
-    assert f'class="clc-doc-target">{alef_view.notes[0]["snippet"]}' in alef_targeted
+    assert "clc-doc-target" not in alef_targeted           # word not blue-highlighted
+    assert "clc-added-during-detangling" in alef_targeted  # but its green mark stays green
 
     # The supplied-mark note is now a first-class TARGETED note (§7.7): the target word and
     # its bracketed/green mark are pulled out into the note HEADER (_strand_note_header), and

@@ -408,13 +408,14 @@ def _plain_text_contents(strand_atoms, other_atoms, noted_indices=()):
     # SUPPLIED mark (clc_dual_cant additions) the other strand lacks; any supplied
     # mark is rendered bracketed/green right after the word.
     #
-    # A word carrying a strand note (its 1-based atom position is in ``noted_indices``)
-    # is additionally given the clc-doc-target highlight, exactly like a noted word in a
-    # normal verse (_noted_word) — so the reader can see which strand words are annotated,
-    # not just which diverge. It is a plain span, not a link: a strand note always keeps an
-    # inline block in the same row's doc cell, so there is nothing to jump to (design doc
-    # §7.3/§7.7). Dropping same-page note anchors — issue #6 — is what removed the
-    # id-collision constraint that previously kept these strand words unhighlighted.
+    # A word whose 1-based atom position is in ``noted_indices`` is additionally given the
+    # clc-doc-target highlight, exactly like a noted word in a normal verse (_noted_word) — so
+    # the reader can see which strand words are annotated, not just which diverge. It is a plain
+    # span, not a link: a strand note always keeps an inline block in the same row's doc cell, so
+    # there is nothing to jump to (design doc §7.3/§7.7). Dropping same-page note anchors — issue
+    # #6 — is what removed the id-collision constraint that previously kept these strand words
+    # unhighlighted. Which atoms qualify is decided by the caller (_strand_noted_indices): only
+    # omitted-accent notes, NOT supplied-mark notes, whose green bracketed mark is its own flag.
     pieces = []
     for index, (strand_atom, other_atom) in enumerate(zip(strand_atoms, other_atoms), start=1):
         atom_text = strand_atom["text"]
@@ -435,9 +436,15 @@ def _plain_text_contents(strand_atoms, other_atoms, noted_indices=()):
 
 
 def _strand_noted_indices(view):
-    # 1-based atom positions of ``view``'s strand notes — the words to highlight as
-    # note targets in this strand's text column (clc_dual_cant tags each note with atom_index).
-    return {note["atom_index"] for note in view.notes}
+    # 1-based atom positions of ``view``'s OMITTED-ACCENT strand notes — the words to
+    # highlight (clc-doc-target) as note targets in this strand's text column (clc_dual_cant
+    # tags each note with atom_index). A SUPPLIED-mark note is deliberately EXCLUDED: its added
+    # mark already renders bracketed/green in the text column, which is its own flag, so the
+    # word takes no blue target highlight on top of it — there is no meaningful "highlighted
+    # green" (Ben's call). Only the omitted-accent notes, which add nothing visible to the
+    # word, need the highlight to show the word is annotated.
+    return {note["atom_index"] for note in view.notes
+            if note["source"] == clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT}
 
 
 def _added_span(added_char):
