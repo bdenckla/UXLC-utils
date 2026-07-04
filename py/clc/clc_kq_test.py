@@ -114,11 +114,13 @@ def test_ruby_ketiv_without_qere():
     assert html.index("clc-kq-none") < html.index("<rt")  # placeholder is on the baseline
 
 
-def test_note_always_link():
+def test_note_highlight():
     notes_by_atom = {(4, 7, 3): ["a note"]}  # only membership matters
     html = H.el_to_str_no_wbr(kq.kq_ruby(kq.KqUnit((kq.Word(2, "KKK"),), (kq.Word(3, "QQQ"),)), notes_by_atom, 4, 7))
-    assert 'href="#clc-4-7-3"' in html and 'class="clc-doc-target"' in html
-    assert "QQQ" in html  # the noted qere is still rendered, now wrapped in the link
+    # Noted → highlighted (clc-doc-target), but NOT a same-page link: the note sits in
+    # the same row's doc cell beside it (clc_render dropped same-page note anchors).
+    assert 'class="clc-doc-target"' in html and "href" not in html
+    assert "QQQ" in html  # the noted qere is still rendered, now wrapped in the highlight span
 
 
 def test_join_text():
@@ -160,7 +162,7 @@ def main():
     test_ruby_standard()
     test_ruby_qere_without_ketiv()
     test_ruby_ketiv_without_qere()
-    test_note_always_link()
+    test_note_highlight()
     test_join_text()
     test_xml_gen_30_11_k1q2()
     test_xml_sam2_21_12_adjacent_standard_then_grouped()

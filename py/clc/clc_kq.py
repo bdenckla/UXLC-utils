@@ -41,7 +41,7 @@ class Word:
     """A single atom in reading order: its 1-based verse position and text.
 
     Used both for a plain word and for each ketiv/qere member of a KqUnit; the
-    position is the note-attachment key (matches clc_render._anchor_id).
+    position is the note-attachment key (the (ch, v, position) into notes_by_atom).
     """
 
     position: int
@@ -116,10 +116,13 @@ def _side(members, real_class, none_text, notes_by_atom, ch, v):
 
 
 def _member_span(member, css_class, notes_by_atom, ch, v):
-    """A member's span, wrapped in its always-link if the atom carries a note."""
+    """A member's span, highlighted (clc-doc-target) if the atom carries a note.
+
+    A noted K/Q member is flagged like any other noted word, but not linked: its note
+    sits in the same row's doc cell beside it (clc_render dropped same-page note
+    anchors), so there is nothing to jump to.
+    """
     span = H.span_c(member.text, css_class)
     if (ch, v, member.position) in notes_by_atom:
-        # Anchor id must match clc_render._anchor_id.
-        href = f"#clc-{ch}-{v}-{member.position}"
-        return H.anchor(span, {"href": href, "class": "clc-doc-target"})
+        return H.span([span], {"class": "clc-doc-target"})
     return span

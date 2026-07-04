@@ -62,7 +62,7 @@ def test_no_leakage():
 def test_render():
     _book, notes = clc_collect.collect_for_book("Deuter", chapters={5})
     note = _deut_5_8_atom2_note(notes)
-    html = H.el_to_str_no_wbr(clc_render._note_block(5, 8, 2, [note]))
+    html = H.el_to_str_no_wbr(clc_render._note_block([note]))
     assert "clc-added-note" in html
     assert "pashta" in html and "qadma" in html
     # No note-code prefix or superseding-change citation: those belong to showing
@@ -91,8 +91,8 @@ def test_dual_cant_integration():
 
 def test_long_note_relegation():
     # Deut 5:13.2-t's UXLC note (design doc §7.3) is relegated to the long-notes page:
-    # no inline same-row doc-cell block, and the word's always-link points at the long
-    # note instead of the local #clc-5-13-2 anchor. This exercises the real
+    # no inline same-row doc-cell block, and the word's highlight links across to the long
+    # note (there is no same-page anchor to point at anymore). This exercises the real
     # clc_collect.collect_for_book pipeline, not the synthetic clc_dual_cant_test path.
     book, notes = clc_collect.collect_for_book("Deuter", chapters={5})
     notes_by_atom = clc_render._group_by_atom(notes)
@@ -101,7 +101,7 @@ def test_long_note_relegation():
     doc_blocks = clc_render._doc_contents(5, 13, verse13, notes_by_atom)
     assert not any('id="clc-5-13-2"' in H.el_to_str_no_wbr(b) for b in doc_blocks), doc_blocks
 
-    href = clc_render._note_href(5, 13, 2, notes_by_atom.get((5, 13, 2)), "Deuter-5")
+    href = clc_render._relegated_page_href(notes_by_atom.get((5, 13, 2)), "Deuter-5")
     assert href == "Deuter-5-long-notes.html#long-Deuter-5-13-tahton-pashta", href
 
     # Chapter 5 has five long notes: 5:13's taḥton pashta (this one, which relegates an inline

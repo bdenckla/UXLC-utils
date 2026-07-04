@@ -340,10 +340,19 @@ Each is a feature this doc names, organized with grounding + open questions.
 
 ### 7.3 UXLC notes — MAM-style, no word-interrupting callouts
 - Adopt the MAM-with-doc presentation: text column stays clean; notes live in a side column /
-  apparatus. **Difference from MAM:** CLC wants notes to be **always links**, whereas
-  MAM only links the *long* (> 400-char) notes and inlines the short ones. → CLC drops the
-  length threshold and links uniformly. **Decided: always link** — uniform links, no MAM-style
-  inline-short / link-long threshold.
+  apparatus. **Every noted word is highlighted** in the text column (`clc-doc-target`,
+  [`_noted_word`](py/clc/clc_render.py)) so the reader can see which words are annotated — this is
+  MAM's own short-note treatment (colour the target word, no link).
+- **Links, though, only ever go off-page (reversal — issue #6).** CLC originally linked *every*
+  note uniformly ("always link", a deliberate deviation from MAM's inline-short / link-long
+  threshold). That was **reversed**: a short note renders in the doc column of the *same row* as
+  its target, always in the word's visual vicinity, so a same-page jump scrolls essentially
+  nowhere and its `:target` highlight was dead weight. Same-page note anchors are therefore
+  **dropped** — a noted word is a plain highlighted `<span>`, not a link. The **only** link that
+  remains is the genuine cross-page one: a note relegated entirely to the long-notes page (below)
+  makes its highlighted word an `<a>` pointing *across* to that page. Dropping the same-page
+  anchors also removes the id-collision constraint that kept the singly-cantillated (א/ב) strand
+  rows' noted words from being highlighted like any other (see §7.7 / [`clc_kq._member_span`](py/clc/clc_kq.py)).
 - **Note text source — settled (once this doc's biggest unknown).** The `<x>` element carries
   only a one-letter *type* (cf. [`_handle_wc_x`](py/main_fois.py#L54-L59)); the rendered prose is the
   **actual tanach.us note page**, downloaded **offline** into committed [in/UXLC-notes/](in/UXLC-notes/)
@@ -357,9 +366,9 @@ Each is a feature this doc names, organized with grounding + open questions.
   verbatim, as the note's opening sentence, since it is part of the same trusted downloaded page as
   the `<p>` prose ([#30](https://github.com/bdenckla/UXLC-utils/issues/30)). The `wlc-utils`
   bracket-note definitions cover the separate bracket-note layer (§7.2).
-- **Body placement is a *separate* axis from the link.** "Always link" (above) governs only the
-  affordance on the word — every note links, uniformly, no threshold. It does **not** dictate where
-  the note *body* renders.
+- **Body placement is a *separate* axis from the highlight.** The highlight (above) is just a flag
+  on the word — every noted word carries it. It does **not** dictate where the note *body* renders,
+  nor whether the highlight is also a link (it is a link only when the body lives off-page).
   - **Now (skeleton):** every body renders **inline in the doc column** of the same verse row
     ([`_note_block`](py/clc/clc_render.py#L197-L205)), regardless of length.
   - **Landed, case-by-case (not MAM's length threshold):** a note can be relegated to a long-notes
@@ -367,9 +376,9 @@ Each is a feature this doc names, organized with grounding + open questions.
     page (`gh-pages/clc/<label>-long-notes.html`, e.g.
     [`gh-pages/clc/Deuter-5-long-notes.html`](gh-pages/clc/Deuter-5-long-notes.html)), written only
     for a job with any long notes to hold, so its own intro can link back to that one main page
-    unambiguously. The always-link then points across to that page's anchored body instead of into
-    the same-row doc cell, exactly as originally sketched below. **Deliberate deviation from
-    MAM-with-doc:**
+    unambiguously. The highlighted word then becomes a link pointing across to that page's anchored
+    body (the sole surviving link — same-page bodies are not linked, only highlighted). **Deliberate
+    deviation from MAM-with-doc:**
     MAM decides this automatically by a > 400-char length threshold; CLC never does — an editor
     opts a specific note in by hand (`clc_render._LONG_NOTE_SPECS`), so length is never inspected.
     Each long note recaps its verse (the relevant strand only) and its own short note, then adds
@@ -857,7 +866,9 @@ and `dual-cant-added-punct`. The dual-cant **"added
    tanach.us LCIndex already vendored here (§6).
 4. **Image scraping source & licensing** (§7.6).
 5. **B&W → color** upgrade pipeline — how much can be automated (§7.6).
-6. ~~**"Always link" vs. MAM's inline-short/link-long**~~ **Decided: always link** (§7.3).
+6. ~~**"Always link" vs. MAM's inline-short/link-long**~~ **Reversed: highlight all, link only
+   off-page** — same-page notes sit beside their target, so no jump is needed; only a note relegated
+   to the long-notes page is a link (§7.3).
 7. **Verdict vocabulary** for identity (2a) ambiguities (§7.1).
 8. **WLC-vs-UXLC per-word diff** to gate bracket-note application (§7.2) — tracked in
    [#33](https://github.com/bdenckla/UXLC-utils/issues/33); `wlc-utils/py/accgram/wlc_uxlc_diff.py`
@@ -896,7 +907,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 |---|---|---|
 | §7.1 charitable under-bar | **seed only** | m/d under-bar (+ t transcription-uncertainty) notes *surfaced* (clc_collect); no accent grammar / resolution — `is_uxlc_departure` always False, except the one §7.4 pending-change instance (Deut 5:8.2) |
 | §7.2 bracket-note restoration | not started | plan written up: [#33](https://github.com/bdenckla/UXLC-utils/issues/33) (attachment + UXLC-vs-WLC diff gate), [#34](https://github.com/bdenckla/UXLC-utils/issues/34) (MAM enrichment, depends on #33) |
-| §7.3 MAM-style always-link notes | **done (skeleton form)** | 3-col `text \| ref \| doc` always-link renderer (clc_render); most bodies inline, six case-by-case relegated to a long-notes page, one per main page (`clc_render._LONG_NOTE_SPECS`, `gh-pages/clc/<label>-long-notes.html`) |
+| §7.3 MAM-style highlighted notes | **done (skeleton form)** | 3-col `text \| ref \| doc` renderer (clc_render); noted words highlighted (`clc-doc-target`), same-page anchors dropped (issue #6 reversal) — only off-page notes link; most bodies inline, six case-by-case relegated to a long-notes page, one per main page (`clc_render._LONG_NOTE_SPECS`, `gh-pages/clc/<label>-long-notes.html`) |
 | §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |

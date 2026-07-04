@@ -75,10 +75,13 @@ span.clc-strand-label { font-style: italic; color: light-dark(#555, #aaa); }
    (clc_render._plain_text_contents). */
 span.clc-strand-same { color: light-dark(#999, #666); }
 td.clc-doc { max-width: 45em; font-size: 85%; }
-a.clc-doc-target { color: light-dark(#1a4fd6, #8ab4ff); text-decoration: none; }
+/* A noted word is highlighted in the text column (clc_render._noted_word,
+   clc_kq._member_span). Usually a plain <span> — its note sits beside it in the same
+   row, so there is no same-page jump; only a note relegated to the long-notes page
+   makes this an <a> pointing across to that page (hover-underlined). */
+.clc-doc-target { color: light-dark(#1a4fd6, #8ab4ff); text-decoration: none; }
 a.clc-doc-target:hover { text-decoration: underline; }
 div.clc-note { margin-bottom: 0.5em; }
-div.clc-note:target { background-color: light-dark(#f3e3a4, #5a4a1f); border-radius: 0.15em; }
 span.clc-note-code { font-weight: bold; }
 /* CLC ketiv/qere (clc_kq): one boxed <ruby> per K/Q unit — qere on the baseline
    (the reading), ketiv as the annotation above. The per-unit box bounds each

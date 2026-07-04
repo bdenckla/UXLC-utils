@@ -317,23 +317,34 @@ def _strand_ref_attr(tooltip, pos, count):
 def _text_contents(ch, v, verse, notes_by_atom, page_label):
     # Group ketiv/qere atoms into units (clc_kq) so each renders as one boxed
     # ruby — qere on the baseline, ketiv above — and adjacent independent pairs
-    # stay visibly separate from a grouped multi-word unit. Plain words render
-    # exactly as before: an always-link if noted, otherwise bare text.
+    # stay visibly separate from a grouped multi-word unit. Plain words render as
+    # a highlight if noted (see _noted_word), otherwise bare text.
     pieces = []
     for item in clc_kq.iter_render_units(verse):
         if isinstance(item, clc_kq.KqUnit):
             pieces.append(clc_kq.kq_ruby(item, notes_by_atom, ch, v))
             _append_join_space(pieces, clc_kq.join_text(item))
         else:
-            href = _note_href(
-                ch, v, item.position, notes_by_atom.get((ch, v, item.position)), page_label
-            )
-            if href:
-                pieces.append(H.anchor(item.text, {"href": href, "class": "clc-doc-target"}))
-            else:
-                pieces.append(item.text)
+            atom_notes = notes_by_atom.get((ch, v, item.position))
+            pieces.append(_noted_word(item.text, atom_notes, page_label))
             _append_join_space(pieces, item.text)
     return pieces
+
+
+def _noted_word(text, atom_notes, page_label):
+    # A word carrying at least one note is HIGHLIGHTED in the text column (clc-doc-
+    # target, design doc §7.3) so the reader can see which words are annotated. It is
+    # NOT a same-page link: the note sits in the same row's doc cell, right beside the
+    # word, so there is nothing to jump to (a short note is always in the visual
+    # vicinity of its target). The sole exception is a note relegated ENTIRELY to the
+    # separate long-notes page — then the highlight is a real anchor pointing ACROSS to
+    # that page's body (design doc §7.3).
+    if not atom_notes:
+        return text
+    href = _relegated_page_href(atom_notes, page_label)
+    if href:
+        return H.anchor(text, {"href": href, "class": "clc-doc-target"})
+    return H.span(text, {"class": "clc-doc-target"})
 
 
 def _relegated_anchor(note):
@@ -342,18 +353,17 @@ def _relegated_anchor(note):
     return _UXLC_NOTES_RELEGATED.get((note.book, note.ch, note.v, note.atom_index, note.note_code))
 
 
-def _note_href(ch, v, position, atom_notes, page_label):
-    # The word's always-link target: the local same-row anchor if it has any note that
-    # still renders there, else — if EVERY note on this atom is relegated (above) — the
-    # long-notes page anchor instead (design doc §7.3's "the always-link then points
-    # across to the anchored body on that page instead of into the same-row doc cell"),
-    # else None (unnoted word, no link).
-    if not atom_notes:
-        return None
+def _relegated_page_href(atom_notes, page_label):
+    # Non-None only when EVERY note on this atom is relegated to the long-notes page
+    # (design doc §7.3) — then the highlighted word links ACROSS to that page's anchored
+    # body. If any note still renders inline in the same-row doc cell, there is no jump
+    # target (same-page notes no longer carry anchors — they sit right beside the word),
+    # so return None and _noted_word highlights the word as a plain span.
     if any(_relegated_anchor(n) is None for n in atom_notes):
-        return f"#{_anchor_id(ch, v, position)}"
+        return None
     anchors = {_relegated_anchor(n) for n in atom_notes}
-    assert len(anchors) == 1, (ch, v, position, anchors)  # one atom, one long note, for now
+    n0 = atom_notes[0]
+    assert len(anchors) == 1, (n0.ch, n0.v, n0.atom_index, anchors)  # one atom, one long note
     (anchor,) = anchors
     return clc_long_note.page_href(page_label, anchor)
 
@@ -415,11 +425,15 @@ def _doc_contents(ch, v, verse, notes_by_atom):
             continue
         visible = [n for n in atom_notes if _relegated_anchor(n) is None]
         if visible:
-            blocks.append(_note_block(ch, v, position, visible))
+            blocks.append(_note_block(visible))
     return blocks
 
 
-def _note_block(ch, v, position, atom_notes):
+def _note_block(atom_notes):
+    # Opens with the atom text repeated as a heading, then each note in turn. No id
+    # anchor: the always-link that used to jump here was dropped (see _noted_word) —
+    # the block sits in the same row as its highlighted target word, so the reader has
+    # nothing to jump from.
     entries = [
         H.span(atom_notes[0].atom_text, _HBO_ATTR),
     ]
@@ -436,7 +450,7 @@ def _note_block(ch, v, position, atom_notes):
             else:
                 entries.append(note.note_text)
                 entries.append(clc_attribution.note_cite(note.source_url))
-    return H.div(entries, {"id": _anchor_id(ch, v, position), "class": "clc-note"})
+    return H.div(entries, {"class": "clc-note"})
 
 
 def _departure_note_block(note):
@@ -470,10 +484,6 @@ def _accent_diff_names(uxlc_reading, clc_reading):
     assert len(diffs) == 1, (uxlc_reading, clc_reading, diffs)
     old_char, new_char = diffs[0]
     return describe_diff.accent_name(old_char), describe_diff.accent_name(new_char)
-
-
-def _anchor_id(ch, v, position):
-    return f"clc-{ch}-{v}-{position}"
 
 
 _BHL_TITLE = "Dotan’s Biblia Hebraica Leningradensia"
@@ -652,8 +662,8 @@ _LONG_NOTE_SPECS = (
 )
 
 # Derived from _LONG_NOTE_SPECS: (book, ch, v, atom_index, note_code) -> long-note
-# anchor id, consulted by _relegated_anchor/_note_href/_doc_contents to suppress a
-# relegated UXLC x-note's inline block and redirect its always-link. Only specs that
+# anchor id, consulted by _relegated_anchor/_relegated_page_href/_doc_contents to suppress
+# a relegated UXLC x-note's inline block and redirect its highlight link. Only specs that
 # actually relegate an inline UXLC note participate (relegated_position is not None) --
 # a pure-further-discussion long note like Deut 5:7's elyon meteg subsumes nothing.
 _UXLC_NOTES_RELEGATED = {
