@@ -537,10 +537,12 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
 - **First-class targeted notes — the word is a header, not inline prose.** A strand note (both the
   omitted-accent notes above and the supplied-punctuation "added out of thin air" notes) is
   rendered like a normal verse's note (§7.3, `clc_render._note_block`): the target word is repeated
-  as the note's own **header**, and the prose beneath no longer names the word inline — so a note
-  reads *"The elyon strand calls for a silluq here …"* under a תִּרְצָח׃ header, not *"… on תרצח here
-  …"*. A supplied-mark note's header echoes the word **as CLC shows it**, with the bracketed/green
-  supplied mark right after it (matching the text column); its body is just *"maqaf added to improve
+  as the note's own **header** — demoted to bare letters, its body em-dash-joined on the same line
+  (the target-as-heading layout at the end of §7.7) — and the prose no longer names the word inline,
+  so a note reads *"The elyon strand calls for a silluq here …"* after a bare `תרצח׃` header, not
+  *"… on תרצח here …"*. A supplied-mark note's header keeps the supplied mark right after the word in
+  **plain square brackets** (`תרצח[׃]`-style, the green "added" formatting dropped for the header
+  even though the text column still shows it green); its body is just *"maqaf added to improve
   legibility."* `clc_render._strand_note_block` / `_strand_note_header` build this from the
   atom-grouped strand notes (`clc_dual_cant._strand_notes` now tags each note with its `atom_index`);
   the snippet-free prose is the single source for both the main page and the long-notes-page recap,
@@ -636,6 +638,22 @@ letters** by `clc_strip.strip_to_bare_letters` ([#48](https://github.com/bdenckl
 — see §8), while the body names only the shared `letter`; the `-C` text column keeps the word fully
 pointed. All are lightweight dicts, **not** yet ClcNotes / §7.9 index rows — the subtractive
 divergences carry no ClcNote departure record yet.
+
+**Target-as-heading layout — shared by every headed note.** The bare-letter demotion generalizes
+beyond the combined-row divergence notes above: *every* headed note renders the same way
+([`clc_render._headed_note`](py/clc/clc_render.py) / `_stripped_heading`,
+[#48](https://github.com/bdenckla/UXLC-utils/issues/48)) — the ordinary UXLC notes of §7.3 as well
+as the omitted-accent/vowel and supplied-mark strand notes and the combined-row rafe/dagesh + QUPO
+notes here. The heading is the target word **stripped to bare letters** in the **default font** (no
+`lang="hbo"`/Taamey — that wrapper exists only to font-and-size *pointed* Hebrew, which bare letters
+don't need; a `dir="rtl"` span still isolates the Hebrew from what follows it on the line). It keeps
+only the word-level punctuation maqaf / sof-pasuq / legarmeh, so a heading reads e.g. `תרצח׃` or
+`כל־`; a **supplied-mark** heading keeps the mark in **plain square brackets** with the green "added"
+formatting dropped, e.g. `פני[׃]`. The note's **first body follows on the same line**, set off by a
+space-surrounded **em dash**; any **further bodies spill into bullets** (`<ul class="clc-note-parts">`).
+This mirrors the layout MAM-with-doc uses for a multi-paragraph doc-note
+(`mwd_utils._bido_or_self_contained`: lemma + first part inline, parts 1.. as a `<ul>` — §8's parallel
+`clc-*`/`mam-doc-*` vocabulary), CLC only swapping MAM's plain-space lemma/part join for an em dash.
 
 ### 7.8 Versification
 - Primary `vtrad-BHS`; surface `vtrad-MAM` differences where they occur. In the whole Bible
@@ -986,10 +1004,13 @@ and `dual-cant-added-punct`. The dual-cant **"added out of thin air"** (supplied
   `strip_to_bare_letters(text)` reduces a Hebrew word to its consonantal skeleton — base letters
   (U+05D0–U+05EA) plus maqaf, sof pasuq, and legarmeh/paseq (kept unconditionally, either sense —
   §7.16) and whitespace — dropping vowels, accents, meteg, dagesh, rafe, shin/sin dots, CGJ, and
-  every other diacritic. First consumer is the §7.7 divergence-note headings above (applied
-  unconditionally there). It is built to also serve #48's original motivating case — an editor-
-  invokable per-note opt-in to simplify the reiterated fully-pointed word inside a tanach.us `<h2>`
-  note line (§7.3, `clc_note_pages`) — which is **not yet wired up**, so #48 stays open for it.
+  every other diacritic. It now demotes **every** CLC note-block heading — the §7.7 divergence-note
+  headings *and* the ordinary §7.3 UXLC-note headings alike, all applied unconditionally via
+  [`clc_render._stripped_heading`](py/clc/clc_render.py) (see the target-as-heading layout at the end
+  of §7.7). #48's *original* motivating case is a **distinct** surface and still open: an editor-
+  invokable per-note opt-in to simplify the reiterated fully-pointed word inside a **tanach.us `<h2>`**
+  note line (§7.3, `clc_note_pages`) — not the CLC note-block heading — which is **not yet wired up**,
+  so #48 stays open for it.
 
 ---
 
