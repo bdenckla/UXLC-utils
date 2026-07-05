@@ -157,38 +157,64 @@ def _group_strand_notes(notes):
     return [grouped[k] for k in sorted(grouped)]
 
 
+def _stripped_heading(word):
+    # The target word as a note's heading, DEMOTED to bare letters (issue #48,
+    # clc_strip.strip_to_bare_letters): every point and accent dropped, keeping only the
+    # word-level punctuation maqaf/sof-pasuq/legarmeh. Default font — NO lang="hbo" wrapper
+    # (that exists only to font-and-size *pointed* Hebrew in Taamey; bare letters don't need
+    # it and read fine in the default font). dir="rtl" isolates the Hebrew from the em dash
+    # and English that follow it on the same line (see _headed_note), so those neutral
+    # characters resolve into the surrounding LTR doc column rather than flipping around the
+    # word.
+    return H.span(clc_strip.strip_to_bare_letters(word), {"dir": "rtl"})
+
+
+def _headed_note(heading, bodies):
+    # Assemble one target-as-heading note (§7.7). The demoted heading opens the note; the
+    # FIRST note body follows on the SAME line, set off by a space-surrounded em dash; any
+    # SUBSEQUENT bodies become bullets. This is the layout MAM-with-doc uses for a
+    # multi-paragraph doc-note (mb_misc/py_misc mwd_utils._bido_or_self_contained: the lemma
+    # + first part render inline, parts 1.. as a <ul>) — CLC only swaps MAM's plain-space
+    # lemma/part join for an em dash. ``bodies`` is a non-empty list; each body is itself a
+    # list of inline pieces (str / htel).
+    entries = [heading, " — ", *bodies[0]]
+    if len(bodies) > 1:
+        entries.append(H.unordered_list(bodies[1:], {"class": "clc-note-parts"}))
+    return H.div(entries, {"class": "clc-note"})
+
+
 def _strand_note_block(atom_notes, page_label):
     # A dual-cant strand note, promoted to the same headed shape a normal verse note has
-    # (_note_block): the target word as a heading, then each note body beneath it. The word
-    # is pulled out of the prose here, so the bodies read "The elyon strand calls for a silluq
-    # here …" rather than "… on תרצח here …" (design doc §7.7).
-    entries = [_strand_note_header(atom_notes[0])]
+    # (_note_block): the target word as a heading, then each note body — the first on the
+    # heading line (em-dash-joined), any others as bullets (_headed_note). The word is pulled
+    # out of the prose here, so the bodies read "The elyon strand calls for a silluq here …"
+    # rather than "… on תרצח here …" (design doc §7.7).
+    bodies = []
     for note in atom_notes:
-        entries.append(H.line_break())
         if note["source"] in (
             clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
             clc_note.SOURCE_DUAL_CANT_OMITTED_VOWEL,
         ):
             # An omitted *vowel* (Deut 5:8's elyon מתחת) shares the omitted-accent note's dict
             # shape and identical "calls for … but the LC has only …" wording, so it renders
-            # through the very same block — only the mark category (a vowel) differs.
-            entries.append(_omitted_note_block(note, page_label))
+            # through the very same body — only the mark category (a vowel) differs.
+            bodies.append(_omitted_note_body(note, page_label))
         else:
-            entries.append(_added_note_block(note))
-    return H.div(entries, {"class": "clc-note"})
+            bodies.append(_added_note_body(note))
+    return _headed_note(_strand_note_header(atom_notes[0]), bodies)
 
 
 def _strand_note_header(note):
-    # The target word repeated as the note's heading (like _note_block's atom-text heading).
-    # For a SUPPLIED-mark note the header echoes the word AS CLC SHOWS IT — with the supplied
-    # mark bracketed/green right after it, exactly as the text column renders it; the word and
-    # its bracketed mark share one dir="rtl" wrapper so the whole <word>[mark] reorders as one
-    # RTL unit in this LTR column (cf. the old _added_note_block wrapper). An omitted-accent
-    # note adds nothing, so its header is the bare word.
-    snippet_span = H.span(note["snippet"], _HBO_ATTR)
+    # The target word repeated as the note's heading, DEMOTED to bare letters like every
+    # other target-as-heading note (_stripped_heading). For a SUPPLIED-mark note the heading
+    # still shows the mark CLC supplies — kept in its square brackets right after the word —
+    # but as PLAIN text: the "added, not in the codex" green formatting (_added_span) is
+    # dropped, so the whole heading is one bare Unicode string (e.g. פני[׃]) in the default
+    # font. An omitted-accent note adds nothing, so its heading is just the bare word.
+    bare = clc_strip.strip_to_bare_letters(note["snippet"])
     if note["source"] == clc_note.SOURCE_DUAL_CANT_ADDITION:
-        return H.span([snippet_span, _added_span(note["char"])], {"dir": "rtl"})
-    return snippet_span
+        bare += "[" + note["char"] + "]"
+    return H.span(bare, {"dir": "rtl"})
 
 
 _LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
@@ -219,7 +245,7 @@ def _is_softened_meteg(note):
 def _omitted_note_core(note):
     # "The <strand> strand calls for a(n) <accent> here, but UXLC's combined text carries only
     # the <other> strand's <present accent>" — NO bracketed mark (nothing is added to the
-    # strand; cf. _added_note_block). The target word is NOT named inline: it is repeated as
+    # strand; cf. _added_note_body). The target word is NOT named inline: it is repeated as
     # this note's own header instead (_strand_note_header), making the note a first-class
     # targeted note like a normal verse's (§7.7). The accent UXLC *does* have is named, not
     # abstracted. Accents are noted, never supplied (§7.7).
@@ -273,7 +299,7 @@ def _omitted_meteg_sentence(note):
     # situation is not a wanted-but-withheld accent but a single manuscript mark that CLC must
     # transcribe one way or the other: it reads that mark as the OTHER strand's accent, which
     # — unlike the meteg — the chant truly needs. Where an editor attaches a long note (§7.3,
-    # clc_dual_cant._HAS_LONG_NOTE), _omitted_note_block links to its further discussion.
+    # clc_dual_cant._HAS_LONG_NOTE), _omitted_note_body links to its further discussion.
     present = note["present_kind"]
     article = "an" if present[:1] in "aeiou" else "a"
     # The word is not named inline — it is this note's header (_strand_note_header) — so the
@@ -308,12 +334,12 @@ def _charity_limit_paragraph(note):
     )
 
 
-def _omitted_note_block(note, page_label):
-    # Wraps the inline pieces with a link to this note's own long-notes-page entry,
-    # whenever one is attached (clc_dual_cant._HAS_LONG_NOTE) -- e.g. an lc_corroborated
-    # note's wlc-utils grammar-checker citation, and now also its "beyond the limits of
-    # CLC's charity" clause, live ONLY on that page (§7.3), never inline; this pointer is
-    # all that remains here.
+def _omitted_note_body(note, page_label):
+    # The omitted-accent/vowel note body: a list of inline pieces (the sentence), plus — when
+    # a long note is attached (clc_dual_cant._HAS_LONG_NOTE) — a link to this note's own
+    # long-notes-page entry. That page holds e.g. an lc_corroborated note's wlc-utils
+    # grammar-checker citation, and its "beyond the limits of CLC's charity" clause, ONLY
+    # there (§7.3), never inline; this pointer is all that remains here.
     contents = _omitted_note_inline_pieces(note)
     if note.get("has_long_note"):
         book_id, ch, v = note["verse_loc"]
@@ -328,18 +354,15 @@ def _omitted_note_block(note, page_label):
                 ".",
             ]
         )
-    return H.div(contents, {"class": "clc-added-note"})
+    return contents
 
 
-def _added_note_block(note):
-    # "<name> added to improve legibility" — the target word and its supplied bracketed/green
-    # mark are pulled out into this note's header (_strand_note_header), so the body no longer
+def _added_note_body(note):
+    # The supplied-mark note body: "<name> added to improve legibility". The target word and
+    # its bracketed mark are the note's heading (_strand_note_header), so the body no longer
     # names the word inline (§7.7). This makes the supplied-mark note a first-class targeted
     # note like a normal verse's, matching the omitted-accent notes beside it.
-    return H.div(
-        [f"{note['kind']} added to improve legibility"],
-        {"class": "clc-added-note"},
-    )
+    return [f"{note['kind']} added to improve legibility"]
 
 
 def _combined_divergence_block(note):
@@ -355,21 +378,16 @@ def _combined_divergence_block(note):
     # cause (the accent driving a rafe/dagesh), no sourcing of the marks (not "UXLC's"). e.g. body
     # "On the נ, the taḥton strand has a qamats but the elyon strand has a pataḥ." / "On the ת, the
     # taḥton strand has a rafe but the elyon strand has a dagesh." Nothing is added to any strand's
-    # text, so no green/bracketed mark. The bare-letter heading and the single letter named in the
-    # body are STRIPPED Hebrew (no points/accents), so they carry NO lang="hbo"/dir="rtl" wrapper —
-    # that formatting exists to font-and-order pointed Hebrew (the Taamey font), which bare letters
-    # don't need; they render in the default font, still ordered correctly by their own RTL bidi.
+    # text, so no green/bracketed mark. The bare-letter heading carries NO lang="hbo" wrapper (that
+    # exists to font-and-size pointed Hebrew in Taamey, which bare letters don't need — they render
+    # in the default font); it keeps only a dir="rtl" span, to isolate the Hebrew from the em dash
+    # and English that follow it on the note's line (_stripped_heading).
     a_has, b_has = _divergence_has(note)
     body = [
         f"On the {note['letter']}, the {note['a_strand']} strand has {a_has}"
         f" but the {note['b_strand']} strand has {b_has}.",
     ]
-    entries = [
-        clc_strip.strip_to_bare_letters(note["word"]),
-        H.line_break(),
-        H.div(body, {"class": "clc-added-note"}),
-    ]
-    return H.div(entries, {"class": "clc-note"})
+    return _headed_note(_stripped_heading(note["word"]), [body])
 
 
 def _divergence_has(note):
@@ -557,30 +575,31 @@ def _doc_contents(ch, v, verse, notes_by_atom):
 
 
 def _note_block(atom_notes):
-    # Opens with the atom text repeated as a heading, then each note in turn. No id
-    # anchor: the always-link that used to jump here was dropped (see _noted_word) —
-    # the block sits in the same row as its highlighted target word, so the reader has
-    # nothing to jump from.
-    entries = [
-        H.span(atom_notes[0].atom_text, _HBO_ATTR),
-    ]
-    for note in atom_notes:
-        entries.append(H.line_break())
-        if note.is_uxlc_departure:
-            entries.append(_departure_note_block(note))
-        else:
-            entries.append(H.span(f"[{note.note_code}] ", {"class": "clc-note-code"}))
-            if note.superseding_uxlc_change:
-                entries.append(
-                    clc_attribution.superseding_change_cite(note.superseding_uxlc_change)
-                )
-            else:
-                entries.append(note.note_text)
-                entries.append(clc_attribution.note_cite(note.source_url))
-    return H.div(entries, {"class": "clc-note"})
+    # Opens with the atom text repeated as a heading, DEMOTED to bare letters like every
+    # target-as-heading note (_stripped_heading), then each note body — the first on the
+    # heading line (em-dash-joined), any others as bullets (_headed_note). No id anchor: the
+    # always-link that used to jump here was dropped (see _noted_word) — the block sits in the
+    # same row as its highlighted target word, so the reader has nothing to jump from.
+    heading = _stripped_heading(atom_notes[0].atom_text)
+    return _headed_note(heading, [_note_body(note) for note in atom_notes])
 
 
-def _departure_note_block(note):
+def _note_body(note):
+    # One normal-verse note's body: a list of inline pieces. A UXLC-departure note reads as a
+    # plain sentence (_departure_note_body); every other note is the UXLC note itself —
+    # "[code] text — cite", or a superseding-change cite in place of the text.
+    if note.is_uxlc_departure:
+        return _departure_note_body(note)
+    pieces = [H.span(f"[{note.note_code}] ", {"class": "clc-note-code"})]
+    if note.superseding_uxlc_change:
+        pieces.append(clc_attribution.superseding_change_cite(note.superseding_uxlc_change))
+    else:
+        pieces.append(note.note_text)
+        pieces.append(clc_attribution.note_cite(note.source_url))
+    return pieces
+
+
+def _departure_note_body(note):
     # States plainly that CLC replaced UXLC's own reading (never "shared" -- that
     # framing was rejected), naming the two marks via _accent_diff_names rather than
     # hardcoding "pashta"/"qadma" so this reads correctly if reused for a different
@@ -589,16 +608,13 @@ def _departure_note_block(note):
     # point is that CLC now departs from UXLC here) -- but "pending change" itself
     # links to the UXLC change record, reusing clc_attribution's link builder.
     old_name, new_name = _accent_diff_names(note.uxlc_reading, note.clc_reading)
-    return H.div(
-        [
-            f"Here CLC replaces UXLC's {old_name} with a {new_name}. UXLC has a ",
-            clc_attribution.change_record_link(
-                note.superseding_uxlc_change, "pending change"
-            ),
-            " making this correction.",
-        ],
-        {"class": "clc-added-note"},
-    )
+    return [
+        f"Here CLC replaces UXLC's {old_name} with a {new_name}. UXLC has a ",
+        clc_attribution.change_record_link(
+            note.superseding_uxlc_change, "pending change"
+        ),
+        " making this correction.",
+    ]
 
 
 def _accent_diff_names(uxlc_reading, clc_reading):
@@ -767,7 +783,7 @@ def _lc_corroborated_extra(spec, _book, _notes):
     # per-verse prose like 5:13's/5:7's. This citation used to be an inline "— see the
     # grammar checker's supplied accents page" link on the main page; it now lives here
     # only, with just a "See more details in this longer note" pointer left inline
-    # (clc_render._omitted_note_block). The link carries a #fragment (per spec, via
+    # (clc_render._omitted_note_body). The link carries a #fragment (per spec, via
     # _SUPPLIED_MARKS_ANCHOR) so it lands on this very case's block, not the page top.
     fragment = _SUPPLIED_MARKS_ANCHOR[(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)]
     return [

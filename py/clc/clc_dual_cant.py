@@ -128,7 +128,7 @@ _LC_CORROBORATED = {
 #     the main page -- the four _LC_CORROBORATED cases are ALSO here: the inline note
 #     used to end with a direct "see the grammar checker's supplied accents page" link;
 #     that citation now lives solely in these cases' long note, with just a "See more
-#     details in this longer note" pointer left inline (clc_render._omitted_note_block).
+#     details in this longer note" pointer left inline (clc_render._omitted_note_body).
 # Keyed the same as _LC_CORROBORATED: (book_id, ch, v, strand.short, kind). The actual
 # page content lives in clc_render._LONG_NOTE_SPECS (this module stays render-agnostic,
 # pure data/logic only).

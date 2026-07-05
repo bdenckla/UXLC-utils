@@ -63,7 +63,8 @@ def test_render():
     _book, notes = clc_collect.collect_for_book("Deuter", chapters={5})
     note = _deut_5_8_atom2_note(notes)
     html = H.el_to_str_no_wbr(clc_render._note_block([note]))
-    assert "clc-added-note" in html
+    # The departure note's body follows the demoted bare-letter heading on one line, em-dash-joined.
+    assert 'class="clc-note"' in html and " — Here CLC replaces UXLC's " in html
     assert "pashta" in html and "qadma" in html
     # No note-code prefix or superseding-change citation: those belong to showing
     # the UXLC note itself, which this departure note deliberately doesn't. But

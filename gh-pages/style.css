@@ -111,7 +111,11 @@ ruby.clc-kq rt { font-size: 100%; }
    mark would silently adopt the highlight color. */
 span.clc-added-during-detangling { color: light-dark(#1a7f37, #3fb950); }
 span.clc-added-bracket { color: inherit; }   /* brackets stay running-text color (or the enclosing highlight's) */
-div.clc-added-note { font-size: 95%; color: light-dark(#555, #aaa); margin-top: 0.25em; }
+/* Target-as-heading notes (§7.7, clc_render._headed_note): the demoted bare-letter target
+   word heads the note, its first body follows on the same line after an em dash, and any
+   further bodies spill into this bullet list (the layout MAM-with-doc uses for a
+   multi-paragraph doc-note). Kept tight against the heading line. */
+ul.clc-note-parts { margin: 0.25em 0 0; padding-inline-start: 1.5em; }
 /* Only the editorial "no qere" / "no ketiv" placeholder is small + muted (in
    whichever slot the missing member would have occupied). */
 ruby.clc-kq span.clc-kq-none { font-size: 70%; color: light-dark(#777, #999); }

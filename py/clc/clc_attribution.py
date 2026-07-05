@@ -95,7 +95,7 @@ def change_record_link(release_and_id, link_text):
     ("2026.10.19", "2026.04.10-10")), as stored in
     clc_note.ClcNote.superseding_uxlc_change. ``link_text`` is caller-chosen so
     the same link can read as a change id (superseding_change_cite) or as a
-    phrase like "pending change" (clc_render._departure_note_block).
+    phrase like "pending change" (clc_render._departure_note_body).
     """
     release_date, change_id = release_and_id
     href = uxlc_change_url.uxlc_change_url(release_date, change_id)
