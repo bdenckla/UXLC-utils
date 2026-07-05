@@ -304,6 +304,20 @@ _ORACLE = {
     # divergence at all: once folded, its taxton/elyon strands are byte-identical for every word
     # (both keep the same lone pasoleg), so it correctly carries no oracle entry — is_dual_cant()
     # is False for it, unlike its 6 siblings above.
+    #
+    # MAM cross-check (issues #43/#44) — VALIDATION ONLY: MAM was consulted as an independent
+    # signal (harvested by hand via the throwaway tools/dump_mam_decalogue_docnotes.py from
+    # MAM-parsed/plus), the oracle needed no change, and NOTHING of MAM is rendered inline or
+    # embedded at runtime. MAM's per-witness sof-pasuq collation confirms L is among the
+    # witnesses LACKING the taxton sof-pasuq at all five Exodus sites this oracle SUPPLIES one
+    # (ex 20:3/4/8/9/10 = MAM 20:2/3/7/8/9), grounding the charitable "L's taxton strand ends no
+    # verse here" claim; the apparent red-flag verses where MAM shows L CARRIES the taxton
+    # sof-pasuq (dt 5:8/5:9) are consistent — CLC keeps UXLC's own sof-pasuq there and supplies
+    # none. MAM's two-marks-on-one-letter doc-notes corroborate the QUPO vowel assignment
+    # (dt 5:7 פני = קמץ+silluq taxton / patax elyon; ex 20:4 מתחת = קמץ+atnax taxton / patax+azla
+    # elyon) and, at dt 5:8 מתחת, MAM's own text follows the witness WITHOUT the extra patax —
+    # corroborating this oracle's NON-QUPO treatment there. (dt 5:7/5:12's supplied sof-pasuqs
+    # carry no per-witness MAM note in the harvest, so they stay uncorroborated.) See §7.7.
     "Exodus": {
         (20, 2): {
             1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},

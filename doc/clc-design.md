@@ -569,6 +569,21 @@ punctuation, is not re-division). MAM (via the detangler) is consulted **only as
 accent a strand wants where UXLC has only the other's. The detangler's remaining supplied-marks /
 anomalies stay valuable as **logged footnotes**, never silent edits.
 
+**MAM's Decalogue doc-notes independently corroborate the split (issues #43, #44) — a cross-check,
+nothing rendered.** MAM records sof-pasuq presence *per witness, per strand*; its collation confirms
+**L** is among the witnesses lacking the taḥton sof-pasuq at all five Exodus sites CLC **supplies**
+one (Exod 20:3, 20:4, 20:8, 20:9, 20:10 = MAM verses 20:2, 20:3, 20:7–20:9), directly grounding the
+charitable claim that L's taḥton strand ends no verse there. The apparent red-flag verses (MAM shows
+L *carries* the taḥton sof-pasuq at Deut 5:8, 5:9) are consistent: CLC **keeps** UXLC's own sof-pasuq
+there and supplies nothing. MAM's *two-marks-on-one-letter* doc-notes likewise corroborate the QUPO
+vowel assignment — Deut 5:7 עַל־פָּנָי (qamats + silluq taḥton / patax elyon) and Exod 20:4 מתחת
+(qamats + etnaḥta taḥton / patax + azla elyon) — and, at Deut 5:8 מתחת, MAM's own text follows the
+witness *without* the extra patax, corroborating CLC's **non-QUPO** treatment of that atom. This is
+**validation only**: MAM is consulted as signal (harvested by hand via the throwaway
+`tools/dump_mam_decalogue_docnotes.py` from MAM-parsed/plus), the oracle needed no change, and
+nothing of MAM is rendered inline or embedded at runtime. (Deut 5:7 / 5:12's supplied sof-pasuqs
+carry no per-witness MAM note in the harvest, so they stay uncorroborated.)
+
 This is the same shape as the **legarmeh-vs-paseq** feature (§7.16): both *improve UXLC by importing
 MAM's auxiliary adjudication* of an ambiguity that is **grammatical, not graphical**, differing only
 in subject — which-accent-belongs-to-which-strand here, legarmeh-vs-paseq identity there. A
@@ -922,7 +937,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
-| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet |
+| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet. MAM's per-witness sof-pasuq + two-marks-on-one-letter doc-notes independently corroborate the supplied taḥton sof-pasuqs and the QUPO vowel split ([#43](https://github.com/bdenckla/UXLC-utils/issues/43)/[#44](https://github.com/bdenckla/UXLC-utils/issues/44), validation only — nothing rendered or embedded) |
 | §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
 | §7.9 differences-from-UXLC index | not started | the page itself is unbuilt, still blocked on LC manuscript order (§9 #10); one real `is_uxlc_departure` instance now exists to drive it (Deut 5:8.2, §7.4) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |
