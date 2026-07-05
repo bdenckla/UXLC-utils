@@ -134,9 +134,12 @@ the way `mb_cmn` is already vendored, or call it cross-repo? (See §5 vendoring 
 - CLC stays **close to UXLC** — same base text, same book set, diplomatic intent. It is a
   *re-reading of the ambiguous marks* plus a *richer notes/presentation layer*, not a new
   collation from scratch.
-- Versification: **primary = `vtrad-BHS`.** Optionally also surface **`vtrad-MAM`** where it
-  differs (e.g. render the MAM verse boundary in a different color / as a secondary marker).
-  **[TBD]** exact mechanism; `mb_cmn` book-locale utilities are the likely home for vtrad logic.
+- Versification: **primary = `vtrad-BHS`.** Also surface **`vtrad-MAM`** where it differs — in
+  practice only the two Decalogue passages. **Mechanism (resolved, §7.8):** the BHS↔MAM verse map
+  is hand-encoded in `py/clc/clc_versification.py` (not `mb_cmn`, whose vendored status and general
+  scope make it the wrong home for four CLC-specific facts), and the overlay is **already rendered
+  by the §7.7 strand split** (MAM's versification = the taḥton strand), so §7.8 itself is
+  validation-only.
 
 ---
 
@@ -605,7 +608,43 @@ ClcNotes / §7.9 index rows. The subtractive divergences remain **display-only**
 records yet).
 
 ### 7.8 Versification
-- Primary `vtrad-BHS`; optionally show `vtrad-MAM` differences in a distinct color/marker (§4).
+- Primary `vtrad-BHS`; surface `vtrad-MAM` differences where they occur. In the whole Bible
+  that difference is confined to the **two Decalogue passages** (Exodus 20, Deuteronomy 5) —
+  everywhere else MAM and BHS number verses identically.
+- **What MAM's Decalogue numbering is (verified).** MAM's merged-elyon verse numbering — the
+  numbering MAM-with-doc's HTML anchors use (`#c{ch}v{v}`) — coincides **exactly with the
+  taḥton (alef) strand's verse boundaries** of the §7.7 split, *not* the elyon strand's. BHS
+  (CLC's primary) is the *finer* division: it places a boundary wherever *either* strand ends,
+  so BHS = taḥton-boundaries ∪ elyon-boundaries. MAM keeps only the taḥton boundaries, so
+  relative to BHS it **merges exactly the runs the elyon strand chants as one commandment-verse
+  while taḥton reads through**:
+  - **early split** (elyon reads "I am" / "no other gods" as separate commandment-verses):
+    `MAM Ex 20:2 = BHS 20:2+20:3`; `MAM Dt 5:6 = BHS 5:6+5:7`. Shared with Sefaria.
+  - **late split** (elyon reads each short commandment — murder/adultery/steal/false-witness —
+    as its own verse): `MAM Ex 20:12 = BHS 20:13–16`; `MAM Dt 5:16 = BHS 5:17–20`. **BHS-only,
+    absent from Sefaria.**
+
+  Everywhere after a split the numbering shifts down (−1 per early 2-way, −3 per late 4-way).
+- **Rendered surface: already rendered by §7.7 — so §7.8 is validation-only.** Because MAM's
+  versification *is* the taḥton strand, and §7.7 renders both strands side by side for every
+  diverging Decalogue verse, the vtrad-MAM boundary overlay is **already visible**: every place
+  MAM merges is an atom where §7.7 shows the elyon strand ending a verse (silluq + sof-pasuq)
+  that the taḥton strand (= MAM) reads through. So #45 adds **no new rendered surface** — the
+  same validation-only shape as the §7.7 MAM cross-checks (issues #42/#43/#44). The two accounts
+  are proven to agree **1:1** (`clc_versification_test.test_overlay_matches_dual_cant_oracle`:
+  the taḥton reads-through points == the elyon-ends atoms of `clc_dual_cant._ORACLE`; 8 each).
+- **Where the map lives (and why hand-encoded).** `py/clc/clc_versification.py` hand-encodes the
+  four merge groups and derives the full BHS↔MAM map (`clc_to_mam`, `mam_merge_group`,
+  `mam_boundary_after`, `mam_differs_from_bhs`). The authoritative converter lives in MAM-basics'
+  `py_misc` / `versification_differences` — a **non-`mb_` dir**, hence neither importable nor
+  vendorable into official CLC code (§4; only `mb_*` dirs are). So, as with §7.7's `_ORACLE` and
+  the Unit A/B cross-checks, MAM is **consulted as signal and embedded nowhere at runtime**: the
+  throwaway `tools/dump_mam_decalogue_versemap.py` emits `.novc/mam_decalogue_versemap.json` from
+  the converter, and the tiny result is hand-encoded here **once**, validated against that dump
+  (all 53 Decalogue verses, both directions). Moving the general converter upstream into an
+  `mb_*` entry point was the alternative, not worth it for four facts.
+- **Reuse.** `clc_to_mam` is the CLC-verse → MAM-verse helper **issue #38 also needs** (to key a
+  CLC verse to its MAM-with-doc doc-note anchor) — built once here, not a #45-only hack.
 
 ### 7.9 Differences-from-UXLC index *(sortable / filterable)* — *important*
 A first-class **"what does CLC change vs. UXLC, and where"** index. This is the public face of
@@ -973,7 +1012,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
 | §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet. MAM's per-witness sof-pasuq + two-marks-on-one-letter doc-notes independently corroborate the supplied taḥton sof-pasuqs and the QUPO vowel split ([#43](https://github.com/bdenckla/UXLC-utils/issues/43)/[#44](https://github.com/bdenckla/UXLC-utils/issues/44), validation only — nothing rendered or embedded); MAM's legarmeh/paseq tags + pisqah-be'emtsa-pasuq markings likewise corroborate the pasoleg subtraction and the coveting-verse internal breaks ([#42](https://github.com/bdenckla/UXLC-utils/issues/42), also validation only — see §7.16) |
-| §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
+| §7.8 versification | **done (validation-only)** | Primary vtrad-BHS. The MAM↔BHS Decalogue verse map is hand-encoded in `clc_versification.py` (4 merge groups → `clc_to_mam` etc.; MAM = taḥton-strand boundaries, so `MAM Ex 20:2`=BHS 20:2+3, `Ex 20:12`=BHS 20:13–16, `Dt 5:6`=BHS 5:6+7, `Dt 5:16`=BHS 5:17–20). No new rendered surface: §7.7 already renders the overlay (MAM's versification *is* the taḥton strand), proven 1:1 against `clc_dual_cant._ORACLE` in `clc_versification_test`. MAM consulted as signal, embedded nowhere at runtime (hand-encoded once vs. `.novc/mam_decalogue_versemap.json`, all 53 verses). `clc_to_mam` is the shared CLC→MAM helper [#38](https://github.com/bdenckla/UXLC-utils/issues/38) needs. [#45](https://github.com/bdenckla/UXLC-utils/issues/45) closed |
 | §7.9 differences-from-UXLC index | not started | the page itself is unbuilt, still blocked on LC manuscript order (§9 #10); one real `is_uxlc_departure` instance now exists to drive it (Deut 5:8.2, §7.4) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |
 | §7.11 BHL body vs. Appendix A | not started | Appendix A ingested for Psalms only (pre-CLC) |
