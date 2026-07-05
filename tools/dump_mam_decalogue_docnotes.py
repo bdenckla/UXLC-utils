@@ -123,7 +123,12 @@ def _walk_markers(node, text, found):
             found["dual_mark_on_letter"].append(
                 {"lemma": lemma.replace(_CGJ, ""), "note": body}
             )
-        text.append(lemma)  # keep word-before correct for later markers
+        # A נוסח's param 1 is the TARGET -- part of the running text itself -- so walk it
+        # (not just append its flattened string): a מ:פסק / מ:לגרמיה-2 nested there (e.g. Ex
+        # 20:3 בשמים, whose paseq sits inside a נוסח recording L's disputed stroke) is a real,
+        # tagged mark and must be counted, not hidden behind the flattened "‖" lemma.
+        if p1 is not None:
+            _walk_markers(p1, text, found)
     elif is_parashah_template(name):
         text.append(" ")  # a section break separates words; pisqah handled separately
 

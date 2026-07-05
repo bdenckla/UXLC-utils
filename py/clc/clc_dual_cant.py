@@ -318,6 +318,30 @@ _ORACLE = {
     # elyon) and, at dt 5:8 מתחת, MAM's own text follows the witness WITHOUT the extra patax —
     # corroborating this oracle's NON-QUPO treatment there. (dt 5:7/5:12's supplied sof-pasuqs
     # carry no per-witness MAM note in the harvest, so they stay uncorroborated.) See §7.7.
+    #
+    # MAM cross-check (issue #42) — VALIDATION ONLY, legarmeh-vs-paseq (§7.16) + pisqah (§7.7):
+    # the raw pasoleg (U+05C0) bars this oracle subtracts positionally (the "Unicode-PASEQ
+    # tokenization" atoms — ex 20:4 atoms 4/8/14, ex 20:10 atoms 3/10; dt 5:8 atoms 4/8/14,
+    # dt 5:12 atom 7, dt 5:14 atom 3, dt 5:15 atom 4) each carry a legarmeh-vs-paseq grammatical
+    # identity this oracle never needed: subtraction is identity-agnostic (same bytes either way,
+    # §7.16). MAM adjudicates it explicitly — מ:לגרמיה-2 = legarmeh, מ:פסק = narrow paseq — and its
+    # 15 Decalogue tags (11 legarmeh, 4 paseq) map 1:1 onto these sites: legarmeh on במים / שבת /
+    # אתה / צוך / היית; paseq on פסל and בשמים (both Decalogues). ex 20:4's בשמים carries its מ:פסק
+    # tag NESTED as the target (param 1) of a נוסח note recording L's disputed stroke — tagged, just
+    # one level deeper (the throwaway harvest first mis-filed it as a ‖ נוסח note until its scan was
+    # taught to recurse into נוסח targets; there is no Exodus/Deuteronomy tagging asymmetry). accgram
+    # (wlc-utils/py/accgram prose scanner) is an INDEPENDENT classifier of the same distinction
+    # (munax+paseq before revia = legarmeh, else narrow paseq; no Decalogue verse sits in its
+    # has_legarmeh 17-passage list, so the rule reduces to before-revia here) — but only truly
+    # independent on the ORDINARY prose run; in the dual-cant loci its detangler takes strand
+    # punctuation FROM MAM, so there it concurs rather than witnesses. Three more legarmeh
+    # (dt 5:4 פנים, 5:25 יספים, 5:27 ואת) sit on ordinary single-cant rows, not strands — the
+    # natural surface for a future rendered §7.16 note (deferred to #37, legarmeh visual
+    # representation); a fourth, dt 5:16 למען, sits on the folded byte-identical verse (both strands
+    # keep the bar — the reason it correctly carries no _ORACLE entry). MAM's pisqah-be'emtsa-pasuq
+    # markings (×8, strand-tagged) corroborate the taxton verse-internal breaks this oracle already
+    # handles inside elyon's merged coveting verse (ex 20:13/14/15, dt 5:17/18/19). No bytes change
+    # and nothing of MAM is rendered or embedded. See §7.16.
     "Exodus": {
         (20, 2): {
             1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},

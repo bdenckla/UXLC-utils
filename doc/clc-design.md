@@ -584,6 +584,17 @@ witness *without* the extra patax, corroborating CLC's **non-QUPO** treatment of
 nothing of MAM is rendered inline or embedded at runtime. (Deut 5:7 / 5:12's supplied sof-pasuqs
 carry no per-witness MAM note in the harvest, so they stay uncorroborated.)
 
+**MAM also grammatically identifies every U+05C0 the split subtracts, and marks the coveting
+verse's internal breaks (issue #42) — again a cross-check, nothing rendered.** The raw pasoleg (׀,
+U+05C0) bars this oracle subtracts positionally (the *Unicode-PASEQ tokenization* class above) each
+carry a legarmeh-vs-paseq identity the subtraction never needed — same bytes either way (§7.16). MAM
+tags it explicitly (`מ:לגרמיה-2` = legarmeh, `מ:פסק` = narrow paseq), and its 15 Decalogue tags map
+1:1 onto the subtracted sites; detail and the §7.16 TBD-resolutions are in §7.16. Separately, MAM's
+**pisqah-be'emtsa-pasuq** markings (×8, strand-tagged) fall exactly where the taḥton strand ends a
+verse *inside* the elyon strand's merged coveting verse (Exod 20:13/14/15, Deut 5:17/18/19 =
+the לא־תרצח / תנאף / תגנב units), corroborating the verse-internal-break / omitted-silluq handling this
+oracle already encodes there (Deut 5:17's lone-sof-pasuq elyon). Validation only, as above.
+
 This is the same shape as the **legarmeh-vs-paseq** feature (§7.16): both *improve UXLC by importing
 MAM's auxiliary adjudication* of an ambiguity that is **grammatical, not graphical**, differing only
 in subject — which-accent-belongs-to-which-strand here, legarmeh-vs-paseq identity there. A
@@ -786,16 +797,40 @@ oracle (§7.7), and the vtrad-MAM overlay (§7.8) — CLC takes **MAM's call as 
 cross-checked by accent grammar where it's checkable. Same shape as the headline under-bar
 resolution (§7.1, §3): grammar/oracle fixes the identity; every departure from UXLC is **logged**
 (§7.9) with a verdict + rationale.
-- **[TBD]** Does `wlc-utils/py/accgram` (§5) already distinguish legarmeh from paseq, or only the
-  under-bar accents? If yes, reuse; if no, lean on MAM-as-oracle (cf. §7.7).
-- **[TBD] Codepoint precision (cf. §2a).** There is **no dedicated "legarmeh" codepoint** — it is
-  *munax* (U+05A3) + *paseq* (U+05C0), the same bytes as *munax* followed by an ordinary paseq. So,
-  as with the §2a U+0596/U+05A5 collisions, a charitable re-reading may change only the **note prose
-  / labeling**, not the text bytes. Confirm whether UXLC nonetheless distinguishes them somehow.
+- **Does `wlc-utils/py/accgram` (§5) already distinguish legarmeh from paseq? — resolved: yes,
+  independently.** Its prose scanner (`prose_scanner.py`) tokenizes *munax + paseq* **before revia**
+  as `LEGARMEH`; *not* before revia as `LEGARMEH` only inside a ported 17-passage `has_legarmeh` list
+  (else plain `MUNAX` + a swallowed narrow paseq), and `prose_ply_grammar.py` carries `LEGARMEH` as
+  its own terminal. So CLC has a **second, independent oracle** for the distinction (WLC bytes +
+  grammar rule + passage list) alongside MAM's explicit tags — the reuse path this TBD asked for.
+  Caveat: accgram is independent only on the **ordinary** prose run; its dual-cant *detangler* takes
+  strand punctuation *from* MAM (§7.7), so in the Decalogue strands it concurs rather than witnesses.
+- **Codepoint precision (cf. §2a) — resolved.** There is **no dedicated "legarmeh" codepoint** — it
+  is *munax* (U+05A3) + *paseq* (U+05C0), the same bytes as *munax* followed by an ordinary paseq, so
+  a charitable re-reading changes only the **note prose / labeling**, never bytes. UXLC does **not**
+  distinguish them (same bytes either way); MAM's `מ:לגרמיה-2` template is confirmed to denote
+  legarmeh (`MAM-basics/py/author_misc/mp_cmn_rows_core.py`: *"the vertical line ׀ as legarmeh … shares
+  Unicode with paseq but differs in function"*), the azla-/mahapakh-/munaḥ-legarmeh sub-type read off
+  the conjunctive on the word itself (munaḥ in the prose Decalogues), **not** off the `-2`.
 - Difference type for §7.9 / §8: **`legarmeh-paseq`**.
 - **[TBD] Visual representation, tracked in [#37](https://github.com/bdenckla/UXLC-utils/issues/37).**
   Once identity is resolved, how should CLC's rendered output *show* the distinction to the reader,
-  given both share the identical glyph? Precedents and options are on the issue, not here.
+  given both share the identical glyph? Precedents and options are on the issue, not here. **This is
+  the one open blocker for a *rendered* §7.16 feature** — the identity oracle is settled (above), but
+  how to display two identical glyphs apart is not.
+- **MAM Decalogue cross-check (issue #42) — done, validation only.** MAM already adjudicates this
+  throughout the Decalogue, so #42 harvested its calls as a first, pre-made slice of the §7.16 oracle:
+  **11 legarmeh** (`מ:לגרמיה-2`) + **4 paseq** (`מ:פסק`), every one landing on a U+05C0 the §7.7 split
+  already subtracts positionally. Of the 15: **11** sit on dual-cant divergence atoms — legarmeh on
+  בַּמַּיִם, שַׁבָּת, אַתָּה, צִוְּךָ, הָיִיתָ; paseq on פֶסֶל and בַּשָּׁמַיִם (both Decalogues) — where
+  they stay **display-only** (§7.7 strands carry no ClcNote); **1** (Deut 5:16 לְמַעַן) sits on the
+  folded byte-identical verse, its bar shared by both strands; and **3** (Deut 5:4 פָּנִים, 5:25
+  יֹסְפִים, 5:27 וְאַתְּ) sit on **ordinary single-cant rows** — the natural first surface for a
+  *rendered* `legarmeh-paseq` note, still gated on #37. (Exod 20:4's בַּשָּׁמַיִם carries its `מ:פסק`
+  tag **nested as the target — param 1 — of a נוסח** note about L's disputed stroke, i.e. tagged one
+  level deeper, not untagged; there is no Exod/Deut tagging asymmetry.) accgram's independent grammar
+  rule agrees (no Decalogue verse is in its `has_legarmeh` list, so it reduces to *before-revia =
+  legarmeh*). Nothing rendered or embedded; recorded in `clc_dual_cant._ORACLE`'s comment and §7.7.
 
 ### 7.17 LC-corroborated framing for omitted-accent notes — **done**
 §7.7's omitted-accent notes framed the "carries only" clause around **UXLC**, implying a UXLC
@@ -937,7 +972,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
-| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet. MAM's per-witness sof-pasuq + two-marks-on-one-letter doc-notes independently corroborate the supplied taḥton sof-pasuqs and the QUPO vowel split ([#43](https://github.com/bdenckla/UXLC-utils/issues/43)/[#44](https://github.com/bdenckla/UXLC-utils/issues/44), validation only — nothing rendered or embedded) |
+| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet. MAM's per-witness sof-pasuq + two-marks-on-one-letter doc-notes independently corroborate the supplied taḥton sof-pasuqs and the QUPO vowel split ([#43](https://github.com/bdenckla/UXLC-utils/issues/43)/[#44](https://github.com/bdenckla/UXLC-utils/issues/44), validation only — nothing rendered or embedded); MAM's legarmeh/paseq tags + pisqah-be'emtsa-pasuq markings likewise corroborate the pasoleg subtraction and the coveting-verse internal breaks ([#42](https://github.com/bdenckla/UXLC-utils/issues/42), also validation only — see §7.16) |
 | §7.8 versification | not started | primary vtrad-BHS implied; no MAM-boundary overlay |
 | §7.9 differences-from-UXLC index | not started | the page itself is unbuilt, still blocked on LC manuscript order (§9 #10); one real `is_uxlc_departure` instance now exists to drive it (Deut 5:8.2, §7.4) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |
@@ -946,7 +981,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.13 drop early/medial meteg | not started | — |
 | §7.14 strip cosmetic control chars | **partial** | orphaned CGJ dropped in the strand splitter only; no general audit |
 | §7.15 restore "unsupported" dagesh (`q`) | not started | — |
-| §7.16 legarmeh vs. paseq | not started | doc only |
+| §7.16 legarmeh vs. paseq | **identity oracle settled; render gated on #37** | The two identity TBDs are resolved (§7.16): `wlc-utils/py/accgram` distinguishes legarmeh from paseq independently (grammar rule + 17-passage list), a reuse path beside MAM's explicit `מ:לגרמיה-2`/`מ:פסק` tags; and the codepoint question is closed (no dedicated legarmeh codepoint, so a re-reading changes note prose only). MAM's 14 Decalogue calls (11 legarmeh + 3 paseq) are cross-checked against the §7.7 split ([#42](https://github.com/bdenckla/UXLC-utils/issues/42), validation only — nothing rendered/embedded; `clc_dual_cant._ORACLE` comment + §7.7). No *rendered* feature yet: the one remaining blocker is [#37](https://github.com/bdenckla/UXLC-utils/issues/37) (how to show two identical glyphs apart); the 3 ordinary-row Decalogue legarmeh (Deut 5:4/5:25/5:27) are its natural first surface |
 | §7.17 LC-corroborated omitted-accent wording | **done** | 4 of 6 live omitted-accent notes (Exod 20:3, Deut 5:6 ×2, Deut 5:17) say "the LC has only..." (`clc_dual_cant._LC_CORROBORATED`), with the `wlc-utils` supplied-marks citation itself now living on each one's own §7.3 long note, not inline. The other two (dt 5:7, 5:13) also credit the LC now, via that same long-notes mechanism but a different citation — no live note still uses the original UXLC-only framing. All six now carry a long note. `wlc-utils` [#53](https://github.com/bdenckla/wlc-utils/issues/53) (the prerequisite) is committed and closed. [#36](https://github.com/bdenckla/UXLC-utils/issues/36) closed |
 
 **Ad-hoc / plumbing built (not in the §7 list):**
