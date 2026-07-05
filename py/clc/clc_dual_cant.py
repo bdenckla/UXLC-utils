@@ -274,7 +274,8 @@ _ORACLE = {
     },
     # The Decalogues (Exodus 20, Deuteronomy 5), taxton (alef) / elyon (bet). Derived from
     # MAM-simple's cant-alef / cant-bet strands (the oracle) diffed against UXLC's combined
-    # atoms by .novc/gen_entry.py, then self-verified by simulating split_word. Punctuation
+    # atoms by a throwaway generator (since retired), then self-verified by simulating split_word.
+    # Punctuation
     # tracks accents: where a strand keeps a NON-silluq final accent (e.g. etnaxta) while
     # the other keeps silluq, the sof-pasuq is SUPPRESSED in the non-silluq strand — it
     # appears only on a silluq word (e.g. ex 20:2 atom 9: elyon keeps silluq + sof-pasuq,
@@ -291,7 +292,7 @@ _ORACLE = {
     # comment below); and the pasoleg-tokenization verses (ex 20:4,10; dt 5:8,12,14,15, #29) —
     # MAM-simple tokenizes a standalone pasoleg (see the module docstring's terminology note)
     # as its own word where UXLC embeds it directly in the preceding word's atom, which looked
-    # like a real word-count divergence until tools/dump_mam_strands.py folded it the same way
+    # like a real word-count divergence until a throwaway harvest script (since retired) folded it
     # UXLC does; once folded, the pasoleg is an ordinary divergent mark (present in one strand's
     # atom text, absent from the other) and flows through the same position-safe subtraction
     # path as every other mark class — no new runtime mechanism. (#29 also closed #28's open
@@ -306,7 +307,7 @@ _ORACLE = {
     # is False for it, unlike its 6 siblings above.
     #
     # MAM cross-check (issues #43/#44) — VALIDATION ONLY: MAM was consulted as an independent
-    # signal (harvested by hand via the throwaway tools/dump_mam_decalogue_docnotes.py from
+    # signal (harvested by hand via a throwaway script, since retired, from
     # MAM-parsed/plus), the oracle needed no change, and NOTHING of MAM is rendered inline or
     # embedded at runtime. MAM's per-witness sof-pasuq collation confirms L is among the
     # witnesses LACKING the taxton sof-pasuq at all five Exodus sites this oracle SUPPLIES one

@@ -13,9 +13,9 @@ Two things are checked:
     the elyon strand ending a verse the taḥton strand reads through — i.e. MAM's
     versification *is* the taḥton strand, so §7.7 already renders the overlay.
 
-The full 53-verse agreement with MAM-basics' own converter is established once against
-``.novc/mam_decalogue_versemap.json`` (via ``tools/dump_mam_decalogue_versemap.py``); that
-file is gitignored, so this test pins the map by hardcoded known facts instead of reading it.
+The full 53-verse agreement with MAM-basics' own converter was established once against a
+``.novc/`` versemap dump (produced by a throwaway harvest script, since retired); that dump is
+gitignored, so this test pins the map by hardcoded known facts instead of reading it.
 """
 
 import os

@@ -37,9 +37,9 @@ points from this module's merge groups == the elyon-ends atoms of ``clc_dual_can
 **Source-path (why hand-encoded).** The authoritative converter lives in MAM-basics'
 ``py_misc.vtrad_data`` / ``versification_differences`` — a **non-``mb_`` dir**, so neither
 importable nor vendorable into official CLC code (only ``mb_*`` dirs are; see the repo
-CLAUDE.md). The throwaway ``tools/dump_mam_decalogue_versemap.py`` reaches into it to emit
-``.novc/mam_decalogue_versemap.json``; the tiny result (four merge groups) is **hand-encoded
-here once**, validated against that dump, with **nothing of MAM-basics imported at runtime**
+CLAUDE.md). A throwaway harvest script (since retired) reached into it to emit a ``.novc/``
+versemap dump; the tiny result (four merge groups) is **hand-encoded here once**, validated
+against that dump, with **nothing of MAM-basics imported at runtime**
 — the same "MAM consulted as signal, embedded nowhere" discipline as §7.7's ``_ORACLE`` and
 the Unit A/B cross-checks. Moving the general converter upstream into an ``mb_*`` entry point
 was the alternative; not worth it for four facts fully known here.

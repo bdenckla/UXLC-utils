@@ -549,8 +549,9 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   divergence needing a new atom-alignment mechanism. It wasn't: MAM-simple tokenizes a standalone
   Unicode PASEQ as its own list entry, where UXLC always embeds it directly inside the *preceding*
   word's atom — a tokenization-convention mismatch, not a word-count divergence. Folding MAM's
-  standalone Unicode PASEQ into its preceding word the same way (`tools/dump_mam_strands.py`'s
-  `_fold_pasoleg`, applied before the oracle derivation) fixed the count for all 7 affected verses;
+  standalone Unicode PASEQ into its preceding word the same way (a throwaway harvest script's
+  pasoleg-fold, applied before the oracle derivation, since retired) fixed the count for all 7
+  affected verses;
   the Unicode PASEQ then flows through the *same* position-safe subtraction path as any other
   divergent mark — **no new runtime mechanism**. One of the 7, **dt 5:16**, resolves to *no
   divergence at all*: its taxton/elyon strands are byte-identical once folded, so it correctly
@@ -582,8 +583,8 @@ there and supplies nothing. MAM's *two-marks-on-one-letter* doc-notes likewise c
 vowel assignment — Deut 5:7 עַל־פָּנָי (qamats + silluq taḥton / patax elyon) and Exod 20:4 מתחת
 (qamats + etnaḥta taḥton / patax + azla elyon) — and, at Deut 5:8 מתחת, MAM's own text follows the
 witness *without* the extra patax, corroborating CLC's **non-QUPO** treatment of that atom. This is
-**validation only**: MAM is consulted as signal (harvested by hand via the throwaway
-`tools/dump_mam_decalogue_docnotes.py` from MAM-parsed/plus), the oracle needed no change, and
+**validation only**: MAM is consulted as signal (harvested by hand via a throwaway script,
+since retired, from MAM-parsed/plus), the oracle needed no change, and
 nothing of MAM is rendered inline or embedded at runtime. (Deut 5:7 / 5:12's supplied sof-pasuqs
 carry no per-witness MAM note in the harvest, so they stay uncorroborated.)
 
@@ -639,8 +640,8 @@ records yet).
   `py_misc` / `versification_differences` — a **non-`mb_` dir**, hence neither importable nor
   vendorable into official CLC code (§4; only `mb_*` dirs are). So, as with §7.7's `_ORACLE` and
   the Unit A/B cross-checks, MAM is **consulted as signal and embedded nowhere at runtime**: the
-  throwaway `tools/dump_mam_decalogue_versemap.py` emits `.novc/mam_decalogue_versemap.json` from
-  the converter, and the tiny result is hand-encoded here **once**, validated against that dump
+  a throwaway harvest script (since retired) emitted a `.novc/` versemap dump from the
+  converter, and the tiny result is hand-encoded here **once**, validated against that dump
   (all 53 Decalogue verses, both directions). Moving the general converter upstream into an
   `mb_*` entry point was the alternative, not worth it for four facts.
 - **Reuse.** `clc_to_mam` is the CLC-verse → MAM-verse helper **issue #38 also needs** (to key a

@@ -626,7 +626,8 @@ def test_decalogue_pasoleg_tokenization():
     # tokenizes a standalone pasoleg (see clc_dual_cant's module docstring terminology note)
     # as its own word where UXLC embeds it directly in the preceding word's atom, which
     # looked like a real word-count mismatch
-    # until tools/dump_mam_strands.py's _fold_pasoleg folded it the same way. Once folded, the
+    # until a throwaway harvest script's pasoleg-fold (since retired) folded it the same way. Once
+    # folded, the
     # pasoleg is an ordinary divergent mark flowing through the same position-safe subtraction
     # path as any other mark class: elyon keeps it, taxton drops it, at atoms 4/8/14 here.
     combined4 = _read_atoms("Exodus.xml", 20, 4)
