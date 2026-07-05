@@ -809,6 +809,29 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     QUPO = dc.clc_note.SOURCE_DUAL_CANT_QUPO_VOWEL
     assert alef8.atoms[11].get("qupo_vowel") is None and bet8.atoms[11].get("qupo_vowel") is None
     assert not any(n["source"] == QUPO for v in (_c8, alef8, bet8) for n in v.notes)
+    # Instead, atom 12 carries an omitted-*vowel* note on the ELYON strand (the asymmetric
+    # sibling of QUPO): the elyon's tav is left bare — its divergent qamats dropped, no patax
+    # written — where its chant wants a patax (as ex 20:4's twin, a genuine QUPO split, shows).
+    # NOTED like an omitted accent, never supplied; the note names the vowel UXLC does have
+    # (the taxton's qamats). taxton wants nothing here. It has an editor-attached long note.
+    OMIT_VOWEL = dc.clc_note.SOURCE_DUAL_CANT_OMITTED_VOWEL
+    mark = dc.describe_diff.mark_name
+    assert bet8.atoms[11]["omitted_vowels"] == [_PATAX]
+    assert alef8.atoms[11].get("omitted_vowels", []) == []
+    ov = [n for n in bet8.notes if n["source"] == OMIT_VOWEL]
+    assert [n["kind"] for n in ov] == [mark(_PATAX)] and ov[0]["strand"] == "elyon"
+    assert ov[0]["other_strand"] == "taḥton" and ov[0]["present_kind"] == mark(_QAMATS)
+    assert ov[0]["has_long_note"] is True and ov[0]["lc_corroborated"] is False
+    assert ov[0]["verse_loc"] == ("Deuter", 5, 8)
+    assert [n for n in alef8.notes if n["source"] == OMIT_VOWEL] == []
+    # Render: identical shape to an omitted-accent note (§7.7) — the elyon calls for a pataḥ,
+    # the LC has only the taxton's qamats; the "beyond the limits of CLC's charity" clause and
+    # the further discussion relegate to this note's own long-notes-page entry.
+    ov_html = H.el_to_str_no_wbr(clc_render._omitted_note_block(ov[0], "Deuter-5"))
+    assert "elyon strand calls for a pataḥ here, but" in ov_html
+    assert f"the LC has only the taḥton strand’s {mark(_QAMATS)}. See more details in " in ov_html
+    assert 'href="Deuter-5-long-notes.html#long-Deuter-5-8-elyon-patah"' in ov_html
+    assert "beyond the limits" not in ov_html
 
     # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8's supplied-sof-pasuq shape, plus an
     # pasoleg-tokenization atom (#29): atom 7 צוך ׀ — elyon keeps the pasoleg, taxton drops it.

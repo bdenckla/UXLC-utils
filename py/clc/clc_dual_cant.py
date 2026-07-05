@@ -139,6 +139,7 @@ _HAS_LONG_NOTE = {
     ("Deuter", 5, 6, "elyon", "tipeḥa"),
     ("Deuter", 5, 6, "elyon", "etnaḥta"),
     ("Deuter", 5, 17, "elyon", "silluq"),
+    ("Deuter", 5, 8, "elyon", "pataḥ"),   # an omitted *vowel*, not accent (מתחת; see _omitted_vowel_note)
 }
 
 
@@ -530,7 +531,12 @@ _ORACLE = {
         # same three pasoleg atoms (4/8/14, פסל/בשמים/במים — elyon keeps, taxton drops) and the
         # same מתחת pair at atoms 12/15 — but here NEITHER מתחת occurrence is QUPO: atom 12's
         # cluster has no patax/CGJ (only qamats + two accents), an ordinary cross-book
-        # difference from ex 20:4's atom 12 (see the module comment above). Atom 2's mid-word
+        # difference from ex 20:4's atom 12 (see the module comment above). Because that patax
+        # is genuinely absent from the LC, atom 12 does not resolve silently either: it carries
+        # an omitted-*vowel* note (the "omit_vowel" field below, the asymmetric sibling of a
+        # QUPO split) — the elyon strand wants the patax ex 20:4 shows, but the LC wrote only
+        # the taxton's qamats there, leaving the elyon tav bare. Like an omitted accent, that
+        # patax is NOTED, never supplied (_omitted_vowel_note). Atom 2's mid-word
         # pashta (grammatically impossible there — pashta must fall on a word's final letter)
         # is corrected to a qadma upstream in clc_collect (_UXLC_PENDING_CHANGES_APPLIED,
         # applying UXLC's own pending change #10, design doc §7.4) — before this oracle ever
@@ -550,7 +556,7 @@ _ORACLE = {
             9: {"cluster": acc.ZAQ_Q + acc.PAZ, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
             10: {"cluster": acc.MER + hl.RESH + acc.TEL_Q, "alef": acc.MER + hl.RESH, "bet": hl.RESH + acc.TEL_Q},
             11: {"cluster": acc.TIP + acc.QOM, "alef": acc.TIP, "bet": acc.QOM},
-            12: {"cluster": hpo.QAMATS + acc.ATN + acc.GER, "alef": hpo.QAMATS + acc.ATN, "bet": acc.GER},
+            12: {"cluster": hpo.QAMATS + acc.ATN + acc.GER, "alef": hpo.QAMATS + acc.ATN, "bet": acc.GER, "omit_vowel": {_STRAND_BET: [hpo.PATAX]}},
             14: {"cluster": acc.TIP + acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
             15: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
             16: {"cluster": hpo.MTGOSLQ + acc.REV + hl.RESH + hpo.SEGOL_V + hl.FTSADI + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.RESH + hpo.SEGOL_V + hl.FTSADI + hpu.SOPA, "bet": acc.REV + hl.RESH + hpo.SEGOL_V + hl.FTSADI},
@@ -732,6 +738,7 @@ def _split_atom(atom, atom_index, oracle, strand):
     text = split_word(atom["text"], entry, strand)
     additions = entry.get("add", {}).get(strand, [])
     omitted = entry.get("omit", {}).get(strand, [])
+    omitted_vowels = entry.get("omit_vowel", {}).get(strand, [])
     rafe_dagesh = _rafe_dagesh_state(entry, strand)
     qupo_vowel = _qupo_vowel(entry, strand)
     # The base consonant carrying a rafe/dagesh or QUPO divergence — shared by both strands, so it
@@ -741,7 +748,7 @@ def _split_atom(atom, atom_index, oracle, strand):
              else {hpo.QAMATS, hpo.PATAX} if qupo_vowel else None)
     letter = _base_letter(atom["text"], entry["cluster"], marks) if marks else None
     return {**atom, "text": text, "additions": list(additions),
-            "omitted_accents": list(omitted),
+            "omitted_accents": list(omitted), "omitted_vowels": list(omitted_vowels),
             "rafe_dagesh": rafe_dagesh, "qupo_vowel": qupo_vowel,
             "divergence_letter": letter}
 
@@ -772,6 +779,10 @@ def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand, verse_
             present_verse_final = hpu.SOPA in other_atom["text"]
             notes.append(_omitted_note(atom["text"], omitted_char, present, present_verse_final,
                                         strand, other_strand, verse_loc, atom_index))
+        for omitted_vowel in atom.get("omitted_vowels", ()):
+            present = _present_vowel(atom["text"], other_atom["text"])
+            notes.append(_omitted_vowel_note(atom["text"], omitted_vowel, present,
+                                             strand, other_strand, verse_loc, atom_index))
     return tuple(notes)
 
 
@@ -806,6 +817,24 @@ def _present_accent(this_text, other_text):
     this strand lacks — i.e. the divergent accent present in UXLC. ``None`` if none."""
     this_accents = {ch for ch in this_text if _is_accent(ch)}
     return next((ch for ch in other_text if _is_accent(ch) and ch not in this_accents), None)
+
+
+# The niqqud vowel points: describe_diff.POINT_NAMES minus its non-vowel points (dagesh,
+# meteg, rafe, shin-dot, sin-dot, varika). Used to spot the vowel one strand keeps and the
+# other lacks at an omitted-vowel atom, without mistaking a shared dagesh/meteg for it.
+_VOWEL_POINTS = frozenset(describe_diff.POINT_NAMES) - {
+    hpo.DAGOMOSD, hpo.MTGOSLQ, hpo.RAFE, hpo.SHIND, hpo.SIND, hpo.VARIKA,
+}
+
+
+def _present_vowel(this_text, other_text):
+    """The vowel UXLC has at an omitted-*vowel* atom: the (single) vowel the OTHER strand
+    keeps and this strand lacks — the divergent vowel present in UXLC (Deut 5:8's מתחת: the
+    taḥton's qamats, where the elyon tav is left bare). ``None`` if none. The mirror of
+    ``_present_accent``, restricted to genuine niqqud vowels (``_VOWEL_POINTS``) so a shared
+    dagesh/meteg is never mistaken for the divergent vowel."""
+    this_vowels = {ch for ch in this_text if ch in _VOWEL_POINTS}
+    return next((ch for ch in other_text if ch in _VOWEL_POINTS and ch not in this_vowels), None)
 
 
 def _cluster_extras(entry, strand):
@@ -921,6 +950,41 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
     }
 
 
+def _omitted_vowel_note(snippet, vowel_char, present_char, strand, other_strand,
+                        verse_loc, atom_index):
+    """A vowel this strand wants but UXLC omitted — noted, not supplied, exactly like an
+    omitted accent (``_omitted_note``) but for a niqqud vowel. The strand's letter is shown
+    bare (``snippet`` already lacks the vowel); the OTHER strand keeps its own, differing
+    vowel, named as ``present_char`` for concreteness. Deut 5:8's elyon מתחת wants a patax
+    (as its ex 20:4 twin shows) where UXLC wrote only the taḥton's qamats — the asymmetric
+    sibling of the QUPO vowel split (``_qupo_vowel``), where BOTH strands carry a vowel.
+
+    The dict is deliberately the SAME shape as ``_omitted_note``'s so clc_render's omitted-
+    accent helpers render it unchanged (the prose "The X strand calls for a … here, but the
+    LC has only the Y strand's …" is identical) — only ``kind``/``present_kind`` come from
+    describe_diff's vowel names (``mark_name``) rather than accent names, and the source/diff
+    tags differ. No verse-finality/silluq logic (that is accent-only) and no ``lc_corroborated``
+    flag: this note's grounding is its own long note (design doc §7.3)."""
+    book_id, ch, v = verse_loc
+    kind = describe_diff.mark_name(vowel_char)
+    return {
+        "kind": kind,                            # the wanted vowel, e.g. "pataḥ"
+        "char": vowel_char,                      # the wanted vowel (for reference; not rendered)
+        "present_kind": (describe_diff.mark_name(present_char)
+                          if present_char else None),  # the vowel UXLC has (the other strand's)
+        "present_char": present_char,
+        "snippet": snippet,                      # the strand word, shown without the vowel
+        "atom_index": atom_index,                # 1-based atom position, for grouping in clc_render
+        "strand": strand.short,                  # the strand that wants it ("elyon"/"taxton"/…)
+        "other_strand": other_strand.short,      # the strand whose vowel UXLC does have
+        "verse_loc": verse_loc,                  # (book_id, ch, v), for clc_render's long-note anchor
+        "lc_corroborated": False,                # grounding is the long note, not wlc-utils (§7.3)
+        "has_long_note": (book_id, ch, v, strand.short, kind) in _HAS_LONG_NOTE,
+        "source": clc_note.SOURCE_DUAL_CANT_OMITTED_VOWEL,
+        "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_VOWEL,
+    }
+
+
 def _rafe_dagesh_note(word, letter, atom_index, a_strand, a_state, b_strand, b_state):
     """A rafe/dagesh divergence (§7.7, faithful Policy 1) as ONE combined-row note naming both
     strands: on the shared ``letter`` of ``word``, each strand hardens (dagesh) or softens (rafe, or
@@ -978,6 +1042,13 @@ def _validate_oracle():
                     # — never a raw "HEBREW …" Unicode fallback.
                     assert _is_accent(ch), ch
                     assert ch == hpo.MTGOSLQ or ch in describe_diff.ACCENT_NAMES, ch
+                    assert ch not in _SUPPLIABLE, ch
+            for omitted_v in entry.get("omit_vowel", {}).values():
+                for ch in omitted_v:
+                    # Only VOWELS are noted-as-omitted here (accents go in "omit" above):
+                    # a genuine niqqud vowel with a canonical describe_diff name, never a
+                    # suppliable punctuation mark (punctuation would be supplied, not noted).
+                    assert ch in _VOWEL_POINTS, ch
                     assert ch not in _SUPPLIABLE, ch
 
 

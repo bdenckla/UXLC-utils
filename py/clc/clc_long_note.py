@@ -38,6 +38,7 @@ _KIND_SLUG = {
     "tipeḥa": "tipeha",
     "etnaḥta": "etnahta",
     "silluq": "silluq",
+    "pataḥ": "patah",   # an omitted *vowel* (Deut 5:8's elyon מתחת), not an accent
 }
 
 

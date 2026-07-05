@@ -165,7 +165,13 @@ def _strand_note_block(atom_notes, page_label):
     entries = [_strand_note_header(atom_notes[0])]
     for note in atom_notes:
         entries.append(H.line_break())
-        if note["source"] == clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT:
+        if note["source"] in (
+            clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
+            clc_note.SOURCE_DUAL_CANT_OMITTED_VOWEL,
+        ):
+            # An omitted *vowel* (Deut 5:8's elyon מתחת) shares the omitted-accent note's dict
+            # shape and identical "calls for … but the LC has only …" wording, so it renders
+            # through the very same block — only the mark category (a vowel) differs.
             entries.append(_omitted_note_block(note, page_label))
         else:
             entries.append(_added_note_block(note))
@@ -700,6 +706,31 @@ def _dt_5_7_elyon_meteg_extra(_spec, _book, _notes):
     ]
 
 
+def _dt_5_8_elyon_patax_extra(_spec, _book, _notes):
+    # The "further discussion" this note's short-note recap points to: the elyon מתחת's tav is
+    # left bare because the LC wrote only the taḥton's qamats there, never the pataḥ the elyon's
+    # chant wants (its ex 20:4 twin, a genuine QUPO split, does carry that pataḥ). The one
+    # alternative — lending the taḥton's qamats to the elyon too — does not resolve the problem,
+    # only reframes it (a qamats where a pataḥ is wanted, rather than no vowel at all); either
+    # way the LC's marks cannot yield the elyon's pataḥ, so CLC notes it rather than inventing
+    # it. This paragraph deliberately does NOT repeat the "beyond the limits of CLC's charity"
+    # clause — _charity_limit_paragraph already prints it just above, on this same page.
+    # Returns a list of paragraphs (each a list of inline pieces); see _build_long_note_entry.
+    return [
+        [
+            "An alternative detangling would have lent the taḥton strand’s qamats to the"
+            " elyon strand as well, rather than leaving the elyon strand’s tav bare. That"
+            " would not resolve the difficulty, only reframe it: the elyon would then show a"
+            " qamats where its chant calls for a pataḥ — as the parallel word in Exodus 20:4,"
+            " where the two strands split the vowel outright, confirms. Whether the problem is"
+            " put as “no vowel where a pataḥ is expected” or “a qamats where a pataḥ is"
+            " expected,” the substance is the same: the Leningrad Codex never wrote the elyon’s"
+            " pataḥ, so no detangling of the marks it does carry can give the elyon strand the"
+            " vowel its chant wants.",
+        ],
+    ]
+
+
 @dataclass(frozen=True)
 class _LongNoteSpec:
     """One editor-opted-in long note (design doc §7.3) -- case-by-case, never an
@@ -779,6 +810,11 @@ _LONG_NOTE_SPECS = (
         "Deuter", 5, 17, "elyon", "silluq", None, "",
         "", "",
         _lc_corroborated_extra,
+    ),
+    _LongNoteSpec(
+        "Deuter", 5, 8, "elyon", "pataḥ", None, "",
+        "", "",
+        _dt_5_8_elyon_patax_extra,
     ),
 )
 

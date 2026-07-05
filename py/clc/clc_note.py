@@ -20,6 +20,9 @@ SOURCE_DUAL_CANT_OMITTED_ACCENT = "dual-cant-omitted-accent"  # accent a strand 
 SOURCE_DUAL_CANT_RAFE_DAGESH = "dual-cant-rafe-dagesh"
 # The two strands have different vowels (patax vs. qamats) on one shared letter (QUPO, §7.7).
 SOURCE_DUAL_CANT_QUPO_VOWEL = "dual-cant-qupo-vowel"
+# A vowel one strand's chanting wants but UXLC omitted, leaving that strand's letter bare
+# while the other strand keeps its own vowel (the asymmetric sibling of QUPO; Deut 5:8 מתחת).
+SOURCE_DUAL_CANT_OMITTED_VOWEL = "dual-cant-omitted-vowel"
 
 # --- difference types (the "diff_type" field, for the §7.9 index) ---
 DIFF_UNDER_BAR = "under-bar"  # a vertical bar below the letter: m (prose), d (poetic)
@@ -44,6 +47,11 @@ DIFF_DUAL_CANT_DAGESH = "dagesh"
 # A QUPO two-vowels-on-one-letter split: the two strands have different vowels (patax vs.
 # qamats) on one shared letter, each its own (§7.7). A new §8 enum value alongside dagesh.
 DIFF_DUAL_CANT_QUPO_VOWEL = "dual-cant-qupo-vowel"
+# A vowel a strand's chanting calls for but UXLC left untangled — NOTED, never supplied,
+# exactly like an omitted accent (§7.7). The strand's letter is shown bare; the other
+# strand keeps its own (differing) vowel. Deut 5:8's elyon מתחת wants a patax where UXLC
+# wrote only the taḥton's qamats — the asymmetric sibling of the QUPO split.
+DIFF_DUAL_CANT_OMITTED_VOWEL = "dual-cant-omitted-vowel"
 
 
 @dataclass
