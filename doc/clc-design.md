@@ -488,9 +488,14 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   keeps UXLC's rafe; where UXLC has no rafe (e.g. ex 20:9 כל) the soft letter stays **bare** — no
   rafe is ever supplied. Each such split is **no longer silent**
   ([#47](https://github.com/bdenckla/UXLC-utils/issues/47)): the **combined (`-C`) row** carries one
-  note naming both strands and the shared letter — the bare visual fact only, *"On the ת of תרצח, the
-  taḥton strand has a rafe but the elyon strand has a dagesh."* (no phonetics, no cause, no sourcing
-  of the marks) — rather than the same fact duplicated per strand. The cluster is replaced *by name
+  note naming both strands and the shared letter, as a **target-as-heading** note like the
+  omitted-accent/supplied-mark strand notes beside it — the target word is the note's heading
+  and the body states just the bare visual fact, *"On the ת, the taḥton strand has a rafe
+  but the elyon strand has a dagesh."* (no phonetics, no cause, no sourcing of the marks; the
+  word is not named inline) — rather than the same fact duplicated per strand. That heading word
+  is **stripped to its bare letters** ([#48](https://github.com/bdenckla/UXLC-utils/issues/48),
+  `clc_strip.strip_to_bare_letters` — e.g. תרצח׃, keeping maqaf/sof-pasuq/legarmeh but
+  dropping every point and accent), while the `-C` text column still shows the real fully-pointed word. The cluster is replaced *by name
   at its exact site*
   (`str.replace(cluster, resolution, 1)`), so a mark that recurs elsewhere in the word as a *shared*
   mark is never touched.
@@ -547,8 +552,10 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   divergently, as the QUPO letter's own — a flat whole-word markset diff cannot tell those two
   occurrences apart, so the derivation isolates the divergence *per letter*, not per mark type. Like
   rafe/dagesh, this split is **no longer silent** ([#47](https://github.com/bdenckla/UXLC-utils/issues/47)):
-  the **combined (`-C`) row** carries one note naming both strands and the shared letter — e.g. *"On the
-  נ of פני, the taḥton strand has a qamats but the elyon strand has a pataḥ."*
+  the **combined (`-C`) row** carries one target-as-heading note (as for rafe/dagesh above)
+  naming both strands and the shared letter — e.g. body *"On the נ, the taḥton strand has a
+  qamats but the elyon strand has a pataḥ."* under a bare-letter heading פני (stripped from the
+  fully-pointed word per [#48](https://github.com/bdenckla/UXLC-utils/issues/48))
 - **Unicode-PASEQ tokenization** (ex 20:4, 20:10; dt 5:8, 5:12, 5:14, 5:15): a Unicode PASEQ (׀) —
   the raw U+05C0 character, without regard to whether it functions as narrow-sense paseq or
   legarmeh (§7.16; that grammatical distinction is irrelevant here) — that one strand chants and
@@ -623,8 +630,12 @@ divergence a reader would see now carries a synthesized note (all in `py/clc/clc
 bucket) and the **QUPO vowel split** (`source`/`diff_type` `dual-cant-qupo-vowel`). The supplied and
 omitted notes are **per-strand** (they ride their own alef/bet row); the rafe/dagesh and QUPO notes
 concern both strands equally, so each is stated **once on the combined (`-C`) row**, naming both
-strands and the shared letter, rather than duplicated per strand. All are lightweight dicts, **not**
-yet ClcNotes / §7.9 index rows — the subtractive divergences carry no ClcNote departure record yet.
+strands and the shared letter, rather than duplicated per strand. Each such combined-row note is a
+**target-as-heading** note: its `word` field is rendered as the note's heading, **stripped to bare
+letters** by `clc_strip.strip_to_bare_letters` ([#48](https://github.com/bdenckla/UXLC-utils/issues/48)
+— see §8), while the body names only the shared `letter`; the `-C` text column keeps the word fully
+pointed. All are lightweight dicts, **not** yet ClcNotes / §7.9 index rows — the subtractive
+divergences carry no ClcNote departure record yet.
 
 ### 7.8 Versification
 - Primary `vtrad-BHS`; surface `vtrad-MAM` differences where they occur. In the whole Bible
@@ -969,7 +980,16 @@ and `dual-cant-added-punct`. The dual-cant **"added out of thin air"** (supplied
   `dual-cant-qupo-vowel`, diff types `dagesh` / `dual-cant-qupo-vowel`) are *separate, lightweight*
   dicts — **not** full `ClcNote`s (they carry no anchors / §7.9 row yet). The first two ride their
   own alef/bet row; the two one-letter divergences ride the combined (`-C`) row, stated once naming
-  both strands.
+  both strands, as **target-as-heading** notes whose heading word is stripped to bare letters
+  (`clc_strip.strip_to_bare_letters`, [#48](https://github.com/bdenckla/UXLC-utils/issues/48)).
+- **Bare-letter word stripping** (`py/clc/clc_strip.py`, [#48](https://github.com/bdenckla/UXLC-utils/issues/48)):
+  `strip_to_bare_letters(text)` reduces a Hebrew word to its consonantal skeleton — base letters
+  (U+05D0–U+05EA) plus maqaf, sof pasuq, and legarmeh/paseq (kept unconditionally, either sense —
+  §7.16) and whitespace — dropping vowels, accents, meteg, dagesh, rafe, shin/sin dots, CGJ, and
+  every other diacritic. First consumer is the §7.7 divergence-note headings above (applied
+  unconditionally there). It is built to also serve #48's original motivating case — an editor-
+  invokable per-note opt-in to simplify the reiterated fully-pointed word inside a tanach.us `<h2>`
+  note line (§7.3, `clc_note_pages`) — which is **not yet wired up**, so #48 stays open for it.
 
 ---
 

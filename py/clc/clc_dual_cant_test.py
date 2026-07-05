@@ -26,6 +26,7 @@ sys.path.insert(0, _PY_ROOT)
 
 import clc.clc_dual_cant as dc  # noqa: E402
 import clc.clc_render as clc_render  # noqa: E402
+import clc.clc_strip as clc_strip  # noqa: E402
 import mb_cmn.hebrew_accents as acc  # noqa: E402
 import mb_cmn.hebrew_letters as hl  # noqa: E402
 import mb_cmn.hebrew_points as hpo  # noqa: E402
@@ -401,11 +402,16 @@ def test_decalogue_rafe_dagesh():
     assert rd["atom_index"] == 2 and rd["letter"] == hl.TAV       # on the ת
     assert (rd["a_strand"], rd["a_state"]) == ("taḥton", "rafe")  # alef named first, soft
     assert (rd["b_strand"], rd["b_state"]) == ("elyon", "dagesh")
-    # Render: one sentence, bare visual fact only — which mark each strand has on the ת. No
+    # Render: a target-as-heading note (§7.7) — the word תרצח as a heading STRIPPED to bare letters
+    # (issue #48), then the body: bare visual fact only, which mark each strand has on the ת. No
     # phonetics (hard/soft), no cause (conjunctive/disjunctive), no sourcing ("UXLC"). "rafe" (not
     # describe_diff's "rafeh") per Ben's spelling preference. No green/bracketed mark.
     html = H.el_to_str_no_wbr(clc_render._combined_divergence_block(rd))
+    assert clc_strip.strip_to_bare_letters(rd["word"]) in html  # bare-letter heading
+    assert rd["word"] not in html                        # the fully-pointed word is NOT reiterated
+    assert 'lang="hbo"' not in html                      # bare letters: default font, no hbo wrapper
     assert "On the " in html and hl.TAV in html          # names the concrete ת, not "the letter"
+    assert " of " not in html                            # the word is the header, not named inline
     assert "the taḥton strand has a rafe but the elyon strand has a dagesh." in html
     for banned in ("hard", "soft", "conjunctive", "disjunctive", "UXLC", "reads", "keeps", "stack"):
         assert banned not in html, banned
@@ -430,8 +436,11 @@ def test_decalogue_rafe_dagesh():
     assert [n["source"] for n in alef9.notes] == [dc.clc_note.SOURCE_DUAL_CANT_ADDITION]
     assert bet9.notes == ()
     # The bare side states the plain fact: elyon has neither mark on the letter (no phonetics,
-    # no cause, no "UXLC").
+    # no cause, no "UXLC"). The heading strips כָּל־ to כל־ — a maqaf-bearing word, so it PINS that
+    # the strip keeps the maqaf (issue #48) rather than dropping it with the pointing.
     bare_html = H.el_to_str_no_wbr(clc_render._combined_divergence_block(rd9))
+    kol_bare = clc_strip.strip_to_bare_letters(rd9["word"])
+    assert kol_bare in bare_html and kol_bare.endswith(hpu.MAQ)  # maqaf kept in the bare heading
     assert "the taḥton strand has a dagesh but the elyon strand has neither dagesh nor rafe." in bare_html
     for banned in ("hard", "soft", "conjunctive", "disjunctive", "UXLC"):
         assert banned not in bare_html, banned
@@ -631,9 +640,14 @@ def test_decalogue_qupo_vowel_split():
     assert q["atom_index"] == 7 and q["letter"] == hl.NUN       # on the נ
     assert (q["a_strand"], q["a_vowel"]) == ("taḥton", mark(_QAMATS))   # alef first, qamats
     assert (q["b_strand"], q["b_vowel"]) == ("elyon", mark(_PATAX))     # elyon, patax
-    # Render: one sentence naming both strands' vowel on the shared נ; plain "has"; no "stack"/
+    # Render: a target-as-heading note — the word פני as a heading stripped to bare letters (issue
+    # #48), then the body naming both strands' vowel on the shared נ; plain "has"; no "stack"/
     # "keeps"/"reads"; no green/bracketed mark.
     q_html = H.el_to_str_no_wbr(clc_render._combined_divergence_block(q))
+    assert clc_strip.strip_to_bare_letters(q["word"]) in q_html  # bare-letter heading (פני)
+    assert q["word"] not in q_html                               # not reiterated fully pointed
+    assert 'lang="hbo"' not in q_html                            # bare letters: default font, no hbo wrapper
+    assert " of " not in q_html                                  # word is the header, not inline
     assert (f"the taḥton strand has a {mark(_QAMATS)} but the elyon strand has a"
             f" {mark(_PATAX)}") in q_html
     for banned in ("stack", "keeps", "reads"):
@@ -853,6 +867,33 @@ def test_strand_same_highlighting():
     assert f'clc-strand-same">{et}' in alef8_html
 
 
+def test_strip_to_bare_letters():
+    # Issue #48: reduce a word to its bare consonantal skeleton — drop vowels, accents, meteg,
+    # dagesh, rafe, shin/sin dots, CGJ, every diacritic — but KEEP maqaf, sof pasuq, and the
+    # legarmeh/paseq bar, plus whitespace (so a phrase doesn't collapse). Built from named
+    # constants (no orphan combining marks in source).
+    strip = clc_strip.strip_to_bare_letters
+
+    # Every strip target on one ש, then the three keep-marks each after their own letter.
+    sample = (
+        hl.SHIN + hpo.SHIND + _QAMATS + _DAGESH + acc.TIP + _METEG + _CGJ  # ש + all stripped marks
+        + hl.LAMED + _MAQAF                                                 # ל + maqaf (kept)
+        + hl.MEM + _PASOLEG                                                 # מ + legarmeh/paseq (kept)
+        + hl.TAV + _SOF_PASUQ                                               # ת + sof pasuq (kept)
+    )
+    assert strip(sample) == hl.SHIN + hl.LAMED + _MAQAF + hl.MEM + _PASOLEG + hl.TAV + _SOF_PASUQ
+    # Shin/sin dots are stripped like any other diacritic (the decided general rule).
+    assert strip(hl.SHIN + hpo.SIND) == hl.SHIN
+    # Whitespace between words survives, so a two-word phrase does not merge.
+    assert strip(hl.LAMED + " " + hl.MEM) == hl.LAMED + " " + hl.MEM
+    # Already-bare text (letters + a kept maqaf) is returned unchanged.
+    assert strip(hl.KAF + hl.LAMED + _MAQAF) == hl.KAF + hl.LAMED + _MAQAF
+    # A real fully-pointed divergence word strips to exactly its consonants — plus, here, its
+    # verse-final sof pasuq (תרצח ends ex 20:13), which is a kept mark, not a stripped diacritic.
+    word = _read_atoms("Exodus.xml", 20, 13)[1]["text"]        # תִרְצָ֖ח׃, fully pointed
+    assert strip(word) == hl.TAV + hl.RESH + hl.TSADI + hl.XET + _SOF_PASUQ
+
+
 def main():
     test_is_dual_cant()
     test_decalogue_sof_pasuq_suppression()
@@ -869,6 +910,7 @@ def main():
     test_strand_views_strict()
     test_added_render()
     test_strand_same_highlighting()
+    test_strip_to_bare_letters()
     print("clc_dual_cant: OK")
 
 

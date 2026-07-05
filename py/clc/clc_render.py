@@ -20,6 +20,7 @@ import clc.clc_dual_cant as clc_dual_cant
 import clc.clc_kq as clc_kq
 import clc.clc_long_note as clc_long_note
 import clc.clc_note as clc_note
+import clc.clc_strip as clc_strip
 import uxlc_misc.uxlc_utils_html as H
 
 _OUT_DIR = "gh-pages/clc"
@@ -338,18 +339,31 @@ def _added_note_block(note):
 def _combined_divergence_block(note):
     # A both-strands one-letter divergence (§7.7, issue #47) — rafe/dagesh or the QUPO vowel split
     # — rendered ONCE on the combined (-C) row's doc column, naming both strands and the shared
-    # letter. Just the bare visual fact — which mark each strand has on that letter — with plain
-    # "has": no phonetics (hard/soft), no cause (the accent driving a rafe/dagesh), no sourcing of
-    # the marks (not "UXLC's"). A self-contained sentence, no word-header (the -C text column shows
-    # the word right beside it). e.g. "On the נ of פני, the taḥton strand has a qamats but the elyon
-    # strand has a pataḥ." / "On the ת of תרצח, the taḥton strand has a rafe but the elyon strand
-    # has a dagesh." Nothing is added to any strand's text, so no green/bracketed mark.
+    # letter. Now a first-class TARGET-AS-HEADING note like the omitted-accent/supplied-mark strand
+    # notes beside it (_strand_note_block / _note_block): the target word is the note's HEADING and
+    # the body no longer names it inline (§7.7). The heading is STRIPPED to its bare letters (issue
+    # #48, clc_strip.strip_to_bare_letters) — e.g. פָּנָֽ͏ַ֗י → פני, כָּל־ → כל־ — while the -C text
+    # column still shows the real fully-pointed word (that highlight is untouched). The body still
+    # names the specific letter (the header word has several) and gives just the bare visual fact —
+    # which mark each strand has on that letter — with plain "has": no phonetics (hard/soft), no
+    # cause (the accent driving a rafe/dagesh), no sourcing of the marks (not "UXLC's"). e.g. body
+    # "On the נ, the taḥton strand has a qamats but the elyon strand has a pataḥ." / "On the ת, the
+    # taḥton strand has a rafe but the elyon strand has a dagesh." Nothing is added to any strand's
+    # text, so no green/bracketed mark. The bare-letter heading and the single letter named in the
+    # body are STRIPPED Hebrew (no points/accents), so they carry NO lang="hbo"/dir="rtl" wrapper —
+    # that formatting exists to font-and-order pointed Hebrew (the Taamey font), which bare letters
+    # don't need; they render in the default font, still ordered correctly by their own RTL bidi.
     a_has, b_has = _divergence_has(note)
-    pieces = [
-        "On the ", H.span(note["letter"], _HBO_ATTR), " of ", H.span(note["word"], _HBO_ATTR),
-        f", the {note['a_strand']} strand has {a_has} but the {note['b_strand']} strand has {b_has}.",
+    body = [
+        f"On the {note['letter']}, the {note['a_strand']} strand has {a_has}"
+        f" but the {note['b_strand']} strand has {b_has}.",
     ]
-    return H.div([H.div(pieces, {"class": "clc-added-note"})], {"class": "clc-note"})
+    entries = [
+        clc_strip.strip_to_bare_letters(note["word"]),
+        H.line_break(),
+        H.div(body, {"class": "clc-added-note"}),
+    ]
+    return H.div(entries, {"class": "clc-note"})
 
 
 def _divergence_has(note):
