@@ -2,8 +2,8 @@
 
 A few prose loci carry **two cantillation traditions at once** — the Decalogues
 (Exod 20, Deut 5) and **Genesis 35:22**, the first application here. UXLC stores
-them as one *combined* form in which both strands' accents are stacked onto the
-same words (e.g. רְאוּבֵ֔֗ן carries both zaqef ``U+0594`` and revia ``U+0597``).
+them as one *combined* form in which both strands' accents are written together on
+the same words (e.g. רְאוּבֵ֔֗ן carries both zaqef ``U+0594`` and revia ``U+0597``).
 
 This module splits that combined form into the two single-cantillation strands —
 alef and bet — for side-by-side display. The split is **near-subtractive, with one
@@ -15,11 +15,18 @@ strand wants an accent UXLC omitted, a note in lieu of inventing one**:
     intimately-tracking **word-division punctuation** (a maqaf / sof-pasuq /
     legarmeh that goes only with that strand — so a sof-pasuq is *suppressed*
     when its silluq is, and never lands on a word whose last accent is e.g.
-    etnaḥta), and — where the two strands stack them on one letter — the other
+    etnaḥta), and — where the two strands each mark one letter — the other
     strand's **vowel** (a QUPO word's patax vs. qamats) or **rafe/dagesh**. The
     cluster is replaced *by name at its exact site* (``str.replace(cluster,
     resolution, 1)``), so a mark that recurs elsewhere in the word as a *shared*
-    mark is never touched.
+    mark is never touched. The two *one-letter* divergences — **rafe/dagesh** and
+    the **QUPO vowel split**, where the two strands differ on a single shared
+    letter — are no longer resolved silently (issue #47): each emits ONE lightweight
+    note on the **combined (``-C``) row** naming both strands and the letter
+    (``_combined_divergence_notes`` → ``_rafe_dagesh_note`` / ``_vowel_split_note``),
+    detected straight from the two resolutions (``_cluster_extras``) — no redundant
+    oracle field to drift. (They live on the combined row, not duplicated per strand,
+    because the divergence concerns both strands equally.)
   * **Marked supply — punctuation only.** A *word-division* mark a strand needs
     but UXLC lacks may be **supplied — never silently**: it is rendered
     **bracketed and green** (CSS ``clc-added-during-detangling``) with a
@@ -41,7 +48,7 @@ strand wants an accent UXLC omitted, a note in lieu of inventing one**:
 No consonant is changed and no *shared* mark removed (a mark both strands keep
 stays in both); only the divergent marks — accent and the punctuation that tracks
 it — are subtracted. MAM (via the wlc-utils detangler) is consulted **only as the
-oracle** for *which* of two stacked marks belongs to which strand, where a
+oracle** for *which* of two combined marks belongs to which strand, where a
 supplied break falls, and which accent a strand wants where UXLC has only the
 other's — encoded once, by hand, in ``_ORACLE`` below. Nothing of MAM's text is
 imported.
@@ -58,6 +65,7 @@ subtracting, tokenizing) without asserting anything about its grammatical identi
 "paseq" is reserved for the narrow sense, and "legarmeh" always means legarmeh.
 """
 
+from collections import Counter
 from dataclasses import dataclass
 
 import mb_cmn.hebrew_accents as acc
@@ -70,7 +78,7 @@ import clc.clc_note as clc_note
 
 
 # Combining grapheme joiner: a control char (no textual meaning) used in the
-# combined form only to sequence two stacked accents. Once a single accent
+# combined form only to sequence two combined accents. Once a single accent
 # remains it has nothing to sequence, so a strand drops it (cf. §7.14). It lives
 # inside a divergence cluster (atom 14) and simply isn't in either resolution.
 _CGJ = sd.CGJ
@@ -217,7 +225,7 @@ _STRANDS = {
 
 
 # The hardcoded oracle. For each dual-cant verse, map a 1-based atom index (only
-# the *divergence* words, where the two strands stack marks) to a resolution:
+# the *divergence* words, where the two strands each mark a letter) to a resolution:
 #
 #   atom_index -> {
 #       "cluster": exact combined substring that diverges (incl. CGJ if present),
@@ -287,7 +295,7 @@ _ORACLE = {
     # Policy 1; bare where UXLC has no rafe, as in ex 20:9 כל); the OMITTED-accent verses
     # (dt 5:6,13,17) where UXLC has only one strand's accent and the other's is NOTED, never
     # supplied (Ben's policy — see the "omit" field and _omitted_note); the QUPO vowel-split
-    # verses (ex 20:3, dt 5:7) where the two strands stack DIFFERENT vowels (patax vs. qamats) on
+    # verses (ex 20:3, dt 5:7) where the two strands have DIFFERENT vowels (patax vs. qamats) on
     # one letter — the same position-safe subtraction bucket as rafe/dagesh (see ex 20:3's own
     # comment below); and the pasoleg-tokenization verses (ex 20:4,10; dt 5:8,12,14,15, #29) —
     # MAM-simple tokenizes a standalone pasoleg (see the module docstring's terminology note)
@@ -351,7 +359,7 @@ _ORACLE = {
             9: {"cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA, "alef": acc.ATN + hl.YOD + hl.FMEM, "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA},
         },
         # ex 20:3 — the QUPO vowel split, the last of the Decalogue's divergence mechanisms.
-        # Atom 7 פָּנָ֗י ("before me"): the נ carries both QAMATS and PATAX stacked, sequenced by a
+        # Atom 7 פָּנָ֗י ("before me"): the נ carries both QAMATS and PATAX, sequenced by a
         # CGJ (same shape as Gen 35:22 atom 14) — taxton (alef) keeps qamats + meteg, elyon (bet)
         # keeps patax + revia; pure position-safe subtraction, exactly like rafe/dagesh. Atom 7
         # also SUPPLIES a sof-pasuq (taxton ends the verse here; UXLC has none). Atom 1 לא
@@ -468,7 +476,7 @@ _ORACLE = {
         # ex 20:13–15 (לא תרצח / תנאף / תגנב): here taxton joins each short commandment to the
         # next (לא takes a conjunctive merkha/munax, so the verb opens SOFT) while elyon chants
         # each as its own verse (לא takes a disjunctive tipxa → verb HARD + silluq + sof-pasuq).
-        # UXLC stacks dagesh+rafe on the verb's first letter, so the split is pure subtraction:
+        # UXLC writes dagesh+rafe together on the verb's first letter, so the split is pure subtraction:
         # taxton keeps the rafe (soft) + its mid-unit accent, elyon keeps the dagesh (hard) +
         # silluq + sof-pasuq. (Faithful — Policy 1: the soft letter shows UXLC's own rafe.)
         (20, 13): {
@@ -485,7 +493,7 @@ _ORACLE = {
         },
     },
     "Deuter": {
-        # dt 5:6 (אנכי...): the Deuteronomy twin of ex 20:2, but where UXLC there stacked BOTH
+        # dt 5:6 (אנכי...): the Deuteronomy twin of ex 20:2, but where UXLC there combined BOTH
         # strands' accents, here it has only the taxton's — so elyon's are OMITTED, not present.
         # Atom 1 אנכי: taxton keeps its pashta; elyon wants a tipxa UXLC left untangled (noted, not
         # supplied) → elyon shows אנכי accent-less. Atom 3 אלהיך likewise: taxton zaqef kept, elyon's
@@ -631,7 +639,7 @@ _ORACLE = {
         },
         # dt 5:18–19 (לא תנאף / תגנב): the Deuteronomy twins of ex 20:14–15 — same rafe/dagesh
         # split (taxton soft via the rafe, elyon hard via the dagesh + silluq + sof-pasuq), all
-        # stacked in UXLC so it is pure subtraction. (Unlike dt 5:17, UXLC here DOES have the
+        # combined in UXLC so it is pure subtraction. (Unlike dt 5:17, UXLC here DOES have the
         # elyon silluq, so nothing is omitted.)
         (5, 18): {
             1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
@@ -682,16 +690,21 @@ def strand_views(book_id, ch, v, verse_atoms):
     ``verse_atoms`` is the verse's atom list from clc_read. The combined view
     reuses those atoms unchanged; each alef/bet view holds fresh atom dicts whose
     text has the other strand's divergence cluster resolved (see ``split_word``)
-    plus an ``additions`` list, and a tuple of synthesized notes — one per mark it
-    supplies and one per accent it wants but UXLC omitted.
+    plus an ``additions`` list. Notes divide by whom they concern: a **per-strand**
+    note (a mark the strand supplies, or an accent it wants but UXLC omitted) rides
+    its own alef/bet view; a **both-strands** divergence note (rafe/dagesh or the QUPO
+    vowel split — where the two strands differ on ONE letter) rides the **combined**
+    view, stated once naming both strands, rather than duplicated per strand.
     """
     oracle = _ORACLE[book_id][(ch, v)]
     alef_strand, bet_strand = _STRANDS[book_id]
     alef_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_ALEF)
     bet_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_BET)
     verse_loc = (book_id, ch, v)
+    combined_notes = _combined_divergence_notes(
+        verse_atoms, alef_atoms, bet_atoms, alef_strand, bet_strand)
     return [
-        StrandView(SUFFIX_COMBINED, TOOLTIP_COMBINED, "", verse_atoms),
+        StrandView(SUFFIX_COMBINED, TOOLTIP_COMBINED, "", verse_atoms, combined_notes),
         StrandView(
             SUFFIX_ALEF, alef_strand.tooltip, alef_strand.doc_label,
             alef_atoms,
@@ -719,19 +732,30 @@ def _split_atom(atom, atom_index, oracle, strand):
     text = split_word(atom["text"], entry, strand)
     additions = entry.get("add", {}).get(strand, [])
     omitted = entry.get("omit", {}).get(strand, [])
+    rafe_dagesh = _rafe_dagesh_state(entry, strand)
+    qupo_vowel = _qupo_vowel(entry, strand)
+    # The base consonant carrying a rafe/dagesh or QUPO divergence — shared by both strands, so it
+    # is the same char whichever strand this is; ``None`` for a pure-accent atom. Named in the
+    # combined-row both-strands note (e.g. "On the נ of פני …").
+    marks = ({hpo.DAGOMOSD, hpo.RAFE} if rafe_dagesh
+             else {hpo.QAMATS, hpo.PATAX} if qupo_vowel else None)
+    letter = _base_letter(atom["text"], entry["cluster"], marks) if marks else None
     return {**atom, "text": text, "additions": list(additions),
-            "omitted_accents": list(omitted)}
+            "omitted_accents": list(omitted),
+            "rafe_dagesh": rafe_dagesh, "qupo_vowel": qupo_vowel,
+            "divergence_letter": letter}
 
 
 def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand, verse_loc):
-    """Synthesize this strand's notes: one per SUPPLIED mark and one per accent it
-    wants but UXLC OMITTED, in atom order.
+    """Synthesize this strand's own notes, in atom order: one per SUPPLIED mark and one per accent
+    it wants but UXLC OMITTED. (The rafe/dagesh and QUPO divergences concern BOTH strands equally —
+    one letter the two differ on — so they ride the combined view instead; see
+    ``_combined_divergence_notes``.)
 
     ``other_strand_atoms`` is the sibling strand's atoms — used to name the accent UXLC
     *does* have at an omitted-accent atom (the one the other strand keeps and this one
-    lacks), so the note says which accent it is rather than an abstract placeholder.
-    ``verse_loc`` is this verse's ``(book_id, ch, v)``, used only to look up
-    ``_LC_CORROBORATED`` for an omitted-accent note.
+    lacks), so the note names a concrete mark rather than an abstract placeholder. ``verse_loc``
+    is this verse's ``(book_id, ch, v)``, used only to look up ``_LC_CORROBORATED``.
 
     Lightweight, JSON-serializable dicts — NOT ClcNotes: strand rows own no
     anchors/always-links and no §7.9 departure record yet (design doc §7.7 keeps
@@ -751,11 +775,99 @@ def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand, verse_
     return tuple(notes)
 
 
+def _combined_divergence_notes(verse_atoms, alef_atoms, bet_atoms, alef_strand, bet_strand):
+    """The verse's **both-strands** divergence notes, for the combined (``-C``) row: one per
+    rafe/dagesh atom and one per QUPO vowel-split atom, each stated ONCE naming both strands and
+    the shared letter they differ on (design doc §7.7, issue #47) — rather than the same fact
+    duplicated (polarity-flipped) as a per-strand note on each of alef and bet.
+
+    Built from the two split-strand atom lists, whose ``rafe_dagesh`` / ``qupo_vowel`` /
+    ``divergence_letter`` fields ``_split_atom`` already detected off the resolutions; the
+    ``verse_atoms`` (combined) supply the word each note names. Lightweight JSON-serializable
+    dicts, not ClcNotes (no §7.9 row yet)."""
+    notes = []
+    for atom_index, (combined, a_atom, b_atom) in enumerate(
+        zip(verse_atoms, alef_atoms, bet_atoms), start=1
+    ):
+        word = combined["text"]
+        if a_atom.get("rafe_dagesh"):
+            notes.append(_rafe_dagesh_note(
+                word, a_atom["divergence_letter"], atom_index,
+                alef_strand, a_atom["rafe_dagesh"], bet_strand, b_atom["rafe_dagesh"]))
+        if a_atom.get("qupo_vowel"):
+            notes.append(_vowel_split_note(
+                word, a_atom["divergence_letter"], atom_index,
+                alef_strand, a_atom["qupo_vowel"], bet_strand, b_atom["qupo_vowel"]))
+    return tuple(notes)
+
+
 def _present_accent(this_text, other_text):
     """The accent UXLC has at this atom: the (single) accent the OTHER strand keeps and
     this strand lacks — i.e. the divergent accent present in UXLC. ``None`` if none."""
     this_accents = {ch for ch in this_text if _is_accent(ch)}
     return next((ch for ch in other_text if _is_accent(ch) and ch not in this_accents), None)
+
+
+def _cluster_extras(entry, strand):
+    """This strand's vs. the other strand's *net* marks within one divergence cluster: the two
+    multiset differences of their resolutions (``entry[strand]`` vs. the sibling's). A mark shared
+    by both — even one that also recurs, like a word's second qamats — cancels, so what remains is
+    exactly the genuinely divergent marks. This is what lets the rafe/dagesh and QUPO divergences be
+    *detected* straight from the oracle's own alef/bet resolutions (no redundant oracle field to
+    drift), while sidestepping the whole-word-markset trap design doc §7.7 warns of: an unrelated
+    *shared* copy of a diverging vowel/point cancels here instead of masking the real divergence."""
+    other = _STRAND_BET if strand == _STRAND_ALEF else _STRAND_ALEF
+    this_c, other_c = Counter(entry[strand]), Counter(entry[other])
+    return this_c - other_c, other_c - this_c
+
+
+def _rafe_dagesh_state(entry, strand):
+    """If this atom is a rafe/dagesh divergence (§7.7), this strand's state — ``"dagesh"`` (hard),
+    ``"rafe"`` (soft, UXLC's rafe kept), or ``"bare"`` (soft, UXLC marks no rafe, e.g. ex 20:9 כל);
+    ``None`` if the two strands don't differ in dagesh/rafe here. Read off ``_cluster_extras``, so a
+    dagesh/rafe both strands keep (or one recurring elsewhere in the word) never triggers it."""
+    this_extra, other_extra = _cluster_extras(entry, strand)
+    if not ({hpo.DAGOMOSD, hpo.RAFE} & (set(this_extra) | set(other_extra))):
+        return None
+    if hpo.DAGOMOSD in this_extra:
+        return "dagesh"
+    if hpo.RAFE in this_extra:
+        return "rafe"
+    # This strand carries neither divergent mark, so it is the soft, UXLC-bare side; the OTHER
+    # strand must then hold the divergent dagesh (a bare *hard* letter never arises in the oracle).
+    assert hpo.DAGOMOSD in other_extra, (entry, strand)
+    return "bare"
+
+
+def _qupo_vowel(entry, strand):
+    """If this atom is a QUPO vowel split (§7.7) — the two strands have different vowels
+    (patax vs. qamats) on one shared letter — this strand's own divergent vowel char; ``None``
+    otherwise. The discriminator is a patax↔qamats *swap* between the two resolutions, so a lone
+    divergent qamats NOT paired with the sibling's patax (dt 5:8 atom 12's מתחת) is correctly
+    excluded, unlike a naive "any divergent qamats ⇒ QUPO" test."""
+    this_extra, other_extra = _cluster_extras(entry, strand)
+    this_has = {hpo.QAMATS, hpo.PATAX} & set(this_extra)
+    other_has = {hpo.QAMATS, hpo.PATAX} & set(other_extra)
+    if not (this_has and other_has and this_has != other_has):
+        return None
+    (vowel,) = this_has  # a QUPO letter carries exactly one divergent vowel per strand
+    return vowel
+
+
+def _base_letter(combined_text, cluster, marks):
+    """The base consonant a divergence sits on: the nearest Hebrew letter at or before the FIRST
+    of ``marks`` (the divergent dagesh/rafe, or the divergent qamats/patax) inside the cluster's
+    site in ``combined_text``. Restricting the search to the cluster's own span avoids a same-type
+    mark elsewhere in the word (e.g. a shared qamats). Returns the letter char, or ``None``."""
+    start = combined_text.index(cluster)
+    region = combined_text[start:start + len(cluster)]
+    pos = next((start + off for off, ch in enumerate(region) if ch in marks), None)
+    if pos is None:
+        return None
+    for j in range(pos, -1, -1):  # walk back to the consonant the mark hangs on
+        if describe_diff.is_letter(combined_text[j]):
+            return combined_text[j]
+    return None
 
 
 def _added_note(snippet, added_char, atom_index):
@@ -806,6 +918,39 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
         "has_long_note": (book_id, ch, v, strand.short, kind) in _HAS_LONG_NOTE,
         "source": clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
         "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_ACCENT,
+    }
+
+
+def _rafe_dagesh_note(word, letter, atom_index, a_strand, a_state, b_strand, b_state):
+    """A rafe/dagesh divergence (§7.7, faithful Policy 1) as ONE combined-row note naming both
+    strands: on the shared ``letter`` of ``word``, each strand hardens (dagesh) or softens (rafe, or
+    bare where UXLC marks none) that opening בגדכפת letter, driven by the previous word's disjunctive
+    vs. conjunctive accent. ``a_state``/``b_state`` are each strand's own resolution (``"dagesh"`` /
+    ``"rafe"`` / ``"bare"``). alef (verse-by-verse) is named first."""
+    return {
+        "word": word,                            # the combined atom word the note names
+        "letter": letter,                        # the shared consonant the two strands differ on
+        "atom_index": atom_index,                # 1-based atom position, for the combined row
+        "a_strand": a_strand.short, "a_state": a_state,  # alef strand + its hard/soft state
+        "b_strand": b_strand.short, "b_state": b_state,  # bet strand + its state
+        "source": clc_note.SOURCE_DUAL_CANT_RAFE_DAGESH,
+        "diff_type": clc_note.DIFF_DUAL_CANT_DAGESH,
+    }
+
+
+def _vowel_split_note(word, letter, atom_index, a_strand, a_vowel_char, b_strand, b_vowel_char):
+    """A QUPO vowel split (§7.7) as ONE combined-row note naming both strands: on the shared
+    ``letter`` of ``word`` the two strands have different vowels (patax vs. qamats), each its own.
+    Vowel names come from the canonical ``describe_diff`` authority (never a reinvented spelling).
+    alef first."""
+    return {
+        "word": word,                            # the combined atom word the note names
+        "letter": letter,                        # the shared consonant carrying the two vowels
+        "atom_index": atom_index,                # 1-based atom position, for the combined row
+        "a_strand": a_strand.short, "a_vowel": describe_diff.mark_name(a_vowel_char),
+        "b_strand": b_strand.short, "b_vowel": describe_diff.mark_name(b_vowel_char),
+        "source": clc_note.SOURCE_DUAL_CANT_QUPO_VOWEL,
+        "diff_type": clc_note.DIFF_DUAL_CANT_QUPO_VOWEL,
     }
 
 

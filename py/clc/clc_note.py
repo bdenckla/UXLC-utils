@@ -16,6 +16,10 @@ from dataclasses import dataclass, asdict
 SOURCE_UXLC_X_NOTE = "uxlc-x-note"  # UXLC <x> note + its tanach.us note-page prose
 SOURCE_DUAL_CANT_ADDITION = "dual-cant-addition"  # punctuation supplied to clarify one strand
 SOURCE_DUAL_CANT_OMITTED_ACCENT = "dual-cant-omitted-accent"  # accent a strand wants but UXLC omitted
+# The two strands harden/soften a בגדכפת letter differently (dagesh vs. rafe/bare, §7.7).
+SOURCE_DUAL_CANT_RAFE_DAGESH = "dual-cant-rafe-dagesh"
+# The two strands have different vowels (patax vs. qamats) on one shared letter (QUPO, §7.7).
+SOURCE_DUAL_CANT_QUPO_VOWEL = "dual-cant-qupo-vowel"
 
 # --- difference types (the "diff_type" field, for the §7.9 index) ---
 DIFF_UNDER_BAR = "under-bar"  # a vertical bar below the letter: m (prose), d (poetic)
@@ -32,6 +36,14 @@ DIFF_DUAL_CANT_ADDED_PUNCT = "dual-cant-added-punct"  # charitable additive dive
 # (CLC supplies only punctuation; §7.7). Not a CLC departure from UXLC's text, just an
 # annotation, so it carries no green/bracketed mark.
 DIFF_DUAL_CANT_OMITTED_ACCENT = "dual-cant-omitted-accent"
+# A rafe/dagesh divergence between the two dual-cant strands: one hardens a בגדכפת letter
+# (dagesh), the other softens it (rafe, or bare where UXLC marks none) — driven by the previous
+# word's disjunctive vs. conjunctive accent (§7.7, faithful Policy 1). Shares §8's general
+# `dagesh` bucket, already anticipated there, rather than a dual-cant-specific string.
+DIFF_DUAL_CANT_DAGESH = "dagesh"
+# A QUPO two-vowels-on-one-letter split: the two strands have different vowels (patax vs.
+# qamats) on one shared letter, each its own (§7.7). A new §8 enum value alongside dagesh.
+DIFF_DUAL_CANT_QUPO_VOWEL = "dual-cant-qupo-vowel"
 
 
 @dataclass

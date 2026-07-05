@@ -481,12 +481,17 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   strand's **divergence cluster** resolved: an accent, the **word-division punctuation that tracks
   it** (a maqaf / sof-pasuq / legarmeh belonging to that strand — so a sof-pasuq is *suppressed*
   when its silluq is, and never sits on a word whose last accent is e.g. etnaxta), and — where the
-  two strands stack them on one letter — the other strand's **vowel** (a QUPO word's patax vs.
+  two strands differ on one letter — the other strand's **vowel** (a QUPO word's patax vs.
   qamats) or **rafe/dagesh**. For rafe/dagesh the policy is **faithful**: where the two strands
   harden/soften a בגדכפת letter (driven by the previous word's accent — a disjunctive pause hardens,
   a conjunctive juncture softens), the **hard** strand keeps UXLC's dagesh and the **soft** strand
   keeps UXLC's rafe; where UXLC has no rafe (e.g. ex 20:9 כל) the soft letter stays **bare** — no
-  rafe is ever supplied. The cluster is replaced *by name at its exact site*
+  rafe is ever supplied. Each such split is **no longer silent**
+  ([#47](https://github.com/bdenckla/UXLC-utils/issues/47)): the **combined (`-C`) row** carries one
+  note naming both strands and the shared letter — the bare visual fact only, *"On the ת of תרצח, the
+  taḥton strand has a rafe but the elyon strand has a dagesh."* (no phonetics, no cause, no sourcing
+  of the marks) — rather than the same fact duplicated per strand. The cluster is replaced *by name
+  at its exact site*
   (`str.replace(cluster, resolution, 1)`), so a mark that recurs elsewhere in the word as a *shared*
   mark is never touched.
 - **Marked supply — *punctuation only*, bracketed and footnoted, never silent.** Only an
@@ -535,12 +540,15 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   atom-grouped strand notes (`clc_dual_cant._strand_notes` now tags each note with its `atom_index`);
   the snippet-free prose is the single source for both the main page and the long-notes-page recap,
   the latter staying running prose (its verse recap already shows the word) rather than re-headering.
-- **QUPO vowel split** (ex 20:3, dt 5:7): where the two strands stack *different vowels* (patax vs.
-  qamats) on one letter (עַל־פָּנָ֗י's נ), it is the same position-safe subtraction bucket as
-  rafe/dagesh — each strand keeps its own vowel, drops the other's. The one subtlety: the same vowel
-  *type* can also occur **twice** in one word, once as an unrelated *shared* vowel and once,
+- **QUPO vowel split** (ex 20:3, ex 20:4's מתחת, dt 5:7): where the two strands have *different
+  vowels* (patax vs. qamats) on one letter (עַל־פָּנָ֗י's נ), it is the same position-safe subtraction
+  bucket as rafe/dagesh — each strand keeps its own vowel, drops the other's. The one subtlety: the
+  same vowel *type* can also occur **twice** in one word, once as an unrelated *shared* vowel and once,
   divergently, as the QUPO letter's own — a flat whole-word markset diff cannot tell those two
-  occurrences apart, so the derivation isolates the divergence *per letter*, not per mark type.
+  occurrences apart, so the derivation isolates the divergence *per letter*, not per mark type. Like
+  rafe/dagesh, this split is **no longer silent** ([#47](https://github.com/bdenckla/UXLC-utils/issues/47)):
+  the **combined (`-C`) row** carries one note naming both strands and the shared letter — e.g. *"On the
+  נ of פני, the taḥton strand has a qamats but the elyon strand has a pataḥ."*
 - **Unicode-PASEQ tokenization** (ex 20:4, 20:10; dt 5:8, 5:12, 5:14, 5:15): a Unicode PASEQ (׀) —
   the raw U+05C0 character, without regard to whether it functions as narrow-sense paseq or
   legarmeh (§7.16; that grammatical distinction is irrelevant here) — that one strand chants and
@@ -560,7 +568,12 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
 
 All four proven divergence mechanisms — rafe/dagesh, omitted-accent notes, the QUPO vowel split, and
 Unicode-PASEQ tokenization — plus pure-accent subtraction and supplied punctuation now cover **every**
-Decalogue dual-cant verse: `_ORACLE` holds an entry for all 23 verses (across Exod 20 and Deut 5)
+Decalogue dual-cant verse. That set is **provably closed**
+([#47](https://github.com/bdenckla/UXLC-utils/issues/47)): diffing the `alef`/`bet` *resolutions*
+(not the shared-filler-carrying cluster string) of every `_ORACLE` atom and classifying each
+divergent character yields only accents (incl. meteg/silluq), maqaf, legarmeh/pasoleg, sof-pasuq,
+dagesh, rafe, qamats, and patax — no character outside that closed set, so no undiscovered "weird"
+divergence mechanism remains. `_ORACLE` holds an entry for all 23 verses (across Exod 20 and Deut 5)
 where the two traditions actually diverge; the other 9 verses in the two passage ranges (ex 20:7,
 11, 12, 16, 17; dt 5:11, 16, 20, 21) have identical taxton/elyon readings and correctly carry no
 entry. [#20](https://github.com/bdenckla/UXLC-utils/issues/20), the tracker for this feature, is
@@ -569,7 +582,7 @@ closed.
 No consonant is changed and no *shared* mark removed (a mark both strands keep stays in both); only
 the divergent marks — accent and the punctuation tracking it — are subtracted (subtraction, incl. of
 punctuation, is not re-division). MAM (via the detangler) is consulted **only as the oracle** — for
-*which* of two stacked marks belongs to which strand, *where* a supplied break falls, and *which*
+*which* of two combined marks belongs to which strand, *where* a supplied break falls, and *which*
 accent a strand wants where UXLC has only the other's. The detangler's remaining supplied-marks /
 anomalies stay valuable as **logged footnotes**, never silent edits.
 
@@ -601,12 +614,17 @@ oracle already encodes there (Deut 5:17's lone-sof-pasuq elyon). Validation only
 
 This is the same shape as the **legarmeh-vs-paseq** feature (§7.16): both *improve UXLC by importing
 MAM's auxiliary adjudication* of an ambiguity that is **grammatical, not graphical**, differing only
-in subject — which-accent-belongs-to-which-strand here, legarmeh-vs-paseq identity there. A
-**supplied** punctuation mark emits a synthesized note (`source` `dual-cant-addition`, `diff_type`
-`dual-cant-added-punct`); an **omitted** accent likewise emits one (`source`/`diff_type`
-`dual-cant-omitted-accent` — see `py/clc/clc_note.py`): lightweight **per-strand** notes, **not** yet
-ClcNotes / §7.9 index rows. The subtractive divergences remain **display-only** (no ClcNote departure
-records yet).
+in subject — which-accent-belongs-to-which-strand here, legarmeh-vs-paseq identity there. Every
+divergence a reader would see now carries a synthesized note (all in `py/clc/clc_note.py`): a
+**supplied** punctuation mark (`source` `dual-cant-addition`, `diff_type` `dual-cant-added-punct`); an
+**omitted** accent (`source`/`diff_type` `dual-cant-omitted-accent`); and — no longer silently
+([#47](https://github.com/bdenckla/UXLC-utils/issues/47)) — the two *one-letter* kinds:
+**rafe/dagesh** (`source` `dual-cant-rafe-dagesh`, `diff_type` `dagesh`, §8's already-anticipated
+bucket) and the **QUPO vowel split** (`source`/`diff_type` `dual-cant-qupo-vowel`). The supplied and
+omitted notes are **per-strand** (they ride their own alef/bet row); the rafe/dagesh and QUPO notes
+concern both strands equally, so each is stated **once on the combined (`-C`) row**, naming both
+strands and the shared letter, rather than duplicated per strand. All are lightweight dicts, **not**
+yet ClcNotes / §7.9 index rows — the subtractive divergences carry no ClcNote departure record yet.
 
 ### 7.8 Versification
 - Primary `vtrad-BHS`; surface `vtrad-MAM` differences where they occur. In the whole Bible
@@ -807,7 +825,7 @@ behavior, not part of the text, so CLC removes it.
   (drop); at least one spacing-hack joiner is known — find the rest.
 - Log each removal as a departure (§7.9), difference type e.g. `control-char`.
 - **Done so far — only the dual-cant case.** The strand splitter already drops an **orphaned CGJ**
-  (U+034F) that the combined form used merely to *sequence* two stacked accents: once one accent is
+  (U+034F) that the combined form used merely to *sequence* two combined accents: once one accent is
   removed it has nothing left to sequence, so the strand omits it
   ([py/clc/clc_dual_cant.py](py/clc/clc_dual_cant.py), §7.7). The general control-character
   **audit/strip** across UXLC (the spacing-hack ZWJ, etc.) is **not started**.
@@ -937,16 +955,21 @@ Tracked in [#36](https://github.com/bdenckla/UXLC-utils/issues/36), closed.
   restorations) flow into — **one renderer, many sources**. Fields: atom text, bcvp, note text,
   source (e.g. `uxlc-x-note`, `dual-cant-addition`, `dual-cant-omitted-accent`), plus for the
   difference index (§7.9) a **`diff_type`** (`under-bar` | `transcription-uncertainty` |
-  `dual-cant-added-punct` | `dual-cant-omitted-accent` | `legarmeh-paseq` | `dagesh` |
-  `meteg-position` | `control-char` | `bhl-appendix` | … | `misc`), an **`is_uxlc_departure`** flag,
+  `dual-cant-added-punct` | `dual-cant-omitted-accent` | `dual-cant-qupo-vowel` | `legarmeh-paseq` |
+  `dagesh` | `meteg-position` | `control-char` | `bhl-appendix` | … | `misc`), an
+  **`is_uxlc_departure`** flag,
   and the **UXLC reading vs. CLC
   reading** pair. The difference index is then just "render the notes where `is_uxlc_departure`, as a
   table." (The `amb_early_mtg` record is one prior example to borrow field ideas from — not the
   definition.) **Implemented so far:** `ClcNote` (py/clc/clc_note.py) with sources `uxlc-x-note` and
   `dual-cant-addition` and diff types `under-bar`, `transcription-uncertainty` (UXLC's `t` code, §2),
-and `dual-cant-added-punct`. The dual-cant **"added
-  out of thin air"** (supplied-punctuation) and **omitted-accent** notes (§7.7) are *separate,
-  lightweight* per-strand dicts — **not** full `ClcNote`s (strand rows carry no anchors / §7.9 row yet).
+and `dual-cant-added-punct`. The dual-cant **"added out of thin air"** (supplied-punctuation),
+  **omitted-accent**, **rafe/dagesh**, and **QUPO vowel-split** notes (§7.7 — the last two added in
+  [#47](https://github.com/bdenckla/UXLC-utils/issues/47), sources `dual-cant-rafe-dagesh` /
+  `dual-cant-qupo-vowel`, diff types `dagesh` / `dual-cant-qupo-vowel`) are *separate, lightweight*
+  dicts — **not** full `ClcNote`s (they carry no anchors / §7.9 row yet). The first two ride their
+  own alef/bet row; the two one-letter divergences ride the combined (`-C`) row, stated once naming
+  both strands.
 
 ---
 
@@ -1012,7 +1035,7 @@ skeleton (doc/clc-skeleton-plan.md) is complete and exceeded**; output exists fo
 | §7.4 change records as notes | **first instance** | change log used only for the consistency guard, not as a note, EXCEPT one instance: Deut 5:8.2-t's stale note is suppressed in favor of a link to the superseding 2026.10.19 change #10 (`clc_collect._NOTES_SUPERSEDED_BY_UXLC_CHANGE`, `ClcNote.superseding_uxlc_change`) |
 | §7.5 FOIs as notes | **partial** | ketiv/qere rendered as a boxed ruby (clc_kq); other FOIs not surfaced |
 | §7.6 images / Sefaria links | not started | — |
-| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats stacked on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. No §7.9 departure rows yet. MAM's per-witness sof-pasuq + two-marks-on-one-letter doc-notes independently corroborate the supplied taḥton sof-pasuqs and the QUPO vowel split ([#43](https://github.com/bdenckla/UXLC-utils/issues/43)/[#44](https://github.com/bdenckla/UXLC-utils/issues/44), validation only — nothing rendered or embedded); MAM's legarmeh/paseq tags + pisqah-be'emtsa-pasuq markings likewise corroborate the pasoleg subtraction and the coveting-verse internal breaks ([#42](https://github.com/bdenckla/UXLC-utils/issues/42), also validation only — see §7.16) |
+| §7.7 dual-cant strands | **done** | Gen 35:22 + every Decalogue divergence verse encoded (clc_dual_cant `_ORACLE`: ex 20:2–6,8–10,13–15; dt 5:6–10,12–15,17–19 — 23 verses; the other 9 verses in the two passage ranges genuinely don't diverge and correctly carry no entry) — pure-accent + sof-pasuq suppression, supplied maqaf/sof-pasuq, rafe/dagesh by the faithful policy, omitted-accent notes (accents NOTED, never supplied), the QUPO vowel split (patax/qamats on one letter), and Unicode-PASEQ tokenization (a MAM tokenization-convention fold, no new runtime mechanism). [#20](https://github.com/bdenckla/UXLC-utils/issues/20) closed. The rafe/dagesh and QUPO splits — previously resolved silently — now each emit a reader-facing note on the combined (`-C`) row naming both strands, and the divergence set was proven closed against every `_ORACLE` atom ([#47](https://github.com/bdenckla/UXLC-utils/issues/47)). No §7.9 departure rows yet. MAM's per-witness sof-pasuq + two-marks-on-one-letter doc-notes independently corroborate the supplied taḥton sof-pasuqs and the QUPO vowel split ([#43](https://github.com/bdenckla/UXLC-utils/issues/43)/[#44](https://github.com/bdenckla/UXLC-utils/issues/44), validation only — nothing rendered or embedded); MAM's legarmeh/paseq tags + pisqah-be'emtsa-pasuq markings likewise corroborate the pasoleg subtraction and the coveting-verse internal breaks ([#42](https://github.com/bdenckla/UXLC-utils/issues/42), also validation only — see §7.16) |
 | §7.8 versification | **done (validation-only)** | Primary vtrad-BHS. The MAM↔BHS Decalogue verse map is hand-encoded in `clc_versification.py` (4 merge groups → `clc_to_mam` etc.; MAM = taḥton-strand boundaries, so `MAM Ex 20:2`=BHS 20:2+3, `Ex 20:12`=BHS 20:13–16, `Dt 5:6`=BHS 5:6+7, `Dt 5:16`=BHS 5:17–20). No new rendered surface: §7.7 already renders the overlay (MAM's versification *is* the taḥton strand), proven 1:1 against `clc_dual_cant._ORACLE` in `clc_versification_test`. MAM consulted as signal, embedded nowhere at runtime (hand-encoded once vs. `.novc/mam_decalogue_versemap.json`, all 53 verses). `clc_to_mam` is the shared CLC→MAM helper [#38](https://github.com/bdenckla/UXLC-utils/issues/38) needs. [#45](https://github.com/bdenckla/UXLC-utils/issues/45) closed |
 | §7.9 differences-from-UXLC index | not started | the page itself is unbuilt, still blocked on LC manuscript order (§9 #10); one real `is_uxlc_departure` instance now exists to drive it (Deut 5:8.2, §7.4) |
 | §7.10 intro essay / landing page | not started | per-book `_intro_para` only; no `gh-pages/clc/index.html` |

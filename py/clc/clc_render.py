@@ -107,13 +107,17 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, page_label):
             f"{ch}:{v}-{view.suffix}", _strand_ref_attr(view.tooltip, pos, len(views))
         )
         if view.suffix == clc_dual_cant.SUFFIX_COMBINED:
+            # The combined row also carries the verse's both-strands one-letter divergence notes
+            # (rafe/dagesh, QUPO — clc_dual_cant attaches them here, not to the strands): highlight
+            # each such atom's word in the text column and append its note to the doc column.
+            div_targets = {n["atom_index"] for n in view.notes}
             text_cell = H.table_datum(
-                _text_contents(ch, v, view.atoms, notes_by_atom, page_label),
+                _text_contents(ch, v, view.atoms, notes_by_atom, page_label, div_targets),
                 {**_HBO_ATTR, "class": "clc-text"},
             )
-            doc_cell = H.table_datum(
-                _doc_contents(ch, v, view.atoms, notes_by_atom), {"class": "clc-doc"}
-            )
+            doc_blocks = _doc_contents(ch, v, view.atoms, notes_by_atom)
+            doc_blocks.extend(_combined_divergence_block(n) for n in view.notes)
+            doc_cell = H.table_datum(doc_blocks, {"class": "clc-doc"})
         else:
             # De-highlight against the OTHER strand (the two strands agree here),
             # not the combined form — see _plain_text_contents.
@@ -331,6 +335,41 @@ def _added_note_block(note):
     )
 
 
+def _combined_divergence_block(note):
+    # A both-strands one-letter divergence (§7.7, issue #47) — rafe/dagesh or the QUPO vowel split
+    # — rendered ONCE on the combined (-C) row's doc column, naming both strands and the shared
+    # letter. Just the bare visual fact — which mark each strand has on that letter — with plain
+    # "has": no phonetics (hard/soft), no cause (the accent driving a rafe/dagesh), no sourcing of
+    # the marks (not "UXLC's"). A self-contained sentence, no word-header (the -C text column shows
+    # the word right beside it). e.g. "On the נ of פני, the taḥton strand has a qamats but the elyon
+    # strand has a pataḥ." / "On the ת of תרצח, the taḥton strand has a rafe but the elyon strand
+    # has a dagesh." Nothing is added to any strand's text, so no green/bracketed mark.
+    a_has, b_has = _divergence_has(note)
+    pieces = [
+        "On the ", H.span(note["letter"], _HBO_ATTR), " of ", H.span(note["word"], _HBO_ATTR),
+        f", the {note['a_strand']} strand has {a_has} but the {note['b_strand']} strand has {b_has}.",
+    ]
+    return H.div([H.div(pieces, {"class": "clc-added-note"})], {"class": "clc-note"})
+
+
+def _divergence_has(note):
+    # The two "has …" phrases (alef strand, bet strand). QUPO: each strand's own vowel. Rafe/dagesh:
+    # the mark on the shared letter — "a dagesh", "a rafe", or "neither dagesh nor rafe" (a bare
+    # letter, e.g. ex 20:9 כל). Spelling "rafe" (not describe_diff's canonical "rafeh") is deliberate
+    # per Ben's preference (2026-07-05); "dagesh" already matches the canonical name.
+    if note["source"] == clc_note.SOURCE_DUAL_CANT_QUPO_VOWEL:
+        return f"a {note['a_vowel']}", f"a {note['b_vowel']}"
+    return _rd_phrase(note["a_state"]), _rd_phrase(note["b_state"])
+
+
+def _rd_phrase(state):
+    if state == "dagesh":
+        return "a dagesh"
+    if state == "rafe":
+        return "a rafe"
+    return "neither dagesh nor rafe"  # bare — the letter carries no dagesh and no rafe
+
+
 def _strand_ref_attr(tooltip, pos, count):
     # Group the strand rows into one verse block: the first row keeps the top
     # divider, the last keeps the bottom one, the middle rows drop both.
@@ -342,11 +381,14 @@ def _strand_ref_attr(tooltip, pos, count):
     return {"class": " ".join(classes), "title": tooltip}
 
 
-def _text_contents(ch, v, verse, notes_by_atom, page_label):
+def _text_contents(ch, v, verse, notes_by_atom, page_label, extra_targets=()):
     # Group ketiv/qere atoms into units (clc_kq) so each renders as one boxed
     # ruby — qere on the baseline, ketiv above — and adjacent independent pairs
     # stay visibly separate from a grouped multi-word unit. Plain words render as
-    # a highlight if noted (see _noted_word), otherwise bare text.
+    # a highlight if noted (see _noted_word), otherwise bare text. ``extra_targets`` is a set of
+    # 1-based atom positions to ALSO highlight though they carry no ClcNote — used on the combined
+    # (-C) row for a both-strands divergence note (rafe/dagesh, QUPO) whose block sits in the same
+    # doc cell (so a plain span, no link, like any same-row note — §7.3).
     pieces = []
     for item in clc_kq.iter_render_units(verse):
         if isinstance(item, clc_kq.KqUnit):
@@ -354,7 +396,10 @@ def _text_contents(ch, v, verse, notes_by_atom, page_label):
             _append_join_space(pieces, clc_kq.join_text(item))
         else:
             atom_notes = notes_by_atom.get((ch, v, item.position))
-            pieces.append(_noted_word(item.text, atom_notes, page_label))
+            if not atom_notes and item.position in extra_targets:
+                pieces.append(H.span(item.text, {"class": "clc-doc-target"}))
+            else:
+                pieces.append(_noted_word(item.text, atom_notes, page_label))
             _append_join_space(pieces, item.text)
     return pieces
 
