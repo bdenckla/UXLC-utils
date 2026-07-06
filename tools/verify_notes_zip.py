@@ -141,7 +141,7 @@ def main():
         lines.append(f"=== NO-PROSE-EXTRACTED: {book_id}/{fname}")
 
     _OUT.parent.mkdir(exist_ok=True)
-    _OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    _OUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="")
 
     print(f"wrote {_OUT}")
     for verdict in ("IDENTICAL", "PROSE-EQUAL", "PROSE-DIFFERS",

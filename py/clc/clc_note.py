@@ -50,7 +50,7 @@ DIFF_DUAL_CANT_QUPO_VOWEL = "dual-cant-qupo-vowel"
 # A vowel a strand's chanting calls for but UXLC left untangled — NOTED, never supplied,
 # exactly like an omitted accent (§7.7). The strand's letter is shown bare; the other
 # strand keeps its own (differing) vowel. Deut 5:8's elyon מתחת wants a patax where UXLC
-# wrote only the taḥton's qamats — the asymmetric sibling of the QUPO split.
+# wrote only the taxton's qamats — the asymmetric sibling of the QUPO split.
 DIFF_DUAL_CANT_OMITTED_VOWEL = "dual-cant-omitted-vowel"
 
 

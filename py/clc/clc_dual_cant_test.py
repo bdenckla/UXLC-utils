@@ -490,7 +490,7 @@ def test_decalogue_omitted_accent():
     # dt 5:13 also has a rafe/dagesh split at atom 5 (כל), the mirror of ex 20:9 but with UXLC's
     # rafe PRESENT: taxton hard (dagesh), elyon soft-marked (rafe) — each a per-strand note (#47).
     assert alef.atoms[4]["rafe_dagesh"] == "dagesh" and bet.atoms[4]["rafe_dagesh"] == "rafe"
-    # dt 5:13's taḥton pashta has NO wlc-utils basis (accgram's detangler never needed to
+    # dt 5:13's taxton pashta has NO wlc-utils basis (accgram's detangler never needed to
     # supply anything for it — issue #36) — the two wording paths must not silently collapse.
     # It DOES have an editor-attached long note (clc_dual_cant._HAS_LONG_NOTE, design doc
     # §7.3) grounded in UXLC's own note citing BHL Appendix A, which independently licenses
@@ -530,7 +530,7 @@ def test_decalogue_omitted_accent():
     (rd17,) = [n for n in comb17.notes if n["source"] == RD]
     assert rd17["atom_index"] == 2 and (rd17["a_state"], rd17["b_state"]) == ("rafe", "dagesh")
     # dt 5:17's elyon silluq is one of the four notes with independent wlc-utils grounding
-    # (issue #36) — Ben's own judgment that WLC's own taḥton/tipexa transcription here is
+    # (issue #36) — Ben's own judgment that WLC's own taxton/tipexa transcription here is
     # reasonable, not a mis-transcription (dual_cant_detangle._supply_reason).
     assert bnotes[0]["lc_corroborated"] is True
 
@@ -826,7 +826,7 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     assert ov[0]["has_long_note"] is True and ov[0]["lc_corroborated"] is False
     assert ov[0]["verse_loc"] == ("Deuter", 5, 8)
     assert [n for n in alef8.notes if n["source"] == OMIT_VOWEL] == []
-    # Render: identical shape to an omitted-accent note (§7.7) — the elyon calls for a pataḥ,
+    # Render: identical shape to an omitted-accent note (§7.7) — the elyon calls for a patax,
     # the LC has only the taxton's qamats; the "beyond the limits of CLC's charity" clause and
     # the further discussion relegate to this note's own long-notes-page entry.
     ov_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(ov[0], "Deuter-5")))

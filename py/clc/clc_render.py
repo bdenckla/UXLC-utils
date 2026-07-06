@@ -224,7 +224,7 @@ _LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-m
 # rather than the page top. The fragment CANNOT be derived from CLC's own (strand, kind):
 # the two repos frame the same under-bar oppositely -- wlc-utils names the accent it
 # *supplied*, CLC the accent UXLC *omitted* -- so both differ. Deut 5:17 is the stark case:
-# CLC's "elyon silluq" (omitted) is wlc-utils's "taḥton tipeḥa" (supplied), hence its
+# CLC's "elyon silluq" (omitted) is wlc-utils's "taxton tipexa" (supplied), hence its
 # ...-alef-tipexa fragment, not ...-bet-silluq. Keyed like _LC_CORROBORATED / _HAS_LONG_NOTE.
 _SUPPLIED_MARKS_ANCHOR = {
     ("Exodus", 20, 3, "taḥton", "merkha"): "supplied-ex20v3-alef-merkha",
@@ -254,7 +254,7 @@ def _omitted_note_core(note):
     # replaces "UXLC's combined text carries" whenever this note is grounded beyond CLC's own
     # synthesis: either wlc-utils's grammar-checker corroboration (issue #36,
     # clc_dual_cant._LC_CORROBORATED) or an editor-attached long note making its own independent
-    # case (clc_dual_cant._HAS_LONG_NOTE) — e.g. Deut 5:13's taḥton pashta, whose long note cites
+    # case (clc_dual_cant._HAS_LONG_NOTE) — e.g. Deut 5:13's taxton pashta, whose long note cites
     # UXLC's own note citing BHL Appendix A. A long note attached here is expected to itself
     # justify that stronger claim, not just restate CLC's own reasoning at length.
     #
@@ -376,8 +376,8 @@ def _combined_divergence_block(note):
     # names the specific letter (the header word has several) and gives just the bare visual fact —
     # which mark each strand has on that letter — with plain "has": no phonetics (hard/soft), no
     # cause (the accent driving a rafe/dagesh), no sourcing of the marks (not "UXLC's"). e.g. body
-    # "On the נ, the taḥton strand has a qamats but the elyon strand has a pataḥ." / "On the ת, the
-    # taḥton strand has a rafe but the elyon strand has a dagesh." Nothing is added to any strand's
+    # "On the נ, the taxton strand has a qamats but the elyon strand has a patax." / "On the ת, the
+    # taxton strand has a rafe but the elyon strand has a dagesh." Nothing is added to any strand's
     # text, so no green/bracketed mark. The bare-letter heading carries NO lang="hbo" wrapper (that
     # exists to font-and-size pointed Hebrew in Taamey, which bare letters don't need — they render
     # in the default font); it keeps only a dir="rtl" span, to isolate the Hebrew from the em dash
@@ -680,7 +680,7 @@ def _dt_5_7_elyon_meteg_extra(_spec, _book, _notes):
     # Why the elyon's missing mark here is treated as an optional meteg, not a wanted
     # accent (see _omitted_meteg_sentence for the short-note wording this expands on):
     # the mark is the special gaʿya of היה/חיה-root forms, whose marking Yeivin (ITM §355)
-    # calls inconsistent across manuscripts and absent from the ḥillufim lists.
+    # calls inconsistent across manuscripts and absent from the xillufim lists.
     #
     # The one caveat Yeivin adds — this gaʿya IS "as a rule" marked when the word is joined by
     # maqqef to an *initially-stressed* following word — may or may not cover Deut 5:7 (יהיה־לך).
@@ -724,11 +724,11 @@ def _dt_5_7_elyon_meteg_extra(_spec, _book, _notes):
 
 def _dt_5_8_elyon_patax_extra(_spec, _book, _notes):
     # The "further discussion" this note's short-note recap points to: the elyon מתחת's tav is
-    # left bare because the LC wrote only the taḥton's qamats there, never the pataḥ the elyon's
-    # chant wants (its ex 20:4 twin, a genuine QUPO split, does carry that pataḥ). The one
-    # alternative — lending the taḥton's qamats to the elyon too — does not resolve the problem,
-    # only reframes it (a qamats where a pataḥ is wanted, rather than no vowel at all); either
-    # way the LC's marks cannot yield the elyon's pataḥ, so CLC notes it rather than inventing
+    # left bare because the LC wrote only the taxton's qamats there, never the patax the elyon's
+    # chant wants (its ex 20:4 twin, a genuine QUPO split, does carry that patax). The one
+    # alternative — lending the taxton's qamats to the elyon too — does not resolve the problem,
+    # only reframes it (a qamats where a patax is wanted, rather than no vowel at all); either
+    # way the LC's marks cannot yield the elyon's patax, so CLC notes it rather than inventing
     # it. This paragraph deliberately does NOT repeat the "beyond the limits of CLC's charity"
     # clause — _charity_limit_paragraph already prints it just above, on this same page.
     # Returns a list of paragraphs (each a list of inline pieces); see _build_long_note_entry.
@@ -871,7 +871,7 @@ def _build_long_note_entry(spec, book, notes, chapters):
     other = next(vw for vw in strands if vw is not view)
     anchor = clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)
     # The kind suffix disambiguates a verse+strand with more than one long note (Deut
-    # 5:6's elyon wants both a tipeḥa and an etnaḥta) -- without it, both would show the
+    # 5:6's elyon wants both a tipexa and an etnaxta) -- without it, both would show the
     # identical heading "Deuter 5:6 — elyon strand" with nothing to tell them apart.
     heading = f"{spec.book_id} {spec.ch}:{spec.v} — {view.doc_label} ({spec.kind})"
     verse_recap = H.para(

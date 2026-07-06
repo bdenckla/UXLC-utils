@@ -116,8 +116,8 @@ def test_differs_flag():
 def test_overlay_matches_dual_cant_oracle():
     # THE validation of #45 (§7.8): the boundaries MAM reads through (this module's merge
     # groups) are exactly the atoms where clc_dual_cant._ORACLE shows the elyon (bet) strand
-    # ending a verse (silluq/sof-pasuq) while the taḥton (alef) strand reads on. That 1:1
-    # match is the proof that MAM's versification == the taḥton strand, so §7.7 already
+    # ending a verse (silluq/sof-pasuq) while the taxton (alef) strand reads on. That 1:1
+    # match is the proof that MAM's versification == the taxton strand, so §7.7 already
     # renders the vtrad-MAM overlay and #45 needs no new rendered surface.
     reads_through = set()
     for (book_id, ch) in cv.decalogue_chapters():
@@ -132,7 +132,7 @@ def test_overlay_matches_dual_cant_oracle():
                 add = entry.get("add", {})
                 alef_has = _SOF_PASUQ in entry.get("alef", "") or _SOF_PASUQ in add.get("alef", [])
                 bet_has = _SOF_PASUQ in entry.get("bet", "") or _SOF_PASUQ in add.get("bet", [])
-                if bet_has and not alef_has:  # elyon ends here, taḥton (= MAM) reads through
+                if bet_has and not alef_has:  # elyon ends here, taxton (= MAM) reads through
                     elyon_ends.add((book_id, ch, v))
 
     assert reads_through == elyon_ends, ("overlay/oracle disagree", reads_through ^ elyon_ends)

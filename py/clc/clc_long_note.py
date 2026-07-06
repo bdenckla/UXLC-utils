@@ -29,8 +29,8 @@ _STRAND_SLUG = {
 
 # Same idea as _STRAND_SLUG, for an omitted-accent note's "kind" (clc_dual_cant's
 # describe_diff.accent_name spelling) -- needed since one (book, ch, v, strand) can carry
-# more than one omitted-accent long note (e.g. Deut 5:6's elyon wants both a tipeḥa and an
-# etnaḥta), so kind must join strand in the anchor id to keep it unique.
+# more than one omitted-accent long note (e.g. Deut 5:6's elyon wants both a tipexa and an
+# etnaxta), so kind must join strand in the anchor id to keep it unique.
 _KIND_SLUG = {
     "pashta": "pashta",
     "meteg": "meteg",

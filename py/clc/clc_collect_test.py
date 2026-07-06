@@ -105,11 +105,11 @@ def test_long_note_relegation():
     href = clc_render._relegated_page_href(notes_by_atom.get((5, 13, 2)), "Deuter-5")
     assert href == "Deuter-5-long-notes.html#long-Deuter-5-13-tahton-pashta", href
 
-    # Chapter 5 has six long notes: 5:13's taḥton pashta (this one, which relegates an inline
+    # Chapter 5 has six long notes: 5:13's taxton pashta (this one, which relegates an inline
     # UXLC note and carries an image), 5:7's elyon meteg (pure further discussion, below),
-    # three more wlc-utils-corroborated cases (5:6's elyon tipeḥa/etnaḥta, 5:17's elyon silluq)
+    # three more wlc-utils-corroborated cases (5:6's elyon tipexa/etnaxta, 5:17's elyon silluq)
     # whose "See the grammar checker's supplied accents page" citation now lives only here,
-    # not inline, and 5:8's elyon pataḥ (an omitted *vowel* — its further discussion weighs the
+    # not inline, and 5:8's elyon patax (an omitted *vowel* — its further discussion weighs the
     # alternative detangling; see clc_dual_cant_test.py for their own content coverage).
     long_notes = clc_render.build_long_notes("Deuter", book, notes, chapters={5})
     by_anchor = {e["anchor"]: e for e in long_notes}
@@ -179,7 +179,7 @@ def test_long_note_relegation():
     # Each links to its OWN block on the supplied-marks page via a #fragment
     # (clc_render._SUPPLIED_MARKS_ANCHOR), not just the page top -- and the fragment is
     # wlc-utils's supplied-side naming, which inverts CLC's omitted-side naming (5:17's
-    # "elyon silluq" is there the "taḥton tipeḥa" it supplied: ...-alef-tipexa).
+    # "elyon silluq" is there the "taxton tipexa" it supplied: ...-alef-tipexa).
     _SUPPLIED = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
     for anchor, fragment in (
         ("long-Deuter-5-6-elyon-tipeha", "supplied-dt5v6-bet-tipexa"),

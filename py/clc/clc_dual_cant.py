@@ -102,7 +102,7 @@ _ADDED_NAME = {hpu.MAQ: "maqaf", hpu.SOPA: "sof pasuq"}
 # the LC, not a mis-transcription. Keyed by (book_id, ch, v, strand.short, kind) since a
 # verse may have more than one omitted-accent note (e.g. Deut 5:6 has two). Deuteronomy
 # 5:7 and 5:13 are NOT here — accgram's detangler never needed to supply anything for
-# them, so no wlc-utils basis exists yet. For 5:13's taḥton pashta specifically, the
+# them, so no wlc-utils basis exists yet. For 5:13's taxton pashta specifically, the
 # detangler had nothing to supply because that pashta is already present in WLC —
 # erroneously, presumably carried over from BHS, though not yet verified (see the long
 # note in clc_render._dt_5_13_taxton_extra); 5:7's elyon meteg parses clean by other means.
@@ -117,7 +117,7 @@ _LC_CORROBORATED = {
 # page (design doc §7.3, clc_long_note). Three things this flag can do, per case:
 #   * License clc_render's "the LC has" wording for an *accent* note (crediting the
 #     manuscript, not just CLC's own synthesis) when the long note cites independent
-#     grounding -- e.g. Deut 5:13's taḥton pashta cites UXLC's own note, which in turn
+#     grounding -- e.g. Deut 5:13's taxton pashta cites UXLC's own note, which in turn
 #     cites BHL Appendix A. See _accent_name's sibling reasoning in clc_render's
 #     _omitted_note_sentence.
 #   * Simply attach a "further discussion" note with no grounding role -- e.g. Deut 5:7's
@@ -968,7 +968,7 @@ def _omitted_vowel_note(snippet, vowel_char, present_char, strand, other_strand,
     book_id, ch, v = verse_loc
     kind = describe_diff.mark_name(vowel_char)
     return {
-        "kind": kind,                            # the wanted vowel, e.g. "pataḥ"
+        "kind": kind,                            # the wanted vowel, e.g. "patax"
         "char": vowel_char,                      # the wanted vowel (for reference; not rendered)
         "present_kind": (describe_diff.mark_name(present_char)
                           if present_char else None),  # the vowel UXLC has (the other strand's)
