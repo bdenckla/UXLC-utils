@@ -69,6 +69,12 @@ table.clc-3col td.clc-ref-strand.clc-strand-first { border-top: 1px solid; }
 table.clc-3col td.clc-ref-strand.clc-strand-last { border-bottom: 1px solid; }
 /* The ref label carries a hover description; show the help cursor. */
 td.clc-ref[title] { cursor: help; }
+/* The verse-ref number is a self-link (clc_render, issue #55): clicking it grabs the
+   #c{ch}v{v} URL for that verse. Keep it looking like the plain muted ref number —
+   inherit its color, drop the default link underline — and only underline on hover
+   as a click affordance (mirrors a.clc-doc-target below). */
+td.clc-ref a { color: inherit; text-decoration: none; }
+td.clc-ref a:hover { text-decoration: underline; }
 span.clc-strand-label { font-style: italic; color: light-dark(#555, #aaa); }
 /* In an alef/bet strand row, de-highlight words identical across the two strands
    (taḥton == elyon) so the few divergence words stand out

@@ -83,7 +83,11 @@ def _group_by_atom(notes):
 
 
 def _verse_row(ch, v, verse, notes_by_atom, page_label):
-    ref_cell = H.table_datum(f"{ch}:{v}", {"class": "clc-ref"})
+    anchor = f"c{ch}v{v}"
+    ref_cell = H.table_datum(
+        H.anchor(f"{ch}:{v}", {"href": f"#{anchor}"}),
+        {"class": "clc-ref", "id": anchor},
+    )
     text_cell = H.table_datum(
         _text_contents(ch, v, verse, notes_by_atom, page_label),
         {**_HBO_ATTR, "class": "clc-text"},
@@ -104,9 +108,18 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, page_label):
     strands = [vw for vw in views if vw.suffix != clc_dual_cant.SUFFIX_COMBINED]
     rows = []
     for pos, view in enumerate(views):
-        ref_cell = H.table_datum(
-            f"{ch}:{v}-{view.suffix}", _strand_ref_attr(view.tooltip, pos, len(views))
-        )
+        ref_attr = _strand_ref_attr(view.tooltip, pos, len(views))
+        ref_text = f"{ch}:{v}-{view.suffix}"
+        if view.suffix == clc_dual_cant.SUFFIX_COMBINED:
+            # The single per-verse anchor lands on the combined row (issue #55); the
+            # strand rows carry no id, so #c20v2 stays unique per page. That row's ref
+            # is also the verse self-link, like a plain verse's (_verse_row).
+            anchor = f"c{ch}v{v}"
+            ref_attr["id"] = anchor
+            ref_content = H.anchor(ref_text, {"href": f"#{anchor}"})
+        else:
+            ref_content = ref_text
+        ref_cell = H.table_datum(ref_content, ref_attr)
         if view.suffix == clc_dual_cant.SUFFIX_COMBINED:
             # The combined row also carries the verse's both-strands one-letter divergence notes
             # (rafe/dagesh, QUPO — clc_dual_cant attaches them here, not to the strands): highlight
