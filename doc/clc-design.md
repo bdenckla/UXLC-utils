@@ -511,9 +511,11 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   UXLC left untangled (it has only the *other* strand's accent on that word), CLC does **not**
   invent one — the sharpened departure from the detangler, which *does* supply it to parse. CLC shows
   the word as UXLC has it (that accent simply absent) and emits a per-strand note that names *both*
-  accents — the one wanted and the one UXLC actually has, in the mechanism's base template: *"The
-  taḥton strand calls for a pashta here, but UXLC's combined text carries only the elyon
-  strand's munaḥ, and it is beyond the limits of CLC's charity to supply the missing pashta."* The
+  accents — the one wanted and the one UXLC actually has, in the mechanism's base template: *"A
+  pashta is expected here, but UXLC's combined text carries only the elyon's munaḥ, and it is
+  beyond the limits of CLC's charity to supply the missing pashta."* The passive "is expected"
+  drops naming the strand that wants the accent (it's recoverable — the *other* strand from the one
+  the LC has) and the verb "calls for"; the possessive sheds "strand" too (issue #54). The
   Decalogue cases: **Deut 5:6** (elyon's tipexa on אנכי + etnaxta on אלהיך), **5:13** (taxton's
   pashta on ימים), **5:17** (elyon's silluq on תרצח — UXLC has the sof-pasuq but not its silluq, so
   elyon shows a lone sof-pasuq). That base wording is no longer live anywhere, though: **every one
@@ -539,7 +541,7 @@ text is **near-subtractive, with two narrowly-scoped, loudly-flagged charities, 
   rendered like a normal verse's note (§7.3, `clc_render._note_block`): the target word is repeated
   as the note's own **header** — demoted to bare letters, its body em-dash-joined on the same line
   (the target-as-heading layout at the end of §7.7) — and the prose no longer names the word inline,
-  so a note reads *"The elyon strand calls for a silluq here …"* after a bare `תרצח׃` header, not
+  so a note reads *"A silluq is expected here …"* after a bare `תרצח׃` header, not
   *"… on תרצח here …"*. A supplied-mark note's header keeps the supplied mark right after the word in
   **plain square brackets** (`תרצח[׃]`-style, the green "added" formatting dropped for the header
   even though the text column still shows it green); its body is just *"maqaf added to improve

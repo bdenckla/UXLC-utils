@@ -128,8 +128,8 @@ def test_long_note_relegation():
     # The short note's own recap and the added content are each labeled, so a reader
     # can tell which part just repeats the main page vs. what's new here. "main page"
     # is itself a back-link to the page this note was relegated from.
-    assert 'Inline note (repeated from <a href="Deuter-5.html">main page</a>): The taḥton' \
-        " strand calls for" in section_html
+    assert 'Inline note (repeated from <a href="Deuter-5.html">main page</a>): A pashta' \
+        " is expected here" in section_html
     assert "beyond the limits" in section_html
     assert "the LC has only the elyon" in section_html
     assert "Further discussion: See the " in section_html

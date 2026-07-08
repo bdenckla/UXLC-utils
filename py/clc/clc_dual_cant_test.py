@@ -499,7 +499,7 @@ def test_decalogue_omitted_accent():
     assert anotes[0]["has_long_note"] is True
     assert anotes[0]["verse_loc"] == ("Deuter", 5, 13)
     note_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(anotes[0], "Deuter-5")))
-    assert f"the LC has only the elyon strand’s {canon(acc.MUN)}. See more details in " in note_html
+    assert f"the LC has only the elyon’s {canon(acc.MUN)}. See more details in " in note_html
     assert "UXLC’s combined text carries" not in note_html
     assert "supplied-marks.html" not in note_html
     # The "beyond the limits of CLC's charity" clause itself relegates to the long note too
@@ -543,11 +543,11 @@ def test_decalogue_omitted_accent():
     # there — this inline block is just the truncated core plus a pointer to it.
     assert bnotes[0]["has_long_note"] is True
     note_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(bnotes[0], "Deuter-5")))
-    # The word is now the note's HEADER, not named inline: "The elyon strand calls for a silluq
-    # here, but …" — the body carries no Hebrew snippet at all (§7.7).
-    assert "elyon strand calls for a silluq here, but" in note_html
+    # The word is now the note's HEADER, not named inline: "A silluq is expected here, but …"
+    # — the body carries no Hebrew snippet at all (§7.7).
+    assert "A silluq is expected here, but" in note_html
     assert 'lang="hbo"' not in note_html                 # body no longer embeds the target word
-    assert f"the LC has only the taḥton strand’s {canon(acc.TIP)}. See more details in " in note_html
+    assert f"the LC has only the taḥton’s {canon(acc.TIP)}. See more details in " in note_html
     # The word IS pulled out into a first-class header (_strand_note_header), DEMOTED to bare
     # letters (default font, no lang="hbo"; the dagesh and every point stripped), and the whole
     # thing wraps in a clc-note div like a normal verse's _note_block.
@@ -555,7 +555,7 @@ def test_decalogue_omitted_accent():
     assert 'lang="hbo"' not in header_html and _DAGESH not in header_html  # demoted to bare letters
     assert clc_strip.strip_to_bare_letters(bnotes[0]["snippet"]) in header_html  # the bare word
     block_html = H.el_to_str_no_wbr(clc_render._strand_note_block([bnotes[0]], "Deuter-5"))
-    assert 'class="clc-note"' in block_html and "elyon strand calls for a silluq here" in block_html
+    assert 'class="clc-note"' in block_html and "A silluq is expected here" in block_html
     assert "beyond the limits" not in note_html and "missing silluq" not in note_html
     assert "clc-added-during-detangling" not in note_html and "clc-added-bracket" not in note_html
     assert "supplied-marks.html" not in note_html
@@ -830,8 +830,8 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # the LC has only the taxton's qamats; the "beyond the limits of CLC's charity" clause and
     # the further discussion relegate to this note's own long-notes-page entry.
     ov_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(ov[0], "Deuter-5")))
-    assert "elyon strand calls for a pataḥ here, but" in ov_html
-    assert f"the LC has only the taḥton strand’s {mark(_QAMATS)}. See more details in " in ov_html
+    assert "A pataḥ is expected here, but" in ov_html
+    assert f"the LC has only the taḥton’s {mark(_QAMATS)}. See more details in " in ov_html
     assert 'href="Deuter-5-long-notes.html#long-Deuter-5-8-elyon-patah"' in ov_html
     assert "beyond the limits" not in ov_html
 

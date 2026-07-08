@@ -256,8 +256,11 @@ def _is_softened_meteg(note):
 
 
 def _omitted_note_core(note):
-    # "The <strand> strand calls for a(n) <accent> here, but UXLC's combined text carries only
-    # the <other> strand's <present accent>" — NO bracketed mark (nothing is added to the
+    # "A(n) <accent> is expected here, but UXLC's combined text carries only the <other>'s
+    # <present accent>" — the front clause is passive ("is expected"), dropping the explicit
+    # naming of the strand that wants the accent (it's recoverable: the *other* strand from the
+    # one the LC actually has) and the verb "calls for"; the possessive sheds "strand" too
+    # (issue #54). NO bracketed mark (nothing is added to the
     # strand; cf. _added_note_body). The target word is NOT named inline: it is repeated as
     # this note's own header instead (_strand_note_header), making the note a first-class
     # targeted note like a normal verse's (§7.7). The accent UXLC *does* have is named, not
@@ -276,13 +279,13 @@ def _omitted_note_core(note):
     # always follow it (_omitted_note_sentence) so that clause can be relegated to the long-notes
     # page on its own (_charity_limit_paragraph) whenever a long note is attached, while this core
     # keeps showing inline (_omitted_note_inline_pieces).
-    article = "an" if note["kind"][:1] in "aeiou" else "a"
+    article = "An" if note["kind"][:1] in "aeiou" else "A"
     grounded = note.get("lc_corroborated", False) or note.get("has_long_note", False)
     carries = "the LC has" if grounded else "UXLC’s combined text carries"
-    has = (f"only the {note['other_strand']} strand’s {note['present_kind']}"
+    has = (f"only the {note['other_strand']}’s {note['present_kind']}"
            if note.get("present_kind") else f"no accent for the {note['strand']} strand")
     return [
-        f"The {note['strand']} strand calls for {article} {note['kind']} here, but {carries} {has}",
+        f"{article} {note['kind']} is expected here, but {carries} {has}",
     ]
 
 
