@@ -112,8 +112,13 @@ def main():
 
     lines.append("")
     lines.append("Summary:")
-    for verdict in ("IDENTICAL", "PROSE-EQUAL", "PROSE-DIFFERS",
-                    "MISSING-IN-ZIP", "MISSING-LOCAL"):
+    for verdict in (
+        "IDENTICAL",
+        "PROSE-EQUAL",
+        "PROSE-DIFFERS",
+        "MISSING-IN-ZIP",
+        "MISSING-LOCAL",
+    ):
         if verdict in counts:
             lines.append(f"  {verdict:<14} {counts[verdict]}")
     total = sum(counts.values())
@@ -144,8 +149,13 @@ def main():
     _OUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="")
 
     print(f"wrote {_OUT}")
-    for verdict in ("IDENTICAL", "PROSE-EQUAL", "PROSE-DIFFERS",
-                    "MISSING-IN-ZIP", "MISSING-LOCAL"):
+    for verdict in (
+        "IDENTICAL",
+        "PROSE-EQUAL",
+        "PROSE-DIFFERS",
+        "MISSING-IN-ZIP",
+        "MISSING-LOCAL",
+    ):
         if verdict in counts:
             print(f"  {verdict:<14} {counts[verdict]}")
     print(f"  NO-PROSE-EXTRACTED {len(no_prose)}")
