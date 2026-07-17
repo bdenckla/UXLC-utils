@@ -45,7 +45,7 @@ strand wants an accent UXLC omitted, a note in lieu of inventing one**:
     + etnaḥta on אלהיך), 5:13 (taḥton's pashta on ימים), 5:17 (elyon's silluq on
     תרצח — UXLC has the sof-pasuq but not its silluq).
 
-No consonant is changed and no *shared* mark removed (a mark both strands keep
+No letter is changed and no *shared* mark removed (a mark both strands keep
 stays in both); only the divergent marks — accent and the punctuation that tracks
 it — are subtracted. MAM (via the wlc-utils detangler) is consulted **only as the
 oracle** for *which* of two combined marks belongs to which strand, where a
@@ -741,7 +741,7 @@ def _split_atom(atom, atom_index, oracle, strand):
     omitted_vowels = entry.get("omit_vowel", {}).get(strand, [])
     rafe_dagesh = _rafe_dagesh_state(entry, strand)
     qupo_vowel = _qupo_vowel(entry, strand)
-    # The base consonant carrying a rafe/dagesh or QUPO divergence — shared by both strands, so it
+    # The base letter carrying a rafe/dagesh or QUPO divergence — shared by both strands, so it
     # is the same char whichever strand this is; ``None`` for a pure-accent atom. Named in the
     # combined-row both-strands note (e.g. "On the נ of פני …").
     marks = ({hpo.DAGOMOSD, hpo.RAFE} if rafe_dagesh
@@ -884,7 +884,7 @@ def _qupo_vowel(entry, strand):
 
 
 def _base_letter(combined_text, cluster, marks):
-    """The base consonant a divergence sits on: the nearest Hebrew letter at or before the FIRST
+    """The base letter a divergence sits on: the nearest Hebrew letter at or before the FIRST
     of ``marks`` (the divergent dagesh/rafe, or the divergent qamats/patax) inside the cluster's
     site in ``combined_text``. Restricting the search to the cluster's own span avoids a same-type
     mark elsewhere in the word (e.g. a shared qamats). Returns the letter char, or ``None``."""
@@ -893,7 +893,7 @@ def _base_letter(combined_text, cluster, marks):
     pos = next((start + off for off, ch in enumerate(region) if ch in marks), None)
     if pos is None:
         return None
-    for j in range(pos, -1, -1):  # walk back to the consonant the mark hangs on
+    for j in range(pos, -1, -1):  # walk back to the letter the mark hangs on
         if describe_diff.is_letter(combined_text[j]):
             return combined_text[j]
     return None
@@ -993,7 +993,7 @@ def _rafe_dagesh_note(word, letter, atom_index, a_strand, a_state, b_strand, b_s
     ``"rafe"`` / ``"bare"``). alef (verse-by-verse) is named first."""
     return {
         "word": word,                            # the combined atom word the note names
-        "letter": letter,                        # the shared consonant the two strands differ on
+        "letter": letter,                        # the shared letter the two strands differ on
         "atom_index": atom_index,                # 1-based atom position, for the combined row
         "a_strand": a_strand.short, "a_state": a_state,  # alef strand + its hard/soft state
         "b_strand": b_strand.short, "b_state": b_state,  # bet strand + its state
@@ -1009,7 +1009,7 @@ def _vowel_split_note(word, letter, atom_index, a_strand, a_vowel_char, b_strand
     alef first."""
     return {
         "word": word,                            # the combined atom word the note names
-        "letter": letter,                        # the shared consonant carrying the two vowels
+        "letter": letter,                        # the shared letter carrying the two vowels
         "atom_index": atom_index,                # 1-based atom position, for the combined row
         "a_strand": a_strand.short, "a_vowel": describe_diff.mark_name(a_vowel_char),
         "b_strand": b_strand.short, "b_vowel": describe_diff.mark_name(b_vowel_char),

@@ -893,7 +893,7 @@ def test_strand_same_highlighting():
 
 
 def test_strip_to_bare_letters():
-    # Issue #48: reduce a word to its bare consonantal skeleton — drop vowels, accents, meteg,
+    # Issue #48: reduce a word to its bare letter skeleton — drop vowels, accents, meteg,
     # dagesh, rafe, shin/sin dots, CGJ, every diacritic — but KEEP maqaf, sof pasuq, and the
     # legarmeh/paseq bar, plus whitespace (so a phrase doesn't collapse). Built from named
     # constants (no orphan combining marks in source).
@@ -913,7 +913,7 @@ def test_strip_to_bare_letters():
     assert strip(hl.LAMED + " " + hl.MEM) == hl.LAMED + " " + hl.MEM
     # Already-bare text (letters + a kept maqaf) is returned unchanged.
     assert strip(hl.KAF + hl.LAMED + _MAQAF) == hl.KAF + hl.LAMED + _MAQAF
-    # A real fully-pointed divergence word strips to exactly its consonants — plus, here, its
+    # A real fully-pointed divergence word strips to exactly its letters — plus, here, its
     # verse-final sof pasuq (תרצח ends ex 20:13), which is a kept mark, not a stripped diacritic.
     word = _read_atoms("Exodus.xml", 20, 13)[1]["text"]        # תִרְצָ֖ח׃, fully pointed
     assert strip(word) == hl.TAV + hl.RESH + hl.TSADI + hl.XET + _SOF_PASUQ

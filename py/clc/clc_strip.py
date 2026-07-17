@@ -1,4 +1,4 @@
-"""Strip a Hebrew word/phrase to its bare consonantal skeleton (issue #48).
+"""Strip a Hebrew word/phrase to its bare letter skeleton (issue #48).
 
 ``strip_to_bare_letters`` keeps only the base letters (U+05D0–U+05EA) plus the three
 punctuation-like marks maqaf (U+05BE), sof pasuq (U+05C3), and legarmeh/paseq (U+05C0)
