@@ -73,7 +73,7 @@ def _find_atom(uxlc, book_id, chapter, verse, word):
 
 
 def main():
-    """
+    r"""
     Estimate the concrete location of the given word.
 
     Usage: .venv\Scripts\python.exe py\main_uxlc_estimate_atom_loc.py <book_id> <c:v> <word>
