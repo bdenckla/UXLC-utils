@@ -74,9 +74,11 @@ def clc_to_mam(book_id, ch, v):
     for group in _groups(book_id, ch):
         lo, hi = group[0], group[-1]
         if v > hi:
-            absorbed += len(group) - 1   # the whole run before v collapsed to one MAM verse
+            absorbed += (
+                len(group) - 1
+            )  # the whole run before v collapsed to one MAM verse
         elif lo <= v <= hi:
-            absorbed += v - lo           # v collapses onto its run's first member
+            absorbed += v - lo  # v collapses onto its run's first member
         # v < lo: this run is after v, no effect
     return (ch, v - absorbed)
 

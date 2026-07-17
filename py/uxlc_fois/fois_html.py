@@ -7,7 +7,6 @@ import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 import uxlc_fois.fois_mark_grammar_2_html as fois_mark_grammar_2_html
 import uxlc_fois.fois_mark_grammar_html as fois_mark_grammar_html
 
-
 _OUT_DIR_PATH = "gh-pages/fois"
 _DETAIL_FILENAME_BY_KEY = {
     "kq": "foi-kq.html",

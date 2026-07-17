@@ -11,11 +11,14 @@ notes can later drive the §7.9 differences-from-UXLC index.
 
 from dataclasses import dataclass, asdict
 
-
 # --- source tags (the "source" field) ---
 SOURCE_UXLC_X_NOTE = "uxlc-x-note"  # UXLC <x> note + its tanach.us note-page prose
-SOURCE_DUAL_CANT_ADDITION = "dual-cant-addition"  # punctuation supplied to clarify one strand
-SOURCE_DUAL_CANT_OMITTED_ACCENT = "dual-cant-omitted-accent"  # accent a strand wants but UXLC omitted
+SOURCE_DUAL_CANT_ADDITION = (
+    "dual-cant-addition"  # punctuation supplied to clarify one strand
+)
+SOURCE_DUAL_CANT_OMITTED_ACCENT = (
+    "dual-cant-omitted-accent"  # accent a strand wants but UXLC omitted
+)
 # The two strands harden/soften a בגדכפת letter differently (dagesh vs. rafe/bare, §7.7).
 SOURCE_DUAL_CANT_RAFE_DAGESH = "dual-cant-rafe-dagesh"
 # The two strands have different vowels (patax vs. qamats) on one shared letter (QUPO, §7.7).
@@ -34,7 +37,9 @@ DIFF_TRANSCRIPTION_UNCERTAINTY = "transcription-uncertainty"
 # applied change record) -- CLC applies it pre-emptively. Distinct from some future
 # departure with no UXLC change-log backing, which will need its own diff_type.
 DIFF_UXLC_PENDING_CHANGE_APPLIED = "uxlc-pending-change-applied"
-DIFF_DUAL_CANT_ADDED_PUNCT = "dual-cant-added-punct"  # charitable additive divergence mark (§7.7)
+DIFF_DUAL_CANT_ADDED_PUNCT = (
+    "dual-cant-added-punct"  # charitable additive divergence mark (§7.7)
+)
 # An accent a strand's chanting calls for but UXLC left untangled — NOTED, never supplied
 # (CLC supplies only punctuation; §7.7). Not a CLC departure from UXLC's text, just an
 # annotation, so it carries no green/bracketed mark.
@@ -58,18 +63,18 @@ DIFF_DUAL_CANT_OMITTED_VOWEL = "dual-cant-omitted-vowel"
 class ClcNote:
     """One CLC note about one atom. Plain data; see design doc §8 for fields."""
 
-    book: str            # bk39 id, e.g. "Proverbs"
-    ch: int              # chapter number (1-based)
-    v: int               # verse number (1-based)
-    atom_index: int      # atom position within the verse (1-based; counts w/q/k)
-    atom_text: str       # the pointed Hebrew atom text
-    note_code: str       # UXLC one-letter <x> code, e.g. "m", "d", "t"
-    note_text: str       # the tanach.us note-page prose (downloaded; see clc_note_pages)
-    source: str          # provenance of the note (see SOURCE_* above)
-    diff_type: str       # classification for the §7.9 index (see DIFF_* above)
+    book: str  # bk39 id, e.g. "Proverbs"
+    ch: int  # chapter number (1-based)
+    v: int  # verse number (1-based)
+    atom_index: int  # atom position within the verse (1-based; counts w/q/k)
+    atom_text: str  # the pointed Hebrew atom text
+    note_code: str  # UXLC one-letter <x> code, e.g. "m", "d", "t"
+    note_text: str  # the tanach.us note-page prose (downloaded; see clc_note_pages)
+    source: str  # provenance of the note (see SOURCE_* above)
+    diff_type: str  # classification for the §7.9 index (see DIFF_* above)
     is_uxlc_departure: bool  # does CLC depart from UXLC here?
-    uxlc_reading: str    # what UXLC reads at this atom
-    clc_reading: str     # what CLC reads at this atom
+    uxlc_reading: str  # what UXLC reads at this atom
+    clc_reading: str  # what CLC reads at this atom
     source_url: str = ""  # tanach.us note page this note's prose came from ("" if none)
     # (release_date, change_id) of a pending/accepted UXLC change record that
     # supersedes this note's tanach.us prose, or () if none. Orthogonal to

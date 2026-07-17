@@ -465,11 +465,31 @@ _RECORD_66 = {
     "uxlc_bcvp": ("1Sam", 1, 19, 16),
     "img": "1Sam1v19.png",
 }
-_RECORD_67 = {"word": "הַמְאֽ͏ָרֲרִים֙", "uxlc_bcvp": ("Num", 5, 27, 13), "img": "Num5v27.png"}
-_RECORD_68 = {"word": "וַיִּמּֽ͏ָסְרוּ֙", "uxlc_bcvp": ("Num", 31, 5, 1), "img": "Num31v5.png"}
-_RECORD_69 = {"word": "וּנְתֽ͏ָנְךָ֨", "uxlc_bcvp": ("Deut", 28, 13, 1), "img": "Deut28v13.png"}
-_RECORD_70 = {"word": "הִשְׁתּֽ͏ַעַשְׁע֖וּ", "uxlc_bcvp": ("Isa", 29, 9, 3), "img": "Isa29v9.png"}
-_RECORD_71 = {"word": "קִנְאֽ͏ָתְךָ֙", "uxlc_bcvp": ("Isa", 63, 15, 8), "img": "Isa63v15.png"}
+_RECORD_67 = {
+    "word": "הַמְאֽ͏ָרֲרִים֙",
+    "uxlc_bcvp": ("Num", 5, 27, 13),
+    "img": "Num5v27.png",
+}
+_RECORD_68 = {
+    "word": "וַיִּמּֽ͏ָסְרוּ֙",
+    "uxlc_bcvp": ("Num", 31, 5, 1),
+    "img": "Num31v5.png",
+}
+_RECORD_69 = {
+    "word": "וּנְתֽ͏ָנְךָ֨",
+    "uxlc_bcvp": ("Deut", 28, 13, 1),
+    "img": "Deut28v13.png",
+}
+_RECORD_70 = {
+    "word": "הִשְׁתּֽ͏ַעַשְׁע֖וּ",
+    "uxlc_bcvp": ("Isa", 29, 9, 3),
+    "img": "Isa29v9.png",
+}
+_RECORD_71 = {
+    "word": "קִנְאֽ͏ָתְךָ֙",
+    "uxlc_bcvp": ("Isa", 63, 15, 8),
+    "img": "Isa63v15.png",
+}
 _RECORD_72 = {
     "word123p": (
         "בַּצָּ",
@@ -486,7 +506,11 @@ _RECORD_72 = {
     "MAM-word": "בַּצָּרָֽה׃",
     "MAM-status": _MAM_STATUS_CNN_AC_AGREES,
 }
-_RECORD_73 = {"word": "רַגְלֽ͏ָיו׃", "uxlc_bcvp": ("Ps", 18, 10, 6), "img": "Ps18v10.png"}
+_RECORD_73 = {
+    "word": "רַגְלֽ͏ָיו׃",
+    "uxlc_bcvp": ("Ps", 18, 10, 6),
+    "img": "Ps18v10.png",
+}
 _RECORD_74 = {
     "word123p": (
         "עֲנָ",
@@ -503,7 +527,11 @@ _RECORD_74 = {
     "MAM-word": "עֲנָוָֽה׃",
     "MAM-status": _MAM_STATUS_CNN_AC_AGREES,
 }
-_RECORD_75 = {"word": "מַלְוֽ͏ֶה׃", "uxlc_bcvp": ("Prov", 22, 7, 7), "img": "Prov22v7.png"}
+_RECORD_75 = {
+    "word": "מַלְוֽ͏ֶה׃",
+    "uxlc_bcvp": ("Prov", 22, 7, 7),
+    "img": "Prov22v7.png",
+}
 _RECORD_76 = {"word": "יַעֲלֽ͏ֶה׃", "uxlc_bcvp": ("Job", 7, 9, 8), "img": "Job7v9.png"}
 _RECORD_77 = {
     "word": "הִֽתְהֽ͏ַלְלוּ֙",

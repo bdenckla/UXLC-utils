@@ -9,7 +9,6 @@ import main_uxlc_check_changes
 import main_uxlc_word_list
 import main_write_page_break_info
 
-
 _STEPS = [
     main_uxlc_check_changes,
     main_fois,

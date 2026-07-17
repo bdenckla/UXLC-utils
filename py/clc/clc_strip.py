@@ -33,6 +33,7 @@ _KEEP_MARKS = frozenset((hpu.MAQ, hpu.SOPA, hpu.PASOLEG))
 def strip_to_bare_letters(text):
     """``text`` reduced to base letters + maqaf/sof-pasuq/legarmeh (whitespace kept)."""
     return "".join(
-        ch for ch in text
+        ch
+        for ch in text
         if describe_diff.is_letter(ch) or ch in _KEEP_MARKS or ch.isspace()
     )

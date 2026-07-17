@@ -36,7 +36,9 @@ def load_descriptions():
     index = {}
     for filename in my_uxlc_changes.FILENAMES:
         path = os.path.join(_CHANGES_DIR, filename)
-        if os.path.exists(path):  # FILENAMES includes a fake/placeholder that may be absent
+        if os.path.exists(
+            path
+        ):  # FILENAMES includes a fake/placeholder that may be absent
             _index_one_file(index, path)
     return index
 

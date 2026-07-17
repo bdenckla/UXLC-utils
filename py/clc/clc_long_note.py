@@ -38,7 +38,7 @@ _KIND_SLUG = {
     "tipeḥa": "tipeha",
     "etnaḥta": "etnahta",
     "silluq": "silluq",
-    "pataḥ": "patah",   # an omitted *vowel* (Deut 5:8's elyon מתחת), not an accent
+    "pataḥ": "patah",  # an omitted *vowel* (Deut 5:8's elyon מתחת), not an accent
 }
 
 
@@ -76,7 +76,9 @@ def write_page(page_label, disp, entries, main_page_href):
         *[_section(e) for e in entries],
     ]
     out_path = f"gh-pages/clc/{page_label}-long-notes.html"
-    write_ctx = H.WriteCtx(title=f"CLC — {disp} — longer notes", path=out_path, add_wbr=True)
+    write_ctx = H.WriteCtx(
+        title=f"CLC — {disp} — longer notes", path=out_path, add_wbr=True
+    )
     H.write_html_to_file(body, write_ctx, "../")
     return out_path
 

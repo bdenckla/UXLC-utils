@@ -100,8 +100,8 @@ class _NoteProseExtractor(html.parser.HTMLParser):
         super().__init__(convert_charrefs=True)
         self._in_body = False
         self._table_depth = 0
-        self._heading_depth = 0   # inside <h1> (citation heading)
-        self._inline_depth = 0    # inside <b>/<i>/<a> (author, link, credit)
+        self._heading_depth = 0  # inside <h1> (citation heading)
+        self._inline_depth = 0  # inside <b>/<i>/<a> (author, link, credit)
         self._buf = []
         self.paragraphs = []
 

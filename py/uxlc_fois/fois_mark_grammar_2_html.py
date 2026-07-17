@@ -9,7 +9,6 @@ import uxlc_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import uxlc_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
 import uxlc_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
-
 _CASE_HEADERS = ("bcvp", "notes", "atom", "sequence", "count", "mark names")
 _CASE_HEADER_LABELS = {
     "bcvp": "bcvp",

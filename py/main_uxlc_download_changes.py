@@ -14,7 +14,6 @@ import mb_cmn.file_io as my_open
 import uxlc_misc.my_uxlc as my_uxlc
 import uxlc_misc.my_uxlc_changes as my_uxlc_changes
 
-
 _UXLC_ZIP_URL = "https://tanach.us/Books/Tanach.xml.zip"
 _UXLC_39_DIR = Path(my_uxlc.UXLC_CANONICAL_DIR)
 _UXLC_REST_DIR = Path("in/UXLC-rest")

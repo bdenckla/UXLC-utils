@@ -36,9 +36,13 @@ def uxlc_version():
     """
     global _VERSION_MEMO
     if _VERSION_MEMO is None:
-        path = f"{my_uxlc.UXLC_CANONICAL_DIR}/{my_uxlc.book_basename(tbn.BK_GENESIS)}.xml"
-        elem = ET.parse(path).getroot().find(
-            "teiHeader/fileDesc/editionStmt/edition/version"
+        path = (
+            f"{my_uxlc.UXLC_CANONICAL_DIR}/{my_uxlc.book_basename(tbn.BK_GENESIS)}.xml"
+        )
+        elem = (
+            ET.parse(path)
+            .getroot()
+            .find("teiHeader/fileDesc/editionStmt/edition/version")
         )
         version = elem.text.strip() if elem is not None and elem.text else ""
         assert version, f"no <version> in UXLC header: {path}"

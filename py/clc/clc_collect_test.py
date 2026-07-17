@@ -14,7 +14,7 @@ import os
 import sys
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)            # py/
+_PY_ROOT = os.path.dirname(_HERE)  # py/
 sys.path.insert(0, _PY_ROOT)
 
 import clc.clc_collect as clc_collect  # noqa: E402
@@ -71,7 +71,7 @@ def test_render():
     # "pending change" itself links to the change record.
     assert 'class="clc-note-code"' not in html
     assert 'class="clc-superseded-cite"' not in html
-    assert '>pending change</a>' in html
+    assert ">pending change</a>" in html
     assert "2026.04.10-10" in html  # in the link's href, not as visible cite text
     assert note.note_text not in html  # still-suppressed stale prose never shown
 
@@ -100,7 +100,9 @@ def test_long_note_relegation():
     verse13 = book[4][12]  # ch5 (0-based 4), v13 (0-based 12)
 
     doc_blocks = clc_render._doc_contents(5, 13, verse13, notes_by_atom)
-    assert not any('id="clc-5-13-2"' in H.el_to_str_no_wbr(b) for b in doc_blocks), doc_blocks
+    assert not any(
+        'id="clc-5-13-2"' in H.el_to_str_no_wbr(b) for b in doc_blocks
+    ), doc_blocks
 
     href = clc_render._relegated_page_href(notes_by_atom.get((5, 13, 2)), "Deuter-5")
     assert href == "Deuter-5-long-notes.html#long-Deuter-5-13-tahton-pashta", href
@@ -128,14 +130,21 @@ def test_long_note_relegation():
     # The short note's own recap and the added content are each labeled, so a reader
     # can tell which part just repeats the main page vs. what's new here. "main page"
     # is itself a back-link to the page this note was relegated from.
-    assert 'Inline note (repeated from <a href="Deuter-5.html">main page</a>): A pashta' \
+    assert (
+        'Inline note (repeated from <a href="Deuter-5.html">main page</a>): A pashta'
         " is expected here" in section_html
+    )
     assert "beyond the limits" in section_html
     assert "the LC has only the elyon" in section_html
     assert "Further discussion: See the " in section_html
     assert ">UXLC note</a>" in section_html
-    assert "https://tanach.us/Notes/Deuteronomy/Deuteronomy.5.13.2-t.html" in section_html
-    assert '<abbr title="Dotan’s Biblia Hebraica Leningradensia">BHL</abbr>' in section_html
+    assert (
+        "https://tanach.us/Notes/Deuteronomy/Deuteronomy.5.13.2-t.html" in section_html
+    )
+    assert (
+        '<abbr title="Dotan’s Biblia Hebraica Leningradensia">BHL</abbr>'
+        in section_html
+    )
     assert "Appendix A" in section_html
     # The manuscript detail image sits between the short-note recap and the further
     # discussion it illustrates, with its source's own credit line carried forward.
@@ -152,11 +161,19 @@ def test_long_note_relegation():
     meteg_html = H.el_to_str_no_wbr(
         clc_long_note._section(by_anchor["long-Deuter-5-7-elyon-meteg"])
     )
-    assert 'Inline note (repeated from <a href="Deuter-5.html">main page</a>): A meteg might' \
+    assert (
+        'Inline note (repeated from <a href="Deuter-5.html">main page</a>): A meteg might'
         " be expected in the elyon" in meteg_html
+    )
     assert "best transcribed as a" in meteg_html
-    assert "Further discussion: Regarding the meteg that might be expected on" in meteg_html
-    assert 'href="https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"' in meteg_html
+    assert (
+        "Further discussion: Regarding the meteg that might be expected on"
+        in meteg_html
+    )
+    assert (
+        'href="https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"'
+        in meteg_html
+    )
     assert 'src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"' in meteg_html
     assert "Credit: Sefaria.org." in meteg_html
     # The radically-shortened note keeps only a Yeivin pointer + the yod aside; the old
@@ -165,12 +182,19 @@ def test_long_note_relegation():
     assert "initially-stressed" not in meteg_html
     # The aside is promoted to its own paragraph, after the "Further discussion:" one.
     assert "initial yod is a charitable transcription" in meteg_html
-    assert "</p>" in meteg_html[meteg_html.index("Further discussion:"):meteg_html.index("Aside:")]
+    assert (
+        "</p>"
+        in meteg_html[
+            meteg_html.index("Further discussion:") : meteg_html.index("Aside:")
+        ]
+    )
     # Image sits between the short-note recap and the further discussion it illustrates.
-    assert (meteg_html.index("Inline note (repeated from")
-            < meteg_html.index('src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"')
-            < meteg_html.index("Further discussion:")
-            < meteg_html.index("Aside:")), meteg_html
+    assert (
+        meteg_html.index("Inline note (repeated from")
+        < meteg_html.index('src="../img/Deuter.5.7.2.LC-102A-col3-line22.jpg"')
+        < meteg_html.index("Further discussion:")
+        < meteg_html.index("Aside:")
+    ), meteg_html
     assert list(clc_render._UXLC_NOTES_RELEGATED) == [("Deuter", 5, 13, 2, "t")]
 
     # The three wlc-utils-corroborated entries (5:6 x2, 5:17) share one boilerplate

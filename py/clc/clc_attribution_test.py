@@ -13,8 +13,8 @@ import os
 import sys
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)            # py/
-_REPO_ROOT = os.path.dirname(_PY_ROOT)       # repo root
+_PY_ROOT = os.path.dirname(_HERE)  # py/
+_REPO_ROOT = os.path.dirname(_PY_ROOT)  # repo root
 sys.path.insert(0, _PY_ROOT)
 
 import clc.clc_attribution as attribution  # noqa: E402
@@ -32,9 +32,9 @@ def test_uxlc_version():
 def test_top_credit():
     html = H.el_to_str_no_wbr(attribution.top_credit())
     assert 'class="clc-attribution"' in html
-    assert _VERSION in html                  # cites the base text's version (cond. 2)
-    assert "TANACH US Inc." in html          # names the entity
-    assert "used by permission" in html      # acknowledges the copyrighted notes
+    assert _VERSION in html  # cites the base text's version (cond. 2)
+    assert "TANACH US Inc." in html  # names the entity
+    assert "used by permission" in html  # acknowledges the copyrighted notes
     assert f'href="{attribution.TANACH_US_URL}"' in html
 
 
@@ -42,8 +42,8 @@ def test_note_cite_specific_page():
     url = "https://tanach.us/Notes/Samuel_2/Samuel_2.1.1.1-t.html"
     html = H.el_to_str_no_wbr(attribution.note_cite(source_url=url))
     assert 'class="clc-note-cite"' in html
-    assert _VERSION in html                   # each note cites UXLC + version (cond. 1)
-    assert f'href="{url}"' in html            # links the specific note page
+    assert _VERSION in html  # each note cites UXLC + version (cond. 1)
+    assert f'href="{url}"' in html  # links the specific note page
     assert 'target="_blank"' in html
 
 

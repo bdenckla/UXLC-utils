@@ -13,7 +13,6 @@ from mb_cmn import hebrew_points as hpo
 from mb_cmn import hebrew_punctuation as hpu
 from mb_cmn import str_defs as sd
 
-
 _DUAL_CANTILLATION_LOCS = {
     ("Exodus", 20),
     ("Deuter", 5),

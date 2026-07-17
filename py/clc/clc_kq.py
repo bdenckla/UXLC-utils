@@ -32,7 +32,7 @@ from dataclasses import dataclass
 import uxlc_misc.uxlc_utils_html as H
 
 # Editorial placeholders for the absent member (brackets are part of the text).
-_NO_QERE = "[אין קרי]"    # ketiv-without-qere: nothing is read
+_NO_QERE = "[אין קרי]"  # ketiv-without-qere: nothing is read
 _NO_KETIV = "[אין כתיב]"  # qere-without-ketiv: nothing is written
 
 
@@ -53,7 +53,7 @@ class KqUnit:
     """One ketiv/qere apparatus unit: its ketiv member(s) and qere member(s)."""
 
     ketivs: tuple  # tuple[Word]; empty for qere-without-ketiv
-    qeres: tuple   # tuple[Word]; empty for ketiv-without-qere
+    qeres: tuple  # tuple[Word]; empty for ketiv-without-qere
 
 
 def iter_render_units(verse_atoms):

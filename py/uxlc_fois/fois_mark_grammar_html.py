@@ -10,7 +10,6 @@ import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 import uxlc_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import uxlc_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 
-
 _MARK_CLASS_ORDER = (
     "ordinary",
     "explicit-order",

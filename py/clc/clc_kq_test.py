@@ -16,8 +16,8 @@ import sys
 import xml.etree.ElementTree as ET
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)            # py/
-_REPO_ROOT = os.path.dirname(_PY_ROOT)       # repo root
+_PY_ROOT = os.path.dirname(_HERE)  # py/
+_REPO_ROOT = os.path.dirname(_PY_ROOT)  # repo root
 sys.path.insert(0, _PY_ROOT)
 
 import clc.clc_kq as kq  # noqa: E402
@@ -60,10 +60,14 @@ def _read_verse_atoms(xml_path, chap, verse):
 
 def test_grouping_synthetic():
     # Standard pair: w, (k q), w -> Word, KqUnit(1,1), Word.
-    units = list(kq.iter_render_units([_a("w", "α"), _a("k", "K"), _a("q", "Q"), _a("w", "β")]))
+    units = list(
+        kq.iter_render_units([_a("w", "α"), _a("k", "K"), _a("q", "Q"), _a("w", "β")])
+    )
     assert [type(u).__name__ for u in units] == ["Word", "KqUnit", "Word"]
     assert units[0] == kq.Word(1, "α") and units[2] == kq.Word(4, "β")
-    assert units[1].ketivs == (kq.Word(2, "K"),) and units[1].qeres == (kq.Word(3, "Q"),)
+    assert units[1].ketivs == (kq.Word(2, "K"),) and units[1].qeres == (
+        kq.Word(3, "Q"),
+    )
 
     # qere-without-ketiv: lone q -> KqUnit with empty ketivs.
     units = list(kq.iter_render_units([_a("w", "α"), _a("q", "Q")]))
@@ -75,20 +79,34 @@ def test_grouping_synthetic():
     assert units[0].ketivs == (kq.Word(1, "K"),) and units[0].qeres == ()
 
     # Interleaved k,q,k,q -> TWO (1,1) units (the "kqkq" case).
-    units = list(kq.iter_render_units([_a("k", "K1"), _a("q", "Q1"), _a("k", "K2"), _a("q", "Q2")]))
+    units = list(
+        kq.iter_render_units(
+            [_a("k", "K1"), _a("q", "Q1"), _a("k", "K2"), _a("q", "Q2")]
+        )
+    )
     assert [type(u).__name__ for u in units] == ["KqUnit", "KqUnit"]
-    assert units[0].ketivs == (kq.Word(1, "K1"),) and units[0].qeres == (kq.Word(2, "Q1"),)
-    assert units[1].ketivs == (kq.Word(3, "K2"),) and units[1].qeres == (kq.Word(4, "Q2"),)
+    assert units[0].ketivs == (kq.Word(1, "K1"),) and units[0].qeres == (
+        kq.Word(2, "Q1"),
+    )
+    assert units[1].ketivs == (kq.Word(3, "K2"),) and units[1].qeres == (
+        kq.Word(4, "Q2"),
+    )
 
     # Grouped k,k,q,q -> ONE (2,2) unit (the "kkqq" case).
-    units = list(kq.iter_render_units([_a("k", "K1"), _a("k", "K2"), _a("q", "Q1"), _a("q", "Q2")]))
+    units = list(
+        kq.iter_render_units(
+            [_a("k", "K1"), _a("k", "K2"), _a("q", "Q1"), _a("q", "Q2")]
+        )
+    )
     assert len(units) == 1 and isinstance(units[0], kq.KqUnit)
     assert units[0].ketivs == (kq.Word(1, "K1"), kq.Word(2, "K2"))
     assert units[0].qeres == (kq.Word(3, "Q1"), kq.Word(4, "Q2"))
 
 
 def test_ruby_standard():
-    html = H.el_to_str_no_wbr(kq.kq_ruby(kq.KqUnit((kq.Word(2, "KKK"),), (kq.Word(3, "QQQ"),)), {}, 1, 1))
+    html = H.el_to_str_no_wbr(
+        kq.kq_ruby(kq.KqUnit((kq.Word(2, "KKK"),), (kq.Word(3, "QQQ"),)), {}, 1, 1)
+    )
     assert '<ruby class="clc-kq">' in html
     assert '<span class="clc-kq-q">QQQ</span>' in html
     assert '<span class="clc-kq-k">KKK</span>' in html
@@ -103,7 +121,9 @@ def test_ruby_qere_without_ketiv():
     assert '<span class="clc-kq-q">QQQ</span>' in html
     assert "[אין כתיב]" in html and "[אין קרי]" not in html
     assert "clc-kq-none" in html
-    assert html.index("<rt") < html.index("clc-kq-none")  # placeholder is the annotation
+    assert html.index("<rt") < html.index(
+        "clc-kq-none"
+    )  # placeholder is the annotation
 
 
 def test_ruby_ketiv_without_qere():
@@ -111,21 +131,33 @@ def test_ruby_ketiv_without_qere():
     html = H.el_to_str_no_wbr(kq.kq_ruby(kq.KqUnit((kq.Word(2, "KKK"),), ()), {}, 1, 1))
     assert '<span class="clc-kq-k">KKK</span>' in html
     assert "[אין קרי]" in html and "[אין כתיב]" not in html
-    assert html.index("clc-kq-none") < html.index("<rt")  # placeholder is on the baseline
+    assert html.index("clc-kq-none") < html.index(
+        "<rt"
+    )  # placeholder is on the baseline
 
 
 def test_note_highlight():
     notes_by_atom = {(4, 7, 3): ["a note"]}  # only membership matters
-    html = H.el_to_str_no_wbr(kq.kq_ruby(kq.KqUnit((kq.Word(2, "KKK"),), (kq.Word(3, "QQQ"),)), notes_by_atom, 4, 7))
+    html = H.el_to_str_no_wbr(
+        kq.kq_ruby(
+            kq.KqUnit((kq.Word(2, "KKK"),), (kq.Word(3, "QQQ"),)), notes_by_atom, 4, 7
+        )
+    )
     # Noted → highlighted (clc-doc-target), but NOT a same-page link: the note sits in
     # the same row's doc cell beside it (clc_render dropped same-page note anchors).
     assert 'class="clc-doc-target"' in html and "href" not in html
-    assert "QQQ" in html  # the noted qere is still rendered, now wrapped in the highlight span
+    assert (
+        "QQQ" in html
+    )  # the noted qere is still rendered, now wrapped in the highlight span
 
 
 def test_join_text():
-    assert kq.join_text(kq.KqUnit((kq.Word(1, "K־"),), (kq.Word(2, "Q־"),))) == "Q־"  # qere governs
-    assert kq.join_text(kq.KqUnit((kq.Word(1, "K־"),), ())) == ""  # no qere -> space follows
+    assert (
+        kq.join_text(kq.KqUnit((kq.Word(1, "K־"),), (kq.Word(2, "Q־"),))) == "Q־"
+    )  # qere governs
+    assert (
+        kq.join_text(kq.KqUnit((kq.Word(1, "K־"),), ())) == ""
+    )  # no qere -> space follows
 
 
 def test_xml_gen_30_11_k1q2():
@@ -151,10 +183,22 @@ def test_xml_sam2_21_12_adjacent_standard_then_grouped():
 
 def test_xml_sam2_without_cases():
     # 8:3 is qere-without-ketiv; 13:33 is ketiv-without-qere.
-    u83 = [u for u in kq.iter_render_units(_read_verse_atoms(_SAM2_XML, 8, 3)) if isinstance(u, kq.KqUnit)]
-    assert any(u.ketivs == () and len(u.qeres) >= 1 for u in u83), "8:3 should have a qere-without-ketiv unit"
-    u1333 = [u for u in kq.iter_render_units(_read_verse_atoms(_SAM2_XML, 13, 33)) if isinstance(u, kq.KqUnit)]
-    assert any(u.qeres == () and len(u.ketivs) >= 1 for u in u1333), "13:33 should have a ketiv-without-qere unit"
+    u83 = [
+        u
+        for u in kq.iter_render_units(_read_verse_atoms(_SAM2_XML, 8, 3))
+        if isinstance(u, kq.KqUnit)
+    ]
+    assert any(
+        u.ketivs == () and len(u.qeres) >= 1 for u in u83
+    ), "8:3 should have a qere-without-ketiv unit"
+    u1333 = [
+        u
+        for u in kq.iter_render_units(_read_verse_atoms(_SAM2_XML, 13, 33))
+        if isinstance(u, kq.KqUnit)
+    ]
+    assert any(
+        u.qeres == () and len(u.ketivs) >= 1 for u in u1333
+    ), "13:33 should have a ketiv-without-qere unit"
 
 
 def main():

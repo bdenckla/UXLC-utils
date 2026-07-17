@@ -19,7 +19,9 @@ def name(string_len_1):
     my_un = my_unicode.name(string_len_1)
     # ndb: no dot below — strip the combining dot below (U+0323) so x → h,
     # robust to either normalization of the source name. E.g. etnaxta → etnahta.
-    my_un_ndb = unicodedata.normalize("NFD", my_un).replace("\N{COMBINING DOT BELOW}", "")
+    my_un_ndb = unicodedata.normalize("NFD", my_un).replace(
+        "\N{COMBINING DOT BELOW}", ""
+    )
     my_un_ndb_fn = my_un_ndb.split("/")[0]  # first name in a slash seq
     # E.g., meteg/siluq becomes just meteg
     uxlc_un = _UXLC_UNS.get(my_un_ndb_fn) or my_un_ndb_fn

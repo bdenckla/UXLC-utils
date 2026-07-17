@@ -42,8 +42,8 @@ def test_clc_to_mam_known_anchors():
     assert cv.clc_to_mam("Deuter", 5, 17) == (5, 16)
 
     # The two early-split anchors and their post-split −1 shift.
-    assert cv.clc_to_mam("Exodus", 20, 2) == (20, 2)   # first member keeps the number
-    assert cv.clc_to_mam("Exodus", 20, 4) == (20, 3)   # −1 after the early split
+    assert cv.clc_to_mam("Exodus", 20, 2) == (20, 2)  # first member keeps the number
+    assert cv.clc_to_mam("Exodus", 20, 4) == (20, 3)  # −1 after the early split
     assert cv.clc_to_mam("Exodus", 20, 12) == (20, 11)
 
     # The late 4-way split collapses to one MAM verse, then −4 for the rest of the chapter.
@@ -55,7 +55,7 @@ def test_clc_to_mam_known_anchors():
     for v in (17, 18, 19, 20):
         assert cv.clc_to_mam("Deuter", 5, v) == (5, 16), v
     assert cv.clc_to_mam("Deuter", 5, 21) == (5, 17)
-    assert cv.clc_to_mam("Deuter", 5, 33) == (5, 29)   # last verse of Deut 5
+    assert cv.clc_to_mam("Deuter", 5, 33) == (5, 29)  # last verse of Deut 5
 
 
 def test_identity_outside_decalogue():
@@ -64,7 +64,10 @@ def test_identity_outside_decalogue():
     for v in range(1, 6):
         assert cv.clc_to_mam("Deuter", 5, v) == (5, v)
     assert cv.clc_to_mam("Exodus", 21, 5) == (21, 5)
-    assert cv.clc_to_mam("Genesis", 35, 22) == (35, 22)  # dual-cant, but same versification
+    assert cv.clc_to_mam("Genesis", 35, 22) == (
+        35,
+        22,
+    )  # dual-cant, but same versification
     assert cv.clc_to_mam("Psalms", 23, 1) == (23, 1)
     assert not cv.mam_differs_from_bhs("Exodus", 20, 1)
     assert not cv.mam_differs_from_bhs("Genesis", 35, 22)
@@ -74,7 +77,7 @@ def test_map_is_monotone_and_onto():
     # Within each Decalogue chapter, clc_to_mam is non-decreasing in v, never skips a MAM
     # number, and is surjective onto a contiguous 1..max range — a sanity net against a
     # typo in _MERGE_GROUPS producing a gap or a non-monotone jump.
-    for (book_id, ch) in cv.decalogue_chapters():
+    for book_id, ch in cv.decalogue_chapters():
         prev = 0
         produced = set()
         for v in range(1, 40):  # covers both chapters (Ex 20: 26 vv, Dt 5: 33 vv)
@@ -96,21 +99,23 @@ def test_merge_group_and_boundaries():
 
     # MAM draws NO boundary after a non-final member of a merge run; it agrees with BHS
     # everywhere else. These False points are the §7.8 overlay.
-    assert not cv.mam_boundary_after("Exodus", 20, 2)     # reads on into 20:3
-    assert cv.mam_boundary_after("Exodus", 20, 3)         # then MAM does end here
+    assert not cv.mam_boundary_after("Exodus", 20, 2)  # reads on into 20:3
+    assert cv.mam_boundary_after("Exodus", 20, 3)  # then MAM does end here
     for v in (13, 14, 15):
         assert not cv.mam_boundary_after("Exodus", 20, v)
-    assert cv.mam_boundary_after("Exodus", 20, 16)        # end of the merged coveting verse
-    assert cv.mam_boundary_after("Exodus", 20, 1)         # agrees with BHS pre-split
+    assert cv.mam_boundary_after("Exodus", 20, 16)  # end of the merged coveting verse
+    assert cv.mam_boundary_after("Exodus", 20, 1)  # agrees with BHS pre-split
 
 
 def test_differs_flag():
     # mam_differs_from_bhs is True for a merged verse (boundary difference) AND for a merely
     # shifted verse (numbering difference), False otherwise.
-    assert cv.mam_differs_from_bhs("Exodus", 20, 2)       # merged (20:2+3), same number but a
-    assert cv.mam_differs_from_bhs("Exodus", 20, 3)       # boundary/number difference
-    assert cv.mam_differs_from_bhs("Exodus", 20, 4)       # shifted −1
-    assert cv.mam_differs_from_bhs("Deuter", 5, 33)       # shifted −4
+    assert cv.mam_differs_from_bhs(
+        "Exodus", 20, 2
+    )  # merged (20:2+3), same number but a
+    assert cv.mam_differs_from_bhs("Exodus", 20, 3)  # boundary/number difference
+    assert cv.mam_differs_from_bhs("Exodus", 20, 4)  # shifted −1
+    assert cv.mam_differs_from_bhs("Deuter", 5, 33)  # shifted −4
 
 
 def test_overlay_matches_dual_cant_oracle():
@@ -120,7 +125,7 @@ def test_overlay_matches_dual_cant_oracle():
     # match is the proof that MAM's versification == the taxton strand, so §7.7 already
     # renders the vtrad-MAM overlay and #45 needs no new rendered surface.
     reads_through = set()
-    for (book_id, ch) in cv.decalogue_chapters():
+    for book_id, ch in cv.decalogue_chapters():
         for v in range(1, 40):
             if not cv.mam_boundary_after(book_id, ch, v):
                 reads_through.add((book_id, ch, v))
@@ -130,12 +135,21 @@ def test_overlay_matches_dual_cant_oracle():
         for (ch, v), entry_map in dc._ORACLE[book_id].items():
             for entry in entry_map.values():
                 add = entry.get("add", {})
-                alef_has = _SOF_PASUQ in entry.get("alef", "") or _SOF_PASUQ in add.get("alef", [])
-                bet_has = _SOF_PASUQ in entry.get("bet", "") or _SOF_PASUQ in add.get("bet", [])
-                if bet_has and not alef_has:  # elyon ends here, taxton (= MAM) reads through
+                alef_has = _SOF_PASUQ in entry.get("alef", "") or _SOF_PASUQ in add.get(
+                    "alef", []
+                )
+                bet_has = _SOF_PASUQ in entry.get("bet", "") or _SOF_PASUQ in add.get(
+                    "bet", []
+                )
+                if (
+                    bet_has and not alef_has
+                ):  # elyon ends here, taxton (= MAM) reads through
                     elyon_ends.add((book_id, ch, v))
 
-    assert reads_through == elyon_ends, ("overlay/oracle disagree", reads_through ^ elyon_ends)
+    assert reads_through == elyon_ends, (
+        "overlay/oracle disagree",
+        reads_through ^ elyon_ends,
+    )
     assert len(reads_through) == 8  # Ex 20:2,13,14,15 + Dt 5:6,17,18,19
 
 

@@ -20,8 +20,8 @@ import sys
 import xml.etree.ElementTree as ET
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)            # py/
-_REPO_ROOT = os.path.dirname(_PY_ROOT)       # repo root
+_PY_ROOT = os.path.dirname(_HERE)  # py/
+_REPO_ROOT = os.path.dirname(_PY_ROOT)  # repo root
 sys.path.insert(0, _PY_ROOT)
 
 import clc.clc_dual_cant as dc  # noqa: E402
@@ -50,10 +50,14 @@ _PASOLEG = hpu.PASOLEG
 # accents (U+0591–U+05AF), meteg, the CGJ, and — new with QUPO / rafe+dagesh —
 # the vowels/points that can themselves diverge. This is only the subsequence
 # *floor* (_is_strict_deletion); divergence atoms are pinned exactly below.
-_REMOVABLE = (
-    {chr(cp) for cp in range(0x0591, 0x05B0)}
-    | {_CGJ, _METEG, _RAFE, _DAGESH, _PATAX, _QAMATS}
-)
+_REMOVABLE = {chr(cp) for cp in range(0x0591, 0x05B0)} | {
+    _CGJ,
+    _METEG,
+    _RAFE,
+    _DAGESH,
+    _PATAX,
+    _QAMATS,
+}
 
 # Independent reference for the accent-only split of Gen 35:22's divergence atoms
 # (the prior behaviour). atom_index -> (alef_only, bet_only).
@@ -155,12 +159,15 @@ def test_split_word_position_safe_qupo():
     # A QUPO letter carries patax + qamats + two accents; the SAME word also has a
     # shared patax EARLIER. A set-membership "drop patax" (the old approach) would
     # delete that shared patax too; cluster-replace touches only the cluster.
-    acc_a, acc_b = acc.MAH, acc.QOM          # two arbitrary distinct accents
+    acc_a, acc_b = acc.MAH, acc.QOM  # two arbitrary distinct accents
     carrier = hl.LAMED
     cluster = carrier + _PATAX + _QAMATS + acc_a + acc_b
     word = hl.KAF + _PATAX + cluster + hl.FMEM  # shared patax on kaf, then QUPO lamed
-    entry = {"cluster": cluster, "alef": carrier + _PATAX + acc_a,
-             "bet": carrier + _QAMATS + acc_b}
+    entry = {
+        "cluster": cluster,
+        "alef": carrier + _PATAX + acc_a,
+        "bet": carrier + _QAMATS + acc_b,
+    }
     alef = dc.split_word(word, entry, "alef")
     bet = dc.split_word(word, entry, "bet")
     assert alef == hl.KAF + _PATAX + carrier + _PATAX + acc_a + hl.FMEM
@@ -181,7 +188,9 @@ def test_split_word_position_safe_rafe_dagesh():
     bet = dc.split_word(word, entry, "bet")
     assert alef == hl.BET + _DAGESH + carrier + _DAGESH + hl.HE
     assert bet == hl.BET + _DAGESH + carrier + _RAFE + hl.HE
-    assert _count(alef, _DAGESH) == 2 and _count(bet, _DAGESH) == 1  # shared dagesh safe
+    assert (
+        _count(alef, _DAGESH) == 2 and _count(bet, _DAGESH) == 1
+    )  # shared dagesh safe
     assert _count(bet, _RAFE) == 1
 
 
@@ -194,15 +203,19 @@ def test_split_word_position_safe_pasoleg():
     # space + pasoleg, a substring unique to that site, so cluster-replace touches only that
     # occurrence and leaves the earlier, shared one untouched.
     carrier1, carrier2 = hl.LAMED, hl.MEM
-    shared = carrier1 + _PASOLEG  # unrelated, merely-coincidental shared pasoleg earlier in the word
+    shared = (
+        carrier1 + _PASOLEG
+    )  # unrelated, merely-coincidental shared pasoleg earlier in the word
     cluster = carrier2 + " " + _PASOLEG
     word = shared + cluster
     entry = {"cluster": cluster, "alef": cluster, "bet": carrier2 + " "}
     alef = dc.split_word(word, entry, "alef")
     bet = dc.split_word(word, entry, "bet")
-    assert alef == word                        # taxton keeps both pasolegs: nothing subtracted
-    assert bet == shared + carrier2 + " "       # elyon drops only the divergent (later) one
-    assert _count(alef, _PASOLEG) == 2 and _count(bet, _PASOLEG) == 1  # shared pasoleg safe
+    assert alef == word  # taxton keeps both pasolegs: nothing subtracted
+    assert bet == shared + carrier2 + " "  # elyon drops only the divergent (later) one
+    assert (
+        _count(alef, _PASOLEG) == 2 and _count(bet, _PASOLEG) == 1
+    )  # shared pasoleg safe
 
 
 def test_strand_views_strict():
@@ -225,10 +238,14 @@ def test_strand_views_strict():
         assert _count(whole_text, _SOF_PASUQ) == _count(whole_combined, _SOF_PASUQ) == 1
         assert _count(whole_text, _MAQAF) == _count(whole_combined, _MAQAF) == 2
         for i, (co, st) in enumerate(zip(combined, view.atoms), start=1):
-            assert _is_strict_deletion(co["text"], st["text"]), f"atom {i} not a strict deletion"
+            assert _is_strict_deletion(
+                co["text"], st["text"]
+            ), f"atom {i} not a strict deletion"
             if i not in divergence:
                 assert st["text"] == co["text"], f"atom {i} should be untouched"
-                assert "additions" not in st, f"untouched atom {i} should stay identical"
+                assert (
+                    "additions" not in st
+                ), f"untouched atom {i} should stay identical"
             else:
                 assert st["text"] != co["text"], f"atom {i} should differ (divergence)"
                 assert st["text"] == _old_split(co["text"], i, strand), f"atom {i} text"
@@ -245,12 +262,19 @@ def test_strand_views_strict():
 
     # Pin the headline divergence words by accent identity.
     zaqef, revia, etnahta = acc.ZAQ_Q, acc.REV, acc.ATN
-    assert revia not in alef_view.atoms[6]["text"] and zaqef in alef_view.atoms[6]["text"]  # רְאוּבֵן
+    assert (
+        revia not in alef_view.atoms[6]["text"] and zaqef in alef_view.atoms[6]["text"]
+    )  # רְאוּבֵן
     assert zaqef not in bet_view.atoms[6]["text"] and revia in bet_view.atoms[6]["text"]
     # Atom 14 (יִשְׂרָאֵל): alef keeps meteg (no etnahta, no CGJ, no sof-pasuq in text);
     # bet keeps etnahta (no meteg, no CGJ).
     a14, b14 = alef_view.atoms[13]["text"], bet_view.atoms[13]["text"]
-    assert _METEG in a14 and etnahta not in a14 and _CGJ not in a14 and _SOF_PASUQ not in a14
+    assert (
+        _METEG in a14
+        and etnahta not in a14
+        and _CGJ not in a14
+        and _SOF_PASUQ not in a14
+    )
     assert etnahta in b14 and _METEG not in b14 and _CGJ not in b14
 
 
@@ -260,7 +284,9 @@ def test_added_render():
 
     # The supplied sof-pasuq renders bracketed, the mark itself in the green
     # "added" class, in the alef strand's text column.
-    alef_html = _render(clc_render._plain_text_contents(alef_view.atoms, bet_view.atoms))
+    alef_html = _render(
+        clc_render._plain_text_contents(alef_view.atoms, bet_view.atoms)
+    )
     assert "clc-added-during-detangling" in alef_html
     assert _SOF_PASUQ in alef_html and "[" in alef_html and "]" in alef_html
     # bet supplies nothing → no green span.
@@ -270,14 +296,18 @@ def test_added_render():
     # unit, but the supplied mark GLYPH keeps its green (the cascade lets its explicit green
     # win over the inherited highlight color). So the note-target atom is in the highlight set,
     # the highlight span opens before the bracketed mark, and the green class survives inside.
-    assert clc_render._strand_noted_indices(alef_view) == {alef_view.notes[0]["atom_index"]}
+    assert clc_render._strand_noted_indices(alef_view) == {
+        alef_view.notes[0]["atom_index"]
+    }
     alef_targeted = _render(
         clc_render._plain_text_contents(
             alef_view.atoms, bet_view.atoms, clc_render._strand_noted_indices(alef_view)
         )
     )
-    assert 'class="clc-doc-target">' in alef_targeted        # the atom is highlighted
-    assert "clc-added-during-detangling" in alef_targeted    # and the mark glyph stays green
+    assert 'class="clc-doc-target">' in alef_targeted  # the atom is highlighted
+    assert (
+        "clc-added-during-detangling" in alef_targeted
+    )  # and the mark glyph stays green
     # the added mark's bracket span sits INSIDE the highlight span (highlight opens first),
     # so the word + brackets read as one highlighted unit around the still-green mark.
     assert alef_targeted.index('class="clc-doc-target"') < alef_targeted.index(
@@ -292,25 +322,29 @@ def test_added_render():
     note = alef_view.notes[0]
     body_html = H.el_to_str_no_wbr(H.div(clc_render._added_note_body(note)))
     assert body_html.count("sof pasuq added to improve legibility") == 1
-    assert " in " not in body_html                       # word no longer named inline
-    assert "clc-added-during-detangling" not in body_html  # mark lives in the header now
+    assert " in " not in body_html  # word no longer named inline
+    assert (
+        "clc-added-during-detangling" not in body_html
+    )  # mark lives in the header now
     assert bet_view.notes == ()
     # The header is the word DEMOTED to bare letters (issue #48) with the supplied mark still
     # shown, in its square brackets, right after it — but as PLAIN text: no lang="hbo" (default
     # font, not Taamey) and no green "added" formatting. One dir="rtl" span, so the whole
     # <bare-word>[mark] reorders as one RTL unit in this LTR column.
     header_html = H.el_to_str_no_wbr(clc_render._strand_note_header(note))
-    assert 'lang="hbo"' not in header_html                # demoted: default font
+    assert 'lang="hbo"' not in header_html  # demoted: default font
     assert "clc-added-during-detangling" not in header_html  # green formatting dropped
     assert clc_strip.strip_to_bare_letters(note["snippet"]) in header_html  # bare word
-    assert "[" + note["char"] + "]" in header_html        # mark kept, plain, in brackets
-    assert note["snippet"] not in header_html             # the fully-pointed word is not shown
+    assert "[" + note["char"] + "]" in header_html  # mark kept, plain, in brackets
+    assert note["snippet"] not in header_html  # the fully-pointed word is not shown
     # The whole strand note block heads the note with that bare word, then its single body on
     # the same line after an em dash, all in one clc-note div (like a normal verse's _note_block).
     block_html = H.el_to_str_no_wbr(clc_render._strand_note_block([note], "Genesis-35"))
     assert 'class="clc-note"' in block_html
     assert " — sof pasuq added to improve legibility" in block_html
-    assert "clc-added-during-detangling" not in block_html  # green dropped everywhere now
+    assert (
+        "clc-added-during-detangling" not in block_html
+    )  # green dropped everywhere now
 
 
 def test_decalogue_sof_pasuq_suppression():
@@ -321,13 +355,21 @@ def test_decalogue_sof_pasuq_suppression():
     # ex 20:2 עבדים (atom 9): elyon ends, taxton continues.
     _c, alef, bet = dc.strand_views("Exodus", 20, 2, _read_atoms("Exodus.xml", 20, 2))
     a9, b9 = alef.atoms[8]["text"], bet.atoms[8]["text"]
-    assert _SOF_PASUQ not in a9 and _METEG not in a9 and etnahta in a9, a9  # taxton: etnaxta
-    assert _SOF_PASUQ in b9 and _METEG in b9 and etnahta not in b9, b9      # elyon: silluq+sof-pasuq
+    assert (
+        _SOF_PASUQ not in a9 and _METEG not in a9 and etnahta in a9
+    ), a9  # taxton: etnaxta
+    assert (
+        _SOF_PASUQ in b9 and _METEG in b9 and etnahta not in b9
+    ), b9  # elyon: silluq+sof-pasuq
     # ex 20:5 לשנאי (atom 21): the mirror — taxton ends, elyon continues.
-    _c5, alef5, bet5 = dc.strand_views("Exodus", 20, 5, _read_atoms("Exodus.xml", 20, 5))
+    _c5, alef5, bet5 = dc.strand_views(
+        "Exodus", 20, 5, _read_atoms("Exodus.xml", 20, 5)
+    )
     a21, b21 = alef5.atoms[20]["text"], bet5.atoms[20]["text"]
-    assert _SOF_PASUQ in a21 and _METEG in a21 and etnahta not in a21, a21  # taxton: silluq+sof-pasuq
-    assert _SOF_PASUQ not in b21 and etnahta in b21, b21                    # elyon: etnaxta
+    assert (
+        _SOF_PASUQ in a21 and _METEG in a21 and etnahta not in a21
+    ), a21  # taxton: silluq+sof-pasuq
+    assert _SOF_PASUQ not in b21 and etnahta in b21, b21  # elyon: etnaxta
     # No strand invents a sof-pasuq, and neither supplies one here (unlike Gen 35:22).
     assert all(v.notes == () for v in (alef, bet, alef5, bet5))
 
@@ -343,7 +385,7 @@ def test_decalogue_supplied_sof_pasuq():
     assert len(combined) == 5, f"expected 5 atoms, got {len(combined)}"
     _c, alef, bet = dc.strand_views("Exodus", 20, 8, combined)
 
-    a5, b5 = alef.atoms[4], bet.atoms[4]          # לקדשו, the supplied-supply word
+    a5, b5 = alef.atoms[4], bet.atoms[4]  # לקדשו, the supplied-supply word
     # taxton: keeps silluq, drops revia, and the supplied sof-pasuq is metadata only.
     assert silluq in a5["text"] and revia not in a5["text"], a5["text"]
     assert _SOF_PASUQ not in a5["text"], a5["text"]
@@ -389,18 +431,28 @@ def test_decalogue_rafe_dagesh():
     # ex 20:13 (לא תרצח): UXLC writes dagesh+rafe together on the ת. taxton (alef) is SOFT — it joins
     # the next commandment (mid-unit tipxa, no verse-end); elyon (bet) is HARD and ends its
     # one-word verse (dagesh + silluq + sof-pasuq). Pure subtraction — no mark supplied.
-    comb, alef, bet = dc.strand_views("Exodus", 20, 13, _read_atoms("Exodus.xml", 20, 13))
-    a, b = alef.atoms[1]["text"], bet.atoms[1]["text"]          # תרצח
-    assert _RAFE in a and _DAGESH not in a, a                   # taxton: soft (rafe kept)
-    assert tipeha in a and _METEG not in a and _SOF_PASUQ not in a, a  # mid-unit, reads on
-    assert _DAGESH in b and _RAFE not in b, b                   # elyon: hard (dagesh kept)
-    assert _METEG in b and _SOF_PASUQ in b and tipeha not in b, b      # silluq + sof-pasuq
-    assert alef.atoms[1]["rafe_dagesh"] == "rafe" and bet.atoms[1]["rafe_dagesh"] == "dagesh"
+    comb, alef, bet = dc.strand_views(
+        "Exodus", 20, 13, _read_atoms("Exodus.xml", 20, 13)
+    )
+    a, b = alef.atoms[1]["text"], bet.atoms[1]["text"]  # תרצח
+    assert _RAFE in a and _DAGESH not in a, a  # taxton: soft (rafe kept)
+    assert (
+        tipeha in a and _METEG not in a and _SOF_PASUQ not in a
+    ), a  # mid-unit, reads on
+    assert _DAGESH in b and _RAFE not in b, b  # elyon: hard (dagesh kept)
+    assert _METEG in b and _SOF_PASUQ in b and tipeha not in b, b  # silluq + sof-pasuq
+    assert (
+        alef.atoms[1]["rafe_dagesh"] == "rafe"
+        and bet.atoms[1]["rafe_dagesh"] == "dagesh"
+    )
     # The single note lives on the COMBINED view; the strands carry NO rafe/dagesh note.
     assert _rd_notes(alef) == [] and _rd_notes(bet) == []
     (rd,) = _rd_notes(comb)
-    assert rd["atom_index"] == 2 and rd["letter"] == hl.TAV       # on the ת
-    assert (rd["a_strand"], rd["a_state"]) == ("taḥton", "rafe")  # alef named first, soft
+    assert rd["atom_index"] == 2 and rd["letter"] == hl.TAV  # on the ת
+    assert (rd["a_strand"], rd["a_state"]) == (
+        "taḥton",
+        "rafe",
+    )  # alef named first, soft
     assert (rd["b_strand"], rd["b_state"]) == ("elyon", "dagesh")
     # Render: a target-as-heading note (§7.7) — the word תרצח as a heading STRIPPED to bare letters
     # (issue #48), then the body: bare visual fact only, which mark each strand has on the ת. No
@@ -408,25 +460,41 @@ def test_decalogue_rafe_dagesh():
     # describe_diff's "rafeh") per Ben's spelling preference. No green/bracketed mark.
     html = H.el_to_str_no_wbr(clc_render._combined_divergence_block(rd))
     assert clc_strip.strip_to_bare_letters(rd["word"]) in html  # bare-letter heading
-    assert rd["word"] not in html                        # the fully-pointed word is NOT reiterated
-    assert 'lang="hbo"' not in html                      # bare letters: default font, no hbo wrapper
-    assert "On the " in html and hl.TAV in html          # names the concrete ת, not "the letter"
-    assert " of " not in html                            # the word is the header, not named inline
+    assert rd["word"] not in html  # the fully-pointed word is NOT reiterated
+    assert 'lang="hbo"' not in html  # bare letters: default font, no hbo wrapper
+    assert (
+        "On the " in html and hl.TAV in html
+    )  # names the concrete ת, not "the letter"
+    assert " of " not in html  # the word is the header, not named inline
     assert "the taḥton strand has a rafe but the elyon strand has a dagesh." in html
-    for banned in ("hard", "soft", "conjunctive", "disjunctive", "UXLC", "reads", "keeps", "stack"):
+    for banned in (
+        "hard",
+        "soft",
+        "conjunctive",
+        "disjunctive",
+        "UXLC",
+        "reads",
+        "keeps",
+        "stack",
+    ):
         assert banned not in html, banned
     assert "clc-added-during-detangling" not in html
 
     # ex 20:9 (ששת...): atom 5 כָּל־ — taxton HARD (keeps dagesh), elyon SOFT. UXLC has NO
     # rafe on this כל, so elyon's kaf is bare (Policy 1 supplies none). Atom 6 still supplies
     # the taxton sof-pasuq, so the verse is otherwise the ex 20:8 shape.
-    comb9, alef9, bet9 = dc.strand_views("Exodus", 20, 9, _read_atoms("Exodus.xml", 20, 9))
-    a5, b5 = alef9.atoms[4]["text"], bet9.atoms[4]["text"]      # כל
-    assert _DAGESH in a5, a5                                    # taxton: hard (dagesh kept)
-    assert _DAGESH not in b5 and _RAFE not in b5, b5            # elyon: bare (no rafe supplied)
-    assert _count(a5, hl.KAF) == _count(b5, hl.KAF) == 1        # consonant untouched
-    assert alef9.atoms[5]["additions"] == [_SOF_PASUQ]          # atom 6 supplies the sof-pasuq
-    assert alef9.atoms[4]["rafe_dagesh"] == "dagesh" and bet9.atoms[4]["rafe_dagesh"] == "bare"
+    comb9, alef9, bet9 = dc.strand_views(
+        "Exodus", 20, 9, _read_atoms("Exodus.xml", 20, 9)
+    )
+    a5, b5 = alef9.atoms[4]["text"], bet9.atoms[4]["text"]  # כל
+    assert _DAGESH in a5, a5  # taxton: hard (dagesh kept)
+    assert _DAGESH not in b5 and _RAFE not in b5, b5  # elyon: bare (no rafe supplied)
+    assert _count(a5, hl.KAF) == _count(b5, hl.KAF) == 1  # consonant untouched
+    assert alef9.atoms[5]["additions"] == [_SOF_PASUQ]  # atom 6 supplies the sof-pasuq
+    assert (
+        alef9.atoms[4]["rafe_dagesh"] == "dagesh"
+        and bet9.atoms[4]["rafe_dagesh"] == "bare"
+    )
     # Combined: the one rafe/dagesh note (atom 5, taxton hard / elyon bare). The strand rows keep
     # only their OWN notes — alef the supplied sof-pasuq (atom 6), bet none.
     (rd9,) = _rd_notes(comb9)
@@ -440,8 +508,13 @@ def test_decalogue_rafe_dagesh():
     # the strip keeps the maqaf (issue #48) rather than dropping it with the pointing.
     bare_html = H.el_to_str_no_wbr(clc_render._combined_divergence_block(rd9))
     kol_bare = clc_strip.strip_to_bare_letters(rd9["word"])
-    assert kol_bare in bare_html and kol_bare.endswith(hpu.MAQ)  # maqaf kept in the bare heading
-    assert "the taḥton strand has a dagesh but the elyon strand has neither dagesh nor rafe." in bare_html
+    assert kol_bare in bare_html and kol_bare.endswith(
+        hpu.MAQ
+    )  # maqaf kept in the bare heading
+    assert (
+        "the taḥton strand has a dagesh but the elyon strand has neither dagesh nor rafe."
+        in bare_html
+    )
     for banned in ("hard", "soft", "conjunctive", "disjunctive", "UXLC"):
         assert banned not in bare_html, banned
 
@@ -464,32 +537,48 @@ def test_decalogue_omitted_accent():
 
     # dt 5:6 (אנכי): UXLC has only the taxton accents; elyon's tipxa (atom 1) and etnaxta
     # (atom 3) are omitted. taxton keeps its accents; elyon shows those words accent-less.
-    _c, alef, bet = dc.strand_views("Deuter", 5, 6, _read_atoms("Deuteronomy.xml", 5, 6))
-    a1, b1 = alef.atoms[0]["text"], bet.atoms[0]["text"]      # אנכי
-    assert pashta in a1 and tipeha not in a1, a1              # taxton: keeps pashta
-    assert pashta not in b1 and tipeha not in b1, b1          # elyon: accent-less (none supplied)
-    assert alef.notes == ()                                   # taxton omits nothing
+    _c, alef, bet = dc.strand_views(
+        "Deuter", 5, 6, _read_atoms("Deuteronomy.xml", 5, 6)
+    )
+    a1, b1 = alef.atoms[0]["text"], bet.atoms[0]["text"]  # אנכי
+    assert pashta in a1 and tipeha not in a1, a1  # taxton: keeps pashta
+    assert (
+        pashta not in b1 and tipeha not in b1
+    ), b1  # elyon: accent-less (none supplied)
+    assert alef.notes == ()  # taxton omits nothing
     bnotes = _omit_notes(bet)
     assert [n["kind"] for n in bnotes] == [canon(acc.TIP), canon(acc.ATN)], bnotes
     assert all(n["strand"] == "elyon" and n["other_strand"] == "taḥton" for n in bnotes)
     # the note names the accent UXLC actually HAS (taxton's pashta on אנכי, zaqef-qatan on אלהיך).
-    assert [n["present_kind"] for n in bnotes] == [canon(acc.PASH), canon(acc.ZAQ_Q)], bnotes
+    assert [n["present_kind"] for n in bnotes] == [
+        canon(acc.PASH),
+        canon(acc.ZAQ_Q),
+    ], bnotes
     assert bet.atoms[0]["omitted_accents"] == [tipeha]
     assert bet.atoms[2]["omitted_accents"] == [etnahta]
 
     # dt 5:13 (ימים): the mirror direction — UXLC has only the elyon munax, so the taxton's
     # pashta (atom 2) is omitted; taxton shows ימים accent-less, elyon keeps the munax.
-    _c, alef, bet = dc.strand_views("Deuter", 5, 13, _read_atoms("Deuteronomy.xml", 5, 13))
-    a2, b2 = alef.atoms[1]["text"], bet.atoms[1]["text"]      # ימים
-    assert pashta not in a2 and acc.MUN not in a2, a2         # taxton: accent-less (none supplied)
-    assert acc.MUN in b2, b2                                  # elyon: keeps the munax
+    _c, alef, bet = dc.strand_views(
+        "Deuter", 5, 13, _read_atoms("Deuteronomy.xml", 5, 13)
+    )
+    a2, b2 = alef.atoms[1]["text"], bet.atoms[1]["text"]  # ימים
+    assert (
+        pashta not in a2 and acc.MUN not in a2
+    ), a2  # taxton: accent-less (none supplied)
+    assert acc.MUN in b2, b2  # elyon: keeps the munax
     anotes = _omit_notes(alef)
-    assert [n["kind"] for n in anotes] == [canon(acc.PASH)] and anotes[0]["strand"] == "taḥton"
-    assert anotes[0]["present_kind"] == canon(acc.MUN)   # UXLC has the elyon munax here
+    assert [n["kind"] for n in anotes] == [canon(acc.PASH)] and anotes[0][
+        "strand"
+    ] == "taḥton"
+    assert anotes[0]["present_kind"] == canon(acc.MUN)  # UXLC has the elyon munax here
     assert _omit_notes(bet) == []
     # dt 5:13 also has a rafe/dagesh split at atom 5 (כל), the mirror of ex 20:9 but with UXLC's
     # rafe PRESENT: taxton hard (dagesh), elyon soft-marked (rafe) — each a per-strand note (#47).
-    assert alef.atoms[4]["rafe_dagesh"] == "dagesh" and bet.atoms[4]["rafe_dagesh"] == "rafe"
+    assert (
+        alef.atoms[4]["rafe_dagesh"] == "dagesh"
+        and bet.atoms[4]["rafe_dagesh"] == "rafe"
+    )
     # dt 5:13's taxton pashta has NO wlc-utils basis (accgram's detangler never needed to
     # supply anything for it — issue #36) — the two wording paths must not silently collapse.
     # It DOES have an editor-attached long note (clc_dual_cant._HAS_LONG_NOTE, design doc
@@ -498,8 +587,13 @@ def test_decalogue_omitted_accent():
     assert anotes[0]["lc_corroborated"] is False
     assert anotes[0]["has_long_note"] is True
     assert anotes[0]["verse_loc"] == ("Deuter", 5, 13)
-    note_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(anotes[0], "Deuter-5")))
-    assert f"the LC has only the elyon’s {canon(acc.MUN)}. See more details in " in note_html
+    note_html = H.el_to_str_no_wbr(
+        H.div(clc_render._omitted_note_body(anotes[0], "Deuter-5"))
+    )
+    assert (
+        f"the LC has only the elyon’s {canon(acc.MUN)}. See more details in "
+        in note_html
+    )
     assert "UXLC’s combined text carries" not in note_html
     assert "supplied-marks.html" not in note_html
     # The "beyond the limits of CLC's charity" clause itself relegates to the long note too
@@ -510,25 +604,35 @@ def test_decalogue_omitted_accent():
     # dt 5:17 (תרצח): UXLC has the elyon verse-end's sof-pasuq but NOT its silluq, so elyon's
     # silluq is omitted: elyon keeps dagesh (hard) + the lone sof-pasuq, no accent shown; taxton
     # keeps rafe (soft) + its mid-unit tipxa, sof-pasuq suppressed.
-    comb17, alef, bet = dc.strand_views("Deuter", 5, 17, _read_atoms("Deuteronomy.xml", 5, 17))
-    a, b = alef.atoms[1]["text"], bet.atoms[1]["text"]        # תרצח
-    assert _RAFE in a and tipeha in a and _SOF_PASUQ not in a, a       # taxton: soft, reads on
-    assert _DAGESH in b and _SOF_PASUQ in b, b                        # elyon: hard, verse-end
-    assert silluq not in b and tipeha not in b, b                     # but its silluq is omitted
+    comb17, alef, bet = dc.strand_views(
+        "Deuter", 5, 17, _read_atoms("Deuteronomy.xml", 5, 17)
+    )
+    a, b = alef.atoms[1]["text"], bet.atoms[1]["text"]  # תרצח
+    assert (
+        _RAFE in a and tipeha in a and _SOF_PASUQ not in a
+    ), a  # taxton: soft, reads on
+    assert _DAGESH in b and _SOF_PASUQ in b, b  # elyon: hard, verse-end
+    assert silluq not in b and tipeha not in b, b  # but its silluq is omitted
     bnotes = _omit_notes(bet)
     assert [n["kind"] for n in bnotes] == ["silluq"] and bnotes[0]["strand"] == "elyon"
-    assert bnotes[0]["present_kind"] == canon(acc.TIP)   # UXLC has taxton's tipexa here
+    assert bnotes[0]["present_kind"] == canon(acc.TIP)  # UXLC has taxton's tipexa here
     assert _omit_notes(alef) == []
     # atom 2 (תרצח) is BOTH an omitted-silluq atom AND a rafe/dagesh divergence, but they land on
     # DIFFERENT rows (issue #47): the omitted-silluq note is per-strand (elyon only, since only
     # elyon wants the silluq), while the rafe/dagesh note — concerning both strands — sits on the
     # COMBINED row. So elyon's sole strand note is the silluq-omission; the rafe/dagesh is on -C.
     RD = dc.clc_note.SOURCE_DUAL_CANT_RAFE_DAGESH
-    assert alef.atoms[1]["rafe_dagesh"] == "rafe" and bet.atoms[1]["rafe_dagesh"] == "dagesh"
-    assert [n["source"] for n in alef.notes] == []                          # taxton: no strand note
-    assert [n["source"] for n in bet.notes] == [OMIT]                       # elyon: only silluq-omit
+    assert (
+        alef.atoms[1]["rafe_dagesh"] == "rafe"
+        and bet.atoms[1]["rafe_dagesh"] == "dagesh"
+    )
+    assert [n["source"] for n in alef.notes] == []  # taxton: no strand note
+    assert [n["source"] for n in bet.notes] == [OMIT]  # elyon: only silluq-omit
     (rd17,) = [n for n in comb17.notes if n["source"] == RD]
-    assert rd17["atom_index"] == 2 and (rd17["a_state"], rd17["b_state"]) == ("rafe", "dagesh")
+    assert rd17["atom_index"] == 2 and (rd17["a_state"], rd17["b_state"]) == (
+        "rafe",
+        "dagesh",
+    )
     # dt 5:17's elyon silluq is one of the four notes with independent wlc-utils grounding
     # (issue #36) — Ben's own judgment that WLC's own taxton/tipexa transcription here is
     # reasonable, not a mis-transcription (dual_cant_detangle._supply_reason).
@@ -542,35 +646,53 @@ def test_decalogue_omitted_accent():
     # wlc-utils citation AND the "beyond the limits of CLC's charity" clause itself now live only
     # there — this inline block is just the truncated core plus a pointer to it.
     assert bnotes[0]["has_long_note"] is True
-    note_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(bnotes[0], "Deuter-5")))
+    note_html = H.el_to_str_no_wbr(
+        H.div(clc_render._omitted_note_body(bnotes[0], "Deuter-5"))
+    )
     # The word is now the note's HEADER, not named inline: "A silluq is expected here, but …"
     # — the body carries no Hebrew snippet at all (§7.7).
     assert "A silluq is expected here, but" in note_html
-    assert 'lang="hbo"' not in note_html                 # body no longer embeds the target word
-    assert f"the LC has only the taḥton’s {canon(acc.TIP)}. See more details in " in note_html
+    assert 'lang="hbo"' not in note_html  # body no longer embeds the target word
+    assert (
+        f"the LC has only the taḥton’s {canon(acc.TIP)}. See more details in "
+        in note_html
+    )
     # The word IS pulled out into a first-class header (_strand_note_header), DEMOTED to bare
     # letters (default font, no lang="hbo"; the dagesh and every point stripped), and the whole
     # thing wraps in a clc-note div like a normal verse's _note_block.
     header_html = H.el_to_str_no_wbr(clc_render._strand_note_header(bnotes[0]))
-    assert 'lang="hbo"' not in header_html and _DAGESH not in header_html  # demoted to bare letters
-    assert clc_strip.strip_to_bare_letters(bnotes[0]["snippet"]) in header_html  # the bare word
-    block_html = H.el_to_str_no_wbr(clc_render._strand_note_block([bnotes[0]], "Deuter-5"))
-    assert 'class="clc-note"' in block_html and "A silluq is expected here" in block_html
+    assert (
+        'lang="hbo"' not in header_html and _DAGESH not in header_html
+    )  # demoted to bare letters
+    assert (
+        clc_strip.strip_to_bare_letters(bnotes[0]["snippet"]) in header_html
+    )  # the bare word
+    block_html = H.el_to_str_no_wbr(
+        clc_render._strand_note_block([bnotes[0]], "Deuter-5")
+    )
+    assert (
+        'class="clc-note"' in block_html and "A silluq is expected here" in block_html
+    )
     assert "beyond the limits" not in note_html and "missing silluq" not in note_html
-    assert "clc-added-during-detangling" not in note_html and "clc-added-bracket" not in note_html
+    assert (
+        "clc-added-during-detangling" not in note_html
+        and "clc-added-bracket" not in note_html
+    )
     assert "supplied-marks.html" not in note_html
     assert 'href="Deuter-5-long-notes.html#long-Deuter-5-17-elyon-silluq"' in note_html
     # and the strand TEXT column supplies no green mark for an omitted accent.
     bet_html = _render(clc_render._plain_text_contents(bet.atoms, alef.atoms))
     assert "clc-added-during-detangling" not in bet_html
-    assert "clc-doc-target" not in bet_html               # no highlight without noted_indices
+    assert "clc-doc-target" not in bet_html  # no highlight without noted_indices
     # But given the note's target atom, that word gets the clc-doc-target highlight in the
     # strand text column — like a noted word in a normal verse — as a plain span, no link.
     bet_targeted = _render(
-        clc_render._plain_text_contents(bet.atoms, alef.atoms, clc_render._strand_noted_indices(bet))
+        clc_render._plain_text_contents(
+            bet.atoms, alef.atoms, clc_render._strand_noted_indices(bet)
+        )
     )
-    assert f'class="clc-doc-target">{b}' in bet_targeted   # תרצח (atom 2) highlighted
-    assert "href" not in bet_targeted                      # inline note; nothing to jump to
+    assert f'class="clc-doc-target">{b}' in bet_targeted  # תרצח (atom 2) highlighted
+    assert "href" not in bet_targeted  # inline note; nothing to jump to
 
 
 def test_decalogue_qupo_vowel_split():
@@ -613,7 +735,9 @@ def test_decalogue_qupo_vowel_split():
     assert acc.MER not in a2 and _METEG not in a2 and _MAQAF not in a2, a2
     assert _METEG in b2 and _MAQAF in b2, b2
     anotes = _omit_notes(alef)
-    assert [n["kind"] for n in anotes] == [canon(acc.MER)] and anotes[0]["strand"] == "taḥton"
+    assert [n["kind"] for n in anotes] == [canon(acc.MER)] and anotes[0][
+        "strand"
+    ] == "taḥton"
     # UXLC has elyon's own meteg here (its trailing meteg + maqaf, kept above at b2) — an
     # ordinary meteg, never silluq: the word is maqaf-joined to the next word, not verse-final.
     assert anotes[0]["present_kind"] == "meteg"
@@ -629,7 +753,9 @@ def test_decalogue_qupo_vowel_split():
     assert _METEG not in b7, b7
     assert alef.atoms[6]["additions"] == [_SOF_PASUQ]
     assert bet.atoms[6].get("additions", []) == []
-    assert _SOF_PASUQ not in a7 and _SOF_PASUQ not in b7  # supplied out-of-band, not in text
+    assert (
+        _SOF_PASUQ not in a7 and _SOF_PASUQ not in b7
+    )  # supplied out-of-band, not in text
 
     # taxton's OWN notes, in atom order: supplied maqaf (atom 1), omitted merkha (atom 2),
     # supplied sof-pasuq (atom 7). elyon supplies/omits nothing → NO strand notes. The QUPO split
@@ -638,20 +764,27 @@ def test_decalogue_qupo_vowel_split():
     assert [n["kind"] for n in add_notes] == ["maqaf", "sof pasuq"]
     assert len(_omit_notes(alef)) == 1
     assert _qupo_notes(alef) == [] and _qupo_notes(bet) == [] and bet.notes == ()
-    (q,) = _qupo_notes(_c)                                      # the single combined QUPO note
-    assert q["atom_index"] == 7 and q["letter"] == hl.NUN       # on the נ
-    assert (q["a_strand"], q["a_vowel"]) == ("taḥton", mark(_QAMATS))   # alef first, qamats
-    assert (q["b_strand"], q["b_vowel"]) == ("elyon", mark(_PATAX))     # elyon, patax
+    (q,) = _qupo_notes(_c)  # the single combined QUPO note
+    assert q["atom_index"] == 7 and q["letter"] == hl.NUN  # on the נ
+    assert (q["a_strand"], q["a_vowel"]) == (
+        "taḥton",
+        mark(_QAMATS),
+    )  # alef first, qamats
+    assert (q["b_strand"], q["b_vowel"]) == ("elyon", mark(_PATAX))  # elyon, patax
     # Render: a target-as-heading note — the word פני as a heading stripped to bare letters (issue
     # #48), then the body naming both strands' vowel on the shared נ; plain "has"; no "stack"/
     # "keeps"/"reads"; no green/bracketed mark.
     q_html = H.el_to_str_no_wbr(clc_render._combined_divergence_block(q))
-    assert clc_strip.strip_to_bare_letters(q["word"]) in q_html  # bare-letter heading (פני)
-    assert q["word"] not in q_html                               # not reiterated fully pointed
-    assert 'lang="hbo"' not in q_html                            # bare letters: default font, no hbo wrapper
-    assert " of " not in q_html                                  # word is the header, not inline
-    assert (f"the taḥton strand has a {mark(_QAMATS)} but the elyon strand has a"
-            f" {mark(_PATAX)}") in q_html
+    assert (
+        clc_strip.strip_to_bare_letters(q["word"]) in q_html
+    )  # bare-letter heading (פני)
+    assert q["word"] not in q_html  # not reiterated fully pointed
+    assert 'lang="hbo"' not in q_html  # bare letters: default font, no hbo wrapper
+    assert " of " not in q_html  # word is the header, not inline
+    assert (
+        f"the taḥton strand has a {mark(_QAMATS)} but the elyon strand has a"
+        f" {mark(_PATAX)}"
+    ) in q_html
     for banned in ("stack", "keeps", "reads"):
         assert banned not in q_html, banned
     assert "clc-added-during-detangling" not in q_html
@@ -677,7 +810,9 @@ def test_decalogue_qupo_vowel_split():
     # "meteg", not "silluq": יהיה־ is maqaf-joined to the next word, not verse-final, so the
     # meteg elyon wants here can never be silluq (contrast dt 5:17, genuinely verse-final).
     assert [n["kind"] for n in d_omit] == ["meteg"] and d_omit[0]["strand"] == "elyon"
-    assert d_omit[0]["present_kind"] == canon(acc.MER)   # UXLC has taxton's own merkha here
+    assert d_omit[0]["present_kind"] == canon(
+        acc.MER
+    )  # UXLC has taxton's own merkha here
     assert _omit_notes(alef7) == []
 
     # Render: an omitted *meteg* takes SOFTENED wording (clc_render._omitted_meteg_sentence),
@@ -685,13 +820,22 @@ def test_decalogue_qupo_vowel_split():
     # true accent — a meteg is metrical, not an accent, and this special gaʿya of
     # יהיה-type verbs is not reliably obligatory (cf. Yeivin, ITM §355). Instead: the LC has a
     # single mark, best transcribed as the taxton's merkha (which the chant actually needs).
-    meteg_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(d_omit[0], "Deuter-5")))
+    meteg_html = H.el_to_str_no_wbr(
+        H.div(clc_render._omitted_note_body(d_omit[0], "Deuter-5"))
+    )
     # The word is no longer named inline (§7.7): "… here, but the LC has …", not "… here on <word> …".
-    assert "A meteg might be expected in the elyon strand here, but the LC has" in meteg_html
-    assert (f"the LC has only a single mark, which is best transcribed as a {canon(acc.MER)}"
-            f" since, unlike the meteg, the {canon(acc.MER)} is truly needed") in meteg_html
+    assert (
+        "A meteg might be expected in the elyon strand here, but the LC has"
+        in meteg_html
+    )
+    assert (
+        f"the LC has only a single mark, which is best transcribed as a {canon(acc.MER)}"
+        f" since, unlike the meteg, the {canon(acc.MER)} is truly needed"
+    ) in meteg_html
     assert "calls for" not in meteg_html and "charity to supply" not in meteg_html
-    assert "clc-added-during-detangling" not in meteg_html  # nothing supplied to the strand
+    assert (
+        "clc-added-during-detangling" not in meteg_html
+    )  # nothing supplied to the strand
     # It carries an editor-attached further-discussion long note (clc_dual_cant._HAS_LONG_NOTE
     # / clc_render._LONG_NOTE_SPECS) linking to Yeivin's ITM §355.
     assert d_omit[0]["has_long_note"] is True
@@ -731,7 +875,10 @@ def test_decalogue_pasoleg_tokenization():
     # sof-pasuq (taxton ends the verse here; elyon reads on, like ex 20:8's atom 5).
     assert alef4.atoms[0]["additions"] == [_MAQAF]
     assert alef4.atoms[15]["additions"] == [_SOF_PASUQ]
-    assert bet4.atoms[0].get("additions", []) == [] and bet4.atoms[15].get("additions", []) == []
+    assert (
+        bet4.atoms[0].get("additions", []) == []
+        and bet4.atoms[15].get("additions", []) == []
+    )
 
     # atom 12 / atom 15 (מתחת, occurrences 1 and 2 — #28's open question, closed by #29): the
     # count mismatch came from a pasoleg elsewhere in the verse, NOT from מתחת. Occurrence 1 IS a
@@ -751,10 +898,13 @@ def test_decalogue_pasoleg_tokenization():
     # qamats, elyon patax. The single note rides the combined (-C) row (issue #47).
     QUPO = dc.clc_note.SOURCE_DUAL_CANT_QUPO_VOWEL
     mark = dc.describe_diff.mark_name
-    assert alef4.atoms[11]["qupo_vowel"] == _QAMATS and bet4.atoms[11]["qupo_vowel"] == _PATAX
+    assert (
+        alef4.atoms[11]["qupo_vowel"] == _QAMATS
+        and bet4.atoms[11]["qupo_vowel"] == _PATAX
+    )
     assert not any(n["source"] == QUPO for v in (alef4, bet4) for n in v.notes)
     (q12,) = [n for n in _c4.notes if n["source"] == QUPO]
-    assert (q12["atom_index"], q12["letter"]) == (12, hl.TAV)   # the תָּ of מתחת
+    assert (q12["atom_index"], q12["letter"]) == (12, hl.TAV)  # the תָּ of מתחת
     assert (q12["a_vowel"], q12["b_vowel"]) == (mark(_QAMATS), mark(_PATAX))
     a15, b15 = alef4.atoms[14]["text"], bet4.atoms[14]["text"]
     assert acc.MER in a15 and acc.MUN not in a15, a15
@@ -791,7 +941,10 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # clc_collect._apply_pending_uxlc_changes patches this atom upstream in the real
     # pipeline (Deut 5:8.2's pashta -> qadma, per UXLC's own pending change #10); this
     # test reads raw XML directly, bypassing clc_collect, so simulate that patch here.
-    combined8[1] = {**combined8[1], "text": combined8[1]["text"].replace(acc.PASH, acc.QOM, 1)}
+    combined8[1] = {
+        **combined8[1],
+        "text": combined8[1]["text"].replace(acc.PASH, acc.QOM, 1),
+    }
     _c8, alef8, bet8 = dc.strand_views("Deuter", 5, 8, combined8)
     for i in (3, 7, 13):  # atoms 4, 8, 14 (0-based): פסל / בשמים / במים
         a, b = alef8.atoms[i]["text"], bet8.atoms[i]["text"]
@@ -809,7 +962,10 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # atom 12's lone divergent qamats is NOT a QUPO swap here (no paired patax) — the detector
     # (a patax<->qamats swap) correctly emits NO QUPO note anywhere, unlike ex 20:4's twin (#47).
     QUPO = dc.clc_note.SOURCE_DUAL_CANT_QUPO_VOWEL
-    assert alef8.atoms[11].get("qupo_vowel") is None and bet8.atoms[11].get("qupo_vowel") is None
+    assert (
+        alef8.atoms[11].get("qupo_vowel") is None
+        and bet8.atoms[11].get("qupo_vowel") is None
+    )
     assert not any(n["source"] == QUPO for v in (_c8, alef8, bet8) for n in v.notes)
     # Instead, atom 12 carries an omitted-*vowel* note on the ELYON strand (the asymmetric
     # sibling of QUPO): the elyon's tav is left bare — its divergent qamats dropped, no patax
@@ -829,9 +985,13 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     # Render: identical shape to an omitted-accent note (§7.7) — the elyon calls for a patax,
     # the LC has only the taxton's qamats; the "beyond the limits of CLC's charity" clause and
     # the further discussion relegate to this note's own long-notes-page entry.
-    ov_html = H.el_to_str_no_wbr(H.div(clc_render._omitted_note_body(ov[0], "Deuter-5")))
+    ov_html = H.el_to_str_no_wbr(
+        H.div(clc_render._omitted_note_body(ov[0], "Deuter-5"))
+    )
     assert "A pataḥ is expected here, but" in ov_html
-    assert f"the LC has only the taḥton’s {mark(_QAMATS)}. See more details in " in ov_html
+    assert (
+        f"the LC has only the taḥton’s {mark(_QAMATS)}. See more details in " in ov_html
+    )
     assert 'href="Deuter-5-long-notes.html#long-Deuter-5-8-elyon-patah"' in ov_html
     assert "beyond the limits" not in ov_html
 
@@ -854,8 +1014,10 @@ def test_decalogue_pasoleg_tokenization_deuteronomy():
     a3, b3 = alef14.atoms[2]["text"], bet14.atoms[2]["text"]
     assert _PASOLEG not in a3 and _PASOLEG in b3, (a3, b3)
     a26, b26 = alef14.atoms[25]["text"], bet14.atoms[25]["text"]
-    assert _SOF_PASUQ in a26 and _METEG in a26 and acc.ATN not in a26, a26  # taxton: verse-end
-    assert acc.ATN in b26 and _SOF_PASUQ not in b26, b26                    # elyon: reads on
+    assert (
+        _SOF_PASUQ in a26 and _METEG in a26 and acc.ATN not in a26
+    ), a26  # taxton: verse-end
+    assert acc.ATN in b26 and _SOF_PASUQ not in b26, b26  # elyon: reads on
 
     # dt 5:15 (וזכרת...), unique to Deuteronomy's Decalogue (no Exodus twin): its own
     # pasoleg-tokenization atom (#29) is atom 4 היית ׀ — elyon keeps it, taxton drops it, same
@@ -876,16 +1038,18 @@ def test_strand_same_highlighting():
     combined9 = _read_atoms("Exodus.xml", 20, 9)
     _c, alef9, bet9 = dc.strand_views("Exodus", 20, 9, combined9)
     kol_alef, kol_bet = alef9.atoms[4]["text"], bet9.atoms[4]["text"]
-    assert kol_alef == combined9[4]["text"]   # taxton == combined (would-be old gray)
-    assert kol_alef != kol_bet                # but taxton != elyon → a divergence
+    assert kol_alef == combined9[4]["text"]  # taxton == combined (would-be old gray)
+    assert kol_alef != kol_bet  # but taxton != elyon → a divergence
     alef9_html = _render(clc_render._plain_text_contents(alef9.atoms, bet9.atoms))
     bet9_html = _render(clc_render._plain_text_contents(bet9.atoms, alef9.atoms))
-    assert f'clc-strand-same">{kol_alef}' not in alef9_html   # highlighted, not gray
+    assert f'clc-strand-same">{kol_alef}' not in alef9_html  # highlighted, not gray
     assert f'clc-strand-same">{kol_bet}' not in bet9_html
 
     # A genuinely shared word (absent from the oracle — identical in both strands)
     # stays grayed. ex 20:8 atom 2 אֶת־ diverges in neither strand.
-    _c8, alef8, bet8 = dc.strand_views("Exodus", 20, 8, _read_atoms("Exodus.xml", 20, 8))
+    _c8, alef8, bet8 = dc.strand_views(
+        "Exodus", 20, 8, _read_atoms("Exodus.xml", 20, 8)
+    )
     et = alef8.atoms[1]["text"]
     assert et == bet8.atoms[1]["text"]
     alef8_html = _render(clc_render._plain_text_contents(alef8.atoms, bet8.atoms))
@@ -901,12 +1065,24 @@ def test_strip_to_bare_letters():
 
     # Every strip target on one ש, then the three keep-marks each after their own letter.
     sample = (
-        hl.SHIN + hpo.SHIND + _QAMATS + _DAGESH + acc.TIP + _METEG + _CGJ  # ש + all stripped marks
-        + hl.LAMED + _MAQAF                                                 # ל + maqaf (kept)
-        + hl.MEM + _PASOLEG                                                 # מ + legarmeh/paseq (kept)
-        + hl.TAV + _SOF_PASUQ                                               # ת + sof pasuq (kept)
+        hl.SHIN
+        + hpo.SHIND
+        + _QAMATS
+        + _DAGESH
+        + acc.TIP
+        + _METEG
+        + _CGJ  # ש + all stripped marks
+        + hl.LAMED
+        + _MAQAF  # ל + maqaf (kept)
+        + hl.MEM
+        + _PASOLEG  # מ + legarmeh/paseq (kept)
+        + hl.TAV
+        + _SOF_PASUQ  # ת + sof pasuq (kept)
     )
-    assert strip(sample) == hl.SHIN + hl.LAMED + _MAQAF + hl.MEM + _PASOLEG + hl.TAV + _SOF_PASUQ
+    assert (
+        strip(sample)
+        == hl.SHIN + hl.LAMED + _MAQAF + hl.MEM + _PASOLEG + hl.TAV + _SOF_PASUQ
+    )
     # Shin/sin dots are stripped like any other diacritic (the decided general rule).
     assert strip(hl.SHIN + hpo.SIND) == hl.SHIN
     # Whitespace between words survives, so a two-word phrase does not merge.
@@ -915,7 +1091,7 @@ def test_strip_to_bare_letters():
     assert strip(hl.KAF + hl.LAMED + _MAQAF) == hl.KAF + hl.LAMED + _MAQAF
     # A real fully-pointed divergence word strips to exactly its letters — plus, here, its
     # verse-final sof pasuq (תרצח ends ex 20:13), which is a kept mark, not a stripped diacritic.
-    word = _read_atoms("Exodus.xml", 20, 13)[1]["text"]        # תִרְצָ֖ח׃, fully pointed
+    word = _read_atoms("Exodus.xml", 20, 13)[1]["text"]  # תִרְצָ֖ח׃, fully pointed
     assert strip(word) == hl.TAV + hl.RESH + hl.TSADI + hl.XET + _SOF_PASUQ
 
 

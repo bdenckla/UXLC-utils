@@ -76,7 +76,6 @@ from mb_cmn import str_defs as sd
 import mb_diff_mpu.describe_diff as describe_diff
 import clc.clc_note as clc_note
 
-
 # Combining grapheme joiner: a control char (no textual meaning) used in the
 # combined form only to sequence two combined accents. Once a single accent
 # remains it has nothing to sequence, so a strand drops it (cf. §7.14). It lives
@@ -139,7 +138,13 @@ _HAS_LONG_NOTE = {
     ("Deuter", 5, 6, "elyon", "tipeḥa"),
     ("Deuter", 5, 6, "elyon", "etnaḥta"),
     ("Deuter", 5, 17, "elyon", "silluq"),
-    ("Deuter", 5, 8, "elyon", "pataḥ"),   # an omitted *vowel*, not accent (מתחת; see _omitted_vowel_note)
+    (
+        "Deuter",
+        5,
+        8,
+        "elyon",
+        "pataḥ",
+    ),  # an omitted *vowel*, not accent (מתחת; see _omitted_vowel_note)
 }
 
 
@@ -169,7 +174,7 @@ def _accent_name(ch, verse_final):
 # Ref-label suffixes shown in the page (user-facing): combined / alef / bet.
 SUFFIX_COMBINED = "C"
 SUFFIX_ALEF = "א"  # HEBREW LETTER ALEF
-SUFFIX_BET = "ב"   # HEBREW LETTER BET
+SUFFIX_BET = "ב"  # HEBREW LETTER BET
 
 # Hover description for the combined ref label (book-independent).
 TOOLTIP_COMBINED = (
@@ -185,8 +190,8 @@ TOOLTIP_COMBINED = (
 @dataclass(frozen=True)
 class _Strand:
     doc_label: str  # short doc-column label
-    tooltip: str    # hover description for the ref label
-    short: str      # bare strand name (e.g. "taxton"), for the omitted-accent note prose
+    tooltip: str  # hover description for the ref label
+    short: str  # bare strand name (e.g. "taxton"), for the omitted-accent note prose
 
 
 _PASHUT = _Strand(
@@ -354,10 +359,18 @@ _ORACLE = {
     # and nothing of MAM is rendered or embedded. See §7.16.
     "Exodus": {
         (20, 2): {
-            1: {"cluster": acc.TIP + hl.YOD + acc.PASH, "alef": hl.YOD + acc.PASH, "bet": acc.TIP + hl.YOD},
+            1: {
+                "cluster": acc.TIP + hl.YOD + acc.PASH,
+                "alef": hl.YOD + acc.PASH,
+                "bet": acc.TIP + hl.YOD,
+            },
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": acc.ATN},
             8: {"cluster": acc.MUN + acc.MER, "alef": acc.MUN, "bet": acc.MER},
-            9: {"cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA, "alef": acc.ATN + hl.YOD + hl.FMEM, "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA},
+            9: {
+                "cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA,
+                "alef": acc.ATN + hl.YOD + hl.FMEM,
+                "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA,
+            },
         },
         # ex 20:3 — the QUPO vowel split, the last of the Decalogue's divergence mechanisms.
         # Atom 7 פָּנָ֗י ("before me"): the נ carries both QAMATS and PATAX, sequenced by a
@@ -368,8 +381,18 @@ _ORACLE = {
         # (לא־יהיה) where UXLC does not. Atom 2 יהיה: taxton's merkha is OMITTED (UXLC left it
         # untangled, noted not supplied). Atoms 3–5 are pure-accent.
         (20, 3): {
-            1: {"cluster": hpo.MTGOSLQ + acc.MUN, "alef": hpo.MTGOSLQ, "bet": acc.MUN, "add": {_STRAND_ALEF: [hpu.MAQ]}},
-            2: {"cluster": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ, "omit": {_STRAND_ALEF: [acc.MER]}},
+            1: {
+                "cluster": hpo.MTGOSLQ + acc.MUN,
+                "alef": hpo.MTGOSLQ,
+                "bet": acc.MUN,
+                "add": {_STRAND_ALEF: [hpu.MAQ]},
+            },
+            2: {
+                "cluster": hpo.MTGOSLQ + hl.HE + hpu.MAQ,
+                "alef": hl.HE,
+                "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ,
+                "omit": {_STRAND_ALEF: [acc.MER]},
+            },
             3: {"cluster": acc.TEV + acc.TEL_Q, "alef": acc.TEV, "bet": acc.TEL_Q},
             4: {"cluster": acc.MER + acc.QOM, "alef": acc.MER, "bet": acc.QOM},
             5: {"cluster": acc.TIP + acc.GER, "alef": acc.TIP, "bet": acc.GER},
@@ -392,30 +415,155 @@ _ORACLE = {
         # is a plain two-accent divergence (#28's open מתחת question, resolved — see the
         # module comment above).
         (20, 4): {
-            1: {"cluster": hpo.MTGOSLQ + acc.MUN, "alef": hpo.MTGOSLQ, "bet": acc.MUN, "add": {_STRAND_ALEF: [hpu.MAQ]}},
-            2: {"cluster": hpo.MTGOSLQ + _CGJ + hpo.PATAX + hl.AYIN + hpo.XPATAX + hl.SHIN + hpo.SIND + hpo.SEGOL_V + acc.QOM + hl.HE + hpu.MAQ, "alef": hpo.PATAX + hl.AYIN + hpo.XPATAX + hl.SHIN + hpo.SIND + hpo.SEGOL_V + acc.QOM + hl.HE, "bet": hpo.MTGOSLQ + hpo.PATAX + hl.AYIN + hpo.XPATAX + hl.SHIN + hpo.SIND + hpo.SEGOL_V + hl.HE + hpu.MAQ},
+            1: {
+                "cluster": hpo.MTGOSLQ + acc.MUN,
+                "alef": hpo.MTGOSLQ,
+                "bet": acc.MUN,
+                "add": {_STRAND_ALEF: [hpu.MAQ]},
+            },
+            2: {
+                "cluster": hpo.MTGOSLQ
+                + _CGJ
+                + hpo.PATAX
+                + hl.AYIN
+                + hpo.XPATAX
+                + hl.SHIN
+                + hpo.SIND
+                + hpo.SEGOL_V
+                + acc.QOM
+                + hl.HE
+                + hpu.MAQ,
+                "alef": hpo.PATAX
+                + hl.AYIN
+                + hpo.XPATAX
+                + hl.SHIN
+                + hpo.SIND
+                + hpo.SEGOL_V
+                + acc.QOM
+                + hl.HE,
+                "bet": hpo.MTGOSLQ
+                + hpo.PATAX
+                + hl.AYIN
+                + hpo.XPATAX
+                + hl.SHIN
+                + hpo.SIND
+                + hpo.SEGOL_V
+                + hl.HE
+                + hpu.MAQ,
+            },
             3: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            4: {"cluster": acc.MUN + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + chr(0x0020) + hpu.PASOLEG},
+            4: {
+                "cluster": acc.MUN
+                + acc.PASH
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.LAMED
+                + acc.PASH
+                + chr(0x0020)
+                + hpu.PASOLEG,
+                "alef": acc.PASH
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.LAMED
+                + acc.PASH
+                + chr(0x0020),
+                "bet": acc.MUN
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.LAMED
+                + chr(0x0020)
+                + hpu.PASOLEG,
+            },
             6: {"cluster": acc.PAZ + acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
             7: {"cluster": acc.MAH + acc.MUN, "alef": acc.MAH, "bet": acc.MUN},
-            8: {"cluster": acc.MUN + acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            8: {
+                "cluster": acc.MUN
+                + acc.PASH
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + acc.PASH
+                + chr(0x0020)
+                + hpu.PASOLEG,
+                "alef": acc.PASH
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + acc.PASH
+                + chr(0x0020),
+                "bet": acc.MUN
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + chr(0x0020)
+                + hpu.PASOLEG,
+            },
             9: {"cluster": acc.PAZ + acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
-            10: {"cluster": acc.MER + hl.RESH + acc.TEL_Q, "alef": acc.MER + hl.RESH, "bet": hl.RESH + acc.TEL_Q},
+            10: {
+                "cluster": acc.MER + hl.RESH + acc.TEL_Q,
+                "alef": acc.MER + hl.RESH,
+                "bet": hl.RESH + acc.TEL_Q,
+            },
             11: {"cluster": acc.TIP + acc.QOM, "alef": acc.TIP, "bet": acc.QOM},
-            12: {"cluster": hpo.QAMATS + acc.ATN + _CGJ + hpo.PATAX + acc.GER, "alef": hpo.QAMATS + acc.ATN, "bet": hpo.PATAX + acc.GER},
-            14: {"cluster": acc.TIP + acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            12: {
+                "cluster": hpo.QAMATS + acc.ATN + _CGJ + hpo.PATAX + acc.GER,
+                "alef": hpo.QAMATS + acc.ATN,
+                "bet": hpo.PATAX + acc.GER,
+            },
+            14: {
+                "cluster": acc.TIP
+                + acc.MUN
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + chr(0x0020)
+                + hpu.PASOLEG,
+                "alef": acc.TIP + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020),
+                "bet": acc.MUN
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + chr(0x0020)
+                + hpu.PASOLEG,
+            },
             15: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            16: {"cluster": hpo.MTGOSLQ + acc.REV, "alef": hpo.MTGOSLQ, "bet": acc.REV, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+            16: {
+                "cluster": hpo.MTGOSLQ + acc.REV,
+                "alef": hpo.MTGOSLQ,
+                "bet": acc.REV,
+                "add": {_STRAND_ALEF: [hpu.SOPA]},
+            },
         },
         (20, 5): {
             2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            3: {"cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR, "alef": acc.TIP + hl.FMEM, "bet": hl.FMEM + acc.Z_OR_TSOR},
-            5: {"cluster": acc.ATN + hl.FMEM + acc.SEG_A, "alef": acc.ATN + hl.FMEM, "bet": hl.FMEM + acc.SEG_A},
-            21: {"cluster": hpo.MTGOSLQ + acc.ATN + hl.YOD + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.YOD + hpu.SOPA, "bet": acc.ATN + hl.YOD},
+            3: {
+                "cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR,
+                "alef": acc.TIP + hl.FMEM,
+                "bet": hl.FMEM + acc.Z_OR_TSOR,
+            },
+            5: {
+                "cluster": acc.ATN + hl.FMEM + acc.SEG_A,
+                "alef": acc.ATN + hl.FMEM,
+                "bet": hl.FMEM + acc.SEG_A,
+            },
+            21: {
+                "cluster": hpo.MTGOSLQ + acc.ATN + hl.YOD + hpu.SOPA,
+                "alef": hpo.MTGOSLQ + hl.YOD + hpu.SOPA,
+                "bet": acc.ATN + hl.YOD,
+            },
         },
         (20, 6): {
             1: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
-            2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
+            2: {
+                "cluster": acc.TIP
+                + acc.PASH
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.DALET
+                + acc.PASH,
+                "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET,
+                "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH,
+            },
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
         },
         # ex 20:8 — the first SUPPLIED sof-pasuq in the Decalogues (the additive charity,
@@ -427,10 +575,19 @@ _ORACLE = {
         # 1/3/4 are pure-accent. ex 20:9 / dt 5:12 also want a supplied sof-pasuq but are
         # entangled with a rafe/dagesh (כָּל) and a maqaf count-mismatch respectively — TBD.
         (20, 8): {
-            1: {"cluster": acc.TEV + hl.VAV + hpo.XOLAM + hl.RESH + acc.TEL_Q, "alef": acc.TEV + hl.VAV + hpo.XOLAM + hl.RESH, "bet": hl.VAV + hpo.XOLAM + hl.RESH + acc.TEL_Q},
+            1: {
+                "cluster": acc.TEV + hl.VAV + hpo.XOLAM + hl.RESH + acc.TEL_Q,
+                "alef": acc.TEV + hl.VAV + hpo.XOLAM + hl.RESH,
+                "bet": hl.VAV + hpo.XOLAM + hl.RESH + acc.TEL_Q,
+            },
             3: {"cluster": acc.MER + acc.QOM, "alef": acc.MER, "bet": acc.QOM},
             4: {"cluster": acc.TIP + acc.GER, "alef": acc.TIP, "bet": acc.GER},
-            5: {"cluster": hpo.MTGOSLQ + acc.REV, "alef": hpo.MTGOSLQ, "bet": acc.REV, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+            5: {
+                "cluster": hpo.MTGOSLQ + acc.REV,
+                "alef": hpo.MTGOSLQ,
+                "bet": acc.REV,
+                "add": {_STRAND_ALEF: [hpu.SOPA]},
+            },
         },
         # ex 20:9 (ששת ימים תעבד): the first rafe/dagesh split. Atom 5 כָּל־ ("all") — taxton
         # keeps the dagesh (hard: ועשית took a disjunctive tipxa, so כל opens after a pause),
@@ -439,11 +596,28 @@ _ORACLE = {
         # (taxton ends v.9; elyon keeps segolta and reads on).
         (20, 9): {
             1: {"cluster": acc.MAH + acc.MUN, "alef": acc.MAH, "bet": acc.MUN},
-            2: {"cluster": acc.MUN + hl.YOD + hl.FMEM + acc.PASH, "alef": hl.YOD + hl.FMEM + acc.PASH, "bet": acc.MUN + hl.YOD + hl.FMEM},
-            3: {"cluster": acc.ZAQ_Q + hl.DALET + acc.Z_OR_TSOR, "alef": acc.ZAQ_Q + hl.DALET, "bet": hl.DALET + acc.Z_OR_TSOR},
+            2: {
+                "cluster": acc.MUN + hl.YOD + hl.FMEM + acc.PASH,
+                "alef": hl.YOD + hl.FMEM + acc.PASH,
+                "bet": acc.MUN + hl.YOD + hl.FMEM,
+            },
+            3: {
+                "cluster": acc.ZAQ_Q + hl.DALET + acc.Z_OR_TSOR,
+                "alef": acc.ZAQ_Q + hl.DALET,
+                "bet": hl.DALET + acc.Z_OR_TSOR,
+            },
             4: {"cluster": acc.TIP + acc.MUN, "alef": acc.TIP, "bet": acc.MUN},
-            5: {"cluster": hl.KAF + hpo.DAGOMOSD, "alef": hl.KAF + hpo.DAGOMOSD, "bet": hl.KAF},
-            6: {"cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A, "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS, "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+            5: {
+                "cluster": hl.KAF + hpo.DAGOMOSD,
+                "alef": hl.KAF + hpo.DAGOMOSD,
+                "bet": hl.KAF,
+            },
+            6: {
+                "cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A,
+                "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS,
+                "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A,
+                "add": {_STRAND_ALEF: [hpu.SOPA]},
+            },
         },
         # ex 20:10 (the Sabbath verse's back half, ...לא תעשה כל מלאכה): the second
         # pasoleg-tokenization verse (#29). Atom 3 שבת ends in a pasoleg that elyon (bet) keeps
@@ -457,22 +631,63 @@ _ORACLE = {
         # already present in UXLC). Atom 18 SUPPLIES the verse-end sof-pasuq, same shape as
         # ex 20:4's atom 16 / ex 20:8's atom 5.
         (20, 10): {
-            1: {"cluster": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "alef": hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "bet": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM},
+            1: {
+                "cluster": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH,
+                "alef": hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH,
+                "bet": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM,
+            },
             2: {"cluster": acc.ZAQ_Q + acc.GER, "alef": acc.ZAQ_Q, "bet": acc.GER},
-            3: {"cluster": acc.TIP + acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.TAV + chr(0x0020), "bet": acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG},
+            3: {
+                "cluster": acc.TIP + acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG,
+                "alef": acc.TIP + hl.TAV + chr(0x0020),
+                "bet": acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG,
+            },
             5: {"cluster": acc.ATN + acc.REV, "alef": acc.ATN, "bet": acc.REV},
-            6: {"cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ, "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ, "bet": acc.MUN + hl.ALEF},
+            6: {
+                "cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ,
+                "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ,
+                "bet": acc.MUN + hl.ALEF,
+            },
             7: {"cluster": acc.MUN + acc.QOM, "alef": acc.QOM, "bet": acc.MUN},
             9: {"cluster": acc.PAZ + acc.GER, "alef": acc.GER, "bet": acc.PAZ},
             10: {"cluster": hpu.PASOLEG, "alef": hpu.PASOLEG, "bet": ""},
-            11: {"cluster": hpo.MTGOSLQ + acc.MUN + hpu.MAQ, "alef": acc.MUN, "bet": hpo.MTGOSLQ + hpu.MAQ},
-            12: {"cluster": acc.TEL_G + hl.BET + hpo.XIRIQ + hl.TAV + hpo.DAGOMOSD + hpo.SEGOL_V + acc.REV, "alef": hl.BET + hpo.XIRIQ + hl.TAV + hpo.DAGOMOSD + hpo.SEGOL_V + acc.REV, "bet": acc.TEL_G + hl.BET + hpo.XIRIQ + hl.TAV + hpo.DAGOMOSD + hpo.SEGOL_V},
+            11: {
+                "cluster": hpo.MTGOSLQ + acc.MUN + hpu.MAQ,
+                "alef": acc.MUN,
+                "bet": hpo.MTGOSLQ + hpu.MAQ,
+            },
+            12: {
+                "cluster": acc.TEL_G
+                + hl.BET
+                + hpo.XIRIQ
+                + hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.SEGOL_V
+                + acc.REV,
+                "alef": hl.BET
+                + hpo.XIRIQ
+                + hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.SEGOL_V
+                + acc.REV,
+                "bet": acc.TEL_G
+                + hl.BET
+                + hpo.XIRIQ
+                + hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.SEGOL_V,
+            },
             13: {"cluster": acc.MAH + acc.QOM, "alef": acc.MAH, "bet": acc.QOM},
             14: {"cluster": acc.GER + acc.PASH, "alef": acc.PASH, "bet": acc.GER},
             15: {"cluster": acc.ZAQ_Q + acc.REV, "alef": acc.ZAQ_Q, "bet": acc.REV},
             16: {"cluster": acc.TIP + acc.PASH, "alef": acc.TIP, "bet": acc.PASH},
             17: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            18: {"cluster": hpo.MTGOSLQ + acc.ZAQ_Q, "alef": hpo.MTGOSLQ, "bet": acc.ZAQ_Q, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+            18: {
+                "cluster": hpo.MTGOSLQ + acc.ZAQ_Q,
+                "alef": hpo.MTGOSLQ,
+                "bet": acc.ZAQ_Q,
+                "add": {_STRAND_ALEF: [hpu.SOPA]},
+            },
         },
         # ex 20:13–15 (לא תרצח / תנאף / תגנב): here taxton joins each short commandment to the
         # next (לא takes a conjunctive merkha/munax, so the verb opens SOFT) while elyon chants
@@ -482,15 +697,113 @@ _ORACLE = {
         # silluq + sof-pasuq. (Faithful — Policy 1: the soft letter shows UXLC's own rafe.)
         (20, 13): {
             1: {"cluster": acc.MER + acc.TIP, "alef": acc.MER, "bet": acc.TIP},
-            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + _CGJ + hpo.MTGOSLQ + hl.XET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + hl.XET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + hpo.MTGOSLQ + hl.XET + hpu.SOPA},
+            2: {
+                "cluster": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.RESH
+                + hpo.SHEVA
+                + hl.TSADI
+                + hpo.QAMATS
+                + acc.TIP
+                + _CGJ
+                + hpo.MTGOSLQ
+                + hl.XET
+                + hpu.SOPA,
+                "alef": hl.TAV
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.RESH
+                + hpo.SHEVA
+                + hl.TSADI
+                + hpo.QAMATS
+                + acc.TIP
+                + hl.XET,
+                "bet": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.XIRIQ
+                + hl.RESH
+                + hpo.SHEVA
+                + hl.TSADI
+                + hpo.QAMATS
+                + hpo.MTGOSLQ
+                + hl.XET
+                + hpu.SOPA,
+            },
         },
         (20, 14): {
             1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
-            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + acc.ATN + _CGJ + hpo.MTGOSLQ + hl.FPE + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + acc.ATN + hl.FPE, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + hl.FPE + hpu.SOPA},
+            2: {
+                "cluster": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.NUN
+                + hpo.SHEVA
+                + hl.ALEF
+                + hpo.QAMATS
+                + acc.ATN
+                + _CGJ
+                + hpo.MTGOSLQ
+                + hl.FPE
+                + hpu.SOPA,
+                "alef": hl.TAV
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.NUN
+                + hpo.SHEVA
+                + hl.ALEF
+                + hpo.QAMATS
+                + acc.ATN
+                + hl.FPE,
+                "bet": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.XIRIQ
+                + hl.NUN
+                + hpo.SHEVA
+                + hl.ALEF
+                + hpo.QAMATS
+                + hpo.MTGOSLQ
+                + hl.FPE
+                + hpu.SOPA,
+            },
         },
         (20, 15): {
             1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
-            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + acc.ZAQ_Q + hl.BET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + acc.ZAQ_Q + hl.BET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + hl.BET + hpu.SOPA},
+            2: {
+                "cluster": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.GIMEL
+                + hpo.SHEVA
+                + hl.NUN
+                + hpo.XOLAM
+                + hpo.MTGOSLQ
+                + acc.ZAQ_Q
+                + hl.BET
+                + hpu.SOPA,
+                "alef": hl.TAV
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.GIMEL
+                + hpo.SHEVA
+                + hl.NUN
+                + hpo.XOLAM
+                + acc.ZAQ_Q
+                + hl.BET,
+                "bet": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.XIRIQ
+                + hl.GIMEL
+                + hpo.SHEVA
+                + hl.NUN
+                + hpo.XOLAM
+                + hpo.MTGOSLQ
+                + hl.BET
+                + hpu.SOPA,
+            },
         },
     },
     "Deuter": {
@@ -501,10 +814,24 @@ _ORACLE = {
         # etnaxta omitted. Atoms 8/9 are the pure-subtraction shape of ex 20:2 (munax/merkha; then
         # etnaxta vs. silluq+sof-pasuq at the verse end).
         (5, 6): {
-            1: {"cluster": acc.PASH, "alef": acc.PASH, "bet": "", "omit": {_STRAND_BET: [acc.TIP]}},
-            3: {"cluster": acc.ZAQ_Q, "alef": acc.ZAQ_Q, "bet": "", "omit": {_STRAND_BET: [acc.ATN]}},
+            1: {
+                "cluster": acc.PASH,
+                "alef": acc.PASH,
+                "bet": "",
+                "omit": {_STRAND_BET: [acc.TIP]},
+            },
+            3: {
+                "cluster": acc.ZAQ_Q,
+                "alef": acc.ZAQ_Q,
+                "bet": "",
+                "omit": {_STRAND_BET: [acc.ATN]},
+            },
             8: {"cluster": acc.MUN + acc.MER, "alef": acc.MUN, "bet": acc.MER},
-            9: {"cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA, "alef": acc.ATN + hl.YOD + hl.FMEM, "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA},
+            9: {
+                "cluster": acc.ATN + _CGJ + hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA,
+                "alef": acc.ATN + hl.YOD + hl.FMEM,
+                "bet": hpo.MTGOSLQ + hl.YOD + hl.FMEM + hpu.SOPA,
+            },
         },
         # dt 5:7 — the Deuteronomy twin of ex 20:3, same QUPO vowel split at atom 7 פָּנָ֗י (see
         # its comment there). Atom 1 לא here carries NO meteg at all (UXLC has only munax) — and
@@ -515,8 +842,18 @@ _ORACLE = {
         # verse-final position, not by the U+05BD codepoint alone — see _accent_name). Atoms 3–5
         # are pure-accent, same shape as ex 20:3.
         (5, 7): {
-            1: {"cluster": acc.MUN, "alef": "", "bet": acc.MUN, "add": {_STRAND_ALEF: [hpu.MAQ]}},
-            2: {"cluster": acc.MER + hl.HE + hpu.MAQ, "alef": acc.MER + hl.HE, "bet": hl.HE + hpu.MAQ, "omit": {_STRAND_BET: [hpo.MTGOSLQ]}},
+            1: {
+                "cluster": acc.MUN,
+                "alef": "",
+                "bet": acc.MUN,
+                "add": {_STRAND_ALEF: [hpu.MAQ]},
+            },
+            2: {
+                "cluster": acc.MER + hl.HE + hpu.MAQ,
+                "alef": acc.MER + hl.HE,
+                "bet": hl.HE + hpu.MAQ,
+                "omit": {_STRAND_BET: [hpo.MTGOSLQ]},
+            },
             3: {"cluster": acc.TEV + acc.TEL_Q, "alef": acc.TEV, "bet": acc.TEL_Q},
             4: {"cluster": acc.MER + acc.QOM, "alef": acc.MER, "bet": acc.QOM},
             5: {"cluster": acc.TIP + acc.GER, "alef": acc.TIP, "bet": acc.GER},
@@ -546,30 +883,134 @@ _ORACLE = {
         # qadma/meteg slot itself (not just the meteg-or-silluq + maqaf tail after it) — an
         # ordinary position-safe subtraction, same as every other atom here, not an omission.
         (5, 8): {
-            1: {"cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ, "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ, "bet": acc.MUN + hl.ALEF},
-            2: {"cluster": acc.QOM + hpo.MTGOSLQ + hl.HE + hpu.MAQ, "alef": acc.QOM + hl.HE, "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ},
+            1: {
+                "cluster": hpo.MTGOSLQ + acc.MUN + hl.ALEF + hpu.MAQ,
+                "alef": hpo.MTGOSLQ + hl.ALEF + hpu.MAQ,
+                "bet": acc.MUN + hl.ALEF,
+            },
+            2: {
+                "cluster": acc.QOM + hpo.MTGOSLQ + hl.HE + hpu.MAQ,
+                "alef": acc.QOM + hl.HE,
+                "bet": hpo.MTGOSLQ + hl.HE + hpu.MAQ,
+            },
             3: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            4: {"cluster": acc.MUN + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.SAMEKH + hpo.SEGOL_V + hl.LAMED + chr(0x0020) + hpu.PASOLEG},
+            4: {
+                "cluster": acc.MUN
+                + acc.PASH
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.LAMED
+                + acc.PASH
+                + chr(0x0020)
+                + hpu.PASOLEG,
+                "alef": acc.PASH
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.LAMED
+                + acc.PASH
+                + chr(0x0020),
+                "bet": acc.MUN
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.LAMED
+                + chr(0x0020)
+                + hpu.PASOLEG,
+            },
             6: {"cluster": acc.ZAQ_Q + acc.PAZ, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
             7: {"cluster": acc.MAH + acc.MUN, "alef": acc.MAH, "bet": acc.MUN},
-            8: {"cluster": acc.MUN + acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.YOD + hpo.XIRIQ + hl.FMEM + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            8: {
+                "cluster": acc.MUN
+                + acc.PASH
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + acc.PASH
+                + chr(0x0020)
+                + hpu.PASOLEG,
+                "alef": acc.PASH
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + acc.PASH
+                + chr(0x0020),
+                "bet": acc.MUN
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + chr(0x0020)
+                + hpu.PASOLEG,
+            },
             9: {"cluster": acc.ZAQ_Q + acc.PAZ, "alef": acc.ZAQ_Q, "bet": acc.PAZ},
-            10: {"cluster": acc.MER + hl.RESH + acc.TEL_Q, "alef": acc.MER + hl.RESH, "bet": hl.RESH + acc.TEL_Q},
+            10: {
+                "cluster": acc.MER + hl.RESH + acc.TEL_Q,
+                "alef": acc.MER + hl.RESH,
+                "bet": hl.RESH + acc.TEL_Q,
+            },
             11: {"cluster": acc.TIP + acc.QOM, "alef": acc.TIP, "bet": acc.QOM},
-            12: {"cluster": hpo.QAMATS + acc.ATN + acc.GER, "alef": hpo.QAMATS + acc.ATN, "bet": acc.GER, "omit_vowel": {_STRAND_BET: [hpo.PATAX]}},
-            14: {"cluster": acc.TIP + acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020), "bet": acc.MUN + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020) + hpu.PASOLEG},
+            12: {
+                "cluster": hpo.QAMATS + acc.ATN + acc.GER,
+                "alef": hpo.QAMATS + acc.ATN,
+                "bet": acc.GER,
+                "omit_vowel": {_STRAND_BET: [hpo.PATAX]},
+            },
+            14: {
+                "cluster": acc.TIP
+                + acc.MUN
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + chr(0x0020)
+                + hpu.PASOLEG,
+                "alef": acc.TIP + hl.YOD + hpo.XIRIQ + hl.FMEM + chr(0x0020),
+                "bet": acc.MUN
+                + hl.YOD
+                + hpo.XIRIQ
+                + hl.FMEM
+                + chr(0x0020)
+                + hpu.PASOLEG,
+            },
             15: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            16: {"cluster": hpo.MTGOSLQ + acc.REV + hl.RESH + hpo.SEGOL_V + hl.FTSADI + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.RESH + hpo.SEGOL_V + hl.FTSADI + hpu.SOPA, "bet": acc.REV + hl.RESH + hpo.SEGOL_V + hl.FTSADI},
+            16: {
+                "cluster": hpo.MTGOSLQ
+                + acc.REV
+                + hl.RESH
+                + hpo.SEGOL_V
+                + hl.FTSADI
+                + hpu.SOPA,
+                "alef": hpo.MTGOSLQ + hl.RESH + hpo.SEGOL_V + hl.FTSADI + hpu.SOPA,
+                "bet": acc.REV + hl.RESH + hpo.SEGOL_V + hl.FTSADI,
+            },
         },
         (5, 9): {
             2: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            3: {"cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR, "alef": acc.TIP + hl.FMEM, "bet": hl.FMEM + acc.Z_OR_TSOR},
-            5: {"cluster": acc.ATN + hl.FMEM + acc.SEG_A, "alef": acc.ATN + hl.FMEM, "bet": hl.FMEM + acc.SEG_A},
-            21: {"cluster": hpo.MTGOSLQ + acc.ATN + hl.YOD + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.YOD + hpu.SOPA, "bet": acc.ATN + hl.YOD},
+            3: {
+                "cluster": acc.TIP + hl.FMEM + acc.Z_OR_TSOR,
+                "alef": acc.TIP + hl.FMEM,
+                "bet": hl.FMEM + acc.Z_OR_TSOR,
+            },
+            5: {
+                "cluster": acc.ATN + hl.FMEM + acc.SEG_A,
+                "alef": acc.ATN + hl.FMEM,
+                "bet": hl.FMEM + acc.SEG_A,
+            },
+            21: {
+                "cluster": hpo.MTGOSLQ + acc.ATN + hl.YOD + hpu.SOPA,
+                "alef": hpo.MTGOSLQ + hl.YOD + hpu.SOPA,
+                "bet": acc.ATN + hl.YOD,
+            },
         },
         (5, 10): {
             1: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
-            2: {"cluster": acc.TIP + acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH, "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET, "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH},
+            2: {
+                "cluster": acc.TIP
+                + acc.PASH
+                + hl.SAMEKH
+                + hpo.SEGOL_V
+                + hl.DALET
+                + acc.PASH,
+                "alef": acc.TIP + hl.SAMEKH + hpo.SEGOL_V + hl.DALET,
+                "bet": acc.PASH + hl.SAMEKH + hpo.SEGOL_V + hl.DALET + acc.PASH,
+            },
             3: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
         },
         # dt 5:12 (שמור...): the Deuteronomy twin of ex 20:8 — same shape (taxton's verse-end
@@ -578,12 +1019,25 @@ _ORACLE = {
         # ex 20:4/dt 5:8's atoms.
         (5, 12): {
             1: {"cluster": acc.TEV + acc.MUN, "alef": acc.TEV, "bet": acc.MUN},
-            3: {"cluster": acc.MER + hl.VAV + hpo.XOLAM + hl.FMEM + acc.TEL_Q, "alef": acc.MER + hl.VAV + hpo.XOLAM + hl.FMEM, "bet": hl.VAV + hpo.XOLAM + hl.FMEM + acc.TEL_Q},
+            3: {
+                "cluster": acc.MER + hl.VAV + hpo.XOLAM + hl.FMEM + acc.TEL_Q,
+                "alef": acc.MER + hl.VAV + hpo.XOLAM + hl.FMEM,
+                "bet": hl.VAV + hpo.XOLAM + hl.FMEM + acc.TEL_Q,
+            },
             4: {"cluster": acc.TIP + acc.QOM, "alef": acc.TIP, "bet": acc.QOM},
             5: {"cluster": acc.ATN + acc.GER, "alef": acc.ATN, "bet": acc.GER},
-            7: {"cluster": acc.TIP + acc.MUN + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + chr(0x0020), "bet": acc.MUN + chr(0x0020) + hpu.PASOLEG},
+            7: {
+                "cluster": acc.TIP + acc.MUN + chr(0x0020) + hpu.PASOLEG,
+                "alef": acc.TIP + chr(0x0020),
+                "bet": acc.MUN + chr(0x0020) + hpu.PASOLEG,
+            },
             8: {"cluster": acc.MER + acc.MUN, "alef": acc.MER, "bet": acc.MUN},
-            9: {"cluster": hpo.MTGOSLQ + acc.REV, "alef": hpo.MTGOSLQ, "bet": acc.REV, "add": {_STRAND_ALEF: [hpu.SOPA]}},
+            9: {
+                "cluster": hpo.MTGOSLQ + acc.REV,
+                "alef": hpo.MTGOSLQ,
+                "bet": acc.REV,
+                "add": {_STRAND_ALEF: [hpu.SOPA]},
+            },
         },
         # dt 5:13 (ששת ימים...): the Deuteronomy twin of ex 20:9, but UXLC has only the elyon
         # munax on ימים (atom 2), so the taxton's PASHTA is OMITTED — noted, not supplied; taxton
@@ -592,11 +1046,28 @@ _ORACLE = {
         # the taxton verse (silluq + sof-pasuq, both in UXLC — no supply, unlike ex 20:9).
         (5, 13): {
             1: {"cluster": acc.MUN + acc.MAH, "alef": acc.MAH, "bet": acc.MUN},
-            2: {"cluster": acc.MUN, "alef": "", "bet": acc.MUN, "omit": {_STRAND_ALEF: [acc.PASH]}},
-            3: {"cluster": acc.ZAQ_Q + hl.DALET + acc.Z_OR_TSOR, "alef": acc.ZAQ_Q + hl.DALET, "bet": hl.DALET + acc.Z_OR_TSOR},
+            2: {
+                "cluster": acc.MUN,
+                "alef": "",
+                "bet": acc.MUN,
+                "omit": {_STRAND_ALEF: [acc.PASH]},
+            },
+            3: {
+                "cluster": acc.ZAQ_Q + hl.DALET + acc.Z_OR_TSOR,
+                "alef": acc.ZAQ_Q + hl.DALET,
+                "bet": hl.DALET + acc.Z_OR_TSOR,
+            },
             4: {"cluster": acc.TIP + acc.MUN, "alef": acc.TIP, "bet": acc.MUN},
-            5: {"cluster": hl.KAF + hpo.DAGOMOSD + hpo.RAFE, "alef": hl.KAF + hpo.DAGOMOSD, "bet": hl.KAF + hpo.RAFE},
-            6: {"cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + hpu.SOPA, "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A},
+            5: {
+                "cluster": hl.KAF + hpo.DAGOMOSD + hpo.RAFE,
+                "alef": hl.KAF + hpo.DAGOMOSD,
+                "bet": hl.KAF + hpo.RAFE,
+            },
+            6: {
+                "cluster": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + acc.SEG_A + hpu.SOPA,
+                "alef": hpo.MTGOSLQ + hl.FKAF + hpo.QAMATS + hpu.SOPA,
+                "bet": hl.FKAF + hpo.QAMATS + acc.SEG_A,
+            },
         },
         # dt 5:14 — the Deuteronomy twin of ex 20:10's front half (both share the same
         # ...יום השביעי שבת... opening), so atoms 1/2/3/5 repeat that pattern verbatim
@@ -604,11 +1075,34 @@ _ORACLE = {
         # (atom 26) instead of ex 20:10's continuation — pure accent divergence there, no
         # pasoleg/QUPO/rafe. (Its own count mismatch (#29) was the same atom-3 pasoleg.)
         (5, 14): {
-            1: {"cluster": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "alef": hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH, "bet": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM},
+            1: {
+                "cluster": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH,
+                "alef": hl.VAV + hpo.XOLAM + hl.FMEM + acc.PASH,
+                "bet": acc.QOM + hl.VAV + hpo.XOLAM + hl.FMEM,
+            },
             2: {"cluster": acc.ZAQ_Q + acc.GER, "alef": acc.ZAQ_Q, "bet": acc.GER},
-            3: {"cluster": acc.TIP + acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG, "alef": acc.TIP + hl.TAV + chr(0x0020), "bet": acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG},
+            3: {
+                "cluster": acc.TIP + acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG,
+                "alef": acc.TIP + hl.TAV + chr(0x0020),
+                "bet": acc.MUN + hl.TAV + chr(0x0020) + hpu.PASOLEG,
+            },
             5: {"cluster": acc.ATN + acc.REV, "alef": acc.ATN, "bet": acc.REV},
-            26: {"cluster": hpo.MTGOSLQ + acc.ATN + hl.VAV + hpo.XOLAM + hl.FKAF + hpo.QAMATS + hpu.SOPA, "alef": hpo.MTGOSLQ + hl.VAV + hpo.XOLAM + hl.FKAF + hpo.QAMATS + hpu.SOPA, "bet": acc.ATN + hl.VAV + hpo.XOLAM + hl.FKAF + hpo.QAMATS},
+            26: {
+                "cluster": hpo.MTGOSLQ
+                + acc.ATN
+                + hl.VAV
+                + hpo.XOLAM
+                + hl.FKAF
+                + hpo.QAMATS
+                + hpu.SOPA,
+                "alef": hpo.MTGOSLQ
+                + hl.VAV
+                + hpo.XOLAM
+                + hl.FKAF
+                + hpo.QAMATS
+                + hpu.SOPA,
+                "bet": acc.ATN + hl.VAV + hpo.XOLAM + hl.FKAF + hpo.QAMATS,
+            },
         },
         # dt 5:15 (וזכרת...): the "remember you were a slave" clause unique to Deuteronomy's
         # Decalogue (no Exodus twin) — its own pasoleg-tokenization mismatch (#29) is atom 4
@@ -616,16 +1110,68 @@ _ORACLE = {
         # atom above). Otherwise pure-accent divergence throughout.
         (5, 15): {
             1: {"cluster": acc.REV + acc.GER_2, "alef": acc.REV, "bet": acc.GER_2},
-            2: {"cluster": acc.MUN + hl.YOD + hpu.MAQ, "alef": acc.MUN + hl.YOD, "bet": hl.YOD + hpu.MAQ},
+            2: {
+                "cluster": acc.MUN + hl.YOD + hpu.MAQ,
+                "alef": acc.MUN + hl.YOD,
+                "bet": hl.YOD + hpu.MAQ,
+            },
             3: {"cluster": acc.MAH + acc.MER, "alef": acc.MAH, "bet": acc.MER},
-            4: {"cluster": acc.MUN + acc.PASH + hl.YOD + hl.TAV + hpo.QAMATS + acc.PASH + chr(0x0020) + hpu.PASOLEG, "alef": acc.PASH + hl.YOD + hl.TAV + hpo.QAMATS + acc.PASH + chr(0x0020), "bet": acc.MUN + hl.YOD + hl.TAV + hpo.QAMATS + chr(0x0020) + hpu.PASOLEG},
+            4: {
+                "cluster": acc.MUN
+                + acc.PASH
+                + hl.YOD
+                + hl.TAV
+                + hpo.QAMATS
+                + acc.PASH
+                + chr(0x0020)
+                + hpu.PASOLEG,
+                "alef": acc.PASH
+                + hl.YOD
+                + hl.TAV
+                + hpo.QAMATS
+                + acc.PASH
+                + chr(0x0020),
+                "bet": acc.MUN
+                + hl.YOD
+                + hl.TAV
+                + hpo.QAMATS
+                + chr(0x0020)
+                + hpu.PASOLEG,
+            },
             6: {"cluster": acc.ZAQ_Q + acc.REV, "alef": acc.ZAQ_Q, "bet": acc.REV},
-            7: {"cluster": acc.QOM + hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.GER + acc.TEL_Q, "alef": acc.QOM + hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.GER, "bet": hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.TEL_Q},
+            7: {
+                "cluster": acc.QOM
+                + hl.ALEF
+                + hpo.XPATAX
+                + hl.FKAF
+                + hpo.QAMATS
+                + acc.GER
+                + acc.TEL_Q,
+                "alef": acc.QOM + hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.GER,
+                "bet": hl.ALEF + hpo.XPATAX + hl.FKAF + hpo.QAMATS + acc.TEL_Q,
+            },
             8: {"cluster": acc.MAH + acc.QOM, "alef": acc.MAH, "bet": acc.QOM},
-            9: {"cluster": acc.MAH + acc.PASH + hl.YOD + hl.FKAF + hpo.QAMATS + acc.PASH, "alef": acc.PASH + hl.YOD + hl.FKAF + hpo.QAMATS + acc.PASH, "bet": acc.MAH + hl.YOD + hl.FKAF + hpo.QAMATS},
-            10: {"cluster": acc.ZAQ_Q + hl.FMEM + acc.PASH, "alef": acc.ZAQ_Q + hl.FMEM, "bet": hl.FMEM + acc.PASH},
+            9: {
+                "cluster": acc.MAH
+                + acc.PASH
+                + hl.YOD
+                + hl.FKAF
+                + hpo.QAMATS
+                + acc.PASH,
+                "alef": acc.PASH + hl.YOD + hl.FKAF + hpo.QAMATS + acc.PASH,
+                "bet": acc.MAH + hl.YOD + hl.FKAF + hpo.QAMATS,
+            },
+            10: {
+                "cluster": acc.ZAQ_Q + hl.FMEM + acc.PASH,
+                "alef": acc.ZAQ_Q + hl.FMEM,
+                "bet": hl.FMEM + acc.PASH,
+            },
             11: {"cluster": acc.MER + acc.MAH, "alef": acc.MER, "bet": acc.MAH},
-            12: {"cluster": acc.TIP + hl.HE + acc.PASH, "alef": acc.TIP + hl.HE, "bet": hl.HE + acc.PASH},
+            12: {
+                "cluster": acc.TIP + hl.HE + acc.PASH,
+                "alef": acc.TIP + hl.HE,
+                "bet": hl.HE + acc.PASH,
+            },
             14: {"cluster": acc.ATN + acc.ZAQ_Q, "alef": acc.ATN, "bet": acc.ZAQ_Q},
         },
         # dt 5:16 (כבד את אביך...): the seventh pasoleg-tokenization verse (#29) — and the one
@@ -641,7 +1187,38 @@ _ORACLE = {
         # rafe (soft) + its mid-unit tipxa and reads on (sof-pasuq suppressed).
         (5, 17): {
             1: {"cluster": acc.MER + acc.TIP, "alef": acc.MER, "bet": acc.TIP},
-            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + hl.XET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + acc.TIP + hl.XET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.RESH + hpo.SHEVA + hl.TSADI + hpo.QAMATS + hl.XET + hpu.SOPA, "omit": {_STRAND_BET: [hpo.MTGOSLQ]}},
+            2: {
+                "cluster": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.RESH
+                + hpo.SHEVA
+                + hl.TSADI
+                + hpo.QAMATS
+                + acc.TIP
+                + hl.XET
+                + hpu.SOPA,
+                "alef": hl.TAV
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.RESH
+                + hpo.SHEVA
+                + hl.TSADI
+                + hpo.QAMATS
+                + acc.TIP
+                + hl.XET,
+                "bet": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.XIRIQ
+                + hl.RESH
+                + hpo.SHEVA
+                + hl.TSADI
+                + hpo.QAMATS
+                + hl.XET
+                + hpu.SOPA,
+                "omit": {_STRAND_BET: [hpo.MTGOSLQ]},
+            },
         },
         # dt 5:18–19 (לא תנאף / תגנב): the Deuteronomy twins of ex 20:14–15 — same rafe/dagesh
         # split (taxton soft via the rafe, elyon hard via the dagesh + silluq + sof-pasuq), all
@@ -649,11 +1226,75 @@ _ORACLE = {
         # elyon silluq, so nothing is omitted.)
         (5, 18): {
             1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
-            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + acc.ATN + hl.FPE + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + acc.ATN + hl.FPE, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.NUN + hpo.SHEVA + hl.ALEF + hpo.QAMATS + hpo.MTGOSLQ + hl.FPE + hpu.SOPA},
+            2: {
+                "cluster": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.NUN
+                + hpo.SHEVA
+                + hl.ALEF
+                + hpo.QAMATS
+                + hpo.MTGOSLQ
+                + acc.ATN
+                + hl.FPE
+                + hpu.SOPA,
+                "alef": hl.TAV
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.NUN
+                + hpo.SHEVA
+                + hl.ALEF
+                + hpo.QAMATS
+                + acc.ATN
+                + hl.FPE,
+                "bet": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.XIRIQ
+                + hl.NUN
+                + hpo.SHEVA
+                + hl.ALEF
+                + hpo.QAMATS
+                + hpo.MTGOSLQ
+                + hl.FPE
+                + hpu.SOPA,
+            },
         },
         (5, 19): {
             1: {"cluster": acc.MUN + acc.TIP, "alef": acc.MUN, "bet": acc.TIP},
-            2: {"cluster": hl.TAV + hpo.DAGOMOSD + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + acc.ZAQ_Q + hl.BET + hpu.SOPA, "alef": hl.TAV + hpo.RAFE + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + acc.ZAQ_Q + hl.BET, "bet": hl.TAV + hpo.DAGOMOSD + hpo.XIRIQ + hl.GIMEL + hpo.SHEVA + hl.NUN + hpo.XOLAM + hpo.MTGOSLQ + hl.BET + hpu.SOPA},
+            2: {
+                "cluster": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.GIMEL
+                + hpo.SHEVA
+                + hl.NUN
+                + hpo.XOLAM
+                + hpo.MTGOSLQ
+                + acc.ZAQ_Q
+                + hl.BET
+                + hpu.SOPA,
+                "alef": hl.TAV
+                + hpo.RAFE
+                + hpo.XIRIQ
+                + hl.GIMEL
+                + hpo.SHEVA
+                + hl.NUN
+                + hpo.XOLAM
+                + acc.ZAQ_Q
+                + hl.BET,
+                "bet": hl.TAV
+                + hpo.DAGOMOSD
+                + hpo.XIRIQ
+                + hl.GIMEL
+                + hpo.SHEVA
+                + hl.NUN
+                + hpo.XOLAM
+                + hpo.MTGOSLQ
+                + hl.BET
+                + hpu.SOPA,
+            },
         },
     },
 }
@@ -663,11 +1304,13 @@ _ORACLE = {
 class StrandView:
     """One displayable form of a dual-cant verse: combined, alef, or bet."""
 
-    suffix: str    # ref-label suffix: "C" / "א" / "ב"
-    tooltip: str   # hover description for the ref label
+    suffix: str  # ref-label suffix: "C" / "א" / "ב"
+    tooltip: str  # hover description for the ref label
     doc_label: str  # short doc-column label ("" for the combined form)
-    atoms: list    # atom dicts (clc_read shape + "additions" on split atoms)
-    notes: tuple = ()  # synthesized strand notes: supplied-mark + omitted-accent (strand only)
+    atoms: list  # atom dicts (clc_read shape + "additions" on split atoms)
+    notes: (
+        tuple
+    ) = ()  # synthesized strand notes: supplied-mark + omitted-accent (strand only)
 
 
 def is_dual_cant(book_id, ch, v):
@@ -708,16 +1351,21 @@ def strand_views(book_id, ch, v, verse_atoms):
     bet_atoms = _strand_atoms(verse_atoms, oracle, _STRAND_BET)
     verse_loc = (book_id, ch, v)
     combined_notes = _combined_divergence_notes(
-        verse_atoms, alef_atoms, bet_atoms, alef_strand, bet_strand)
+        verse_atoms, alef_atoms, bet_atoms, alef_strand, bet_strand
+    )
     return [
         StrandView(SUFFIX_COMBINED, TOOLTIP_COMBINED, "", verse_atoms, combined_notes),
         StrandView(
-            SUFFIX_ALEF, alef_strand.tooltip, alef_strand.doc_label,
+            SUFFIX_ALEF,
+            alef_strand.tooltip,
+            alef_strand.doc_label,
             alef_atoms,
             _strand_notes(alef_atoms, bet_atoms, alef_strand, bet_strand, verse_loc),
         ),
         StrandView(
-            SUFFIX_BET, bet_strand.tooltip, bet_strand.doc_label,
+            SUFFIX_BET,
+            bet_strand.tooltip,
+            bet_strand.doc_label,
             bet_atoms,
             _strand_notes(bet_atoms, alef_atoms, bet_strand, alef_strand, verse_loc),
         ),
@@ -744,13 +1392,22 @@ def _split_atom(atom, atom_index, oracle, strand):
     # The base letter carrying a rafe/dagesh or QUPO divergence — shared by both strands, so it
     # is the same char whichever strand this is; ``None`` for a pure-accent atom. Named in the
     # combined-row both-strands note (e.g. "On the נ of פני …").
-    marks = ({hpo.DAGOMOSD, hpo.RAFE} if rafe_dagesh
-             else {hpo.QAMATS, hpo.PATAX} if qupo_vowel else None)
+    marks = (
+        {hpo.DAGOMOSD, hpo.RAFE}
+        if rafe_dagesh
+        else {hpo.QAMATS, hpo.PATAX} if qupo_vowel else None
+    )
     letter = _base_letter(atom["text"], entry["cluster"], marks) if marks else None
-    return {**atom, "text": text, "additions": list(additions),
-            "omitted_accents": list(omitted), "omitted_vowels": list(omitted_vowels),
-            "rafe_dagesh": rafe_dagesh, "qupo_vowel": qupo_vowel,
-            "divergence_letter": letter}
+    return {
+        **atom,
+        "text": text,
+        "additions": list(additions),
+        "omitted_accents": list(omitted),
+        "omitted_vowels": list(omitted_vowels),
+        "rafe_dagesh": rafe_dagesh,
+        "qupo_vowel": qupo_vowel,
+        "divergence_letter": letter,
+    }
 
 
 def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand, verse_loc):
@@ -777,16 +1434,37 @@ def _strand_notes(strand_atoms, other_strand_atoms, strand, other_strand, verse_
         for omitted_char in atom.get("omitted_accents", ()):
             present = _present_accent(atom["text"], other_atom["text"])
             present_verse_final = hpu.SOPA in other_atom["text"]
-            notes.append(_omitted_note(atom["text"], omitted_char, present, present_verse_final,
-                                        strand, other_strand, verse_loc, atom_index))
+            notes.append(
+                _omitted_note(
+                    atom["text"],
+                    omitted_char,
+                    present,
+                    present_verse_final,
+                    strand,
+                    other_strand,
+                    verse_loc,
+                    atom_index,
+                )
+            )
         for omitted_vowel in atom.get("omitted_vowels", ()):
             present = _present_vowel(atom["text"], other_atom["text"])
-            notes.append(_omitted_vowel_note(atom["text"], omitted_vowel, present,
-                                             strand, other_strand, verse_loc, atom_index))
+            notes.append(
+                _omitted_vowel_note(
+                    atom["text"],
+                    omitted_vowel,
+                    present,
+                    strand,
+                    other_strand,
+                    verse_loc,
+                    atom_index,
+                )
+            )
     return tuple(notes)
 
 
-def _combined_divergence_notes(verse_atoms, alef_atoms, bet_atoms, alef_strand, bet_strand):
+def _combined_divergence_notes(
+    verse_atoms, alef_atoms, bet_atoms, alef_strand, bet_strand
+):
     """The verse's **both-strands** divergence notes, for the combined (``-C``) row: one per
     rafe/dagesh atom and one per QUPO vowel-split atom, each stated ONCE naming both strands and
     the shared letter they differ on (design doc §7.7, issue #47) — rather than the same fact
@@ -802,13 +1480,29 @@ def _combined_divergence_notes(verse_atoms, alef_atoms, bet_atoms, alef_strand, 
     ):
         word = combined["text"]
         if a_atom.get("rafe_dagesh"):
-            notes.append(_rafe_dagesh_note(
-                word, a_atom["divergence_letter"], atom_index,
-                alef_strand, a_atom["rafe_dagesh"], bet_strand, b_atom["rafe_dagesh"]))
+            notes.append(
+                _rafe_dagesh_note(
+                    word,
+                    a_atom["divergence_letter"],
+                    atom_index,
+                    alef_strand,
+                    a_atom["rafe_dagesh"],
+                    bet_strand,
+                    b_atom["rafe_dagesh"],
+                )
+            )
         if a_atom.get("qupo_vowel"):
-            notes.append(_vowel_split_note(
-                word, a_atom["divergence_letter"], atom_index,
-                alef_strand, a_atom["qupo_vowel"], bet_strand, b_atom["qupo_vowel"]))
+            notes.append(
+                _vowel_split_note(
+                    word,
+                    a_atom["divergence_letter"],
+                    atom_index,
+                    alef_strand,
+                    a_atom["qupo_vowel"],
+                    bet_strand,
+                    b_atom["qupo_vowel"],
+                )
+            )
     return tuple(notes)
 
 
@@ -816,14 +1510,21 @@ def _present_accent(this_text, other_text):
     """The accent UXLC has at this atom: the (single) accent the OTHER strand keeps and
     this strand lacks — i.e. the divergent accent present in UXLC. ``None`` if none."""
     this_accents = {ch for ch in this_text if _is_accent(ch)}
-    return next((ch for ch in other_text if _is_accent(ch) and ch not in this_accents), None)
+    return next(
+        (ch for ch in other_text if _is_accent(ch) and ch not in this_accents), None
+    )
 
 
 # The niqqud vowel points: describe_diff.POINT_NAMES minus its non-vowel points (dagesh,
 # meteg, rafe, shin-dot, sin-dot, varika). Used to spot the vowel one strand keeps and the
 # other lacks at an omitted-vowel atom, without mistaking a shared dagesh/meteg for it.
 _VOWEL_POINTS = frozenset(describe_diff.POINT_NAMES) - {
-    hpo.DAGOMOSD, hpo.MTGOSLQ, hpo.RAFE, hpo.SHIND, hpo.SIND, hpo.VARIKA,
+    hpo.DAGOMOSD,
+    hpo.MTGOSLQ,
+    hpo.RAFE,
+    hpo.SHIND,
+    hpo.SIND,
+    hpo.VARIKA,
 }
 
 
@@ -834,7 +1535,9 @@ def _present_vowel(this_text, other_text):
     ``_present_accent``, restricted to genuine niqqud vowels (``_VOWEL_POINTS``) so a shared
     dagesh/meteg is never mistaken for the divergent vowel."""
     this_vowels = {ch for ch in this_text if ch in _VOWEL_POINTS}
-    return next((ch for ch in other_text if ch in _VOWEL_POINTS and ch not in this_vowels), None)
+    return next(
+        (ch for ch in other_text if ch in _VOWEL_POINTS and ch not in this_vowels), None
+    )
 
 
 def _cluster_extras(entry, strand):
@@ -844,7 +1547,8 @@ def _cluster_extras(entry, strand):
     exactly the genuinely divergent marks. This is what lets the rafe/dagesh and QUPO divergences be
     *detected* straight from the oracle's own alef/bet resolutions (no redundant oracle field to
     drift), while sidestepping the whole-word-markset trap design doc §7.7 warns of: an unrelated
-    *shared* copy of a diverging vowel/point cancels here instead of masking the real divergence."""
+    *shared* copy of a diverging vowel/point cancels here instead of masking the real divergence.
+    """
     other = _STRAND_BET if strand == _STRAND_ALEF else _STRAND_ALEF
     this_c, other_c = Counter(entry[strand]), Counter(entry[other])
     return this_c - other_c, other_c - this_c
@@ -854,7 +1558,8 @@ def _rafe_dagesh_state(entry, strand):
     """If this atom is a rafe/dagesh divergence (§7.7), this strand's state — ``"dagesh"`` (hard),
     ``"rafe"`` (soft, UXLC's rafe kept), or ``"bare"`` (soft, UXLC marks no rafe, e.g. ex 20:9 כל);
     ``None`` if the two strands don't differ in dagesh/rafe here. Read off ``_cluster_extras``, so a
-    dagesh/rafe both strands keep (or one recurring elsewhere in the word) never triggers it."""
+    dagesh/rafe both strands keep (or one recurring elsewhere in the word) never triggers it.
+    """
     this_extra, other_extra = _cluster_extras(entry, strand)
     if not ({hpo.DAGOMOSD, hpo.RAFE} & (set(this_extra) | set(other_extra))):
         return None
@@ -887,9 +1592,10 @@ def _base_letter(combined_text, cluster, marks):
     """The base letter a divergence sits on: the nearest Hebrew letter at or before the FIRST
     of ``marks`` (the divergent dagesh/rafe, or the divergent qamats/patax) inside the cluster's
     site in ``combined_text``. Restricting the search to the cluster's own span avoids a same-type
-    mark elsewhere in the word (e.g. a shared qamats). Returns the letter char, or ``None``."""
+    mark elsewhere in the word (e.g. a shared qamats). Returns the letter char, or ``None``.
+    """
     start = combined_text.index(cluster)
-    region = combined_text[start:start + len(cluster)]
+    region = combined_text[start : start + len(cluster)]
     pos = next((start + off for off, ch in enumerate(region) if ch in marks), None)
     if pos is None:
         return None
@@ -901,17 +1607,25 @@ def _base_letter(combined_text, cluster, marks):
 
 def _added_note(snippet, added_char, atom_index):
     return {
-        "kind": _ADDED_NAME[added_char],   # "maqaf" / "sof pasuq"
-        "char": added_char,                # the supplied mark itself
-        "snippet": snippet,                # the strand word that receives it
-        "atom_index": atom_index,          # 1-based atom position, for grouping in clc_render
+        "kind": _ADDED_NAME[added_char],  # "maqaf" / "sof pasuq"
+        "char": added_char,  # the supplied mark itself
+        "snippet": snippet,  # the strand word that receives it
+        "atom_index": atom_index,  # 1-based atom position, for grouping in clc_render
         "source": clc_note.SOURCE_DUAL_CANT_ADDITION,
         "diff_type": clc_note.DIFF_DUAL_CANT_ADDED_PUNCT,
     }
 
 
-def _omitted_note(snippet, accent_char, present_char, present_verse_final, strand, other_strand,
-                   verse_loc, atom_index):
+def _omitted_note(
+    snippet,
+    accent_char,
+    present_char,
+    present_verse_final,
+    strand,
+    other_strand,
+    verse_loc,
+    atom_index,
+):
     """An accent this strand wants but UXLC omitted — noted, not supplied. The snippet is
     the strand word AS SHOWN (that accent absent); no mark is rendered. ``present_char`` is
     the accent UXLC *does* have here (the other strand's), named in the note for concreteness.
@@ -933,16 +1647,17 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
     kind = _accent_name(accent_char, wanted_verse_final)
     book_id, ch, v = verse_loc
     return {
-        "kind": kind,                            # the wanted accent, e.g. "silluq"
-        "char": accent_char,                     # the wanted accent (for reference; not rendered)
-        "present_kind": (_accent_name(present_char, present_verse_final)
-                          if present_char else None),  # the accent UXLC has
+        "kind": kind,  # the wanted accent, e.g. "silluq"
+        "char": accent_char,  # the wanted accent (for reference; not rendered)
+        "present_kind": (
+            _accent_name(present_char, present_verse_final) if present_char else None
+        ),  # the accent UXLC has
         "present_char": present_char,
-        "snippet": snippet,                      # the strand word, shown without the accent
-        "atom_index": atom_index,                # 1-based atom position, for grouping in clc_render
-        "strand": strand.short,                  # the strand that wants it ("elyon"/"taxton"/…)
-        "other_strand": other_strand.short,      # the strand whose accent UXLC does have
-        "verse_loc": verse_loc,                  # (book_id, ch, v), for clc_render's long-note anchor
+        "snippet": snippet,  # the strand word, shown without the accent
+        "atom_index": atom_index,  # 1-based atom position, for grouping in clc_render
+        "strand": strand.short,  # the strand that wants it ("elyon"/"taxton"/…)
+        "other_strand": other_strand.short,  # the strand whose accent UXLC does have
+        "verse_loc": verse_loc,  # (book_id, ch, v), for clc_render's long-note anchor
         "lc_corroborated": (book_id, ch, v, strand.short, kind) in _LC_CORROBORATED,
         "has_long_note": (book_id, ch, v, strand.short, kind) in _HAS_LONG_NOTE,
         "source": clc_note.SOURCE_DUAL_CANT_OMITTED_ACCENT,
@@ -950,8 +1665,9 @@ def _omitted_note(snippet, accent_char, present_char, present_verse_final, stran
     }
 
 
-def _omitted_vowel_note(snippet, vowel_char, present_char, strand, other_strand,
-                        verse_loc, atom_index):
+def _omitted_vowel_note(
+    snippet, vowel_char, present_char, strand, other_strand, verse_loc, atom_index
+):
     """A vowel this strand wants but UXLC omitted — noted, not supplied, exactly like an
     omitted accent (``_omitted_note``) but for a niqqud vowel. The strand's letter is shown
     bare (``snippet`` already lacks the vowel); the OTHER strand keeps its own, differing
@@ -968,17 +1684,18 @@ def _omitted_vowel_note(snippet, vowel_char, present_char, strand, other_strand,
     book_id, ch, v = verse_loc
     kind = describe_diff.mark_name(vowel_char)
     return {
-        "kind": kind,                            # the wanted vowel, e.g. "patax"
-        "char": vowel_char,                      # the wanted vowel (for reference; not rendered)
-        "present_kind": (describe_diff.mark_name(present_char)
-                          if present_char else None),  # the vowel UXLC has (the other strand's)
+        "kind": kind,  # the wanted vowel, e.g. "patax"
+        "char": vowel_char,  # the wanted vowel (for reference; not rendered)
+        "present_kind": (
+            describe_diff.mark_name(present_char) if present_char else None
+        ),  # the vowel UXLC has (the other strand's)
         "present_char": present_char,
-        "snippet": snippet,                      # the strand word, shown without the vowel
-        "atom_index": atom_index,                # 1-based atom position, for grouping in clc_render
-        "strand": strand.short,                  # the strand that wants it ("elyon"/"taxton"/…)
-        "other_strand": other_strand.short,      # the strand whose vowel UXLC does have
-        "verse_loc": verse_loc,                  # (book_id, ch, v), for clc_render's long-note anchor
-        "lc_corroborated": False,                # grounding is the long note, not wlc-utils (§7.3)
+        "snippet": snippet,  # the strand word, shown without the vowel
+        "atom_index": atom_index,  # 1-based atom position, for grouping in clc_render
+        "strand": strand.short,  # the strand that wants it ("elyon"/"taxton"/…)
+        "other_strand": other_strand.short,  # the strand whose vowel UXLC does have
+        "verse_loc": verse_loc,  # (book_id, ch, v), for clc_render's long-note anchor
+        "lc_corroborated": False,  # grounding is the long note, not wlc-utils (§7.3)
         "has_long_note": (book_id, ch, v, strand.short, kind) in _HAS_LONG_NOTE,
         "source": clc_note.SOURCE_DUAL_CANT_OMITTED_VOWEL,
         "diff_type": clc_note.DIFF_DUAL_CANT_OMITTED_VOWEL,
@@ -992,27 +1709,33 @@ def _rafe_dagesh_note(word, letter, atom_index, a_strand, a_state, b_strand, b_s
     vs. conjunctive accent. ``a_state``/``b_state`` are each strand's own resolution (``"dagesh"`` /
     ``"rafe"`` / ``"bare"``). alef (verse-by-verse) is named first."""
     return {
-        "word": word,                            # the combined atom word the note names
-        "letter": letter,                        # the shared letter the two strands differ on
-        "atom_index": atom_index,                # 1-based atom position, for the combined row
-        "a_strand": a_strand.short, "a_state": a_state,  # alef strand + its hard/soft state
-        "b_strand": b_strand.short, "b_state": b_state,  # bet strand + its state
+        "word": word,  # the combined atom word the note names
+        "letter": letter,  # the shared letter the two strands differ on
+        "atom_index": atom_index,  # 1-based atom position, for the combined row
+        "a_strand": a_strand.short,
+        "a_state": a_state,  # alef strand + its hard/soft state
+        "b_strand": b_strand.short,
+        "b_state": b_state,  # bet strand + its state
         "source": clc_note.SOURCE_DUAL_CANT_RAFE_DAGESH,
         "diff_type": clc_note.DIFF_DUAL_CANT_DAGESH,
     }
 
 
-def _vowel_split_note(word, letter, atom_index, a_strand, a_vowel_char, b_strand, b_vowel_char):
+def _vowel_split_note(
+    word, letter, atom_index, a_strand, a_vowel_char, b_strand, b_vowel_char
+):
     """A QUPO vowel split (§7.7) as ONE combined-row note naming both strands: on the shared
     ``letter`` of ``word`` the two strands have different vowels (patax vs. qamats), each its own.
     Vowel names come from the canonical ``describe_diff`` authority (never a reinvented spelling).
     alef first."""
     return {
-        "word": word,                            # the combined atom word the note names
-        "letter": letter,                        # the shared letter carrying the two vowels
-        "atom_index": atom_index,                # 1-based atom position, for the combined row
-        "a_strand": a_strand.short, "a_vowel": describe_diff.mark_name(a_vowel_char),
-        "b_strand": b_strand.short, "b_vowel": describe_diff.mark_name(b_vowel_char),
+        "word": word,  # the combined atom word the note names
+        "letter": letter,  # the shared letter carrying the two vowels
+        "atom_index": atom_index,  # 1-based atom position, for the combined row
+        "a_strand": a_strand.short,
+        "a_vowel": describe_diff.mark_name(a_vowel_char),
+        "b_strand": b_strand.short,
+        "b_vowel": describe_diff.mark_name(b_vowel_char),
         "source": clc_note.SOURCE_DUAL_CANT_QUPO_VOWEL,
         "diff_type": clc_note.DIFF_DUAL_CANT_QUPO_VOWEL,
     }

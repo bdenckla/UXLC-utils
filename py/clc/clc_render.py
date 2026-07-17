@@ -13,7 +13,7 @@ to MAM's ``mam-doc-*`` (design doc §8); the rules live in gh-pages/style.css.
 
 from dataclasses import dataclass
 
-import mb_cmn.hebrew_punctuation as hpu   # for hpu.MAQ (־, U+05BE)
+import mb_cmn.hebrew_punctuation as hpu  # for hpu.MAQ (־, U+05BE)
 import mb_diff_mpu.describe_diff as describe_diff
 import clc.clc_attribution as clc_attribution
 import clc.clc_dual_cant as clc_dual_cant
@@ -63,7 +63,9 @@ def write_book(book_id, book, notes, chapters=None):
         for vridx, verse in enumerate(chapter):
             v = vridx + 1
             if clc_dual_cant.is_dual_cant(book_id, ch, v):
-                rows.extend(_dual_cant_rows(book_id, ch, v, verse, notes_by_atom, label))
+                rows.extend(
+                    _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, label)
+                )
             else:
                 rows.append(_verse_row(ch, v, verse, notes_by_atom, label))
     disp = disp_label(book_id, chapters)
@@ -126,7 +128,9 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, page_label):
             # each such atom's word in the text column and append its note to the doc column.
             div_targets = {n["atom_index"] for n in view.notes}
             text_cell = H.table_datum(
-                _text_contents(ch, v, view.atoms, notes_by_atom, page_label, div_targets),
+                _text_contents(
+                    ch, v, view.atoms, notes_by_atom, page_label, div_targets
+                ),
                 {**_HBO_ATTR, "class": "clc-text"},
             )
             doc_blocks = _doc_contents(ch, v, view.atoms, notes_by_atom)
@@ -137,7 +141,9 @@ def _dual_cant_rows(book_id, ch, v, verse, notes_by_atom, page_label):
             # not the combined form — see _plain_text_contents.
             other = next(vw for vw in strands if vw is not view)
             text_cell = H.table_datum(
-                _plain_text_contents(view.atoms, other.atoms, _strand_noted_indices(view)),
+                _plain_text_contents(
+                    view.atoms, other.atoms, _strand_noted_indices(view)
+                ),
                 {**_HBO_ATTR, "class": "clc-text"},
             )
             doc_cell = H.table_datum(
@@ -230,7 +236,9 @@ def _strand_note_header(note):
     return H.span(bare, {"dir": "rtl"})
 
 
-_LC_CORROBORATED_LINK = "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
+_LC_CORROBORATED_LINK = (
+    "https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html"
+)
 
 # The exact URL-fragment on that page for each corroborated case's own "Supplied accents"
 # block (wlc-utils supplied_marks._anchor_id), so the long-note deep-links straight to it
@@ -282,8 +290,11 @@ def _omitted_note_core(note):
     article = "An" if note["kind"][:1] in "aeiou" else "A"
     grounded = note.get("lc_corroborated", False) or note.get("has_long_note", False)
     carries = "the LC has" if grounded else "UXLC’s combined text carries"
-    has = (f"only the {note['other_strand']}’s {note['present_kind']}"
-           if note.get("present_kind") else f"no accent for the {note['strand']} strand")
+    has = (
+        f"only the {note['other_strand']}’s {note['present_kind']}"
+        if note.get("present_kind")
+        else f"no accent for the {note['strand']} strand"
+    )
     return [
         f"{article} {note['kind']} is expected here, but {carries} {has}",
     ]
@@ -346,7 +357,9 @@ def _charity_limit_paragraph(note):
     if _is_softened_meteg(note):
         return None
     return H.para(
-        [f"It is beyond the limits of CLC’s charity to supply the missing {note['kind']}."]
+        [
+            f"It is beyond the limits of CLC’s charity to supply the missing {note['kind']}."
+        ]
     )
 
 
@@ -477,7 +490,9 @@ def _noted_word(text, atom_notes, page_label):
 def _relegated_anchor(note):
     # Non-None iff this UXLC x-note is relegated to the long-notes page instead of an
     # inline same-row block (design doc §7.3, case-by-case — see _LONG_NOTE_SPECS).
-    return _UXLC_NOTES_RELEGATED.get((note.book, note.ch, note.v, note.atom_index, note.note_code))
+    return _UXLC_NOTES_RELEGATED.get(
+        (note.book, note.ch, note.v, note.atom_index, note.note_code)
+    )
 
 
 def _relegated_page_href(atom_notes, page_label):
@@ -490,7 +505,12 @@ def _relegated_page_href(atom_notes, page_label):
         return None
     anchors = {_relegated_anchor(n) for n in atom_notes}
     n0 = atom_notes[0]
-    assert len(anchors) == 1, (n0.ch, n0.v, n0.atom_index, anchors)  # one atom, one long note
+    assert len(anchors) == 1, (
+        n0.ch,
+        n0.v,
+        n0.atom_index,
+        anchors,
+    )  # one atom, one long note
     (anchor,) = anchors
     return clc_long_note.page_href(page_label, anchor)
 
@@ -516,7 +536,9 @@ def _plain_text_contents(strand_atoms, other_atoms, noted_indices=()):
     # unhighlighted. Which atoms qualify is decided by the caller (_strand_noted_indices): only
     # omitted-accent notes, NOT supplied-mark notes, whose green bracketed mark is its own flag.
     pieces = []
-    for index, (strand_atom, other_atom) in enumerate(zip(strand_atoms, other_atoms), start=1):
+    for index, (strand_atom, other_atom) in enumerate(
+        zip(strand_atoms, other_atoms), start=1
+    ):
         atom_text = strand_atom["text"]
         additions = strand_atom.get("additions", ())
         same_across_strands = atom_text == other_atom["text"] and tuple(
@@ -608,7 +630,9 @@ def _note_body(note):
         return _departure_note_body(note)
     pieces = [H.span(f"[{note.note_code}] ", {"class": "clc-note-code"})]
     if note.superseding_uxlc_change:
-        pieces.append(clc_attribution.superseding_change_cite(note.superseding_uxlc_change))
+        pieces.append(
+            clc_attribution.superseding_change_cite(note.superseding_uxlc_change)
+        )
     else:
         pieces.append(note.note_text)
         pieces.append(clc_attribution.note_cite(note.source_url))
@@ -662,7 +686,8 @@ def _dt_5_13_taxton_extra(_spec, _book, notes):
     # never had to for this pashta, because WLC already carries it (wrongly). Named
     # generically as "the grammar checker" per Ben; the BHS-origin guess stays hedged.
     uxlc_note = next(
-        n for n in notes
+        n
+        for n in notes
         if (n.book, n.ch, n.v, n.atom_index, n.note_code) == ("Deuter", 5, 13, 2, "t")
     )
     # A list of paragraphs (each a list of inline pieces).
@@ -689,7 +714,9 @@ def _dt_5_13_taxton_extra(_spec, _book, notes):
 # Yeivin, Introduction to the Tiberian Masorah §355 (the special "phonetic" gaʿya of
 # היה/חיה-root forms), in Ben's adaptation on phonetic-hbo. House style for such deep
 # links is a "section NNN" anchor (cf. MAM-basics rocc_4_mid_word_ga3ya_with_shewa).
-_YEIVIN_ITM_355_URL = "https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"
+_YEIVIN_ITM_355_URL = (
+    "https://bdenckla.github.io/phonetic-hbo/yeivin_itm-345_357.html#ns355"
+)
 
 
 def _dt_5_7_elyon_meteg_extra(_spec, _book, _notes):
@@ -778,7 +805,8 @@ class _LongNoteSpec:
     at build time; ``image_credit`` is that source page's own credit line, carried forward
     alongside it. ``extra_blocks`` is ``(spec, book, notes) -> [H pieces]``, this note's own
     added content beyond the verse/short-note recap every long note gets automatically (it
-    gets ``spec`` so e.g. _lc_corroborated_extra can pick its own supplied-marks #fragment)."""
+    gets ``spec`` so e.g. _lc_corroborated_extra can pick its own supplied-marks #fragment).
+    """
 
     book_id: str
     ch: int
@@ -801,12 +829,16 @@ def _lc_corroborated_extra(spec, _book, _notes):
     # only, with just a "See more details in this longer note" pointer left inline
     # (clc_render._omitted_note_body). The link carries a #fragment (per spec, via
     # _SUPPLIED_MARKS_ANCHOR) so it lands on this very case's block, not the page top.
-    fragment = _SUPPLIED_MARKS_ANCHOR[(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)]
+    fragment = _SUPPLIED_MARKS_ANCHOR[
+        (spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)
+    ]
     return [
         [
             "This omitted accent is independently corroborated by wlc-utils’s grammar"
             " checker — see its ",
-            H.anchor("supplied accents", {"href": f"{_LC_CORROBORATED_LINK}#{fragment}"}),
+            H.anchor(
+                "supplied accents", {"href": f"{_LC_CORROBORATED_LINK}#{fragment}"}
+            ),
             " page.",
         ]
     ]
@@ -814,38 +846,87 @@ def _lc_corroborated_extra(spec, _book, _notes):
 
 _LONG_NOTE_SPECS = (
     _LongNoteSpec(
-        "Deuter", 5, 13, "taḥton", "pashta", 2, "t",
-        "Deuter.5.13.2-t.jpg", "Sefaria.org",
+        "Deuter",
+        5,
+        13,
+        "taḥton",
+        "pashta",
+        2,
+        "t",
+        "Deuter.5.13.2-t.jpg",
+        "Sefaria.org",
         _dt_5_13_taxton_extra,
     ),
     _LongNoteSpec(
-        "Deuter", 5, 7, "elyon", "meteg", None, "",
-        "Deuter.5.7.2.LC-102A-col3-line22.jpg", "Sefaria.org",
+        "Deuter",
+        5,
+        7,
+        "elyon",
+        "meteg",
+        None,
+        "",
+        "Deuter.5.7.2.LC-102A-col3-line22.jpg",
+        "Sefaria.org",
         _dt_5_7_elyon_meteg_extra,
     ),
     _LongNoteSpec(
-        "Exodus", 20, 3, "taḥton", "merkha", None, "",
-        "", "",
+        "Exodus",
+        20,
+        3,
+        "taḥton",
+        "merkha",
+        None,
+        "",
+        "",
+        "",
         _lc_corroborated_extra,
     ),
     _LongNoteSpec(
-        "Deuter", 5, 6, "elyon", "tipeḥa", None, "",
-        "", "",
+        "Deuter",
+        5,
+        6,
+        "elyon",
+        "tipeḥa",
+        None,
+        "",
+        "",
+        "",
         _lc_corroborated_extra,
     ),
     _LongNoteSpec(
-        "Deuter", 5, 6, "elyon", "etnaḥta", None, "",
-        "", "",
+        "Deuter",
+        5,
+        6,
+        "elyon",
+        "etnaḥta",
+        None,
+        "",
+        "",
+        "",
         _lc_corroborated_extra,
     ),
     _LongNoteSpec(
-        "Deuter", 5, 17, "elyon", "silluq", None, "",
-        "", "",
+        "Deuter",
+        5,
+        17,
+        "elyon",
+        "silluq",
+        None,
+        "",
+        "",
+        "",
         _lc_corroborated_extra,
     ),
     _LongNoteSpec(
-        "Deuter", 5, 8, "elyon", "pataḥ", None, "",
-        "", "",
+        "Deuter",
+        5,
+        8,
+        "elyon",
+        "pataḥ",
+        None,
+        "",
+        "",
+        "",
         _dt_5_8_elyon_patax_extra,
     ),
 )
@@ -856,8 +937,13 @@ _LONG_NOTE_SPECS = (
 # actually relegate an inline UXLC note participate (relegated_position is not None) --
 # a pure-further-discussion long note like Deut 5:7's elyon meteg subsumes nothing.
 _UXLC_NOTES_RELEGATED = {
-    (spec.book_id, spec.ch, spec.v, spec.relegated_position, spec.relegated_code):
-        clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)
+    (
+        spec.book_id,
+        spec.ch,
+        spec.v,
+        spec.relegated_position,
+        spec.relegated_code,
+    ): clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)
     for spec in _LONG_NOTE_SPECS
     if spec.relegated_position is not None
 }
@@ -885,13 +971,22 @@ def _build_long_note_entry(spec, book, notes, chapters):
     strands = [vw for vw in views if vw.suffix != clc_dual_cant.SUFFIX_COMBINED]
     view, note = _find_strand_note(strands, spec.strand, spec.kind)
     other = next(vw for vw in strands if vw is not view)
-    anchor = clc_long_note.anchor_id(spec.book_id, spec.ch, spec.v, spec.strand, spec.kind)
+    anchor = clc_long_note.anchor_id(
+        spec.book_id, spec.ch, spec.v, spec.strand, spec.kind
+    )
     # The kind suffix disambiguates a verse+strand with more than one long note (Deut
     # 5:6's elyon wants both a tipexa and an etnaxta) -- without it, both would show the
     # identical heading "Deuter 5:6 — elyon strand" with nothing to tell them apart.
     heading = f"{spec.book_id} {spec.ch}:{spec.v} — {view.doc_label} ({spec.kind})"
     verse_recap = H.para(
-        [H.span(_plain_text_contents(view.atoms, other.atoms, _strand_noted_indices(view)), _HBO_ATTR)]
+        [
+            H.span(
+                _plain_text_contents(
+                    view.atoms, other.atoms, _strand_noted_indices(view)
+                ),
+                _HBO_ATTR,
+            )
+        ]
     )
     # Labeled so a reader landing here from the always-link (not from the short note's
     # own "see more details" link) can tell which part is a verbatim recap of what the
@@ -935,7 +1030,9 @@ def _long_note_image(spec):
                     "class": "clc-long-note-img",
                 }
             ),
-            H.para([f"Credit: {spec.image_credit}."], {"class": "clc-long-note-img-credit"}),
+            H.para(
+                [f"Credit: {spec.image_credit}."], {"class": "clc-long-note-img-credit"}
+            ),
         ],
         {"class": "clc-long-note-img-wrap"},
     )

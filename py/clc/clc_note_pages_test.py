@@ -19,7 +19,7 @@ import os
 import sys
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)            # py/
+_PY_ROOT = os.path.dirname(_HERE)  # py/
 sys.path.insert(0, _PY_ROOT)
 
 import clc.clc_note_pages as note_pages  # noqa: E402
@@ -64,18 +64,18 @@ def test_notemaker_h2_leads():
     paragraphs = note_pages._extract_prose_paragraphs(_NOTEMAKER_HTML)
     assert paragraphs[0] == "Remove pashta from final mem. Add note 't'."
     joined = " ".join(paragraphs)
-    assert "Deuteronomy 5:13.2" not in joined       # <h1> citation excluded
-    assert "Daniel Holman" not in joined            # author excluded
-    assert "Changes.xml" not in joined              # change link excluded
+    assert "Deuteronomy 5:13.2" not in joined  # <h1> citation excluded
+    assert "Daniel Holman" not in joined  # author excluded
+    assert "Changes.xml" not in joined  # change link excluded
 
 
 def test_old_format_h4_leads_unchanged():
     paragraphs = note_pages._extract_prose_paragraphs(_OLD_FORMAT_HTML)
     assert paragraphs[0] == "The LC contains the unusual markings on the bet."
     joined = " ".join(paragraphs)
-    assert "2 Kings 21:26.1" not in joined          # <h1> citation excluded
-    assert "Ben Denckla" not in joined              # author excluded
-    assert "Changes.xml" not in joined              # change link excluded
+    assert "2 Kings 21:26.1" not in joined  # <h1> citation excluded
+    assert "Ben Denckla" not in joined  # author excluded
+    assert "Changes.xml" not in joined  # change link excluded
 
 
 def main():

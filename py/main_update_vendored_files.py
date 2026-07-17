@@ -23,8 +23,8 @@ from pathlib import Path
 
 from mb_cmn import vendoring_sync
 
-_REPO = Path(__file__).resolve().parents[1]          # UXLC-utils/
-_GITREPOS = _REPO.parent                             # GitRepos/
+_REPO = Path(__file__).resolve().parents[1]  # UXLC-utils/
+_GITREPOS = _REPO.parent  # GitRepos/
 _SOURCE_REPO = _GITREPOS / "MAM-basics"
 
 _SOURCE_PYCMN = _SOURCE_REPO / "py" / "mb_cmn"
@@ -42,7 +42,11 @@ def main() -> None:
     sys.stderr.reconfigure(encoding="utf-8")
 
     for path in (
-        _SOURCE_REPO, _SOURCE_PYCMN, _DEST_PYCMN, _SOURCE_MBDIFF, _DEST_MBDIFF
+        _SOURCE_REPO,
+        _SOURCE_PYCMN,
+        _DEST_PYCMN,
+        _SOURCE_MBDIFF,
+        _DEST_MBDIFF,
     ):
         _require_dir(path)
 

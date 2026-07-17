@@ -94,11 +94,15 @@ _UXLC_PENDING_CHANGES_APPLIED = {
 
 def _apply_pending_uxlc_changes(book, book_id):
     """Patch book per _UXLC_PENDING_CHANGES_APPLIED; return {(ch, v, position): original_text}
-    so _make_note can recover each patched atom's UXLC reading for its departure note."""
+    so _make_note can recover each patched atom's UXLC reading for its departure note.
+    """
     originals = {}
-    for (b, ch, v, position), (old_char, new_char, _release, _change_id) in (
-        _UXLC_PENDING_CHANGES_APPLIED.items()
-    ):
+    for (b, ch, v, position), (
+        old_char,
+        new_char,
+        _release,
+        _change_id,
+    ) in _UXLC_PENDING_CHANGES_APPLIED.items():
         if b != book_id:
             continue
         atom = book[ch - 1][v - 1][position - 1]
@@ -109,7 +113,8 @@ def _apply_pending_uxlc_changes(book, book_id):
             "itself, remove this entry from _UXLC_PENDING_CHANGES_APPLIED."
         )
         book[ch - 1][v - 1][position - 1] = {
-            **atom, "text": original_text.replace(old_char, new_char, 1)
+            **atom,
+            "text": original_text.replace(old_char, new_char, 1),
         }
         originals[(ch, v, position)] = original_text
     return originals
@@ -155,8 +160,17 @@ def collect_for_book(book_id, codes=NOTED_CODES, chapters=None):
         prose = clc_note_pages.local_note_prose(book_id, ch, v, position, code)
         page_prose_count += prose is not None
         notes.append(
-            _make_note(book_id, ch, v, position, atom, code, descriptions, prose,
-                       pending_change_originals)
+            _make_note(
+                book_id,
+                ch,
+                v,
+                position,
+                atom,
+                code,
+                descriptions,
+                prose,
+                pending_change_originals,
+            )
         )
     _report_prose_coverage(page_prose_count, len(notes))
     return book, notes
@@ -173,13 +187,24 @@ def _report_prose_coverage(page_prose_count, total):
     print(msg)
 
 
-def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose,
-                pending_change_originals):
+def _make_note(
+    book_id,
+    ch,
+    v,
+    position,
+    atom,
+    code,
+    descriptions,
+    page_prose,
+    pending_change_originals,
+):
     atom_text = atom["text"]
     records = descriptions.get((book_id, ch, v, position), [])
     _check_atom_consistency(book_id, ch, v, position, atom_text, records)
     is_departure = (book_id, ch, v, position) in _UXLC_PENDING_CHANGES_APPLIED
-    uxlc_text = pending_change_originals[(ch, v, position)] if is_departure else atom_text
+    uxlc_text = (
+        pending_change_originals[(ch, v, position)] if is_departure else atom_text
+    )
     return clc_note.ClcNote(
         book=book_id,
         ch=ch,
@@ -191,8 +216,11 @@ def _make_note(book_id, ch, v, position, atom, code, descriptions, page_prose,
         # downloaded -- never an invented per-code gloss (issue #19).
         note_text=page_prose or _NOT_YET_DOWNLOADED,
         source=clc_note.SOURCE_UXLC_X_NOTE,
-        diff_type=(clc_note.DIFF_UXLC_PENDING_CHANGE_APPLIED if is_departure
-                    else _diff_type_for(code)),
+        diff_type=(
+            clc_note.DIFF_UXLC_PENDING_CHANGE_APPLIED
+            if is_departure
+            else _diff_type_for(code)
+        ),
         is_uxlc_departure=is_departure,
         uxlc_reading=uxlc_text,
         clc_reading=atom_text,
