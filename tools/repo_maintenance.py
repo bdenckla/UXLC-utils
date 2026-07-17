@@ -1,22 +1,35 @@
-"""Repo maintenance: clean .novc/, run all tests, run the routine rebuild.
+"""Repo maintenance: clean .novc/, sync vendored files, check formatting and
+source hygiene, run all tests, run the routine rebuild.
 
 Run from anywhere (each step resolves paths from this file's location):
 
     python tools/repo_maintenance.py
     python tools/repo_maintenance.py --skip-novc
+    python tools/repo_maintenance.py --skip-vendored
+    python tools/repo_maintenance.py --skip-black
+    python tools/repo_maintenance.py --skip-hygiene
     python tools/repo_maintenance.py --skip-tests
     python tools/repo_maintenance.py --skip-rebuild
     python tools/repo_maintenance.py --continue-on-test-failure
 
-Three independent steps, in order:
+Six independent steps, in order:
 
 1. Wipe the gitignored ``.novc/`` scratch dir. Everything in it is a
    regenerable download cache or tool output, never a durable result -- see
    ``README.md`` and ``tools/README.md``.
-2. Run every ``*_test.py`` file found under the repo (excluding ``.venv``,
+2. Run ``py/main_update_vendored_files.py``, refreshing the vendored
+   ``py/mb_cmn`` and ``py/mb_diff_mpu`` from the MAM-basics sibling repo.
+3. Run ``black --check`` over ``py`` and ``tools``. Check-only: drift is
+   reported, never auto-reformatted -- repo-wide reformatting is its own
+   deliberate commit. Failures set the overall exit status but do not block
+   the later steps.
+4. Run ``tools/source_hygiene.py`` (orphan combining marks, decomposed NFC
+   composites -- GitHub issues #22, #26), the same scanner the pre-commit
+   hook runs. Like step 3, failures don't block later steps.
+5. Run every ``*_test.py`` file found under the repo (excluding ``.venv``,
    ``.novc``, ``__pycache__``). Each test file is self-contained -- see their
    own docstrings -- so this just discovers and shells out to each.
-3. Run ``py/main_0_mega.py``, the routine downstream rebuild. The two download
+6. Run ``py/main_0_mega.py``, the routine downstream rebuild. The two download
    scripts (``main_uxlc_download_changes.py``, ``main_clc_download_notes.py``)
    are deliberately not part of this -- run them by hand when you want fresh
    UXLC inputs; ``main_0_mega.py`` already covers every other parameterless,
@@ -39,8 +52,19 @@ _EXCLUDED_PARTS = {".venv", ".novc", "__pycache__"}
 
 def _parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--skip-novc", action="store_true", help="don't clean .novc/")
     parser.add_argument(
-        "--skip-novc", action="store_true", help="don't clean .novc/"
+        "--skip-vendored",
+        action="store_true",
+        help="don't run py/main_update_vendored_files.py",
+    )
+    parser.add_argument(
+        "--skip-black", action="store_true", help="don't run black --check"
+    )
+    parser.add_argument(
+        "--skip-hygiene",
+        action="store_true",
+        help="don't run tools/source_hygiene.py",
     )
     parser.add_argument(
         "--skip-tests", action="store_true", help="don't run the test suite"
@@ -67,6 +91,31 @@ def clean_novc():
         print(f".novc: removed {len(removed)} entries: {', '.join(removed)}")
     else:
         print(".novc: already empty")
+
+
+def run_vendored_sync():
+    script = _REPO / "py" / "main_update_vendored_files.py"
+    result = subprocess.run([sys.executable, str(script)], cwd=_REPO)
+    ok = result.returncode == 0
+    print(f"vendored: {'OK' if ok else f'FAILED (exit {result.returncode})'}")
+    return ok
+
+
+def run_black():
+    result = subprocess.run(
+        [sys.executable, "-m", "black", "--check", "py", "tools"], cwd=_REPO
+    )
+    ok = result.returncode == 0
+    print(f"black: {'OK' if ok else f'FAILED (exit {result.returncode})'}")
+    return ok
+
+
+def run_hygiene():
+    script = _REPO / "tools" / "source_hygiene.py"
+    result = subprocess.run([sys.executable, str(script)], cwd=_REPO)
+    ok = result.returncode == 0
+    print(f"hygiene: {'OK' if ok else f'FAILED (exit {result.returncode})'}")
+    return ok
 
 
 def _discover_tests():
@@ -105,16 +154,27 @@ def run_rebuild():
 
 
 def main():
-    # Line-buffer so status lines interleave correctly with the child
-    # processes' own output when stdout isn't a live terminal (e.g. redirected
-    # to a log file).
-    sys.stdout.reconfigure(line_buffering=True)
+    # UTF-8 so child output (Hebrew etc.) never hits a cp1252 encode error when
+    # stdout is redirected; line-buffer so status lines interleave correctly
+    # with the child processes' own output when stdout isn't a live terminal
+    # (e.g. redirected to a log file).
+    sys.stdout.reconfigure(encoding="utf-8", line_buffering=True)
+    sys.stderr.reconfigure(encoding="utf-8")
     args = _parse_args()
     ok = True
     tests_ok = True
 
     if not args.skip_novc:
         clean_novc()
+
+    if not args.skip_vendored:
+        ok = run_vendored_sync() and ok
+
+    if not args.skip_black:
+        ok = run_black() and ok
+
+    if not args.skip_hygiene:
+        ok = run_hygiene() and ok
 
     if not args.skip_tests:
         tests_ok = run_tests()
