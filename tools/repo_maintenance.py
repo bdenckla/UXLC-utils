@@ -23,12 +23,13 @@ Six independent steps, in order:
    reported, never auto-reformatted -- repo-wide reformatting is its own
    deliberate commit. Failures set the overall exit status but do not block
    the later steps.
-4. Run ``tools/source_hygiene.py`` (orphan combining marks, decomposed NFC
+4. Run ``py/main_source_hygiene.py`` (orphan combining marks, decomposed NFC
    composites -- GitHub issues #22, #26), the same scanner the pre-commit
    hook runs. Like step 3, failures don't block later steps.
-5. Run every ``*_test.py`` file found under the repo (excluding ``.venv``,
-   ``.novc``, ``__pycache__``). Each test file is self-contained -- see their
-   own docstrings -- so this just discovers and shells out to each.
+5. Run ``py/main_test.py``, the one entry point every test module runs under
+   (GitHub issue #56). It owns the registry of test modules and fails if a
+   ``*_test.py`` under ``py/`` is missing from it, so discovery lives there
+   rather than being duplicated here.
 6. Run ``py/main_0_mega.py``, the routine downstream rebuild. The two download
    scripts (``main_uxlc_download_changes.py``, ``main_clc_download_notes.py``)
    are deliberately not part of this -- run them by hand when you want fresh
@@ -47,7 +48,6 @@ from pathlib import Path
 
 _REPO = Path(__file__).resolve().parent.parent
 _NOVC = _REPO / ".novc"
-_EXCLUDED_PARTS = {".venv", ".novc", "__pycache__"}
 
 
 def _parse_args():
@@ -64,7 +64,7 @@ def _parse_args():
     parser.add_argument(
         "--skip-hygiene",
         action="store_true",
-        help="don't run tools/source_hygiene.py",
+        help="don't run py/main_source_hygiene.py",
     )
     parser.add_argument(
         "--skip-tests", action="store_true", help="don't run the test suite"
@@ -111,35 +111,19 @@ def run_black():
 
 
 def run_hygiene():
-    script = _REPO / "tools" / "source_hygiene.py"
+    script = _REPO / "py" / "main_source_hygiene.py"
     result = subprocess.run([sys.executable, str(script)], cwd=_REPO)
     ok = result.returncode == 0
     print(f"hygiene: {'OK' if ok else f'FAILED (exit {result.returncode})'}")
     return ok
 
 
-def _discover_tests():
-    return [
-        p
-        for p in sorted(_REPO.rglob("*_test.py"))
-        if not _EXCLUDED_PARTS & set(p.parts)
-    ]
-
-
 def run_tests():
-    tests = _discover_tests()
-    if not tests:
-        print("tests: no *_test.py files found")
-        return True
-    failed = []
-    for test in tests:
-        rel = test.relative_to(_REPO)
-        result = subprocess.run([sys.executable, str(test)], cwd=_REPO)
-        print(f"tests: {'OK' if result.returncode == 0 else 'FAILED':<6} {rel}")
-        if result.returncode != 0:
-            failed.append(rel)
-    print(f"tests: {len(tests) - len(failed)}/{len(tests)} passed")
-    return not failed
+    script = _REPO / "py" / "main_test.py"
+    result = subprocess.run([sys.executable, str(script)], cwd=_REPO)
+    ok = result.returncode == 0
+    print(f"tests: {'OK' if ok else f'FAILED (exit {result.returncode})'}")
+    return ok
 
 
 def run_rebuild():

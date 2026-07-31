@@ -17,4 +17,4 @@ elif [ -x ".venv/bin/python" ]; then
 else
 	py="python"
 fi
-exec "$py" tools/source_hygiene.py
+exec "$py" py/main_source_hygiene.py

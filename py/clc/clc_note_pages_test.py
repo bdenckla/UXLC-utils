@@ -1,6 +1,6 @@
-"""Self-contained test for clc_note_pages (issue #30: the page's own <h2> leads).
+"""Test for clc_note_pages (issue #30: the page's own <h2> leads).
 
-Run from anywhere:  python py/clc/clc_note_pages_test.py
+Run from the repo root:  python py/main_test.py --clc-note-pages
 Prints "clc_note_pages: OK" on success; raises AssertionError on failure.
 
 Both tanach.us note-page formats are exercised as synthetic HTML strings (not
@@ -15,14 +15,7 @@ files under in/UXLC-notes/, so this test does not depend on the corpus):
     the <h4> lead line is still the first paragraph.
 """
 
-import os
-import sys
-
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)  # py/
-sys.path.insert(0, _PY_ROOT)
-
-import clc.clc_note_pages as note_pages  # noqa: E402
+import clc.clc_note_pages as note_pages
 
 _NOTEMAKER_HTML = """<html><head><title>Deuteronomy 5:13.2</title></head>
 <body background="../../Images/Background">
@@ -82,7 +75,3 @@ def main():
     test_notemaker_h2_leads()
     test_old_format_h4_leads_unchanged()
     print("clc_note_pages: OK")
-
-
-if __name__ == "__main__":
-    main()

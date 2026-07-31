@@ -5,9 +5,8 @@ U+1E25 / U+1E24 forms, never the decomposed "h"/"H" + COMBINING DOT BELOW
 (U+0323) sequence. Comments must not use either Unicode form at all -- plain
 ASCII "x"/"X" is used instead, since comments don't flow to output.
 
-Run from anywhere (stdlib only; discovers the repo root via git):
-    python tools/nfc_h_dot_below_test.py       # prints "nfc_h_dot_below: OK"
-or under pytest / unittest from the repo root.
+Run from the repo root (stdlib only; discovers the repo root via git):
+    python py/main_test.py --nfc-h-dot-below   # prints "nfc_h_dot_below: OK"
 
 Scope note: this test deliberately does NOT assert whole-file NFC
 (unicodedata.normalize("NFC", text) == text). A blanket NFC pass also reorders
@@ -322,7 +321,3 @@ def main():
     if not result.wasSuccessful():
         raise SystemExit(1)
     print("nfc_h_dot_below: OK")
-
-
-if __name__ == "__main__":
-    main()

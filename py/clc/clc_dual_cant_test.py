@@ -1,6 +1,6 @@
-"""Self-contained test for clc_dual_cant (the first CLC test module).
+"""Test for clc_dual_cant (the first CLC test module).
 
-Run from anywhere:  python py/clc/clc_dual_cant_test.py
+Run from the repo root:  python py/main_test.py --clc-dual-cant
 Prints "clc_dual_cant: OK" on success; raises AssertionError on failure.
 
 It reads Genesis 35:22 straight from the UXLC XML (paths derived from __file__,
@@ -16,23 +16,20 @@ QUPO-vowel Decalogue verses — see ``test_decalogue_qupo_vowel_split``).
 """
 
 import os
-import sys
 import xml.etree.ElementTree as ET
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)  # py/
-_REPO_ROOT = os.path.dirname(_PY_ROOT)  # repo root
-sys.path.insert(0, _PY_ROOT)
+import clc.clc_dual_cant as dc
+import clc.clc_render as clc_render
+import clc.clc_strip as clc_strip
+import mb_cmn.hebrew_accents as acc
+import mb_cmn.hebrew_letters as hl
+import mb_cmn.hebrew_points as hpo
+import mb_cmn.hebrew_punctuation as hpu
+from mb_cmn import str_defs as sd
+import uxlc_misc.uxlc_utils_html as H
 
-import clc.clc_dual_cant as dc  # noqa: E402
-import clc.clc_render as clc_render  # noqa: E402
-import clc.clc_strip as clc_strip  # noqa: E402
-import mb_cmn.hebrew_accents as acc  # noqa: E402
-import mb_cmn.hebrew_letters as hl  # noqa: E402
-import mb_cmn.hebrew_points as hpo  # noqa: E402
-import mb_cmn.hebrew_punctuation as hpu  # noqa: E402
-from mb_cmn import str_defs as sd  # noqa: E402
-import uxlc_misc.uxlc_utils_html as H  # noqa: E402
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))  # repo root
 
 _XML = os.path.join(_REPO_ROOT, "in", "UXLC-39", "Genesis.xml")
 
@@ -1113,7 +1110,3 @@ def main():
     test_strand_same_highlighting()
     test_strip_to_bare_letters()
     print("clc_dual_cant: OK")
-
-
-if __name__ == "__main__":
-    main()

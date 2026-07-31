@@ -1,4 +1,4 @@
-"""Confirm the committed UXLC note pages against the frozen Notes.zip.
+"""Exports main: confirm the committed UXLC note pages against the frozen Notes.zip.
 
 Started for the 3-book pilot (issue #24); extended unchanged to the full 39-book
 corpus (issue #25) -- it already walks whatever is committed under
@@ -32,10 +32,10 @@ as NO-PROSE-EXTRACTED, regardless of the page's zip verdict.
 
 Writes a full UTF-8 report to ``.novc/notes_zip_verify.txt`` and prints a summary.
 
-Run from the repo root (default zip path is the frozen snapshot; override with an
-argument)::
+Run from the repo root, like the other py/main_*.py drivers (default zip path is the
+frozen snapshot; override with an argument)::
 
-    python tools/verify_notes_zip.py [path/to/Notes.zip]
+    python py/main_verify_notes_zip.py [path/to/Notes.zip]
 """
 
 import os
@@ -43,11 +43,10 @@ import sys
 import zipfile
 from pathlib import Path
 
-_REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(_REPO / "py"))
+import clc.clc_note_pages as cnp
+import uxlc_misc.my_uxlc as my_uxlc
 
-import clc.clc_note_pages as cnp  # noqa: E402
-import uxlc_misc.my_uxlc as my_uxlc  # noqa: E402
+_REPO = Path(__file__).resolve().parent.parent
 
 _NOTES_DIR = _REPO / "in" / "UXLC-notes"
 _DEFAULT_ZIP = Path(r"C:\Users\BenDe\Downloads\Notes.zip")
@@ -88,6 +87,9 @@ def _iter_committed():
 
 
 def main():
+    """Classify every committed note page against the zip; write the report."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
     zip_path = Path(sys.argv[1]) if len(sys.argv) > 1 else _DEFAULT_ZIP
     zf = zipfile.ZipFile(zip_path)
     zip_names = set(zf.namelist())

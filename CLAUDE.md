@@ -43,6 +43,31 @@ almost certainly already exist in this repo.
   functionality (e.g. the versification converter) must get it via a public `mb_*`
   entry point, or the functionality must move upstream into an `mb_` dir first.
 
+## One entry point per job: `py/main_*.py`, and zero `sys.path` inserts
+
+Every runnable thing in this repo is a `py/main_<x>.py`, run from the repo root
+(`python py/main_clc.py`). CPython puts the script's own directory at `sys.path[0]`,
+so `py/` is on the path for free and `import clc.clc_kq` resolves with **no path
+configuration anywhere** — no `sys.path.insert`, no `conftest.py`, no `pytest.ini`
+`pythonpath`, no `.pth`, no `PYTHONPATH`. The count of `sys.path` mutations in this
+repo is **zero, and stays zero** (issue #56, which removed the last 8).
+
+Two consequences worth stating outright:
+
+- **A module under `py/` is not independently runnable.** If a library module wants a
+  command line, it does not grow its own `main()` plus `if __name__ == "__main__"`; it
+  gets a `py/main_<x>.py` driver. `py/repo_hygiene/source_hygiene.py` (library) and
+  `py/main_source_hygiene.py` (its CLI) are the worked example.
+- **Tests run under `python py/main_test.py`** — all of them, `--<flag>` for one,
+  `--list` for the registry. The test modules therefore have no `__main__` block
+  either. `TEST_MODULE_SPECS` is hand-maintained, so `check_registry()` walks `py/`
+  for `*_test.py` on every run and fails on any file missing from it; without that,
+  an unregistered test file reports nothing at all rather than skipping visibly.
+
+**Nothing under `tools/` may import repo code.** `tools/` holds only
+`repo_maintenance.py` and the tracked git hook, both of which shell out to
+`py/main_*.py` entry points. A tool that needs repo code belongs under `py/`.
+
 ## `tools/` — throwaway scaffolding vs. official code
 
 Some `tools/dump_mam_*.py` scripts are **throwaway scaffolding** tied to in-flight
@@ -55,8 +80,8 @@ shortcuts (absolute cross-repo paths, live `MAM-basics/py` imports) into real co
 
 - **No orphan combining marks in source.** Never write a bare combining mark as a
   literal (a diacritic/point with no base letter). Use `"\N{UNICODE NAME}"`, or build
-  the char from `chr(0x…)` with a naming comment. `tools/source_hygiene.py` fails the
-  build (and the pre-commit hook) on violations.
+  the char from `chr(0x…)` with a naming comment. `python py/main_source_hygiene.py`
+  fails the build (and the pre-commit hook) on violations.
 - **UTF-8 stdio.** Every `py/main_*.py` reconfigures stdout/stderr to UTF-8 as the
   first lines of `main()` (Windows redirects to cp1252 otherwise, crashing Hebrew
   prints). Prefer writing non-ASCII output to UTF-8 files over stdout.

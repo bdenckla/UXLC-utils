@@ -39,11 +39,13 @@ Enforces two rules over hand-authored ``py/`` + ``tools/`` + ``doc/``:
 Shared harness: file discovery + a pluggable tuple of ``Check``s, each yielding
 ``Offense(relpath, line, codepoint, uname, detail)``.
 
-Two entry points, one scanner:
-  * ``tools/source_hygiene_test.py``   -- the standalone ``*_test.py`` guard.
-  * ``python tools/source_hygiene.py`` -- the CLI the pre-commit hook runs; prints
-                                          each offender and exits non-zero when the
-                                          tree is dirty.
+Two entry points, one scanner -- this module is a library and is not itself
+runnable:
+  * ``python py/main_test.py --source-hygiene``   -- the ``*_test.py`` guard.
+  * ``python py/main_source_hygiene.py``          -- the CLI the pre-commit hook
+                                                     runs; prints each offender and
+                                                     exits non-zero when the tree is
+                                                     dirty.
 
 Escape hatch: a trailing ``# combining-ok`` on the offending line suppresses rule
 1, for the rare case where a bare combining mark is genuinely the clearest form.
@@ -51,7 +53,6 @@ Escape hatch: a trailing ``# combining-ok`` on the offending line suppresses rul
 
 import ast
 import os
-import sys
 import unicodedata
 from collections import namedtuple
 
@@ -210,10 +211,8 @@ def format_offense(offense):
     )
 
 
-def main():
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
-    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+def run(repo_root):
+    """Scan and report; return the process exit code (0 clean, 1 dirty)."""
     offenses = scan(repo_root)
     if offenses:
         print("source hygiene offenses (see GitHub issues #22, #26):")
@@ -223,7 +222,3 @@ def main():
         return 1
     print("source_hygiene: OK")
     return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

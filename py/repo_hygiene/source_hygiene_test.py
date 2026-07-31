@@ -1,6 +1,6 @@
 """Guard test: source hygiene in hand-authored source (GitHub issues #22, #26).
 
-Run from anywhere:  python tools/source_hygiene_test.py
+Run from the repo root:  python py/main_test.py --source-hygiene
 Prints "source_hygiene: OK" on success. On failure, raises AssertionError
 listing each offender as ``path:line  U+XXXX NAME -- detail``.
 
@@ -13,13 +13,11 @@ itself passes the guard.
 """
 
 import os
-import sys
+
+import repo_hygiene.source_hygiene as sh
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_REPO_ROOT = os.path.dirname(_HERE)
-sys.path.insert(0, _HERE)
-
-import source_hygiene as sh  # noqa: E402
+_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))
 
 _Q = chr(34)  # a double-quote, to embed literals without nesting-quote pain
 _DOT_BELOW = "\N{COMBINING DOT BELOW}"  # U+0323, built by name -- not an orphan literal
@@ -122,7 +120,3 @@ def main():
     test_decomposed_composite_accepts_precomposed()
     test_decomposed_composite_ignores_reordered_hebrew()
     print("source_hygiene: OK")
-
-
-if __name__ == "__main__":
-    main()

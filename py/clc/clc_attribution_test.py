@@ -1,6 +1,6 @@
-"""Self-contained test for clc_attribution (CLC's UXLC attribution citations).
+"""Test for clc_attribution (CLC's UXLC attribution citations).
 
-Run from anywhere:  python py/clc/clc_attribution_test.py
+Run from the repo root:  python py/main_test.py --clc-attribution
 Prints "clc_attribution: OK" on success; raises AssertionError on failure.
 
 This is the one place the literal expected version string lives — clc_attribution
@@ -10,16 +10,13 @@ chdir's to the repo root first to stay cwd-independent like clc_kq_test.
 """
 
 import os
-import sys
+
+import clc.clc_attribution as attribution
+import uxlc_misc.my_uxlc as my_uxlc
+import uxlc_misc.uxlc_utils_html as H
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)  # py/
-_REPO_ROOT = os.path.dirname(_PY_ROOT)  # repo root
-sys.path.insert(0, _PY_ROOT)
-
-import clc.clc_attribution as attribution  # noqa: E402
-import uxlc_misc.my_uxlc as my_uxlc  # noqa: E402
-import uxlc_misc.uxlc_utils_html as H  # noqa: E402
+_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))  # repo root
 
 _VERSION = "UXLC 2.5"
 
@@ -84,7 +81,3 @@ def main():
     test_superseding_change_cite()
     test_note_page_url_canonical_name()
     print("clc_attribution: OK")
-
-
-if __name__ == "__main__":
-    main()

@@ -1,6 +1,6 @@
-"""Self-contained test for clc_versification (the §7.8 vtrad-MAM Decalogue verse map).
+"""Test for clc_versification (the §7.8 vtrad-MAM Decalogue verse map).
 
-Run from anywhere:  python py/clc/clc_versification_test.py
+Run from the repo root:  python py/main_test.py --clc-versification
 Prints "clc_versification: OK" on success; raises AssertionError on failure.
 
 Two things are checked:
@@ -18,16 +18,9 @@ The full 53-verse agreement with MAM-basics' own converter was established once 
 gitignored, so this test pins the map by hardcoded known facts instead of reading it.
 """
 
-import os
-import sys
-
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)
-sys.path.insert(0, _PY_ROOT)
-
-import clc.clc_versification as cv  # noqa: E402
-import clc.clc_dual_cant as dc  # noqa: E402
-import mb_cmn.hebrew_punctuation as hpu  # noqa: E402
+import clc.clc_versification as cv
+import clc.clc_dual_cant as dc
+import mb_cmn.hebrew_punctuation as hpu
 
 _SOF_PASUQ = hpu.SOPA
 
@@ -161,7 +154,3 @@ def main():
     test_differs_flag()
     test_overlay_matches_dual_cant_oracle()
     print("clc_versification: OK")
-
-
-if __name__ == "__main__":
-    main()

@@ -1,6 +1,6 @@
-"""Self-contained test for clc_kq (CLC ketiv/qere ruby builder).
+"""Test for clc_kq (CLC ketiv/qere ruby builder).
 
-Run from anywhere:  python py/clc/clc_kq_test.py
+Run from the repo root:  python py/main_test.py --clc-kq
 Prints "clc_kq: OK" on success; raises AssertionError on failure.
 
 Synthetic atom lists exercise the unit-grouping rule and the ruby HTML shape
@@ -12,16 +12,13 @@ the test is independent of cwd and of the my_uxlc reader, like clc_dual_cant_tes
 """
 
 import os
-import sys
 import xml.etree.ElementTree as ET
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)  # py/
-_REPO_ROOT = os.path.dirname(_PY_ROOT)  # repo root
-sys.path.insert(0, _PY_ROOT)
+import clc.clc_kq as kq
+import uxlc_misc.uxlc_utils_html as H
 
-import clc.clc_kq as kq  # noqa: E402
-import uxlc_misc.uxlc_utils_html as H  # noqa: E402
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))  # repo root
 
 _GEN_XML = os.path.join(_REPO_ROOT, "in", "UXLC-39", "Genesis.xml")
 _SAM2_XML = os.path.join(_REPO_ROOT, "in", "UXLC-39", "Samuel_2.xml")
@@ -212,7 +209,3 @@ def main():
     test_xml_sam2_21_12_adjacent_standard_then_grouped()
     test_xml_sam2_without_cases()
     print("clc_kq: OK")
-
-
-if __name__ == "__main__":
-    main()

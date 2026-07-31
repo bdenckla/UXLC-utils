@@ -1,6 +1,6 @@
-"""Self-contained test for clc_collect (the CLC note-collection module).
+"""Test for clc_collect (the CLC note-collection module).
 
-Run from anywhere:  python py/clc/clc_collect_test.py
+Run from the repo root:  python py/main_test.py --clc-collect
 Prints "clc_collect: OK" on success; raises AssertionError on failure.
 
 Covers clc_collect's pending-UXLC-change patch (_UXLC_PENDING_CHANGES_APPLIED):
@@ -10,21 +10,14 @@ strand split ever runs — CLC's first-ever real is_uxlc_departure=True instance
 (clc_dual_cant) sees, rather than an omitted-accent annotation.
 """
 
-import os
-import sys
-
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_PY_ROOT = os.path.dirname(_HERE)  # py/
-sys.path.insert(0, _PY_ROOT)
-
-import clc.clc_collect as clc_collect  # noqa: E402
-import clc.clc_dual_cant as clc_dual_cant  # noqa: E402
-import clc.clc_long_note as clc_long_note  # noqa: E402
-import clc.clc_note as clc_note  # noqa: E402
-import clc.clc_render as clc_render  # noqa: E402
-import mb_cmn.hebrew_accents as acc  # noqa: E402
-import mb_cmn.hebrew_points as hpo  # noqa: E402
-import uxlc_misc.uxlc_utils_html as H  # noqa: E402
+import clc.clc_collect as clc_collect
+import clc.clc_dual_cant as clc_dual_cant
+import clc.clc_long_note as clc_long_note
+import clc.clc_note as clc_note
+import clc.clc_render as clc_render
+import mb_cmn.hebrew_accents as acc
+import mb_cmn.hebrew_points as hpo
+import uxlc_misc.uxlc_utils_html as H
 
 
 def _deut_5_8_atom2_note(notes):
@@ -224,7 +217,3 @@ def main():
     test_dual_cant_integration()
     test_long_note_relegation()
     print("clc_collect: OK")
-
-
-if __name__ == "__main__":
-    main()
