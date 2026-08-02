@@ -12,8 +12,7 @@ import uxlc_changes.uxlc_change_sanity as sanity
 import uxlc_changes.uxlc_changes_loc as changes_loc
 import uxlc_changes.uxlc_misc_path as uxlc_misc_path
 import uxlc_changes.xml_node as xml_node
-
-_SANITY_PATH = "out/UXLC-misc/sanity_problems.json"
+import uxlc_paths
 
 
 def _listify(list_or_nonlist):
@@ -29,7 +28,8 @@ def _get_changes(changeset):
         # placeholder, to be filled in with changes later.
         return []
     changes = _listify(changeset["change"])
-    sanity.check(date, changes, _SANITY_PATH)
+    sanity_path = uxlc_paths.out_uxlc_misc_dir() / "sanity_problems.json"
+    sanity.check(date, changes, sanity_path)
     return [prep.date_qualify_and_reformat(date, c) for c in changes]
 
 
@@ -69,7 +69,7 @@ def _do_one_changes_file_core(filename):
     changes = sum(list_of_lists, [])
     basename = filename.removesuffix(".xml")
     assert basename != filename
-    txt_output_path = f"out/UXLC-misc/{basename}.txt"
+    txt_output_path = uxlc_paths.out_uxlc_misc_dir() / f"{basename}.txt"
     _dump_txt(changes, txt_output_path)
     return release_date, changes
 
@@ -100,9 +100,9 @@ def main():
     changes = _get_all_changes()
     check_results_f = changes_loc.check(changes)
     #
-    json_output_path1 = "out/UXLC-misc/all_changes.json"
+    json_output_path1 = uxlc_paths.out_uxlc_misc_dir() / "all_changes.json"
     my_open.json_dump_to_file_path(changes, json_output_path1)
-    json_output_path2 = "out/UXLC-misc/all_changes_loc_checks.json"
+    json_output_path2 = uxlc_paths.out_uxlc_misc_dir() / "all_changes_loc_checks.json"
     my_open.json_dump_to_file_path(check_results_f, json_output_path2)
 
 

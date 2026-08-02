@@ -36,9 +36,7 @@ def uxlc_version():
     """
     global _VERSION_MEMO
     if _VERSION_MEMO is None:
-        path = (
-            f"{my_uxlc.UXLC_CANONICAL_DIR}/{my_uxlc.book_basename(tbn.BK_GENESIS)}.xml"
-        )
+        path = my_uxlc.canonical_xml_path(tbn.BK_GENESIS)
         elem = (
             ET.parse(path)
             .getroot()

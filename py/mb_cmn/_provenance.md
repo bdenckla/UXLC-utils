@@ -14,6 +14,7 @@ Files copied:
   hebrew_punctuation.py
   my_diffs.py
   my_utils.py
+  paths.py
   polite_download.py
   provenance.py
   retired_kq_special_templates.py
@@ -26,6 +27,6 @@ Files copied:
   uxlc_change_url.py
   vendoring_sync.py
 
-Git commit: 9bc57e034a4f6d666c225e2c5bff0cba729f6918
+Git commit: 26abed0714bea77e9574a177abac322c32e77f14
 
 Date copied: 2026-08-02

@@ -9,6 +9,7 @@ import uxlc_fois.fois_kq_foi as fois_kq_foi
 import uxlc_fois.fois_mark_grammar_2_foi as fois_mark_grammar_2_foi
 import uxlc_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
 import uxlc_fois.uni_heb_char_classes as ucc
+import uxlc_paths
 
 
 def _stripped_text(value):
@@ -99,7 +100,7 @@ def main():
                 )
     fois_mark_grammar_2_foi.finalize(fois["mark-grammar-2"])
     json_output_paths = {
-        foi_key: f"gh-pages/fois/features_of_interest-{foi_key}.json"
+        foi_key: uxlc_paths.fois_pages_dir() / f"features_of_interest-{foi_key}.json"
         for foi_key in fois
     }
     for foi_key, catalog in fois.items():

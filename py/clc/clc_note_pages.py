@@ -36,10 +36,9 @@ text, ``<p>`` text, ``<h4>`` text, and bare text -- is note prose.
 """
 
 import html.parser
-import os
 import re
 
-NOTES_DIR = "in/UXLC-notes"  # committed; populated by main_clc_download_notes
+import uxlc_paths
 
 _WS_RE = re.compile(r"\s+")
 
@@ -50,7 +49,8 @@ def local_page_path(book_id, ch, v, position, code):
     Keyed by the CLC bk39 ``book_id`` (the downloader maps it to the canonical
     tanach.us name for the remote URL; locally we keep the CLC id for uniformity).
     """
-    return f"{NOTES_DIR}/{book_id}/{book_id}.{ch}.{v}.{position}-{code}.html"
+    filename = f"{book_id}.{ch}.{v}.{position}-{code}.html"
+    return uxlc_paths.uxlc_notes_dir() / book_id / filename
 
 
 def local_note_prose(book_id, ch, v, position, code):
@@ -62,7 +62,7 @@ def local_note_prose(book_id, ch, v, position, code):
     fabricated substitute (clc_collect; issue #19).
     """
     path = local_page_path(book_id, ch, v, position, code)
-    if not os.path.exists(path):
+    if not path.exists():
         return None
     with open(path, encoding="utf-8") as page_fp:
         paragraphs = _extract_prose_paragraphs(page_fp.read())

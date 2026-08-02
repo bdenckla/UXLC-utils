@@ -5,18 +5,13 @@ Prints "clc_attribution: OK" on success; raises AssertionError on failure.
 
 This is the one place the literal expected version string lives — clc_attribution
 itself reads it from the core-XML header (uxlc_version) rather than hardcoding it.
-That read is via a repo-root-relative path (my_uxlc.UXLC_CANONICAL_DIR), so main()
-chdir's to the repo root first to stay cwd-independent like clc_kq_test.
+That read goes through my_uxlc.canonical_xml_path, which is absolute, so this test
+is cwd-independent with no setup — it used to os.chdir to the repo root instead.
 """
-
-import os
 
 import clc.clc_attribution as attribution
 import uxlc_misc.my_uxlc as my_uxlc
 import uxlc_misc.uxlc_utils_html as H
-
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))  # repo root
 
 _VERSION = "UXLC 2.5"
 
@@ -73,7 +68,6 @@ def test_note_page_url_canonical_name():
 
 
 def main():
-    os.chdir(_REPO_ROOT)  # uxlc_version() reads in/UXLC-39/... relative to repo root
     test_uxlc_version()
     test_top_credit()
     test_note_cite_specific_page()

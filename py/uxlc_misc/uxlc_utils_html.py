@@ -2,6 +2,7 @@
 
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Union
 import html
 
@@ -16,7 +17,7 @@ class WriteCtx:
     """Holds info needed to write HTML to a file."""
 
     title: str
-    path: str
+    path: Path  # absolute, off a uxlc_paths accessor -- never cwd-relative
     style: Union[str, None] = None
     add_wbr: bool = False
 

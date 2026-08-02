@@ -13,12 +13,9 @@ from mb_cmn.uxlc_change_url import uxlc_release_xml_filename, uxlc_release_xml_u
 import mb_cmn.file_io as my_open
 import uxlc_misc.my_uxlc as my_uxlc
 import uxlc_misc.my_uxlc_changes as my_uxlc_changes
+import uxlc_paths
 
 _UXLC_ZIP_URL = "https://tanach.us/Books/Tanach.xml.zip"
-_UXLC_39_DIR = Path(my_uxlc.UXLC_CANONICAL_DIR)
-_UXLC_REST_DIR = Path("in/UXLC-rest")
-_NOVC_DIR = Path(".novc")
-_UXLC_ZIP_PATH = _NOVC_DIR / "Tanach.xml.zip"
 _DELAY_MIN = 1.5
 _DELAY_MEAN = 3.0
 _REQUEST_HEADERS = {
@@ -36,7 +33,7 @@ _REQUEST_HEADERS = {
 def _do_one_download(session, date):
     filename = uxlc_release_xml_filename(date)
     url = uxlc_release_xml_url(date)
-    out_path = f"in/UXLC-misc/{filename}"
+    out_path = uxlc_paths.uxlc_misc_dir() / filename
     _show_progress(out_path)
     text = session.get_text(url, timeout=10, encoding="utf-8")
     my_open.with_tmp_openw(out_path, {"newline": ""}, _write_callback, text)
@@ -47,13 +44,14 @@ def _write_callback(text, out_fp):
 
 
 def _download_latest_uxlc(session):
-    _UXLC_39_DIR.mkdir(parents=True, exist_ok=True)
-    _UXLC_REST_DIR.mkdir(parents=True, exist_ok=True)
-    _NOVC_DIR.mkdir(parents=True, exist_ok=True)
-    _show_progress(str(_UXLC_ZIP_PATH))
-    with open(_UXLC_ZIP_PATH, "wb") as out_fp:
+    uxlc_paths.uxlc_39_dir().mkdir(parents=True, exist_ok=True)
+    uxlc_paths.uxlc_rest_dir().mkdir(parents=True, exist_ok=True)
+    uxlc_paths.novc_dir().mkdir(parents=True, exist_ok=True)
+    zip_path = uxlc_paths.novc_dir() / "Tanach.xml.zip"
+    _show_progress(zip_path)
+    with open(zip_path, "wb") as out_fp:
         out_fp.write(session.get_bytes(_UXLC_ZIP_URL, timeout=30))
-    _extract_uxlc_zip(_UXLC_ZIP_PATH)
+    _extract_uxlc_zip(zip_path)
 
 
 def _extract_uxlc_zip(zip_path):
@@ -66,15 +64,15 @@ def _extract_uxlc_zip(zip_path):
                 continue
             out_dir = _target_dir_for_member(member_name)
             out_path = out_dir / member_name
-            _show_progress(str(out_path))
+            _show_progress(out_path)
             with zip_fp.open(zip_info) as in_fp, open(out_path, "wb") as out_fp:
                 out_fp.write(in_fp.read())
 
 
 def _target_dir_for_member(member_name):
     if member_name in my_uxlc.CANONICAL_XML_FILE_NAMES:
-        return _UXLC_39_DIR
-    return _UXLC_REST_DIR
+        return uxlc_paths.uxlc_39_dir()
+    return uxlc_paths.uxlc_rest_dir()
 
 
 def _show_progress(path):
@@ -111,7 +109,10 @@ _UXLC_DOWNLOAD_CONFIG = polite_download.PoliteDownloadConfig(
         min_delay_s=_DELAY_MIN, mean_delay_s=_DELAY_MEAN
     ),
     retry=polite_download.RetryConfig(max_attempts=4),
-    cache=polite_download.CacheConfig(dir_path=".novc/http-cache/tanach-us"),
+    # str(): CacheConfig.dir_path is declared str, and polite_download is vendored.
+    cache=polite_download.CacheConfig(
+        dir_path=str(uxlc_paths.tanach_us_http_cache_dir())
+    ),
     obey_robots_txt=True,
 )
 

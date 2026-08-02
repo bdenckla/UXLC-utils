@@ -5,6 +5,7 @@ from mb_cmn import str_defs as sd
 import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 import uxlc_amb_early_mtg.amb_early_mtg_html_for_img as img
 import uxlc_amb_early_mtg.amb_early_mtg_url_generator as urlg
+import uxlc_paths
 
 
 def write(io_records):
@@ -44,8 +45,12 @@ def _write_record(record):
     orord = record["original-order"]
     title = f"Ambiguous early meteg {orord}"
     filename = _filename(orord)
+    # Relative, because it is also the record's "path-to-full" link target; only the
+    # write target below is absolute.
     path = f"full-record/{filename}"
-    write_ctx = uxlc_utils_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
+    write_ctx = uxlc_utils_html.WriteCtx(
+        title, uxlc_paths.amb_early_mtg_pages_dir() / path
+    )
     uxlc_utils_html.write_html_to_file(body_contents, write_ctx, "../../")
     return path
 

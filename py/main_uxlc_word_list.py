@@ -14,6 +14,7 @@ from mb_cmn import uni_heb as uh
 from mb_cmn import uni_norm_fragile as unf
 import uxlc_misc.my_uxlc as my_uxlc
 import mb_cmn.file_io as my_open
+import uxlc_paths
 import mb_cmn.mb_cmn_bib_locales as tbn
 
 
@@ -79,8 +80,8 @@ def main():
     words_fr0 = filter(_is_uxlc_fragile, words_all)
     words_fr1 = sorted(words_fr0)
     words_fr2 = tuple(map(_annotate_word, words_fr1))
-    out_path_all = "out/uxlc-words.json"
-    out_path_fra = "out/uxlc-words-fragile.json"
+    out_path_all = uxlc_paths.out_dir() / "uxlc-words.json"
+    out_path_fra = uxlc_paths.out_dir() / "uxlc-words-fragile.json"
     my_open.json_dump_to_file_path(words_all, out_path_all)
     my_open.json_dump_to_file_path(words_fr2, out_path_fra)
 

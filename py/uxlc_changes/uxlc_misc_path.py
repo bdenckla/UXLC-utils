@@ -1,6 +1,6 @@
 """Exports get"""
 
-import os
+import uxlc_paths
 
 
 def get(filename):
@@ -8,7 +8,7 @@ def get(filename):
     Returns basename.xml in UXLC-misc-fixed if it exists there,
     otherwise returns basename.xml in UXLC-misc.
     """
-    path_fixed = f"in/UXLC-misc-fixed/{filename}"
-    if os.path.exists(path_fixed):
+    path_fixed = uxlc_paths.uxlc_misc_fixed_dir() / filename
+    if path_fixed.exists():
         return path_fixed
-    return f"in/UXLC-misc/{filename}"
+    return uxlc_paths.uxlc_misc_dir() / filename

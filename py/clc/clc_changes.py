@@ -17,14 +17,12 @@ change-citation positions and the atom enumeration in clc_read.
 not from here -- see clc_note_pages.)
 """
 
-import os
 import xml.etree.ElementTree as ET
 
 import mb_cmn.hebrew_letters as hl
 import uxlc_misc.my_uxlc_changes as my_uxlc_changes
 import uxlc_misc.my_uxlc_book_abbreviations as bka
-
-_CHANGES_DIR = "in/UXLC-misc"
+import uxlc_paths
 
 
 def load_descriptions():
@@ -35,10 +33,9 @@ def load_descriptions():
     """
     index = {}
     for filename in my_uxlc_changes.FILENAMES:
-        path = os.path.join(_CHANGES_DIR, filename)
-        if os.path.exists(
-            path
-        ):  # FILENAMES includes a fake/placeholder that may be absent
+        path = uxlc_paths.uxlc_misc_dir() / filename
+        # FILENAMES includes a fake/placeholder that may be absent
+        if path.exists():
             _index_one_file(index, path)
     return index
 

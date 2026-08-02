@@ -3,10 +3,15 @@
 from mb_cmn import my_utils
 import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 import uxlc_amb_early_mtg.amb_early_mtg_url_generator as urlg
+import uxlc_paths
 
 
 def write(records, path, title, intro=None):
-    """Writes amb-early-mtg records to index.html and other HTML files."""
+    """Writes amb-early-mtg records to index.html and other HTML files.
+
+    ``path`` is relative to the published amb-early-mtg directory, because it also
+    serves as the in-page link target (main_amb_early_mtg's intro links "dubious.html").
+    """
     if intro is None:
         intro = []
     assert isinstance(intro, list)
@@ -14,7 +19,9 @@ def write(records, path, title, intro=None):
     rows = [_row_for_header(), *rows_for_data]
     table = uxlc_utils_html.table(rows)
     body_contents = [*intro, table]
-    write_ctx = uxlc_utils_html.WriteCtx(title, f"gh-pages/amb-early-mtg/{path}")
+    write_ctx = uxlc_utils_html.WriteCtx(
+        title, uxlc_paths.amb_early_mtg_pages_dir() / path
+    )
     uxlc_utils_html.write_html_to_file(body_contents, write_ctx, "../")
 
 

@@ -22,8 +22,8 @@ import clc.clc_long_note as clc_long_note
 import clc.clc_note as clc_note
 import clc.clc_strip as clc_strip
 import uxlc_misc.uxlc_utils_html as H
+import uxlc_paths
 
-_OUT_DIR = "gh-pages/clc"
 _HBO_ATTR = {"lang": "hbo", "dir": "rtl"}
 
 
@@ -71,7 +71,7 @@ def write_book(book_id, book, notes, chapters=None):
     disp = disp_label(book_id, chapters)
     table = H.table(rows, {"class": "clc-3col border-collapse"})
     body = _body_wrapper(disp, table)
-    out_path = f"{_OUT_DIR}/{label}.html"
+    out_path = uxlc_paths.clc_pages_dir() / f"{label}.html"
     write_ctx = H.WriteCtx(title=f"CLC — {disp}", path=out_path, add_wbr=True)
     H.write_html_to_file(body, write_ctx, "../")
     return out_path

@@ -15,7 +15,6 @@ QUPO case is also now proven on real data (ex 20:3 / dt 5:7's atom 7 פני, the
 QUPO-vowel Decalogue verses — see ``test_decalogue_qupo_vowel_split``).
 """
 
-import os
 import xml.etree.ElementTree as ET
 
 import clc.clc_dual_cant as dc
@@ -27,11 +26,9 @@ import mb_cmn.hebrew_points as hpo
 import mb_cmn.hebrew_punctuation as hpu
 from mb_cmn import str_defs as sd
 import uxlc_misc.uxlc_utils_html as H
+import uxlc_paths
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))  # repo root
-
-_XML = os.path.join(_REPO_ROOT, "in", "UXLC-39", "Genesis.xml")
+_XML = uxlc_paths.uxlc_39_dir() / "Genesis.xml"
 
 _CGJ = sd.CGJ
 _METEG = hpo.MTGOSLQ
@@ -76,7 +73,7 @@ def _word_text(w):
 
 def _read_atoms(xml_name, chnu, vrnu):
     """One verse as clc_read-shaped atoms, parsed directly from a UXLC XML file."""
-    path = os.path.join(_REPO_ROOT, "in", "UXLC-39", xml_name)
+    path = uxlc_paths.uxlc_39_dir() / xml_name
     root = ET.parse(path).getroot()
     for c in root.iter("c"):
         if c.get("n") != str(chnu):

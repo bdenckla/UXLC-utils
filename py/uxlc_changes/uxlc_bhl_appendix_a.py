@@ -3,10 +3,12 @@
 import re
 import csv
 
+import uxlc_paths
+
 
 def read():
     """Read BHL Appendix A info from a CSV file"""
-    path = "in/UXLC-misc/BHL Appendix A Psalms.csv"
+    path = uxlc_paths.uxlc_misc_dir() / "BHL Appendix A Psalms.csv"
     with open(path, encoding="utf-8") as csv_in_fp:
         rows = tuple(map(_bhla_row_make, csv.reader(csv_in_fp)))
     dic = {_bhla_row_locale(row): True for row in rows}

@@ -7,21 +7,18 @@ Synthetic atom lists exercise the unit-grouping rule and the ruby HTML shape
 (standard pair, both "without" cases, the note always-link). Real UXLC verses
 pin the grouping against the data: Gen 30:11 (k1q2 — one ketiv read as two
 words), 2 Sam 21:12 (a standard pair adjacent to a grouped k2q2 unit), and the
-two "without" cases in 2 Samuel. XML is read directly (paths from __file__) so
+two "without" cases in 2 Samuel. XML is read directly (paths from uxlc_paths) so
 the test is independent of cwd and of the my_uxlc reader, like clc_dual_cant_test.
 """
 
-import os
 import xml.etree.ElementTree as ET
 
 import clc.clc_kq as kq
 import uxlc_misc.uxlc_utils_html as H
+import uxlc_paths
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
-_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))  # repo root
-
-_GEN_XML = os.path.join(_REPO_ROOT, "in", "UXLC-39", "Genesis.xml")
-_SAM2_XML = os.path.join(_REPO_ROOT, "in", "UXLC-39", "Samuel_2.xml")
+_GEN_XML = uxlc_paths.uxlc_39_dir() / "Genesis.xml"
+_SAM2_XML = uxlc_paths.uxlc_39_dir() / "Samuel_2.xml"
 
 
 def _a(kind, text):

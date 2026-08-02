@@ -24,6 +24,7 @@ import mb_cmn.mb_cmn_bib_locales as tbn
 import clc.clc_collect as clc_collect
 import clc.clc_long_note as clc_long_note
 import clc.clc_render as clc_render
+import uxlc_paths
 
 # The pilot pages currently checked into gh-pages/clc/: three whole pilot books
 # (Genesis is a single poetic book carrying both ``m`` and ``d`` under-bar notes, so
@@ -44,7 +45,7 @@ def _build_one(book_id, chapters):
     html_path = clc_render.write_book(book_id, book, notes, chapters=chapters)
     label = clc_render.out_label(book_id, chapters)
     disp = clc_render.disp_label(book_id, chapters)
-    notes_path = f"gh-pages/clc/{label}-notes.json"
+    notes_path = uxlc_paths.clc_pages_dir() / f"{label}-notes.json"
     my_open.json_dump_to_file_path([note.as_dict() for note in notes], notes_path)
     print(f"CLC skeleton: {len(notes)} notes for {label}")
     print(f"  wrote {html_path}")

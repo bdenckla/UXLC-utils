@@ -26,7 +26,6 @@ and re-runnable without re-hitting tanach.us for pages already on hand.
 those down can be added here later -- see the note in the loop.)
 """
 
-import os
 import sys
 
 import requests
@@ -38,6 +37,7 @@ import uxlc_misc.my_uxlc as my_uxlc
 import clc.clc_collect as clc_collect
 import clc.clc_note_pages as clc_note_pages
 import clc.clc_read as clc_read
+import uxlc_paths
 
 
 def _download_one(session, book_id, ch, v, position, code):
@@ -48,7 +48,7 @@ def _download_one(session, book_id, ch, v, position, code):
     or tanach.us has none) or the request fails after retries.
     """
     out_path = clc_note_pages.local_page_path(book_id, ch, v, position, code)
-    if os.path.exists(out_path):
+    if out_path.exists():
         return True
     url = my_uxlc.note_page_url(book_id, ch, v, position, code)
     try:
@@ -122,7 +122,10 @@ _NOTES_CONFIG = polite_download.PoliteDownloadConfig(
     },
     throttle=polite_download.ThrottleConfig(min_delay_s=1.5, mean_delay_s=3.0),
     retry=polite_download.RetryConfig(max_attempts=4),
-    cache=polite_download.CacheConfig(dir_path=".novc/http-cache/tanach-us"),
+    # str(): CacheConfig.dir_path is declared str, and polite_download is vendored.
+    cache=polite_download.CacheConfig(
+        dir_path=str(uxlc_paths.tanach_us_http_cache_dir())
+    ),
     obey_robots_txt=True,
 )
 

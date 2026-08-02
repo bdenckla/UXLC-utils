@@ -45,12 +45,9 @@ from pathlib import Path
 
 import clc.clc_note_pages as cnp
 import uxlc_misc.my_uxlc as my_uxlc
+import uxlc_paths
 
-_REPO = Path(__file__).resolve().parent.parent
-
-_NOTES_DIR = _REPO / "in" / "UXLC-notes"
 _DEFAULT_ZIP = Path(r"C:\Users\BenDe\Downloads\Notes.zip")
-_OUT = _REPO / ".novc" / "notes_zip_verify.txt"
 
 
 def _zip_entry_for(book_id, fname):
@@ -77,8 +74,9 @@ def _classify(local_bytes, zip_bytes):
 
 
 def _iter_committed():
-    for book_id in sorted(os.listdir(_NOTES_DIR)):
-        book_dir = _NOTES_DIR / book_id
+    notes_dir = uxlc_paths.uxlc_notes_dir()
+    for book_id in sorted(os.listdir(notes_dir)):
+        book_dir = notes_dir / book_id
         if not book_dir.is_dir():
             continue
         for fname in sorted(os.listdir(book_dir)):
@@ -100,7 +98,7 @@ def main():
     lines = [f"Notes.zip verification (issues #24, #25) -- zip: {zip_path}", ""]
 
     for book_id, fname in _iter_committed():
-        with open(_NOTES_DIR / book_id / fname, "rb") as fp:
+        with open(uxlc_paths.uxlc_notes_dir() / book_id / fname, "rb") as fp:
             local_bytes = fp.read()
         entry = _zip_entry_for(book_id, fname)
         zip_bytes = zf.read(entry) if entry in zip_names else None
@@ -147,10 +145,11 @@ def main():
         lines.append("")
         lines.append(f"=== NO-PROSE-EXTRACTED: {book_id}/{fname}")
 
-    _OUT.parent.mkdir(exist_ok=True)
-    _OUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="")
+    out_path = uxlc_paths.novc_dir() / "notes_zip_verify.txt"
+    out_path.parent.mkdir(exist_ok=True)
+    out_path.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="")
 
-    print(f"wrote {_OUT}")
+    print(f"wrote {out_path}")
     for verdict in (
         "IDENTICAL",
         "PROSE-EQUAL",

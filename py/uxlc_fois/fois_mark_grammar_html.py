@@ -2,13 +2,14 @@
 """Exports write, summary."""
 
 import json
-from pathlib import PurePosixPath
+from pathlib import Path
 import re
 
 from mb_cmn.uxlc_change_url import uxlc_change_url
 import uxlc_misc.uxlc_utils_html as uxlc_utils_html
 import uxlc_fois.fois_mark_name_abbrev as fois_mark_name_abbrev
 import uxlc_fois.fois_mark_grammar_foi as fois_mark_grammar_foi
+import uxlc_paths
 
 _MARK_CLASS_ORDER = (
     "ordinary",
@@ -72,7 +73,6 @@ _ABBREVIATION_TOOLTIP_PATTERN = re.compile(
 _BCVP_PATTERN = re.compile(
     r"^(?P<book>.+) (?P<chapter>\d+):(?P<verse>\d+)\.(?P<atom>\d+)$"
 )
-_ALL_CHANGES_PATH = "out/UXLC-misc/all_changes.json"
 _TANACH_US_BOOK_CODES = {
     "Genesis": "Gen",
     "Exodus": "Ex",
@@ -393,7 +393,8 @@ def _change_record_link(case_dic, latest_change_by_atom):
 
 
 def _latest_change_by_atom():
-    with open(_ALL_CHANGES_PATH, encoding="utf-8") as changes_fp:
+    all_changes_path = uxlc_paths.out_uxlc_misc_dir() / "all_changes.json"
+    with open(all_changes_path, encoding="utf-8") as changes_fp:
         changes = json.load(changes_fp)
     latest_change_by_atom = {}
     for change in changes:
@@ -504,7 +505,8 @@ def _json_link_contents(json_output_path):
 
 
 def _json_basename(json_output_path):
-    return PurePosixPath(json_output_path).name
+    # Path, not PurePosixPath -- see the same function in fois_html for why.
+    return Path(json_output_path).name
 
 
 def _body_wrapper(contents):

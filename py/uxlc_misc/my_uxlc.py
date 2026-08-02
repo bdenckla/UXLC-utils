@@ -3,8 +3,18 @@
 import xml.etree.ElementTree
 
 import mb_cmn.mb_cmn_bib_locales as tbn
+import uxlc_paths
 
-UXLC_CANONICAL_DIR = "in/UXLC-39"
+
+def canonical_xml_path(book_id):
+    """Absolute path to book_id's canonical UXLC core-XML file.
+
+    A function rather than the old ``UXLC_CANONICAL_DIR = "in/UXLC-39"`` constant:
+    a module-level string is fixed at import time and was cwd-relative, so it
+    resolved only while the process ran from the repo root, and a caller wanting
+    to run elsewhere had to overwrite the constant or chdir.
+    """
+    return uxlc_paths.uxlc_39_dir() / f"{book_basename(book_id)}.xml"
 
 
 def read_all_books(handlers=None):
@@ -30,8 +40,7 @@ def note_page_url(book_id, ch, v, position, code):
 def read(book_id, handlers=None):
     """Read book with id book_id into a list of chapters."""
     handlers = handlers or _VERSE_CHILD_HANDLERS
-    basename = book_basename(book_id)
-    xml_path = f"{UXLC_CANONICAL_DIR}/{basename}.xml"
+    xml_path = canonical_xml_path(book_id)
     tree = xml.etree.ElementTree.parse(xml_path)
     root = tree.getroot()
     chapters = []

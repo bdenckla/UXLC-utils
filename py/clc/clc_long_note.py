@@ -16,6 +16,7 @@ can link straight to its expanded body.
 """
 
 import uxlc_misc.uxlc_utils_html as H
+import uxlc_paths
 
 # ASCII slug for each dual-cant strand's display short name (clc_dual_cant's own
 # Strand.short values), used only to keep the anchor id / URL fragment plain ASCII --
@@ -75,7 +76,7 @@ def write_page(page_label, disp, entries, main_page_href):
         ),
         *[_section(e) for e in entries],
     ]
-    out_path = f"gh-pages/clc/{page_label}-long-notes.html"
+    out_path = uxlc_paths.clc_pages_dir() / f"{page_label}-long-notes.html"
     write_ctx = H.WriteCtx(
         title=f"CLC — {disp} — longer notes", path=out_path, add_wbr=True
     )

@@ -32,15 +32,15 @@ import xml.etree.ElementTree as ET
 import json
 import re
 import sys
-from pathlib import Path
 
-REPO = Path(__file__).resolve().parent.parent
-BOOK_OF_JOB_REPO = REPO.parent / "book-of-job"
+import uxlc_paths
 
-XML_PATH = REPO / "in" / "UXLC-misc" / "2026.04.01 - Changes.xml"
+BOOK_OF_JOB_REPO = uxlc_paths.book_of_job_dir()
+
+XML_PATH = uxlc_paths.uxlc_misc_dir() / "2026.04.01 - Changes.xml"
 QR_PATH = BOOK_OF_JOB_REPO / "out" / "enriched-quirkrecs.json"
 HTML_DIR = BOOK_OF_JOB_REPO / "gh-pages" / "jobn-details"
-MAP_OUT_PATH = REPO / "in" / "UXLC-misc" / "2026.04.01-map-to-book-of-job.json"
+MAP_OUT_PATH = uxlc_paths.uxlc_misc_dir() / "2026.04.01-map-to-book-of-job.json"
 
 CHANGESET = "2026.02.05"
 HTML_START = "0119.html"
@@ -394,6 +394,9 @@ def deep_compare(xml_entries, mapping, quirkrecs):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     sys.stderr.reconfigure(encoding="utf-8")
+    # Checked here rather than where BOOK_OF_JOB_REPO is bound, so a missing sibling
+    # fails when this program is run, not when the module is imported.
+    uxlc_paths.require_book_of_job_dir()
 
     xml_entries = parse_xml_entries()
     html_entries = walk_html_chain()

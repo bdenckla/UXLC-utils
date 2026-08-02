@@ -11,6 +11,7 @@ Exports:
 import json
 import uxlc_lci.uxlc_lci_rec as lci_rec
 import uxlc_lci.uxlc_lci_augrec as lci_augrec
+import uxlc_paths
 
 
 def read_in(uxlc):
@@ -58,7 +59,7 @@ def get_book_order(pbi):
 
 def read_lci_recs_dot_json():
     """Read in lci_recs.json, raw"""
-    lci_recs_path = "data/lci_recs.json"
+    lci_recs_path = uxlc_paths.data_dir() / "lci_recs.json"
     with open(lci_recs_path, encoding="utf-8") as lci_recs_json_in_fp:
         return json.load(lci_recs_json_in_fp)
 
