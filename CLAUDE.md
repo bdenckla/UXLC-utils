@@ -1,88 +1,93 @@
-# UXLC-utils — repo conventions
+# CLAUDE.md
 
-Tooling around UXLC (the Unicode/XML Leningrad Codex) and the **CLC** (Charitable
-Leningrad Codex), a planned new edition built charitably on top of UXLC. Design doc:
-[`doc/clc-design.md`](doc/clc-design.md). CLC code lives in `py/clc/`; its rendered
-output (served at `bdenckla.github.io/UXLC-utils/...`) lives in `gh-pages/clc/`.
+## This repo contains no Python. Its generators live in `../MAM-basics/py/`
 
-## Reading MAM data — use the parsed form + the vendored readers, never the raw source
+UXLC-utils is data and documentation: `in/`, `out/`, `gh-pages/`, `data/`, `doc/`. Everything
+under `out/`, `gh-pages/` and `data/` is generated, and **every generator lives in the sibling
+repo `../MAM-basics`**, which writes back into this one. All 102 tracked `.py` files, plus
+`tools/`, `.vscode/` and `.github/copilot-instructions.md`, left this repo on 2026-08-03; do not
+add one back, and do not go looking here for the code that produced a file you are reading. Run
+everything below from `C:\Users\BenDe\GitRepos\MAM-basics`, with that repo's own interpreter —
+this repo's `requirements.txt` went with the code, and whatever `.venv` is left here has nothing
+to run.
 
-CLC draws on MAM (Miqra according to the Masorah) from the sibling repos. **Before
-writing any code that reads MAM, grep for how it is already read here** — the readers
-almost certainly already exist in this repo.
+Most of it regenerates in one command:
 
-- **Doc-notes / verse structure**: read from **`../MAM-parsed`** (preferably the
-  **`/plus`** variety), the already-parsed structured JSON. Do **not** regex-parse the
-  raw wikisource source (`MAM-basics/in/mam-go/A-Torah.csv`) — that reinvents the
-  wikisource template parser that MAM-parsed already ran.
-- **Use the vendored helpers in [`py/mb_diff_mpu/`](py/mb_diff_mpu/)** to walk the
-  /plus format — the same module `py/clc/clc_dual_cant.py` and `clc_render.py` use:
-  - `mpplus_param_access.get_param(tmpl, key)` — robust template-param access across
-    historical formats (don't hand-roll `tmpl.get("tmpl_params", {})`).
-  - `mpplus_flatten` — `flatten_element`, `flatten_ep*`, `is_parashah_template`,
-    ketiv/qere predicates, and `flatten_ep_with_docnote_for_diff` /
-    `find_relevant_docnote` for נוסח doc-note spans.
-- The /plus format is **documented**: `../MAM-parsed/README.md` → the structure
-  reference `gh-pages/plus/html/mpplus*.html` (e.g. `mpplus_docnote.html`,
-  `mpplus_dualcant.html`). Read the spec instead of reverse-engineering. (The README
-  warns the /plus format is **not yet stable**.)
-- Verse structure quick ref: a /plus verse is `[CP, DP, EP]`; `EP` (index 2) is the
-  body sequence. A dual-cantillation verse wraps its combined text in
-  `{"tmpl_name": "מ:כפול", "tmpl_params": {"כפול": …, "א": …, "ב": …}}`, where `כפול`
-  carries the doc-notes and `א`/`ב` are the rendered strands (Decalogue: א=תחתון/taxton,
-  ב=עליון/elyon; Reuben: א=פשוטה, ב=מדרשית).
+```powershell
+C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_uxlc_mega.py
+```
 
-## Cross-repo reuse — vendoring, not live imports
+That is this repo's own pipeline, and **not** MAM-basics' `py/main_0_mega.py`, which is the
+tree-wide one and writes nothing here. It was `py/main_0_mega.py` in this repo until the move;
+the rename is what keeps the two apart. Its five steps run in this order, and each is also
+runnable on its own:
 
-- **Do not `sys.path`-import from `MAM-basics/py`** in real/official code. The
-  sanctioned mechanism for reusing MAM-basics code is **vendoring** (copy the module
-  in; see `py/main_update_vendored_files.py` and the vendored `py/mb_cmn`,
-  `py/mb_diff_mpu`).
-- **Only directories whose names start with `mb_` are vendorable.** A non-`mb_` dir
-  like `py_misc` is **neither importable nor vendorable** — code needing its
-  functionality (e.g. the versification converter) must get it via a public `mb_*`
-  entry point, or the functionality must move upstream into an `mb_` dir first.
+- `main_uxlc_check_changes.py` — `out/UXLC-misc/`, the change-log derivatives
+  (`all_changes.json`, `sanity_problems.json` and their neighbours).
+- `main_fois.py` — `gh-pages/fois/`, the features-of-interest catalog and its HTML view.
+- `main_write_page_break_info.py` — `data/lci_augrecs.json`, and copies
+  `in/UXLC-misc/lci_recs.json` to `data/lci_recs.json`. Both are generated, despite living under
+  a directory named `data`.
+- `main_amb_early_mtg.py` — `gh-pages/amb-early-mtg/`, the ambiguous-early-meteg survey.
+- `main_uxlc_word_list.py` — `out/uxlc-words.json` and `out/uxlc-words-fragile.json`.
 
-## One entry point per job: `py/main_*.py`, and zero `sys.path` inserts
+Three more entry points write here and are **outside** the mega, so nothing rewrites their output
+routinely:
 
-Every runnable thing in this repo is a `py/main_<x>.py`, run from the repo root
-(`python py/main_clc.py`). CPython puts the script's own directory at `sys.path[0]`,
-so `py/` is on the path for free and `import clc.clc_kq` resolves with **no path
-configuration anywhere** — no `sys.path.insert`, no `conftest.py`, no `pytest.ini`
-`pythonpath`, no `.pth`, no `PYTHONPATH`. The count of `sys.path` mutations in this
-repo is **zero, and stays zero** (issue #56, which removed the last 8).
+- `main_clc.py` — `gh-pages/clc/`, the CLC edition's pages. Run it after the mega; the
+  regeneration is not complete without it.
+- `main_map_changes_to_book_of_job.py` — `in/UXLC-misc/2026.04.01-map-to-book-of-job.json`. The
+  one tracked file under `in/` that a program writes, and it reads the sibling `../book-of-job`'s
+  `out/enriched-quirkrecs.json` and `gh-pages/jobn-details/` to do it.
+- `main_uxlc_download_changes.py` and `main_clc_download_notes.py` — the two downloaders, which
+  refresh `in/` from tanach.us. **Neither can run as of 2026-08-03**: that site's `robots.txt`
+  now disallows both `/Books/Tanach.xml.zip` and `/Notes/`, and the downloader obeys it. They
+  raise `RobotsDisallowedError` rather than fetching. Do not work around it.
 
-Two consequences worth stating outright:
+Two more read from here without writing: `main_verify_notes_zip.py`, which checks the committed
+`in/UXLC-notes/` pages against a `Notes.zip` snapshot in `~/Downloads`, and
+`main_uxlc_estimate_atom_loc.py`, an ad-hoc "where on the page is this atom" query.
 
-- **A module under `py/` is not independently runnable.** If a library module wants a
-  command line, it does not grow its own `main()` plus `if __name__ == "__main__"`; it
-  gets a `py/main_<x>.py` driver. `py/repo_hygiene/source_hygiene.py` (library) and
-  `py/main_source_hygiene.py` (its CLI) are the worked example.
-- **Tests run under `python py/main_test.py`** — all of them, `--<flag>` for one,
-  `--list` for the registry. The test modules therefore have no `__main__` block
-  either. `TEST_MODULE_SPECS` is hand-maintained, so `check_registry()` walks `py/`
-  for `*_test.py` on every run and fails on any file missing from it; without that,
-  an unregistered test file reports nothing at all rather than skipping visibly.
+**Not everything under the generated trees is generated at all.** 87 of the 214 tracked artifacts
+here are untouched by a full run, measured by mtime on 2026-08-03: 81 images under
+`gh-pages/amb-early-mtg/img/`, 2 under `gh-pages/img/`, `gh-pages/index.html`,
+`gh-pages/style.css`, `gh-pages/woff2/Taamey_D.woff2`, and `out/UXLC-misc/map-changes-to-book-of-job.md`
+— that last a hand-authored prose report that happens to sit under a generated tree. Deleting any
+of the 87 in the belief that a rebuild brings it back will lose it.
 
-**Nothing under `tools/` may import repo code.** `tools/` holds only
-`repo_maintenance.py` and the tracked git hook, both of which shell out to
-`py/main_*.py` entry points. A tool that needs repo code belongs under `py/`.
+`.novc/` stays here — it is this repo's gitignored scratch directory, and the tanach.us HTTP cache
+and the downloaded `Tanach.xml.zip` still write into it (`uxlc_paths.novc_dir`,
+`uxlc_paths.tanach_us_http_cache_dir`).
 
-## `tools/` — throwaway scaffolding vs. official code
+**Every `py/...` path in `doc/` now means `../MAM-basics/py/...`.** `doc/clc-design.md` links to 19
+distinct such paths and `doc/clc-skeleton-plan.md` cites more; none was rewritten, because they are
+accurate about which module does what and only wrong about which repo it is in. Read them with
+that substitution. The one exception is `py/mb_cmn/mb_cmn_bib_locales.py`, cited in
+`doc/clc-design.md` §"Vendored common code": it did not move, because it was never a vendored copy
+— it was MAM-basics' `bib_locales.py` plus six local aliases, and its callers now use
+`mb_cmn.bib_locales` directly.
 
-Some `tools/dump_mam_*.py` scripts are **throwaway scaffolding** tied to in-flight
-issues: they emit a scratch JSON under `.novc/` (gitignored) that a human reads to
-hand-encode the CLC oracle, then retire. Such scripts may carry shortcuts that are
-**not acceptable in long-term code** (they say so in their headers). Do not copy their
-shortcuts (absolute cross-repo paths, live `MAM-basics/py` imports) into real code.
+## This repo's issues stay here; new ones are filed in MAM-basics
 
-## Source hygiene (enforced)
+The issues were **not** transferred when the Python left. They keep their numbers and stay in
+`bdenckla/UXLC-utils`, and this is still where they are read, commented on and closed. So **a bare
+`#NN` in this repo's `doc/` and in this file still means a UXLC-utils issue**; none was
+requalified, because qualifying them would imply they had been ambiguous.
 
-- **No orphan combining marks in source.** Never write a bare combining mark as a
-  literal (a diacritic/point with no base letter). Use `"\N{UNICODE NAME}"`, or build
-  the char from `chr(0x…)` with a naming comment. `python py/main_source_hygiene.py`
-  fails the build (and the pre-commit hook) on violations.
-- **UTF-8 stdio.** Every `py/main_*.py` reconfigures stdout/stderr to UTF-8 as the
-  first lines of `main()` (Windows redirects to cp1252 otherwise, crashing Hebrew
-  prints). Prefer writing non-ASCII output to UTF-8 files over stdout.
-- Source is standardized on **NFC**; text files are pinned to **LF** (`.gitattributes`).
+New issues, including new work on the generators now in `../MAM-basics/py/`, are filed in
+**MAM-basics**. There a bare `#NN` means a MAM-basics issue, and the moved code cites this repo's
+as `UXLC-utils#NN`.
+
+## Reading MAM data — the parsed form, never the raw source
+
+Stated here because `doc/clc-design.md` assumes it: CLC draws on MAM from `../MAM-parsed`,
+preferably the `/plus` variety, using `mb_diff_mpu`'s readers — never by regex over the raw
+wikisource source, which would reinvent the template parser MAM-parsed already ran. It is not
+repeated in `../MAM-basics/CLAUDE.md`, because it is already that repo's own practice:
+`mb_cmn/read_books_from_mam_parsed_plus.py` is how thirteen modules there read MAM, and
+`mb_diff_mpu` is native code there rather than a vendored copy.
+
+## `doc/clc-design.md` is the CLC design document and stays here
+
+It is about the edition — its versification, its note sources, its rendering decisions — not about
+the code, which is why it did not move. `doc/clc-skeleton-plan.md` likewise.
