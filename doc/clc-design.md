@@ -281,21 +281,25 @@ and it's vendored into `codex-index-leningrad`?* Findings:
     [main_write_page_break_info.py:16](py/main_write_page_break_info.py#L16) (augments each LCI
     record with word counts and start/stop line numbers).
 - **The vendoring relationship with codex-index-leningrad runs the *other* direction.** Per
-  [shared-with-codex-index-leningrad.md](shared-with-codex-index-leningrad.md) and
-  `.github/copilot-instructions.md`: **UXLC-utils is canonical**, and
-  `codex-index-leningrad/UXLC-utils-sparse/` is a *sparse vendored copy of this repo* (refreshed
-  by that repo's `main_update_vendored_files.py`).
-- **`codex-index-leningrad` is not currently checked out** as a sibling (only `codex-index-aleppo`
-  is present in `GitRepos/`). The image-guessing machinery CLC needs (§5) **already lives here**.
+  [shared-with-codex-index-leningrad.md](../shared-with-codex-index-leningrad.md): **UXLC-utils
+  is canonical**, and `codex-index-leningrad/UXLC-utils-sparse/` is a *sparse vendored copy of
+  this repo* (refreshed by that repo's `main_update_vendored_files.py`). That file is the whole
+  authority now; it was cited here alongside `.github/copilot-instructions.md`, which was deleted
+  on 2026-08-03 when the Python left this repo.
+- **`codex-index-leningrad` is checked out as a sibling** in `GitRepos/`, alongside
+  `codex-index-aleppo` (checked 2026-08-04; this bullet said it was absent until then). It holds
+  the sparse vendored copy named above plus its own `lenin-wiki/` index. Even so, the
+  image-guessing machinery CLC needs (§5) **already lives here**.
 
 **So, for "higher-accuracy image guesses based on info in codex-index-leningrad":** the *current*
 guesser uses LCI data that already lives here (`data/` ← `in/UXLC-misc/lci_recs.json` ← tanach.us).
 If codex-index-leningrad holds *richer* per-line/per-column index data than tanach.us's LCIndex,
-that repo would need to be checked out and its index compared/merged. **[TBD]** — confirm what
-codex-index-leningrad actually adds over the LCIndex once it's available locally. (Note the same
-LCI data has also been vendored into `wlc-utils/data/lci_recs.json`.) Convenience: the
-`UXLC-utils.code-workspace` file already lists `../codex-index-leningrad` as a second workspace
-folder — but that path is **not cloned yet**, so it will show as missing until cloned.
+its index would have to be compared and merged. **[TBD]** — confirm what codex-index-leningrad's
+`lenin-wiki/` index actually adds over the LCIndex. Nothing waits on a clone: the repo is on
+disk, so this is a comparison that can be run now. (Note the same LCI data has also been
+vendored into `wlc-utils/data/lci_recs.json`.) Convenience: the
+`UXLC-utils.code-workspace` file lists `../codex-index-leningrad` as a second workspace folder,
+and that path resolves.
 
 ---
 
@@ -1028,9 +1032,9 @@ and `dual-cant-added-punct`. The dual-cant **"added out of thin air"** (supplied
    downloaded]` placeholder — no fabricated substitute (issue #19). Remaining gap: fetching those
    pages (every `m`/`d`/`t` note has one) and any tanach.us apparatus beyond the `<x>` notes (e.g. the
    **38 numeric/`X`** notes, which are outside the seed set).
-3. **codex-index-leningrad** — clone it (the `.code-workspace` already references it as a 2nd
-   folder, but it isn't on disk); then confirm whether it improves image guesses over the
-   tanach.us LCIndex already vendored here (§6).
+3. **codex-index-leningrad** — confirm whether its index improves image guesses over the
+   tanach.us LCIndex already vendored here (§6). The clone is on disk and the `.code-workspace`
+   already references it as a 2nd folder, so nothing blocks the comparison.
 4. **Image scraping source & licensing** (§7.6).
 5. **B&W → color** upgrade pipeline — how much can be automated (§7.6).
 6. ~~**"Always link" vs. MAM's inline-short/link-long**~~ **Reversed: highlight all, link only
