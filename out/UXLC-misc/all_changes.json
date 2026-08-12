@@ -43640,7 +43640,7 @@
     ],
     "transnotes": null,
     "status": "Pending",
-    "type": "NoAction",
+    "type": "NoTextChange",
     "authors": [
       "Ben Denckla"
     ],
@@ -43663,8 +43663,8 @@
     "lc": "Folio_251A 3:11",
     "reftext": "יְדֵ֥י־",
     "refuni": "yod sheva dalet tsere merkha yod maqaf",
-    "changetext": "יְדֵֽי־",
-    "changeuni": "yod sheva dalet tsere meteg yod maqaf",
+    "changetext": "יְדֵ֥י־",
+    "changeuni": "yod sheva dalet tsere merkha yod maqaf",
     "notes": [
       "The line beneath the dalet lacks the northeast-to-southwest inclination of a merkha. This change proposal was suggested by results from a run of Richard Goerwitz's accent grammar checker on a recent (2020) Groves Center text. For more information, see Ben Denckla's \"Goerwitz Run on WLC\" at https://bdenckla.github.io/wlc-utils/accgram/goerwitz.html.",
       "BHL has a meteg under the dalet. BHLA has no entry for this verse."
@@ -43708,6 +43708,37 @@
     ],
     "lc_gen": null,
     "aBHL": null,
+    "aBHLA": null,
+    "D2T": null,
+    "T2D": null,
+    "refuni_gen": null,
+    "changeuni_gen": null,
+    "changeuni_erbs": false,
+    "bhla": false
+  },
+  {
+    "release": "2026.10.19",
+    "changeset": "2026.04.10",
+    "n": 10,
+    "citation": "Deut 5:8.2",
+    "description": "Change pashta over sin to qadma.",
+    "lc": "Folio_102A 3:24",
+    "reftext": "תַעֲשֶֽׂ֙ה־",
+    "refuni": "tav patah ayin hataf-patah shin sin-dot segol pashta meteg he maqaf",
+    "changetext": "תַעֲשֶֽׂ֨ה־",
+    "changeuni": "tav patah ayin hataf-patah shin sin-dot segol qadma meteg he maqaf",
+    "notes": [
+      "This Decalogue text contains double accent, the text is also in poor condition. The mark in question is a broken line coming out of the rightmost leg of the sin. A pashta is post-positive and appears on the left side of the letter. One or two pashtas can occur on a word. If a word has a single pashta, it must occur on the final letter of the word. If a word has two pashtas, one occurs on the final letter and the other acts as an \"accent helper\" placed over the accented letter. This word has a single, pashta/qadma-like mark over the sin and no corresponding mark on the final letter. Therefore, the mark in question isn't a pashta, but a qadma,",
+      "BHL has a qadma centered over the sin. (Dotan numbers the division differently than the UXLC and other modern texts. He combines UXLC verses 6 and 7 into a single verse so that UXLC verse 8 is BHL verse 7.) BHLA has no entry for this verse."
+    ],
+    "transnotes": null,
+    "status": "Pending",
+    "type": "accent",
+    "authors": [
+      "Ben Denckla"
+    ],
+    "lc_gen": null,
+    "aBHL": true,
     "aBHLA": null,
     "D2T": null,
     "T2D": null,

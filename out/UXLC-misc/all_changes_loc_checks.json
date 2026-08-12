@@ -13668,5 +13668,15 @@
     "change_fline": 5,
     "guess_fline": 4.96,
     "fline_diff": -0.04
+  },
+  {
+    "change_release": "2026.10.19",
+    "change_cite": "Deut 5:8.2",
+    "change_page": "102A",
+    "change_column": 3,
+    "change_line": 24,
+    "change_fline": 78,
+    "guess_fline": 78.43,
+    "fline_diff": 0.43
   }
 ]
