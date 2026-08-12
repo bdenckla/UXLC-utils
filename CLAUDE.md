@@ -45,9 +45,13 @@ routinely:
   raise `RobotsDisallowedError` rather than fetching. Do not work around it. **Re-tested
   2026-08-12, still blocked** — Chris Kimball had written that he would restore the old
   `robots.txt`, but the live file is byte-identical to the version that broke the downloads
-  (`Last-Modified: Sun, 02 Aug 2026 10:51:46 GMT`), and both programs still raise. The evidence
-  is in `.novc/robots-retest-2026-08-12.md`, beside the outgoing `.novc/email-to-chris-kimball.md`
-  that Kimball was answering.
+  (`Last-Modified: Sun, 02 Aug 2026 10:51:46 GMT`), and both programs still raise. Kimball's
+  reply named `hcanat.us`, which turns out to be a real host on tanach.us' own address, serving
+  `/Books/` and its own separate `robots.txt` — and both programs raise there too, run with the
+  `--host` argument they grew for the test (MAM-basics `58171b2`). All six URLs the two programs
+  fetch, across both hosts, were run live. The evidence is in
+  `.novc/robots-retest-2026-08-12.md`, beside the outgoing `.novc/email-to-chris-kimball.md` that
+  Kimball was answering and the reply drafted from it, `.novc/email-to-chris-kimball-2.md`.
 
 Two more read from here without writing: `main_verify_notes_zip.py`, which checks the committed
 `in/UXLC-notes/` pages against a `Notes.zip` snapshot in `~/Downloads`, and
