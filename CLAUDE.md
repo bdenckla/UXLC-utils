@@ -50,33 +50,24 @@ routinely:
   whichever host a run fetched from; `UXLC_DOWNLOAD_HOST` is where the bytes come from. One
   constant did both jobs until 2026-08-12, when the two stopped being the same string.
 
-  **tanach.us is blocked and is expected to stay that way.** Its `robots.txt` has disallowed
-  every path for every user agent since 2026-08-02 — first stanza `User-agent: *` /
-  `Disallow: *` — and `mb_cmn.polite_download` obeys it, so a fetch from tanach.us raises
-  `RobotsDisallowedError` before making a request. Do not work around it. Chris Kimball's answer,
-  2026-08-12, was to open hcanat.us rather than to reopen tanach.us: that host serves the same
-  tree on the same address under a `robots.txt` of its own, which he cut at 15:53 GMT to a single
-  `MJ12bot` stanza (32 bytes) permitting every URL either program fetches. Ben's decision the same
-  day: take that as the answer, and make hcanat.us the default.
+  **tanach.us is blocked, on purpose, and is expected to stay that way.** Its `robots.txt` has
+  disallowed every path for every user agent since 2026-08-02, and `mb_cmn.polite_download` obeys
+  it, so a fetch from tanach.us raises `RobotsDisallowedError` before making a request. Do not
+  work around it. Chris Kimball opened hcanat.us rather than reopening tanach.us; Ben's decision,
+  2026-08-12, was to take that as the answer.
 
-  **`/Books/` and `/Changes/` on hcanat.us agree with what is tracked; `/Notes/` does not.** A
-  full download run produced the zip's 39 + 7 XML files and 16 of the 17 change logs
-  **byte-identical** to the tracked copies, the seventeenth (`2023.07.04 - Changes.xml`) differing
-  only in line endings, which `.gitattributes` normalizes. But hcanat.us builds **note pages from
-  a newer template** than the 477 committed under `in/UXLC-notes/`: its `Obadiah.1.1.17-c.html`
-  carries the same note laid out in a `<table>` rather than a right-aligned `<p>`, links to
-  `Changes/….html` and `Supplements/Notes.html` where the committed pages link to `….xml`, and
-  ends in an `auto` marker the committed pages lack. So `main_clc_download_notes` **will mix two
-  templates** under `in/UXLC-notes/` for `clc_note_pages` to parse. Nobody has decided to accept
-  that; the drafted reply asks Kimball whether hcanat.us is a second front door or a staging copy.
+  **`main_clc_download_notes` will mix two note-page templates** under `in/UXLC-notes/`, because
+  hcanat.us builds those pages from a newer one than the 477 committed here. Nobody has decided to
+  accept that. hcanat.us' `/Books/` and `/Changes/` raise no such question — they came back
+  byte-identical to what is tracked.
 
   A `--host` run naming any host other than `UXLC_DOWNLOAD_HOST` downloads without rebuilding, so
   a third host's bytes cannot reach the tracked outputs silently. A default run **does** rebuild.
 
-  The evidence is in `.novc/robots-retest-2026-08-12.md` — whose §6 the afternoon corrects, so
-  read its §9 first — beside the outgoing `.novc/email-to-chris-kimball.md` that Kimball was
-  answering, the reply drafted from it, `.novc/email-to-chris-kimball-2.md`, and the reply to his
-  answer, `.novc/email-to-chris-kimball-3.md`.
+  The evidence for all of this — the robots.txt texts, the file-by-file comparison, the four ways
+  the note templates differ — is `.novc/robots-retest-2026-08-12.md`, whose §6 its own §9 corrects,
+  so read §9 first. The correspondence with Kimball is beside it, `.novc/email-to-chris-kimball.md`
+  and `-2`, `-3`.
 
 Two more read from here without writing: `main_verify_notes_zip.py`, which checks the committed
 `in/UXLC-notes/` pages against a `Notes.zip` snapshot in `~/Downloads`, and
