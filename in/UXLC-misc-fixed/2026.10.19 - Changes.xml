@@ -674,8 +674,8 @@
                 <description>Add an 'm' note to the second yod.</description>
                 <lc>
                     <folio>Folio_043A</folio>
-                    <column/>
-                    <line/>
+                    <column>2</column>
+                    <line>19</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
                 <reftext>יִהְיֶֽה־</reftext>
@@ -879,8 +879,8 @@
                 <description>Remove mahapakh under the kaf. Remove note 'c'.</description>
                 <lc>
                     <folio>Folio_071B</folio>
-                    <column/>
-                    <line/>
+                    <column>2</column>
+                    <line>14</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
                 <reftext>נֹּאכַ֤֖ל</reftext>
@@ -1506,8 +1506,8 @@
                 <description>Change accent under first lamed from merkha to meteg. Add note 'm'.</description>
                 <lc>
                     <folio>Folio_406B</folio>
-                    <column/>
-                    <line/>
+                    <column>2</column>
+                    <line>27</line>
                     <credit>Credit: Sefaria.org.</credit>
                 </lc>
                 <reftext>לָ֥יְלָה</reftext>
@@ -1577,7 +1577,7 @@
             <change>
                 <n>27</n>
                 <citation>
-                    <book>job</book>
+                    <book>Job</book>
                     <c>11</c>
                     <v>6</v>
                     <position>3</position>
