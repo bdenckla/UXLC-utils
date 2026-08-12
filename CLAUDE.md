@@ -42,7 +42,12 @@ routinely:
 - `main_uxlc_download_changes.py` and `main_clc_download_notes.py` — the two downloaders, which
   refresh `in/` from tanach.us. **Neither can run as of 2026-08-03**: that site's `robots.txt`
   now disallows both `/Books/Tanach.xml.zip` and `/Notes/`, and the downloader obeys it. They
-  raise `RobotsDisallowedError` rather than fetching. Do not work around it.
+  raise `RobotsDisallowedError` rather than fetching. Do not work around it. **Re-tested
+  2026-08-12, still blocked** — Chris Kimball had written that he would restore the old
+  `robots.txt`, but the live file is byte-identical to the version that broke the downloads
+  (`Last-Modified: Sun, 02 Aug 2026 10:51:46 GMT`), and both programs still raise. The evidence
+  is in `.novc/robots-retest-2026-08-12.md`, beside the outgoing `.novc/email-to-chris-kimball.md`
+  that Kimball was answering.
 
 Two more read from here without writing: `main_verify_notes_zip.py`, which checks the committed
 `in/UXLC-notes/` pages against a `Notes.zip` snapshot in `~/Downloads`, and
