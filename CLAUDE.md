@@ -42,16 +42,33 @@ routinely:
 - `main_uxlc_download_changes.py` and `main_clc_download_notes.py` — the two downloaders, which
   refresh `in/` from tanach.us. **Neither can run as of 2026-08-03**: that site's `robots.txt`
   now disallows both `/Books/Tanach.xml.zip` and `/Notes/`, and the downloader obeys it. They
-  raise `RobotsDisallowedError` rather than fetching. Do not work around it. **Re-tested
-  2026-08-12, still blocked** — Chris Kimball had written that he would restore the old
-  `robots.txt`, but the live file is byte-identical to the version that broke the downloads
-  (`Last-Modified: Sun, 02 Aug 2026 10:51:46 GMT`), and both programs still raise. Kimball's
-  reply named `hcanat.us`, which turns out to be a real host on tanach.us' own address, serving
-  `/Books/` and its own separate `robots.txt` — and both programs raise there too, run with the
-  `--host` argument they grew for the test (MAM-basics `58171b2`). All six URLs the two programs
-  fetch, across both hosts, were run live. The evidence is in
-  `.novc/robots-retest-2026-08-12.md`, beside the outgoing `.novc/email-to-chris-kimball.md` that
-  Kimball was answering and the reply drafted from it, `.novc/email-to-chris-kimball-2.md`.
+  raise `RobotsDisallowedError` rather than fetching. Do not work around it. **Against tanach.us
+  that is still true, re-tested twice on 2026-08-12**: the live `robots.txt` is byte-identical to
+  the version that broke the downloads (`Last-Modified: Sun, 02 Aug 2026 10:51:46 GMT`), its
+  first stanza still `User-agent: *` / `Disallow: *`, and both programs still raise.
+
+  **Against `hcanat.us` both programs now work, as of 2026-08-12 15:53 GMT.** That host is a
+  real host on tanach.us' own address, serving `/Books/`, `/Changes/` and `/Notes/` under a
+  separate `robots.txt` of its own; Chris Kimball cut that file to its `MJ12bot` stanza alone
+  (32 bytes, `Last-Modified: Wed, 12 Aug 2026 15:53:10 GMT`), which permits every URL either
+  program fetches. Reach it with the `--host` argument the two grew for the earlier test
+  (MAM-basics `58171b2`): `main_uxlc_download_changes.py --host hcanat.us` ran to completion,
+  and `main_clc_download_notes.py Obadiah --host hcanat.us` downloaded its one page.
+
+  **A `--host` run deliberately does not rebuild**, and for `/Notes/` there is a further reason
+  not to treat hcanat.us as a drop-in source: it serves note pages from a **newer template** than
+  the 477 committed under `in/UXLC-notes/`, so the two do not mix. Its
+  `Obadiah.1.1.17-c.html` carries the same note, laid out in a `<table>` rather than a
+  right-aligned `<p>`, links to `Changes/….html` and `Supplements/Notes.html` where the committed
+  pages link to `….xml`, and ends in an `auto` marker the committed pages lack. Its `/Books/` and
+  `/Changes/` have no such problem: the zip's 39 + 7 XML files and 16 of the 17 change logs came
+  back **byte-identical** to what is tracked, the seventeenth (`2023.07.04 - Changes.xml`)
+  differing only in line endings, which `.gitattributes` normalizes.
+
+  The evidence is in `.novc/robots-retest-2026-08-12.md` — whose §6 the afternoon corrects, so
+  read its §9 first — beside the outgoing `.novc/email-to-chris-kimball.md` that Kimball was
+  answering, the reply drafted from it, `.novc/email-to-chris-kimball-2.md`, and the reply to his
+  answer, `.novc/email-to-chris-kimball-3.md`.
 
 Two more read from here without writing: `main_verify_notes_zip.py`, which checks the committed
 `in/UXLC-notes/` pages against a `Notes.zip` snapshot in `~/Downloads`, and
