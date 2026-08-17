@@ -92,6 +92,12 @@ that substitution. The one exception is `py/mb_cmn/mb_cmn_bib_locales.py`, cited
 — it was MAM-basics' `bib_locales.py` plus six local aliases, and its callers now use
 `mb_cmn.bib_locales` directly.
 
+**Every `wlc-utils/...` path in `doc/` now means `../MAM-basics/...` as well.** The rest of that
+repo — data, pages, `doc/` — was evacuated into MAM-basics too (copied 2026-08-12, wlc-utils
+emptied to a redirect host 2026-08-17; `MAM-basics/doc/PLAN-evacuate-the-rest-of-wlc-utils.md`).
+The one exception is `wlc-utils/data/lci_recs.json`, cited in `doc/clc-design.md` §6: the move
+also **renamed** it, so it is `../MAM-basics/in/lci_recs.json` now.
+
 ## This repo's issues stay here; new ones are filed in MAM-basics
 
 The issues were **not** transferred when the Python left. They keep their numbers and stay in
