@@ -25,19 +25,19 @@
     </column-dictionary>
     <column-analysis>
       <type-counts>
-        <type-count col-name="page" string="979" />
-        <type-count col-name="startco" none="932" integer="47" />
-        <type-count col-name="startli" none="932" integer="47" />
-        <type-count col-name="stopco" none="932" integer="47" />
-        <type-count col-name="stopli" none="932" integer="47" />
-        <type-count col-name="bkid" string="975" none="4" />
-        <type-count col-name="startc" integer="975" none="4" />
-        <type-count col-name="startv" integer="975" none="4" />
-        <type-count col-name="startp" integer="975" none="4" />
-        <type-count col-name="stopc" integer="975" none="4" />
-        <type-count col-name="stopv" integer="975" none="4" />
-        <type-count col-name="stopp" integer="975" none="4" />
-        <type-count col-name="note" none="945" string="34" />
+        <type-count col-name="page" string="982" />
+        <type-count col-name="startco" none="930" integer="52" />
+        <type-count col-name="startli" none="930" integer="52" />
+        <type-count col-name="stopco" none="930" integer="52" />
+        <type-count col-name="stopli" none="930" integer="52" />
+        <type-count col-name="bkid" string="978" none="4" />
+        <type-count col-name="startc" integer="978" none="4" />
+        <type-count col-name="startv" integer="978" none="4" />
+        <type-count col-name="startp" integer="978" none="4" />
+        <type-count col-name="stopc" integer="978" none="4" />
+        <type-count col-name="stopv" integer="978" none="4" />
+        <type-count col-name="stopp" integer="978" none="4" />
+        <type-count col-name="note" none="948" string="34" />
       </type-counts>
       <bkid-val-counts>
         <bkid-val-count bkid="Genesis" count="61" />
@@ -69,7 +69,7 @@
         <bkid-val-count bkid="1Chronicles" count="37" />
         <bkid-val-count bkid="2Chronicles" count="45" />
         <bkid-val-count bkid="Psalms" count="62" />
-        <bkid-val-count bkid="Job" count="26" />
+        <bkid-val-count bkid="Job" count="29" />
         <bkid-val-count bkid="Proverbs" count="25" />
         <bkid-val-count bkid="Ruth" count="5" />
         <bkid-val-count bkid="Song of Songs" count="5" />
@@ -12490,10 +12490,10 @@
     </lci_rec>
     <lci_rec>
       <page>397A</page>
-      <startco />
-      <startli />
-      <stopco />
-      <stopli />
+      <startco>1</startco>
+      <startli>1</startli>
+      <stopco>3</stopco>
+      <stopli>27</stopli>
       <bkid>Job</bkid>
       <startc>1</startc>
       <startv>1</startv>
@@ -12760,14 +12760,59 @@
     </lci_rec>
     <lci_rec>
       <page>406A</page>
-      <startco />
-      <startli />
-      <stopco />
-      <stopli />
+      <startco>1</startco>
+      <startli>1</startli>
+      <stopco>1</stopco>
+      <stopli>10</stopli>
       <bkid>Job</bkid>
       <startc>31</startc>
       <startv>35</startv>
       <startp>8</startp>
+      <stopc>32</stopc>
+      <stopv>1</stopv>
+      <stopp>11</stopp>
+      <note />
+    </lci_rec>
+    <lci_rec>
+      <page>406A</page>
+      <startco>1</startco>
+      <startli>12</startli>
+      <stopco>1</stopco>
+      <stopli>19</stopli>
+      <bkid>Job</bkid>
+      <startc>32</startc>
+      <startv>2</startv>
+      <startp>1</startp>
+      <stopc>32</stopc>
+      <stopv>5</stopv>
+      <stopp>10</stopp>
+      <note />
+    </lci_rec>
+    <lci_rec>
+      <page>406A</page>
+      <startco>1</startco>
+      <startli>21</startli>
+      <stopco>1</stopco>
+      <stopli>27</stopli>
+      <bkid>Job</bkid>
+      <startc>32</startc>
+      <startv>6</startv>
+      <startp>1</startp>
+      <stopc>32</stopc>
+      <stopv>10</stopv>
+      <stopp>5</stopp>
+      <note />
+    </lci_rec>
+    <lci_rec>
+      <page>406A</page>
+      <startco>2</startco>
+      <startli>1</startli>
+      <stopco>2</stopco>
+      <stopli>27</stopli>
+      <bkid>Job</bkid>
+      <startc>32</startc>
+      <startv>10</startv>
+      <startp>6</startp>
       <stopc>33</stopc>
       <stopv>11</stopv>
       <stopp>2</stopp>
