@@ -821,7 +821,8 @@ candidate, not an automatic change):
     Decode MAM sigla/operators via `MAM-basics/doc/sigil-decoding.md`; and beware MAM's Decalogue verse
     numbering (merged *elyon*) runs ~1 behind CLC's `vtrad-BHS`, so a CLC→MAM verse-map is needed (built
     once, shared by #38 and #45).
-- **`book-of-job`** (sibling repo; self-contained, with its own `gh-pages` + many check scripts) —
+- **`book-of-job`** (sibling repo; its own `gh-pages`, with the generators and check scripts that
+  write and verify it in `MAM-basics/py/` since that repo's Python moved there on 2026-08-19) —
   a **small, realistic, short-term** harvest set. Likely the first real harvesting target.
 - **`amb_early_mtg`** (the early-meteg catalog, §2b/§5) — a small, **likely-unfinished** local scan
   for possible early-meteg mis-codings; a minor lead of the same flavor as the others here, mostly
