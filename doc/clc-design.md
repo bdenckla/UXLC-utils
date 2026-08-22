@@ -283,7 +283,8 @@ and it's vendored into `codex-index-leningrad`?* Findings:
 - **The vendoring relationship with codex-index-leningrad runs the *other* direction.** Per
   [shared-with-codex-index-leningrad.md](../shared-with-codex-index-leningrad.md): **UXLC-utils
   is canonical**, and `codex-index-leningrad/UXLC-utils-sparse/` is a *sparse vendored copy of
-  this repo* (refreshed by that repo's `main_update_vendored_files.py`). That file is the whole
+  this repo* (refreshed by MAM-basics' `py/main_lenin_vendor_uxlc.py`, which was that repo's own
+  `main_update_vendored_files.py` until 2026-08-22). That file is the whole
   authority now; it was cited here alongside `.github/copilot-instructions.md`, which was deleted
   on 2026-08-03 when the Python left this repo.
 - **`codex-index-leningrad` is checked out as a sibling** in `GitRepos/`, alongside

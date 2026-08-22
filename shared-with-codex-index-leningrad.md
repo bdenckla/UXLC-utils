@@ -2,13 +2,29 @@
 
 `UXLC-utils` is the canonical source.
 `codex-index-leningrad/UXLC-utils-sparse/` is a sparse vendored copy
-that should be refreshed by running that repo's
-`main_update_vendored_files.py` script.
+that should be refreshed by running **MAM-basics'
+`py/main_lenin_vendor_uxlc.py`**:
+
+```powershell
+C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_lenin_vendor_uxlc.py
+```
+
+That was codex-index-leningrad's own root `main_update_vendored_files.py` until
+Phase 3 of `../MAM-basics/doc/PLAN-evacuate-python-from-codex-index-trio.md`,
+2026-08-22, which moved that repo's 21 modules to MAM-basics; Phase 4 emptied
+codex-index-leningrad of Python the same day, so there is no script there to run
+any more, and no venv either. The name changed with the move because
+`main_update_vendored_files.py` was held by three repos at once and said nothing
+about which vendored files it meant.
 
 The vendored subset is defined by the files that already exist locally under
 `codex-index-leningrad/UXLC-utils-sparse/`.
 
-The local-only file `provenance.md` is not copied from `UXLC-utils`.
+The local-only file `provenance.md` is not copied from `UXLC-utils`. It is
+written by the command above, and only when a vendored byte actually moved or a
+legacy path was removed, or `--force-provenance` is given — it stamps the source
+repo's HEAD and today's date, so writing it unconditionally left it dirty after
+any UXLC-utils commit and after any re-run on a later day.
 
 ## The subset is data only, as of 2026-08-03
 
