@@ -939,7 +939,7 @@ of the LC or a *mis-transcription* — landed as prose in `wlc-utils/py/accgram/
 CLC's six live omitted-accent notes match a "reasonable transcription" case by word: **Exodus
 20:3**, **Deuteronomy 5:6** ×2, **Deuteronomy 5:17**. For those four, the note now reads *"the LC
 has only..."* instead of *"UXLC's combined text carries only..."*. The evidentiary link to
-`wlc-utils`'s [supplied accents](https://bdenckla.github.io/wlc-utils/accgram/supplied-marks.html)
+`wlc-utils`'s [supplied accents](https://bdenckla.github.io/MAM-basics/wlc/accgram/supplied-marks.html)
 page used to trail the inline note directly; each of these four now instead carries its own
 long note (§7.3's `_HAS_LONG_NOTE` mechanism, joined by `_LC_CORROBORATED` for this reason), and
 that link lives there — the inline note just points across via "See more details in this longer
