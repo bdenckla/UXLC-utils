@@ -6,7 +6,7 @@ that should be refreshed by running **MAM-basics'
 `py/main_lenin_vendor_uxlc.py`**:
 
 ```powershell
-C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_lenin_vendor_uxlc.py
+C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_lenin_vendor_uxlc.py
 ```
 
 That was codex-index-leningrad's own root `main_update_vendored_files.py` until

@@ -7,14 +7,14 @@ under `out/`, `gh-pages/` and `data/` is generated, and **every generator lives 
 repo `../MAM-basics`**, which writes back into this one. All 102 tracked `.py` files, plus
 `tools/`, `.vscode/` and `.github/copilot-instructions.md`, left this repo on 2026-08-03; do not
 add one back, and do not go looking here for the code that produced a file you are reading. Run
-everything below from `C:\Users\BenDe\GitRepos\MAM-basics`, with that repo's own interpreter —
+everything below from `C:/Users/BenDe/GitRepos/MAM-basics`, with that repo's own interpreter —
 this repo's `requirements.txt` went with the code, and whatever `.venv` is left here has nothing
 to run.
 
 Most of it regenerates in one command:
 
 ```powershell
-C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_uxlc_mega.py
+C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_uxlc_mega.py
 ```
 
 That is this repo's own pipeline, and **not** MAM-basics' `py/main_0_mega.py`, which is the

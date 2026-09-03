@@ -28,13 +28,13 @@ prose that no program writes.
 From a clone of MAM-basics sitting beside this one, with that repo's own interpreter:
 
 ```powershell
-C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_uxlc_mega.py
+C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_uxlc_mega.py
 ```
 
 then, because it is not one of that pipeline's five steps:
 
 ```powershell
-C:\Users\BenDe\GitRepos\MAM-basics\.venv\Scripts\python.exe C:\Users\BenDe\GitRepos\MAM-basics\py\main_clc.py
+C:/Users/BenDe/GitRepos/MAM-basics/.venv/Scripts/python.exe C:/Users/BenDe/GitRepos/MAM-basics/py/main_clc.py
 ```
 
 Together those cover all of `gh-pages/`, `out/` and `data/` that is generated at all. A third
